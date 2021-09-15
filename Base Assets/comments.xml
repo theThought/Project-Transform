@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page SavePoint="Comments" Version="1:2" Project="S2022097" Language="en-US" Context="Question" LabelType="Label" RoutingContext="Web" SessionToken="qznhr3fjbkwuvpahugvskdg4iviqaaaa" EstimatedPages="3" Renderer="xmlplayer">
+   <Title>
+      <Style ElementAlign="Right" />
+      <Text>Comments</Text>
+   </Title>
+   <Question QuestionName="Comments" QuestionFullName="Comments" QuestionDataType="Text">
+      <Style ElementAlign="NewLine" Indent="1">
+         <Control Type="Edit" />
+      </Style>
+      <Label>
+         <Style ElementAlign="NewLine" />
+         <Text>Would you please describe the positive and negative aspects of the experience you had during your last visit</Text>
+      </Label>
+      <Validation MaxValue="2000" />
+      <Response>
+         <Value />
+      </Response>
+   </Question>
+   <Navigation Type="Next" IsDefault="true">
+      <Style ElementAlign="Right" Width="70px">
+         <Control Type="Button" />
+      </Style>
+      <Label>
+         <Style Align="Center" ElementAlign="NewLine" />
+         <Text>Next</Text>
+      </Label>
+   </Navigation>
+   <Navigation Type="Stop">
+      <Style ElementAlign="Right" Width="70px">
+         <Control Type="Button" />
+      </Style>
+      <Label>
+         <Style Align="Center" ElementAlign="NewLine" />
+         <Text>Stop</Text>
+      </Label>
+   </Navigation>
+</Page>

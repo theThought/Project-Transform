@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page SavePoint="Gender" Version="1:4" Project="S2022097" Language="en-US" Context="Question" LabelType="Label" RoutingContext="Web" SessionToken="pwfoejq2putezosgmdxezmtmu3cqaaaa" EstimatedPages="3" Renderer="xmlplayer">
+   <Title>
+      <Style ElementAlign="Right" />
+      <Text>Gender</Text>
+   </Title>
+   <Question QuestionName="Gender" QuestionFullName="Gender" QuestionDataType="Categorical">
+      <Style ElementAlign="NewLine" Indent="1" />
+      <Label>
+         <Style ElementAlign="NewLine" />
+         <Text>Please indicate your gender</Text>
+      </Label>
+      <Category Name="male">
+         <Style ElementAlign="NewLine" Indent="1">
+            <Control Type="RadioButton" />
+         </Style>
+         <Label>
+            <Style ElementAlign="Right" />
+            <Text>male</Text>
+         </Label>
+      </Category>
+      <Category Name="female">
+         <Style ElementAlign="NewLine" Indent="1">
+            <Control Type="RadioButton" />
+         </Style>
+         <Label>
+            <Style ElementAlign="Right" />
+            <Text>female</Text>
+         </Label>
+      </Category>
+      <Codes>
+         <Category Name="dontsay" IsExclusive="true" IsNA="true">
+            <Style ElementAlign="NewLine" Indent="1">
+               <Control Type="CheckButton" />
+            </Style>
+            <Label>
+               <Style ElementAlign="Right">
+                  <Font IsBold="true" />
+               </Style>
+               <Text>prefer not to say</Text>
+            </Label>
+         </Category>
+      </Codes>
+      <Validation MinValue="1" MaxValue="1" />
+      <Response>
+         <Value />
+      </Response>
+   </Question>
+   <Navigation Type="Next" IsDefault="true">
+      <Style ElementAlign="Right" Width="70px">
+         <Control Type="Button" />
+      </Style>
+      <Label>
+         <Style Align="Center" ElementAlign="NewLine" />
+         <Text>Next</Text>
+      </Label>
+   </Navigation>
+   <Navigation Type="Stop">
+      <Style ElementAlign="Right" Width="70px">
+         <Control Type="Button" />
+      </Style>
+      <Label>
+         <Style Align="Center" ElementAlign="NewLine" />
+         <Text>Stop</Text>
+      </Label>
+   </Navigation>
+</Page>
