@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
+
+.f-karla, #SurveyContents select, #SurveyContents .mrBannerText, #SurveyContents .mrSingleText, #SurveyContents .mrMultipleText, #SurveyContents .QText, #SurveyContents .QText2, #SurveyContents .mrQuestionText font, #SurveyContents .mrGridCategoryText, #SurveyContents .mrGridQuestionText .mrQuestionText, #SurveyContents+div input[type='submit'] {
+  font-family: 'Karla', sans-serif
+}
+
+.f-merr, #SurveyContents>.mrQuestionText, #SurveyContents .mrBannerText b {
+  font-family: 'Merriweather', serif
+}
+
+#SurroundContents {
+  max-width: 1920px;
+  background: #fafafa;
+  -webkit-box-shadow: none;
+  box-shadow: none
+}
+
+#SurroundContents>div:first-child {
+  text-align: center
+}
+
+#SurroundContents>div:first-child img {
+  width: 84px
+}
+
+#SurveyContents {
+  color: #455b97
+}
+
+#SurveyContents *, #SurveyContents *:before, #SurveyContents *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+#SurveyContents #td_tab_main1 table:not(.mrQuestionTable)>tbody>tr>td {
+  padding-bottom: 40px;
+  padding-top: 30px;
+  border-bottom: 1px solid #d0dae6
+}
+
+#SurveyContents table.mrQuestionTable {
+  padding-bottom: 0 !important
+}
+
+#SurveyContents select {
+  border-radius: 10px;
+  font-size: 16px;
+  min-width: 200px;
+  padding: 15px;
+  height: 60px;
+  background: #455b97;
+  color: #fff
+}
+
+#SurveyContents>.mrQuestionText {
+  display: block;
+  margin-bottom: 45px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #212c4c;
+  text-align: center
+}
+
+#SurveyContents .mrBannerText {
+  font-size: 16px;
+  color: #757575 !important
+}
+
+#SurveyContents .mrBannerText b {
+  color: #455b97 !important;
+  display: inline-block;
+  margin-bottom: 15px
+}
+
+#SurveyContents .mrSingleText, #SurveyContents .mrMultipleText, #SurveyContents .QText, #SurveyContents .QText2, #SurveyContents .mrQuestionText font {
+  padding-left: 0;
+  padding-top: 0;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding-bottom: 0
+}
+
+#SurveyContents .mrQuestionText font {
+  margin-top: 15px !important;
+  display: inline-block
+}
+
+#SurveyContents .mrSingleText, #SurveyContents .mrMultipleText {
+  font-size: 16px
+}
+
+#SurveyContents .QText, #SurveyContents .QText2 {
+  background-color: transparent !important;
+  color: #212c4c !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4
+}
+
+#SurveyContents input[type='radio'], #SurveyContents input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: -5px
+}
+
+#SurveyContents input[type='radio']:before, #SurveyContents input[type='checkbox']:before {
+  width: 21px;
+  height: 21px;
+  border: none !important;
+  position: relative;
+  top: 2px
+}
+
+#SurveyContents input[type='radio']+label, #SurveyContents input[type='checkbox']+label {
+  border: none;
+  padding: 0;
+  margin-top: -19px;
+  margin-left: 30px
+}
+
+#SurveyContents input[type='radio']+label:hover, #SurveyContents input[type='checkbox']+label:hover {
+  background-color: transparent
+}
+
+#SurveyContents input[type='radio']:checked:before, #SurveyContents input[type='checkbox']:checked:before {
+  content: ''
+}
+
+#SurveyContents input[type='radio']:checked+label, #SurveyContents input[type='checkbox']:checked+label {
+  color: #449b9b
+}
+
+#SurveyContents input[type='radio']:before {
+  background: url("img/radio-cirlce.svg") white center/20px no-repeat
+}
+
+#SurveyContents input[type='radio']:checked:before {
+  background-image: url("img/radio-cirlce-checked.svg")
+}
+
+#SurveyContents input[type='checkbox']:before {
+  background: url("img/checkbox-rect.svg") white center/20px no-repeat;
+  top: 3px
+}
+
+#SurveyContents input[type='checkbox']:checked:before {
+  background-image: url("img/checkbox-rect-checked.svg")
+}
+
+#SurveyContents input[type='text'] {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 60px;
+  font-size: 16px;
+  width: 225px !important;
+  max-width: 100%;
+  margin-right: 0;
+  border-radius: 10px 0 0 10px !important;
+  border: 1px solid #8797c8 !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #212c4c;
+  background-image: none !important
+}
+
+#SurveyContents input[type='text']::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #aeb9da
+}
+
+#SurveyContents input[type='text']:-ms-input-placeholder {
+  font-size: 16px;
+  color: #aeb9da
+}
+
+#SurveyContents input[type='text']::-ms-input-placeholder {
+  font-size: 16px;
+  color: #aeb9da
+}
+
+#SurveyContents input[type='text']::placeholder {
+  font-size: 16px;
+  color: #aeb9da
+}
+
+#SurveyContents input[type='text']:hover {
+  background: #fff
+}
+
+#SurveyContents input[type='text']+.mrSingleText {
+  height: 60px;
+  width: 75px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #8797c8;
+  border-left-width: 0;
+  border-radius: 0 10px 10px 0;
+  margin-right: 55px
+}
+
+#SurveyContents input.custom-combobox-input {
+  height: 60px;
+  border-radius: 10px !important;
+  border: 1px solid #8797c8;
+  padding-left: 15px;
+  color: #455b97
+}
+
+#SurveyContents input.custom-combobox-input:after {
+  content: '';
+  display: block;
+  height: 5px
+}
+
+#SurveyContents .custom-combobox:not(:last-of-type) {
+  margin-bottom: 10px
+}
+
+#SurveyContents .mrGridCategoryText {
+  font-size: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 7px;
+  color: #757575;
+  background-color: transparent !important
+}
+
+#SurveyContents .mrGridQuestionText {
+  padding-left: 0;
+  background-color: transparent !important
+}
+
+#SurveyContents .mrGridQuestionText .mrQuestionText {
+  color: #324371;
+  font-size: 16px
+}
+
+#SurveyContents .slider-div {
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 0;
+  margin-right: calc(1em + 10px);
+  background: #ffffff;
+  border: 1px solid #d0dae6 !important
+}
+
+#SurveyContents .ui-slider .ui-slider-range {
+  background: #d0dae6 !important;
+  border-radius: 10px 0 0 10px;
+  height: calc(100% - 10px);
+  top: 5px;
+  left: 5px
+}
+
+#SurveyContents .ui-slider .ui-slider-handle {
+  margin-top: 0;
+  margin-left: -20px;
+  width: 40px !important;
+  border: 10px solid #9460aa;
+  background: #fff !important;
+  height: 40px !important;
+  top: -5px;
+  line-height: 140%
+}
+
+#SurveyContents .ui-slider .ui-slider-handle:after {
+  content: attr(data-after);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  display: none;
+  font-size: 16px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #212c4c;
+  border: 1px solid #d0dae6;
+  position: absolute;
+  top: -25px;
+  -webkit-transform: translateY(calc(-100%));
+  transform: translateY(calc(-100%));
+  left: -5px;
+  width: 29px;
+  height: 29px;
+  border-radius: 4px
+}
+
+#SurveyContents #td_satisfaction_new, #SurveyContents #td_involvement_new {
+  padding-top: 40px
+}
+
+#SurveyContents #td_satisfaction_new td[valign='middle']>span, #SurveyContents #td_involvement_new td[valign='middle']>span {
+  margin-left: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+
+#SurveyContents #td_satisfaction_new td[valign='middle']>span .slider-div, #SurveyContents #td_involvement_new td[valign='middle']>span .slider-div {
+  width: 100%
+}
+
+#SurveyContents #td_satisfaction_new td[valign='middle']>span .mrGridCategoryText, #SurveyContents #td_involvement_new td[valign='middle']>span .mrGridCategoryText {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1
+}
+
+#SurveyContents+div input[type='submit'] {
+  height: 60px;
+  width: auto !important;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  justify-self: center;
+  text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: transparent;
+  border: 1px solid #455b97;
+  color: #455b97;
+  border-radius: 10px !important
+}
+
+#SurveyContents+div input[type='submit']:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-width: 2px
+}
+
+#SurveyContents+div input[type='submit']:active {
+  color: #fff;
+  background-color: #455b97
+}
+
+#SurveyContents+div .btn-green, #SurveyContents+div input[name='_NPrev'] {
+  color: #449b9b;
+  border-color: #449b9b
+}
+
+#SurveyContents+div .btn-green:active, #SurveyContents+div input:active[name='_NPrev'] {
+  color: #fff;
+  background-color: #449b9b
+}
+
+#SurveyContents+div .btn-dark-green, #SurveyContents+div input[name='_NNext'] {
+  color: #fff;
+  background-color: #449b9b;
+  border-color: #449b9b
+}
+
+#SurveyContents+div .btn-dark-green:hover, #SurveyContents+div input:hover[name='_NNext'] {
+  background-color: #fff;
+  color: #449b9b;
+  border-width: 1px
+}
+
+#SurveyContents+div .btn-dark-green:active, #SurveyContents+div input:active[name='_NNext'] {
+  color: #fff;
+  background-color: #317474
+}
+
+.ui-widget.ui-widget-content {
+  background: #ffffff;
+  border: 1px solid #8797c8;
+  border-radius: 10px;
+  padding-top: 0;
+  padding-bottom: 0
+}
+
+.ui-widget.ui-widget-content .ui-menu-item:not(:last-of-type) {
+  border-bottom: 1px solid #d6ddeb
+}
+
+.ui-widget.ui-widget-content .ui-menu-item-wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  color: #455b97
+}
+
+.ui-widget.ui-widget-content .ui-menu-item-wrapper:hover {
+  background: transparent;
+  border-color: transparent
+}
+
+.InputDivClassText {
+  background-color: transparent !important
+}
+
+#td_cur_reason .mrQuestionTable td {
+  padding-bottom: 15px;
+  padding-right: 50px;
+}
+
+#td_planned_next>table>tbody>tr:nth-child(2)>td:nth-child(2)>span>table {
+  margin-left: 1em
+}
+
+#td_hospital_days>table>tbody>tr:nth-child(3), #td_involvement_new>table>tbody>tr:nth-child(3), #td_satisfaction_new>table>tbody>tr:nth-child(3) {
+  display: none
+}
+
+/*# sourceMappingURL=style.css.map */
