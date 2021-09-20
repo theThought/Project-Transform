@@ -62,92 +62,20 @@
     </xsl:template>
 
     <xsl:template name="Label">
-        <xsl:choose>
-            <xsl:when test="Style/@Image != ''">
-                <xsl:choose>
-                    <xsl:when test="Style/@ImagePosition = 'Left' or not(Style/@ImagePosition)">
-                        <xsl:element name="img">
-                            <xsl:attribute name="src">
-                                <xsl:if test="not((starts-with(Style/@Image, 'http:'))or(starts-with(Style/@Image, 'https:')))">
-                                    <xsl:value-of select="$sImageLocation"/>
-                                </xsl:if>
-                                <xsl:value-of select="Style/@Image"/>
-                            </xsl:attribute>
-                            <xsl:attribute name="alt"/>
-                        </xsl:element>
-                        <xsl:call-template name="LabelText"/>
-                    </xsl:when>
-                    <xsl:when test="Style/@ImagePosition = 'Right'">
-                        <xsl:call-template name="LabelText"/>
-                        <xsl:element name="img">
-                            <xsl:attribute name="src">
-                                <xsl:if test="not((starts-with(Style/@Image, 'http:'))or(starts-with(Style/@Image, 'https:')))">
-                                    <xsl:value-of select="$sImageLocation"/>
-                                </xsl:if>
-                                <xsl:value-of select="Style/@Image"/>
-                            </xsl:attribute>
-                            <xsl:attribute name="alt"/>
-                        </xsl:element>
-                    </xsl:when>
-                    <xsl:when test="Style/@ImagePosition = 'Top'">
-                        <xsl:element name="div">
-                            <xsl:element name="img">
-                                <xsl:attribute name="src">
-                                    <xsl:if test="not((starts-with(Style/@Image, 'http:'))or(starts-with(Style/@Image, 'https:')))">
-                                        <xsl:value-of select="$sImageLocation"/>
-                                    </xsl:if>
-                                    <xsl:value-of select="Style/@Image"/>
-                                </xsl:attribute>
-                                <xsl:attribute name="alt"/>
-                            </xsl:element>
-                        </xsl:element>
-                        <xsl:call-template name="LabelText"/>
-                    </xsl:when>
-                    <xsl:when test="Style/@ImagePosition = 'Bottom'">
-                        <xsl:element name="div">
-                            <xsl:call-template name="LabelText"/>
-                        </xsl:element>
-                        <xsl:element name="img">
-                            <xsl:attribute name="src">
-                                <xsl:if test="not((starts-with(Style/@Image, 'http:'))or(starts-with(Style/@Image, 'https:')))">
-                                    <xsl:value-of select="$sImageLocation"/>
-                                </xsl:if>
-                                <xsl:value-of select="Style/@Image"/>
-                            </xsl:attribute>
-                            <xsl:attribute name="alt"/>
-                        </xsl:element>
-                    </xsl:when>
-                    <xsl:when test="Style/@ImagePosition = 'ImageOnly'">
-                        <xsl:element name="img">
-                            <xsl:attribute name="src">
-                                <xsl:if test="not((starts-with(Style/@Image, 'http:'))or(starts-with(Style/@Image, 'https:')))">
-                                    <xsl:value-of select="$sImageLocation"/>
-                                </xsl:if>
-                                <xsl:value-of select="Style/@Image"/>
-                            </xsl:attribute>
-                            <xsl:attribute name="alt">
-                                <xsl:value-of select="Text"/>
-                            </xsl:attribute>
-                        </xsl:element>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="LabelText"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:call-template name="LabelText"/>
-            </xsl:otherwise>
-        </xsl:choose>
+      <xsl:call-template name="LabelText"/>
     </xsl:template>
 
     <xsl:template name="LabelText">
         <xsl:choose>
             <xsl:when test="Text/@WellFormed = 'false'">
+            <p>
                 <xsl:value-of select="Text"/>
+            </p>
             </xsl:when>
             <xsl:otherwise>
+            <div class='test'>
                 <xsl:value-of disable-output-escaping = "yes" select="Text"/>
+            </div>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
