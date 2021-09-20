@@ -24,6 +24,8 @@
     </xsl:template>
 
     <xsl:template name="LabelBase">
+      <div class='questionlabel'>
+
         <xsl:if test="$sLabelClass!='mrBannerText'">
 		    <xsl:if test="Style/@ElementAlign = 'NewLine'">
 		        <xsl:element name="div">
@@ -59,6 +61,7 @@
         <xsl:if test="$sLabelClass='mrBannerText'">
 	            <xsl:call-template name="Label"/>        
         </xsl:if>
+      </div>
     </xsl:template>
 
     <xsl:template name="Label">
@@ -68,14 +71,10 @@
     <xsl:template name="LabelText">
         <xsl:choose>
             <xsl:when test="Text/@WellFormed = 'false'">
-            <p>
                 <xsl:value-of select="Text"/>
-            </p>
             </xsl:when>
             <xsl:otherwise>
-            <div class='test'>
                 <xsl:value-of disable-output-escaping = "yes" select="Text"/>
-            </div>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
