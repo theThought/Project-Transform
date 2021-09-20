@@ -4,11 +4,23 @@
 
 body
 {
-  font-family: Karla;
+  font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
 
   color: #212C4C;
+}
+
+.questionlabel
+{
+  padding: 8px 16px 8px 0px
+}
+
+.surroundcontent {
+  max-width: 1920px;
+  background: #fafafa;
+  -webkit-box-shadow: none;
+  box-shadow: none
 }
