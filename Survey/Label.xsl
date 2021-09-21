@@ -28,7 +28,7 @@
 		    <xsl:if test="Style/@ElementAlign = 'NewLine'">
 		        <xsl:element name="div">
 		            <xsl:if test="$bIncludeCSSStyles">
-		                <xsl:attribute name="class">questionlabel</xsl:attribute>
+		                <xsl:attribute name="class">a-label-question</xsl:attribute>
 		            </xsl:if>
 		            <xsl:attribute name="style">
 		                <xsl:call-template name="LabelStyle"/>
