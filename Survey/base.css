@@ -13,14 +13,22 @@ body
   color: #212C4C;
 }
 
-.questionlabel
+.a-label-question
 {
   padding: 8px 16px 8px 0px
+}
+
+.a-input-singlelineedit
+{
+  padding:16px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #8797c8;
+  color: #212c4c;
 }
 
 .surroundcontent {
   max-width: 1920px;
   background: #fafafa;
   -webkit-box-shadow: none;
-  box-shadow: none
+  box-shadow: none;
 }
