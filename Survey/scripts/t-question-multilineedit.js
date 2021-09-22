@@ -10,7 +10,7 @@
 
 
   Configuration:
-  {"labels":{"pre":"", "post":""}}
+  {"labels":{"pre":"", "post":"", charactercount:null}}
 
 */
 
@@ -18,3 +18,24 @@ function t-question-multilineedit()
 {
 
 }
+
+
+/*
+a-input-multilineedit
++
+a-label-charactercount
+=
+m-input-multilineedit
++
+m-option-base
+=
+o-input-multilineedit
++
+a-label-question
++
+a-label-error
++ 
+a-label-instruction
+=
+t-question-multilineedit
+*/

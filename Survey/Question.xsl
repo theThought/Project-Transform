@@ -290,7 +290,7 @@
             </xsl:if>
             <!--- CSS Class -->
             <xsl:if test="$bIncludeCSSStyles">
-                <xsl:attribute name="class">mrEdit</xsl:attribute>
+                <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
             </xsl:if>
             <!--- Show Only -->
             <xsl:if test="$bShowOnly != false()">
