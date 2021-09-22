@@ -1,36 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
 
-
 body
 {
-  font-family: 'Karla', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
+    color: #212C4C;
+}
 
-  color: #212C4C;
+*
+{
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    line-height: 19px;
 }
 
 .a-label-question
 {
-  padding: 8px 16px 8px 0px;
-  margin: 0px 10px;
+    padding: 8px 16px 8px 0;
+    margin: 0 10px;
 }
 
 .a-input-singlelineedit
 {
-  padding:16px;
-  border-radius: 10px 0 0 10px;
-  border: 1px solid #8797c8;
-  color: #757575;
-  margin: 0px 10px;
+    padding: 16px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #8797c8;
+    color: #757575;
+    margin: 0 10px;
 }
 
-.surroundcontent {
-  max-width: 1920px;
-  background: #fafafa;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+.surroundcontent
+{
+    max-width: 1920px;
+    background: #fafafa;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }

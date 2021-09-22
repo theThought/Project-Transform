@@ -43,7 +43,7 @@
 		    <xsl:if test="Style/@ElementAlign != 'NewLine'">
 		        <xsl:element name="span">
 		            <xsl:if test="$bIncludeCSSStyles">
-		                <xsl:attribute name="class"><xsl:value-of select="$sLabelClass"/></xsl:attribute>
+		                <xsl:attribute name="class">questionlabel</xsl:attribute>
 		            </xsl:if>
 		            <xsl:attribute name="style">
 		                <xsl:call-template name="LabelStyle"/>
@@ -57,7 +57,7 @@
 	        </xsl:if>
         </xsl:if>
         <xsl:if test="$sLabelClass='mrBannerText'">
-	            <xsl:call-template name="Label"/>        
+            <xsl:call-template name="Label"/>
         </xsl:if>
     </xsl:template>
 

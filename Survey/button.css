@@ -1,0 +1,13 @@
+input[type=submit],
+button {
+    margin: 10px 0;
+
+    border: none;
+    border-radius: 10px;
+
+    width: 197px !important;
+    min-height: 40px;
+
+    background: #455B97;
+    color: #FFFFFF;
+}
