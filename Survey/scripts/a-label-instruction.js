@@ -1,7 +1,7 @@
 /*
   functionality:
 
-  loading state images
+  none expected, this is just a placeholder
 
   Parameters: 
 
@@ -16,6 +16,6 @@
 
 define(
     [],
-    function sIconBase() {
+    function aLabelInstruction() {
 
     })

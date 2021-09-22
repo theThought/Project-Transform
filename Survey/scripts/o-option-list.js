@@ -14,7 +14,8 @@
 
 */
 
-function o-option-list()
-{
+define(
+    [],
+    function oOptionList() {
 
-}
+    })

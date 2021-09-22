@@ -16,6 +16,11 @@
 
 */
 
-function m-option-base() {
-  
-}
+define(
+    [
+        'a-label-question',
+        'a-icon-multistate',
+    ],
+    function mOptionBase() {
+
+    })

@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="base.css"/>
 	<link rel="stylesheet" href="styles/a-input-multilineedit.css"/>
 	<link rel="stylesheet" href="styles/a-button.css"/>
+	<script type="text/javascript" data-main="scripts/base" src="scripts/require.js"></script>
 	<title>Comments</title>
 </head>
 <body>
@@ -32,6 +33,9 @@
 					<div></div>
 					<textarea name="_QComments" id="_Q0" class="mrEdit" autocomplete="off"
 					          style="margin-left: 1em;" rows="6" cols="40"></textarea>
+					<script type="text/javascript">
+						require(['t-question-multilineedit']);
+					</script>
 				</span>
 			</div>
 			<div><br/></div>
