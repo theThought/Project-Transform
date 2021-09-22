@@ -18,7 +18,56 @@
     </xsl:template>
 
     <xsl:template match="Question">
-       
+             <xsl:param name="bWithinTable" select="false()"/>
+
+        <xsl:if test="Style/@ElementAlign = 'NewLine'">
+            <xsl:choose>
+                <xsl:when test="position() != 1 and not($bWithinTable)">
+                    <div><br /></div>
+                </xsl:when>
+                <xsl:otherwise>
+                    <div></div>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+        <xsl:element name="span">
+            <!--- Set style -->
+            <xsl:attribute name="style">
+                <xsl:if test="not($bWithinTable)">
+                    <xsl:if test="Style/Cell/@Width or Style/Cell/@Height or Style/Cell/@BorderStyle or Style/Cell/@BorderTopStyle or Style/Cell/@BorderBottomStyle or Style/Cell/@BorderLeftStyle or Style/Cell/@BorderRightStyle">
+                        <xsl:call-template name="SpanStyle"/>
+                    </xsl:if>
+                    <xsl:call-template name="BlockStyle"/>
+                </xsl:if>
+            </xsl:attribute>
+            <!--- For each used to ensure order -->
+            <xsl:for-each select="*">
+                <xsl:choose>
+                    <xsl:when test="name() = 'Control'">
+                        <xsl:apply-templates select="."/>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Label'">
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="sLabelClass" select="'mrQuestionText'"/>
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Error'">
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="sLabelClass" select="'mrErrorText'"/>
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Table'">
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="Orientation" select="../Style/@Orientation" />
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Questions'">
+                        <xsl:apply-templates/>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:for-each>
+        </xsl:element>
+  
     </xsl:template>
 
     <xsl:template match="Label | Error">
