@@ -13,7 +13,11 @@
   {}
 
 */
+define(
+    [
+        'a-input-multilineedit',
+        'a-label-charactercount',
+    ],
+    function mInputMultilineedit() {
 
-function m-input-multilineedit() {
-  
-}
+    })

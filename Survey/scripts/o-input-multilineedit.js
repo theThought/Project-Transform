@@ -14,7 +14,12 @@
 
 */
 
-function t-question-base()
-{
+define(
+    [
+        'm-input-multilineedit',
+        'm-option-base',
+    ],
+    function tQuestionBase() {
+        console.log('in tQuestionBase');
 
-}
+    })

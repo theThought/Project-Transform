@@ -14,7 +14,8 @@
 
 */
 
-function a-label-question()
-{
-
-}
+define(
+    [],
+    function aLabelQuestion() {
+        console.log('in aLabelQuestion');
+    })

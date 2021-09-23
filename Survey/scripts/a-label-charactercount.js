@@ -1,7 +1,6 @@
 /*
   functionality:
 
-  loading state images
 
   Parameters: 
 
@@ -16,6 +15,6 @@
 
 define(
     [],
-    function sIconBase() {
+    function aLabelCharacterCount() {
 
     })

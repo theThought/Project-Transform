@@ -12,7 +12,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 	<link rel="stylesheet" href="base.css"/>
-	<link rel="stylesheet" href="button.css"/>
+	<link rel="stylesheet" href="styles/a-button.css"/>
+	<script type="text/javascript" data-main="scripts/base" src="scripts/require.js"></script>
 	<title>Ipsos Healthcare Research</title>
 	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png"/>
 	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png"/>
@@ -50,6 +51,9 @@
 				no interaction. However that label can be quite long as we use it to introduce a survey or a section of
 				the survey
 			</div>
+			<script type="text/javascript">
+                require(['a-label-question']);
+			</script>
 		</div>
 	</div>
 	<div id="nav-controls" class="btn-container nav-center">

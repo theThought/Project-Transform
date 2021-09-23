@@ -14,6 +14,8 @@
 
 */
 
-function a-icon-singlestate() {
-  
-}
+define(
+    [],
+    function aIconSinglestate() {
+
+    })

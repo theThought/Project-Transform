@@ -15,6 +15,8 @@
 
 */
 
-function a-input-multilineedit() {
-
-}
+define(
+    [],
+    function aInputMultilineedit() {
+        console.log('in aInputMultilineedit');
+    })

@@ -14,6 +14,8 @@
 
 */
 
-function a-icon-multistate() {
-  
-}
+define(
+    [],
+    function aIconMultistate() {
+
+    })

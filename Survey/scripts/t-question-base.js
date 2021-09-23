@@ -14,7 +14,8 @@
 
 */
 
-function t-question-base()
-{
+define(
+    [],
+    function tQuestionBase() {
 
-}
+    })

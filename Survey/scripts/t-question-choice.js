@@ -14,7 +14,8 @@
 
 */
 
-function t-question-choice()
-{
+define(
+    [],
+    function tQuestionChoice() {
 
-}
+    })

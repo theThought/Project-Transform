@@ -14,10 +14,16 @@
 
 */
 
-function t-question-multilineedit()
-{
-
-}
+define(
+    [
+        'o-input-multilineedit',
+        'a-label-error',
+        'a-label-instruction',
+        'a-label-question',
+    ],
+    function tQuestionMultilineedit() {
+        console.log('in tQuestionMultilineedit');
+    })
 
 
 /*

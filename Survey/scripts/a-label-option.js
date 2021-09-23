@@ -14,6 +14,8 @@
 
 */
 
-function a-label-option() {
-  
-}
+define(
+    [],
+    function aLabelOption() {
+
+    })
