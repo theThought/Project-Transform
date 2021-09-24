@@ -1,5 +1,6 @@
 input[type=submit],
-button {
+button
+{
     margin: 10px 0;
 
     border: none;

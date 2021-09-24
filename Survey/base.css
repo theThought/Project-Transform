@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
+@import url('styles/a-button.css');
+@import url('styles/a-icon-multistate.css');
+@import url('styles/a-icon-singlestate.css');
+@import url('styles/a-input-singlelineedit.css');
+@import url('styles/a-input-multilineedit.css');
+@import url('styles/a-label-question.css');
+@import url("styles/m-option-base.css");
+@import url("styles/t-question-base.css");
 
 body
 {
@@ -11,21 +19,6 @@ body
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 19px;
-}
-
-.a-label-question
-{
-    padding: 8px 16px 8px 0;
-    margin: 0 10px;
-}
-
-.a-input-singlelineedit
-{
-    padding: 16px;
-    border-radius: 10px 0 0 10px;
-    border: 1px solid #8797c8;
-    color: #757575;
-    margin: 0 10px;
 }
 
 .surroundcontent
