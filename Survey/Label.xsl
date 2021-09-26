@@ -26,7 +26,6 @@
     <xsl:template name="LabelBase">
         <xsl:if test="$sLabelClass!='mrBannerText'">
 		    <xsl:if test="Style/@ElementAlign = 'NewLine'">
-		        <xsl:element name="div">
 		            <xsl:if test="$bIncludeCSSStyles">
 		                <xsl:attribute name="class">a-label-question</xsl:attribute>
 		            </xsl:if>
@@ -38,12 +37,11 @@
 		                <xsl:call-template name="BlockStyle"/>
 		            </xsl:attribute>
 		            <xsl:call-template name="Label"/>
-		        </xsl:element>
 		    </xsl:if>
 		    <xsl:if test="Style/@ElementAlign != 'NewLine'">
 		        <xsl:element name="span">
 		            <xsl:if test="$bIncludeCSSStyles">
-		                <xsl:attribute name="class">questionlabel</xsl:attribute>
+		                <xsl:attribute name="class">a-label-question</xsl:attribute>
 		            </xsl:if>
 		            <xsl:attribute name="style">
 		                <xsl:call-template name="LabelStyle"/>
@@ -80,7 +78,6 @@
         <!--- adds the label styles to a style attribute -->
         <xsl:if test="Style/@BgColor">background-color: <xsl:value-of select="Style/@BgColor"/>;</xsl:if>
         <xsl:if test="Style/@Color">color: <xsl:value-of select="Style/@Color"/>;</xsl:if>
-        <xsl:if test="Style/@Indent">margin-left: <xsl:value-of select="Style/@Indent"/>em;</xsl:if>
         <xsl:if test="Style/@Width">width: <xsl:value-of select="Style/@Width"/>;</xsl:if>
         <xsl:if test="Style/@Height">height: <xsl:value-of select="Style/@Height"/>;</xsl:if>
         <xsl:if test="Style/@Hidden = 'true'">visibility: hidden;</xsl:if>
