@@ -20,16 +20,6 @@
     <xsl:template match="Question">
              <xsl:param name="bWithinTable" select="false()"/>
 
-        <xsl:if test="Style/@ElementAlign = 'NewLine'">
-            <xsl:choose>
-                <xsl:when test="position() != 1 and not($bWithinTable)">
-                    <div><br /></div>
-                </xsl:when>
-                <xsl:otherwise>
-                    <div></div>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:if>
         <xsl:element name="span">
             <!--- Set style -->
             <xsl:attribute name="style">
