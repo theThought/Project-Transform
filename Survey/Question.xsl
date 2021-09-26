@@ -57,7 +57,7 @@
                 </xsl:choose>
             </xsl:for-each>
         </xsl:element>
-  
+
     </xsl:template>
 
     <xsl:template match="Label | Error">
@@ -98,7 +98,7 @@
 
 <!--- CONTROL -->
 
-    <xsl:template match="Control">
+    <xsl:template match="Control">
         <xsl:choose>
             <xsl:when test="@Type = 'Static'">
                 <xsl:call-template name="StaticControl"/>
@@ -466,7 +466,7 @@
                                     <!--- Label -->
                                     <xsl:attribute name="label"><xsl:value-of select="Label/Text"/></xsl:attribute>
                                 </xsl:element>
-                            </xsl:when>                         
+                            </xsl:when>
                             <xsl:otherwise>
                                 <xsl:element name="option">
                                     <!--- Set Option Style -->
