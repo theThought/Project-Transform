@@ -122,6 +122,7 @@
                 <xsl:call-template name="RadioButtonControl"/>
             </xsl:when>
             <xsl:when test="@Type = 'CheckButton'">
+               testcheckbutton
                 <xsl:call-template name="CheckButtonControl"/>
             </xsl:when>
             <xsl:when test="@Type = 'ListBox'">
