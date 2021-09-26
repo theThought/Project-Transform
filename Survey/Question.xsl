@@ -371,18 +371,12 @@
                 <xsl:when test="Style/@Rows != ''">
                     <xsl:attribute name="rows"><xsl:value-of select="Style/@Rows"/></xsl:attribute>
                 </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="rows"><xsl:value-of select="6"/></xsl:attribute>
-                </xsl:otherwise>
             </xsl:choose>
             <!--- Columns -->
             <xsl:choose >
                 <xsl:when test="Style/@Columns != ''">
                     <xsl:attribute name="cols"><xsl:value-of select="Style/@Columns"/></xsl:attribute>
                 </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="cols"><xsl:value-of select="40"/></xsl:attribute>
-                </xsl:otherwise>
             </xsl:choose>
             <!--- Default text -->
             <xsl:choose>
