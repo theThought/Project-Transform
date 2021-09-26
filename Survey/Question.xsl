@@ -98,10 +98,7 @@
 
 <!--- CONTROL -->
 
-    <xsl:template match="Control">
-        <xsl:if test="Style/@ElementAlign = 'NewLine'">
-            <div></div>
-        </xsl:if>
+    <xsl:template match="Control">
         <xsl:choose>
             <xsl:when test="@Type = 'Static'">
                 <xsl:call-template name="StaticControl"/>
