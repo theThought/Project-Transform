@@ -20,16 +20,6 @@
     <xsl:template match="Question">
              <xsl:param name="bWithinTable" select="false()"/>
 
-        <xsl:if test="Style/@ElementAlign = 'NewLine'">
-            <xsl:choose>
-                <xsl:when test="position() != 1 and not($bWithinTable)">
-                    <div><br /></div>
-                </xsl:when>
-                <xsl:otherwise>
-                    <div></div>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:if>
         <xsl:element name="span">
             <!--- Set style -->
             <xsl:attribute name="style">
@@ -371,18 +361,12 @@
                 <xsl:when test="Style/@Rows != ''">
                     <xsl:attribute name="rows"><xsl:value-of select="Style/@Rows"/></xsl:attribute>
                 </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="rows"><xsl:value-of select="6"/></xsl:attribute>
-                </xsl:otherwise>
             </xsl:choose>
             <!--- Columns -->
             <xsl:choose >
                 <xsl:when test="Style/@Columns != ''">
                     <xsl:attribute name="cols"><xsl:value-of select="Style/@Columns"/></xsl:attribute>
                 </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="cols"><xsl:value-of select="40"/></xsl:attribute>
-                </xsl:otherwise>
             </xsl:choose>
             <!--- Default text -->
             <xsl:choose>
