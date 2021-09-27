@@ -4,7 +4,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 		<link rel="stylesheet" href="base.css"/>
-		<script type="text/javascript" data-main="scripts/base" src="scripts/require.js"></script>
 		<title>Ipsos Healthcare Research</title>
 		<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png"/>
 		<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png"/>
@@ -25,19 +24,38 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-		<form name="mrForm" id="mrForm" action="http://localhost:5081" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="bavygdgkdfaeli6ociqesxft3yaqaaaa"/><input type="hidden" name="I.SavePoint" value="Comments"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><table style="height: 100%; width: 100%"><tr><td class="mrProgressText">0%</td></tr></table><div class="surroundcontent">
-				<div class="question-container">
-					<label for="_Q0">
-						<div class="a-label-question" style="">Would you please describe the positive and negative aspects of the experience you had during your last visit</div>
-					</label>
-					<div></div>
-					<span style="">
-						<div></div>
-						<textarea name="_QComments" id="_Q0" class="a-input-multilineedit" autocomplete="off" style="" rows="6" cols="40"></textarea>
-						<script type="text/javascript">
-                            require(['a-input-multilineedit']);
-						</script>
-					</span>
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="yktlp6oy5qrejei35u16llfgluaqaaaa"/><input type="hidden" name="I.SavePoint" value="Comments"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><table style="height: 100%; width: 100%"><tr><td class="mrProgressText">0%</td></tr></table><div class="surroundcontent">
+				<div class="question-container sidebyside">
+					<div class="o-question-errorandinstruction">
+						<div class="o-question-error">
+						</div>
+						<div class="o-question-instruction">
+						</div>
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-information">
+							<label for="_Q0" class="a-label-question" style="">Would you please describe the positive and negative aspects of the experience you had during your last visit</label>
+						</div>
+						<div class="o-question-response">
+							<span style="">
+								<textarea name="_QComments" id="_Q0" class="a-input-multilineedit" autocomplete="off" style=""></textarea>
+								<div class="a-option-base">
+									<div class="hiddencontrol">
+										<input type="checkbox" name="_QComments_Xnocomments" id="_Q0_X0" class="mrMultiple" style="" value="nocomments">
+											<label for="_Q0_X0">I don't have any positive or negative comments</label>
+										</input>
+									</div>
+								</div>
+								<div class="a-option-base">
+									<div class="hiddencontrol">
+										<input type="checkbox" name="_QComments_Xsecond" id="_Q0_X1" class="mrMultiple" style="" value="second">
+											<label for="_Q0_X1">I refuse to answer this question</label>
+										</input>
+									</div>
+								</div>
+							</span>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="nav-controls" class="btn-container nav-center">

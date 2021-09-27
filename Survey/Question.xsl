@@ -61,16 +61,33 @@
     </xsl:template>
 
     <xsl:template match="Label | Error">
+      <xsl:param name="sLabelClass" select="'UNKNOWN'"/>
+      <xsl:param name="bWithinTable" select="false()"/>
+
+          <xsl:call-template name="LabelBase">
+              <xsl:with-param name="sLabelClass" select="$sLabelClass"/>
+              <xsl:with-param name="bWithinTable" select="$bWithinTable"/>
+          </xsl:call-template>
     </xsl:template>
 
     <xsl:template name="LabelBase">
+      <xsl:call-template name="Label"/>
     </xsl:template>
 
     <xsl:template name="Label">
+      <xsl:call-template name="LabelText"/>
     </xsl:template>
 
     <xsl:template name="LabelText">
-    </xsl:template>
+      <xsl:choose>
+          <xsl:when test="Text/@WellFormed = 'false'">
+              <xsl:value-of select="Text"/>
+          </xsl:when>
+          <xsl:otherwise>
+              <xsl:value-of disable-output-escaping = "yes" select="Text"/>
+          </xsl:otherwise>
+      </xsl:choose>
+  </xsl:template>
 
 <!--- TABLE -->
 
@@ -598,15 +615,15 @@
                         </xsl:if>
                      </xsl:attribute>
             <!--- ID -->
-                                <xsl:if test="$bIncludeElementIds">
-                                     <xsl:attribute name="id">
-                                         <xsl:value-of select="@ElementID"/>
-                                         <xsl:if test="Category[1]/@CategoryID">
-                                             <xsl:value-of select="Category[1]/@CategoryID"/>
-                                         </xsl:if>
-                                     </xsl:attribute>
-                                 </xsl:if>
-                                 <!--- Alt -->
+                    <xsl:if test="$bIncludeElementIds">
+                         <xsl:attribute name="id">
+                             <xsl:value-of select="@ElementID"/>
+                             <xsl:if test="Category[1]/@CategoryID">
+                                 <xsl:value-of select="Category[1]/@CategoryID"/>
+                             </xsl:if>
+                         </xsl:attribute>
+                     </xsl:if>
+             <!--- Alt -->
                      <xsl:if test="@Alt != ''">
                          <xsl:attribute name="Alt">
                              <xsl:value-of select="@Alt"/>
@@ -963,6 +980,35 @@
 <!--- Style Templates -->
 
     <xsl:template name="LabelStyle">
+      <xsl:if test="Style/@BgColor">background-color: <xsl:value-of select="Style/@BgColor"/>;</xsl:if>
+      <xsl:if test="Style/@Color">color: <xsl:value-of select="Style/@Color"/>;</xsl:if>
+      <xsl:if test="Style/@Width">width: <xsl:value-of select="Style/@Width"/>;</xsl:if>
+      <xsl:if test="Style/@Height">height: <xsl:value-of select="Style/@Height"/>;</xsl:if>
+      <xsl:if test="Style/@Hidden = 'true'">visibility: hidden;</xsl:if>
+      <xsl:if test="Style/@ZIndex">z-index: <xsl:value-of select="Style/@ZIndex"/>;</xsl:if>
+      <xsl:choose>
+          <xsl:when test="Style/@Cursor = 'EResize'">cursor: e-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'NEResize'">cursor: ne-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'NResize'">cursor: n-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'NWResize'">cursor: nw-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'WResize'">cursor: w-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'SWResize'">cursor: sw-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'SResize'">cursor: s-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor = 'SEResize'">cursor: se-resize;</xsl:when>
+          <xsl:when test="Style/@Cursor">cursor: <xsl:value-of select="Style/@Cursor"/>;</xsl:when>
+      </xsl:choose>
+      <xsl:if test="Style/Cell/@Wrap = 'false'">white-space: nowrap;</xsl:if>
+
+      <xsl:if test="Style/Font/@Family">font-family: <xsl:value-of select="Style/Font/@Family"/>;</xsl:if>
+      <xsl:if test="Style/Font/@Size">font-size: <xsl:value-of select="Style/Font/@Size"/>pt;</xsl:if>
+      <xsl:if test="Style/Font/@IsUnderline = 'true'">text-decoration: underline;</xsl:if>
+      <xsl:if test="Style/Font/@IsItalic = 'true'">font-style: italic;</xsl:if>
+      <xsl:if test="Style/Font/@IsBold = 'true'">font-weight: bold;</xsl:if>
+      <xsl:if test="Style/Font/@IsStrikethrough = 'true'">text-decoration: line-through;</xsl:if>
+      <xsl:if test="Style/Font/@IsOverline = 'true'">text-decoration: overline;</xsl:if>
+      <xsl:if test="Style/Font/@IsBlink = 'true'">text-decoration: blink;</xsl:if>
+      <xsl:if test="Style/Font/@IsSubscript = 'true'">vertical-align: sub;</xsl:if>
+      <xsl:if test="Style/Font/@IsSuperscript = 'true'">vertical-align: super;</xsl:if>
     </xsl:template>
 
     <xsl:template name="SpanStyle">
