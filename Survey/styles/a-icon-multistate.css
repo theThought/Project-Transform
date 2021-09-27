@@ -1,19 +1,24 @@
 input[type=checkbox] {
-    width: .75em;
-    height: .75em;
+    width: 1em;
+    height: 1em;
     appearance: none;
     margin: 0;
-    border-radius: 3px;
+    border-radius: 5px;
     border: 1px solid #455B97;
     outline: none;
     position: relative;
+    box-sizing: border-box;
+}
+input[type=checkbox]:checked {
+    border-color: #449B9B;
+    background-color: #449B9B;
 }
 input[type=checkbox]:checked::before {
     content: '\2713';
-    font-weight: bold;
-    color: #455B97;
+    color: white;
     position: absolute;
-    top: -.25em;
+    left: .1em;
+    top: -.1em;
 }
 
 .sidebyside .o-question-response .m-option-base {
