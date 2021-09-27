@@ -1,0 +1,5 @@
+.sidebyside .m-option-base input,
+.sidebyside .m-option-base div
+{
+    display: inline-block;
+}
