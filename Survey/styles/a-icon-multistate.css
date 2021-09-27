@@ -15,3 +15,7 @@ input[type=checkbox]:checked::before {
     position: absolute;
     top: -.25em;
 }
+
+.sidebyside .o-question-response .m-option-base {
+    margin-bottom: .5em;
+}

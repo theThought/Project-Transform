@@ -6,3 +6,7 @@ textarea
     box-sizing: border-box;
     border-radius: 10px;
 }
+
+.sidebyside .o-question-response textarea.a-input-multilineedit {
+    margin-bottom: .5em;
+}
