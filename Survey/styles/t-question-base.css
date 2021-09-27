@@ -1,5 +1,5 @@
 .question-container {
-    padding: 1em;
+    padding: .5em;
 }
 
 .question-container.sidebyside .o-question-errorandinstruction {
@@ -10,12 +10,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 0 -.5em;
 }
 
 .sidebyside .o-question-information,
 .sidebyside .o-question-response {
     flex-grow: 1;
     flex-basis: 0;
+    margin: 0 .5em;
 }
 
 .question-container.sidebyside .question-description label {
