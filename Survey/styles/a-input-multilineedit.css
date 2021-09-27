@@ -1,5 +1,6 @@
 textarea
 {
+    width: 100%;
     background: #FFFFFF;
     border: 1px solid #8797C8;
     box-sizing: border-box;
