@@ -2,7 +2,7 @@
     padding: .5em;
 }
 
-.question-container.sidebyside .o-question-errorandinstruction {
+.sidebyside .o-question-errorandinstruction {
     display: block;
 }
 
@@ -20,8 +20,18 @@
     margin: 0 .5em;
 }
 
-.question-container.sidebyside .question-description label {
+.sidebyside .question-description label {
     display: block;
+}
+
+.sidebyside .o-question-response .m-option-base {
+    margin-bottom: .5em;
+}
+
+.sidebyside .m-option-base input,
+.sidebyside .m-option-base div
+{
+    display: inline-block;
 }
 
 .question-container.vertical {

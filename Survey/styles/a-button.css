@@ -1,4 +1,5 @@
 input[type=submit],
+input[type=reset],
 button
 {
     margin: 10px 0;

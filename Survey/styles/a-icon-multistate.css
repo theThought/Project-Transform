@@ -20,7 +20,3 @@ input[type=checkbox]:checked::before {
     left: .1em;
     top: -.1em;
 }
-
-.sidebyside .o-question-response .m-option-base {
-    margin-bottom: .5em;
-}
