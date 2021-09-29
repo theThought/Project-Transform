@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
     <xsl:output method="xml" indent="yes"/>
     <xsl:param name="bIncludeCSSStyles" select="true()"/>
     <xsl:param name="bIncludeElementIds" select="true()"/>
@@ -764,10 +765,6 @@
               <xsl:attribute name="checked"/>
             </xsl:if>
           </xsl:element>
-          <xsl:element name="div">
-            <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
-            <xsl:attribute name="icontype">multiple</xsl:attribute>
-          </xsl:element>
           <xsl:element name="label">
             <xsl:attribute name="for">
                 <xsl:value-of select="@ElementID"/>
@@ -775,6 +772,11 @@
                     <xsl:value-of select="Category[1]/@CategoryID"/>
                 </xsl:if>
             </xsl:attribute>
+            <xsl:element name="span">
+              <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
+              <xsl:attribute name="data-icontype">multiple</xsl:attribute>
+              <xsl:comment>This is a comment!</xsl:comment>
+            </xsl:element>
             <xsl:apply-templates select="Category[1]/Label">
                   <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
               </xsl:apply-templates>
