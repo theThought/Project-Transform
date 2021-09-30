@@ -5,8 +5,14 @@ textarea
     border: 1px solid #8797C8;
     box-sizing: border-box;
     border-radius: 10px;
+    padding: .5em;
+    min-height: 100px;
 }
 
-.sidebyside .o-question-response textarea.a-input-multilineedit {
-    margin-bottom: .5em;
+textarea:active,
+textarea:focus,
+textarea:focus-visible,
+textarea:focus-within
+{
+    outline: none;
 }
