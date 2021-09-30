@@ -1,0 +1,9 @@
+.m-option-base {
+    margin-bottom: .5em;
+}
+
+.m-option-base .a-icon-multistate {
+    position: relative;
+    top:.1em;
+    margin-right: .5em;
+}
