@@ -569,9 +569,6 @@
       <!--- Input name -->
               <xsl:attribute name="name">
                 <xsl:value-of select="@QuestionName"/>
-                <xsl:if test="Category[1]/@Name">
-                  <xsl:value-of select="Category[1]/@Name"/>
-                </xsl:if>
               </xsl:attribute>
       <!--- ID -->
               <xsl:if test="$bIncludeElementIds">
