@@ -562,6 +562,16 @@
       <!--- Control Label -->
         <xsl:element name="div">
           <xsl:attribute name="class">m-option-base</xsl:attribute>
+          <xsl:attribute name="data-exclusive">
+            <xsl:choose>
+              <xsl:when test="Category/Label/Style/Font/@IsBold = true">
+                <xsl:text>true</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>false</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
             <xsl:element name="input">
               <xsl:attribute name="class">hiddencontrol</xsl:attribute>
       <!--- Set Control Type -->
@@ -634,6 +644,16 @@
     <!--- Control Label -->
       <xsl:element name="div">
         <xsl:attribute name="class">m-option-base</xsl:attribute>
+        <xsl:attribute name="data-exclusive">
+          <xsl:choose>
+            <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
+              <xsl:text>true</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>false</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
           <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
     <!--- Set Control Type -->

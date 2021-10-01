@@ -1,0 +1,25 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1">
+      <Control Type="Edit" />
+    </Style>
+    <Control Type="Edit" QuestionName="_QComments" ElementID="_Q0" Value="" Length="2000">
+      <Style ElementAlign="NewLine" Indent="1">
+        <Control Type="Edit" />
+      </Style>
+    </Control>
+    <Control Type="CheckButton" QuestionName="_QComments_X" ElementID="_Q0_X">
+      <Style ElementAlign="NewLine" Indent="1">
+        <Control Type="CheckButton" />
+      </Style>
+      <Category Name="nocomments" CategoryID="0">
+        <Label>
+          <Style ElementAlign="Right">
+            <Font IsBold="True" />
+          </Style>
+          <Text>I don't have any positive or negative comments</Text>
+        </Label>
+      </Category>
+    </Control>
+  </Question>
+</Questions>
