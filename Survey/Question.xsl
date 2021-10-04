@@ -16,10 +16,10 @@
 
     <xsl:template match="Question">
       <xsl:param name="bWithinTable" select="false()"/>
-      <xsl:element name='div'>
+      <xsl:element name="div">
         <xsl:attribute name="class">o-question-response</xsl:attribute>
-        <xsl:attribute name='data-questionid'>
-          <xsl:value-of select="/Control[0]/@QuestionName" />
+        <xsl:attribute name="data-questionid">
+          <xsl:value-of select="//Control[1]/@QuestionName" />
         </xsl:attribute>
         <xsl:for-each select="*">
             <xsl:choose>

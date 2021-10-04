@@ -1,0 +1,23 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" />
+    <Table UseTablesLayout="0" Summary="xxx">
+      <Row Y="0">
+        <Cell X="0" Y="0">
+          <Control Type="RadioButton" QuestionName="_QGenderReal_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="male" CategoryID="0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>male</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>
+        
