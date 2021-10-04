@@ -1,11 +1,23 @@
-.a-icon-multistate {
+.a-icon-multistate
+{
     display: inline-block;
     width: 1em;
     height: 1em;
-    background-image: url("../images/Checkbox.png");
     background-position-x: 16px;
 }
 
-input[type=checkbox]:checked + label > .a-icon-multistate {
+input[type=checkbox] + label > .a-icon-multistate
+{
+    background-image: url("../images/Checkbox.png");
+}
+
+input[type=radio] + label > .a-icon-multistate
+{
+    background-image: url("../images/radiobutton.png");
+}
+
+input[type=checkbox]:checked + label > .a-icon-multistate,
+input[type=radio]:checked + label > .a-icon-multistate
+{
     background-position-x: 0;
 }
