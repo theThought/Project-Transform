@@ -86,6 +86,21 @@
 
     <xsl:template match="Table">
       <xsl:param name="Orientation" select="Column" />
+
+      <xsl:for-each select="./Row">
+        <xsl:variable name="rowID" select="./Cell/Control/Category/@CategoryID" />
+        <xsl:if test="./Cell/Control[@Type='Static']">
+          <xsl:element name="div">
+            <xsl:attribute name="class">o-option-sublist</xsl:attribute>
+            <xsl:value-of select="$rowID" />
+            <xsl:value-of select="count(./following-sibling::Row/Cell/Control/Category[starts-with(@CategoryID, $rowID)])" />
+            <xsl:for-each select="/following-sibling::Row/Cell/Control/Category[starts-with(@CategoryID, $rowID)]">
+              <xsl:value-of select="test" />
+            </xsl:for-each>
+          </xsl:element>
+        </xsl:if>
+      </xsl:for-each>
+
         <xsl:element name="div">
             <xsl:if test="$bIncludeCSSStyles">
                 <xsl:attribute name="class">o-option-sublist</xsl:attribute>
