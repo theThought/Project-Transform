@@ -89,28 +89,25 @@
 
       <xsl:for-each select="./Row">
         <xsl:variable name="rowID" select="concat(./Cell/Control/Category/@CategoryID, '_')" />
-        <xsl:if test="./Cell/Control[@Type='Static']">
-          <xsl:element name="div">
-            <xsl:attribute name="class">o-option-sublist</xsl:attribute>
-            <xsl:call-template name="SpanCell" />
-            <xsl:for-each select="./following-sibling::Row">
-              <xsl:value-of select="starts-with(./Cell/Control/Category/@CategoryID, $rowID)" />
-              <xsl:if test="starts-with(./Cell/Control/Category/@CategoryID, $rowID)">
+        <xsl:if test="not(contains(./Cell/Control/Category/@CategoryID, '_'))">
+          <xsl:choose>
+            <xsl:when test="./Cell/Control[@Type='Static']">
+              <xsl:element name="div">
+                <xsl:attribute name="class">o-option-sublist</xsl:attribute>
                 <xsl:call-template name="SpanCell" />
-              </xsl:if>
-            </xsl:for-each>
-          </xsl:element>
+                <xsl:for-each select="./following-sibling::Row">
+                  <xsl:if test="starts-with(./Cell/Control/Category/@CategoryID, $rowID)">
+                    <xsl:call-template name="SpanCell" />
+                  </xsl:if>
+                </xsl:for-each>
+              </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="SpanCell" />
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:if>
       </xsl:for-each>
-
-        <xsl:element name="div">
-            <xsl:if test="$bIncludeCSSStyles">
-                <xsl:attribute name="class">o-option-sublist</xsl:attribute>
-            </xsl:if>
-            <xsl:call-template name="SpanRow">
-                <xsl:with-param name="Orientation" select="$Orientation" />
-            </xsl:call-template>
-        </xsl:element>
     </xsl:template>
 
     <xsl:template match="Row">
