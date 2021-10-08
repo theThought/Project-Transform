@@ -16,3 +16,8 @@ textarea:focus-within
 {
     outline: none;
 }
+
+textarea:read-only {
+    border-color: #999999;
+    color: #999999;
+}
