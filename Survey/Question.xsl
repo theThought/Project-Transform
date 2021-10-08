@@ -592,71 +592,74 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
-            <xsl:element name="input">
-              <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+          <xsl:element name="script">
+            <xsl:text>window.dispatchEvent("mOption_Base", this)</xsl:text>
+          </xsl:element>
+          <xsl:element name="input">
+            <xsl:attribute name="class">hiddencontrol</xsl:attribute>
       <!--- Set Control Type -->
-              <xsl:attribute name="type">radio</xsl:attribute>
+            <xsl:attribute name="type">radio</xsl:attribute>
       <!--- Input name -->
-              <xsl:attribute name="name">
-                <xsl:value-of select="@QuestionName"/>
-              </xsl:attribute>
+            <xsl:attribute name="name">
+              <xsl:value-of select="@QuestionName"/>
+            </xsl:attribute>
       <!--- ID -->
-              <xsl:if test="$bIncludeElementIds">
-                <xsl:attribute name="id">
-                  <xsl:value-of select="@ElementID"/>
-                  <xsl:if test="Category[1]/@CategoryID">
-                    <xsl:value-of select="Category[1]/@CategoryID"/>
-                  </xsl:if>
-                </xsl:attribute>
-              </xsl:if>
+            <xsl:if test="$bIncludeElementIds">
+              <xsl:attribute name="id">
+                <xsl:value-of select="@ElementID"/>
+                <xsl:if test="Category[1]/@CategoryID">
+                  <xsl:value-of select="Category[1]/@CategoryID"/>
+                </xsl:if>
+              </xsl:attribute>
+            </xsl:if>
              <!--- Alt -->
-              <xsl:if test="@Alt != ''">
-                <xsl:attribute name="Alt">
-                  <xsl:value-of select="@Alt"/>
-                </xsl:attribute>
-              </xsl:if>
+            <xsl:if test="@Alt != ''">
+              <xsl:attribute name="Alt">
+                <xsl:value-of select="@Alt"/>
+              </xsl:attribute>
+            </xsl:if>
       <!--- CSS Class -->
       <!--- Show Only -->
-              <xsl:if test="$bShowOnly != false()">
-                  <xsl:attribute name="disabled"/>
-              </xsl:if>
+            <xsl:if test="$bShowOnly != false()">
+                <xsl:attribute name="disabled"/>
+            </xsl:if>
     	<!--- Read Only -->
-              <xsl:if test="Style/Control/@ReadOnly = 'true'">
-                   <xsl:attribute name="disabled"/>
-              </xsl:if>
+            <xsl:if test="Style/Control/@ReadOnly = 'true'">
+                 <xsl:attribute name="disabled"/>
+            </xsl:if>
     	<!--- Accelerator access key -->
-              <xsl:if test="Style/Control/@Accelerator != ''">
-                  <xsl:attribute name="accesskey">
-                      <xsl:value-of select="Style/Control/@Accelerator"/>
-                  </xsl:attribute>
-              </xsl:if>
+            <xsl:if test="Style/Control/@Accelerator != ''">
+                <xsl:attribute name="accesskey">
+                    <xsl:value-of select="Style/Control/@Accelerator"/>
+                </xsl:attribute>
+            </xsl:if>
       <!--- Set Control Style -->
-              <xsl:attribute name="style"><xsl:call-template name="ControlStyle"/></xsl:attribute>
+            <xsl:attribute name="style"><xsl:call-template name="ControlStyle"/></xsl:attribute>
       <!--- Button Category -->
-              <xsl:attribute name="value">
-                <xsl:if test="Category[1]/@Name"><xsl:value-of select="Category[1]/@Name"/></xsl:if>
-              </xsl:attribute>
+            <xsl:attribute name="value">
+              <xsl:if test="Category[1]/@Name"><xsl:value-of select="Category[1]/@Name"/></xsl:if>
+            </xsl:attribute>
       <!--- Is Button Checked -->
-              <xsl:if test="Category[1]/@Checked = 'true'">
-                <xsl:attribute name="checked"/>
-              </xsl:if>
+            <xsl:if test="Category[1]/@Checked = 'true'">
+              <xsl:attribute name="checked"/>
+            </xsl:if>
+          </xsl:element>
+          <xsl:element name="label">
+            <xsl:attribute name="for">
+                <xsl:value-of select="@ElementID"/>
+                <xsl:if test="Category[1]/@CategoryID">
+                    <xsl:value-of select="Category[1]/@CategoryID"/>
+                </xsl:if>
+            </xsl:attribute>
+            <xsl:element name="span">
+              <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
+              <xsl:attribute name="data-icontype">single</xsl:attribute>
+              <xsl:comment>This is a comment!</xsl:comment>
             </xsl:element>
-            <xsl:element name="label">
-              <xsl:attribute name="for">
-                  <xsl:value-of select="@ElementID"/>
-                  <xsl:if test="Category[1]/@CategoryID">
-                      <xsl:value-of select="Category[1]/@CategoryID"/>
-                  </xsl:if>
-              </xsl:attribute>
-              <xsl:element name="span">
-                <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
-                <xsl:attribute name="data-icontype">single</xsl:attribute>
-                <xsl:comment>This is a comment!</xsl:comment>
-              </xsl:element>
-              <xsl:apply-templates select="Category[1]/Label">
-                    <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
-                </xsl:apply-templates>
-            </xsl:element>
+            <xsl:apply-templates select="Category[1]/Label">
+                  <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
+              </xsl:apply-templates>
+          </xsl:element>
         </xsl:element>
     </xsl:template>
 
@@ -674,74 +677,77 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:attribute>
-          <xsl:element name="input">
-            <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+        <xsl:element name="script">
+          <xsl:text>window.dispatchEvent("mOption_Base", this)</xsl:text>
+        </xsl:element>
+        <xsl:element name="input">
+          <xsl:attribute name="class">hiddencontrol</xsl:attribute>
     <!--- Set Control Type -->
-            <xsl:attribute name="type">checkbox</xsl:attribute>
+          <xsl:attribute name="type">checkbox</xsl:attribute>
     <!--- Input name -->
-            <xsl:attribute name="name">
-              <xsl:value-of select="@QuestionName"/>
-              <xsl:if test="Category[1]/@Name">
-                <xsl:value-of select="Category[1]/@Name"/>
+          <xsl:attribute name="name">
+            <xsl:value-of select="@QuestionName"/>
+            <xsl:if test="Category[1]/@Name">
+              <xsl:value-of select="Category[1]/@Name"/>
+            </xsl:if>
+          </xsl:attribute>
+    <!--- ID -->
+          <xsl:if test="$bIncludeElementIds">
+            <xsl:attribute name="id">
+              <xsl:value-of select="@ElementID"/>
+              <xsl:if test="Category[1]/@CategoryID">
+                <xsl:value-of select="Category[1]/@CategoryID"/>
               </xsl:if>
             </xsl:attribute>
-    <!--- ID -->
-            <xsl:if test="$bIncludeElementIds">
-              <xsl:attribute name="id">
-                <xsl:value-of select="@ElementID"/>
-                <xsl:if test="Category[1]/@CategoryID">
-                  <xsl:value-of select="Category[1]/@CategoryID"/>
-                </xsl:if>
-              </xsl:attribute>
-            </xsl:if>
+          </xsl:if>
            <!--- Alt -->
-            <xsl:if test="@Alt != ''">
-              <xsl:attribute name="Alt">
-                <xsl:value-of select="@Alt"/>
-              </xsl:attribute>
-            </xsl:if>
+          <xsl:if test="@Alt != ''">
+            <xsl:attribute name="Alt">
+              <xsl:value-of select="@Alt"/>
+            </xsl:attribute>
+          </xsl:if>
     <!--- CSS Class -->
     <!--- Show Only -->
-            <xsl:if test="$bShowOnly != false()">
-                <xsl:attribute name="disabled"/>
-            </xsl:if>
+          <xsl:if test="$bShowOnly != false()">
+              <xsl:attribute name="disabled"/>
+          </xsl:if>
   	<!--- Read Only -->
-            <xsl:if test="Style/Control/@ReadOnly = 'true'">
-                 <xsl:attribute name="disabled"/>
-            </xsl:if>
+          <xsl:if test="Style/Control/@ReadOnly = 'true'">
+               <xsl:attribute name="disabled"/>
+          </xsl:if>
   	<!--- Accelerator access key -->
-            <xsl:if test="Style/Control/@Accelerator != ''">
-                <xsl:attribute name="accesskey">
-                    <xsl:value-of select="Style/Control/@Accelerator"/>
-                </xsl:attribute>
-            </xsl:if>
+          <xsl:if test="Style/Control/@Accelerator != ''">
+              <xsl:attribute name="accesskey">
+                  <xsl:value-of select="Style/Control/@Accelerator"/>
+              </xsl:attribute>
+          </xsl:if>
     <!--- Set Control Style -->
-            <xsl:attribute name="style"><xsl:call-template name="ControlStyle"/></xsl:attribute>
+          <xsl:attribute name="style"><xsl:call-template name="ControlStyle"/></xsl:attribute>
     <!--- Button Category -->
-            <xsl:attribute name="value">
-              <xsl:if test="Category[1]/@Name"><xsl:value-of select="Category[1]/@Name"/></xsl:if>
-            </xsl:attribute>
+          <xsl:attribute name="value">
+            <xsl:if test="Category[1]/@Name"><xsl:value-of select="Category[1]/@Name"/></xsl:if>
+          </xsl:attribute>
     <!--- Is Button Checked -->
-            <xsl:if test="Category[1]/@Checked = 'true'">
-              <xsl:attribute name="checked"/>
-            </xsl:if>
+          <xsl:if test="Category[1]/@Checked = 'true'">
+            <xsl:attribute name="checked"/>
+          </xsl:if>
+        </xsl:element>
+        <xsl:element name="label">
+          <xsl:attribute name="for">
+              <xsl:value-of select="@ElementID"/>
+              <xsl:if test="Category[1]/@CategoryID">
+                  <xsl:value-of select="Category[1]/@CategoryID"/>
+              </xsl:if>
+          </xsl:attribute>
+          <xsl:element name="span">
+            <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
+            <xsl:attribute name="data-icontype">multiple</xsl:attribute>
+            <xsl:comment>This is a comment!</xsl:comment>
           </xsl:element>
-          <xsl:element name="label">
-            <xsl:attribute name="for">
-                <xsl:value-of select="@ElementID"/>
-                <xsl:if test="Category[1]/@CategoryID">
-                    <xsl:value-of select="Category[1]/@CategoryID"/>
-                </xsl:if>
-            </xsl:attribute>
-            <xsl:element name="span">
-              <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
-              <xsl:attribute name="data-icontype">multiple</xsl:attribute>
-              <xsl:comment>This is a comment!</xsl:comment>
-            </xsl:element>
-            <xsl:apply-templates select="Category[1]/Label">
-                  <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
-              </xsl:apply-templates>
-          </xsl:element>
+          <xsl:apply-templates select="Category[1]/Label">
+                <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
+            </xsl:apply-templates>
+        </xsl:element>
       </xsl:element>
     </xsl:template>
 
