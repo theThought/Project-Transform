@@ -11,7 +11,8 @@
 	<meta name="Template" content="page.htm" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<link rel="stylesheet" type="text/css" href=" /base.css" />
+	<script type="text/javascript" src="scripts/require.js" data-main="scripts/base.js"></script>
+	<link rel="stylesheet" type="text/css" href="base.css" />
 	<title>Ipsos Healthcare Research</title>
 	<link rel="apple-touch-icon" sizes="57x57" href=" /favicons/apple-icon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href=" /favicons/apple-icon-60x60.png" />
@@ -26,13 +27,13 @@
 	<link rel="icon" type="image/png" sizes="16x16" href=" /favicons/favicon-16x16.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href=" /favicons/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href=" /favicons/favicon-32x32.png" />
-	<link rel="manifest" href=" /manifest.json" />
+	<link rel="manifest" href="manifest.json" />
 	<meta name="msapplication-TileColor" content="#ffffff" />
 	<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png" />
 	<meta name="theme-color" content="#ffffff" />
 </head>
 
-<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+<body>
 	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="bgkknj2xndvuzibwe11dovzo3iaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="Comments" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
 		<table style="height: 100%; width: 100%">
@@ -70,6 +71,9 @@
 								</span>I refuse to answer this question</label>
 						</div>
 					</div>
+					<script type="text/javascript">
+                        requirejs(["o-question-response"]);
+					</script>
 				</div>
 			</div>
 		</div>
