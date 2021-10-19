@@ -12,7 +12,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 	<script type="text/javascript" src="scripts/require.js"></script>
+	<script type="text/javascript">require.config({baseUrl: 'scripts'});</script>
+	<script type="text/javascript" src="scripts/survey.js"></script>
 	<script type="text/javascript" src="scripts/base.js"></script>
+	<script type="text/javascript">require(['main'], function () {});</script>
 	<link rel="stylesheet" type="text/css" href="base.css"/>
 	<title>Ipsos Healthcare Research</title>
 	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png"/>
@@ -79,7 +82,7 @@
 					<textarea name="_QFullPage_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off"
 					          style=""></textarea>
 					<script type="text/javascript">
-						new InputMultilineEdit("_Q1");
+                        app.registerComponent('aInputMultilineedit', '_Q1');
 					</script>
 					<div class="m-option-base" data-exclusive="true" id="_QFullPage_QComments_Xnocomments">
 						<input class="hiddencontrol" type="checkbox" name="_QFullPage_QComments_Xnocomments" id="_Q1_X0"
@@ -89,7 +92,7 @@
                   <!--This is a comment!-->
                 </span>I don't have any positive or negative comments</label>
 						<script type="text/javascript">
-                            new OptionBase("_QFullPage_QComments_Xnocomments");
+                            app.registerComponent('mOptionBase', '_QFullPage_QComments_Xnocomments');
 						</script>
 					</div>
 					<div class="m-option-base" data-exclusive="true" id="_QFullPage_QComments_Xsecond">
@@ -100,11 +103,11 @@
                   <!--This is a comment!-->
                 </span>I refuse to answer this question</label>
 						<script type="text/javascript">
-                            new OptionBase("_QFullPage_QComments_Xsecond");
+                            app.registerComponent('mOptionBase', '_QFullPage_QComments_Xsecond');
 						</script>
 					</div>
 					<script type="text/javascript">
-                        new QuestionResponse("_QFullPage_QComments");
+                        app.registerComponent('oQuestionResponse', '_QFullPage_QComments');
 					</script>
 				</div>
 			</div>
@@ -128,7 +131,7 @@
                     <!--This is a comment!-->
                   </span>male</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q2_C0");
+                                app.registerComponent('mOptionBase', '_Q2_C0');
 							</script>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
@@ -139,7 +142,7 @@
                     <!--This is a comment!-->
                   </span>female</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q2_C1");
+                                app.registerComponent('mOptionBase', '_Q2_C1');
 							</script>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
@@ -150,7 +153,7 @@
                     <!--This is a comment!-->
                   </span>prefer not to say</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q2_C2");
+                                app.registerComponent('mOptionBase', '_Q2_C2');
 							</script>
 						</div>
 					</div>
@@ -181,7 +184,7 @@
                     <!--This is a comment!-->
                   </span>Original</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q3_C0_S0");
+                                app.registerComponent('mOptionBase', '_Q3_C0_S0');
 							</script>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
@@ -192,7 +195,7 @@
                     <!--This is a comment!-->
                   </span>Diet</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q3_C0_S1");
+                                app.registerComponent('mOptionBase', '_Q3_C0_S1');
 							</script>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
@@ -203,7 +206,7 @@
                     <!--This is a comment!-->
                   </span>Cherry</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q3_C0_S2");
+                                app.registerComponent('mOptionBase', '_Q3_C0_S2');
 							</script>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
@@ -320,7 +323,7 @@
                     <!--This is a comment!-->
                   </span>Lilt</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q3_C2_S4");
+                                app.registerComponent('mOptionBase', '_Q3_C2_S4');
 							</script>
 						</div>
 						<div class="m-option-base" data-exclusive="true">
@@ -331,12 +334,12 @@
                     <!--This is a comment!-->
                   </span>none of the above</label>
 							<script type="text/javascript">
-                                new OptionBase("_Q3_C3");
+                                app.registerComponent('mOptionBase', '_Q3_C3');
 							</script>
 						</div>
 					</div>
 					<script type="text/javascript">
-						new QuestionResponse("_QFullPage_QDrinks_C");
+                        app.registerComponent('oQuestionResponse', '_QFullPage_QDrinks_C');
 					</script>
 				</div>
 			</div>
