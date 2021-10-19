@@ -16,34 +16,38 @@
 */
 
 define(
-    [],
-    function aInputMultilineedit() {
+    function () {
 
-        // build an array of elements to iterate over
-        var elements = document.getElementsByClassName('a-input-multilineedit');
+        /**
+         * Atom: aInputMultilineEdit
+         *
+         * @constructor
+         * @param {String} id - element id
+         */
 
-        // define OUTBOUND events (the handler is defined on the receiving element)
-        var aInputMultilineEditClick = new CustomEvent('aInputMultilineEditClick', {bubbles: true});
+        function aInputMultilineEdit(id) {
+            this.id = id;
+            this.element = document.getElementById(id);
+        }
 
-        // loop through all a-input-multilineedit elements and apply custom events
-        for (var i = 0; i < elements.length; i++) {
+        aInputMultilineEdit.prototype.Init = function () {
+            this.element.addEventListener("click", this.clicked, false);
+            this.element.addEventListener("change", this.changed, false);
+            this.element.addEventListener("exclusive", this.exclusive, false);
+        }
 
-            // HANDLE INCOMING EVENT: AN EXCLUSIVE ITEM HAS BEEN CLICKED
-            elements[i].incomingExclusive = function () {
-                this.setAttribute('readonly', true);
-            }.bind(elements[i]);
+        aInputMultilineEdit.prototype.clicked = function (event) {
+            console.log('Handling InputMultilineEdit click event');
+        }
 
-            // HANDLE INCOMING EVENT: AN EXCLUSIVE ITEM TURNED OFF
-            elements[i].incomingExclusiveOff = function () {
-                this.removeAttribute('readonly');
-            }.bind(elements[i]);
+        aInputMultilineEdit.prototype.changed = function (event) {
+            console.log('Handling input change on aInputMultilineedit.')
+        }
 
-            // OUTBOUND EVENTS: THIS ITEM HAS BEEN CLICKED
-            elements[i].addEventListener("click", function () {
-                this.removeAttribute('readonly');
-                this.dispatchEvent(aInputMultilineEditClick);
-            });
+        aInputMultilineEdit.prototype.exclusive = function (event) {
+            console.log('Handling exclusive.');
+        }
 
-        } // END LOOP
-    }
-)
+        return aInputMultilineEdit;
+
+    });

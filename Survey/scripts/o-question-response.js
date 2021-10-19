@@ -15,65 +15,34 @@
 */
 
 define(
-    [
-        'm-input-multilineedit',
-        'm-option-base',
-    ],
-    function oQuestionResponse() {
+    function () {
 
-        // build an array of elements to iterate over
-        var elements = document.getElementsByClassName('o-question-response');
+        /**
+         * Organism: Question Response Class
+         *
+         * @constructor
+         * @param {String} id - element id
+         */
 
-        for (var i = 0; i < elements.length; i++) {
+        function oQuestionResponse(id) {
+            this.id = id;
+            this.element = document.getElementById(id);
+            app.registerComponent(this);
+        }
 
-            // INCOMING EVENT: M-OPTION-BASE CLICK
-            elements[i].addEventListener('mOptionBaseClicked', function (event) {
-                // Define elements that should be notified of this event
-                var strElements = '.m-option-base';
-                var inputElements = event.currentTarget.querySelectorAll(strElements);
+        oQuestionResponse.prototype.Init = function () {
+            this.element.addEventListener("click", this.clicked, false);
+            this.element.addEventListener("incomingExclusive", this.clicked, false);
+        }
 
-                // Loop these through these elements and call the receiving function (defined in the element)
-                for (var j = 0; j < inputElements.length; j++) {
-                    inputElements[j].incomingClick(event.target);
-                }
-            });
+        oQuestionResponse.prototype.clicked = function () {
+            console.log('Handling oQuestionResponse click event');
+        }
 
-            // INCOMING EVENT: EXCLUSIVE CLICK (ON)
-            elements[i].addEventListener('mOptionBaseExclusiveClickOn', function (event) {
-                // Define elements that should be notified of this event
-                var strElements = '.m-option-base,.a-input-multilineedit';
-                var inputElements = event.currentTarget.querySelectorAll(strElements);
+        oQuestionResponse.prototype.incomingExclusive = function () {
+            console.log('Handling oQuestionResponse exclusive event');
+        }
 
-                // Loop these through these elements and call the receiving function (defined in the element)
-                for (var j = 0; j < inputElements.length; j++) {
-                    inputElements[j].incomingExclusive(event.target);
-                }
-            });
+        return oQuestionResponse;
 
-            // INCOMING EVENT: EXCLUSIVE CLICK (OFF)
-            elements[i].addEventListener('mOptionBaseExclusiveClickOff', function (event) {
-                // Define elements that should be notified of this event
-                var strElements = '.a-input-multilineedit';
-                var inputElements = event.currentTarget.querySelectorAll(strElements);
-
-                // Loop these through these elements and call the receiving function (defined in the element)
-                for (var j = 0; j < inputElements.length; j++) {
-                    inputElements[j].incomingExclusiveOff(event.target);
-                }
-            });
-
-            // INCOMING EVENT: INPUT MULTILINEEDIT CLICK
-            elements[i].addEventListener('aInputMultilineEditClick', function (event) {
-                // Define elements that should be notified of this event
-                var strElements = '.m-option-base';
-                var inputElements = event.currentTarget.querySelectorAll(strElements);
-
-                // Loop these through these elements and call the receiving function (defined in the element)
-                for (var j = 0; j < inputElements.length; j++) {
-                    inputElements[j].incomingClick(event.target);
-                }
-            });
-
-        } // END LOOP
-    }
-)
+    });

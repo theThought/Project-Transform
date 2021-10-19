@@ -17,59 +17,57 @@
 */
 
 define(
-    [
-        'a-label-question',
-        'a-icon-multistate',
-    ],
-    function mOptionBase() {
+    function () {
 
-        // build an array of elements to iterate over
-        var elements = document.getElementsByClassName('m-option-base');
+        /**
+         * Molecule: Base Option
+         *
+         * @constructor
+         * @param {String} id - element id
+         */
 
-        // define OUTBOUND events (the handler is defined on the receiving element)
-        var evCheckboxClicked = new CustomEvent('mOptionBaseClicked', {bubbles: true});
-        var evExclusiveOn = new CustomEvent('mOptionBaseExclusiveClickOn', {bubbles: true});
-        var evExclusiveOff = new CustomEvent('mOptionBaseExclusiveClickOff', {bubbles: true});
+        function mOptionBase(id) {
+            this.id = id;
+            this.element = document.getElementById(id);
+        }
 
-        // loop through all m-option-base elements and apply custom events
-        for (var i = 0; i < elements.length; i++) {
+        mOptionBase.prototype.Init = function () {
+            this.exclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
-            // HANDLE INCOMING EVENT: SOMETHING HAS BEEN CLICKED
-            elements[i].incomingClick = function (originatingElement) {
-                if (this !== originatingElement && this.getAttribute('data-exclusive') === 'true') {
-                    var elCheckbox = this.getElementsByTagName('input');
-                    elCheckbox[0].checked = false;
-                }
-            }.bind(elements[i]);
+            this.element.addEventListener("click", this, false);
+            this.element.addEventListener("incomingExclusive", this, false);
+        }
 
-            // HANDLE INCOMING EVENT: AN EXCLUSIVE ITEM HAS BEEN CLICKED
-            elements[i].incomingExclusive = function (originatingElement) {
-                if (this !== originatingElement) {
-                    var elCheckbox = this.getElementsByTagName('input');
-                    elCheckbox[0].checked = false;
-                }
-            }.bind(elements[i]);
+        mOptionBase.prototype.handleEvent = function (event) {
+            console.log('Handling optionbase event');
+            switch (event.type) {
+                case "click":
+                    this.clicked(event);
+                    break;
+                case "incomingExclusive":
+                    this.incomingExclusive(event);
+                    break;
+            }
+        }
 
-            // OUTBOUND EVENT: THIS ITEM IS EXCLUSIVE AND HAS BEEN SWITCHED ON/OFF
-            if (elements[i].getAttribute('data-exclusive') === 'true') {
-                elements[i].addEventListener("change", function () {
-                    var elCheckbox = this.getElementsByTagName('input');
+        mOptionBase.prototype.incomingExclusive = function (event) {
+            var originatingElement = event.target;
+            if (this.element !== originatingElement) {
+                this.element.checked = false;
+            }
+        }
 
-                    if (elCheckbox[0].checked === true) {
-                        this.dispatchEvent(evExclusiveOn);
-                    } else {
-                        this.dispatchEvent(evExclusiveOff);
-                    }
-                });
+        mOptionBase.prototype.clicked = function (event) {
+            if (this.exclusive) {
+                var evExclusiveOn = new CustomEvent('incomingExclusive', {bubbles: true});
+                this.element.dispatchEvent(evExclusiveOn);
             }
 
-            // OUTBOUND EVENT: THIS ITEM HAS BEEN CLICKED / CHANGED
-            if (!elements[i].hasAttribute('data-exclusive') || elements[i].getAttribute('data-exclusive') === 'false') {
-                elements[i].addEventListener("change", function () {
-                    this.dispatchEvent(evCheckboxClicked);
-                });
+            if (this !== event.target && this.exclusive) {
+                this.element.checked = false;
             }
+        }
 
-        } // END LOOP
-    }
-)
+        return mOptionBase;
+
+    });
