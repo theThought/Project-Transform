@@ -21,9 +21,15 @@ define(
         'a-label-instruction',
         'a-label-question',
     ],
-    function tQuestionMultilineedit() {
-        console.log('in tQuestionMultilineedit');
-    })
+    function () {
+
+        function tQuestionMultilineedit() {
+
+        }
+
+        return tQuestionMultilineedit;
+
+    });
 
 
 /*

@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function aLabelInstruction() {
+    function () {
 
-    })
+        function aLabelInstruction() {
+
+        }
+
+        return aLabelInstruction;
+
+    });

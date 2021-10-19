@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function aIconSinglestate() {
+    function () {
 
-    })
+        function aIconSingleState() {
+
+        }
+
+        return aIconSingleState;
+
+    });

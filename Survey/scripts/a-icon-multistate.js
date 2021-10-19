@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function aIconMultistate() {
+    function () {
 
-    })
+        function aIconMultiState() {
+
+        }
+
+        return aIconMultiState;
+
+    });

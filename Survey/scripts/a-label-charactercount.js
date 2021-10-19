@@ -14,7 +14,12 @@
 */
 
 define(
-    [],
-    function aLabelCharacterCount() {
+    function () {
 
-    })
+        function aLabelCharacterCount() {
+
+        }
+
+        return aLabelCharacterCount;
+
+    });

@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function tQuestionBase() {
+    function () {
 
-    })
+        function tQuestionBase() {
+
+        }
+
+        return tQuestionBase;
+
+    });

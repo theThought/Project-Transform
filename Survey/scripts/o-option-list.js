@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function oOptionList() {
+    function () {
 
-    })
+        function oOptionList() {
+
+        }
+
+        return oOptionList;
+
+    });

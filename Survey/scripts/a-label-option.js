@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function aLabelOption() {
+    function () {
 
-    })
+        function aLabelOption() {
+
+        }
+
+        return aLabelOption;
+
+    });

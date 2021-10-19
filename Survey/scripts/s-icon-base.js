@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function sIconBase() {
+    function () {
 
-    })
+        function sIconBase() {
+
+        }
+
+        return sIconBase;
+
+    });

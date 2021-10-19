@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function aLabelError() {
+    function () {
 
-    })
+        function aLabelError() {
+
+        }
+
+        return aLabelError;
+
+    });

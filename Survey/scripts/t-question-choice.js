@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function tQuestionChoice() {
+    function () {
 
-    })
+        function tQuestionChoice() {
+
+        }
+
+        return tQuestionChoice;
+
+    });

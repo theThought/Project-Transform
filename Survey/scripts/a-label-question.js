@@ -15,7 +15,12 @@
 */
 
 define(
-    [],
-    function aLabelQuestion() {
-        console.log('in aLabelQuestion');
-    })
+    function () {
+
+        function aLabelQuestion() {
+
+        }
+
+        return aLabelQuestion;
+
+    });

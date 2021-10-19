@@ -16,10 +16,15 @@
 
 define(
     [
-        'm-input-multilineedit',
+        'a-input-multilineedit',
         'm-option-base',
     ],
-    function tQuestionBase() {
-        console.log('in tQuestionBase');
+    function () {
 
-    })
+        function aInputMultilineEdit() {
+
+        }
+
+        return aInputMultilineEdit;
+
+    });
