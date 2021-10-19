@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
+@import url('styles/navigation.css');
+@import url('styles/progress.css');
 @import url('styles/a-button.css');
 @import url('styles/a-icon-multistate.css');
 @import url('styles/a-icon-singlestate.css');
@@ -10,6 +12,7 @@
 @import url("styles/o-question-response.css");
 @import url("styles/o-question-errorandinstruction.css");
 @import url("styles/t-question-base.css");
+@import url("styles/o-question-core.css");
 
 body
 {
@@ -29,6 +32,7 @@ body
     background: #fafafa;
     -webkit-box-shadow: none;
     box-shadow: none;
+    padding-bottom: 5em;
 }
 .hiddencontrol
 {

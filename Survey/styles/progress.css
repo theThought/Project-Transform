@@ -1,0 +1,4 @@
+/* Temporarily target table that is immediate child of form as progress currently has no identifying class attribute */
+form > table {
+
+}

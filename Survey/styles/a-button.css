@@ -1,7 +1,6 @@
 input[type=submit],
 input[type=reset],
-button
-{
+button {
     margin: 10px 0;
 
     border: none;
