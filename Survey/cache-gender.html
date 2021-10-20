@@ -50,14 +50,8 @@
 </head>
 
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="offhlfirxmletdw5z1zdpppqtaaqaaaa" /><input
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="xn421wuf3yhubbf4kf2uoo61oyaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="GenderReal" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
-		<table style="height: 100%; width: 100%">
-			<tr>
-				<td style="width: 33%; background-color: #49bfbc" />
-				<td class="mrProgressText">33%</td>
-			</tr>
-		</table>
 		<div class="surroundcontent">
 			<div class="question-container sidebyside">
 				<div class="o-question-errorandinstruction">
@@ -70,7 +64,7 @@
 					<div class="o-question-information">Please indicate your gender if you want to</div>
 					<div class="o-question-response" data-questionid="_QGenderReal_C">
 						<div class="m-option-base" data-exclusive="false">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+							<script>app.registerComponent('mOptionBase', '_Q0_C');</script>
 							<input class="hiddencontrol" type="radio" name="_QGenderReal_C" id="_Q0_C0" style="" value="male" />
 							<label for="_Q0_C0">
 								<span class="a-icon-multistate" data-icontype="single">
@@ -78,7 +72,7 @@
 								</span>male</label>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+							<script>app.registerComponent('mOptionBase', '_Q0_C');</script>
 							<input class="hiddencontrol" type="radio" name="_QGenderReal_C" id="_Q0_C1" style="" value="female" />
 							<label for="_Q0_C1">
 								<span class="a-icon-multistate" data-icontype="single">
@@ -86,7 +80,7 @@
 								</span>female</label>
 						</div>
 						<div class="m-option-base" data-exclusive="false">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+							<script>app.registerComponent('mOptionBase', '_Q0_C');</script>
 							<input class="hiddencontrol" type="radio" name="_QGenderReal_C" id="_Q0_C2" style="" value="dontsay" />
 							<label for="_Q0_C2">
 								<span class="a-icon-multistate" data-icontype="single">

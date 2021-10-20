@@ -593,7 +593,9 @@
             </xsl:choose>
           </xsl:attribute>
           <xsl:element name="script">
-            <xsl:text>window.dispatchEvent("mOption_Base", this)</xsl:text>
+            <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
+            <xsl:value-of select="@ElementID" />
+            <xsl:text>');</xsl:text>
           </xsl:element>
           <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
@@ -678,7 +680,9 @@
           </xsl:choose>
         </xsl:attribute>
         <xsl:element name="script">
-          <xsl:text>window.dispatchEvent("mOption_Base", this)</xsl:text>
+          <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
+          <xsl:value-of select="@ElementID" />
+          <xsl:text>');</xsl:text>
         </xsl:element>
         <xsl:element name="input">
           <xsl:attribute name="class">hiddencontrol</xsl:attribute>

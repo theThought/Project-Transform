@@ -50,14 +50,8 @@
 </head>
 
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="offhlfirxmletdw5z1zdpppqtaaqaaaa" /><input
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="xn421wuf3yhubbf4kf2uoo61oyaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="Comments" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
-		<table style="height: 100%; width: 100%">
-			<tr>
-				<td style="width: 16%; background-color: #49bfbc" />
-				<td class="mrProgressText">16%</td>
-			</tr>
-		</table>
 		<div class="surroundcontent">
 			<div class="question-container sidebyside">
 				<div class="o-question-errorandinstruction">
@@ -73,7 +67,7 @@
 					<div class="o-question-response" data-questionid="_QComments">
 						<textarea name="_QComments" id="_Q0" class="a-input-multilineedit" autocomplete="off" style=""></textarea>
 						<div class="m-option-base" data-exclusive="true">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+							<script>app.registerComponent('mOptionBase', '_Q0_X');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QComments_Xnocomments" id="_Q0_X0" style="" value="nocomments" />
 							<label for="_Q0_X0">
 								<span class="a-icon-multistate" data-icontype="multiple">
@@ -81,7 +75,7 @@
 								</span>I don't have any positive or negative comments</label>
 						</div>
 						<div class="m-option-base" data-exclusive="true">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+							<script>app.registerComponent('mOptionBase', '_Q0_X');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QComments_Xsecond" id="_Q0_X1" style="" value="second" />
 							<label for="_Q0_X1">
 								<span class="a-icon-multistate" data-icontype="multiple">
