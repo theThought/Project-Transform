@@ -18,8 +18,8 @@
       <xsl:param name="bWithinTable" select="false()"/>
       <xsl:element name="div">
         <xsl:attribute name="class">o-question-response</xsl:attribute>
-        <xsl:attribute name="data-questionid">
-          <xsl:value-of select="//Control[1]/@QuestionName" />
+        <xsl:attribute name="data-questiongroup">
+          <xsl:value-of select="//Control[1]/@ElementID" />
         </xsl:attribute>
         <xsl:for-each select="*">
             <xsl:choose>
