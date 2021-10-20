@@ -49,9 +49,22 @@
 	<meta name="theme-color" content="#ffffff" />
 </head>
 
-<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="xn421wuf3yhubbf4kf2uoo61oyaqaaaa" /><input
+<body>
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="moas3cdol31ejp6je1hkd4pjhqaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="Comments" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
+		<div class="header">
+			<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/VoiceDiary/ipsoslogo128.png" />
+			<div class="overall-progress">
+				<div class="overall-progress-text">
+					<!-- progress text -->
+				</div>
+				<div class="overall-progress-bar">
+					<div class="overall-progress-meter-50">
+						<!-- progress bar -->
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="surroundcontent">
 			<div class="question-container sidebyside">
 				<div class="o-question-errorandinstruction">
@@ -64,7 +77,7 @@
 					<div class="o-question-information">
 						<label for="_Q0" class="a-label-question" style="">Would you please describe the positive and negative aspects of the experience you had during your last visit</label>
 					</div>
-					<div class="o-question-response" data-questionid="_QComments">
+					<div class="o-question-response" data-questiongroup="_Q0">
 						<textarea name="_QComments" id="_Q0" class="a-input-multilineedit" autocomplete="off" style=""></textarea>
 						<div class="m-option-base" data-exclusive="true">
 							<script>app.registerComponent('mOptionBase', '_Q0_X');</script>
@@ -86,9 +99,12 @@
 				</div>
 			</div>
 		</div>
-		<div id="nav-controls" class="btn-container nav-center">
-			<input type="submit" name="_NPrev" class="mrPrev" style="width: 70px;" value="Previous"></input>
-			<input type="submit" name="_NNext" class="mrNext" style="width: 70px;" value="Next"></input>
+		<div class="footer">
+			<div id="nav-controls" class="btn-container nav-center">
+				<input type="submit" name="_NPrev" class="mrPrev" style="width: 70px;" value="Previous"></input>
+				<input type="submit" name="_NNext" class="mrNext" style="width: 70px;" value="Next"></input>
+			</div>
+			<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
 		</div>
 	</form>
 </body>
