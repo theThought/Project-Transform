@@ -31,8 +31,19 @@ define(
         }
 
         oQuestionResponse.prototype.Init = function () {
-            this.element.addEventListener("click", this.clicked, false);
-            this.element.addEventListener("incomingExclusive", this.clicked, false);
+            document.addEventListener("click", this, false);
+            document.addEventListener("incomingExclusive", this, false);
+        }
+
+        oQuestionResponse.prototype.handleEvent = function (event) {
+            switch (event.type) {
+                case 'click':
+                    this.clicked(event);
+                    break;
+                case 'incomingExclusive':
+                    this.incomingExclusive(event);
+                    break;
+            }
         }
 
         oQuestionResponse.prototype.clicked = function () {
