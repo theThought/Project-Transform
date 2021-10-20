@@ -28,43 +28,55 @@ define(
 
         function mOptionBase(id) {
             this.id = id;
-            this.element = document.getElementById(id);
+            this.element = document.querySelector('div[data-questionid="' + id + '"]');
         }
 
         mOptionBase.prototype.Init = function () {
             this.exclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
-            this.element.addEventListener("click", this, false);
-            this.element.addEventListener("incomingExclusive", this, false);
+            document.addEventListener("click", this, false);
+            document.addEventListener("enableExclusive", this, false);
+            document.addEventListener("dismissExclusive", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-            console.log('Handling optionbase event');
             switch (event.type) {
                 case "click":
                     this.clicked(event);
                     break;
-                case "incomingExclusive":
-                    this.incomingExclusive(event);
+                case "enableExclusive":
+                    this.enableExclusive(event);
+                    break;
+                case "dismissExclusive":
+                    this.dismissExclusive(event);
                     break;
             }
         }
 
-        mOptionBase.prototype.incomingExclusive = function (event) {
-            var originatingElement = event.target;
-            if (this.element !== originatingElement) {
-                this.element.checked = false;
+        mOptionBase.prototype.enableExclusive = function (event) {
+            if (this.element !== event.target) {
+                var elCheckbox = this.element.getElementsByTagName('input');
+                elCheckbox[0].checked = false;
+            }
+        }
+
+
+        mOptionBase.prototype.dismissExclusive = function (event) {
+            if (this.element !== event.target) {
+                var elCheckbox = this.element.getElementsByTagName('input');
+                elCheckbox[0].checked = false;
             }
         }
 
         mOptionBase.prototype.clicked = function (event) {
             if (this.exclusive) {
-                var evExclusiveOn = new CustomEvent('incomingExclusive', {bubbles: true});
+                var evExclusiveOn = new CustomEvent('enableExclusive', {bubbles: true});
                 this.element.dispatchEvent(evExclusiveOn);
             }
 
-            if (this !== event.target && this.exclusive) {
-                this.element.checked = false;
+            if (this.element !== event.target && this.exclusive) {
+                var elCheckbox = this.element.getElementsByTagName('input');
+                elCheckbox[0].checked = false;
             }
         }
 

@@ -57,15 +57,20 @@ define(
         }
 
         aInputMultilineEdit.prototype.clicked = function (event) {
-            console.log('Handling InputMultilineEdit click event');
+            event.stopPropagation();
+            this.element.removeAttribute('readonly');
         }
 
         aInputMultilineEdit.prototype.changed = function (event) {
-            console.log('Handling input change on aInputMultilineedit.')
+            console.log('Handling input change on aInputMultilineedit for ' + this.id)
         }
 
-        aInputMultilineEdit.prototype.exclusive = function (event) {
-            console.log('Handling exclusive.');
+        aInputMultilineEdit.prototype.enableExclusive = function (event) {
+            this.element.setAttribute('readonly', 'true');
+        }
+
+        aInputMultilineEdit.prototype.dismissExclusive = function (event) {
+            this.element.removeAttribute('readonly');
         }
 
         return aInputMultilineEdit;

@@ -32,7 +32,7 @@ define(
 
         oQuestionResponse.prototype.Init = function () {
             document.addEventListener("click", this, false);
-            document.addEventListener("incomingExclusive", this, false);
+            document.addEventListener("enableExclusive", this, false);
         }
 
         oQuestionResponse.prototype.handleEvent = function (event) {
@@ -41,7 +41,7 @@ define(
                     this.clicked(event);
                     break;
                 case 'incomingExclusive':
-                    this.incomingExclusive(event);
+                    this.enableExclusive(event);
                     break;
             }
         }
@@ -50,7 +50,7 @@ define(
             console.log('Handling oQuestionResponse click event');
         }
 
-        oQuestionResponse.prototype.incomingExclusive = function () {
+        oQuestionResponse.prototype.enableExclusive = function () {
             console.log('Handling oQuestionResponse exclusive event');
         }
 
