@@ -11,29 +11,46 @@
 	<meta name="Template" content="page.htm" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<link rel="stylesheet" type="text/css" href=" base.css" />
+	<link rel="stylesheet" type="text/css" href="/base.css" />
+	<script type="text/javascript" src="/script/require.js" data-main="scripts/base.js">
+		//QuestionRegister Class is Instantiated
+	</script>
+	<script type="text/javascript">
+		require.config({
+			baseUrl: 'scripts'
+		});
+	</script>
+	<script type="text/javascript" src="/script/survey.js">
+		//Survey Class is Instantiated
+	</script>
+	<script type="text/javascript" src="/script/base.js">
+		//Core functionality outside classes
+	</script>
+	<script type="text/javascript">
+		require(['main'], function() {});
+	</script>
 	<title>Ipsos Healthcare Research</title>
-	<link rel="apple-touch-icon" sizes="57x57" href=" /favicons/apple-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="60x60" href=" /favicons/apple-icon-60x60.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href=" /favicons/apple-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" href=" /favicons/apple-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href=" /favicons/apple-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" href=" /favicons/apple-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href=" /favicons/apple-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href=" /favicons/apple-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href=" /favicons/apple-icon-180x180.png" />
-	<link rel="icon" type="image/png" sizes="192x192" href=" /favicons/android-icon-192x192.png" />
-	<link rel="icon" type="image/png" sizes="16x16" href=" /favicons/favicon-16x16.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href=" /favicons/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href=" /favicons/favicon-32x32.png" />
-	<link rel="manifest" href=" /manifest.json" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+	<link rel="manifest" href="/manifest.json" />
 	<meta name="msapplication-TileColor" content="#ffffff" />
 	<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png" />
 	<meta name="theme-color" content="#ffffff" />
 </head>
 
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="bgkknj2xndvuzibwe11dovzo3iaqaaaa" /><input
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="3cvdnlbakm6uxnlwr3hqqeu6zyaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="Hello" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" /><input type="hidden" name="I.ShowOnly" value="true" />
 		<table style="height: 100%; width: 100%">
 			<tr>
