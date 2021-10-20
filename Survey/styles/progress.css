@@ -9,16 +9,8 @@
 
 /* LOGO PLACEHOLDER */
 .site-logo {
-    box-sizing: border-box;
-    border-bottom-right-radius: 10px;
     height: 75px;
     width: 75px;
-    padding-top: 48px;
-    text-align: center;
-    background-color: #009D9C;
-    color: #FFFFFF;
-    font-size: large;
-    font-weight: 800;
 }
 
 .overall-progress {
