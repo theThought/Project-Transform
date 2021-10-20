@@ -374,6 +374,7 @@
         </xsl:if>
         <!--- Text Area -->
         <xsl:element name="textarea">
+          <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
             <!--- Input name -->
             <xsl:attribute name="name">
                 <xsl:value-of select="@QuestionName"/>
@@ -446,6 +447,11 @@
                     <xsl:value-of select="@Value"/>
                 </xsl:otherwise>
             </xsl:choose>
+        </xsl:element>
+        <xsl:element name="script">
+          <xsl:text>app.registerComponent('aInputMultilineedit', '</xsl:text>
+          <xsl:value-of select="@ElementID" />
+          <xsl:text>');</xsl:text>
         </xsl:element>
     </xsl:template>
 
@@ -592,6 +598,7 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
+          <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
           <xsl:element name="script">
             <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
             <xsl:value-of select="@ElementID" />
@@ -679,6 +686,7 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:attribute>
+        <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
         <xsl:element name="script">
           <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
           <xsl:value-of select="@ElementID" />
