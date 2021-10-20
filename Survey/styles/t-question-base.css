@@ -1,7 +1,13 @@
 .question-container {
     padding: .5em;
+    background: #FFFFFF;
+    border-bottom: 1px solid #D0DAE6;
+    box-sizing: border-box;
 }
 
+.surroundcontent div:last-child {
+    border-bottom: none;
+}
 .sidebyside .o-question-errorandinstruction {
     display: block;
 }
