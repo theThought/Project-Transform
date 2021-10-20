@@ -1,5 +1,8 @@
-#nav-controls
-{
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 1em;
     border-top: 1px solid #8797C8;
 }
@@ -15,4 +18,20 @@
 {
     color: #449B9B;
     background-color: #FFFFFF;
+}
+
+.page-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.page-links a {
+    color: #212C4C;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.page-links a:last-child {
+    margin-right: 0;
 }

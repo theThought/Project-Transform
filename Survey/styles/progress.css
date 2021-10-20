@@ -55,27 +55,35 @@
 .overall-progress-bar div[class^=overall-progress-meter-1] {
     width: 10%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-2] {
     width: 20%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-3] {
     width: 30%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-4] {
     width: 40%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-5] {
     width: 50%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-6] {
     width: 60%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-7] {
     width: 70%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-8] {
     width: 80%;
 }
+
 .overall-progress-bar div[class^=overall-progress-meter-9] {
     width: 90%;
 }
