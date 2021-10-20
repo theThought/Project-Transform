@@ -22,6 +22,12 @@ body
     margin: 0;
 }
 
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 0 1em;
+    }
+}
+
 *
 {
     font-family: 'Karla', sans-serif;
