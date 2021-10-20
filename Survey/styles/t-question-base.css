@@ -1,8 +1,10 @@
 .question-container {
-    padding: .5em;
-    background: #FFFFFF;
+    padding: 1em 0;
     border-bottom: 1px solid #D0DAE6;
     box-sizing: border-box;
+}
+.question-container:last-child {
+    padding-bottom: 0;
 }
 
 .surroundcontent div:last-child {
@@ -16,14 +18,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 -.5em;
+}
+
+.sidebyside .o-question-information {
+    margin-right: 1em;
 }
 
 .sidebyside .o-question-information,
 .sidebyside .o-question-response {
     flex-grow: 1;
     flex-basis: 0;
-    margin: 0 .5em;
 }
 
 .sidebyside .question-description label {

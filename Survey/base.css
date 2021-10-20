@@ -12,12 +12,14 @@
 @import url("styles/o-question-response.css");
 @import url("styles/o-question-errorandinstruction.css");
 @import url("styles/t-question-base.css");
+@import url("styles/o-option-list.css");
 
 body
 {
     background: #fafafa;
     color: #212C4C;
-    padding: 0 4em;
+    padding: 0 8em;
+    margin: 0;
 }
 
 *

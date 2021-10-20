@@ -5,6 +5,7 @@
     align-items: center;
     margin-top: 1em;
     border-top: 1px solid #8797C8;
+    margin-bottom: 1em;
 }
 
 #nav-controls input[type=submit]
@@ -12,9 +13,6 @@
     background-color: #449B9B;
     border-color: #449B9B;
     color: #FFFFFF;
-}
-
-#nav-controls input[type=submit]:first-child {
     margin-right: 1em;
 }
 

@@ -1,16 +1,25 @@
 .header {
+    box-sizing: border-box;
     height: 123px;
+    padding-bottom: 1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     border-bottom: 1px solid #8797C8;
 }
 
-/* LOGO PLACEHOLDER */
 .site-logo {
     height: 75px;
     width: 75px;
+}
+
+/*
+ * TODO: To be removed -- a temporary fix to adjust for padding at the bottom of the current logo
+ */
+.site-logo {
+    position: relative;
+    top: 7px;
 }
 
 .overall-progress {
@@ -30,11 +39,12 @@
 }
 
 .overall-progress-bar {
-    height: 20px;
+    height: 24px;
     border: 1px solid #D0DAE6;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 4px;
+    background-color: #FFFFFF;
 }
 
 .overall-progress-bar div {

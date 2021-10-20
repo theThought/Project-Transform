@@ -1,0 +1,17 @@
+/* Sublist heading */
+.o-option-sublist .a-label-heading-sublist {
+    margin-bottom: .5em;
+    color: #212C4C;
+}
+
+/* Separates out sub-lists when they are immediately adjacent */
+.o-option-sublist + .o-option-sublist {
+    margin-top: 1em;
+}
+
+/* Separates individual options when following a sub-list.
+ * An example might be a "none of the above" check appearing
+ * below a set of sub-lists. */
+.o-option-sublist + .m-option-base {
+    margin-top: 1em;
+}
