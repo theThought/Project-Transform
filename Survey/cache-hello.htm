@@ -50,8 +50,21 @@
 </head>
 
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="xn421wuf3yhubbf4kf2uoo61oyaqaaaa" /><input
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="jdl46ajr4zeevi6zlbplk4r5gmaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="Hello" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" /><input type="hidden" name="I.ShowOnly" value="true" />
+		<div class="header">
+			<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/VoiceDiary/ipsoslogo128.png" />
+			<div class="overall-progress">
+				<div class="overall-progress-text">
+					<!-- progress text -->
+				</div>
+				<div class="overall-progress-bar">
+					<div class="overall-progress-meter-50">
+						<!-- progress bar -->
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="surroundcontent">
 			<div class="question-container sidebyside">
 				<div class="o-question-errorandinstruction">
@@ -62,12 +75,15 @@
 				</div>
 				<div class="o-question-core">
 					<div class="o-question-information">this is a basic example of an information question. Just a label with no interaction. However that label can be quite long as we use it to introduce a survey or a section of the survey</div>
-					<div class="o-question-response" data-questionid=""></div>
+					<div class="o-question-response" data-questiongroup=""></div>
 				</div>
 			</div>
 		</div>
-		<div id="nav-controls" class="btn-container nav-center">
-			<input type="submit" name="_NNext" class="mrNext" style="width: 70px;" value="Next"></input>
+		<div class="footer">
+			<div id="nav-controls" class="btn-container nav-center">
+				<input type="submit" name="_NNext" class="mrNext" style="width: 70px;" value="Next"></input>
+			</div>
+			<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
 		</div>
 	</form>
 </body>
