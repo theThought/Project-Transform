@@ -14,6 +14,10 @@
     color: #FFFFFF;
 }
 
+#nav-controls input[type=submit]:first-child {
+    margin-right: 1em;
+}
+
 #nav-controls input[type=submit]:hover
 {
     color: #449B9B;
