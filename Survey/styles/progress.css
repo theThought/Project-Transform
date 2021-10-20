@@ -1,4 +1,7 @@
 /* Temporarily target table that is immediate child of form as progress currently has no identifying class attribute */
-form > table {
-
+form > table
+{
+    display: block;
+    border-bottom: 1px solid #8797C8;
+    margin-bottom: 1em;
 }
