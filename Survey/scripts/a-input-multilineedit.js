@@ -78,10 +78,16 @@ define(
         }
 
         aInputMultilineEdit.prototype.onEnableExclusive = function (event) {
+            if (event.detail.questiongroup !== this.questiongroup) {
+                return
+            }
             this.element.setAttribute('readonly', 'readonly');
         }
 
         aInputMultilineEdit.prototype.onDismissExclusive = function (event) {
+            if (event.detail.questiongroup !== this.questiongroup) {
+                return
+            }
             this.element.removeAttribute('readonly');
         }
 

@@ -90,12 +90,18 @@ define(
         }
 
         mOptionBase.prototype.onDismissExclusive = function (event) {
+            if (event.detail.questiongroup !== this.questiongroup) {
+                return
+            }
             if (this.element !== event.detail.element && this.isExclusive) {
                 this.checkbox.checked = false;
             }
         }
 
         mOptionBase.prototype.onAInputMultilineEditClickEvent = function (event) {
+            if (event.detail.questiongroup !== this.questiongroup) {
+                return
+            }
             if (this.isExclusive) {
                 this.checkbox.checked = false;
             }
