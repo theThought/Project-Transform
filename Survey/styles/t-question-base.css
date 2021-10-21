@@ -16,6 +16,9 @@
 }
 
 .sidebyside .o-question-core {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

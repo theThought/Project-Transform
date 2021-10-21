@@ -2,11 +2,21 @@
     box-sizing: border-box;
     height: 123px;
     padding-bottom: 1em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
     border-bottom: 1px solid #8797C8;
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        height: 75px;
+        padding-bottom: .8em;
+    }
 }
 
 .site-logo {
@@ -18,8 +28,8 @@
 @media screen and (max-width: 1024px) {
     .site-logo {
         top: 5px;
-        max-height: 60px;
-        max-width: 60px;
+        max-height: 55px;
+        max-width: 55px;
     }
 }
 

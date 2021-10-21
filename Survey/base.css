@@ -20,6 +20,7 @@ body
     color: #212C4C;
     padding: 0 8em;
     margin: 0;
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -35,8 +36,25 @@ body
     line-height: 19px;
 }
 
+body>form
+{
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
 .surroundcontent
 {
+    -webkit-box-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
     max-width: 1920px;
     -webkit-box-shadow: none;
     box-shadow: none;
