@@ -28,55 +28,70 @@ define(
 
         function mOptionBase(id) {
             this.id = id;
+            this.groupid = null;
+            this.isExclusive = false;
             this.element = document.querySelector('div[data-questionid="' + id + '"]');
+            this.checkbox = this.element.getElementsByTagName('input')[0];
         }
 
         mOptionBase.prototype.Init = function () {
-            this.exclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
-            document.addEventListener("click", this, false);
+            document.addEventListener("change", this, false);
             document.addEventListener("enableExclusive", this, false);
             document.addEventListener("dismissExclusive", this, false);
+            document.addEventListener("aInputMultilineEditClickEvent", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case "click":
-                    this.clicked(event);
+                case "change":
+                    this.onChange(event);
                     break;
                 case "enableExclusive":
-                    this.enableExclusive(event);
+                    this.onEnableExclusive(event);
                     break;
                 case "dismissExclusive":
-                    this.dismissExclusive(event);
+                    this.onDismissExclusive(event);
+                    break;
+                case "aInputMultilineEditClickEvent":
+                    this.onAInputMultilineEditClickEvent(event);
                     break;
             }
         }
 
-        mOptionBase.prototype.enableExclusive = function (event) {
-            if (this.element !== event.target) {
-                var elCheckbox = this.element.getElementsByTagName('input');
-                elCheckbox[0].checked = false;
+        mOptionBase.prototype.onChange = function (event) {
+            if (event.target === this.checkbox) {
+
+                // handle self-generated events
+                if (this.isExclusive && this.checkbox.checked) {
+                    var enableExclusive = new CustomEvent('enableExclusive', {bubbles: true, detail: this});
+                    document.dispatchEvent(enableExclusive);
+
+                } else {
+                    var dismissExclusive = new CustomEvent('dismissExclusive', {bubbles: true, detail: this});
+                    document.dispatchEvent(dismissExclusive);
+                }
             }
         }
 
+        mOptionBase.prototype.onEnableExclusive = function (event) {
 
-        mOptionBase.prototype.dismissExclusive = function (event) {
-            if (this.element !== event.target) {
-                var elCheckbox = this.element.getElementsByTagName('input');
-                elCheckbox[0].checked = false;
+            // handle external events
+            if (this.element !== event.detail.element) {
+                this.checkbox.checked = false;
             }
         }
 
-        mOptionBase.prototype.clicked = function (event) {
-            if (this.exclusive) {
-                var evExclusiveOn = new CustomEvent('enableExclusive', {bubbles: true});
-                this.element.dispatchEvent(evExclusiveOn);
+        mOptionBase.prototype.onDismissExclusive = function (event) {
+            if (this.element !== event.detail.element && this.isExclusive) {
+                this.checkbox.checked = false;
             }
+        }
 
-            if (this.element !== event.target && this.exclusive) {
-                var elCheckbox = this.element.getElementsByTagName('input');
-                elCheckbox[0].checked = false;
+        mOptionBase.prototype.onAInputMultilineEditClickEvent = function (event) {
+            if (this.isExclusive) {
+                this.checkbox.checked = false;
             }
         }
 

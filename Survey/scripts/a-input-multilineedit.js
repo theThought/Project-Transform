@@ -27,14 +27,16 @@ define(
 
         function aInputMultilineEdit(id) {
             this.id = id;
-            this.element = document.getElementById(id);
+            this.groupid = null;
+            this.isExclusive = false;
+            this.element = document.querySelector('textarea[data-questionid="' + id + '"]');
         }
 
         aInputMultilineEdit.prototype.Init = function () {
-            this.exclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.groupid = this.element.getAttribute('data-questiongroup');
 
             document.addEventListener("click", this, false);
-            document.addEventListener("change", this, false);
             document.addEventListener("enableExclusive", this, false);
             document.addEventListener("dismissExclusive", this, false);
         }
@@ -42,34 +44,40 @@ define(
         aInputMultilineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "click":
-                    this.clicked(event);
-                    break;
-                case "change":
-                    this.changed(event);
+                    this.onClick(event);
                     break;
                 case "enableExclusive":
-                    this.enableExclusive(event);
+                    this.onEnableExclusive(event);
                     break;
                 case "dismissExclusive":
-                    this.dismissExclusive(event);
+                    this.onDismissExclusive(event);
                     break;
             }
         }
 
-        aInputMultilineEdit.prototype.clicked = function (event) {
-            event.stopPropagation();
-            this.element.removeAttribute('readonly');
+        aInputMultilineEdit.prototype.onClick = function (event) {
+
+            if (event.target === this.element) {
+
+                // handle self-generated events
+                var clickedEvent = new CustomEvent('aInputMultilineEditClickEvent', {bubbles: true, detail: this});
+                document.dispatchEvent(clickedEvent);
+                this.element.removeAttribute('readonly');
+
+            } else {
+
+                // handle external events
+                if (event.detail.isExclusive) {
+                    this.element.setAttribute('readonly', 'readonly');
+                }
+            }
         }
 
-        aInputMultilineEdit.prototype.changed = function (event) {
-            console.log('Handling input change on aInputMultilineedit for ' + this.id)
+        aInputMultilineEdit.prototype.onEnableExclusive = function (event) {
+            this.element.setAttribute('readonly', 'readonly');
         }
 
-        aInputMultilineEdit.prototype.enableExclusive = function (event) {
-            this.element.setAttribute('readonly', 'true');
-        }
-
-        aInputMultilineEdit.prototype.dismissExclusive = function (event) {
+        aInputMultilineEdit.prototype.onDismissExclusive = function (event) {
             this.element.removeAttribute('readonly');
         }
 
