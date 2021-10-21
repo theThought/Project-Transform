@@ -27,14 +27,14 @@ define(
 
         function aInputMultilineEdit(id) {
             this.id = id;
-            this.groupid = null;
+            this.questiongroup = null;
             this.isExclusive = false;
             this.element = document.querySelector('textarea[data-questionid="' + id + '"]');
         }
 
         aInputMultilineEdit.prototype.Init = function () {
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
-            this.groupid = this.element.getAttribute('data-questiongroup');
+            this.questiongroup = this.element.getAttribute('data-questiongroup');
 
             document.addEventListener("click", this, false);
             document.addEventListener("enableExclusive", this, false);
@@ -67,6 +67,10 @@ define(
             } else {
 
                 // handle external events
+                if (event.detail.groupid !== this.questiongroup) {
+                    return
+                }
+
                 if (event.detail.isExclusive) {
                     this.element.setAttribute('readonly', 'readonly');
                 }

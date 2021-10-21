@@ -28,7 +28,7 @@ define(
 
         function mOptionBase(id) {
             this.id = id;
-            this.groupid = null;
+            this.questiongroup = null;
             this.isExclusive = false;
             this.element = document.querySelector('div[data-questionid="' + id + '"]');
             this.checkbox = this.element.getElementsByTagName('input')[0];
@@ -36,6 +36,7 @@ define(
 
         mOptionBase.prototype.Init = function () {
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.questiongroup = this.element.getAttribute('data-questiongroup');
 
             document.addEventListener("change", this, false);
             document.addEventListener("enableExclusive", this, false);
@@ -79,6 +80,11 @@ define(
 
             // handle external events
             if (this.element !== event.detail.element) {
+
+                if (event.detail.groupid !== this.questiongroup) {
+                    return
+                }
+
                 this.checkbox.checked = false;
             }
         }
