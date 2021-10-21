@@ -16,15 +16,18 @@
 
     <xsl:template match="Question">
       <xsl:param name="bWithinTable" select="false()"/>
+      <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
       <xsl:element name="div">
         <xsl:attribute name="class">o-question-response</xsl:attribute>
         <xsl:attribute name="data-questiongroup">
-          <xsl:value-of select="//Control[1]/@ElementID" />
+          <xsl:value-of select="$qGroupName" />
         </xsl:attribute>
         <xsl:for-each select="*">
             <xsl:choose>
                 <xsl:when test="name() = 'Control'">
-                    <xsl:apply-templates select="."/>
+                    <xsl:apply-templates select=".">
+                      <xsl:with-param name="qGroup" select="$qGroupName" />
+                    </xsl:apply-templates>
                 </xsl:when>
                 <xsl:when test="name() = 'Label'">
                     <xsl:apply-templates select=".">
@@ -170,18 +173,27 @@
 <!--- CONTROL -->
 
     <xsl:template match="Control">
+      <xsl:param name="qGroup"/>
         <xsl:choose>
             <xsl:when test="@Type = 'Static'">
-                <xsl:call-template name="StaticControl"/>
+                <xsl:call-template name="StaticControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'Edit'">
-                <xsl:call-template name="EditControl"/>
+                <xsl:call-template name="EditControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'SingleLineEdit'">
-                <xsl:call-template name="SingleLineEditControl"/>
+                <xsl:call-template name="SingleLineEditControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'MultiLineEdit'">
-                <xsl:call-template name="MultiLineEditControl"/>
+                <xsl:call-template name="MultiLineEditControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'DropList'">
                 <xsl:call-template name="DropListControl"/>
@@ -190,10 +202,14 @@
                 <xsl:call-template name="ComboListControl"/>
             </xsl:when>
             <xsl:when test="@Type = 'RadioButton'">
-                <xsl:call-template name="RadioButtonControl"/>
+                <xsl:call-template name="RadioButtonControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'CheckButton'">
-                <xsl:call-template name="CheckButtonControl"/>
+                <xsl:call-template name="CheckButtonControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'ListBox'">
                 <xsl:call-template name="ListBoxControl"/>
@@ -240,18 +256,24 @@
     </xsl:template>
 
     <xsl:template name="EditControl">
+      <xsl:param name="qGroup" />
         <!--- Need to decide whether to use a text area of a edit control -->
         <xsl:choose>
             <xsl:when test="number(@Length) > 40">
-                <xsl:call-template name="MultiLineEditControl"/>
+                <xsl:call-template name="MultiLineEditControl">
+                  <xsl:with-param name="qGroup" select="$qGroup" />
+                </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:call-template name="SingleLineEditControl"/>
+              <xsl:call-template name="SingleLineEditControl">
+                <xsl:with-param name="qGroup" select="$qGroup" />
+              </xsl:call-template>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
     <xsl:template name="SingleLineEditControl">
+      <xsl:param name="qGroup" />
         <!--- Control Label -->
         <xsl:if test="Category[1]/Label">
             <xsl:choose>
@@ -349,6 +371,7 @@
     </xsl:template>
 
     <xsl:template name="MultiLineEditControl">
+      <xsl:param name="qGroup" />
         <!--- Control Label -->
         <xsl:if test="Category[1]/Label">
             <xsl:choose>
@@ -375,6 +398,7 @@
         <!--- Text Area -->
         <xsl:element name="textarea">
           <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
+          <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
             <!--- Input name -->
             <xsl:attribute name="name">
                 <xsl:value-of select="@QuestionName"/>
@@ -585,6 +609,7 @@
     </xsl:template>
 
     <xsl:template name="RadioButtonControl">
+      <xsl:param name="qGroup" />
       <!--- Control Label -->
         <xsl:element name="div">
           <xsl:attribute name="class">m-option-base</xsl:attribute>
@@ -599,6 +624,8 @@
             </xsl:choose>
           </xsl:attribute>
           <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
+          <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
+
           <xsl:element name="script">
             <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
             <xsl:value-of select="@ElementID" />
@@ -673,6 +700,7 @@
     </xsl:template>
 
     <xsl:template name="CheckButtonControl">
+      <xsl:param name="qGroup" />
     <!--- Control Label -->
       <xsl:element name="div">
         <xsl:attribute name="class">m-option-base</xsl:attribute>
@@ -687,6 +715,8 @@
           </xsl:choose>
         </xsl:attribute>
         <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
+        <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
+
         <xsl:element name="script">
           <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
           <xsl:value-of select="@ElementID" />
