@@ -42,6 +42,7 @@
                 <xsl:when test="name() = 'Table'">
                     <xsl:apply-templates select=".">
                         <xsl:with-param name="Orientation" select="../Style/@Orientation" />
+                        <xsl:with-param name="qGroup" select="$qGroupName" />
                     </xsl:apply-templates>
                 </xsl:when>
                 <xsl:when test="name() = 'Questions'">
@@ -88,6 +89,7 @@
 <!--- TABLE -->
 
     <xsl:template match="Table">
+      <xsl:param name="qGroup"/>
       <xsl:param name="Orientation" select="Column" />
 
       <xsl:for-each select="./Row">
@@ -100,13 +102,17 @@
                 <xsl:call-template name="SpanCell" />
                 <xsl:for-each select="./following-sibling::Row">
                   <xsl:if test="starts-with(./Cell/Control/Category/@CategoryID, $rowID)">
-                    <xsl:call-template name="SpanCell" />
+                    <xsl:call-template name="SpanCell">
+                      <xsl:with-param name="qGroup" select="$qGroup" />
+                    </xsl:call-template>
                   </xsl:if>
                 </xsl:for-each>
               </xsl:element>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:call-template name="SpanCell" />
+              <xsl:call-template name="SpanCell">
+                <xsl:with-param name="qGroup" select="$qGroup" />
+              </xsl:call-template>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:if>
@@ -127,6 +133,7 @@
   <!-- SPAN LAYOUT -->
 
     <xsl:template name="SpanRow">
+      <xsl:param name="qGroup"/>
       <xsl:param name="Orientation" select="Column" />
       <xsl:for-each select="Row">
           <xsl:sort select="@Y" order="ascending" data-type="number"/>
@@ -137,13 +144,16 @@
     </xsl:template>
 
     <xsl:template name="SpanCell">
+      <xsl:param name="qGroup"/>
       <xsl:param name="Orientation" select="Column" />
       <xsl:for-each select="Cell">
           <xsl:sort select="@X" order="ascending" data-type="number" />
           <xsl:for-each select="*">
               <xsl:choose>
                   <xsl:when test="name() = 'Control'">
-                      <xsl:apply-templates select="."/>
+                      <xsl:apply-templates select=".">
+                        <xsl:with-param name="qGroup" select="$qGroup" />
+                      </xsl:apply-templates>
                   </xsl:when>
                   <xsl:when test="name() = 'Label'">
                       <xsl:apply-templates select=".">
@@ -162,7 +172,8 @@
                   </xsl:when>
                   <xsl:when test="name() = 'Question'">
                       <xsl:apply-templates select=".">
-                          <xsl:with-param name="bWithinTable" select="true()"/>
+                          <xsl:with-param name="bWithinTable" select="true()" />
+                          <xsl:with-param name="qGroup" select="$qGroup" />
                       </xsl:apply-templates>
                   </xsl:when>
               </xsl:choose>
