@@ -14,6 +14,13 @@
     border-color: #449B9B;
     color: #FFFFFF;
     margin-right: 1em;
+    width: auto !important;
+    max-width: 197px;
+    min-width: 160px;
+}
+
+#nav-controls input[type=submit]:last-child {
+    margin-right: 0;
 }
 
 #nav-controls input[type=submit]:hover

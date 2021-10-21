@@ -1,17 +1,18 @@
 .question-container {
     padding: 1em 0;
     border-bottom: 1px solid #D0DAE6;
-    box-sizing: border-box;
 }
+
 .question-container:last-child {
     padding-bottom: 0;
 }
 
-.surroundcontent div:last-child {
+.surroundcontent>div:last-child {
     border-bottom: none;
 }
+
 .sidebyside .o-question-errorandinstruction {
-    display: block;
+
 }
 
 .sidebyside .o-question-core {
@@ -36,8 +37,4 @@
 
 .question-container.vertical {
 
-}
-
-.sidebyside .o-question-response textarea.a-input-multilineedit {
-    margin-bottom: .5em;
 }
