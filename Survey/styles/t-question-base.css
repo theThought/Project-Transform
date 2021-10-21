@@ -24,8 +24,13 @@
     justify-content: space-between;
 }
 
+.o-question-information {
+    margin-bottom: 1em;
+}
+
 .sidebyside .o-question-information {
     margin-right: 1em;
+    margin-bottom: 0;
 }
 
 .sidebyside .o-question-information,
