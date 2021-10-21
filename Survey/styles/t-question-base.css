@@ -1,9 +1,9 @@
-.question-container {
+.o-question-container {
     padding: 1em 0;
     border-bottom: 1px solid #D0DAE6;
 }
 
-.question-container:last-child {
+.o-question-container:last-child {
     padding-bottom: 0;
 }
 
@@ -11,7 +11,7 @@
     border-bottom: none;
 }
 
-.sidebyside .o-question-errorandinstruction {
+.surroundcontent>div:first-child {
 
 }
 
@@ -29,12 +29,4 @@
 .sidebyside .o-question-response {
     flex-grow: 1;
     flex-basis: 0;
-}
-
-.sidebyside .question-description label {
-    display: block;
-}
-
-.question-container.vertical {
-
 }
