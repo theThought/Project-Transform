@@ -24,7 +24,7 @@ function Survey() {
 }
 
 Survey.prototype.Init = function () {
-    console.log('Init components.');
+    console.log('Init app.');
 
     for (var component in this.components) {
         this.components[component].Init();
