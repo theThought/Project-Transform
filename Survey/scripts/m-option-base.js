@@ -81,7 +81,7 @@ define(
             // handle external events
             if (this.element !== event.detail.element) {
 
-                if (event.detail.groupid !== this.questiongroup) {
+                if (event.detail.questiongroup !== this.questiongroup) {
                     return
                 }
 

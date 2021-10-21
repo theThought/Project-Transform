@@ -67,7 +67,7 @@ define(
             } else {
 
                 // handle external events
-                if (event.detail.groupid !== this.questiongroup) {
+                if (event.detail.questiongroup !== this.questiongroup) {
                     return
                 }
 
