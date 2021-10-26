@@ -27,12 +27,15 @@ define(
 
         function aInputMultilineEdit(id) {
             this.id = id;
-            this.questiongroup = null;
+            this.element = null;
+            this.questionGroup = null;
             this.isExclusive = false;
-            this.element = document.querySelector('textarea[data-questionid="' + id + '"]');
+            this.defaultPlaceholder = '';
         }
 
         aInputMultilineEdit.prototype.Init = function () {
+            this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
+            this.questionGroup = this.element.getAttribute('data-questionGroup');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.questiongroup = this.element.getAttribute('data-questiongroup');
 
@@ -67,25 +70,28 @@ define(
             } else {
 
                 // handle external events
-                if (event.detail.questiongroup !== this.questiongroup) {
-                    return
+
+                // ignore events from other questions
+                if (event.detail.questionGroup !== this.questionGroup) {
+                    return;
                 }
 
-                if (event.detail.isExclusive) {
-                    this.element.setAttribute('readonly', 'readonly');
-                }
             }
         }
 
         aInputMultilineEdit.prototype.onEnableExclusive = function (event) {
-            if (event.detail.questiongroup !== this.questiongroup) {
-                return
+
+            // ignore events from other questions
+            if (event.detail.questionGroup !== this.questionGroup) {
+                return;
             }
             this.element.setAttribute('readonly', 'readonly');
         }
 
         aInputMultilineEdit.prototype.onDismissExclusive = function (event) {
-            if (event.detail.questiongroup !== this.questiongroup) {
+
+            // ignore events from other questions
+            if (event.detail.questionGroup !== this.questionGroup) {
                 return
             }
             this.element.removeAttribute('readonly');

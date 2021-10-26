@@ -28,15 +28,17 @@ define(
 
         function mOptionBase(id) {
             this.id = id;
-            this.questiongroup = null;
+            this.element = null;
+            this.questionGroup = null;
+            this.checkbox = null;
             this.isExclusive = false;
-            this.element = document.querySelector('div[data-questionid="' + id + '"]');
-            this.checkbox = this.element.getElementsByTagName('input')[0];
         }
 
         mOptionBase.prototype.Init = function () {
+            this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
+            this.questionGroup = this.element.getAttribute('data-questionGroup');
+            this.checkbox = this.element.getElementsByTagName('input')[0];
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
-            this.questiongroup = this.element.getAttribute('data-questiongroup');
 
             document.addEventListener("change", this, false);
             document.addEventListener("enableExclusive", this, false);
@@ -62,6 +64,7 @@ define(
         }
 
         mOptionBase.prototype.onChange = function (event) {
+
             if (event.target === this.checkbox) {
 
                 // handle self-generated events
@@ -78,30 +81,36 @@ define(
 
         mOptionBase.prototype.onEnableExclusive = function (event) {
 
+            // ignore events from other questions
+            if (event.detail.questionGroup !== this.questionGroup) {
+                return
+            }
+
             // handle external events
             if (this.element !== event.detail.element) {
-
-                if (event.detail.questiongroup !== this.questiongroup) {
-                    return
-                }
-
                 this.checkbox.checked = false;
             }
         }
 
         mOptionBase.prototype.onDismissExclusive = function (event) {
-            if (event.detail.questiongroup !== this.questiongroup) {
+
+            // ignore events from other questions
+            if (event.detail.questionGroup !== this.questionGroup) {
                 return
             }
+
             if (this.element !== event.detail.element && this.isExclusive) {
                 this.checkbox.checked = false;
             }
         }
 
         mOptionBase.prototype.onAInputMultilineEditClickEvent = function (event) {
-            if (event.detail.questiongroup !== this.questiongroup) {
+
+            // ignore events from other questions
+            if (event.detail.questionGroup !== this.questionGroup) {
                 return
             }
+
             if (this.isExclusive) {
                 this.checkbox.checked = false;
             }
