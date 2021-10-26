@@ -37,7 +37,7 @@ define(
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
             this.questionGroup = this.element.getAttribute('data-questionGroup');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
-            this.questiongroup = this.element.getAttribute('data-questiongroup');
+            this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
             document.addEventListener("click", this, false);
             document.addEventListener("enableExclusive", this, false);
@@ -65,7 +65,12 @@ define(
                 // handle self-generated events
                 var clickedEvent = new CustomEvent('aInputMultilineEditClickEvent', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
-                this.element.removeAttribute('readonly');
+
+                if (this.element.placeholder.length
+                    && this.element.placeholder !== this.defaultPlaceholder) {
+                    this.element.value = this.element.placeholder;
+                    this.element.placeholder = this.defaultPlaceholder;
+                }
 
             } else {
 
@@ -85,7 +90,12 @@ define(
             if (event.detail.questionGroup !== this.questionGroup) {
                 return;
             }
-            this.element.setAttribute('readonly', 'readonly');
+
+            if (this.element.value) {
+                this.element.placeholder = this.element.value;
+                this.element.value = '';
+            }
+
         }
 
         aInputMultilineEdit.prototype.onDismissExclusive = function (event) {
@@ -94,7 +104,13 @@ define(
             if (event.detail.questionGroup !== this.questionGroup) {
                 return
             }
-            this.element.removeAttribute('readonly');
+
+            if (this.element.placeholder.length
+                && this.element.placeholder !== this.defaultPlaceholder) {
+                this.element.value = this.element.placeholder;
+                this.element.placeholder = this.defaultPlaceholder;
+            }
+
         }
 
         return aInputMultilineEdit;
