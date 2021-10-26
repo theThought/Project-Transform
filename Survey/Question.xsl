@@ -634,12 +634,20 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
-          <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
+          <xsl:attribute name="data-questionid">
+            <xsl:value-of select="@ElementID" />
+            <xsl:if test="Category[1]/@CategoryID">
+              <xsl:value-of select="Category[1]/@CategoryID"/>
+            </xsl:if>
+          </xsl:attribute>
           <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
 
           <xsl:element name="script">
             <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
             <xsl:value-of select="@ElementID" />
+            <xsl:if test="Category[1]/@CategoryID">
+              <xsl:value-of select="Category[1]/@CategoryID"/>
+            </xsl:if>
             <xsl:text>');</xsl:text>
           </xsl:element>
           <xsl:element name="input">
@@ -725,12 +733,20 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:attribute>
-        <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
+        <xsl:attribute name="data-questionid">
+          <xsl:value-of select="@ElementID" />
+          <xsl:if test="Category[1]/@CategoryID">
+            <xsl:value-of select="Category[1]/@CategoryID"/>
+          </xsl:if>
+        </xsl:attribute>
         <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
 
         <xsl:element name="script">
           <xsl:text>app.registerComponent('mOptionBase', '</xsl:text>
           <xsl:value-of select="@ElementID" />
+          <xsl:if test="Category[1]/@CategoryID">
+            <xsl:value-of select="Category[1]/@CategoryID"/>
+          </xsl:if>
           <xsl:text>');</xsl:text>
         </xsl:element>
         <xsl:element name="input">
