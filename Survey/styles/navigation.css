@@ -1,11 +1,14 @@
 .footer {
+    margin-top: 1em;
+    border-top: 1px solid #8797C8;
+    padding: 1em 0;
+}
+
+#nav-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: start;
-    margin-top: 1em;
-    border-top: 1px solid #8797C8;
-    padding: 1em 0;
 }
 
 #nav-controls input[type=submit]
@@ -17,7 +20,7 @@
     margin-right: 1em;
     width: auto !important;
     max-width: 197px;
-    min-width: 160px;
+    min-width: 109px;
 }
 
 #nav-controls input[type=submit]:last-child {
