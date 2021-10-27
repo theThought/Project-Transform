@@ -14,8 +14,7 @@
 @import url("styles/t-question-base.css");
 @import url("styles/o-option-list.css");
 
-body
-{
+body {
     background: #fafafa;
     color: #212C4C;
     padding: 0 8em;
@@ -29,15 +28,13 @@ body
     }
 }
 
-*
-{
+* {
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 19px;
 }
 
-body>form
-{
+body > form {
     min-height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -49,8 +46,7 @@ body>form
     flex-direction: column;
 }
 
-.surroundcontent
-{
+.surroundcontent {
     -webkit-box-flex: 1 0 auto;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
@@ -60,7 +56,9 @@ body>form
     box-shadow: none;
 }
 
-.hiddencontrol
-{
-  display: none;
+.hiddencontrol {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    left: -9999px;
 }
