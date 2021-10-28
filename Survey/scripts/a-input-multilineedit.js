@@ -39,15 +39,15 @@ define(
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
-            document.addEventListener("click", this, false);
+            document.addEventListener("focusin", this, false);
             document.addEventListener("enableExclusive", this, false);
             document.addEventListener("dismissExclusive", this, false);
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case "click":
-                    this.onClick(event);
+                case "focusin":
+                    this.onFocusIn(event);
                     break;
                 case "enableExclusive":
                     this.onEnableExclusive(event);
@@ -58,12 +58,12 @@ define(
             }
         }
 
-        aInputMultilineEdit.prototype.onClick = function (event) {
+        aInputMultilineEdit.prototype.onFocusIn = function (event) {
 
             if (event.target === this.element) {
 
                 // handle self-generated events
-                var clickedEvent = new CustomEvent('aInputMultilineEditClickEvent', {bubbles: true, detail: this});
+                var clickedEvent = new CustomEvent('aInputMultilineEditFocusEvent', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
 
                 if (this.element.placeholder.length

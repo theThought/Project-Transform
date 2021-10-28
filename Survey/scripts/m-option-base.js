@@ -43,7 +43,7 @@ define(
             document.addEventListener("change", this, false);
             document.addEventListener("enableExclusive", this, false);
             document.addEventListener("dismissExclusive", this, false);
-            document.addEventListener("aInputMultilineEditClickEvent", this, false);
+            document.addEventListener("aInputMultilineEditFocusEvent", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
@@ -57,7 +57,7 @@ define(
                 case "dismissExclusive":
                     this.onDismissExclusive(event);
                     break;
-                case "aInputMultilineEditClickEvent":
+                case "aInputMultilineEditFocusEvent":
                     this.onAInputMultilineEditClickEvent(event);
                     break;
             }
