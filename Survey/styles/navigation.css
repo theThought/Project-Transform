@@ -7,17 +7,11 @@
 #nav-controls {
     display: flex;
     justify-content: space-between;
-    gap: 1em;
 }
 
 #nav-controls>div {
     display: flex;
-    gap: 1em;
     flex-grow: 1;
-}
-
-#nextonly {
-    justify-content: end;
 }
 
 #nav-controls input[type=submit]
@@ -36,6 +30,23 @@
 {
     color: #449B9B;
     background-color: #FFFFFF;
+}
+
+#prevstop {
+    margin-right: 1em;
+}
+
+#prevstop input[type=submit] {
+    margin-right: 1em;
+    flex-basis: 0;
+}
+
+#prevstop input[type=submit]:last-child {
+    margin-right: 0;
+}
+
+#nextonly {
+    justify-content: end;
 }
 
 .page-links {
