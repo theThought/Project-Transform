@@ -21,3 +21,13 @@ input[type=radio]:checked + label > .a-icon-multistate
 {
     background-position-x: 0;
 }
+
+input[type=checkbox]:focus + label,
+input[type=radio]:focus + label,
+input[type=checkbox]:focus-visible + label,
+input[type=radio]:focus-visible + label,
+input[type=checkbox]:focus-within + label,
+input[type=radio]:focus-within + label
+{
+    outline: 1px solid #324371;
+}
