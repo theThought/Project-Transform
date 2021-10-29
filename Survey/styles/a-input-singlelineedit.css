@@ -1,8 +1,13 @@
 .a-input-singlelineedit
 {
-    padding: 16px;
-    border-radius: 10px 0 0 10px;
-    border: 1px solid #8797c8;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #8797C8;
     color: #757575;
-    margin: 0 .5em;
+    margin: 0 0 .5em 0;
+    min-width: 197px;
+}
+
+.a-input-singlelineedit:last-of-type {
+    margin-bottom:0;
 }

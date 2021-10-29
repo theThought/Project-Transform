@@ -34,6 +34,7 @@ Survey.prototype.Init = function () {
 
 Survey.prototype.registerComponent = function (componentType, id) {
     console.log('Registering component.');
+    // TODO: parse JSON here so the correct component is defined
 
     switch (componentType) {
         case 'mOptionBase':
@@ -44,6 +45,11 @@ Survey.prototype.registerComponent = function (componentType, id) {
         case 'aInputMultilineedit':
             require(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.components[id] = new aInputMultilineEdit(id);
+            });
+            break;
+        case 'aInputSinglelineedit':
+            require(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
+                app.components[id] = new aInputSinglelineEdit(id);
             });
             break;
     }
