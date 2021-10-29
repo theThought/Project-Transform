@@ -1,10 +1,10 @@
 .m-option-base {
     position: relative;
-    margin-bottom: .5em;
+    margin-top: .5em;
 }
 
-.m-option-base:last-child {
-    margin-bottom: 0;
+.m-option-base:first-child {
+    margin-top: 0;
 }
 
 .m-option-base label {
