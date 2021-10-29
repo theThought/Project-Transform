@@ -35,7 +35,7 @@ define(
 
         aInputMultilineEdit.prototype.Init = function () {
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
-            this.questionGroup = this.element.getAttribute('data-questionGroup');
+            this.questionGroup = this.element.getAttribute('data-questiongroup');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 

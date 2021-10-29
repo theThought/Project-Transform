@@ -36,7 +36,7 @@ define(
 
         mOptionBase.prototype.Init = function () {
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
-            this.questionGroup = this.element.getAttribute('data-questionGroup');
+            this.questionGroup = this.element.getAttribute('data-questiongroup');
             this.checkbox = this.element.getElementsByTagName('input')[0];
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
