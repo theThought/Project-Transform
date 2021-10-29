@@ -55,12 +55,18 @@ The source code for this program is not published or otherwise divested of its t
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:element name="input">
+                      <xsl:if test="@Type='Stop'">
+                        <xsl:attribute name="tabindex">-1</xsl:attribute>
+                      </xsl:if>
                         <xsl:attribute name="type">submit</xsl:attribute>
                         <!--- Input name -->
                         <xsl:attribute name="name">_N<xsl:value-of select="@Type"/></xsl:attribute>
                         <!--- CSS Class -->
                         <xsl:if test="$bIncludeCSSStyles">
-                            <xsl:attribute name="class">mr<xsl:value-of select="@Type"/></xsl:attribute>
+                            <xsl:attribute name="class">
+                              <xsl:text>a-button-</xsl:text>
+                              <xsl:value-of select="translate(@Type, 'ABCDEFGHIJKLMNOPQRSTUVXYZ', 'abcdefghijklmnopqrstuvxyz')"/>
+                            </xsl:attribute>
                         </xsl:if>
                         <!--- Accelerator access key -->
                         <xsl:if test="Style/Control/@Accelerator != ''">
