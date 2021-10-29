@@ -614,14 +614,7 @@
         <xsl:element name="div">
           <xsl:attribute name="class">m-option-base</xsl:attribute>
           <xsl:attribute name="data-exclusive">
-            <xsl:choose>
-              <xsl:when test="Category/Label/Style/Font/@IsBold = true">
-                <xsl:text>true</xsl:text>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>false</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
+            <xsl:text>true</xsl:text>
           </xsl:attribute>
           <xsl:attribute name="data-questionid">
             <xsl:value-of select="@ElementID" />
