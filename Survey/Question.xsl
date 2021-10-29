@@ -336,7 +336,7 @@
             </xsl:if>
             <!--- CSS Class -->
             <xsl:if test="$bIncludeCSSStyles">
-                <xsl:attribute name="class">mrEdit</xsl:attribute>
+                <xsl:attribute name="class">a-input-singlelineedit</xsl:attribute>
             </xsl:if>
             <!--- Show Only -->
             <xsl:if test="$bShowOnly != false()">
@@ -378,6 +378,11 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
+        </xsl:element>
+        <xsl:element name="script">
+          <xsl:text>app.registerComponent('aInputSinglelineedit', '</xsl:text>
+          <xsl:value-of select="@ElementID" />
+          <xsl:text>');</xsl:text>
         </xsl:element>
     </xsl:template>
 
@@ -709,7 +714,6 @@
             <xsl:element name="span">
               <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
               <xsl:attribute name="data-icontype">single</xsl:attribute>
-              <xsl:comment>This is a comment!</xsl:comment>
             </xsl:element>
             <xsl:apply-templates select="Category[1]/Label">
                   <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
