@@ -72,6 +72,13 @@
     </xsl:template>
 
     <xsl:template name="Label">
+      <xsl:param name="labelType" select="'question'" />
+      <xsl:element name="span">
+        <xsl:attribute name="class">
+          <xsl:text>a-label-</xsl:text>
+          <xsl:value-of select="$labelType" />
+        </xsl:attribute>
+      </xsl:element>
       <xsl:call-template name="LabelText"/>
     </xsl:template>
 
@@ -285,29 +292,6 @@
 
     <xsl:template name="SingleLineEditControl">
       <xsl:param name="qGroup" />
-        <!--- Control Label -->
-        <xsl:if test="Category[1]/Label">
-            <xsl:choose>
-                <xsl:when test="$bIncludeElementIds">
-                    <xsl:element name="label">
-                        <xsl:attribute name="for">
-                            <xsl:value-of select="@ElementID"/>
-                            <xsl:if test="Category[1]/@CategoryID">
-                                <xsl:value-of select="Category[1]/@CategoryID"/>
-                            </xsl:if>
-                        </xsl:attribute>
-                        <xsl:apply-templates select="Category[1]/Label">
-                            <xsl:with-param name="sLabelClass" select="'mrSingleText'"/>
-                        </xsl:apply-templates>
-                    </xsl:element>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:apply-templates select="Category[1]/Label">
-                        <xsl:with-param name="sLabelClass" select="'mrSingleText'"/>
-                    </xsl:apply-templates>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:if>
         <!--- Edit box -->
         <xsl:element name="input">
             <!--- Set Control Type -->
@@ -714,9 +698,10 @@
             <xsl:element name="span">
               <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
               <xsl:attribute name="data-icontype">single</xsl:attribute>
+              <xsl:comment>This is a comment!</xsl:comment>
             </xsl:element>
             <xsl:apply-templates select="Category[1]/Label">
-                  <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
+                  <xsl:with-param name="labelType" select="'option'"/>
               </xsl:apply-templates>
           </xsl:element>
         </xsl:element>
@@ -818,7 +803,7 @@
             <xsl:comment>This is a comment!</xsl:comment>
           </xsl:element>
           <xsl:apply-templates select="Category[1]/Label">
-                <xsl:with-param name="sLabelClass" select="'a-label-option'"/>
+                <xsl:with-param name="labelType" select="'option'"/>
             </xsl:apply-templates>
         </xsl:element>
       </xsl:element>
