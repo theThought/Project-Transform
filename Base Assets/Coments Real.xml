@@ -1,0 +1,38 @@
+<Questions>
+  <Question>
+    <Style Indent="1">
+      <Control Type="Edit" />
+    </Style>
+    <Control Type="Edit" QuestionName="_QComments" ElementID="_Q0" Value="" Length="2000">
+      <Style ElementAlign="NewLine" Indent="1">
+        <Control Type="Edit" />
+      </Style>
+    </Control>
+    <Control Type="CheckButton" QuestionName="_QComments_X" ElementID="_Q0_X">
+      <Style ElementAlign="NewLine" Indent="1">
+        <Control Type="CheckButton" />
+      </Style>
+      <Category Name="nocomments" CategoryID="0">
+        <Label>
+          <Style ElementAlign="Right">
+            <Font IsBold="true" />
+          </Style>
+          <Text>I don't have any positive or negative Comments</Text>
+        </Label>
+      </Category>
+    </Control>
+    <Control Type="CheckButton" QuestionName="_QComments_X" ElementID="_Q0_X">
+      <Style ElementAlign="NewLine" Indent="1">
+        <Control Type="CheckButton" />
+      </Style>
+      <Category Name="second" CategoryID="1">
+        <Label>
+          <Style ElementAlign="Right">
+            <Font IsBold="true" />
+          </Style>
+          <Text>I refuse to answer this question</Text>
+        </Label>
+      </Category>
+    </Control>
+  </Question>
+</Questions>
