@@ -50,7 +50,7 @@
 </head>
 
 <body>
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="hxoyfb2vciiexm64jrgzb6ohlqaqaaaa" /><input
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="c5x323jkj36epe2oa3o2ftnjxuaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="FullPage" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
 		<div class="header">
 			<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/VoiceDiary/ipsoslogo128.png" />
@@ -86,7 +86,7 @@
 					<div class="o-question-instruction">
 					</div>
 					<div class="o-question-response" data-questiongroup="_Q1">
-						<textarea data-questionid="_Q1" data-questiongroup="_Q1" name="_QFullPage_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off" style="z-index: -1;"></textarea>
+						<textarea data-questionid="_Q1" data-questiongroup="_Q1" name="_QFullPage_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off" style=""></textarea>
 						<script>app.registerComponent('aInputMultilineedit', '_Q1');</script>
 						<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_Q1">
 							<script>app.registerComponent('mOptionBase', '_Q1_X0');</script>
@@ -94,7 +94,8 @@
 							<label for="_Q1_X0">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
-								</span>I don't have any positive or negative comments</label>
+								</span>
+								<span class="a-label-question" />I don't have any positive or negative comments</label>
 						</div>
 						<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X1" data-questiongroup="_Q1">
 							<script>app.registerComponent('mOptionBase', '_Q1_X1');</script>
@@ -102,12 +103,16 @@
 							<label for="_Q1_X1">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
-								</span>I refuse to answer this question</label>
+								</span>
+								<span class="a-label-question" />I refuse to answer this question</label>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="o-question-container">
+				<script type="text/javascript">
+					{}
+				</script>
 				<div class="o-question-error">
 				</div>
 				<div class="o-question-core">
@@ -121,15 +126,17 @@
 							<label for="_Q2_C0">
 								<span class="a-icon-multistate" data-icontype="single">
 									<!--This is a comment!-->
-								</span>male</label>
+								</span>
+								<span class="a-label-question" />male</label>
 						</div>
 						<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C1" data-questiongroup="_Q2_C">
 							<script>app.registerComponent('mOptionBase', '_Q2_C1');</script>
-							<input class="hiddencontrol" type="radio" name="_QFullPage_QGenderReal_C" id="_Q2_C1" style="" value="female" />
+							<input class="hiddencontrol" type="radio" name="_QFullPage_QGenderReal_C" id="_Q2_C1" style="" value="female" checked="" />
 							<label for="_Q2_C1">
 								<span class="a-icon-multistate" data-icontype="single">
 									<!--This is a comment!-->
-								</span>female</label>
+								</span>
+								<span class="a-label-question" />female</label>
 						</div>
 						<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C2" data-questiongroup="_Q2_C">
 							<script>app.registerComponent('mOptionBase', '_Q2_C2');</script>
@@ -137,12 +144,16 @@
 							<label for="_Q2_C2">
 								<span class="a-icon-multistate" data-icontype="single">
 									<!--This is a comment!-->
-								</span>prefer not to say</label>
+								</span>
+								<span class="a-label-question" />prefer not to say</label>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="o-question-container">
+				<script type="text/javascript">
+					{}
+				</script>
 				<div class="o-question-error">
 				</div>
 				<div class="o-question-core">
@@ -151,46 +162,52 @@
 					</div>
 					<div class="o-question-response" data-questiongroup="_Q3_C">
 						<div class="o-option-sublist">
-							<div class="a-label-heading-sublist" style="">Coca Cola</div>
+							<div class="a-label-heading-sublist" style="">
+								<span class="a-label-question" />Coca Cola</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0_S0" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C0_S0');</script>
 								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cregular" id="_Q3_C0_S0" style="" value="regular" />
 								<label for="_Q3_C0_S0">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Original</label>
+									</span>
+									<span class="a-label-question" />Original</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0_S1" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C0_S1');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cdiet" id="_Q3_C0_S1" style="" value="diet" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cdiet" id="_Q3_C0_S1" style="" value="diet" checked="" />
 								<label for="_Q3_C0_S1">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Diet</label>
+									</span>
+									<span class="a-label-question" />Diet</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0_S2" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C0_S2');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Ccherry" id="_Q3_C0_S2" style="" value="cherry" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Ccherry" id="_Q3_C0_S2" style="" value="cherry" checked="" />
 								<label for="_Q3_C0_S2">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Cherry</label>
+									</span>
+									<span class="a-label-question" />Cherry</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0_S3" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C0_S3');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cnocaffine" id="_Q3_C0_S3" style="" value="nocaffine" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cnocaffine" id="_Q3_C0_S3" style="" value="nocaffine" checked="" />
 								<label for="_Q3_C0_S3">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>caffine free</label>
+									</span>
+									<span class="a-label-question" />caffine free</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0_S4" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C0_S4');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Czerovanilla" id="_Q3_C0_S4" style="" value="zerovanilla" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Czerovanilla" id="_Q3_C0_S4" style="" value="zerovanilla" checked="" />
 								<label for="_Q3_C0_S4">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>zero sugar vanilla</label>
+									</span>
+									<span class="a-label-question" />zero sugar vanilla</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0_S5" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C0_S5');</script>
@@ -198,110 +215,210 @@
 								<label for="_Q3_C0_S5">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>zero sugar cherry</label>
+									</span>
+									<span class="a-label-question" />zero sugar cherry</label>
 							</div>
 						</div>
 						<div class="o-option-sublist">
-							<div class="a-label-heading-sublist" style="">Pepsi Cola</div>
+							<div class="a-label-heading-sublist" style="">
+								<span class="a-label-question" />Pepsi Cola</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1_S0" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C1_S0');</script>
 								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_COriginal" id="_Q3_C1_S0" style="" value="Original" />
 								<label for="_Q3_C1_S0">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Original</label>
+									</span>
+									<span class="a-label-question" />Original</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1_S1" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C1_S1');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CMax" id="_Q3_C1_S1" style="" value="Max" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CMax" id="_Q3_C1_S1" style="" value="Max" checked="" />
 								<label for="_Q3_C1_S1">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Max</label>
+									</span>
+									<span class="a-label-question" />Max</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1_S2" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C1_S2');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CMaxCherry" id="_Q3_C1_S2" style="" value="MaxCherry" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CMaxCherry" id="_Q3_C1_S2" style="" value="MaxCherry" checked="" />
 								<label for="_Q3_C1_S2">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Max (Cherry)</label>
+									</span>
+									<span class="a-label-question" />Max (Cherry)</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1_S3" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C1_S3');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CMaxLime" id="_Q3_C1_S3" style="" value="MaxLime" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CMaxLime" id="_Q3_C1_S3" style="" value="MaxLime" checked="" />
 								<label for="_Q3_C1_S3">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Max (Lime)</label>
+									</span>
+									<span class="a-label-question" />Max (Lime)</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1_S4" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C1_S4');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CRaspberry" id="_Q3_C1_S4" style="" value="Raspberry" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CRaspberry" id="_Q3_C1_S4" style="" value="Raspberry" checked="" />
 								<label for="_Q3_C1_S4">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Raspberry</label>
+									</span>
+									<span class="a-label-question" />Raspberry</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1_S5" data-questiongroup="_Q3_C">
 								<script>app.registerComponent('mOptionBase', '_Q3_C1_S5');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CFire" id="_Q3_C1_S5" style="" value="Fire" />
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CFire" id="_Q3_C1_S5" style="" value="Fire" checked="" />
 								<label for="_Q3_C1_S5">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
-									</span>Fire</label>
+									</span>
+									<span class="a-label-question" />Fire</label>
 							</div>
 						</div>
-						<div class="o-option-sublist">
-							<div class="a-label-heading-sublist" style="">Others</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2_S0" data-questiongroup="_Q3_C">
-								<script>app.registerComponent('mOptionBase', '_Q3_C2_S0');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CFantaOrange" id="_Q3_C2_S0" style="" value="FantaOrange" />
-								<label for="_Q3_C2_S0">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>Fanta (Orange)</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2_S1" data-questiongroup="_Q3_C">
-								<script>app.registerComponent('mOptionBase', '_Q3_C2_S1');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CDrPepper" id="_Q3_C2_S1" style="" value="DrPepper" />
-								<label for="_Q3_C2_S1">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>Dr Pepper</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2_S2" data-questiongroup="_Q3_C">
-								<script>app.registerComponent('mOptionBase', '_Q3_C2_S2');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CRWhites" id="_Q3_C2_S2" style="" value="RWhites" />
-								<label for="_Q3_C2_S2">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>R Whites Lemonade</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2_S3" data-questiongroup="_Q3_C">
-								<script>app.registerComponent('mOptionBase', '_Q3_C2_S3');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CSprite" id="_Q3_C2_S3" style="" value="Sprite" />
-								<label for="_Q3_C2_S3">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>Sprite</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2_S4" data-questiongroup="_Q3_C">
-								<script>app.registerComponent('mOptionBase', '_Q3_C2_S4');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CLilt" id="_Q3_C2_S4" style="" value="Lilt" />
-								<label for="_Q3_C2_S4">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>Lilt</label>
-							</div>
-						</div>
-						<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C3" data-questiongroup="_Q3_C">
-							<script>app.registerComponent('mOptionBase', '_Q3_C3');</script>
-							<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cnone" id="_Q3_C3" style="" value="none" />
-							<label for="_Q3_C3">
+						<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2" data-questiongroup="_Q3_C">
+							<script>app.registerComponent('mOptionBase', '_Q3_C2');</script>
+							<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Ccoffee" id="_Q3_C2" style="" value="coffee" />
+							<label for="_Q3_C2">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
-								</span>none of the above</label>
+								</span>
+								<span class="a-label-question" />coffee</label>
+						</div>
+						<div class="o-option-sublist">
+							<div class="a-label-heading-sublist" style="">
+								<span class="a-label-question" />Others</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3_S0" data-questiongroup="_Q3_C">
+								<script>app.registerComponent('mOptionBase', '_Q3_C3_S0');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CFantaOrange" id="_Q3_C3_S0" style="" value="FantaOrange" checked="" />
+								<label for="_Q3_C3_S0">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-question" />Fanta (Orange)</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3_S1" data-questiongroup="_Q3_C">
+								<script>app.registerComponent('mOptionBase', '_Q3_C3_S1');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CDrPepper" id="_Q3_C3_S1" style="" value="DrPepper" checked="" />
+								<label for="_Q3_C3_S1">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-question" />Dr Pepper</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3_S2" data-questiongroup="_Q3_C">
+								<script>app.registerComponent('mOptionBase', '_Q3_C3_S2');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CRWhites" id="_Q3_C3_S2" style="" value="RWhites" checked="" />
+								<label for="_Q3_C3_S2">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-question" />R Whites Lemonade</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3_S3" data-questiongroup="_Q3_C">
+								<script>app.registerComponent('mOptionBase', '_Q3_C3_S3');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CSprite" id="_Q3_C3_S3" style="" value="Sprite" checked="" />
+								<label for="_Q3_C3_S3">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-question" />Sprite</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3_S4" data-questiongroup="_Q3_C">
+								<script>app.registerComponent('mOptionBase', '_Q3_C3_S4');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_CLilt" id="_Q3_C3_S4" style="" value="Lilt" checked="" />
+								<label for="_Q3_C3_S4">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-question" />Lilt</label>
+							</div>
+						</div>
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C4" data-questiongroup="_Q3_C">
+							<script>app.registerComponent('mOptionBase', '_Q3_C4');</script>
+							<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Cnone" id="_Q3_C4" style="" value="none" />
+							<label for="_Q3_C4">
+								<span class="a-icon-multistate" data-icontype="multiple">
+									<!--This is a comment!-->
+								</span>
+								<span class="a-label-question" />none of the above</label>
+						</div>
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C5" data-questiongroup="_Q3_C">
+							<script>app.registerComponent('mOptionBase', '_Q3_C5');</script>
+							<input class="hiddencontrol" type="checkbox" name="_QFullPage_QDrinks_Crefuse" id="_Q3_C5" style="" value="refuse" />
+							<label for="_Q3_C5">
+								<span class="a-icon-multistate" data-icontype="multiple">
+									<!--This is a comment!-->
+								</span>
+								<span class="a-label-question" />I refuse to answer</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="o-question-container">
+				<script type="text/javascript">
+					{}
+				</script>
+				<div class="o-question-error">
+				</div>
+				<div class="o-question-core">
+					<div class="o-question-information">
+						<label for="_Q4" class="a-label-question" style="">What is your first name</label>
+					</div>
+					<div class="o-question-instruction">
+					</div>
+					<div class="o-question-response" data-questiongroup="_Q4">
+						<input type="text" name="_QFullPage_QFirstName" id="_Q4" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="39" value="FirstName:  This is" />
+						<script>
+							app.registerComponent('aInputSinglelineedit', '_Q4');
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="o-question-container">
+				<script type="text/javascript">
+					{}
+				</script>
+				<div class="o-question-error">
+				</div>
+				<div class="o-question-core">
+					<div class="o-question-information">
+						<label for="_Q5" class="a-label-question" style="">What is the first line of your address</label>
+					</div>
+					<div class="o-question-instruction">
+					</div>
+					<div class="o-question-response" data-questiongroup="_Q5">
+						<input type="text" name="_QFullPage_QFirstLine" id="_Q5" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="200" value="FirstLine:  This is the generated text resp" />
+						<script>
+							app.registerComponent('aInputSinglelineedit', '_Q5');
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="o-question-container">
+				<script type="text/javascript">
+					{}
+				</script>
+				<div class="o-question-error">
+				</div>
+				<div class="o-question-core">
+					<div class="o-question-information">
+						<label for="_Q6" class="a-label-question" style="">Over the past 3 months, how many days has the patient spent in the hospital due to their cancer?</label>
+					</div>
+					<div class="o-question-instruction">
+					</div>
+					<div class="o-question-response" data-questiongroup="_Q6">
+						<input type="text" name="_QFullPage_Qhospital__days" id="_Q6" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="2" value="" />
+						<script>app.registerComponent('aInputSinglelineedit', '_Q6');</script>
+						<div class="m-option-base" data-exclusive="false" data-questionid="_Q6_X0" data-questiongroup="_Q6">
+							<script>app.registerComponent('mOptionBase', '_Q6_X0');</script>
+							<input class="hiddencontrol" type="checkbox" name="_QFullPage_Qhospital__days_Xunknown" id="_Q6_X0" style="" value="unknown" checked="" />
+							<label for="_Q6_X0">
+								<span class="a-icon-multistate" data-icontype="multiple">
+									<!--This is a comment!-->
+								</span>
+								<span class="a-label-question" />Unknown</label>
 						</div>
 					</div>
 				</div>
@@ -310,6 +427,7 @@
 		<div class="footer">
 			<div id="nav-controls" class="btn-container nav-center">
 				<div id="prevstop">
+					<input type="submit" name="_NPrev" class="mrPrev" style="" value="Previous"></input>
 					<input type="submit" name="_NStop" class="mrStop" style="" value="Stop"></input>
 				</div>
 				<div id="nextonly">
