@@ -63,7 +63,7 @@ define(
             if (event.target === this.element) {
 
                 // handle self-generated events
-                var clickedEvent = new CustomEvent('aInputSingleLineEditFocusEvent', {bubbles: true, detail: this});
+                var clickedEvent = new CustomEvent('textFocus', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
 
                 if (this.element.placeholder.length
