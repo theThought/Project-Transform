@@ -33,9 +33,7 @@ body {
     font-size: 16px;
     line-height: 19px;
 }
-
-body > form {
-    min-height: 100vh;
+body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -44,9 +42,23 @@ body > form {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+body > form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .surroundcontent {
+    display: block;
     -webkit-box-flex: 1 0 auto;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
