@@ -4,14 +4,21 @@
     color: #212C4C;
 }
 
-/* Separates out sub-lists when they are immediately adjacent */
+/* Separates sub-lists when they are immediately adjacent. */
 .o-option-sublist + .o-option-sublist {
     margin-top: 1em;
 }
 
-/* Separates individual options when following a sub-list.
- * An example might be a "none of the above" check appearing
+/* Separates individual (non-sublist) options when following a sub-list.
+ * An example might be a "none of the above" m-option-base appearing
  * below a set of sub-lists. */
 .o-option-sublist + .m-option-base {
+    margin-top: 1em;
+}
+
+/* This combination shouldn't be seen but was observed as part
+ * of a list during development, where a non-sub-listed item
+ * appeared in the middle of a set sub-lists */
+.m-option-base + .o-option-sublist {
     margin-top: 1em;
 }
