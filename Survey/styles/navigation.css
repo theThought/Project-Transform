@@ -15,35 +15,8 @@
     flex-grow: 1;
 }
 
-#nav-controls input[type=submit]
-{
-    background-color: #449B9B;
-    border-color: #449B9B;
-    color: #FFFFFF;
-    margin: 0;
-    width: auto !important;
-    min-width: 109px;
-    max-width: 197px;
-    flex-grow: 1;
-}
-
-#nav-controls input[type=submit]:hover
-{
-    color: #449B9B;
-    background-color: #FFFFFF;
-}
-
 #prevstop {
     margin-right: 1em;
-}
-
-#prevstop input[type=submit] {
-    margin-right: 1em;
-    flex-basis: 0;
-}
-
-#prevstop input[type=submit]:last-child {
-    margin-right: 0;
 }
 
 #nextonly {
