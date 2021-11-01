@@ -294,6 +294,8 @@
       <xsl:param name="qGroup" />
         <!--- Edit box -->
         <xsl:element name="input">
+            <xsl:attribute name="data-questionid"><xsl:value-of select="@ElementID" /></xsl:attribute>
+            <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
             <!--- Set Control Type -->
             <xsl:attribute name="type">text</xsl:attribute>
             <!--- Input name -->
