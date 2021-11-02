@@ -31,10 +31,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 1em;
 }
 
 .page-links a {
     color: #212C4C;
     display: inline-block;
+    margin-right: 1em;
 }

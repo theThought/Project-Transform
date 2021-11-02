@@ -14,26 +14,17 @@
 @import url("styles/t-question-base.css");
 @import url("styles/o-option-list.css");
 
-body {
-    background: #fafafa;
-    color: #212C4C;
-    padding: 0 8em;
-    margin: 0;
-
-}
-
-@media screen and (max-width: 1024px) {
-    body {
-        padding: 0 1em;
-    }
-}
-
 * {
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 19px;
 }
+
 body {
+    background: #fafafa;
+    color: #212C4C;
+    padding: 0 8em;
+    margin: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -43,6 +34,12 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     min-height: 100vh;
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 0 1em;
+    }
 }
 
 body > form {
@@ -55,14 +52,15 @@ body > form {
     -ms-flex-direction: column;
     flex-direction: column;
     min-height: 100vh;
+    max-width: 1660px;
 }
 
 .surroundcontent {
     display: block;
     -webkit-box-flex: 1 0 auto;
     -ms-flex: 1 0 auto;
-    flex: 1 0 auto;
     -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
     max-width: 1920px;
     -webkit-box-shadow: none;
     box-shadow: none;
