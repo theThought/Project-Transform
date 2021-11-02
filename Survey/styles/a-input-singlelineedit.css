@@ -11,3 +11,8 @@
 .a-input-singlelineedit:last-of-type {
     margin-bottom:0;
 }
+
+.a-input-singlelineedit:hover,
+.a-input-singlelineedit:focus {
+    color: #57699C;
+}
