@@ -1,15 +1,15 @@
-.a-input-singlelineedit
-{
+.a-input-singlelineedit {
     padding: 10px 16px;
     border-radius: 10px;
     border: 1px solid #8797C8;
     color: #757575;
     margin: 0 0 .5em 0;
     width: 197px;
+    background-color: #FAFAFA;
 }
 
 .a-input-singlelineedit:last-of-type {
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 .a-input-singlelineedit:hover,
