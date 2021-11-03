@@ -24,33 +24,30 @@ function Survey() {
 }
 
 Survey.prototype.Init = function () {
-    console.log('Init app.');
-
-    for (var component in this.components) {
-        this.components[component].Init();
-    }
-
 }
 
 Survey.prototype.registerComponent = function (componentType, id) {
-    console.log('Registering component.');
-    // TODO: parse JSON here so the correct component is defined
+    console.log('Registering ' + id);
 
     switch (componentType) {
+        case 'aInputSinglelineedit':
+            requirejs(['a-input-singlelineedit'], function (aInputSinglelineedit) {
+                app.components[id] = new aInputSinglelineedit(id);
+                app.components[id].Init();
+            });
+            break;
         case 'mOptionBase':
-            require(['m-option-base'], function (mOptionBase) {
+            requirejs(['m-option-base'], function (mOptionBase) {
                 app.components[id] = new mOptionBase(id);
+                app.components[id].Init();
             });
             break;
         case 'aInputMultilineedit':
-            require(['a-input-multilineedit'], function (aInputMultilineEdit) {
+            requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.components[id] = new aInputMultilineEdit(id);
-            });
-            break;
-        case 'aInputSinglelineedit':
-            require(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
-                app.components[id] = new aInputSinglelineEdit(id);
+                app.components[id].Init();
             });
             break;
     }
+
 }
