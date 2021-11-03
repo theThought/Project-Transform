@@ -31,13 +31,15 @@ define(
             this.element = null;
             this.questionGroup = null;
             this.checkbox = null;
+            this.textInput = null;
             this.isExclusive = false;
         }
 
         mOptionBase.prototype.Init = function () {
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
             this.questionGroup = this.element.getAttribute('data-questiongroup');
-            this.checkbox = this.element.getElementsByTagName('input')[0];
+            this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
+            this.textInput = this.element.querySelector('input[type=text]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             document.addEventListener("change", this, false);
