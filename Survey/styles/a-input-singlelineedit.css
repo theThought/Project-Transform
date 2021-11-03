@@ -5,7 +5,7 @@
     border: 1px solid #8797C8;
     color: #757575;
     margin: 0 0 .5em 0;
-    min-width: 197px;
+    width: 197px;
 }
 
 .a-input-singlelineedit:last-of-type {
@@ -15,4 +15,13 @@
 .a-input-singlelineedit:hover,
 .a-input-singlelineedit:focus {
     color: #57699C;
+}
+
+.m-option-base .a-input-singlelineedit {
+    margin-left: .5em;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid;
+    width: 151px;
 }
