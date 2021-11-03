@@ -16,41 +16,58 @@
 
     <xsl:template match="Question">
       <xsl:param name="bWithinTable" select="false()"/>
-      <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
-      <xsl:element name="div">
-        <xsl:attribute name="class">o-question-response</xsl:attribute>
-        <xsl:attribute name="data-questiongroup">
-          <xsl:value-of select="$qGroupName" />
-        </xsl:attribute>
-        <xsl:for-each select="*">
+      <xsl:param name="SubQuestion" select="false()" />
+      <xsl:choose>
+        <xsl:when test="$SubQuestion = false()">
+          <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+          <xsl:element name="div">
+            <xsl:attribute name="class">o-question-response</xsl:attribute>
+            <xsl:attribute name="data-questiongroup">
+              <xsl:value-of select="$qGroupName" />
+            </xsl:attribute>
+            <xsl:for-each select="*">
+                <xsl:choose>
+                    <xsl:when test="name() = 'Control'">
+                        <xsl:apply-templates select=".">
+                          <xsl:with-param name="qGroup" select="$qGroupName" />
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Label'">
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="sLabelClass" select="'mrQuestionText'"/>
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Error'">
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="sLabelClass" select="'mrErrorText'"/>
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Table'">
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="Orientation" select="../Style/@Orientation" />
+                            <xsl:with-param name="qGroup" select="$qGroupName" />
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <xsl:when test="name() = 'Questions'">
+                        <xsl:apply-templates/>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:for-each>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+          <xsl:for-each select="*">
             <xsl:choose>
-                <xsl:when test="name() = 'Control'">
-                    <xsl:apply-templates select=".">
-                      <xsl:with-param name="qGroup" select="$qGroupName" />
-                    </xsl:apply-templates>
-                </xsl:when>
-                <xsl:when test="name() = 'Label'">
-                    <xsl:apply-templates select=".">
-                        <xsl:with-param name="sLabelClass" select="'mrQuestionText'"/>
-                    </xsl:apply-templates>
-                </xsl:when>
-                <xsl:when test="name() = 'Error'">
-                    <xsl:apply-templates select=".">
-                        <xsl:with-param name="sLabelClass" select="'mrErrorText'"/>
-                    </xsl:apply-templates>
-                </xsl:when>
-                <xsl:when test="name() = 'Table'">
-                    <xsl:apply-templates select=".">
-                        <xsl:with-param name="Orientation" select="../Style/@Orientation" />
-                        <xsl:with-param name="qGroup" select="$qGroupName" />
-                    </xsl:apply-templates>
-                </xsl:when>
-                <xsl:when test="name() = 'Questions'">
-                    <xsl:apply-templates/>
-                </xsl:when>
+              <xsl:when test="name() = 'Control'">
+                <xsl:apply-templates select=".">
+                  <xsl:with-param name="qGroup" select="$qGroupName" />
+                </xsl:apply-templates>
+              </xsl:when>
             </xsl:choose>
-        </xsl:for-each>
-      </xsl:element>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:template>
 
     <xsl:template match="Label | Error">
@@ -178,10 +195,7 @@
                       <xsl:apply-templates select="."/>
                   </xsl:when>
                   <xsl:when test="name() = 'Question'">
-                      <xsl:apply-templates select=".">
-                          <xsl:with-param name="bWithinTable" select="true()" />
-                          <xsl:with-param name="qGroup" select="$qGroup" />
-                      </xsl:apply-templates>
+
                   </xsl:when>
               </xsl:choose>
           </xsl:for-each>
@@ -696,9 +710,14 @@
               <xsl:comment>This is a comment!</xsl:comment>
             </xsl:element>
             <xsl:apply-templates select="Category[1]/Label">
-                  <xsl:with-param name="labelType" select="'option'"/>
-              </xsl:apply-templates>
+              <xsl:with-param name="labelType" select="'option'"/>
+            </xsl:apply-templates>
           </xsl:element>
+          <xsl:apply-templates select="../Question">
+              <xsl:with-param name="bWithinTable" select="true()" />
+              <xsl:with-param name="qGroup" select="$qGroup" />
+              <xsl:with-param name="SubQuestion" select="true()" />
+          </xsl:apply-templates>
         </xsl:element>
     </xsl:template>
 
