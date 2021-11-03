@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
 @import url('styles/navigation.css');
 @import url('styles/progress.css');
 @import url('styles/a-button.css');
@@ -15,12 +15,12 @@
 @import url("styles/o-option-list.css");
 
 * {
-    font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 19px;
 }
 
 body {
+    font-family: 'Karla', sans-serif;
     background: #fafafa;
     color: #212C4C;
     padding: 0 8em;
@@ -34,6 +34,10 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     min-height: 100vh;
+}
+
+input, textarea {
+    font-family: 'Karla', sans-serif;
 }
 
 @media screen and (max-width: 1024px) {

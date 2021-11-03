@@ -1,5 +1,6 @@
 /* Sublist heading */
 .o-option-sublist .a-label-heading-sublist {
+    font-family: 'Merriweather', serif;
     margin-bottom: .5em;
     color: #212C4C;
 }
