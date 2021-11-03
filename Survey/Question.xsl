@@ -820,6 +820,11 @@
                 <xsl:with-param name="labelType" select="'option'"/>
             </xsl:apply-templates>
         </xsl:element>
+        <xsl:apply-templates select="../Question">
+            <xsl:with-param name="bWithinTable" select="true()" />
+            <xsl:with-param name="qGroup" select="$qGroup" />
+            <xsl:with-param name="SubQuestion" select="true()" />
+        </xsl:apply-templates>
       </xsl:element>
     </xsl:template>
 
