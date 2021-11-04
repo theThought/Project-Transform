@@ -43,6 +43,7 @@ define(
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             document.addEventListener("change", this, false);
+            document.addEventListener("click", this, false);
             document.addEventListener("enableExclusive", this, false);
             document.addEventListener("dismissExclusive", this, false);
             document.addEventListener("textFocus", this, false);
@@ -60,8 +61,8 @@ define(
             }
 
             switch (event.type) {
-                case "change":
-                    this.onChange(event);
+                case "click":
+                    this.onClick(event);
                     break;
                 case "change":
                     this.onChange(event);
@@ -92,6 +93,14 @@ define(
                     document.dispatchEvent(dismissExclusive);
                 }
             }
+        }
+
+        mOptionBase.prototype.onClick = function(event) {
+
+            if (event.target === this.textInput) {
+                this.checkbox.checked = true;
+            }
+
         }
 
         mOptionBase.prototype.onEnableExclusive = function (event) {
