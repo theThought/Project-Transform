@@ -76,3 +76,17 @@ body > form {
     position: absolute;
     left: -9999px;
 }
+
+/* Standardises the placeholder colour - these rules cannot be combined */
+::placeholder {
+    color: #CCCCCC;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #CCCCCC;
+}
+
+::-ms-input-placeholder {
+    color: #CCCCCC;
+}
