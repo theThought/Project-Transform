@@ -45,15 +45,25 @@ define(
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
+
+            /* Guards against events from other questions
+            *  but allows self-events (undefined event detail)
+            * and self-click events (event.detail is int value) */
+            if (event.detail !== undefined
+                && isNaN(event.detail)
+                && event.detail.questionGroup !== this.questionGroup) {
+                return false;
+            }
+
             switch (event.type) {
                 case "focusin":
                     this.onFocusIn(event);
                     break;
                 case "enableExclusive":
-                    this.onEnableExclusive(event);
+                    this.onEnableExclusive();
                     break;
                 case "dismissExclusive":
-                    this.onDismissExclusive(event);
+                    this.onDismissExclusive();
                     break;
             }
         }
@@ -72,24 +82,11 @@ define(
                     this.element.placeholder = this.defaultPlaceholder;
                 }
 
-            } else {
-
-                // handle external events
-
-                // ignore events from other questions
-                if (event.detail.questionGroup !== this.questionGroup) {
-                    return;
-                }
-
             }
+
         }
 
-        aInputSingleLineEdit.prototype.onEnableExclusive = function (event) {
-
-            // ignore events from other questions
-            if (event.detail.questionGroup !== this.questionGroup) {
-                return;
-            }
+        aInputSingleLineEdit.prototype.onEnableExclusive = function () {
 
             if (this.element.value) {
                 this.element.placeholder = this.element.value;
@@ -98,12 +95,7 @@ define(
 
         }
 
-        aInputSingleLineEdit.prototype.onDismissExclusive = function (event) {
-
-            // ignore events from other questions
-            if (event.detail.questionGroup !== this.questionGroup) {
-                return
-            }
+        aInputSingleLineEdit.prototype.onDismissExclusive = function () {
 
             if (this.element.placeholder.length
                 && this.element.placeholder !== this.defaultPlaceholder) {

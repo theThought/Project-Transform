@@ -49,7 +49,20 @@ define(
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
+
+            /* Guards against events from other questions
+            *  but allows self-events (undefined event detail)
+            * and self-click events (event.detail is int value) */
+            if (event.detail !== undefined
+                && isNaN(event.detail)
+                && event.detail.questionGroup !== this.questionGroup) {
+                return false;
+            }
+
             switch (event.type) {
+                case "change":
+                    this.onChange(event);
+                    break;
                 case "change":
                     this.onChange(event);
                     break;
@@ -60,7 +73,7 @@ define(
                     this.onDismissExclusive(event);
                     break;
                 case "textFocus":
-                    this.onAInputMultilineEditClickEvent(event);
+                    this.onTextFocus();
                     break;
             }
         }
@@ -83,35 +96,22 @@ define(
 
         mOptionBase.prototype.onEnableExclusive = function (event) {
 
-            // ignore events from other questions
-            if (event.detail.questionGroup !== this.questionGroup) {
-                return
-            }
-
             // handle external events
             if (this.element !== event.detail.element) {
                 this.checkbox.checked = false;
             }
+
         }
 
         mOptionBase.prototype.onDismissExclusive = function (event) {
 
-            // ignore events from other questions
-            if (event.detail.questionGroup !== this.questionGroup) {
-                return
-            }
-
+            // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
                 this.checkbox.checked = false;
             }
         }
 
-        mOptionBase.prototype.onAInputMultilineEditClickEvent = function (event) {
-
-            // ignore events from other questions
-            if (event.detail.questionGroup !== this.questionGroup) {
-                return
-            }
+        mOptionBase.prototype.onTextFocus = function () {
 
             if (this.isExclusive) {
                 this.checkbox.checked = false;
