@@ -40,29 +40,18 @@ define(
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
             document.addEventListener("focusin", this, false);
-            document.addEventListener("enableExclusive", this, false);
-            //document.addEventListener("dismissExclusive", this, false);
+            document.addEventListener(this.questionGroup + "_enableExclusive", this, false);
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
-
-            /* Guards against events from other questions
-            *  but allows self-events (undefined event detail)
-            * and self-click events (event.detail is int value) */
-            if (event.detail !== undefined
-                && isNaN(event.detail)
-                && event.detail.questionGroup !== this.questionGroup) {
-                return false;
-            }
-
             switch (event.type) {
                 case "focusin":
                     this.onFocusIn(event);
                     break;
-                case "enableExclusive":
+                case this.questionGroup + "_enableExclusive":
                     this.onEnableExclusive();
                     break;
-                case "dismissExclusive":
+                case this.questionGroup + "_dismissExclusive":
                     this.onDismissExclusive();
                     break;
             }
@@ -73,7 +62,7 @@ define(
             if (event.target === this.element) {
 
                 // handle self-generated events
-                var clickedEvent = new CustomEvent('textFocus', {bubbles: true, detail: this});
+                var clickedEvent = new CustomEvent(this.questionGroup + '_textFocus', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
 
                 if (this.element.placeholder.length
@@ -91,16 +80,6 @@ define(
             if (this.element.value) {
                 this.element.placeholder = this.element.value;
                 this.element.value = '';
-            }
-
-        }
-
-        aInputMultilineEdit.prototype.onDismissExclusive = function () {
-
-            if (this.element.placeholder.length
-                && this.element.placeholder !== this.defaultPlaceholder) {
-                this.element.value = this.element.placeholder;
-                this.element.placeholder = this.defaultPlaceholder;
             }
 
         }

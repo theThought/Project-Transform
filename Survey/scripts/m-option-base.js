@@ -44,22 +44,12 @@ define(
 
             document.addEventListener("change", this, false);
             document.addEventListener("click", this, false);
-            document.addEventListener("enableExclusive", this, false);
-            document.addEventListener("dismissExclusive", this, false);
-            document.addEventListener("textFocus", this, false);
+            document.addEventListener(this.questionGroup + "_enableExclusive", this, false);
+            document.addEventListener(this.questionGroup + "_dismissExclusive", this, false);
+            document.addEventListener(this.questionGroup + "_textFocus", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-
-            /* Guards against events from other questions
-            *  but allows self-events (undefined event detail)
-            * and self-click events (event.detail is int value) */
-            if (event.detail !== undefined
-                && isNaN(event.detail)
-                && event.detail.questionGroup !== this.questionGroup) {
-                return false;
-            }
-
             switch (event.type) {
                 case "click":
                     this.onClick(event);
@@ -67,13 +57,13 @@ define(
                 case "change":
                     this.onChange(event);
                     break;
-                case "enableExclusive":
+                case this.questionGroup + "_enableExclusive":
                     this.onEnableExclusive(event);
                     break;
-                case "dismissExclusive":
+                case this.questionGroup + "_dismissExclusive":
                     this.onDismissExclusive(event);
                     break;
-                case "textFocus":
+                case this.questionGroup + "_textFocus":
                     this.onTextFocus(event);
                     break;
             }
@@ -85,17 +75,23 @@ define(
 
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
-                    var enableExclusive = new CustomEvent('enableExclusive', {bubbles: true, detail: this});
+                    var enableExclusive = new CustomEvent(this.questionGroup + '_enableExclusive', {
+                        bubbles: true,
+                        detail: this
+                    });
                     document.dispatchEvent(enableExclusive);
 
                 } else {
-                    var dismissExclusive = new CustomEvent('dismissExclusive', {bubbles: true, detail: this});
+                    var dismissExclusive = new CustomEvent(this.questionGroup + '_dismissExclusive', {
+                        bubbles: true,
+                        detail: this
+                    });
                     document.dispatchEvent(dismissExclusive);
                 }
             }
         }
 
-        mOptionBase.prototype.onClick = function(event) {
+        mOptionBase.prototype.onClick = function (event) {
 
             if (event.target === this.textInput) {
                 this.checkbox.checked = true;
