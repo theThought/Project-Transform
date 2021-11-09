@@ -74,7 +74,7 @@ define(
                     this.onDismissExclusive(event);
                     break;
                 case "textFocus":
-                    this.onTextFocus();
+                    this.onTextFocus(event);
                     break;
             }
         }
@@ -82,10 +82,6 @@ define(
         mOptionBase.prototype.onChange = function (event) {
 
             if (event.target === this.checkbox) {
-
-                if (this.checkbox.checked && this.textInput) {
-                    this.textInput.focus();
-                }
 
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
@@ -124,9 +120,9 @@ define(
             }
         }
 
-        mOptionBase.prototype.onTextFocus = function () {
+        mOptionBase.prototype.onTextFocus = function (event) {
 
-            if (this.isExclusive) {
+            if (this.isExclusive && event.detail.element !== this.textInput) {
                 this.checkbox.checked = false;
             }
         }
