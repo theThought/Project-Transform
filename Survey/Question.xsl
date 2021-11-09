@@ -22,7 +22,18 @@
           <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
           <xsl:variable name="qFullName" select="//Control[1]/@QuestionName" />
           <xsl:element name="div">
-            <xsl:attribute name="class">o-question-response</xsl:attribute>
+            <xsl:attribute name="class">
+              <xsl:text>o-question-response</xsl:text>
+              <xsl:text> </xsl:text>
+              <xsl:text>o-question-</xsl:text>
+              <xsl:choose>
+                <xsl:when test="//Control[1]/Style/@ZIndex = '-10'">information</xsl:when>
+                <xsl:when test="//Control[1]/Style/@ZIndex = '-20'">singlelineedit</xsl:when>
+                <xsl:when test="//Control[1]/Style/@ZIndex = '-30'">multilineedit</xsl:when>
+                <xsl:when test="//Control[1]/Style/@ZIndex = '-40'">choice</xsl:when>
+                <xsl:when test="//Control[1]/Style/@ZIndex = '-50'">slider</xsl:when>
+              </xsl:choose>
+            </xsl:attribute>
             <xsl:attribute name="data-questiongroup">
               <xsl:value-of select="$qGroupName" />
             </xsl:attribute>
