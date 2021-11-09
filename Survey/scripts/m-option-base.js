@@ -83,6 +83,10 @@ define(
 
             if (event.target === this.checkbox) {
 
+                if (this.checkbox.checked && this.textInput) {
+                    this.textInput.focus();
+                }
+
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
                     var enableExclusive = new CustomEvent('enableExclusive', {bubbles: true, detail: this});

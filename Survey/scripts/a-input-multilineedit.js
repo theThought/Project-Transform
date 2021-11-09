@@ -41,7 +41,7 @@ define(
 
             document.addEventListener("focusin", this, false);
             document.addEventListener("enableExclusive", this, false);
-            document.addEventListener("dismissExclusive", this, false);
+            //document.addEventListener("dismissExclusive", this, false);
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
