@@ -51,3 +51,7 @@ Survey.prototype.registerComponent = function (componentType, id) {
     }
 
 }
+
+Survey.prototype.RegisterProperties = function (id, props) {
+
+}
