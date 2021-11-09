@@ -27,18 +27,9 @@
 
 @media screen and (max-width: 1024px) {
     .site-logo {
-        top: 5px;
         max-height: 55px;
         max-width: 55px;
     }
-}
-
-
-/*
- * TODO: To be removed -- a temporary fix to adjust for padding at the bottom of the current logo
- */
-.site-logo {
-    top: 7px;
 }
 
 .overall-progress {
