@@ -21,37 +21,19 @@
         <xsl:when test="$SubQuestion = false()">
           <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
           <xsl:variable name="qFullName" select="//Control[1]/@QuestionName" />
+          <xsl:variable name="qCustomType">
+            <xsl:call-template name="TranslateZIndexToName">
+              <xsl:with-param name="theID" select="//Style/@ZIndex" />
+            </xsl:call-template>
+          </xsl:variable>
           <xsl:element name="div">
             <xsl:attribute name="class">
               <xsl:text>o-question-response</xsl:text>
               <xsl:text> </xsl:text>
               <xsl:text>o-question-</xsl:text>
-              <xsl:choose>
-                <xsl:when test="//Style/@ZIndex = '-10'">
-                  <xsl:variable name="qCustomType" select="'information'" />
-                  <xsl:value-of select="$qCustomType" />
-                </xsl:when>
-                <xsl:when test="//Style/@ZIndex = '-20'">
-                  <xsl:variable name="qCustomType" select="'singlelineedit'" />
-                  <xsl:value-of select="$qCustomType" />
-                </xsl:when>
-                <xsl:when test="//Style/@ZIndex = '-30'">
-                  <xsl:variable name="qCustomType" select="'multilineedit'" />
-                  <xsl:value-of select="$qCustomType" />
-                </xsl:when>
-                <xsl:when test="//Style/@ZIndex = '-40'">
-                  <xsl:variable name="qCustomType" select="'choice'" />
-                  <xsl:value-of select="$qCustomType" />
-                </xsl:when>
-                <xsl:when test="//Style/@ZIndex = '-50'">
-                  <xsl:variable name="qCustomType" select="'hnumberslider'" />
-                  <xsl:value-of select="$qCustomType" />
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:variable name="qCustomType" select="'default'" />
-                  <xsl:value-of select="$qCustomType" />
-                </xsl:otherwise>
-              </xsl:choose>
+              <xsl:call-template name="TranslateZIndexToName">
+                <xsl:with-param name="theID" select="//Style/@ZIndex" />
+              </xsl:call-template>
             </xsl:attribute>
             <xsl:attribute name="data-questiongroup">
               <xsl:value-of select="$qGroupName" />
@@ -59,68 +41,20 @@
             <xsl:for-each select="*">
                 <xsl:choose>
                     <xsl:when test="name() = 'Control'">
-                      <xsl:choose>
-                        <xsl:when test="../Style/@ZIndex = '-10'">
-                          <xsl:variable name="qIsCustom" select="false()" />
-                          <xsl:variable name="qCustomType" select="'information'" />
-                            <xsl:apply-templates select=".">
-                              <xsl:with-param name="qGroup" select="$qGroupName" />
-                              <xsl:with-param name="qFullName" select="$qFullName" />
-                              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                              <xsl:with-param name="qCustomType" select="$qCustomType" />
-                            </xsl:apply-templates>
-                        </xsl:when>
-                        <xsl:when test="../Style/@ZIndex = '-20'">
-                            <xsl:variable name="qIsCustom" select="false()" />
-                            <xsl:variable name="qCustomType" select="'singlelineedit'" />
-                            <xsl:apply-templates select=".">
-                              <xsl:with-param name="qGroup" select="$qGroupName" />
-                              <xsl:with-param name="qFullName" select="$qFullName" />
-                              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                              <xsl:with-param name="qCustomType" select="$qCustomType" />
-                            </xsl:apply-templates>
-                        </xsl:when>
-                        <xsl:when test="../Style/@ZIndex = '-30'">
-                            <xsl:variable name="qIsCustom" select="false()" />
-                            <xsl:variable name="qCustomType" select="'multilineedit'" />
-                            <xsl:apply-templates select=".">
-                              <xsl:with-param name="qGroup" select="$qGroupName" />
-                              <xsl:with-param name="qFullName" select="$qFullName" />
-                              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                              <xsl:with-param name="qCustomType" select="$qCustomType" />
-                            </xsl:apply-templates>
-                        </xsl:when>
-                        <xsl:when test="../Style/@ZIndex = '-40'">
-                          <xsl:variable name="qIsCustom" select="false()" />
-                          <xsl:variable name="qCustomType" select="'choice'" />
-                            <xsl:apply-templates select=".">
-                              <xsl:with-param name="qGroup" select="$qGroupName" />
-                              <xsl:with-param name="qFullName" select="$qFullName" />
-                              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                              <xsl:with-param name="qCustomType" select="$qCustomType" />
-                            </xsl:apply-templates>
-                        </xsl:when>
-                        <xsl:when test="../Style/@ZIndex = '-50'">
-                          <xsl:variable name="qIsCustom" select="false()" />
-                          <xsl:variable name="qCustomType" select="'hnumberslider'" />
-                            <xsl:apply-templates select=".">
-                              <xsl:with-param name="qGroup" select="$qGroupName" />
-                              <xsl:with-param name="qFullName" select="$qFullName" />
-                              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                              <xsl:with-param name="qCustomType" select="$qCustomType" />
-                            </xsl:apply-templates>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <xsl:variable name="qIsCustom" select="false()" />
-                          <xsl:variable name="qCustomType" select="'default'" />
-                            <xsl:apply-templates select=".">
-                              <xsl:with-param name="qGroup" select="$qGroupName" />
-                              <xsl:with-param name="qFullName" select="$qFullName" />
-                              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                              <xsl:with-param name="qCustomType" select="$qCustomType" />
-                            </xsl:apply-templates>
-                        </xsl:otherwise>
-                      </xsl:choose>
+                        <xsl:apply-templates select=".">
+                          <xsl:with-param name="qGroup" select="$qGroupName" />
+                          <xsl:with-param name="qFullName" select="$qFullName" />
+                          <xsl:with-param name="qIsCustom">
+                              <xsl:call-template name="TranslateZIndexToIsCustom">
+                                <xsl:with-param name="theID" select="../Style/@ZIndex" />
+                              </xsl:call-template>
+                          </xsl:with-param>
+                          <xsl:with-param name="qCustomType">
+                              <xsl:call-template name="TranslateZIndexToName">
+                                <xsl:with-param name="theID" select="../Style/@ZIndex" />
+                              </xsl:call-template>
+                          </xsl:with-param>
+                        </xsl:apply-templates>
                     </xsl:when>
                     <xsl:when test="name() = 'Label'">
                         <xsl:apply-templates select=".">
@@ -137,6 +71,16 @@
                             <xsl:with-param name="Orientation" select="../Style/@Orientation" />
                             <xsl:with-param name="qGroup" select="$qGroupName" />
                             <xsl:with-param name="qFullName" select="$qFullName" />
+                            <xsl:with-param name="qIsCustom">
+                              <xsl:call-template name="TranslateZIndexToIsCustom">
+                                <xsl:with-param name="theID" select="../Style/@ZIndex" />
+                              </xsl:call-template>
+                            </xsl:with-param>
+                            <xsl:with-param name="qCustomType">
+                              <xsl:call-template name="TranslateZIndexToName">
+                                <xsl:with-param name="theID" select="../Style/@ZIndex" />
+                              </xsl:call-template>
+                            </xsl:with-param>
                         </xsl:apply-templates>
                     </xsl:when>
                     <xsl:when test="name() = 'Questions'">
@@ -145,7 +89,6 @@
                 </xsl:choose>
             </xsl:for-each>
           </xsl:element>
-
         </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
@@ -211,7 +154,6 @@
       <xsl:param name="qIsCustom"/>
       <xsl:param name="qCustomType"/>
       <xsl:param name="Orientation" select="Column" />
-
       <xsl:for-each select="./Row">
         <xsl:variable name="rowID" select="concat(./Cell/Control/Category/@CategoryID, '_')" />
         <xsl:if test="not(contains(./Cell/Control/Category/@CategoryID, '_'))">
@@ -225,6 +167,8 @@
                     <xsl:call-template name="SpanCell">
                       <xsl:with-param name="qGroup" select="$qGroup" />
                       <xsl:with-param name="qFullName" select="$qFullName" />
+                      <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                      <xsl:with-param name="qCustomType" select="$qCustomType" />
                     </xsl:call-template>
                   </xsl:if>
                 </xsl:for-each>
@@ -234,7 +178,7 @@
               <xsl:call-template name="SpanCell">
                 <xsl:with-param name="qGroup" select="$qGroup" />
                 <xsl:with-param name="qFullName" select="$qFullName" />
-                <xsl:with-param name="QIsCustom" select="$qIsCustom" />
+                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                 <xsl:with-param name="qCustomType" select="$qCustomType" />
               </xsl:call-template>
             </xsl:otherwise>
@@ -258,6 +202,9 @@
 
     <xsl:template name="SpanRow">
       <xsl:param name="qGroup"/>
+      <xsl:param name="qFullName"/>
+      <xsl:param name="qIsCustom" select="false()"/>
+      <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
       <xsl:for-each select="Row">
           <xsl:sort select="@Y" order="ascending" data-type="number"/>
@@ -270,6 +217,8 @@
     <xsl:template name="SpanCell">
       <xsl:param name="qGroup"/>
       <xsl:param name="qFullName"/>
+      <xsl:param name="qIsCustom" select="false()"/>
+      <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
       <xsl:for-each select="Cell">
           <xsl:sort select="@X" order="ascending" data-type="number" />
@@ -279,6 +228,8 @@
                       <xsl:apply-templates select=".">
                         <xsl:with-param name="qGroup" select="$qGroup" />
                         <xsl:with-param name="qFullName" select="$qFullName" />
+                        <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                        <xsl:with-param name="qCustomType" select="$qCustomType" />
                       </xsl:apply-templates>
                   </xsl:when>
                   <xsl:when test="name() = 'Label'">
@@ -309,8 +260,8 @@
     <xsl:template match="Control">
       <xsl:param name="qGroup"/>
       <xsl:param name="qFullName"/>
-      <xsl:param name="qIsCustom"/>
-      <xsl:param name="qCustomType"/>
+      <xsl:param name="qIsCustom" select="false()"/>
+      <xsl:param name="qCustomType" />
         <xsl:choose>
             <xsl:when test="@Type = 'Static'">
                 <xsl:call-template name="StaticControl">
@@ -322,18 +273,24 @@
                 <xsl:call-template name="EditControl">
                   <xsl:with-param name="qGroup" select="$qGroup" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
+                  <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                  <xsl:with-param name="qCustomType" select="$qCustomType" />
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'SingleLineEdit'">
                 <xsl:call-template name="SingleLineEditControl">
                   <xsl:with-param name="qGroup" select="$qGroup" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
+                  <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                  <xsl:with-param name="qCustomType" select="$qCustomType" />
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'MultiLineEdit'">
                 <xsl:call-template name="MultiLineEditControl">
                   <xsl:with-param name="qGroup" select="$qGroup" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
+                  <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                  <xsl:with-param name="qCustomType" select="$qCustomType" />
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'DropList'">
@@ -346,12 +303,16 @@
                 <xsl:call-template name="RadioButtonControl">
                   <xsl:with-param name="qGroup" select="$qGroup" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
+                  <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                  <xsl:with-param name="qCustomType" select="$qCustomType" />
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'CheckButton'">
                 <xsl:call-template name="CheckButtonControl">
                   <xsl:with-param name="qGroup" select="$qGroup" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
+                  <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                  <xsl:with-param name="qCustomType" select="$qCustomType" />
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="@Type = 'ListBox'">
@@ -745,6 +706,8 @@
     <xsl:template name="RadioButtonControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
       <!--- Control Label -->
         <xsl:element name="div">
           <xsl:attribute name="class">m-option-base</xsl:attribute>
@@ -772,7 +735,9 @@
                 </xsl:call-template>
             </xsl:if>
           <xsl:element name="input">
-            <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+            <xsl:if test="$qIsCustom = true()">
+                <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+            </xsl:if>
       <!--- Set Control Type -->
             <xsl:attribute name="type">radio</xsl:attribute>
       <!--- Input name -->
@@ -847,6 +812,8 @@
     <xsl:template name="CheckButtonControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
     <!--- Control Label -->
       <xsl:element name="div">
         <xsl:attribute name="class">m-option-base</xsl:attribute>
@@ -879,7 +846,9 @@
           <xsl:text>');</xsl:text>
         </xsl:element>
         <xsl:element name="input">
-          <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+            <xsl:if test="$qIsCustom = true()">
+                <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+            </xsl:if>
     <!--- Set Control Type -->
           <xsl:attribute name="type">checkbox</xsl:attribute>
     <!--- Input name -->
@@ -909,7 +878,7 @@
           <xsl:if test="$bShowOnly != false()">
               <xsl:attribute name="disabled"/>
           </xsl:if>
-  	<!--- Read Only -->
+      <!--- Read Only -->
           <xsl:if test="Style/Control/@ReadOnly = 'true'">
                <xsl:attribute name="disabled"/>
           </xsl:if>
@@ -1324,5 +1293,53 @@
           <xsl:value-of select="$FullName" />
           <xsl:text>');</xsl:text>
         </xsl:element>
+    </xsl:template>
+
+    <xsl:template name="TranslateZIndexToName">
+      <xsl:param name="theID" />
+      <xsl:choose>
+        <xsl:when test="$theID = '-10'">
+          <xsl:value-of select="'information'" />
+        </xsl:when>
+        <xsl:when test="$theID = '-20'">
+          <xsl:value-of select="'singlelineedit'" />
+        </xsl:when>
+        <xsl:when test="$theID = '-30'">
+          <xsl:value-of select="'multilineedit'" />
+        </xsl:when>
+        <xsl:when test="$theID = '-40'">
+          <xsl:value-of select="'choice'" />
+        </xsl:when>
+        <xsl:when test="$theID = '-50'">
+          <xsl:value-of select="'hnumberslider'" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="ID" />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:template>
+
+     <xsl:template name="TranslateZIndexToIsCustom">
+      <xsl:param name="theID" />
+      <xsl:choose>
+        <xsl:when test="$theID = '-10'">
+          <xsl:value-of select="false()" />
+        </xsl:when>
+        <xsl:when test="$theID = '-20'">
+          <xsl:value-of select="false()" />
+        </xsl:when>
+        <xsl:when test="$theID = '-30'">
+          <xsl:value-of select="false()" />
+        </xsl:when>
+        <xsl:when test="$theID = '-40'">
+          <xsl:value-of select="true()" />
+        </xsl:when>
+        <xsl:when test="$theID = '-50'">
+          <xsl:value-of select="true()" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="false()" />
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
