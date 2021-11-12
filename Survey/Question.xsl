@@ -145,6 +145,7 @@
                 </xsl:choose>
             </xsl:for-each>
           </xsl:element>
+
         </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
@@ -495,13 +496,11 @@
                 </xsl:choose>
             </xsl:attribute>
         </xsl:element>
-        <xsl:element name="script">
-          <xsl:text>app.registerComponent('aInputSinglelineedit','</xsl:text>
-          <xsl:value-of select="@ElementID" />
-          <xsl:text>','</xsl:text>
-          <xsl:value-of select="$qFullName" />
-          <xsl:text>');</xsl:text>
-        </xsl:element>
+        <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'aInputSinglelineedit'" />
+            <xsl:with-param name="ElementID" select="@ElementID" />
+            <xsl:with-param name="FullName" select="$qFullName"/>
+        </xsl:call-template>
     </xsl:template>
 
     <xsl:template name="MultiLineEditControl">
@@ -607,13 +606,11 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:element>
-        <xsl:element name="script">
-          <xsl:text>app.registerComponent('aInputSinglelineedit','</xsl:text>
-          <xsl:value-of select="@ElementID" />
-          <xsl:text>','</xsl:text>
-          <xsl:value-of select="$qFullName" />
-          <xsl:text>');</xsl:text>
-        </xsl:element>
+        <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'aInputSinglelineedit'" />
+            <xsl:with-param name="ElementID" select="@ElementID" />
+            <xsl:with-param name="FullName" select="$qFullName"/>
+        </xsl:call-template>
     </xsl:template>
 
     <xsl:template name="DropListControl">
@@ -761,17 +758,19 @@
             </xsl:if>
           </xsl:attribute>
           <xsl:attribute name="data-questiongroup"><xsl:value-of select="$qGroup" /></xsl:attribute>
-
-          <xsl:element name="script">
-            <xsl:text>app.registerComponent('mOptionBase','</xsl:text>
-            <xsl:value-of select="@ElementID" />
-            <xsl:if test="Category[1]/@CategoryID">
-              <xsl:value-of select="Category[1]/@CategoryID"/>
+          <xsl:if test="Category[1]/@CategoryID">
+              <xsl:variable name="ElementID">
+                <xsl:value-of select="@ElementID" />
+                <xsl:if test="Category[1]/@CategoryID">
+                  <xsl:value-of select="Category[1]/@CategoryID"/>
+                </xsl:if>
+              </xsl:variable>
+                <xsl:call-template name="appComponentScript">
+                    <xsl:with-param name="ComponentName" select="'mOptionBase'" />
+                    <xsl:with-param name="ElementID" select="$ElementID" />
+                    <xsl:with-param name="FullName" select="$qFullName"/>
+                </xsl:call-template>
             </xsl:if>
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-          </xsl:element>
           <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
       <!--- Set Control Type -->
@@ -804,7 +803,7 @@
             <xsl:if test="Style/Control/@ReadOnly = 'true'">
                  <xsl:attribute name="disabled"/>
             </xsl:if>
-    	<!--- Accelerator access key -->
+        <!--- Accelerator access key -->
             <xsl:if test="Style/Control/@Accelerator != ''">
                 <xsl:attribute name="accesskey">
                     <xsl:value-of select="Style/Control/@Accelerator"/>
@@ -1310,5 +1309,20 @@
     </xsl:template>
 
     <xsl:template name="PaddingStyle">
+    </xsl:template>
+
+    <xsl:template name="appComponentScript">
+        <xsl:param name="ComponentName" />
+        <xsl:param name="ElementID" />
+        <xsl:param name="FullName" />
+        <xsl:element name="script">
+          <xsl:text>app.registerComponent('</xsl:text>
+          <xsl:value-of select="$ComponentName" />
+          <xsl:text>','</xsl:text>
+          <xsl:value-of select="$ElementID" />
+          <xsl:text>','</xsl:text>
+          <xsl:value-of select="$FullName" />
+          <xsl:text>');</xsl:text>
+        </xsl:element>
     </xsl:template>
 </xsl:stylesheet>

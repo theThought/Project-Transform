@@ -1,0 +1,381 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-40"/>
+    <Table UseTablesLayout="0" Summary="Which of the following drinks have you consumed in the last 7 days">
+      <Row Y="0">
+        <Cell X="0" Y="0">
+          <Control Type="Static" QuestionName="_QChoicePage_QDrinks_C"
+ ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Coke" CategoryID="0">
+              <Label>
+                <Style ElementAlign="Right" />
+                Coca Cola
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="1">
+        <Cell X="0" Y="1">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="regular" CategoryID="0_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                Original
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="2">
+        <Cell X="0" Y="2">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="diet" CategoryID="0_S1" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                Diet
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="3">
+        <Cell X="0" Y="3">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="cherry" CategoryID="0_S2" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                Cherry
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="4">
+        <Cell X="0" Y="4">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="nocaffine" CategoryID="0_S3" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                caffine free
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="5">
+        <Cell X="0" Y="5">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="zerovanilla" CategoryID="0_S4" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                zero sugar vanilla
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="6">
+        <Cell X="0" Y="6">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="zerocherry" CategoryID="0_S5" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                zero sugar cherry
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="7">
+        <Cell X="0" Y="7">
+          <Control Type="Static" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Pepsi" CategoryID="1">
+              <Label>
+                <Style ElementAlign="Right" />
+                Pepsi Cola
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="8">
+        <Cell X="0" Y="8">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Original" CategoryID="1_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                Original
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="9">
+        <Cell X="0" Y="9">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Max" CategoryID="1_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                Max
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="10">
+        <Cell X="0" Y="10">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="MaxCherry" CategoryID="1_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                Max (Cherry)
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="11">
+        <Cell X="0" Y="11">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="MaxLime" CategoryID="1_S3">
+              <Label>
+                <Style ElementAlign="Right" />
+                Max (Lime)
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="12">
+        <Cell X="0" Y="12">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Raspberry" CategoryID="1_S4">
+              <Label>
+                <Style ElementAlign="Right" />
+                Raspberry
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="13">
+        <Cell X="0" Y="13">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Fire" CategoryID="1_S5">
+              <Label>
+                <Style ElementAlign="Right" />
+                Fire
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="14">
+        <Cell X="0" Y="14">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="coffee" CategoryID="2">
+              <Label>
+                <Style ElementAlign="Right" />
+                Coffee
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="15">
+        <Cell X="0" Y="15">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="OtherDrink" CategoryID="3" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                Other Hot Drink
+              </Label>
+            </Category>
+            <Question>
+              <Style ElementAlign="Right">
+                <Control Type="SingleLineEdit" />
+              </Style>
+              <Label ElementId="_Q1_O3">
+                <Style ElementAlign="Right">
+                  <Control Type="SingleLineEdit" QuestionName="_QChoicePage_QDrinks_OOtherDrink" ElementID="_Q1_O3" Value="Other Comment" Length="1024">
+                    <Style ElementAlign="Right">
+                      <Control Type="SingleLineEdit" />
+                    </Style>
+                  </Control>
+                </Style>
+              </Label>
+            </Question>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="16">
+        <Cell X="0" Y="16">
+          <Control Type="Static" QuestionName="_QChoicePage_QDrinks_C"
+ ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="OtherDrinks" CategoryID="4">
+              <Label>
+                <Style ElementAlign="Right" />
+                Others
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="17">
+        <Cell X="0" Y="17">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="FantaOrange" CategoryID="4_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                Fanta (Orange)
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="18">
+        <Cell X="0" Y="18">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="DrPepper" CategoryID="4_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                Dr Pepper
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="19">
+        <Cell X="0" Y="19">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="RWhites" CategoryID="4_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                R Whites Lemonade
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="20">
+        <Cell X="0" Y="20">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Sprite" CategoryID="4_S3" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                Sprite
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="21">
+        <Cell X="0" Y="21">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Lilt" CategoryID="4_S4" Checked="true">
+              <Label>
+                <Style ElementAlign="Right" />
+                Lilt
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="22">
+        <Cell X="0" Y="22">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="none" CategoryID="5">
+              <Label>
+                <Style ElementAlign="Right">
+                  <Font IsBold="true" />
+                </Style>
+                none of the above
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="23">
+        <Cell X="0" Y="23">
+          <Control Type="CheckButton" QuestionName="_QChoicePage_QDrinks_C" ElementID="_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="refuse" CategoryID="6">
+              <Label>
+                <Style ElementAlign="Right">
+                  <Font IsBold="true" />
+                </Style>
+                I refuse to answer
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>
