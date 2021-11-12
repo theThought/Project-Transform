@@ -38,6 +38,21 @@
             <xsl:attribute name="data-questiongroup">
               <xsl:value-of select="$qGroupName" />
             </xsl:attribute>
+            <xsl:call-template name="appComponentScript">
+                <xsl:with-param name="ComponentName">
+                <xsl:text>oQuestion</xsl:text>
+
+                    <xsl:call-template name="CamelCaseWord">
+                        <xsl:with-param name="text">
+                          <xsl:call-template name="TranslateZIndexToName">
+                            <xsl:with-param name="theID" select="//Style/@ZIndex" />
+                          </xsl:call-template>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:with-param>
+                <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
+                <xsl:with-param name="FullName" select="//Control[1]/@QuestionName"/>
+              </xsl:call-template>
             <xsl:for-each select="*">
                 <xsl:choose>
                     <xsl:when test="name() = 'Control'">
@@ -1314,7 +1329,7 @@
           <xsl:value-of select="'hnumberslider'" />
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="ID" />
+          <xsl:value-of select="theID" />
         </xsl:otherwise>
       </xsl:choose>
     </xsl:template>
@@ -1341,5 +1356,10 @@
           <xsl:value-of select="false()" />
         </xsl:otherwise>
       </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="CamelCaseWord">
+        <xsl:param name="text"/>
+            <xsl:value-of select="translate(substring($text,1,1),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" /><xsl:value-of select="translate(substring($text,2,string-length($text)-1),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
     </xsl:template>
 </xsl:stylesheet>
