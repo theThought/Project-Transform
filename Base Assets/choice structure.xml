@@ -17,7 +17,7 @@
         </Cell>
       </Row>
       <Row Y="1">
-        <Cell X="0", Y="1">
+        <Cell X="0" Y="1">
           <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
               <Control Type="CheckButton" />
@@ -32,7 +32,7 @@
         </Cell>
       </Row>
       <Row Y="2">
-        <Cell X="0", Y="2">
+        <Cell X="0" Y="2">
           <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
               <Control Type="CheckButton" />
@@ -47,7 +47,7 @@
         </Cell>
       </Row>
       <Row Y="3">
-        <Cell X="0", Y="3">
+        <Cell X="0" Y="3">
           <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
               <Control Type="CheckButton" />
@@ -62,7 +62,7 @@
         </Cell>
       </Row>
       <Row Y="7">
-        <Cell X="0", Y="7">
+        <Cell X="0" Y="7">
           <Control Type="Static" QuestionName="_QDrinks_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" />
             <Category Name="Pepsi" CategoryID="1">
@@ -75,7 +75,7 @@
         </Cell>
       </Row>
       <Row Y="8">
-        <Cell X="0", Y="8">
+        <Cell X="0" Y="8">
           <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
               <Control Type="CheckButton" />
