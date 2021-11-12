@@ -50,7 +50,7 @@
 </head>
 
 <body>
-  <form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="g2dsgkaykp2u2ixkimovayx41iaqaaaa" /><input
+  <form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="tzmwgk3jvbbeblmmjgzqknwwjuaqaaaa" /><input
       type="hidden" name="I.SavePoint" value="BasicPage-1" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
     <div class="header">
       <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/images/ipsoslogo192.png" />
@@ -75,7 +75,11 @@
         </div>
         <div class="o-question-core">
           <div class="o-question-information">this is a basic example of an information question. Just a label with no interaction. However that label can be quite long as we use it to introduce a survey or a section of the survey</div>
-          <div class="o-question-response o-question-information" data-questiongroup=""></div>
+          <div class="o-question-response o-question-information" data-questiongroup="">
+            <script>
+              app.registerComponent('oQuestionInformation', '', '');
+            </script>
+          </div>
         </div>
       </div>
       <div class="o-question-container sidebyside">
@@ -95,8 +99,9 @@
           <div class="o-question-information">
             <label for="_Q1" class="a-label-question" style="">Would you please describe the positive and negative aspects of the experience you had during your last visit</label>
           </div>
-          <div class="o-question-response o-question-default" data-questiongroup="_Q1">
-            <textarea data-questionid="_Q1" data-questiongroup="_Q1" name="_QBasicPage_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off" style="z-index: -1;">Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the gene</textarea>
+          <div class="o-question-response o-question-" data-questiongroup="_Q1">
+            <script>app.registerComponent('oQuestion','_Q1','_QBasicPage_QComments');</script>
+            <textarea data-questionid="_Q1" data-questiongroup="_Q1" name="_QBasicPage_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off" style="z-index: -1;"></textarea>
             <script>app.registerComponent('aInputSinglelineedit','_Q1','_QBasicPage_QComments');</script>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_Q1">
               <script>app.registerComponent('mOptionBase','_Q1_X0','_QBasicPage_QComments');</script>
@@ -109,7 +114,7 @@
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X1" data-questiongroup="_Q1">
               <script>app.registerComponent('mOptionBase','_Q1_X1','_QBasicPage_QComments');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QBasicPage_QComments_Xsecond" id="_Q1_X1" style="" value="second" />
+              <input class="hiddencontrol" type="checkbox" name="_QBasicPage_QComments_Xsecond" id="_Q1_X1" style="" value="second" checked="" />
               <label for="_Q1_X1">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
@@ -131,7 +136,8 @@
             <label for="_Q2" class="a-label-question" style="">What is your first name</label>
           </div>
           <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Q2">
-            <input data-questionid="_Q2" data-questiongroup="_Q2" type="text" name="_QBasicPage_QFirstName" id="_Q2" class="a-input-singlelineedit" autocomplete="off" style="z-index: -20;" maxlength="39" value="FirstName:  Th" />
+            <script>app.registerComponent('oQuestionSinglelineedit','_Q2','_QBasicPage_QFirstName');</script>
+            <input data-questionid="_Q2" data-questiongroup="_Q2" type="text" name="_QBasicPage_QFirstName" id="_Q2" class="a-input-singlelineedit" autocomplete="off" style="z-index: -20;" maxlength="39" value="FirstName:  This is the generated text" />
             <script>app.registerComponent('aInputSinglelineedit','_Q2','_QBasicPage_QFirstName');</script>
           </div>
         </div>
@@ -148,7 +154,8 @@
             <label for="_Q3" class="a-label-question" style="">What is the first line of your address</label>
           </div>
           <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Q3">
-            <input data-questionid="_Q3" data-questiongroup="_Q3" type="text" name="_QBasicPage_QFirstLine" id="_Q3" class="a-input-singlelineedit" autocomplete="off" style="z-index: -20;" maxlength="200" value="FirstLine:  This is the generated text response.  FirstL" />
+            <script>app.registerComponent('oQuestionSinglelineedit','_Q3','_QBasicPage_QFirstLine');</script>
+            <input data-questionid="_Q3" data-questiongroup="_Q3" type="text" name="_QBasicPage_QFirstLine" id="_Q3" class="a-input-singlelineedit" autocomplete="off" style="z-index: -20;" maxlength="200" value="FirstLine:  This is the generated text response.  FirstLine:  This is the generated text response.  FirstLine:  This is the generated text response." />
             <script>
               app.registerComponent('aInputSinglelineedit', '_Q3', '_QBasicPage_QFirstLine');
             </script>
@@ -173,6 +180,7 @@
             <label for="_Q4" class="a-label-question" style="">Over the past 3 months, how many days has the patient spent in the hospital due to their cancer?</label>
           </div>
           <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Q4">
+            <script>app.registerComponent('oQuestionSinglelineedit','_Q4','_QBasicPage_Qhospital__days');</script>
             <input data-questionid="_Q4" data-questiongroup="_Q4" type="text" name="_QBasicPage_Qhospital__days" id="_Q4" class="a-input-singlelineedit" autocomplete="off" style="z-index: -20;" maxlength="2" value="" />
             <script>app.registerComponent('aInputSinglelineedit','_Q4','_QBasicPage_Qhospital__days');</script>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_X0" data-questiongroup="_Q4">
