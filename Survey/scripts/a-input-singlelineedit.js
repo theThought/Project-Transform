@@ -31,6 +31,7 @@ define(
             this.questionGroup = null;
             this.isExclusive = false;
             this.defaultPlaceholder = '';
+            this.properties = {};
         }
 
         aInputSingleLineEdit.prototype.Init = function () {
@@ -38,9 +39,63 @@ define(
             this.questionGroup = this.element.getAttribute('data-questiongroup');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
+            this.properties = app.properties[this.element.getAttribute('name')];
+            this.configureProperties();
 
             document.addEventListener("focusin", this, false);
             document.addEventListener(this.questionGroup + "_enableExclusive", this, false);
+        }
+
+        aInputSingleLineEdit.prototype.configureProperties = function () {
+            for (var prop in this.properties) {
+                if (this.properties.hasOwnProperty(prop)
+                    && typeof this[prop] === 'function') {
+                    this[prop](this.properties[prop]);
+                }
+            }
+        }
+
+        aInputSingleLineEdit.prototype.labels = function (val) {
+            var parent = this.element.parentNode;
+
+            if (val['pre']) {
+                var preelement = document.createElement('span');
+                preelement.className = 'a-label-prelabel';
+                var precontent = document.createTextNode(val['pre']);
+                preelement.appendChild(precontent);
+
+                parent.insertBefore(preelement, this.element);
+            }
+
+            if (val['post']) {
+                var postelement = document.createElement('span');
+                postelement.className = 'a-label-postlabel';
+                var postcontent = document.createTextNode(val['post']);
+                postelement.appendChild(postcontent);
+
+                parent.insertBefore(postelement, this.element.nextSibling);
+            }
+        }
+
+        aInputSingleLineEdit.prototype.prelabel = function (val) {
+            var parent = this.element.parentNode;
+            var element = document.createElement('span');
+            element.className = 'a-label-prelabel';
+            var content = document.createTextNode(val);
+            element.appendChild(content);
+
+            parent.insertBefore(element, this.element);
+        }
+
+        aInputSingleLineEdit.prototype.postlabel = function (val) {
+            var parent = this.element.parentNode;
+            var element = document.createElement('span');
+            element.className = 'a-label-postlabel';
+            var content = document.createTextNode(val);
+            element.appendChild(content);
+
+            parent.insertBefore(element, this.element.nextSibling);
+
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {

@@ -25,3 +25,8 @@
     border-bottom: 1px solid;
     width: 151px;
 }
+
+.a-label-prelabel+.a-input-singlelineedit {
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}

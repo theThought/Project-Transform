@@ -21,13 +21,14 @@
 
 function Survey() {
     this.components = {};
+    this.properties = {};
 }
 
 Survey.prototype.Init = function () {
 }
 
 Survey.prototype.registerComponent = function (componentType, id) {
-    console.log('Registering ' + id);
+    console.log('Registering component ' + id);
 
     switch (componentType) {
         case 'aInputSinglelineedit':
@@ -53,5 +54,6 @@ Survey.prototype.registerComponent = function (componentType, id) {
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
-
+    console.log('Registering properties for ' + id);
+    app.properties[id] = props;
 }
