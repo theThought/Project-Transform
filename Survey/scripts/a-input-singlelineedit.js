@@ -77,27 +77,6 @@ define(
             }
         }
 
-        aInputSingleLineEdit.prototype.prelabel = function (val) {
-            var parent = this.element.parentNode;
-            var element = document.createElement('span');
-            element.className = 'a-label-prelabel';
-            var content = document.createTextNode(val);
-            element.appendChild(content);
-
-            parent.insertBefore(element, this.element);
-        }
-
-        aInputSingleLineEdit.prototype.postlabel = function (val) {
-            var parent = this.element.parentNode;
-            var element = document.createElement('span');
-            element.className = 'a-label-postlabel';
-            var content = document.createTextNode(val);
-            element.appendChild(content);
-
-            parent.insertBefore(element, this.element.nextSibling);
-
-        }
-
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "focusin":
