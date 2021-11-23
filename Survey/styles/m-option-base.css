@@ -18,3 +18,7 @@
     top: .1em;
     left: 0;
 }
+
+input+script+.m-option-base {
+    margin-left: 1em;
+}

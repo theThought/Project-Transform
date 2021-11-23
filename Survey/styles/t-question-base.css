@@ -31,10 +31,9 @@
 .sidebyside .o-question-information {
     margin-right: 1em;
     margin-bottom: 0;
+    flex: 1 0 400px
 }
 
-.sidebyside .o-question-information,
 .sidebyside .o-question-response {
-    flex-grow: 1;
-    flex-basis: 0;
+    flex: 1 0 800px;
 }
