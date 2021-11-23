@@ -137,8 +137,8 @@
         <xsl:text>a-label-</xsl:text>
         <xsl:value-of select="$labelType" />
       </xsl:attribute>
-    </xsl:element>
     <xsl:call-template name="LabelText" />
+    </xsl:element>
   </xsl:template>
   <xsl:template name="LabelText">
     <xsl:choose>
