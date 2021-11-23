@@ -55,6 +55,10 @@ define(
             }
         }
 
+        aInputSingleLineEdit.prototype.type = function(val) {
+            this.element.type = val;
+        }
+
         aInputSingleLineEdit.prototype.labels = function (val) {
             var parent = this.element.parentNode;
 
