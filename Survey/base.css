@@ -58,9 +58,9 @@ body > form {
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
+    min-width: 375px;
     max-width: 1660px;
     margin: 0 auto;
-
 }
 
 .surroundcontent {
