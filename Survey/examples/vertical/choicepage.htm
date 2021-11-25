@@ -11,7 +11,7 @@
   <meta name="Template" content="page.htm" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/base.css" />
+  <link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/styles/base.css" />
   <script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/scripts/require.js">
     <!-- Require Script -->
   </script>
@@ -50,7 +50,7 @@
 </head>
 
 <body>
-  <form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="g1smti6tq4ruha3ognpjydsom3aqaaaa" /><input
+  <form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="ynchehz3wgtulpycq6jffxcauuaqaaaa" /><input
       type="hidden" name="I.SavePoint" value="ChoicePage" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
     <div class="header">
       <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/images/ipsoslogo192.png" />
@@ -88,7 +88,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />male</label>
+                <span class="a-label-question">male</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C1" data-questiongroup="_Q0_C">
               <script>app.registerComponent('mOptionBase','_Q0_C1','_QChoicePage_QGenderReal_C');</script>
@@ -97,27 +98,30 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />female</label>
+                <span class="a-label-question">female</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C2" data-questiongroup="_Q0_C">
               <script>app.registerComponent('mOptionBase','_Q0_C2','_QChoicePage_QGenderReal_C');</script>
-              <input class="hiddencontrol" type="radio" name="_QChoicePage_QGenderReal_C" id="_Q0_C2" style="" value="othergender" checked="" />
+              <input class="hiddencontrol" type="radio" name="_QChoicePage_QGenderReal_C" id="_Q0_C2" style="" value="othergender" />
               <label for="_Q0_C2">
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />other please specify</label>
-              <input data-questionid="_Q0_O2" data-questiongroup="_Q0_C" type="text" name="_QChoicePage_QGenderReal_Oothergender" id="_Q0_O2" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="othergender:  This is the generated text response.  othergender:  This is the generated text response.  othergender:  This is the" />
+                <span class="a-label-question">other please specify</span>
+              </label>
+              <input data-questionid="_Q0_O2" data-questiongroup="_Q0_C" type="text" name="_QChoicePage_QGenderReal_Oothergender" id="_Q0_O2" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="" />
               <script>app.registerComponent('aInputSinglelineedit','_Q0_O2','_QChoicePage_QGenderReal_C');</script>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C3" data-questiongroup="_Q0_C">
               <script>app.registerComponent('mOptionBase','_Q0_C3','_QChoicePage_QGenderReal_C');</script>
-              <input class="hiddencontrol" type="radio" name="_QChoicePage_QGenderReal_C" id="_Q0_C3" style="" value="dontsay" />
+              <input class="hiddencontrol" type="radio" name="_QChoicePage_QGenderReal_C" id="_Q0_C3" style="" value="dontsay" checked="" />
               <label for="_Q0_C3">
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />prefer not to say</label>
+                <span class="a-label-question">prefer not to say</span>
+              </label>
             </div>
           </div>
         </div>
@@ -139,7 +143,8 @@
             <script>app.registerComponent('oQuestionChoice','_Q1_C','_QChoicePage_QDrinks_C');</script>
             <div class="o-option-sublist">
               <div class="a-label-heading-sublist" style="">
-                <span class="a-label-question" />Coca Cola</div>
+                <span class="a-label-question">Coca Cola</span>
+              </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S0" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C0_S0','_QChoicePage_QDrinks_C');</script>
                 <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Cregular" id="_Q1_C0_S0" style="" value="regular" checked="" />
@@ -147,7 +152,8 @@
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Original</label>
+                  <span class="a-label-question">Original</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S1" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C0_S1','_QChoicePage_QDrinks_C');</script>
@@ -156,25 +162,28 @@
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Diet</label>
+                  <span class="a-label-question">Diet</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S2" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C0_S2','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccherry" id="_Q1_C0_S2" style="" value="cherry" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccherry" id="_Q1_C0_S2" style="" value="cherry" />
                 <label for="_Q1_C0_S2">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Cherry</label>
+                  <span class="a-label-question">Cherry</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S3" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C0_S3','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Cnocaffine" id="_Q1_C0_S3" style="" value="nocaffine" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Cnocaffine" id="_Q1_C0_S3" style="" value="nocaffine" />
                 <label for="_Q1_C0_S3">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />caffine free</label>
+                  <span class="a-label-question">caffine free</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S4" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C0_S4','_QChoicePage_QDrinks_C');</script>
@@ -183,29 +192,33 @@
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />zero sugar vanilla</label>
+                  <span class="a-label-question">zero sugar vanilla</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S5" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C0_S5','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Czerocherry" id="_Q1_C0_S5" style="" value="zerocherry" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Czerocherry" id="_Q1_C0_S5" style="" value="zerocherry" />
                 <label for="_Q1_C0_S5">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />zero sugar cherry</label>
+                  <span class="a-label-question">zero sugar cherry</span>
+                </label>
               </div>
             </div>
             <div class="o-option-sublist">
               <div class="a-label-heading-sublist" style="">
-                <span class="a-label-question" />Pepsi Cola</div>
+                <span class="a-label-question">Pepsi Cola</span>
+              </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S0" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C1_S0','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_COriginal" id="_Q1_C1_S0" style="" value="Original" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_COriginal" id="_Q1_C1_S0" style="" value="Original" />
                 <label for="_Q1_C1_S0">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Original</label>
+                  <span class="a-label-question">Original</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S1" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C1_S1','_QChoicePage_QDrinks_C');</script>
@@ -214,34 +227,38 @@
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Max</label>
+                  <span class="a-label-question">Max</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S2" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C1_S2','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CMaxCherry" id="_Q1_C1_S2" style="" value="MaxCherry" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CMaxCherry" id="_Q1_C1_S2" style="" value="MaxCherry" />
                 <label for="_Q1_C1_S2">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Max (Cherry)</label>
+                  <span class="a-label-question">Max (Cherry)</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S3" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C1_S3','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CMaxLime" id="_Q1_C1_S3" style="" value="MaxLime" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CMaxLime" id="_Q1_C1_S3" style="" value="MaxLime" />
                 <label for="_Q1_C1_S3">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Max (Lime)</label>
+                  <span class="a-label-question">Max (Lime)</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S4" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C1_S4','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRaspberry" id="_Q1_C1_S4" style="" value="Raspberry" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRaspberry" id="_Q1_C1_S4" style="" value="Raspberry" />
                 <label for="_Q1_C1_S4">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Raspberry</label>
+                  <span class="a-label-question">Raspberry</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S5" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C1_S5','_QChoicePage_QDrinks_C');</script>
@@ -250,17 +267,19 @@
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Fire</label>
+                  <span class="a-label-question">Fire</span>
+                </label>
               </div>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C2" data-questiongroup="_Q1_C">
               <script>app.registerComponent('mOptionBase','_Q1_C2','_QChoicePage_QDrinks_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccoffee" id="_Q1_C2" style="" value="coffee" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccoffee" id="_Q1_C2" style="" value="coffee" />
               <label for="_Q1_C2">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />coffee</label>
+                <span class="a-label-question">coffee</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C3" data-questiongroup="_Q1_C">
               <script>app.registerComponent('mOptionBase','_Q1_C3','_QChoicePage_QDrinks_C');</script>
@@ -269,39 +288,44 @@
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Other Hot Drink</label>
-              <input data-questionid="_Q1_O3" data-questiongroup="_Q1_C" type="text" name="_QChoicePage_QDrinks_OOtherDrink" id="_Q1_O3" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is th" />
+                <span class="a-label-question">Other Hot Drink</span>
+              </label>
+              <input data-questionid="_Q1_O3" data-questiongroup="_Q1_C" type="text" name="_QChoicePage_QDrinks_OOtherDrink" id="_Q1_O3" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the ge" />
               <script>app.registerComponent('aInputSinglelineedit','_Q1_O3','_QChoicePage_QDrinks_C');</script>
             </div>
             <div class="o-option-sublist">
               <div class="a-label-heading-sublist" style="">
-                <span class="a-label-question" />Others</div>
+                <span class="a-label-question">Others</span>
+              </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S0" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C4_S0','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CFantaOrange" id="_Q1_C4_S0" style="" value="FantaOrange" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CFantaOrange" id="_Q1_C4_S0" style="" value="FantaOrange" />
                 <label for="_Q1_C4_S0">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Fanta (Orange)</label>
+                  <span class="a-label-question">Fanta (Orange)</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S1" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C4_S1','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CDrPepper" id="_Q1_C4_S1" style="" value="DrPepper" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CDrPepper" id="_Q1_C4_S1" style="" value="DrPepper" />
                 <label for="_Q1_C4_S1">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Dr Pepper</label>
+                  <span class="a-label-question">Dr Pepper</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S2" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C4_S2','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRWhites" id="_Q1_C4_S2" style="" value="RWhites" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRWhites" id="_Q1_C4_S2" style="" value="RWhites" />
                 <label for="_Q1_C4_S2">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />R Whites Lemonade</label>
+                  <span class="a-label-question">R Whites Lemonade</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S3" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C4_S3','_QChoicePage_QDrinks_C');</script>
@@ -310,16 +334,18 @@
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Sprite</label>
+                  <span class="a-label-question">Sprite</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S4" data-questiongroup="_Q1_C">
                 <script>app.registerComponent('mOptionBase','_Q1_C4_S4','_QChoicePage_QDrinks_C');</script>
-                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CLilt" id="_Q1_C4_S4" style="" value="Lilt" checked="" />
+                <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CLilt" id="_Q1_C4_S4" style="" value="Lilt" />
                 <label for="_Q1_C4_S4">
                   <span class="a-icon-multistate" data-icontype="multiple">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Lilt</label>
+                  <span class="a-label-question">Lilt</span>
+                </label>
               </div>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C5" data-questiongroup="_Q1_C">
@@ -329,7 +355,8 @@
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />none of the above</label>
+                <span class="a-label-question">none of the above</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C6" data-questiongroup="_Q1_C">
               <script>app.registerComponent('mOptionBase','_Q1_C6','_QChoicePage_QDrinks_C');</script>
@@ -338,7 +365,8 @@
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />I refuse to answer</label>
+                <span class="a-label-question">I refuse to answer</span>
+              </label>
             </div>
           </div>
         </div>
@@ -354,30 +382,33 @@
             <script>app.registerComponent('oQuestion','_Q2_C','_QChoicePage_Qsizes_C');</script>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C0" data-questiongroup="_Q2_C">
               <script>app.registerComponent('mOptionBase','_Q2_C0','_QChoicePage_Qsizes_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_Qsizes_Cshort" id="_Q2_C0" style="" value="short" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_Qsizes_Cshort" id="_Q2_C0" style="" value="short" checked="" />
               <label for="_Q2_C0">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />short</label>
+                <span class="a-label-question">short</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C1" data-questiongroup="_Q2_C">
               <script>app.registerComponent('mOptionBase','_Q2_C1','_QChoicePage_Qsizes_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_Qsizes_Cmedium" id="_Q2_C1" style="" value="medium" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_Qsizes_Cmedium" id="_Q2_C1" style="" value="medium" checked="" />
               <label for="_Q2_C1">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />this is a medium option</label>
+                <span class="a-label-question">this is a medium option</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C2" data-questiongroup="_Q2_C">
               <script>app.registerComponent('mOptionBase','_Q2_C2','_QChoicePage_Qsizes_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_Qsizes_Creallylong" id="_Q2_C2" style="" value="reallylong" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_Qsizes_Creallylong" id="_Q2_C2" style="" value="reallylong" checked="" />
               <label for="_Q2_C2">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />this is a really long option with lots of content that makes everything else seem really small</label>
+                <span class="a-label-question">this is a really long option with lots of content that makes everything else seem really small</span>
+              </label>
             </div>
           </div>
         </div>
@@ -399,77 +430,83 @@
             <script>app.registerComponent('oQuestionChoice','_Q3_C','_QChoicePage_QDrinksRandom_C');</script>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C0','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFire" id="_Q3_C0" style="" value="Fire" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFire" id="_Q3_C0" style="" value="Fire" />
               <label for="_Q3_C0">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Fire</label>
+                <span class="a-label-question">Fire</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C1','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cnocaffine" id="_Q3_C1" style="" value="nocaffine" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRWhites" id="_Q3_C1" style="" value="RWhites" />
               <label for="_Q3_C1">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />caffine free</label>
+                <span class="a-label-question">R Whites Lemonade</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C2','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CDrPepper" id="_Q3_C2" style="" value="DrPepper" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cdiet" id="_Q3_C2" style="" value="diet" />
               <label for="_Q3_C2">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Dr Pepper</label>
+                <span class="a-label-question">Diet</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C3','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cregular" id="_Q3_C3" style="" value="regular" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerocherry" id="_Q3_C3" style="" value="zerocherry" />
               <label for="_Q3_C3">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Original</label>
+                <span class="a-label-question">zero sugar cherry</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C4" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C4','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_COriginal" id="_Q3_C4" style="" value="Original" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRaspberry" id="_Q3_C4" style="" value="Raspberry" checked="" />
               <label for="_Q3_C4">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Original</label>
+                <span class="a-label-question">Raspberry</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C5" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C5','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_COtherDrink" id="_Q3_C5" style="" value="OtherDrink" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccherry" id="_Q3_C5" style="" value="cherry" checked="" />
               <label for="_Q3_C5">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Other Hot Drink</label>
-              <input data-questionid="_Q3_O5" data-questiongroup="_Q3_C" type="text" name="_QChoicePage_QDrinksRandom_OOtherDrink" id="_Q3_O5" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="" />
-              <script>app.registerComponent('aInputSinglelineedit','_Q3_O5','_QChoicePage_QDrinksRandom_C');</script>
+                <span class="a-label-question">Cherry</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C6" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C6','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFantaOrange" id="_Q3_C6" style="" value="FantaOrange" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccoffee" id="_Q3_C6" style="" value="coffee" />
               <label for="_Q3_C6">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Fanta (Orange)</label>
+                <span class="a-label-question">coffee</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C7" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C7','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerocherry" id="_Q3_C7" style="" value="zerocherry" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cnocaffine" id="_Q3_C7" style="" value="nocaffine" />
               <label for="_Q3_C7">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />zero sugar cherry</label>
+                <span class="a-label-question">caffine free</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C8" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C8','_QChoicePage_QDrinksRandom_C');</script>
@@ -478,97 +515,110 @@
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Max (Lime)</label>
+                <span class="a-label-question">Max (Lime)</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C9" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C9','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRWhites" id="_Q3_C9" style="" value="RWhites" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CLilt" id="_Q3_C9" style="" value="Lilt" checked="" />
               <label for="_Q3_C9">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />R Whites Lemonade</label>
+                <span class="a-label-question">Lilt</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C10" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C10','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cdiet" id="_Q3_C10" style="" value="diet" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFantaOrange" id="_Q3_C10" style="" value="FantaOrange" />
               <label for="_Q3_C10">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Diet</label>
+                <span class="a-label-question">Fanta (Orange)</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C11" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C11','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CSprite" id="_Q3_C11" style="" value="Sprite" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMax" id="_Q3_C11" style="" value="Max" />
               <label for="_Q3_C11">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Sprite</label>
+                <span class="a-label-question">Max</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C12" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C12','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMax" id="_Q3_C12" style="" value="Max" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMaxCherry" id="_Q3_C12" style="" value="MaxCherry" checked="" />
               <label for="_Q3_C12">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Max</label>
+                <span class="a-label-question">Max (Cherry)</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C13" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C13','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRaspberry" id="_Q3_C13" style="" value="Raspberry" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_COtherDrink" id="_Q3_C13" style="" value="OtherDrink" checked="" />
               <label for="_Q3_C13">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Raspberry</label>
+                <span class="a-label-question">Other Hot Drink</span>
+              </label>
+              <input data-questionid="_Q3_O13" data-questiongroup="_Q3_C" type="text" name="_QChoicePage_QDrinksRandom_OOtherDrink" id="_Q3_O13" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:" />
+              <script>app.registerComponent('aInputSinglelineedit','_Q3_O13','_QChoicePage_QDrinksRandom_C');</script>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C14" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C14','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerovanilla" id="_Q3_C14" style="" value="zerovanilla" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_COriginal" id="_Q3_C14" style="" value="Original" />
               <label for="_Q3_C14">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />zero sugar vanilla</label>
+                <span class="a-label-question">Original</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C15" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C15','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccoffee" id="_Q3_C15" style="" value="coffee" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerovanilla" id="_Q3_C15" style="" value="zerovanilla" />
               <label for="_Q3_C15">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />coffee</label>
+                <span class="a-label-question">zero sugar vanilla</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C16" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C16','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccherry" id="_Q3_C16" style="" value="cherry" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CDrPepper" id="_Q3_C16" style="" value="DrPepper" checked="" />
               <label for="_Q3_C16">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Cherry</label>
+                <span class="a-label-question">Dr Pepper</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C17" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C17','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMaxCherry" id="_Q3_C17" style="" value="MaxCherry" checked="" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CSprite" id="_Q3_C17" style="" value="Sprite" />
               <label for="_Q3_C17">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Max (Cherry)</label>
+                <span class="a-label-question">Sprite</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C18" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C18','_QChoicePage_QDrinksRandom_C');</script>
-              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CLilt" id="_Q3_C18" style="" value="Lilt" />
+              <input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cregular" id="_Q3_C18" style="" value="regular" />
               <label for="_Q3_C18">
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Lilt</label>
+                <span class="a-label-question">Original</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C19" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C19','_QChoicePage_QDrinksRandom_C');</script>
@@ -577,7 +627,8 @@
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />none of the above</label>
+                <span class="a-label-question">none of the above</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C20" data-questiongroup="_Q3_C">
               <script>app.registerComponent('mOptionBase','_Q3_C20','_QChoicePage_QDrinksRandom_C');</script>
@@ -586,7 +637,8 @@
                 <span class="a-icon-multistate" data-icontype="multiple">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />I refuse to answer</label>
+                <span class="a-label-question">I refuse to answer</span>
+              </label>
             </div>
           </div>
         </div>
@@ -613,7 +665,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />In-house (hospital/practice where the tissue / sample was extracted)</label>
+                <span class="a-label-question">In-house (hospital/practice where the tissue / sample was extracted)</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C1" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C1','_QChoicePage_Qtest__location_C');</script>
@@ -622,7 +675,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />External community hospital</label>
+                <span class="a-label-question">External community hospital</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C2" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C2','_QChoicePage_Qtest__location_C');</script>
@@ -631,7 +685,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />External academic hospital</label>
+                <span class="a-label-question">External academic hospital</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C3" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C3','_QChoicePage_Qtest__location_C');</script>
@@ -640,7 +695,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />External cancer centre</label>
+                <span class="a-label-question">External cancer centre</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C4" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C4','_QChoicePage_Qtest__location_C');</script>
@@ -649,7 +705,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />ACT genomics</label>
+                <span class="a-label-question">ACT genomics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C5" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C5','_QChoicePage_Qtest__location_C');</script>
@@ -658,7 +715,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />BGI</label>
+                <span class="a-label-question">BGI</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C6" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C6','_QChoicePage_Qtest__location_C');</script>
@@ -667,7 +725,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Bio-Reference Laboratories</label>
+                <span class="a-label-question">Bio-Reference Laboratories</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C7" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C7','_QChoicePage_Qtest__location_C');</script>
@@ -676,7 +735,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />BioTheranostics</label>
+                <span class="a-label-question">BioTheranostics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C8" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C8','_QChoicePage_Qtest__location_C');</script>
@@ -685,7 +745,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Cancer genetics</label>
+                <span class="a-label-question">Cancer genetics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C9" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C9','_QChoicePage_Qtest__location_C');</script>
@@ -694,7 +755,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Caris Life Sciences</label>
+                <span class="a-label-question">Caris Life Sciences</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C10" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C10','_QChoicePage_Qtest__location_C');</script>
@@ -703,7 +765,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Circulogene</label>
+                <span class="a-label-question">Circulogene</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C11" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C11','_QChoicePage_Qtest__location_C');</script>
@@ -712,7 +775,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Foundation Medicine</label>
+                <span class="a-label-question">Foundation Medicine</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C12" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C12','_QChoicePage_Qtest__location_C');</script>
@@ -721,16 +785,18 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Genomic Health</label>
+                <span class="a-label-question">Genomic Health</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C13" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C13','_QChoicePage_Qtest__location_C');</script>
-              <input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C13" style="" value="genpath" />
+              <input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C13" style="" value="genpath" checked="" />
               <label for="_Q4_C13">
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Genpath</label>
+                <span class="a-label-question">Genpath</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C14" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C14','_QChoicePage_Qtest__location_C');</script>
@@ -739,7 +805,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Guardant Health</label>
+                <span class="a-label-question">Guardant Health</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C15" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C15','_QChoicePage_Qtest__location_C');</script>
@@ -748,7 +815,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Kew</label>
+                <span class="a-label-question">Kew</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C16" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C16','_QChoicePage_Qtest__location_C');</script>
@@ -757,7 +825,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Knight Diagnostics</label>
+                <span class="a-label-question">Knight Diagnostics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C17" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C17','_QChoicePage_Qtest__location_C');</script>
@@ -766,7 +835,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Navican</label>
+                <span class="a-label-question">Navican</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C18" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C18','_QChoicePage_Qtest__location_C');</script>
@@ -775,7 +845,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />NeoGenomics / Genoptix</label>
+                <span class="a-label-question">NeoGenomics / Genoptix</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C19" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C19','_QChoicePage_Qtest__location_C');</script>
@@ -784,7 +855,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Novogene</label>
+                <span class="a-label-question">Novogene</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C20" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C20','_QChoicePage_Qtest__location_C');</script>
@@ -793,7 +865,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />OmniSeq precision medicine</label>
+                <span class="a-label-question">OmniSeq precision medicine</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C21" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C21','_QChoicePage_Qtest__location_C');</script>
@@ -802,7 +875,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />OncoDNA</label>
+                <span class="a-label-question">OncoDNA</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C22" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C22','_QChoicePage_Qtest__location_C');</script>
@@ -811,7 +885,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Otogenetics Corporation</label>
+                <span class="a-label-question">Otogenetics Corporation</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C23" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C23','_QChoicePage_Qtest__location_C');</script>
@@ -820,7 +895,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Paradigm diagnostics</label>
+                <span class="a-label-question">Paradigm diagnostics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C24" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C24','_QChoicePage_Qtest__location_C');</script>
@@ -829,7 +905,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />PathGroup</label>
+                <span class="a-label-question">PathGroup</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C25" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C25','_QChoicePage_Qtest__location_C');</script>
@@ -838,7 +915,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Personal Genome Diagnostics</label>
+                <span class="a-label-question">Personal Genome Diagnostics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C26" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C26','_QChoicePage_Qtest__location_C');</script>
@@ -847,11 +925,13 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Predicine</label>
+                <span class="a-label-question">Predicine</span>
+              </label>
             </div>
             <div class="o-option-sublist">
               <div class="a-label-heading-sublist" style="">
-                <span class="a-label-question" />Private reference lab: Primary</div>
+                <span class="a-label-question">Private reference lab: Primary</span>
+              </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C27_S0" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C27_S0','_QChoicePage_Qtest__location_C');</script>
                 <input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C27_S0" style="" value="laverty" />
@@ -859,7 +939,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Laverty</label>
+                  <span class="a-label-question">Laverty</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C27_S1" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C27_S1','_QChoicePage_Qtest__location_C');</script>
@@ -868,7 +949,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Dorevitch</label>
+                  <span class="a-label-question">Dorevitch</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C27_S2" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C27_S2','_QChoicePage_Qtest__location_C');</script>
@@ -877,16 +959,18 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />QML</label>
+                  <span class="a-label-question">QML</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C27_S3" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C27_S3','_QChoicePage_Qtest__location_C');</script>
-                <input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C27_S3" style="" value="abbott__pathology" checked="" />
+                <input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C27_S3" style="" value="abbott__pathology" />
                 <label for="_Q4_C27_S3">
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Abbott Pathology</label>
+                  <span class="a-label-question">Abbott Pathology</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C27_S4" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C27_S4','_QChoicePage_Qtest__location_C');</script>
@@ -895,7 +979,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Other (please specify)</label>
+                  <span class="a-label-question">Other (please specify)</span>
+                </label>
                 <input data-questionid="_Q4_O27_S4" data-questiongroup="_Q4_C" type="text" name="_QChoicePage_Qtest__location_Oother__please__specify__primary" id="_Q4_O27_S4" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024"
                   value="" />
                 <script>app.registerComponent('aInputSinglelineedit','_Q4_O27_S4','_QChoicePage_Qtest__location_C');</script>
@@ -903,7 +988,8 @@
             </div>
             <div class="o-option-sublist">
               <div class="a-label-heading-sublist" style="">
-                <span class="a-label-question" />Private reference lab: Sonic</div>
+                <span class="a-label-question">Private reference lab: Sonic</span>
+              </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C28_S0" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C28_S0','_QChoicePage_Qtest__location_C');</script>
                 <input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C28_S0" style="" value="douglass__hanly__moir" />
@@ -911,7 +997,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Douglass Hanly Moir</label>
+                  <span class="a-label-question">Douglass Hanly Moir</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C28_S1" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C28_S1','_QChoicePage_Qtest__location_C');</script>
@@ -920,7 +1007,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Melbourne Pathology</label>
+                  <span class="a-label-question">Melbourne Pathology</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C28_S2" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C28_S2','_QChoicePage_Qtest__location_C');</script>
@@ -929,7 +1017,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Sullivan Nicolaides</label>
+                  <span class="a-label-question">Sullivan Nicolaides</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C28_S3" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C28_S3','_QChoicePage_Qtest__location_C');</script>
@@ -938,7 +1027,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Clinpath</label>
+                  <span class="a-label-question">Clinpath</span>
+                </label>
               </div>
               <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C28_S4" data-questiongroup="_Q4_C">
                 <script>app.registerComponent('mOptionBase','_Q4_C28_S4','_QChoicePage_Qtest__location_C');</script>
@@ -947,7 +1037,8 @@
                   <span class="a-icon-multistate" data-icontype="single">
                     <!--This is a comment!-->
                   </span>
-                  <span class="a-label-question" />Other (please specify)</label>
+                  <span class="a-label-question">Other (please specify)</span>
+                </label>
                 <input data-questionid="_Q4_O28_S4" data-questiongroup="_Q4_C" type="text" name="_QChoicePage_Qtest__location_Oother__please__specify__sonic" id="_Q4_O28_S4" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024"
                   value="" />
                 <script>app.registerComponent('aInputSinglelineedit','_Q4_O28_S4','_QChoicePage_Qtest__location_C');</script>
@@ -960,7 +1051,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />SOPHiA Genetics</label>
+                <span class="a-label-question">SOPHiA Genetics</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C30" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C30','_QChoicePage_Qtest__location_C');</script>
@@ -969,7 +1061,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Strand Centre</label>
+                <span class="a-label-question">Strand Centre</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C31" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C31','_QChoicePage_Qtest__location_C');</script>
@@ -978,7 +1071,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Tempus</label>
+                <span class="a-label-question">Tempus</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C32" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C32','_QChoicePage_Qtest__location_C');</script>
@@ -987,7 +1081,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Private reference lab: Australian Clinical Labs (formerly Healthscope)</label>
+                <span class="a-label-question">Private reference lab: Australian Clinical Labs (formerly Healthscope)</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C33" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C33','_QChoicePage_Qtest__location_C');</script>
@@ -996,7 +1091,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Private reference lab: other</label>
+                <span class="a-label-question">Private reference lab: other</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C34" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C34','_QChoicePage_Qtest__location_C');</script>
@@ -1005,7 +1101,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Public reference lab</label>
+                <span class="a-label-question">Public reference lab</span>
+              </label>
             </div>
             <div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C35" data-questiongroup="_Q4_C">
               <script>app.registerComponent('mOptionBase','_Q4_C35','_QChoicePage_Qtest__location_C');</script>
@@ -1014,7 +1111,8 @@
                 <span class="a-icon-multistate" data-icontype="single">
                   <!--This is a comment!-->
                 </span>
-                <span class="a-label-question" />Other (specify):</label>
+                <span class="a-label-question">Other (specify):</span>
+              </label>
               <input data-questionid="_Q4_O35" data-questiongroup="_Q4_C" type="text" name="_QChoicePage_Qtest__location_Oother__specify" id="_Q4_O35" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="1024" value="" />
               <script>app.registerComponent('aInputSinglelineedit','_Q4_O35','_QChoicePage_Qtest__location_C');</script>
             </div>
