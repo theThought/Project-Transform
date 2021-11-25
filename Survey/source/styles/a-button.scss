@@ -1,0 +1,49 @@
+input[type=submit],
+input[type=reset],
+button {
+    margin: 1em 0;
+    border: 1px solid #455B97;
+    border-radius: 10px;
+    width: 197px !important;
+    min-height: 40px;
+    background: #455B97;
+    color: #FFFFFF;
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover,
+button:hover {
+    background-color: #FFFFFF;
+    color: #455B97;
+}
+
+/* buttons where used as part of
+ * the page navigation controls */
+#nav-controls {
+
+    input[type=submit] {
+        margin: 0;
+        border-color: #449B9B;
+        background-color: #449B9B;
+        color: #FFFFFF;
+        width: auto !important;
+        min-width: 109px;
+        max-width: 197px;
+        flex-grow: 1;
+    }
+
+    input[type=submit]:hover {
+        color: #449B9B;
+        background-color: #FFFFFF;
+    }
+
+    #prevstop input[type=submit] {
+        margin-right: 1em;
+        flex-basis: 0;
+    }
+
+    #prevstop input[type=submit]:last-child {
+        margin-right: 0;
+    }
+
+}

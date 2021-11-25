@@ -12,14 +12,9 @@
 }
 
 .sidebyside .o-question-core {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .o-question-information {
@@ -29,17 +24,11 @@
 .sidebyside .o-question-information {
   margin-right: 1em;
   margin-bottom: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 400px;
-          flex: 1 0 400px;
+  flex: 1 0 400px;
 }
 
 .sidebyside .o-question-response {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 800px;
-          flex: 1 0 800px;
+  flex: 1 0 800px;
 }
-
-/*# sourceMappingURL=t-question-base.css.map */
 
 /*# sourceMappingURL=t-question-base.css.map */

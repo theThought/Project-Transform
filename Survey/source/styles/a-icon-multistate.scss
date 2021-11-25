@@ -1,21 +1,21 @@
 .a-icon-multistate {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-position-x: 16px;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-position-x: 16px;
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
-  background-image: url("../images/Checkbox.png");
+    background-image: url("../images/Checkbox.png");
 }
 
 input[type=radio] + label > .a-icon-multistate {
-  background-image: url("../images/radiobutton.png");
+    background-image: url("../images/radiobutton.png");
 }
 
 input[type=checkbox]:checked + label > .a-icon-multistate,
 input[type=radio]:checked + label > .a-icon-multistate {
-  background-position-x: 0;
+    background-position-x: 0;
 }
 
 input[type=checkbox]:focus + label,
@@ -24,9 +24,5 @@ input[type=checkbox]:focus-visible + label,
 input[type=radio]:focus-visible + label,
 input[type=checkbox]:focus-within + label,
 input[type=radio]:focus-within + label {
-  outline: 1px solid #324371;
+    outline: 1px solid #324371;
 }
-
-/*# sourceMappingURL=a-icon-multistate.css.map */
-
-/*# sourceMappingURL=a-icon-multistate.css.map */

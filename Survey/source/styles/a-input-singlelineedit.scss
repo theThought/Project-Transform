@@ -1,0 +1,32 @@
+.a-input-singlelineedit {
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #8797C8;
+    color: #757575;
+    margin: 0 0 .5em 0;
+    width: 197px;
+    background-color: #FAFAFA;
+}
+
+.a-input-singlelineedit:last-of-type {
+    margin-bottom: 0;
+}
+
+.a-input-singlelineedit:hover,
+.a-input-singlelineedit:focus {
+    color: #57699C;
+}
+
+.m-option-base .a-input-singlelineedit {
+    margin-left: .5em;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid;
+    width: 151px;
+}
+
+.a-label-prelabel + .a-input-singlelineedit {
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}

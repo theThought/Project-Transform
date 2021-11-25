@@ -1,0 +1,37 @@
+.footer {
+    margin-top: 1em;
+    border-top: 1px solid #8797C8;
+    padding: 1em 0;
+}
+
+#nav-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+    div {
+        display: flex;
+        flex-grow: 1;
+    }
+}
+
+#prevstop {
+    margin-right: 1em;
+}
+
+#nextonly {
+    justify-content: end;
+}
+
+.page-links {
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    a {
+        color: #212C4C;
+        display: inline-block;
+        margin-right: 1em;
+    }
+}

@@ -1,0 +1,26 @@
+.a-label-question {
+    padding: 0;
+    margin: 0;
+}
+
+.a-label-postlabel {
+    display: inline-block;
+    border: 1px solid #8797c8;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    left: -.5em;
+    background-color: #FAFAFA;
+    padding: 10px 16px;
+    color: #A0ABCC;
+    white-space: nowrap;
+}
+
+.a-label-prelabel {
+    display: inline-block;
+    border: 1px solid #8797c8;
+    border-radius: 10px 0 0 10px;
+    background-color: #FAFAFA;
+    padding: 10px 16px;
+    color: #A0ABCC;
+    white-space: nowrap;
+}

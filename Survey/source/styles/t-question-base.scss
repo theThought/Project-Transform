@@ -1,0 +1,36 @@
+.o-question-container {
+    padding: 1em 0;
+    border-bottom: 1px solid #D0DAE6;
+}
+
+.o-question-container:last-child {
+    padding-bottom: 0;
+}
+
+.surroundcontent > div:last-child {
+    border-bottom: none;
+}
+
+.surroundcontent > div:first-child {
+
+}
+
+.sidebyside .o-question-core {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.o-question-information {
+    margin-bottom: .5em;
+}
+
+.sidebyside .o-question-information {
+    margin-right: 1em;
+    margin-bottom: 0;
+    flex: 1 0 400px
+}
+
+.sidebyside .o-question-response {
+    flex: 1 0 800px;
+}

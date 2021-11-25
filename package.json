@@ -1,0 +1,15 @@
+{
+  "name": "Project-Transform",
+  "version": "1.0.0",
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sourcemaps": "^3.0.0"
+  }
+}

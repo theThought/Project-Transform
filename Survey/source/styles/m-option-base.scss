@@ -1,0 +1,20 @@
+.m-option-base {
+    position: relative;
+    margin-top: .5em;
+}
+
+.m-option-base:first-child {
+    margin-top: 0;
+}
+
+.m-option-base label {
+    color: #455B97;
+    display: inline-block;
+    padding-left: 1.5em;
+}
+
+.m-option-base .a-icon-multistate {
+    position: absolute;
+    top: .1em;
+    left: 0;
+}

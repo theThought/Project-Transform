@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+@import url("navigation.css");
+@import url("progress.css");
+@import url("a-button.css");
+@import url("a-icon-multistate.css");
+@import url("a-input-singlelineedit.css");
+@import url("a-input-multilineedit.css");
+@import url("a-label.css");
+@import url("m-option-base.css");
+@import url("o-question-errorandinstruction.css");
+@import url("t-question-base.css");
+@import url("o-option-list.css");
+* {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+body {
+  background: #fafafa;
+  color: #212C4C;
+  padding: 0 8em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 0 1em;
+  }
+}
+body,
+input,
+textarea {
+  font-family: "Karla", sans-serif;
+}
+
+body > form {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 375px;
+  max-width: 1660px;
+  margin: 0 auto;
+}
+
+.surroundcontent {
+  flex: 1 0 auto;
+}
+
+.hiddencontrol {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  left: -9999px;
+}
+
+/* Standardises the placeholder colour - these rules cannot be combined */
+::-moz-placeholder {
+  color: #CCCCCC;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #CCCCCC;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #CCCCCC;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+::-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+/*# sourceMappingURL=base.css.map */
