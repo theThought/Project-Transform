@@ -26,10 +26,6 @@ button:hover {
         border-color: #449B9B;
         background-color: #449B9B;
         color: #FFFFFF;
-        width: auto !important;
-        min-width: 109px;
-        max-width: 197px;
-        flex-grow: 1;
     }
 
     input[type=submit]:hover {
@@ -39,7 +35,6 @@ button:hover {
 
     #prevstop input[type=submit] {
         margin-right: 1em;
-        flex-basis: 0;
     }
 
     #prevstop input[type=submit]:last-child {

@@ -24,10 +24,6 @@ button:hover {
   border-color: #449B9B;
   background-color: #449B9B;
   color: #FFFFFF;
-  width: auto !important;
-  min-width: 109px;
-  max-width: 197px;
-  flex-grow: 1;
 }
 #nav-controls input[type=submit]:hover {
   color: #449B9B;
@@ -35,7 +31,6 @@ button:hover {
 }
 #nav-controls #prevstop input[type=submit] {
   margin-right: 1em;
-  flex-basis: 0;
 }
 #nav-controls #prevstop input[type=submit]:last-child {
   margin-right: 0;

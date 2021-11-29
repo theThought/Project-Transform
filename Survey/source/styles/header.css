@@ -1,22 +1,4 @@
-.header {
-  box-sizing: border-box;
-  height: 123px;
-  padding-bottom: 1em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 1px solid #8797C8;
-}
-
-@media screen and (max-width: 1024px) {
-  .header {
-    height: 75px;
-    padding-bottom: 0.8em;
-  }
-}
 .site-logo {
-  position: relative;
   height: 75px;
   width: 75px;
 }
@@ -94,4 +76,4 @@
   width: 90%;
 }
 
-/*# sourceMappingURL=progress.css.map */
+/*# sourceMappingURL=header.css.map */

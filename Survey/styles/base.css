@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+@import url("header.css");
 @import url("navigation.css");
-@import url("progress.css");
 @import url("a-button.css");
 @import url("a-icon-multistate.css");
 @import url("a-input-singlelineedit.css");
@@ -16,26 +16,23 @@
   line-height: 19px;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   background: #fafafa;
   color: #212C4C;
-  padding: 0 8em;
-  margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  padding: 0;
+  margin: 0 1em;
   min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto minmax(375px, 1660px) auto;
+  grid-template-columns: auto minmax(375px, 1660px) auto;
+      grid-template-areas: ". main .";
 }
 
-@media screen and (max-width: 1024px) {
-  body {
-    padding: 0 1em;
-  }
-}
 body,
 input,
 textarea {
@@ -43,24 +40,57 @@ textarea {
 }
 
 body > form {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: main;
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+      grid-template-areas: "header" "content" "footer";
+}
+
+.header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: header;
+  height: 123px;
+  padding-bottom: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  min-width: 375px;
-  max-width: 1660px;
-  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border-bottom: 1px solid #8797C8;
 }
 
+@media screen and (max-width: 1024px) {
+  .header {
+    height: 75px;
+    padding-bottom: 0.8em;
+  }
+}
 .surroundcontent {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: content;
+  margin-bottom: 1em;
+}
+
+.footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: footer;
+  height: 76px;
+  border-top: 1px solid #8797C8;
+  padding: 1em 0;
+  -ms-grid-row-align: end;
+      align-self: end;
 }
 
 .hiddencontrol {
