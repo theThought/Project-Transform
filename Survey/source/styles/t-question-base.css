@@ -22,13 +22,14 @@
 }
 
 .sidebyside .o-question-information {
-  margin-right: 1em;
+  box-sizing: border-box;
+  padding-right: 1em;
   margin-bottom: 0;
-  flex: 1 0 400px;
+  flex: 1 0 40%;
 }
 
 .sidebyside .o-question-response {
-  flex: 1 0 800px;
+  flex: 1 0 60%;
 }
 
 /*# sourceMappingURL=t-question-base.css.map */
