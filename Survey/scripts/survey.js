@@ -27,7 +27,7 @@ function Survey() {
 Survey.prototype.Init = function () {
 }
 
-Survey.prototype.registerComponent = function (componentType, id) {
+Survey.prototype.registerComponent = function (componentType, id, group) {
     console.log('Registering component ' + id);
 
     switch (componentType) {
@@ -49,6 +49,11 @@ Survey.prototype.registerComponent = function (componentType, id) {
                 app.components[id].Init();
             });
             break;
+        case 'oQuestion':
+            require(['o-question'], function (oQuestion) {
+                app.components[id] = new oQuestion(id);
+                app.components[id].Init();
+            })
     }
 
 }
