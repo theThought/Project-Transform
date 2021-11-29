@@ -61,6 +61,10 @@ define(
 
         aInputSingleLineEdit.prototype.labels = function (val) {
             var parent = this.element.parentNode;
+            var wrapperelement = document.createElement('div');
+            wrapperelement.className = 'm-label nowrap';
+            var wrapper = parent.insertBefore(wrapperelement, this.element);
+            wrapper.appendChild(this.element);
 
             if (val['pre']) {
                 var preelement = document.createElement('span');
@@ -68,7 +72,7 @@ define(
                 var precontent = document.createTextNode(val['pre']);
                 preelement.appendChild(precontent);
 
-                parent.insertBefore(preelement, this.element);
+                wrapper.insertBefore(preelement, this.element);
             }
 
             if (val['post']) {
@@ -77,7 +81,7 @@ define(
                 var postcontent = document.createTextNode(val['post']);
                 postelement.appendChild(postcontent);
 
-                parent.insertBefore(postelement, this.element.nextSibling);
+                wrapper.insertBefore(postelement, this.element.nextSibling);
             }
         }
 
