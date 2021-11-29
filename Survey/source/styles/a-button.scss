@@ -1,6 +1,7 @@
 input[type=submit],
 input[type=reset],
 button {
+    -webkit-appearance: none;
     margin: 1em 0;
     border: 1px solid #455B97;
     border-radius: 10px;

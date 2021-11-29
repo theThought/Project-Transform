@@ -32,14 +32,14 @@
   padding-right: 1em;
   margin-bottom: 0;
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 40%;
-          flex: 1 0 40%;
+      -ms-flex: 1 0 400px;
+          flex: 1 0 400px;
 }
 
 .sidebyside .o-question-response {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 60%;
-          flex: 1 0 60%;
+      -ms-flex: 1 0 800px;
+          flex: 1 0 800px;
 }
 
 /*# sourceMappingURL=t-question-base.css.map */
