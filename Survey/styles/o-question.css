@@ -4,7 +4,15 @@
   grid-auto-rows: 1fr;
 }
 .o-question-response.balance {
-  background-color: lightcoral;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.o-question-response.balance > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  margin-top: 0 !important;
 }
 
 /*# sourceMappingURL=o-question.css.map */
