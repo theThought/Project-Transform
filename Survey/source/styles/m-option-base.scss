@@ -1,9 +1,12 @@
+
+
 .m-option-base {
     position: relative;
     margin-top: .5em;
 }
 
-.m-option-base:first-child {
+.m-option-base:first-child,
+.m-option-base:nth-of-type(1) {
     margin-top: 0;
 }
 
