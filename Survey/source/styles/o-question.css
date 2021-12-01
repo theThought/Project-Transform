@@ -1,5 +1,6 @@
 .o-question-response.one-size {
-  background-color: lightblue;
+  display: grid;
+  grid-auto-rows: 1fr;
 }
 .o-question-response.balance {
   background-color: lightcoral;
