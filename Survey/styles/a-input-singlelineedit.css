@@ -8,7 +8,7 @@
   background-color: #FAFAFA;
 }
 
-.a-input-singlelineedit:last-of-type {
+.a-input-singlelineedit:last-child {
   margin-bottom: 0;
 }
 
@@ -19,6 +19,7 @@
 
 .m-option-base .a-input-singlelineedit {
   margin-left: 0.5em;
+  margin-bottom: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
