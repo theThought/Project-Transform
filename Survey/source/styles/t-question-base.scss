@@ -29,9 +29,10 @@
     box-sizing: border-box;
     padding-right: 1em;
     margin-bottom: 0;
-    flex: 1 0 400px;
+    flex: 1 1 40%;
+    min-width: 375px;
 }
 
 .sidebyside .o-question-response {
-    flex: 1 0 800px;
+    flex: 1 1 50%;
 }

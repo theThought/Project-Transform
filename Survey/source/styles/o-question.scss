@@ -9,7 +9,12 @@
     }
 
     &.balance > * {
-        flex: 1 1 0;
+        flex: 1 1 0px;
         margin-top: 0 !important;
+        margin-right: 1em;
+    }
+
+    &.balance > *:last-child {
+        margin-right: 0;
     }
 }

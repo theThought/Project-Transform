@@ -27,10 +27,8 @@ body {
   color: #212C4C;
   padding: 0;
   margin: 0 2em;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: auto minmax(375px, 1660px) auto;
-  grid-template-areas: ". main .";
+  display: flex;
+  flex-direction: column;
 }
 
 body,
@@ -40,11 +38,11 @@ textarea {
 }
 
 body > form {
-  grid-area: main;
   min-height: 100vh;
   display: grid;
+  grid-template-columns: 1fr minmax(375px, 1660px) 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header" "content" "footer";
+  grid-template-areas: ". header ." ". content ." ". footer .";
 }
 
 .header {
@@ -58,6 +56,10 @@ body > form {
 }
 
 @media screen and (max-width: 1024px) {
+  body {
+    margin: 0 1em;
+  }
+
   .header {
     height: 75px;
     padding-bottom: 0.8em;
