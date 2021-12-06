@@ -22,19 +22,21 @@ define(
          *
          * @constructor
          * @param {String} id - element id
+         * @param {String} group - question group
          */
 
-        function oQuestion(id) {
+        function oQuestionChoice(id, group) {
             this.id = id;
+            this.group = group;
             this.element = document.querySelector('div[data-questiongroup="' + this.id + '"]');
         }
 
-        oQuestion.prototype.Init = function () {
-            this.properties = app.properties[this.id];
+        oQuestionChoice.prototype.Init = function () {
+            this.properties = app.properties[this.group];
             this.configureProperties();
         }
 
-        oQuestion.prototype.configureProperties = function () {
+        oQuestionChoice.prototype.configureProperties = function () {
             for (var prop in this.properties) {
                 if (this.properties.hasOwnProperty(prop)
                     && typeof this[prop] === 'function') {
@@ -43,23 +45,23 @@ define(
             }
         }
 
-        oQuestion.prototype.balance = function(prop) {
+        oQuestionChoice.prototype.balance = function(prop) {
             if (prop === 'true') {
                 this.element.classList.add('balance');
             }
         }
 
-        oQuestion.prototype.onesize = function(prop) {
+        oQuestionChoice.prototype.onesize = function(prop) {
             if (prop === 'true') {
                 this.element.classList.add('one-size');
             }
         }
 
-        oQuestion.prototype.handleEvent = function (event) {
+        oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
             }
         }
 
-        return oQuestion;
+        return oQuestionChoice;
 
     });

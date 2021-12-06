@@ -33,25 +33,25 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
     switch (componentType) {
         case 'aInputSinglelineedit':
             requirejs(['a-input-singlelineedit'], function (aInputSinglelineedit) {
-                app.components[id] = new aInputSinglelineedit(id);
+                app.components[id] = new aInputSinglelineedit(id, group);
                 app.components[id].Init();
             });
             break;
         case 'mOptionBase':
             requirejs(['m-option-base'], function (mOptionBase) {
-                app.components[id] = new mOptionBase(id);
+                app.components[id] = new mOptionBase(id, group);
                 app.components[id].Init();
             });
             break;
         case 'aInputMultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
-                app.components[id] = new aInputMultilineEdit(id);
+                app.components[id] = new aInputMultilineEdit(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'oQuestion':
-            require(['o-question'], function (oQuestion) {
-                app.components[id] = new oQuestion(id);
+        case 'oQuestionChoice':
+            requirejs(['o-question-choice'], function (oQuestionChoice) {
+                app.components[id] = new oQuestionChoice(id, group);
                 app.components[id].Init();
             })
     }

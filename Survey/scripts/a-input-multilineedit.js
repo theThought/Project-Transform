@@ -23,24 +23,24 @@ define(
          *
          * @constructor
          * @param {String} id - element id
+         * @param {String} group - question group
          */
 
-        function aInputMultilineEdit(id) {
+        function aInputMultilineEdit(id, group) {
             this.id = id;
+            this.group = group;
             this.element = null;
-            this.questionGroup = null;
             this.isExclusive = false;
             this.defaultPlaceholder = '';
         }
 
         aInputMultilineEdit.prototype.Init = function () {
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
-            this.questionGroup = this.element.getAttribute('data-questiongroup');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
             document.addEventListener("focusin", this, false);
-            document.addEventListener(this.questionGroup + "_enableExclusive", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
@@ -48,10 +48,10 @@ define(
                 case "focusin":
                     this.onFocusIn(event);
                     break;
-                case this.questionGroup + "_enableExclusive":
+                case this.group + "_enableExclusive":
                     this.onEnableExclusive();
                     break;
-                case this.questionGroup + "_dismissExclusive":
+                case this.group + "_dismissExclusive":
                     this.onDismissExclusive();
                     break;
             }
@@ -62,7 +62,7 @@ define(
             if (event.target === this.element) {
 
                 // handle self-generated events
-                var clickedEvent = new CustomEvent(this.questionGroup + '_textFocus', {bubbles: true, detail: this});
+                var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
 
                 if (this.element.placeholder.length

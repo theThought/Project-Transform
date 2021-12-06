@@ -24,12 +24,13 @@ define(
          *
          * @constructor
          * @param {String} id - element id
+         * @param {String} group - question group
          */
 
-        function mOptionBase(id) {
+        function mOptionBase(id, group) {
             this.id = id;
+            this.group = group;
             this.element = null;
-            this.questionGroup = null;
             this.checkbox = null;
             this.textInput = null;
             this.isExclusive = false;
@@ -37,16 +38,15 @@ define(
 
         mOptionBase.prototype.Init = function () {
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
-            this.questionGroup = this.element.getAttribute('data-questiongroup');
             this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
             this.textInput = this.element.querySelector('input[type=text]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             document.addEventListener("change", this, false);
             document.addEventListener("click", this, false);
-            document.addEventListener(this.questionGroup + "_enableExclusive", this, false);
-            document.addEventListener(this.questionGroup + "_dismissExclusive", this, false);
-            document.addEventListener(this.questionGroup + "_textFocus", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
+            document.addEventListener(this.group + "_dismissExclusive", this, false);
+            document.addEventListener(this.group + "_textFocus", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
@@ -57,13 +57,13 @@ define(
                 case "change":
                     this.onChange(event);
                     break;
-                case this.questionGroup + "_enableExclusive":
+                case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
                     break;
-                case this.questionGroup + "_dismissExclusive":
+                case this.group + "_dismissExclusive":
                     this.onDismissExclusive(event);
                     break;
-                case this.questionGroup + "_textFocus":
+                case this.group + "_textFocus":
                     this.onTextFocus(event);
                     break;
             }
@@ -75,14 +75,14 @@ define(
 
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
-                    var enableExclusive = new CustomEvent(this.questionGroup + '_enableExclusive', {
+                    var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
                         bubbles: true,
                         detail: this
                     });
                     document.dispatchEvent(enableExclusive);
 
                 } else {
-                    var dismissExclusive = new CustomEvent(this.questionGroup + '_dismissExclusive', {
+                    var dismissExclusive = new CustomEvent(this.group + '_dismissExclusive', {
                         bubbles: true,
                         detail: this
                     });
