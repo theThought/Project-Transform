@@ -17,7 +17,11 @@
     <xsl:choose>
       <xsl:when test="$SubQuestion = false()">
         <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
-        <xsl:variable name="qFullName" select="//Control[1]/@QuestionName" />
+        <xsl:variable name="qFullName">
+            <xsl:call-template name="CalculateQuestionName">
+                <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+            </xsl:call-template>
+        </xsl:variable>
         <xsl:variable name="qCustomType">
           <xsl:call-template name="TranslateZIndexToName">
             <xsl:with-param name="theID" select="//Style/@ZIndex" />
@@ -47,7 +51,11 @@
               </xsl:call-template>
             </xsl:with-param>
             <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
-            <xsl:with-param name="FullName" select="//Control[1]/@QuestionName" />
+            <xsl:with-param name="FullName">
+              <xsl:call-template name="CalculateQuestionName">
+                <xsl:with-param name='QuestionName' select="//Control[1]/@QuestionName" />
+              </xsl:call-template>
+            </xsl:with-param>
           </xsl:call-template>
           <xsl:for-each select="*">
             <xsl:choose>
@@ -103,7 +111,11 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
-        <xsl:variable name="qFullName" select="//Control[1]/@QuestionName" />
+        <xsl:variable name="qFullName">
+            <xsl:call-template name="CalculateQuestionName">
+                <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+            </xsl:call-template>
+        </xsl:variable>
         <xsl:for-each select="*">
           <xsl:choose>
             <xsl:when test="name() = 'Control'">
@@ -1414,5 +1426,16 @@
     <xsl:param name="text" />
     <xsl:value-of select="translate(substring($text,1,1),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
     <xsl:value-of select="translate(substring($text,2,string-length($text)-1),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
+  </xsl:template>
+  <xsl:template name="CalculateQuestionName">
+    <xsl:param name="QuestionName" />
+    <xsl:choose>
+      <xsl:when test="substring($QuestionName, string-length($QuestionName) - 1)='_C'">
+        <xsl:value-of select="substring($QuestionName, 1, string-length($QuestionName)-2)" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$QuestionName" />
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>
