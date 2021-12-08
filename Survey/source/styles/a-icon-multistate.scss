@@ -1,3 +1,5 @@
+@use 'globals';
+
 .a-icon-multistate {
     display: inline-block;
     width: 1em;
@@ -24,5 +26,5 @@ input[type=checkbox]:focus-visible + label,
 input[type=radio]:focus-visible + label,
 input[type=checkbox]:focus-within + label,
 input[type=radio]:focus-within + label {
-    outline: 1px solid #324371;
+    outline: 1px solid globals.$labels;
 }

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["o-question-errorandinstruction.scss"],"names":[],"mappings":"AAAA;EACI;;;AAGJ;EACI","file":"o-question-errorandinstruction.css"}
+{"version":3,"sourceRoot":"","sources":["o-question-errorandinstruction.scss","_globals.scss"],"names":[],"mappings":"AAEA;EACI,OCkBI;;;ADfR;AAAA;EAEI,OCYM;;;ADTV;EACI,OCMM","file":"o-question-errorandinstruction.css"}

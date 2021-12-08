@@ -1,3 +1,5 @@
+@use 'globals';
+
 #nav-controls {
     display: flex;
     justify-content: space-between;
@@ -24,7 +26,7 @@
     justify-content: flex-start;
 
     a {
-        color: #212C4C;
+        color: globals.$titles;
         display: inline-block;
         margin-right: 1em;
     }

@@ -1,7 +1,14 @@
+@use 'globals';
+
 .o-question-error {
-    color: #DA2911;
+    color: globals.$error;
 }
 
+.o-question-warning,
 .o-question-instruction {
-    color: brown;
+    color: globals.$warning;
+}
+
+.o-question-success {
+    color: globals.$success
 }

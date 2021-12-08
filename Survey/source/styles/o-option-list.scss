@@ -1,8 +1,10 @@
+@use 'globals';
+
 /* Sublist heading */
 .o-option-sublist .a-label-heading-sublist {
     font-family: 'Merriweather', serif;
     margin-bottom: .5em;
-    color: #212C4C;
+    color: globals.$titles;
 }
 
 /* Separates sub-lists when they are immediately adjacent. */

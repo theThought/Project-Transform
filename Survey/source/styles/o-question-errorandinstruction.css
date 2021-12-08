@@ -2,8 +2,13 @@
   color: #DA2911;
 }
 
+.o-question-warning,
 .o-question-instruction {
-  color: brown;
+  color: #E8BE5D;
+}
+
+.o-question-success {
+  color: #469B9B;
 }
 
 /*# sourceMappingURL=o-question-errorandinstruction.css.map */

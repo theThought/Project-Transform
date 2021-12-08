@@ -1,6 +1,8 @@
+@use 'globals';
+
 .o-question-container {
     padding: 1em 0;
-    border-bottom: 1px solid #D0DAE6;
+    border-bottom: 1px solid globals.$borders-light;
 }
 
 .o-question-container:last-child {

@@ -1,12 +1,14 @@
+@use 'globals';
+
 textarea {
     width: 100%;
-    background: #FAFAFA;
-    border: 1px solid #8797C8;
+    background: globals.$background;
+    border: 1px solid globals.$borders;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: globals.$border-radius;
     padding: .5em;
     min-height: 100px;
-    color: #757575;
+    color: globals.$input-text;
     overflow-y: auto;
     margin-bottom: .5em;
 }
@@ -17,5 +19,5 @@ textarea:focus-visible,
 textarea:focus-within,
 textarea:hover {
     outline: none;
-    color: #57699C;
+    color: globals.$borders-hover;
 }
