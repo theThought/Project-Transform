@@ -1,3 +1,6 @@
+.o-question-response {
+  overflow: auto;
+}
 .o-question-response.one-size {
   display: grid;
   grid-auto-rows: 1fr;
