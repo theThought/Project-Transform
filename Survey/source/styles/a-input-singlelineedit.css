@@ -8,6 +8,10 @@
   background-color: #FAFAFA;
 }
 
+.a-input-singlelineedit[type=number] {
+  text-align: right;
+}
+
 .a-input-singlelineedit:last-child {
   margin-bottom: 0;
 }
