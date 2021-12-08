@@ -25,7 +25,7 @@
 
 .a-input-singlelineedit:focus {
   outline: none;
-  border: 1px solid black;
+  border: 1px solid #455B97;
 }
 
 .m-option-base .a-input-singlelineedit {
@@ -36,6 +36,7 @@
   border-radius: 0;
   border-bottom: 1px solid;
   width: 151px;
+  height: auto;
 }
 
 .a-label-prelabel + .a-input-singlelineedit {
