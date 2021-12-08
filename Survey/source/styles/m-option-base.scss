@@ -1,5 +1,3 @@
-
-
 .m-option-base {
     position: relative;
     margin-bottom: .5em;
@@ -8,12 +6,6 @@
 .m-option-base:first-child,
 .m-option-base:nth-last-of-type(1) {
     margin-bottom: 0;
-}
-
-.m-option-base label {
-    color: #455B97;
-    display: inline-block;
-    padding-left: 1.5em;
 }
 
 .m-option-base .a-icon-multistate {

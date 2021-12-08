@@ -25,6 +25,15 @@
   white-space: nowrap;
 }
 
+.m-option-base input:checked + label > .a-label-question {
+  color: #449B9B;
+}
+.m-option-base .a-label-question {
+  color: #455B97;
+  display: inline-block;
+  padding-left: 1.5em;
+}
+
 /*# sourceMappingURL=a-label.css.map */
 
 /*# sourceMappingURL=a-label.css.map */
