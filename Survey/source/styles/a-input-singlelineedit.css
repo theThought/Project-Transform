@@ -6,6 +6,8 @@
   margin: 0 0 0.5em 0;
   width: 197px;
   background-color: #FAFAFA;
+  height: 41px;
+  box-sizing: border-box;
 }
 
 .a-input-singlelineedit[type=number] {
