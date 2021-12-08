@@ -3,6 +3,20 @@
   margin: 0;
 }
 
+.focused * {
+  outline: none;
+}
+.focused .a-label-postlabel {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+.focused .a-label-prelabel {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
 .a-label-postlabel {
   display: inline-block;
   border: 1px solid #8797c8;

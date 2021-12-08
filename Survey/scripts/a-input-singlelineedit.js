@@ -43,6 +43,7 @@ define(
             this.configureProperties();
 
             document.addEventListener("focusin", this, false);
+            document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
@@ -55,7 +56,7 @@ define(
             }
         }
 
-        aInputSingleLineEdit.prototype.type = function(val) {
+        aInputSingleLineEdit.prototype.type = function (val) {
             this.element.type = val;
         }
 
@@ -90,6 +91,9 @@ define(
                 case "focusin":
                     this.onFocusIn(event);
                     break;
+                case "focusout":
+                    this.onFocusOut(event);
+                    break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();
                     break;
@@ -103,6 +107,8 @@ define(
 
             if (event.target === this.element) {
 
+                this.element.parentNode.classList.add('focused');
+
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
@@ -115,6 +121,10 @@ define(
 
             }
 
+        }
+
+        aInputSingleLineEdit.prototype.onFocusOut = function (event) {
+            this.element.parentNode.classList.remove('focused');
         }
 
         aInputSingleLineEdit.prototype.onEnableExclusive = function () {

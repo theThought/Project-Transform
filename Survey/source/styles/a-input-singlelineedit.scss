@@ -23,6 +23,11 @@
     color: #57699C;
 }
 
+.a-input-singlelineedit:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
 .m-option-base {
     .a-input-singlelineedit {
         margin-left: .5em;
