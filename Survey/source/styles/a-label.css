@@ -8,11 +8,11 @@
 }
 .focused .a-label-postlabel {
   border: 1px solid #455B97;
-  border-left: none;
+  border-left-color: #8797C8;
 }
 .focused .a-label-prelabel {
   border: 1px solid #455B97;
-  border-right: none;
+  border-right-color: #8797C8;
 }
 
 .a-label-postlabel {

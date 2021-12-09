@@ -9,46 +9,48 @@
     * {
         outline: none;
     }
+
     .a-label-postlabel {
         border: 1px solid globals.$theme-primary;
-        border-left: none;
+        border-left-color: globals.$borders;
     }
+
     .a-label-prelabel {
         border: 1px solid globals.$theme-primary;
-        border-right: none;
+        border-right-color: globals.$borders;
     }
 }
 
-    .a-label-postlabel {
+.a-label-postlabel {
+    display: inline-block;
+    border: 1px solid globals.$borders;
+    border-radius: 0 globals.$border-radius globals.$border-radius 0;
+    position: relative;
+    left: -.5em;
+    background-color: globals.$background;
+    padding: 10px 16px;
+    color: globals.$pre-post-text;
+    white-space: nowrap;
+}
+
+.a-label-prelabel {
+    display: inline-block;
+    border: 1px solid globals.$borders;
+    border-radius: globals.$border-radius 0 0 globals.$border-radius;
+    background-color: globals.$background;
+    padding: 10px 16px;
+    color: globals.$pre-post-text;
+    white-space: nowrap;
+}
+
+.m-option-base {
+    input:checked + label > .a-label-question {
+        color: globals.$theme-secondary;
+    }
+
+    .a-label-question {
+        color: globals.$theme-primary;
         display: inline-block;
-        border: 1px solid globals.$borders;
-        border-radius: 0 globals.$border-radius globals.$border-radius 0;
-        position: relative;
-        left: -.5em;
-        background-color: globals.$background;
-        padding: 10px 16px;
-        color: globals.$pre-post-text;
-        white-space: nowrap;
+        padding-left: 1.5em;
     }
-
-    .a-label-prelabel {
-        display: inline-block;
-        border: 1px solid globals.$borders;
-        border-radius: globals.$border-radius 0 0 globals.$border-radius;
-        background-color: globals.$background;
-        padding: 10px 16px;
-        color: globals.$pre-post-text;
-        white-space: nowrap;
-    }
-
-    .m-option-base {
-        input:checked + label > .a-label-question {
-            color: globals.$theme-secondary;
-        }
-
-        .a-label-question {
-            color: globals.$theme-primary;
-            display: inline-block;
-            padding-left: 1.5em;
-        }
-    }
+}
