@@ -2,6 +2,9 @@
   overflow-x: auto;
   overflow-y: hidden;
 }
+.o-question-response > *:not(script):last-child {
+  margin-bottom: 0;
+}
 .o-question-response.one-size {
   display: -ms-grid;
   display: grid;

@@ -1,6 +1,10 @@
 @use 'globals';
 
 .o-question-response {
+    & > *:not(script):last-child {
+        margin-bottom: 0;
+    }
+
     &.one-size {
         display: grid;
         grid-auto-rows: 1fr;

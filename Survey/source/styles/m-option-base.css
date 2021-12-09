@@ -4,6 +4,10 @@
   margin-bottom: 0.5em;
 }
 
+input + script + .m-option-base {
+  margin-top: 0.5em;
+}
+
 .m-option-base:first-child,
 .m-option-base:nth-last-of-type(1) {
   margin-bottom: 0;

@@ -18,9 +18,12 @@
 .m-input-singlelineedit {
   margin-bottom: 0.5em;
 }
+.m-input-singlelineedit .a-input-singlelineedit {
+  margin-bottom: 0;
+}
 
-.a-input-singlelineedit:last-child,
-.m-input-singlelineedit:last-child {
+.m-input-singlelineedit:last-of-type,
+.a-input-singlelineedit:last-of-type {
   margin-bottom: 0;
 }
 
