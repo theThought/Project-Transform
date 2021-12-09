@@ -60,5 +60,20 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
 
 Survey.prototype.RegisterProperties = function (id, props) {
     console.log('Registering properties for ' + id);
-    app.properties[id] = props;
+    app.properties[id] = this.sanitiseProperties(props);
+}
+
+Survey.prototype.sanitiseProperties = function (props) {
+    for (var prop in props) {
+        if (props.hasOwnProperty(prop)) {
+            if (props[prop] === 'true') {
+                props[prop] = true;
+            }
+            if (props[prop] === 'false') {
+                props[prop] = false;
+            }
+        }
+    }
+
+    return props;
 }

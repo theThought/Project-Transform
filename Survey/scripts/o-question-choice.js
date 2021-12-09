@@ -46,13 +46,13 @@ define(
         }
 
         oQuestionChoice.prototype.balance = function(prop) {
-            if (prop === 'true') {
+            if (prop === true) {
                 this.element.classList.add('balance');
             }
         }
 
         oQuestionChoice.prototype.onesize = function(prop) {
-            if (prop === 'true') {
+            if (prop === true) {
                 this.element.classList.add('one-size');
             }
         }
