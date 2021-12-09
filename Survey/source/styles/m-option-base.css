@@ -14,4 +14,16 @@
   left: 0;
 }
 
+.o-option-sublist .m-option-base {
+  margin-bottom: 0;
+}
+
+.balance .m-option-base {
+  flex: 1 1 0;
+}
+.balance .m-option-base[data-exclusive=true] {
+  flex-basis: 100%;
+  width: 100%;
+}
+
 /*# sourceMappingURL=m-option-base.css.map */

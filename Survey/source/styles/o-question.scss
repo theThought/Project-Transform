@@ -8,17 +8,30 @@
 
     &.balance {
         display: flex;
+        flex-wrap: wrap;
     }
 
     &.balance > * {
-        flex: 1 1 0px;
         margin-top: 0 !important;
-        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+
+    &.balance > .o-option-sublist {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    &.balance .a-label-heading-sublist {
+        flex-basis: 100%;
+        width: 100%;
     }
 
     &.balance > *:last-child {
-        margin-right: 0;
+        margin-bottom: 0;
     }
 
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
