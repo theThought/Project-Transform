@@ -7,7 +7,6 @@
 @import url("a-icon-multistate.css");
 @import url("a-input-singlelineedit.css");
 @import url("a-input-multilineedit.css");
-@import url("m-label.css");
 @import url("a-label.css");
 @import url("m-option-base.css");
 @import url("o-question-errorandinstruction.css");
@@ -104,6 +103,10 @@ body > form {
   height: 1px;
   position: absolute;
   left: -9999px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 /* Standardises the placeholder colour - these rules cannot be combined */
