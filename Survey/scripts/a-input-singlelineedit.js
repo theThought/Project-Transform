@@ -63,7 +63,7 @@ define(
         aInputSingleLineEdit.prototype.labels = function (val) {
             var parent = this.element.parentNode;
             var wrapperelement = document.createElement('div');
-            wrapperelement.className = 'm-label nowrap';
+            wrapperelement.className = 'm-input-singlelineedit nowrap';
             var wrapper = parent.insertBefore(wrapperelement, this.element);
             wrapper.appendChild(this.element);
 

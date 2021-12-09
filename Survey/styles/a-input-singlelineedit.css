@@ -15,7 +15,12 @@
   text-align: right;
 }
 
-.a-input-singlelineedit:last-child {
+.m-input-singlelineedit {
+  margin-bottom: 0.5em;
+}
+
+.a-input-singlelineedit:last-child,
+.m-input-singlelineedit:last-child {
   margin-bottom: 0;
 }
 
