@@ -1,6 +1,7 @@
 @use 'globals';
 
 .m-option-base {
+    box-sizing: border-box;
     position: relative;
     margin-bottom: .5em;
 }
@@ -25,6 +26,11 @@
 .balance {
     .m-option-base {
         flex: 1 1 0;
+        margin-right: 1em;
+    }
+
+    .m-option-base:last-child {
+        margin-right: 0;
     }
 
     .m-option-base[data-exclusive=true] {

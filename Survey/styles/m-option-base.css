@@ -1,4 +1,6 @@
 .m-option-base {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: relative;
   margin-bottom: 0.5em;
 }
@@ -22,6 +24,10 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0px;
           flex: 1 1 0;
+  margin-right: 1em;
+}
+.balance .m-option-base:last-child {
+  margin-right: 0;
 }
 .balance .m-option-base[data-exclusive=true] {
   -ms-flex-preferred-size: 100%;
