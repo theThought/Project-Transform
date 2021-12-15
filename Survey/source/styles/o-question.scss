@@ -11,8 +11,7 @@
     }
 
     &.balance {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
     }
 
     &.balance > * {
@@ -21,13 +20,14 @@
     }
 
     &.balance > .o-option-sublist {
-        display: flex;
-        flex-wrap: wrap;
-        flex-basis: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 150px);
         width: 100%;
     }
 
     &.balance .a-label-heading-sublist {
+        grid-column-start: 1;
+        grid-column-end: -1;
         flex-basis: 100%;
         width: 100%;
     }
