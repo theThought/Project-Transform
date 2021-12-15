@@ -46,8 +46,8 @@ body > form {
   max-height: -webkit-fill-available;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr minmax(375px, 1660px) 1fr;
-  grid-template-columns: 1fr minmax(375px, 1660px) 1fr;
+  -ms-grid-columns: 1fr minmax(343px, 1660px) 1fr;
+  grid-template-columns: 1fr minmax(343px, 1660px) 1fr;
   -ms-grid-rows: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
       grid-template-areas: ". header ." ". content ." ". footer .";

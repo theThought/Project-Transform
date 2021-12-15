@@ -32,7 +32,7 @@
     padding-right: 1em;
     margin-bottom: 0;
     flex: 1 1 40%;
-    min-width: 375px;
+    min-width: globals.$min-display-width;
 }
 
 .sidebyside .o-question-response {

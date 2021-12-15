@@ -30,3 +30,7 @@ $input-text: #757575;
 $pre-post-text: #A0ABCC;
 
 $border-radius: 10px;
+$min-device-width: 375px;
+$min-page-margin: 16px;
+$min-display-width: $min-device-width - ($min-page-margin*2);
+$max-display-width: 1660px;

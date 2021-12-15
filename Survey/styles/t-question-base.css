@@ -34,7 +34,7 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 1 40%;
           flex: 1 1 40%;
-  min-width: 375px;
+  min-width: 343px;
 }
 
 .sidebyside .o-question-response {
