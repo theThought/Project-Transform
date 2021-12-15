@@ -18,7 +18,7 @@
 }
 
 html {
-  height: 100vh;
+  height: 96vh;
 }
 
 body {
@@ -42,7 +42,8 @@ textarea {
 }
 
 body > form {
-  min-height: 100vh;
+  min-height: 96vh;
+  max-height: -webkit-fill-available;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr minmax(375px, 1660px) 1fr;
