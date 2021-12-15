@@ -5,7 +5,7 @@ button {
   margin: 1em 0;
   border: 1px solid #455B97;
   border-radius: 10px;
-  width: 197px !important;
+  width: 197px;
   min-height: 40px;
   background: #455B97;
   color: #FFFFFF;
@@ -25,6 +25,12 @@ button:hover {
   border-color: #449B9B;
   background-color: #449B9B;
   color: #FFFFFF;
+  min-width: 100px;
+}
+@media screen and (max-width: 1024px) {
+  #nav-controls input[type=submit] {
+    width: auto;
+  }
 }
 #nav-controls input[type=submit]:hover {
   color: #449B9B;

@@ -9,6 +9,8 @@
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 #nav-controls div {
   display: -webkit-box;

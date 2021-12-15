@@ -7,7 +7,7 @@ button {
     margin: 1em 0;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    width: 197px !important;
+    width: 197px;
     min-height: 40px;
     background: globals.$theme-primary;
     color: #FFFFFF;
@@ -29,6 +29,13 @@ button:hover {
         border-color: globals.$theme-secondary;
         background-color: globals.$theme-secondary;
         color: globals.$white;
+        min-width: 100px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        input[type=submit] {
+            width: auto;
+        }
     }
 
     input[type=submit]:hover {
