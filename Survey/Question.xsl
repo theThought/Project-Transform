@@ -593,7 +593,7 @@
       </xsl:choose>
     </xsl:element>
     <xsl:call-template name="appComponentScript">
-      <xsl:with-param name="ComponentName" select="'aInputMulitlineedit'" />
+      <xsl:with-param name="ComponentName" select="'aInputMultilineedit'" />
       <xsl:with-param name="ElementID" select="@ElementID" />
       <xsl:with-param name="FullName" select="$qFullName" />
     </xsl:call-template>

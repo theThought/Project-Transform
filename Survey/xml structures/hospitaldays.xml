@@ -1,0 +1,9 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-20">
+      <Control Type="SingleLineEdit" />
+    </Style>
+    <Control Type="SingleLineEdit" QuestionName="_Qhospital__days">
+    </Control>
+  </Question>
+</Questions>
