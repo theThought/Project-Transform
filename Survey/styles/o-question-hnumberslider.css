@@ -60,6 +60,8 @@ input[type=range]::-moz-range-thumb {
 
 .flood-to-value::-moz-range-progress {
   background-color: #D0DAE6 !important;
+  height: 16px;
+  border-radius: 16px;
 }
 
 input[type=range]::-ms-track {
@@ -77,6 +79,7 @@ input[type=range]::-ms-fill-lower {
 
 .flood-to-value::-ms-fill-lower {
   background-color: #D0DAE6 !important;
+  border-radius: 16px;
 }
 
 input[type=range]::-ms-fill-upper {
