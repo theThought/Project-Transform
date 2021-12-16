@@ -5,19 +5,17 @@
     justify-content: space-between;
     flex-direction: row-reverse;
     flex-wrap: wrap;
-
-    div {
-        display: flex;
-        flex-grow: 1;
-    }
 }
 
 #prevstop {
+    display: flex;
+    flex-grow: 1;
     margin-right: 1em;
 }
 
 #nextonly {
-    justify-content: end;
+    display: block;
+    text-align: right;
 }
 
 .page-links {
