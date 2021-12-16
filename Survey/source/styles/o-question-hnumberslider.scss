@@ -31,6 +31,7 @@ input[type=range]::-webkit-slider-thumb {
     border: 8px solid globals.$other-1;
     border-radius: 50px;
     -webkit-appearance: none;
+    box-shadow: none;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
@@ -55,6 +56,7 @@ input[type=range]::-moz-range-thumb {
     background: white;
     border: 8px solid globals.$other-1;
     border-radius: 50px;
+    box-shadow: none;
 }
 
 .flood-to-value::-moz-range-progress {
@@ -90,6 +92,7 @@ input[type=range]::-ms-thumb {
     border: 8px solid globals.$other-1;
     border-radius: 50px;
     margin-top: 0px;
+    box-shadow: none;
     /*Needed to keep the Edge thumb centred*/
 }
 
