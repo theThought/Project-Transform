@@ -53,7 +53,14 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components[id] = new oQuestionChoice(id, group);
                 app.components[id].Init();
-            })
+            });
+            break;
+        case 'oQuestionHnumberslider':
+            requirejs(['o-question-h-number-slider'], function (oQuestionHNumberSlider) {
+                app.components[id] = new oQuestionHNumberSlider(id, group);
+                app.components[id].Init();
+            });
+            break;
     }
 
 }
