@@ -55,6 +55,21 @@ define(
             }
         }
 
+        oQuestionHNumberSlider.prototype.values = function (props) {
+            this.element.min = props['min'];
+            this.element.max = props['max'];
+        }
+
+        oQuestionHNumberSlider.prototype.ticklabels = function (props) {
+            this.element.step = props;
+        }
+
+        oQuestionHNumberSlider.prototype.floodtovalue = function (props) {
+            if (props === true) {
+                this.element.classList.add('flood-to-value');
+            }
+        }
+
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "click":
@@ -85,7 +100,7 @@ define(
                     document.dispatchEvent(enableExclusive);
                 }
 
-                //this.element.style.background = 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)'
+                this.element.style.setProperty('--track-background-fill','linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
 
             }
 
