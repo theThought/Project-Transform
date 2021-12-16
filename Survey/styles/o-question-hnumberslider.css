@@ -1,0 +1,108 @@
+input[type=range] {
+  width: 100%;
+  margin: 4px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  max-width: 600px;
+  padding: 0;
+  height: 32px;
+  border: none;
+  border-radius: 999px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: white;
+  border: 0;
+  border-radius: 25px;
+  width: 100%;
+  height: 16px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -4px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 8px solid #7A3996;
+  border-radius: 49px;
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: white;
+}
+
+input[type=range]::-moz-range-track {
+  background: white;
+  border: 0;
+  border-radius: 25px;
+  width: 100%;
+  height: 16px;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 8px solid #7A3996;
+  border-radius: 49px;
+}
+
+input[type=range]::-moz-range-progress {
+  background-color: #D0DAE6;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 5px 0;
+  color: transparent;
+  width: 100%;
+  height: 16px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #D0DAE6;
+  border: 0;
+  border-radius: 50px;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: white;
+  border: 0;
+  border-radius: 50px;
+}
+
+input[type=range]::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 8px solid #7A3996;
+  border-radius: 49px;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #D0DAE6;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: white;
+}
+
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+/*# sourceMappingURL=o-question-hnumberslider.css.map */
+
+/*# sourceMappingURL=o-question-hnumberslider.css.map */
