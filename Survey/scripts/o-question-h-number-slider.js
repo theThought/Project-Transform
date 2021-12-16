@@ -33,10 +33,11 @@ define(
 
         oQuestionHNumberSlider.prototype.Init = function () {
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
-            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
-
             this.element.type = 'range';
 
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+
+            this.prepareHTML();
             this.properties = app.properties[this.group];
             this.configureProperties();
 
@@ -44,6 +45,19 @@ define(
             document.addEventListener("click", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
+        }
+
+        oQuestionHNumberSlider.prototype.prepareHTML = function () {
+            var parent = this.element.parentNode;
+
+            var wrapperelement = document.createElement('div');
+            wrapperelement.className = 'slider-wrapper';
+            var wrapper = parent.insertBefore(wrapperelement, this.element);
+            wrapper.appendChild(this.element);
+
+            var borderelement = document.createElement('div');
+            borderelement.className = 'slider-border';
+            wrapper.insertBefore(borderelement, this.element);
         }
 
         oQuestionHNumberSlider.prototype.configureProperties = function () {
