@@ -1,5 +1,14 @@
 @use 'globals';
 
+.o-input-questionhnumberslider {
+    display: flex;
+    align-items: center;
+
+    &>div {
+        flex-grow: 1;
+    }
+}
+
 .slider-wrapper {
     position: relative;
 }
@@ -13,7 +22,6 @@
     border: 1px solid globals.$borders;
     border-radius: 26px;
     top: 11px;
-    max-width: 600px;
 }
 
 input[type=range] {
@@ -21,7 +29,6 @@ input[type=range] {
     z-index: 2;
     left: 6px;
     width: 98%;
-    max-width: 588px;
     height: 48px;
     margin: 0;
     padding: 0;

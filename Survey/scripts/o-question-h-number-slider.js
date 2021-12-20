@@ -28,6 +28,7 @@ define(
             this.id = id;
             this.group = group;
             this.element = null;
+            this.wrapper = null;
             this.isExclusive = false;
         }
 
@@ -58,6 +59,8 @@ define(
             var borderelement = document.createElement('div');
             borderelement.className = 'slider-border';
             wrapper.insertBefore(borderelement, this.element);
+
+            this.wrapper = wrapper;
         }
 
         oQuestionHNumberSlider.prototype.configureProperties = function () {
@@ -81,6 +84,32 @@ define(
         oQuestionHNumberSlider.prototype.floodtovalue = function (props) {
             if (props === true) {
                 this.element.classList.add('flood-to-value');
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.labels = function (val) {
+            var parent = this.wrapper.parentNode;
+            var wrapperelement = document.createElement('div');
+            wrapperelement.className = 'o-input-questionhnumberslider';
+            var wrapper = parent.insertBefore(wrapperelement, this.wrapper);
+            wrapper.appendChild(this.wrapper);
+
+            if (val['pre']) {
+                var preelement = document.createElement('span');
+                preelement.className = 'a-label-prelabel';
+                var precontent = document.createTextNode(val['pre']);
+                preelement.appendChild(precontent);
+
+                wrapper.insertBefore(preelement, this.wrapper);
+            }
+
+            if (val['post']) {
+                var postelement = document.createElement('span');
+                postelement.className = 'a-label-postlabel';
+                var postcontent = document.createTextNode(val['post']);
+                postelement.appendChild(postcontent);
+
+                wrapper.insertBefore(postelement, this.wrapper.nextSibling);
             }
         }
 
