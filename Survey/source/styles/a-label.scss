@@ -21,26 +21,43 @@
     }
 }
 
-.a-label-postlabel {
-    display: inline-block;
-    border: 1px solid globals.$borders;
-    border-radius: 0 globals.$border-radius globals.$border-radius 0;
-    position: relative;
-    left: -.5em;
-    background-color: globals.$background;
-    padding: 10px 16px;
-    color: globals.$pre-post-text;
-    white-space: nowrap;
+.m-input-singlelineedit {
+    .a-label-postlabel {
+        display: inline-block;
+        border: 1px solid globals.$borders;
+        border-radius: 0 globals.$border-radius globals.$border-radius 0;
+        position: relative;
+        left: -.5em;
+        background-color: globals.$background;
+        padding: 10px 16px;
+        color: globals.$pre-post-text;
+        white-space: nowrap;
+    }
+
+    .a-label-prelabel {
+        display: inline-block;
+        border: 1px solid globals.$borders;
+        border-radius: globals.$border-radius 0 0 globals.$border-radius;
+        background-color: globals.$background;
+        padding: 10px 16px;
+        color: globals.$pre-post-text;
+        white-space: nowrap;
+    }
 }
 
-.a-label-prelabel {
-    display: inline-block;
-    border: 1px solid globals.$borders;
-    border-radius: globals.$border-radius 0 0 globals.$border-radius;
-    background-color: globals.$background;
-    padding: 10px 16px;
-    color: globals.$pre-post-text;
-    white-space: nowrap;
+.o-input-questionhnumberslider {
+    .a-label-prelabel {
+        position: relative;
+        top: -3px;
+        color: globals.$theme-primary;
+        margin-right: 1em;
+    }
+    .a-label-postlabel {
+        position: relative;
+        top: -3px;
+        color: globals.$theme-primary;
+        margin-left: 1em;
+    }
 }
 
 .m-option-base {

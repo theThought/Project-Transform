@@ -15,7 +15,7 @@
   border-right-color: #8797C8;
 }
 
-.a-label-postlabel {
+.m-input-singlelineedit .a-label-postlabel {
   display: inline-block;
   border: 1px solid #8797C8;
   border-radius: 0 10px 10px 0;
@@ -26,8 +26,7 @@
   color: #A0ABCC;
   white-space: nowrap;
 }
-
-.a-label-prelabel {
+.m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
   border: 1px solid #8797C8;
   border-radius: 10px 0 0 10px;
@@ -35,6 +34,19 @@
   padding: 10px 16px;
   color: #A0ABCC;
   white-space: nowrap;
+}
+
+.o-input-questionhnumberslider .a-label-prelabel {
+  position: relative;
+  top: -3px;
+  color: #455B97;
+  margin-right: 1em;
+}
+.o-input-questionhnumberslider .a-label-postlabel {
+  position: relative;
+  top: -3px;
+  color: #455B97;
+  margin-left: 1em;
 }
 
 .m-option-base input:checked + label > .a-label-question {

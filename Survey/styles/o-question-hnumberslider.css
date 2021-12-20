@@ -1,3 +1,17 @@
+.o-input-questionhnumberslider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.o-input-questionhnumberslider > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .slider-wrapper {
   position: relative;
 }
@@ -12,7 +26,6 @@
   border: 1px solid #8797C8;
   border-radius: 26px;
   top: 11px;
-  max-width: 600px;
 }
 
 input[type=range] {
@@ -20,7 +33,6 @@ input[type=range] {
   z-index: 2;
   left: 6px;
   width: 98%;
-  max-width: 588px;
   height: 48px;
   margin: 0;
   padding: 0;
