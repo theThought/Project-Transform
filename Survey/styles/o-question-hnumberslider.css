@@ -1,3 +1,7 @@
+.o-question-hnumberslider {
+  overflow: visible;
+}
+
 .o-input-questionhnumberslider {
   display: -webkit-box;
   display: -ms-flexbox;

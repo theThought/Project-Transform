@@ -1,6 +1,6 @@
 .o-question-response {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
 }
 .o-question-response > *:not(script):last-child {
   margin-bottom: 0;

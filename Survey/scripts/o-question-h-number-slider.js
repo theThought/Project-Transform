@@ -29,6 +29,7 @@ define(
             this.group = group;
             this.element = null;
             this.wrapper = null;
+            this.output = null;
             this.isExclusive = false;
         }
 
@@ -75,6 +76,49 @@ define(
         oQuestionHNumberSlider.prototype.values = function (props) {
             this.element.min = props['min'];
             this.element.max = props['max'];
+        }
+
+        oQuestionHNumberSlider.prototype.show = function (props) {
+            if (props['marks'] === true) {
+
+            }
+
+            if (props['value'] === true) {
+                this.showValue();
+            }
+
+            if (props['terminators'] === true) {
+
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.showMarks = function () {
+
+        }
+
+        oQuestionHNumberSlider.prototype.showValue = function () {
+            var parent = this.wrapper;
+            var valueelement = document.createElement('output');
+            valueelement.htmlFor = this.element.id;
+            valueelement.className = 'a-label-value';
+            parent.insertBefore(valueelement, this.element);
+            this.output = valueelement;
+            this.updateValue(this.element.value);
+        }
+
+        oQuestionHNumberSlider.prototype.updateValue = function (val) {
+            if (this.output !== null) {
+                this.output.value = val;
+                var min = this.element.min ? this.element.min : 0;
+                var max = this.element.max ? this.element.max : 100;
+                var positionValue = Number((val - min) * 100 / (max - min));
+                var newPosition = 0 - (positionValue * .45);
+                this.output.style.left = 'calc(' + positionValue + '% + ' + newPosition + 'px)';
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.showTerminators = function () {
+
         }
 
         oQuestionHNumberSlider.prototype.ticklabels = function (props) {
@@ -143,8 +187,8 @@ define(
                     document.dispatchEvent(enableExclusive);
                 }
 
-                this.element.style.setProperty('--track-background-fill','linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
-
+                this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
+                this.updateValue(this.element.value);
             }
 
         }
