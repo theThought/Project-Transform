@@ -44,6 +44,7 @@ define(
             this.configureProperties();
 
             document.addEventListener("input", this, false);
+            document.addEventListener("change", this, false);
             document.addEventListener("click", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
@@ -98,8 +99,7 @@ define(
 
         oQuestionHNumberSlider.prototype.showValue = function () {
             var parent = this.wrapper;
-            var valueelement = document.createElement('output');
-            valueelement.htmlFor = this.element.id;
+            var valueelement = document.createElement('div');
             valueelement.className = 'a-label-value';
             parent.insertBefore(valueelement, this.element);
             this.output = valueelement;
@@ -108,7 +108,7 @@ define(
 
         oQuestionHNumberSlider.prototype.updateValue = function (val) {
             if (this.output !== null) {
-                this.output.value = val;
+                this.output.innerHTML = val;
                 var min = this.element.min ? this.element.min : 0;
                 var max = this.element.max ? this.element.max : 100;
                 var positionValue = Number((val - min) * 100 / (max - min));
@@ -163,6 +163,7 @@ define(
                     this.onClick(event);
                     break;
                 case "input":
+                case "change":
                     this.onInput(event);
                     break;
                 case this.group + "_enableExclusive":

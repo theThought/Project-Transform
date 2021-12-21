@@ -95,6 +95,10 @@ input[type=range]::-moz-range-thumb {
     border-radius: 16px;
 }
 
+input[type=range]::-ms-tooltip {
+    display: none;
+}
+
 input[type=range]::-ms-track {
     background: transparent;
     border-color: transparent;
