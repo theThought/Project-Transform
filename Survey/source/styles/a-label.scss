@@ -45,7 +45,7 @@
     }
 }
 
-.o-input-questionhnumberslider {
+.o-question-hnumberslider {
     .a-label-prelabel {
         position: relative;
         top: -3px;
@@ -57,6 +57,17 @@
         top: -3px;
         color: globals.$theme-primary;
         margin-left: 1em;
+    }
+    .a-label-value {
+        border: 1px solid globals.$borders-light;
+        border-radius: 4px;
+        background: white;
+        color: globals.$titles;
+        position: absolute;
+        top: -25px;
+        padding: 0 .5em;
+        min-width: 30px;
+        text-align: center;
     }
 }
 
