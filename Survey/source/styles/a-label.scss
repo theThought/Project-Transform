@@ -58,6 +58,11 @@
         color: globals.$theme-primary;
         margin-left: 1em;
     }
+    .active {
+        .a-label-value {
+            visibility: visible;
+        }
+    }
     .a-label-value {
         border: 1px solid globals.$borders-light;
         border-radius: 4px;
@@ -68,6 +73,7 @@
         padding: .1em .5em;
         min-width: 30px;
         text-align: center;
+        visibility: hidden;
     }
 }
 

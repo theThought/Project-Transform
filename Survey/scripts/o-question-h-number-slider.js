@@ -54,7 +54,7 @@ define(
             var parent = this.element.parentNode;
 
             var wrapperelement = document.createElement('div');
-            wrapperelement.className = 'slider-wrapper';
+            wrapperelement.className = 'slider-wrapper active';
             var wrapper = parent.insertBefore(wrapperelement, this.element);
             wrapper.appendChild(this.element);
 
@@ -160,8 +160,6 @@ define(
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "click":
-                    this.onClick(event);
-                    break;
                 case "input":
                 case "change":
                     this.onInput(event);
@@ -180,6 +178,11 @@ define(
             if (event.target === this.element) {
 
                 // handle self-generated events
+                var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+                document.dispatchEvent(clickedEvent);
+
+                this.wrapper.classList.add('active');
+
                 if (this.isExclusive) {
                     var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
                         bubbles: true,
@@ -194,16 +197,12 @@ define(
 
         }
 
-        oQuestionHNumberSlider.prototype.onClick = function (event) {
-
-        }
-
         oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
-
+            this.wrapper.classList.remove('active');
         }
 
         oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
-
+            this.wrapper.classList.add('active');
         }
 
         return oQuestionHNumberSlider;

@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
 
-    &>div {
+    & > div {
         flex-grow: 1;
     }
 }
@@ -53,12 +53,16 @@ input[type=range]::-webkit-slider-runnable-track {
     height: 16px;
 }
 
+.active input[type=range]::-webkit-slider-thumb {
+    border-color: globals.$other-1;
+}
+
 input[type=range]::-webkit-slider-thumb {
     margin-top: -11px;
     width: 40px;
     height: 40px;
     background: white;
-    border: 8px solid globals.$other-1;
+    border: 8px solid globals.$borders;
     border-radius: 50px;
     -webkit-appearance: none;
     box-shadow: none;
@@ -80,11 +84,15 @@ input[type=range]::-moz-range-track {
     height: 16px;
 }
 
+.active input[type=range]::-moz-range-thumb {
+    border-color: globals.$other-1;
+}
+
 input[type=range]::-moz-range-thumb {
     width: 24px;
     height: 24px;
     background: white;
-    border: 8px solid globals.$other-1;
+    border: 8px solid globals.$borders;
     border-radius: 50px;
     box-shadow: none;
 }
@@ -124,11 +132,15 @@ input[type=range]::-ms-fill-upper {
     border-radius: 16px;
 }
 
+.active input[type=range]::-ms-thumb {
+    border-color: globals.$other-1;
+}
+
 input[type=range]::-ms-thumb {
     width: 24px;
     height: 24px;
     background: white;
-    border: 8px solid globals.$other-1;
+    border: 8px solid globals.$borders;
     border-radius: 50px;
     margin-top: 0px;
     box-shadow: none;

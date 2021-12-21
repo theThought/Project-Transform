@@ -48,6 +48,9 @@
   color: #455B97;
   margin-left: 1em;
 }
+.o-question-hnumberslider .active .a-label-value {
+  visibility: visible;
+}
 .o-question-hnumberslider .a-label-value {
   border: 1px solid #D0DAE6;
   border-radius: 4px;
@@ -58,6 +61,7 @@
   padding: 0.1em 0.5em;
   min-width: 30px;
   text-align: center;
+  visibility: hidden;
 }
 
 .m-option-base input:checked + label > .a-label-question {
