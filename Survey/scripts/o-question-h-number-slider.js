@@ -81,7 +81,7 @@ define(
 
         oQuestionHNumberSlider.prototype.show = function (props) {
             if (props['marks'] === true) {
-
+                this.showMarks();
             }
 
             if (props['value'] === true) {
@@ -94,7 +94,18 @@ define(
         }
 
         oQuestionHNumberSlider.prototype.showMarks = function () {
+            var wrapper = this.wrapper;
+            var markselement = document.createElement('div');
+            markselement.className = 'slider-marks';
 
+            markselement.style.background = 'repeating-linear-gradient(90deg, ' +
+                '#ccc 0, ' +
+                '#8797C8 1px, ' +
+                'transparent 0, ' +
+                'transparent 1.25em) ' +
+                'calc(.5*(40px - 2px)) 50px/calc(12.5em + 2px)';
+
+            wrapper.insertBefore(markselement, this.element);
         }
 
         oQuestionHNumberSlider.prototype.showValue = function () {
