@@ -96,14 +96,15 @@ define(
         oQuestionHNumberSlider.prototype.showMarks = function () {
             var wrapper = this.wrapper;
             var markselement = document.createElement('div');
+            var step = this.properties.ticklabels ? this.properties.ticklabels*10 : 10;
             markselement.className = 'slider-marks';
 
             markselement.style.background = 'repeating-linear-gradient(90deg, ' +
                 '#8797C8 0, ' +
                 '#8797C8 1px, ' +
                 'transparent 0, ' +
-                'transparent calc(0.1 * (100% - 12px))) ' +
-                'calc(.5*(40px - 1px) + 6px) 0/calc(100% - 12px) no-repeat';
+                'transparent calc(' + step + '% - 4px)) ' +
+                'calc(.5*40px) 0/100% no-repeat';
 
             wrapper.insertBefore(markselement, this.element);
         }
