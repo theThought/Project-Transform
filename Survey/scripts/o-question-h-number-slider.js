@@ -99,11 +99,11 @@ define(
             markselement.className = 'slider-marks';
 
             markselement.style.background = 'repeating-linear-gradient(90deg, ' +
-                '#ccc 0, ' +
+                '#8797C8 0, ' +
                 '#8797C8 1px, ' +
                 'transparent 0, ' +
-                'transparent 1.25em) ' +
-                'calc(.5*(40px - 2px)) 50px/calc(12.5em + 2px)';
+                'transparent calc(0.1 * (100% - 12px))) ' +
+                'calc(.5*(40px - 1px) + 6px) 0/calc(100% - 12px) no-repeat';
 
             wrapper.insertBefore(markselement, this.element);
         }
