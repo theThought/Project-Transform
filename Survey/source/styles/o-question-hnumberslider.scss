@@ -22,15 +22,27 @@
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 26px;
+    height: 24px;
     border: 1px solid globals.$borders;
-    border-radius: 26px;
-    top: 11px;
+    border-radius: 24px;
+    top: 12px;
+    background: white;
+}
+
+.slider-marks {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    width: calc(100% - 2px);
+    left: 1px;
+    height: 16px;
+    top: 16px;
+    border-radius: 16px;
 }
 
 input[type=range] {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     left: 6px;
     width: 98%;
     height: 48px;
@@ -46,9 +58,9 @@ input[type=range]:focus {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    background: white;
+    background: transparent;
     border: 0;
-    border-radius: 25px;
+    border-radius: 24px;
     width: 100%;
     height: 16px;
 }
@@ -66,22 +78,23 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 50px;
     -webkit-appearance: none;
     box-shadow: none;
+    z-index: 4;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: white;
+    background: transparent;
 }
 
 .flood-to-value::-webkit-slider-runnable-track {
-    background: var(--track-background-fill, white) !important;
+    background: var(--track-background-fill, transparent) !important;
 }
 
 input[type=range]::-moz-range-track {
-    background: white;
+    background: transparent;
     border: 0;
-    border-radius: 25px;
+    border-radius: 22px;
     width: 100%;
-    height: 16px;
+    height: 22px;
 }
 
 .active input[type=range]::-moz-range-thumb {
@@ -95,12 +108,14 @@ input[type=range]::-moz-range-thumb {
     border: 8px solid globals.$borders;
     border-radius: 50px;
     box-shadow: none;
+    z-index: 4;
 }
 
 .flood-to-value::-moz-range-progress {
     background-color: globals.$borders-light !important;
     height: 16px;
-    border-radius: 16px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
 }
 
 input[type=range]::-ms-tooltip {
@@ -118,18 +133,20 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-    background: white;
+    background: transparent;
     border-radius: 16px;
 }
 
 .flood-to-value::-ms-fill-lower {
     background-color: globals.$borders-light !important;
-    border-radius: 16px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
 }
 
 input[type=range]::-ms-fill-upper {
-    background: white;
-    border-radius: 16px;
+    background: transparent;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
 }
 
 .active input[type=range]::-ms-thumb {
@@ -144,6 +161,7 @@ input[type=range]::-ms-thumb {
     border-radius: 50px;
     margin-top: 0px;
     box-shadow: none;
+    z-index: 4;
     /*Needed to keep the Edge thumb centred*/
 }
 
@@ -152,7 +170,7 @@ input[type=range]:focus {
 }
 
 input[type=range]:focus::-ms-fill-lower {
-    background: white;
+    background: transparent;
 }
 
 .flood-to-value:focus::-ms-fill-lower {
