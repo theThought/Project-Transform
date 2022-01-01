@@ -398,6 +398,9 @@
       <xsl:attribute name="data-questiongroup">
         <xsl:value-of select="$qGroup" />
       </xsl:attribute>
+      <xsl:if test="$qIsCustom = true()">
+        <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+      </xsl:if>
       <!--- Set Control Type -->
       <xsl:attribute name="type">text</xsl:attribute>
       <!--- Input name -->
@@ -471,11 +474,13 @@
         </xsl:choose>
       </xsl:attribute>
     </xsl:element>
-    <xsl:call-template name="appComponentScript">
-      <xsl:with-param name="ComponentName" select="'aInputSinglelineedit'" />
-      <xsl:with-param name="ElementID" select="@ElementID" />
-      <xsl:with-param name="FullName" select="$qFullName" />
-    </xsl:call-template>
+    <xsl:if test="$qIsCustom = false()">
+      <xsl:call-template name="appComponentScript">
+        <xsl:with-param name="ComponentName" select="'aInputSinglelineedit'" />
+        <xsl:with-param name="ElementID" select="@ElementID" />
+        <xsl:with-param name="FullName" select="$qFullName" />
+      </xsl:call-template>
+    </xsl:if>
   </xsl:template>
   <xsl:template name="MultiLineEditControl">
     <xsl:param name="qGroup" />
