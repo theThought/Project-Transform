@@ -474,7 +474,7 @@
         <xsl:attribute name="class">hiddencontrol</xsl:attribute>
       </xsl:if>
     </xsl:element>
-    <xsl:if test="$qIsCustom = 'false'">
+    <xsl:if test="$qIsCustom='false'">
       <xsl:call-template name="appComponentScript">
         <xsl:with-param name="ComponentName" select="'aInputSinglelineedit'" />
         <xsl:with-param name="ElementID" select="@ElementID" />
@@ -1408,22 +1408,22 @@
     <xsl:param name="theID" />
     <xsl:choose>
       <xsl:when test="$theID = '-10'">
-        <xsl:value-of select="false" />
+        <xsl:value-of select="'false'" />
       </xsl:when>
       <xsl:when test="$theID = '-20'">
-        <xsl:value-of select="false" />
+        <xsl:value-of select="'false'" />
       </xsl:when>
       <xsl:when test="$theID = '-30'">
-        <xsl:value-of select="false" />
+        <xsl:value-of select="'false'" />
       </xsl:when>
       <xsl:when test="$theID = '-40'">
-        <xsl:value-of select="true" />
+        <xsl:value-of select="'true'" />
       </xsl:when>
       <xsl:when test="$theID = '-50'">
-        <xsl:value-of select="true" />
+        <xsl:value-of select="'true'" />
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="false" />
+        <xsl:value-of select="'false'" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
