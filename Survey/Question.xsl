@@ -131,7 +131,7 @@
   </xsl:template>
   <xsl:template match="Label | Error">
     <xsl:param name="sLabelClass" select="'UNKNOWN'" />
-    <xsl:param name="bWithinTable" select="false()" />
+    <xsl:param name="bWithinTable" select="false()"  />
     <xsl:call-template name="LabelBase">
       <xsl:with-param name="sLabelClass" select="sLabelClass" />
       <xsl:with-param name="bWithinTable" select="bWithinTable" />
@@ -166,7 +166,7 @@
   <xsl:template match="Table">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
+    <xsl:param name="qIsCustom"  />
     <xsl:param name="qCustomType" />
     <xsl:param name="Orientation" select="Column" />
     <xsl:for-each select="./Row">
@@ -209,7 +209,7 @@
   <xsl:template name="SpanRow">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" select="false()" />
+    <xsl:param name="qIsCustom" select="false()"  />
     <xsl:param name="qCustomType" />
     <xsl:param name="Orientation" select="Column" />
     <xsl:for-each select="Row">
@@ -222,7 +222,7 @@
   <xsl:template name="SpanCell">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" select="false()" />
+    <xsl:param name="qIsCustom" select="false()"  />
     <xsl:param name="qCustomType" />
     <xsl:param name="Orientation" select="Column" />
     <xsl:for-each select="Cell">
@@ -261,7 +261,7 @@
   <xsl:template match="Control">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" select="false()" />
+    <xsl:param name="qIsCustom" select="false()"  />
     <xsl:param name="qCustomType" />
     <xsl:choose>
       <xsl:when test="@Type = 'Static'">
@@ -363,7 +363,7 @@
   <xsl:template name="EditControl">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
+    <xsl:param name="qIsCustom"  />
     <xsl:param name="qCustomType" />
     <!--- Need to decide whether to use a text area of a edit control -->
     <xsl:choose>
@@ -388,7 +388,7 @@
   <xsl:template name="SingleLineEditControl">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
+    <xsl:param name="qIsCustom"  />
     <xsl:param name="qCustomType" />
     <!--- Edit box -->
     <xsl:element name="input">
@@ -398,9 +398,6 @@
       <xsl:attribute name="data-questiongroup">
         <xsl:value-of select="$qGroup" />
       </xsl:attribute>
-      <xsl:if test="$qIsCustom = true()">
-        <xsl:attribute name="class">hiddencontrol</xsl:attribute>
-      </xsl:if>
       <!--- Set Control Type -->
       <xsl:attribute name="type">text</xsl:attribute>
       <!--- Input name -->
@@ -473,8 +470,11 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
+      <xsl:if test="(($qIsCustom='true') and ($qCustomType != 'hnumberslidder'))">
+        <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+      </xsl:if>
     </xsl:element>
-    <xsl:if test="$qIsCustom = false()">
+    <xsl:if test="$qIsCustom = 'false'">
       <xsl:call-template name="appComponentScript">
         <xsl:with-param name="ComponentName" select="'aInputSinglelineedit'" />
         <xsl:with-param name="ElementID" select="@ElementID" />
@@ -485,7 +485,7 @@
   <xsl:template name="MultiLineEditControl">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
+    <xsl:param name="qIsCustom"  />
     <xsl:param name="qCustomType" />
     <!--- Control Label -->
     <xsl:if test="Category[1]/Label">
@@ -746,7 +746,7 @@
   <xsl:template name="RadioButtonControl">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
+    <xsl:param name="qIsCustom"  />
     <xsl:param name="qCustomType" />
     <!--- Control Label -->
     <xsl:element name="div">
@@ -777,7 +777,7 @@
         </xsl:call-template>
       </xsl:if>
       <xsl:element name="input">
-        <xsl:if test="$qIsCustom = true()">
+        <xsl:if test="$qIsCustom = 'true'">
           <xsl:attribute name="class">hiddencontrol</xsl:attribute>
         </xsl:if>
         <!--- Set Control Type -->
@@ -857,7 +857,7 @@
   <xsl:template name="CheckButtonControl">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
+    <xsl:param name="qIsCustom"  />
     <xsl:param name="qCustomType" />
     <!--- Control Label -->
     <xsl:element name="div">
@@ -892,7 +892,7 @@
         <xsl:text>');</xsl:text>
       </xsl:element>
       <xsl:element name="input">
-        <xsl:if test="$qIsCustom = true()">
+        <xsl:if test="$qIsCustom = 'true'">
           <xsl:attribute name="class">hiddencontrol</xsl:attribute>
         </xsl:if>
         <!--- Set Control Type -->
@@ -1408,22 +1408,22 @@
     <xsl:param name="theID" />
     <xsl:choose>
       <xsl:when test="$theID = '-10'">
-        <xsl:value-of select="false()" />
+        <xsl:value-of select="false" />
       </xsl:when>
       <xsl:when test="$theID = '-20'">
-        <xsl:value-of select="false()" />
+        <xsl:value-of select="false" />
       </xsl:when>
       <xsl:when test="$theID = '-30'">
-        <xsl:value-of select="false()" />
+        <xsl:value-of select="false" />
       </xsl:when>
       <xsl:when test="$theID = '-40'">
-        <xsl:value-of select="true()" />
+        <xsl:value-of select="true" />
       </xsl:when>
       <xsl:when test="$theID = '-50'">
-        <xsl:value-of select="true()" />
+        <xsl:value-of select="true" />
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="false()" />
+        <xsl:value-of select="false" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
