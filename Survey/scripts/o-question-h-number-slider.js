@@ -29,6 +29,7 @@ define(
             this.group = group;
             this.element = null;
             this.wrapper = null;
+            this.organism = null;
             this.output = null;
             this.isExclusive = false;
         }
@@ -48,21 +49,33 @@ define(
             document.addEventListener("click", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
+            document.addEventListener(this.group + "_incrementValue", this, false);
+            document.addEventListener(this.group + "_decrementValue", this, false);
         }
 
         oQuestionHNumberSlider.prototype.prepareHTML = function () {
+            var slider_border = document.createElement('div');
+            slider_border.className = 'slider-border';
+
+            var slider_wrapper = document.createElement('div');
+            slider_wrapper.className = 'slider-wrapper active';
+
+            var slider_organism = document.createElement('div');
+            slider_organism.className = 'o-input-questionhnumberslider';
+
             var parent = this.element.parentNode;
 
-            var wrapperelement = document.createElement('div');
-            wrapperelement.className = 'slider-wrapper active';
-            var wrapper = parent.insertBefore(wrapperelement, this.element);
-            wrapper.appendChild(this.element);
+            parent.insertBefore(slider_border, this.element);
 
-            var borderelement = document.createElement('div');
-            borderelement.className = 'slider-border';
-            wrapper.insertBefore(borderelement, this.element);
+            slider_wrapper = parent.insertBefore(slider_wrapper, slider_border);
+            slider_wrapper.appendChild(slider_border);
+            slider_wrapper.appendChild(this.element);
 
-            this.wrapper = wrapper;
+            slider_organism = parent.insertBefore(slider_organism, slider_wrapper);
+            slider_organism.appendChild(slider_wrapper);
+
+            this.wrapper = slider_wrapper;
+            this.organism = slider_organism;
         }
 
         oQuestionHNumberSlider.prototype.configureProperties = function () {
@@ -89,28 +102,29 @@ define(
             }
 
             if (props['terminators'] === true) {
-
+                this.showTerminators();
             }
         }
 
         oQuestionHNumberSlider.prototype.showMarks = function () {
             var wrapper = this.wrapper;
-            var markselement = document.createElement('div');
-            var step = this.properties.ticklabels ? this.properties.ticklabels*10 : 10;
-            markselement.className = 'slider-marks';
+            var element_marks = document.createElement('div');
+            var step = this.properties.ticklabels ? this.properties.ticklabels * 10 : 10;
+            element_marks.className = 'slider-marks';
 
-            markselement.style.background = 'repeating-linear-gradient(90deg, ' +
+            element_marks.style.background = 'repeating-linear-gradient(90deg, ' +
                 '#8797C8 0, ' +
                 '#8797C8 1px, ' +
                 'transparent 0, ' +
                 'transparent calc(' + step + '% - 4px)) ' +
                 'calc(.5*40px) 0/100% no-repeat';
 
-            wrapper.insertBefore(markselement, this.element);
+            wrapper.insertBefore(element_marks, this.element);
         }
 
         oQuestionHNumberSlider.prototype.showValue = function () {
             var parent = this.wrapper;
+            parent.classList.add('thumb-value');
             var valueelement = document.createElement('div');
             valueelement.className = 'a-label-value';
             parent.insertBefore(valueelement, this.element);
@@ -118,23 +132,47 @@ define(
             this.updateValue(this.element.value);
         }
 
-        oQuestionHNumberSlider.prototype.updateValue = function (val) {
+        oQuestionHNumberSlider.prototype.updateValue = function (current_value) {
             if (this.output !== null) {
-                this.output.innerHTML = val;
+                this.output.innerHTML = current_value;
+
                 var min = this.element.min ? this.element.min : 0;
                 var max = this.element.max ? this.element.max : 100;
-                var positionValue = Number((val - min) * 100 / (max - min));
-                var newPosition = 0 - (positionValue * .45);
-                this.output.style.left = 'calc(' + positionValue + '% + ' + newPosition + 'px)';
+
+                var position_value = Number((current_value - min) * 100 / (max - min));
+                var new_position = 0 - (position_value * .45);
+
+                this.output.style.left = 'calc(' + position_value + '% + ' + new_position + 'px)';
             }
         }
 
         oQuestionHNumberSlider.prototype.showTerminators = function () {
 
+            var preelement = document.createElement('button');
+            preelement.type = 'button';
+            preelement.setAttribute("data-questionid", this.id + '_DEC');
+            preelement.className = 'a-button-preterminator';
+            var precontent = document.createTextNode('<');
+            preelement.appendChild(precontent);
+
+            this.organism.insertBefore(preelement, this.wrapper);
+            app.registerComponent('aInputButtonDec', this.id + '_DEC', this.group);
+
+            var postelement = document.createElement('button');
+            postelement.type = 'button';
+            postelement.setAttribute("data-questionid", this.id + '_INC');
+            postelement.className = 'a-button-postterminator';
+            var postcontent = document.createTextNode('>');
+            postelement.appendChild(postcontent);
+
+            this.organism.insertBefore(postelement, this.wrapper.nextSibling);
+            app.registerComponent('aInputButtonInc', this.id + '_INC', this.group);
         }
 
         oQuestionHNumberSlider.prototype.ticklabels = function (props) {
-            this.element.step = props;
+
+            // binds the step increment of the range control to the ticklabel interval
+            // this.element.step = props;
         }
 
         oQuestionHNumberSlider.prototype.floodtovalue = function (props) {
@@ -144,11 +182,6 @@ define(
         }
 
         oQuestionHNumberSlider.prototype.labels = function (val) {
-            var parent = this.wrapper.parentNode;
-            var wrapperelement = document.createElement('div');
-            wrapperelement.className = 'o-input-questionhnumberslider';
-            var wrapper = parent.insertBefore(wrapperelement, this.wrapper);
-            wrapper.appendChild(this.wrapper);
 
             if (val['pre']) {
                 var preelement = document.createElement('span');
@@ -156,7 +189,7 @@ define(
                 var precontent = document.createTextNode(val['pre']);
                 preelement.appendChild(precontent);
 
-                wrapper.insertBefore(preelement, this.wrapper);
+                this.organism.insertBefore(preelement, this.wrapper);
             }
 
             if (val['post']) {
@@ -165,7 +198,7 @@ define(
                 var postcontent = document.createTextNode(val['post']);
                 postelement.appendChild(postcontent);
 
-                wrapper.insertBefore(postelement, this.wrapper.nextSibling);
+                this.organism.insertBefore(postelement, this.wrapper.nextSibling);
             }
         }
 
@@ -182,12 +215,18 @@ define(
                 case this.group + "_dismissExclusive":
                     this.onDismissExclusive(event);
                     break;
+                case this.group + "_incrementValue":
+                    this.incrementValue();
+                    break;
+                case this.group + "_decrementValue":
+                    this.decrementValue();
+                    break;
             }
         }
 
         oQuestionHNumberSlider.prototype.onInput = function (event) {
 
-            if (event.target === this.element) {
+            if (event.target === this.element || event === true) {
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
@@ -207,6 +246,26 @@ define(
                 this.updateValue(this.element.value);
             }
 
+        }
+
+        oQuestionHNumberSlider.prototype.incrementValue = function () {
+            var current_value = parseInt(this.element.value);
+            var max_value = parseInt(this.element.max);
+
+            if (current_value < max_value) {
+                this.element.value++;
+                this.onInput(true);
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.decrementValue = function () {
+            var current_value = parseInt(this.element.value);
+            var min_value = parseInt(this.element.min);
+
+            if (current_value > min_value) {
+                this.element.value--;
+                this.onInput(true);
+            }
         }
 
         oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {

@@ -18,6 +18,20 @@ button:hover {
   color: #455B97;
 }
 
+button.a-button-preterminator,
+button.a-button-postterminator {
+  width: 2em;
+  padding: 0 0.5em;
+}
+
+button.a-button-postterminator {
+  margin-left: 1em;
+}
+
+button.a-button-preterminator {
+  margin-right: 1em;
+}
+
 /* buttons where used as part of
  * the page navigation controls */
 #nav-controls input[type=submit] {

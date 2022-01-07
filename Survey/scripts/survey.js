@@ -61,6 +61,18 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id].Init();
             });
             break;
+        case 'aInputButtonInc':
+            requirejs(['a-input-button-inc'], function (aInputButtonInc) {
+                app.components[id] = new aInputButtonInc(id, group);
+                app.components[id].Init();
+            });
+            break;
+        case 'aInputButtonDec':
+            requirejs(['a-input-button-dec'], function (aInputButtonDec) {
+                app.components[id] = new aInputButtonDec(id, group);
+                app.components[id].Init();
+            });
+            break;
     }
 
 }
