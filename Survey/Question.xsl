@@ -209,7 +209,7 @@
   <xsl:template name="SpanRow">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" select="'false'"  />
+    <xsl:param name="qIsCustom" />
     <xsl:param name="qCustomType" />
     <xsl:param name="Orientation" select="Column" />
     <xsl:for-each select="Row">
@@ -222,7 +222,7 @@
   <xsl:template name="SpanCell">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" select="'false'"  />
+    <xsl:param name="qIsCustom" />
     <xsl:param name="qCustomType" />
     <xsl:param name="Orientation" select="Column" />
     <xsl:for-each select="Cell">
@@ -261,7 +261,7 @@
   <xsl:template match="Control">
     <xsl:param name="qGroup" />
     <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" select="'false'"  />
+    <xsl:param name="qIsCustom" />
     <xsl:param name="qCustomType" />
     <xsl:choose>
       <xsl:when test="@Type = 'Static'">
@@ -715,9 +715,7 @@
         </xsl:call-template>
       </xsl:if>
       <xsl:element name="input">
-        <xsl:if test="$qIsCustom = 'true'">
           <xsl:attribute name="class">hiddencontrol</xsl:attribute>
-        </xsl:if>
         <!--- Set Control Type -->
         <xsl:attribute name="type">radio</xsl:attribute>
         <!--- Input name -->
@@ -830,9 +828,7 @@
         <xsl:text>');</xsl:text>
       </xsl:element>
       <xsl:element name="input">
-        <xsl:if test="$qIsCustom = 'true'">
           <xsl:attribute name="class">hiddencontrol</xsl:attribute>
-        </xsl:if>
         <!--- Set Control Type -->
         <xsl:attribute name="type">checkbox</xsl:attribute>
         <!--- Input name -->
@@ -1414,7 +1410,7 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
-      <xsl:if test="(($qIsCustom='true') and ($qCustomType != 'hnumberslider'))">
+      <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
         <xsl:attribute name="class">hiddencontrol</xsl:attribute>
       </xsl:if>
     </xsl:element>
@@ -1461,7 +1457,7 @@
         <xsl:value-of select="'true'" />
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="'false'" />
+        <xsl:value-of select="'true'" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
