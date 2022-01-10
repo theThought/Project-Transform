@@ -51,9 +51,6 @@ define(
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();
                     break;
-                case this.group + "_dismissExclusive":
-                    this.onDismissExclusive();
-                    break;
             }
         }
 
