@@ -1,0 +1,174 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" />
+    <Table UseTablesLayout="1" Summary="measuresgrid">
+      <Row Y="0">
+        <Cell X="1" Y="0" WeightY="2" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine" />
+            <Text>Quantity</Text>
+          </Label>
+        </Cell>
+        <Cell X="2" Y="0" sWeightX="3" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine" />
+            <Text>Unit</Text>
+          </Label>
+        </Cell>
+        <Cell X="0" Y="0" WeightY="2" />
+      </Row>
+      <Row Y="1">
+        <Cell X="2" Y="1" Class="mrGridQuestionText">
+          <Label>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" />
+            <Text>g</Text>
+          </Label>
+        </Cell>
+        <Cell X="3" Y="1" Class="mrGridQuestionText">
+          <Label>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" />
+            <Text>mg</Text>
+          </Label>
+        </Cell>
+        <Cell X="4" Y="1" class="mrGridQuestionText">
+          <Label>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" />
+            <Text>fl oz</Text>
+          </Label>
+        </Cell>
+      </Row>
+      <Row Y="2">
+        <Cell X="0" Y="2" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right" />
+            <Text>drug1</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="2">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="SingleLineEdit" />
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_Qmeasuresgrid_Qdrug1_Qqty" ElementId="_Q0_Q0_Q0" Value="" Length="3">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                <Control Type="SingleLineEdit" />
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="2">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug1_Qmeasure_C" ElementID="_Q0_Q0_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="grams" CategoryID="0" />
+          </Control>
+        </Cell>
+        <Cell X="3" Y="2">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug1_Qmeasure_C" ElementID="_Q0_Q0_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="milligrams" CategoryID="1" />
+          </Control>
+        </Cell>
+        <Cell X="4" Y="2">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug1_Qmeasure_C" ElementID="_Q0_Q0_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="fluidoz" CategoryID="2" />
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="3">
+        <Cell X="0" Y="3" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right" />
+            <Text>drug2</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="3">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="SingleLineEdit" />
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_Qmeasuresgrid_Qdrug2_Qqty" ElementId="_Q0_Q1_Q0" Value="" Length="3">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                <Control Type="SingleLineEdit" />
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="3">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug2_Qmeasure_C" ElementID="_Q0_Q1_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="grams" CategoryID="0" />
+          </Control>
+        </Cell>
+        <Cell X="3" Y="3">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug2_Qmeasure_C" ElementID="_Q0_Q1_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="milligrams" CategoryID="1" />
+          </Control>
+        </Cell>
+        <Cell X="4" Y="3">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug2_Qmeasure_C" ElementID="_Q0_Q1_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="fluidoz" CategoryID="2" />
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="4">
+        <Cell X="0" Y="4" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right" />
+            <Text>drug2</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="4">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="SingleLineEdit" />
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_Qmeasuresgrid_Qdrug3_Qqty" ElementId="_Q0_Q2_Q0" Value="" Length="3">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                <Control Type="SingleLineEdit" />
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="4">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug3_Qmeasure_C" ElementID="_Q0_Q2_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="grams" CategoryID="0" />
+          </Control>
+        </Cell>
+        <Cell X="3" Y="4">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug3_Qmeasure_C" ElementID="_Q0_Q2_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="milligrams" CategoryID="1" />
+          </Control>
+        </Cell>
+        <Cell X="4" Y="4">
+          <Control type="RaionButton" QuestionName="_Qmeasuresgrid_Qdrug3_Qmeasure_C" ElementID="_Q0_Q2_Q1_C">
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+              <Control Type="RadioButton" />
+            </Style>
+            <Category Name="fluidoz" CategoryID="2" />
+          </Control>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>
