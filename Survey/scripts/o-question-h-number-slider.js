@@ -123,8 +123,10 @@ define(
         }
 
         oQuestionHNumberSlider.prototype.showValue = function () {
+            // add a class to the parent which adds additional space for the thumb
+            this.organism.classList.add('has-thumb-value');
+
             var parent = this.wrapper;
-            parent.classList.add('thumb-value');
             var valueElement = document.createElement('div');
             valueElement.className = 'a-label-value';
             parent.insertBefore(valueElement, this.element);
