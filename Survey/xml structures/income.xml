@@ -16,11 +16,10 @@
         <Label>
           <Style ElementAlign="Right">
             <Font IsBold="true" />
-          <Style>
+          </Style>
           <Text> I had no income last year</Text>
         </Label>
       </Category>
-      </Style>
     </Control>
   </Question>
 </Questions>
