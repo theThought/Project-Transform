@@ -1,7 +1,7 @@
 <Questions>
   <Question>
     <Style ElementAlign="NewLine" />
-    <Table UseTablesLayout="1" Summary="measuresgrid">
+    <Table UseTablesLayout="-1" Summary="measuresgrid">
       <Row Y="0">
         <Cell X="1" Y="0" WeightY="2" Class="mrGridQuestionText">
           <Label>
