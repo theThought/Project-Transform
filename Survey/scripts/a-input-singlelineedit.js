@@ -62,27 +62,27 @@ define(
 
         aInputSingleLineEdit.prototype.labels = function (val) {
             var parent = this.element.parentNode;
-            var wrapperelement = document.createElement('div');
-            wrapperelement.className = 'm-input-singlelineedit nowrap';
-            var wrapper = parent.insertBefore(wrapperelement, this.element);
+            var wrapperElement = document.createElement('div');
+            wrapperElement.className = 'm-input-singlelineedit nowrap';
+            var wrapper = parent.insertBefore(wrapperElement, this.element);
             wrapper.appendChild(this.element);
 
             if (val['pre']) {
-                var preelement = document.createElement('span');
-                preelement.className = 'a-label-prelabel';
-                var precontent = document.createTextNode(val['pre']);
-                preelement.appendChild(precontent);
+                var preElement = document.createElement('span');
+                preElement.className = 'a-label-prelabel';
+                var preContent = document.createTextNode(val['pre']);
+                preElement.appendChild(preContent);
 
-                wrapper.insertBefore(preelement, this.element);
+                wrapper.insertBefore(preElement, this.element);
             }
 
             if (val['post']) {
-                var postelement = document.createElement('span');
-                postelement.className = 'a-label-postlabel';
-                var postcontent = document.createTextNode(val['post']);
-                postelement.appendChild(postcontent);
+                var postElement = document.createElement('span');
+                postElement.className = 'a-label-postlabel';
+                var postContent = document.createTextNode(val['post']);
+                postElement.appendChild(postContent);
 
-                wrapper.insertBefore(postelement, this.element.nextSibling);
+                wrapper.insertBefore(postElement, this.element.nextSibling);
             }
         }
 
