@@ -49,11 +49,11 @@ define(
         aInputButtonDec.prototype.onClick = function (event) {
             if (event.target === this.element) {
 
-                var decrementValue = new CustomEvent(this.group + '_decrementValue', {
+                var decrementValueEvent = new CustomEvent(this.group + '_decrementValue', {
                     bubbles: true,
                     detail: this
                 });
-                document.dispatchEvent(decrementValue);
+                document.dispatchEvent(decrementValueEvent);
             }
         }
 
