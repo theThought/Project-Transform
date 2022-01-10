@@ -194,6 +194,7 @@ define(
                 var preContent = document.createTextNode(val['pre']);
                 preElement.appendChild(preContent);
 
+                this.organism.classList.add('has-pre-label');
                 this.organism.insertBefore(preElement, this.wrapper);
             }
 
@@ -203,6 +204,7 @@ define(
                 var postContent = document.createTextNode(val['post']);
                 postElement.appendChild(postContent);
 
+                this.organism.classList.add('has-post-label');
                 this.organism.insertBefore(postElement, this.wrapper.nextSibling);
             }
         }

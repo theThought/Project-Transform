@@ -5,11 +5,17 @@
 }
 
 .o-input-questionhnumberslider {
+    position: relative;
     display: flex;
     align-items: center;
 
     &.has-thumb-value {
         padding-top: 0.8em;
+    }
+
+    &.has-pre-label,
+    &.has-post-label {
+        padding-bottom: 0.8em;
     }
 
     & > div {

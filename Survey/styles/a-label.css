@@ -37,16 +37,16 @@
 }
 
 .o-question-hnumberslider .a-label-prelabel {
-  position: relative;
-  top: -3px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   color: #455B97;
-  margin-right: 1em;
 }
 .o-question-hnumberslider .a-label-postlabel {
-  position: relative;
-  top: -3px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
   color: #455B97;
-  margin-left: 1em;
 }
 .o-question-hnumberslider .active .a-label-value {
   visibility: visible;
