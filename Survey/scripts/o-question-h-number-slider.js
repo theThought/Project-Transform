@@ -140,11 +140,14 @@ define(
 
                 var min = this.element.min ? this.element.min : 0;
                 var max = this.element.max ? this.element.max : 100;
+                var thumbWidth = 40;
+                var range = max - min;
 
-                var positionValue = Number((currentValue - min) * 100 / (max - min));
-                var newPosition = 0 - (positionValue * .45);
-
-                this.output.style.left = 'calc(' + positionValue + '% + ' + newPosition + 'px)';
+                var position = Number(((currentValue - min) / range) * 100);
+                var positionOffset = Math.round(thumbWidth * position / 100) - (thumbWidth / 2);
+                var positionPaddingOffset = Math.round(12 * position / 100) - 6;
+                console.log(positionPaddingOffset);
+                this.output.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
             }
         }
 
