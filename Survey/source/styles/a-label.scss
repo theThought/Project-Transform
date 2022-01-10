@@ -64,16 +64,15 @@
         }
     }
     .a-label-value {
-        border: 1px solid globals.$borders-light;
-        border-radius: 4px;
-        background: white;
+        box-sizing: border-box;
         color: globals.$titles;
         position: absolute;
         top: -25px;
         padding: .1em .2em;
-        min-width: 30px;
+        min-width: 40px;
         text-align: center;
         visibility: hidden;
+        transform: translateX(-50%);
     }
 }
 

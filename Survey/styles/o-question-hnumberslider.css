@@ -1,6 +1,5 @@
 .o-question-hnumberslider {
   overflow: visible;
-  padding-top: 1.4em;
 }
 
 .o-input-questionhnumberslider {
@@ -10,6 +9,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.o-input-questionhnumberslider.has-thumb-value {
+  padding-top: 0.8em;
 }
 .o-input-questionhnumberslider > div {
   -webkit-box-flex: 1;

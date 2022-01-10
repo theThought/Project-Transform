@@ -52,16 +52,17 @@
   visibility: visible;
 }
 .o-question-hnumberslider .a-label-value {
-  border: 1px solid #D0DAE6;
-  border-radius: 4px;
-  background: white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   color: #212C4C;
   position: absolute;
   top: -25px;
   padding: 0.1em 0.2em;
-  min-width: 30px;
+  min-width: 40px;
   text-align: center;
   visibility: hidden;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .m-option-base input:checked + label > .a-label-question {

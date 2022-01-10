@@ -49,11 +49,11 @@ define(
         aInputButtonInc.prototype.onClick = function (event) {
             if (event.target === this.element) {
 
-                var incrementValue = new CustomEvent(this.group + '_incrementValue', {
+                var incrementValueEvent = new CustomEvent(this.group + '_incrementValue', {
                     bubbles: true,
                     detail: this
                 });
-                document.dispatchEvent(incrementValue);
+                document.dispatchEvent(incrementValueEvent);
             }
         }
 

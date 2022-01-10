@@ -2,12 +2,15 @@
 
 .o-question-hnumberslider {
     overflow: visible;
-    padding-top: 1.4em;
 }
 
 .o-input-questionhnumberslider {
     display: flex;
     align-items: center;
+
+    &.has-thumb-value {
+        padding-top: 0.8em;
+    }
 
     & > div {
         flex-grow: 1;
