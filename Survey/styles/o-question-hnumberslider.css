@@ -3,6 +3,7 @@
 }
 
 .o-input-questionhnumberslider {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,6 +13,9 @@
 }
 .o-input-questionhnumberslider.has-thumb-value {
   padding-top: 0.8em;
+}
+.o-input-questionhnumberslider.has-pre-label, .o-input-questionhnumberslider.has-post-label {
+  padding-bottom: 0.8em;
 }
 .o-input-questionhnumberslider > div {
   -webkit-box-flex: 1;
