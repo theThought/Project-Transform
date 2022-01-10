@@ -30,44 +30,44 @@ Survey.prototype.Init = function () {
 Survey.prototype.registerComponent = function (componentType, id, group) {
     console.log('Registering component ' + id);
 
-    switch (componentType) {
-        case 'aInputSinglelineedit':
-            requirejs(['a-input-singlelineedit'], function (aInputSinglelineedit) {
-                app.components[id] = new aInputSinglelineedit(id, group);
+    switch (componentType.toLowerCase()) {
+        case 'ainputsinglelineedit':
+            requirejs(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
+                app.components[id] = new aInputSinglelineEdit(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'mOptionBase':
+        case 'moptionbase':
             requirejs(['m-option-base'], function (mOptionBase) {
                 app.components[id] = new mOptionBase(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'aInputMultilineedit':
+        case 'ainputmultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.components[id] = new aInputMultilineEdit(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'oQuestionChoice':
+        case 'oquestionchoice':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components[id] = new oQuestionChoice(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'oQuestionHnumberslider':
+        case 'oquestionhnumberslider':
             requirejs(['o-question-h-number-slider'], function (oQuestionHNumberSlider) {
                 app.components[id] = new oQuestionHNumberSlider(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'aInputButtonInc':
+        case 'ainputbuttoninc':
             requirejs(['a-input-button-inc'], function (aInputButtonInc) {
                 app.components[id] = new aInputButtonInc(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'aInputButtonDec':
+        case 'ainputbuttondec':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.components[id] = new aInputButtonDec(id, group);
                 app.components[id].Init();
