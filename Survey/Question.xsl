@@ -437,7 +437,9 @@
     <xsl:call-template name="appComponentScript">
       <xsl:with-param name="ComponentName">
         <xsl:text>aInput</xsl:text>
-        <xsl:value-of select="$qCustomType" />
+        <xsl:call-template name="CamelCaseWord">
+          <xsl:with-param name="text" select="$qCustomType" />
+        </xsl:call-template>
       </xsl:with-param>
       <xsl:with-param name="ElementID" select="@ElementID" />
       <xsl:with-param name="FullName" select="$qFullName" />
