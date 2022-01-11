@@ -129,26 +129,15 @@ define(
             var parent = this.wrapper;
             var valueElement = document.createElement('div');
             valueElement.className = 'a-label-value';
+            valueElement.setAttribute("data-questionid", this.id + '_VAL');
+
             parent.insertBefore(valueElement, this.element);
-            this.output = valueElement;
-            this.updateValue(this.element.value);
+            app.registerComponent('aLabelThumbValue', this.id + '_VAL', this.group);
         }
 
-        oQuestionHNumberSlider.prototype.updateValue = function (currentValue) {
-            if (this.output !== null) {
-                this.output.innerHTML = currentValue;
-
-                var min = this.element.min ? this.element.min : 0;
-                var max = this.element.max ? this.element.max : 100;
-                var thumbWidth = 40;
-                var range = max - min;
-
-                var position = Number(((currentValue - min) / range) * 100);
-                var positionOffset = Math.round(thumbWidth * position / 100) - (thumbWidth / 2);
-                var positionPaddingOffset = Math.round(12 * position / 100) - 6;
-                console.log(positionPaddingOffset);
-                this.output.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
-            }
+        oQuestionHNumberSlider.prototype.updateValue = function () {
+            var updateEvent = new CustomEvent(this.group + '_updateValue', {bubbles: true, detail: this});
+            document.dispatchEvent(updateEvent);
         }
 
         oQuestionHNumberSlider.prototype.showTerminators = function () {
@@ -250,7 +239,7 @@ define(
                 }
 
                 this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
-                this.updateValue(this.element.value);
+                this.updateValue();
             }
 
         }
