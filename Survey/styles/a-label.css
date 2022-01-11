@@ -48,10 +48,10 @@
   bottom: 0;
   color: #455B97;
 }
-.o-question-hnumberslider .active .a-label-value {
+.o-question-hnumberslider .active .a-label-thumbvalue {
   visibility: visible;
 }
-.o-question-hnumberslider .a-label-value {
+.o-question-hnumberslider .a-label-thumbvalue {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #212C4C;

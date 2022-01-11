@@ -128,7 +128,7 @@ define(
 
             var parent = this.wrapper;
             var valueElement = document.createElement('div');
-            valueElement.className = 'a-label-value';
+            valueElement.className = 'a-label-thumbvalue';
             valueElement.setAttribute("data-questionid", this.id + '_VAL');
 
             parent.insertBefore(valueElement, this.element);
