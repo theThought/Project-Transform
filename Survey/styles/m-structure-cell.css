@@ -1,6 +1,6 @@
 .m-structure-cell {
   width: 40%;
-  padding: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .m-structure-cell + .m-structure-cell {
