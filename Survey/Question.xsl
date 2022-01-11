@@ -60,20 +60,7 @@
           <xsl:for-each select="*">
             <xsl:choose>
               <xsl:when test="name() = 'Control'">
-                <xsl:apply-templates select=".">
-                  <xsl:with-param name="qGroup" select="$qGroupName" />
-                  <xsl:with-param name="qFullName" select="$qFullName" />
-                  <xsl:with-param name="qIsCustom">
-                    <xsl:call-template name="TranslateZIndexToIsCustom">
-                      <xsl:with-param name="theID" select="../Style/@ZIndex" />
-                    </xsl:call-template>
-                  </xsl:with-param>
-                  <xsl:with-param name="qCustomType">
-                    <xsl:call-template name="TranslateZIndexToName">
-                      <xsl:with-param name="theID" select="../Style/@ZIndex" />
-                    </xsl:call-template>
-                  </xsl:with-param>
-                </xsl:apply-templates>
+                <xsl:apply-templates select="." />
               </xsl:when>
               <xsl:when test="name() = 'Label'">
                 <xsl:apply-templates select=".">
@@ -110,19 +97,10 @@
         </xsl:element>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
-        <xsl:variable name="qFullName">
-            <xsl:call-template name="CalculateQuestionName">
-                <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-            </xsl:call-template>
-        </xsl:variable>
         <xsl:for-each select="*">
           <xsl:choose>
             <xsl:when test="name() = 'Control'">
-              <xsl:apply-templates select=".">
-                <xsl:with-param name="qGroup" select="$qGroupName" />
-                <xsl:with-param name="qFullName" select="$qFullName" />
-              </xsl:apply-templates>
+              <xsl:apply-templates select="." />
             </xsl:when>
           </xsl:choose>
         </xsl:for-each>
@@ -282,10 +260,22 @@
   </xsl:template>
   <!--- CONTROL -->
   <xsl:template match="Control">
-    <xsl:param name="qGroup" />
-    <xsl:param name="qFullName" />
-    <xsl:param name="qIsCustom" />
-    <xsl:param name="qCustomType" />
+    <xsl:param name="qGroup" select="@ElementID" />
+    <xsl:param name="qFullName">
+      <xsl:call-template name="CalculateQuestionName">
+          <xsl:with-param name="QuestionName" select="@QuestionName" />
+      </xsl:call-template>
+    </xsl:param>
+    <xsl:param name="qIsCustom">
+      <xsl:call-template name="TranslateZIndexToIsCustom">
+        <xsl:with-param name="theID" select="Style/@ZIndex" />
+      </xsl:call-template>
+    </xsl:param>
+    <xsl:param name="qCustomType">
+      <xsl:call-template name="TranslateZIndexToName">
+        <xsl:with-param name="theID" select="Style/@ZIndex" />
+      </xsl:call-template>
+    </xsl:param>
     <xsl:choose>
       <xsl:when test="@Type = 'Static'">
         <xsl:call-template name="StaticControl">
