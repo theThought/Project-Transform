@@ -28,7 +28,6 @@ Survey.prototype.Init = function () {
 }
 
 Survey.prototype.registerComponent = function (componentType, id, group) {
-    console.log('Registering component ' + id);
 
     switch (componentType.toLowerCase()) {
         case 'ainputsinglelineedit':
