@@ -73,6 +73,12 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id].Init();
             });
             break;
+        case 'alabelthumbvalue':
+            requirejs(['a-label-thumbvalue'], function (aLabelThumbValue) {
+                app.components[id] = new aLabelThumbValue(id, group);
+                app.components[id].Init();
+            });
+            break;
     }
 
 }
