@@ -29,12 +29,10 @@ define(
             this.id = id;
             this.group = group;
             this.element = null;
-            this.slider = null;
         }
 
         aInputButtonInc.prototype.Init = function () {
             this.element = document.querySelector('button[data-questionid="' + this.id + '"]');
-            this.slider = document.querySelector('input[name="' + this.group + '"]');
             document.addEventListener("click", this, false);
         }
 
