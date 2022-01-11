@@ -62,12 +62,12 @@
     }
 
     .active {
-        .a-label-value {
+        .a-label-thumbvalue {
             visibility: visible;
         }
     }
 
-    .a-label-value {
+    .a-label-thumbvalue {
         box-sizing: border-box;
         color: globals.$titles;
         position: absolute;
