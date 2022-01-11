@@ -17,6 +17,9 @@
 .o-input-questionhnumberslider.has-pre-label, .o-input-questionhnumberslider.has-post-label {
   padding-bottom: 0.8em;
 }
+.o-input-questionhnumberslider.has-tick-labels {
+  padding-bottom: 0.8em;
+}
 .o-input-questionhnumberslider > div {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
