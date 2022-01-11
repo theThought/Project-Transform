@@ -1,0 +1,11 @@
+// sets first cell (technically, all cells) to a predetermined % of the table width
+// this is set to match the general question width in o-question-information
+.m-structure-cell {
+    width: 40%;
+    padding: .5em;
+}
+
+// sets all following cells to have auto (same) width
+.m-structure-cell+.m-structure-cell {
+    width: auto;
+}
