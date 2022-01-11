@@ -14,12 +14,6 @@ input + script + .m-option-base {
   margin-bottom: 0;
 }
 
-.m-option-base .a-icon-multistate {
-  position: absolute;
-  top: 0.1em;
-  left: 0;
-}
-
 .balance .m-option-base {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0px;
