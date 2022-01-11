@@ -79,6 +79,21 @@
         transform: translateX(-50%);
     }
 
+    .a-label-ticklabels {
+        position: relative;
+        top: -.5em;
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        color: globals.$borders;
+
+        & > span {
+            text-align: center;
+            flex: 1 1 0;
+        }
+    }
+
 }
 
 .m-option-base {

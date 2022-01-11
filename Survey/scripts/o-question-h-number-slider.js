@@ -141,7 +141,6 @@ define(
         }
 
         oQuestionHNumberSlider.prototype.showTerminators = function () {
-
             var preElement = document.createElement('button');
             preElement.type = 'button';
             preElement.setAttribute("data-questionid", this.id + '_DEC');
@@ -164,114 +163,134 @@ define(
         }
 
         oQuestionHNumberSlider.prototype.ticklabels = function (props) {
+            // add a class to the parent which adds additional space for the thumb
+            this.organism.classList.add('has-tick-labels');
 
-            // binds the step increment of the range control to the ticklabel interval
-            // this.element.step = props;
-        }
+            var wrapper = this.wrapper;
 
-        oQuestionHNumberSlider.prototype.floodtovalue = function (props) {
-            if (props === true) {
-                this.element.classList.add('flood-to-value');
-            }
-        }
+            var labelsElement = document.createElement('div');
+            labelsElement.className = 'a-label-ticklabels';
 
-        oQuestionHNumberSlider.prototype.labels = function (val) {
+            var step = this.properties.ticklabels ? parseInt(this.properties.ticklabels) : 1;
 
-            if (val['pre']) {
-                var preElement = document.createElement('span');
-                preElement.className = 'a-label-prelabel';
-                var preContent = document.createTextNode(val['pre']);
-                preElement.appendChild(preContent);
+            var min = this.element.min ? parseInt(this.element.min) : 0;
+            var max = this.element.max ? parseInt(this.element.max) : 100;
 
-                this.organism.classList.add('has-pre-label');
-                this.organism.insertBefore(preElement, this.wrapper);
-            }
-
-            if (val['post']) {
-                var postElement = document.createElement('span');
-                postElement.className = 'a-label-postlabel';
-                var postContent = document.createTextNode(val['post']);
-                postElement.appendChild(postContent);
-
-                this.organism.classList.add('has-post-label');
-                this.organism.insertBefore(postElement, this.wrapper.nextSibling);
-            }
-        }
-
-        oQuestionHNumberSlider.prototype.handleEvent = function (event) {
-            switch (event.type) {
-                case "click":
-                case "input":
-                case "change":
-                    this.onInput(event);
-                    break;
-                case this.group + "_enableExclusive":
-                    this.onEnableExclusive(event);
-                    break;
-                case this.group + "_dismissExclusive":
-                    this.onDismissExclusive(event);
-                    break;
-                case this.group + "_incrementValue":
-                    this.incrementValue();
-                    break;
-                case this.group + "_decrementValue":
-                    this.decrementValue();
-                    break;
-            }
-        }
-
-        oQuestionHNumberSlider.prototype.onInput = function (event) {
-
-            if (event.target === this.element || event === true) {
-
-                // handle self-generated events
-                var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
-                document.dispatchEvent(clickedEvent);
-
-                this.wrapper.classList.add('active');
-
-                if (this.isExclusive) {
-                    var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
-                        bubbles: true,
-                        detail: this
-                    });
-                    document.dispatchEvent(enableExclusive);
+            for (var i = min; i <= max; i = i + step) {
+                    labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
                 }
 
-                this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
-                this.updateValue();
+                wrapper.insertBefore(labelsElement, this.element.nextSibling);
+
+                // binds the step increment of the range control to the ticklabel interval
+                // this.element.step = props;
             }
 
-        }
-
-        oQuestionHNumberSlider.prototype.incrementValue = function () {
-            var currentValue = parseInt(this.element.value);
-            var maxValue = parseInt(this.element.max);
-
-            if (currentValue < maxValue) {
-                this.element.value++;
-                this.onInput(true);
+            oQuestionHNumberSlider.prototype.floodtovalue = function (props) {
+                if (props === true) {
+                    this.element.classList.add('flood-to-value');
+                }
             }
-        }
 
-        oQuestionHNumberSlider.prototype.decrementValue = function () {
-            var currentValue = parseInt(this.element.value);
-            var maxValue = parseInt(this.element.min);
+            oQuestionHNumberSlider.prototype.labels = function (val) {
 
-            if (currentValue > maxValue) {
-                this.element.value--;
-                this.onInput(true);
+                if (val['pre']) {
+                    var preElement = document.createElement('span');
+                    preElement.className = 'a-label-prelabel';
+                    var preContent = document.createTextNode(val['pre']);
+                    preElement.appendChild(preContent);
+
+                    this.organism.classList.add('has-pre-label');
+                    this.organism.insertBefore(preElement, this.wrapper);
+                }
+
+                if (val['post']) {
+                    var postElement = document.createElement('span');
+                    postElement.className = 'a-label-postlabel';
+                    var postContent = document.createTextNode(val['post']);
+                    postElement.appendChild(postContent);
+
+                    this.organism.classList.add('has-post-label');
+                    this.organism.insertBefore(postElement, this.wrapper.nextSibling);
+                }
             }
+
+            oQuestionHNumberSlider.prototype.handleEvent = function (event) {
+                switch (event.type) {
+                    case "click":
+                    case "input":
+                    case "change":
+                        this.onInput(event);
+                        break;
+                    case this.group + "_enableExclusive":
+                        this.onEnableExclusive(event);
+                        break;
+                    case this.group + "_dismissExclusive":
+                        this.onDismissExclusive(event);
+                        break;
+                    case this.group + "_incrementValue":
+                        this.incrementValue();
+                        break;
+                    case this.group + "_decrementValue":
+                        this.decrementValue();
+                        break;
+                }
+            }
+
+            oQuestionHNumberSlider.prototype.onInput = function (event) {
+
+                if (event.target === this.element || event === true) {
+
+                    // handle self-generated events
+                    var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+                    document.dispatchEvent(clickedEvent);
+
+                    this.wrapper.classList.add('active');
+
+                    if (this.isExclusive) {
+                        var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
+                            bubbles: true,
+                            detail: this
+                        });
+                        document.dispatchEvent(enableExclusive);
+                    }
+
+                    this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
+                    this.updateValue();
+                }
+
+            }
+
+            oQuestionHNumberSlider.prototype.incrementValue = function () {
+                var currentValue = parseInt(this.element.value);
+                var maxValue = parseInt(this.element.max);
+
+                if (currentValue < maxValue) {
+                    this.element.value++;
+                    this.onInput(true);
+                }
+            }
+
+            oQuestionHNumberSlider.prototype.decrementValue = function () {
+                var currentValue = parseInt(this.element.value);
+                var maxValue = parseInt(this.element.min);
+
+                if (currentValue > maxValue) {
+                    this.element.value--;
+                    this.onInput(true);
+                }
+            }
+
+            oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
+                this.wrapper.classList.remove('active');
+            }
+
+            oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
+                this.wrapper.classList.add('active');
+            }
+
+            return oQuestionHNumberSlider;
+
         }
-
-        oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
-            this.wrapper.classList.remove('active');
-        }
-
-        oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
-            this.wrapper.classList.add('active');
-        }
-
-        return oQuestionHNumberSlider;
-
-    });
+    )
+        ;
