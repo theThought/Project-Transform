@@ -7,6 +7,17 @@
     background-position-x: 16px;
 }
 
+.m-option-base .a-icon-multistate {
+    position: absolute;
+    top: .1em;
+    left: 0;
+}
+
+/* Grid layout */
+table .m-option-base .a-icon-multistate {
+    position: relative;
+}
+
 input[type=checkbox] + label > .a-icon-multistate {
     background-image: url("../images/Checkbox.png");
 }
