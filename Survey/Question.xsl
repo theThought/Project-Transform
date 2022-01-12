@@ -1363,6 +1363,11 @@
     <xsl:element name="td">
       <xsl:attribute name="class">
         <xsl:text>m-structure-cell</xsl:text>
+        <xsl:if test="*/Style/@BgColor != ''">
+          <xsl:text> </xsl:text>
+          <xsl:text>m-structure-cell-</xsl:text>
+          <xsl:value-of select="*/Style/@BgColor" />
+        </xsl:if>
       </xsl:attribute>
       <xsl:if test="@WeightY != ''">
         <xsl:attribute name="rowspan">
@@ -1382,6 +1387,11 @@
       <xsl:if test="*/Style/@Align != ''">
         <xsl:attribute name="align">
           <xsl:value-of select="*/Style/@Align" />
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="*/Style/Cell/@Width != ''">
+        <xsl:attribute name="width">
+          <xsl:value-of select="*/Style/Cell/@Width" />
         </xsl:attribute>
       </xsl:if>
       <xsl:apply-templates select="*" />
