@@ -76,6 +76,10 @@
         transform: translateX(-50%);
     }
 
+    &.has-value .a-label-thumbvalue {
+        visibility: visible;
+    }
+
     .a-label-ticklabels {
         position: relative;
         top: -.5em;

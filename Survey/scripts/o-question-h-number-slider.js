@@ -43,6 +43,8 @@ define(
             this.properties = app.properties[this.group];
             this.configureProperties();
 
+            this.setThumbVisibility();
+
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
             document.addEventListener("click", this, false);
@@ -57,7 +59,7 @@ define(
             sliderBorder.className = 'slider-border';
 
             var sliderWrapper = document.createElement('div');
-            sliderWrapper.className = 'slider-wrapper active';
+            sliderWrapper.className = 'slider-wrapper';
 
             var sliderOrganism = document.createElement('div');
             sliderOrganism.className = 'o-input-questionhnumberslider';
@@ -75,6 +77,13 @@ define(
 
             this.wrapper = sliderWrapper;
             this.organism = sliderOrganism;
+        }
+
+        oQuestionHNumberSlider.prototype.setThumbVisibility = function () {
+            if (this.element.hasAttribute('value')) {
+                this.wrapper.classList.add('active');
+                this.organism.classList.add('has-value');
+            }
         }
 
         oQuestionHNumberSlider.prototype.configureProperties = function () {
@@ -182,7 +191,7 @@ define(
 
                 wrapper.insertBefore(labelsElement, this.element.nextSibling);
 
-                // binds the step increment of the range control to the ticklabel interval
+                // sets the step increment of the range control to the ticklabel interval
                 // this.element.step = props;
             }
 
@@ -240,6 +249,8 @@ define(
             oQuestionHNumberSlider.prototype.onInput = function (event) {
 
                 if (event.target === this.element || event === true) {
+
+                    this.organism.classList.add('has-value');
 
                     // handle self-generated events
                     var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
