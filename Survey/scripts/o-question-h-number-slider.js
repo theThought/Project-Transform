@@ -83,6 +83,7 @@ define(
             if (this.element.hasAttribute('value')) {
                 this.wrapper.classList.add('active');
                 this.organism.classList.add('has-value');
+                this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
             }
         }
 
