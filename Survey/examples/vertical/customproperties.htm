@@ -50,7 +50,7 @@
 </head>
 
 <body>
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="p3cdlfcggjmelfkgtorl3aqmjuaqaaaa" /><input
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="ygndhmg3hfpe2mbpk2qzig6k2uaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="CustomPage" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
 		<div class="header">
 			<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/images/ipsoslogo192.png" />
@@ -85,7 +85,7 @@
 					</div>
 					<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Q0">
 						<script>app.registerComponent('oQuestionSinglelineedit','_Q0','_QCustomPage_QHeight');</script>
-						<input data-questionid="_Q0" data-questiongroup="_Q0" type="text" name="_QCustomPage_QHeight" id="_Q0" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="3" value="248" />
+						<input data-questionid="_Q0" data-questiongroup="_Q0" type="text" name="_QCustomPage_QHeight" id="_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;      width:&#xA;      5em&#xA;      ;&#xA;    " maxlength="3" value="211" />
 						<script>
 							app.registerComponent('aInputSinglelineedit', '_Q0', '_QCustomPage_QHeight');
 						</script>
@@ -111,11 +111,11 @@
 					</div>
 					<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Q1">
 						<script>app.registerComponent('oQuestionSinglelineedit','_Q1','_QCustomPage_QIncome');</script>
-						<input data-questionid="_Q1" data-questiongroup="_Q1" type="text" name="_QCustomPage_QIncome" id="_Q1" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="7" value="1618756" />
+						<input data-questionid="_Q1" data-questiongroup="_Q1" type="text" name="_QCustomPage_QIncome" id="_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;      width:&#xA;      7em&#xA;      ;&#xA;    " maxlength="7" value="" />
 						<script>app.registerComponent('aInputSinglelineedit','_Q1','_QCustomPage_QIncome');</script>
-						<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_Q1">
-							<script>app.registerComponent('mOptionBase','_Q1_X0','_QCustomPage_QIncome');</script>
-							<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QIncome_Xnoincome" id="_Q1_X0" style="" value="noincome" />
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_Q1_X">
+							<script>app.registerComponent('mOptionBase','_Q1_X0','_QCustomPage_QIncome_X');</script>
+							<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QIncome_Xnoincome" id="_Q1_X0" style="" value="noincome" checked="" />
 							<label for="_Q1_X0">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
@@ -146,7 +146,7 @@
 					</div>
 					<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Q2">
 						<script>app.registerComponent('oQuestionSinglelineedit','_Q2','_QCustomPage_QAge');</script>
-						<input data-questionid="_Q2" data-questiongroup="_Q2" type="text" name="_QCustomPage_QAge" id="_Q2" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="3" value="14" />
+						<input data-questionid="_Q2" data-questiongroup="_Q2" type="text" name="_QCustomPage_QAge" id="_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;      width:&#xA;      5em&#xA;      ;&#xA;    " maxlength="3" value="6" />
 						<script>
 							app.registerComponent('aInputSinglelineedit', '_Q2', '_QCustomPage_QAge');
 						</script>
@@ -179,9 +179,20 @@
 					</div>
 					<div class="o-question-response o-question-hnumberslider" data-questiongroup="_Q3">
 						<script>app.registerComponent('oQuestionHnumberslider','_Q3','_QCustomPage_QHowManyMissed');</script>
-						<input data-questionid="_Q3" data-questiongroup="_Q3" type="text" name="_QCustomPage_QHowManyMissed" id="_Q3" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="2" value="9" />
+						<button class="a-button-preterminator" />
+						<script>app.registerComponent('aButtonPreTerminator','_Q3_Preterm','_QCustomPage_QHowManyMissed');</script>
+						<div style="width: 15em" class="m-numberslider-horizontal">
+							<div class="a-style-sliderborder" />
+							<div class="a-label-thumbvalue" />
+							<input data-questionid="_Q3" data-questiongroup="_Q3" type="range" name="_QCustomPage_QHowManyMissed" id="_Q3" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="8" />
+							<div class="m-label-ticklabels" />
+						</div>
 						<script>
-							app.registerComponent('aInputSinglelineedit', '_Q3', '_QCustomPage_QHowManyMissed');
+							app.registerComponent('aInputHnumberslider', '_Q3', '_QCustomPage_QHowManyMissed');
+						</script>
+						<button class="a-button-postterminator" />
+						<script>
+							app.registerComponent('aButtonPostTerminator', '_Q3_Postterm', '_QCustomPage_QHowManyMissed');
 						</script>
 					</div>
 				</div>
@@ -212,12 +223,74 @@
 					</div>
 					<div class="o-question-response o-question-hnumberslider" data-questiongroup="_Q4">
 						<script>app.registerComponent('oQuestionHnumberslider','_Q4','_QCustomPage_QPercentageTreatments');</script>
-						<input data-questionid="_Q4" data-questiongroup="_Q4" type="text" name="_QCustomPage_QPercentageTreatments" id="_Q4" class="a-input-singlelineedit" autocomplete="off" style="" maxlength="3" value="" />
-						<script>app.registerComponent('aInputSinglelineedit','_Q4','_QCustomPage_QPercentageTreatments');</script>
-						<div class="m-option-base" data-exclusive="true" data-questionid="_Q4_X0" data-questiongroup="_Q4">
-							<script>app.registerComponent('mOptionBase','_Q4_X0','_QCustomPage_QPercentageTreatments');</script>
+						<button class="a-button-preterminator" />
+						<script>app.registerComponent('aButtonPreTerminator','_Q4_Preterm','_QCustomPage_QPercentageTreatments');</script>
+						<div style="width: 50%" class="m-numberslider-horizontal">
+							<div class="a-style-sliderborder" />
+							<div class="a-label-thumbvalue" />
+							<input data-questionid="_Q4" data-questiongroup="_Q4" type="range" name="_QCustomPage_QPercentageTreatments" id="_Q4" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value="" />
+							<div class="m-label-ticklabels" />
+						</div>
+						<script>app.registerComponent('aInputHnumberslider','_Q4','_QCustomPage_QPercentageTreatments');</script>
+						<button class="a-button-postterminator" />
+						<script>app.registerComponent('aButtonPostTerminator','_Q4_Postterm','_QCustomPage_QPercentageTreatments');</script>
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q4_X0" data-questiongroup="_Q4_X">
+							<script>app.registerComponent('mOptionBase','_Q4_X0','_QCustomPage_QPercentageTreatments_X');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QPercentageTreatments_Xnovisits" id="_Q4_X0" style="" value="novisits" checked="" />
 							<label for="_Q4_X0">
+								<span class="a-icon-multistate" data-icontype="multiple">
+									<!--This is a comment!-->
+								</span>
+								<span class="a-label-question">None of the visits</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="o-question-container">
+				<script type="text/javascript">
+					app.RegisterProperties('_QCustomPage_QPercentageEpisodes', {
+						'values': {
+							'min': 1,
+							'max': 100
+						},
+						'show': {
+							'marks': false,
+							'value': true,
+							'terminators': true
+						},
+						'labels': {
+							'pre': '0%',
+							'post': '100%'
+						},
+						'floodtovalue': false
+					})
+				</script>
+				<div class="o-question-error">
+				</div>
+				<div class="o-question-core">
+					<div class="o-question-information">
+						<label for="_Q5" class="a-label-question" style="">What percentage of your episodes have been severe</label>
+					</div>
+					<div class="o-question-instruction">
+					</div>
+					<div class="o-question-response o-question-hnumberslider" data-questiongroup="_Q5">
+						<script>app.registerComponent('oQuestionHnumberslider','_Q5','_QCustomPage_QPercentageEpisodes');</script>
+						<button class="a-button-preterminator" />
+						<script>app.registerComponent('aButtonPreTerminator','_Q5_Preterm','_QCustomPage_QPercentageEpisodes');</script>
+						<div style="width: 50%" class="m-numberslider-horizontal">
+							<div class="a-style-sliderborder" />
+							<div class="a-label-thumbvalue" />
+							<input data-questionid="_Q5" data-questiongroup="_Q5" type="range" name="_QCustomPage_QPercentageEpisodes" id="_Q5" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value="1" />
+							<div class="m-label-ticklabels" />
+						</div>
+						<script>app.registerComponent('aInputHnumberslider','_Q5','_QCustomPage_QPercentageEpisodes');</script>
+						<button class="a-button-postterminator" />
+						<script>app.registerComponent('aButtonPostTerminator','_Q5_Postterm','_QCustomPage_QPercentageEpisodes');</script>
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q5_X0" data-questiongroup="_Q5_X">
+							<script>app.registerComponent('mOptionBase','_Q5_X0','_QCustomPage_QPercentageEpisodes_X');</script>
+							<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QPercentageEpisodes_Xnovisits" id="_Q5_X0" style="" value="novisits" />
+							<label for="_Q5_X0">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
 								</span>
