@@ -1,10 +1,5 @@
 .m-structure-cell {
-  width: 40%;
   padding-bottom: 0.5em;
-}
-
-.m-structure-cell + .m-structure-cell {
-  width: auto;
 }
 
 /*# sourceMappingURL=m-structure-cell.css.map */
