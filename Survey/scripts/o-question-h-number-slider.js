@@ -211,7 +211,7 @@ define(
                     preElement.appendChild(preContent);
 
                     this.organism.classList.add('has-pre-label');
-                    this.organism.insertBefore(preElement, this.wrapper);
+                    this.wrapper.insertBefore(preElement, this.element);
                 }
 
                 if (val['post']) {
@@ -221,7 +221,7 @@ define(
                     postElement.appendChild(postContent);
 
                     this.organism.classList.add('has-post-label');
-                    this.organism.insertBefore(postElement, this.wrapper.nextSibling);
+                    this.wrapper.insertBefore(postElement, this.element.nextSibling);
                 }
             }
 
