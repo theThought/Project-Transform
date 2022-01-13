@@ -173,8 +173,8 @@ define(
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
 
-            var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
-            if (step === 0) step = (max-min)/100;
+            var step = isNaN(parseInt(this.properties.ticklabels)) ? 10 : parseInt(this.properties.ticklabels);
+            if (step === 0) step = Math.floor(((max-min)/100) * 10);
 
             for (var i = min; i <= max; i = i + step) {
                     labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
