@@ -30,7 +30,6 @@ define(
             this.element = null;
             this.wrapper = null;
             this.organism = null;
-            this.output = null;
             this.isExclusive = false;
         }
 
