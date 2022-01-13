@@ -405,15 +405,72 @@
     <xsl:param name="qCustomType" />
     <xsl:choose>
       <xsl:when test="$qCustomType='hnumberslider'" >
+        <xsl:element name="button">
+          <xsl:attribute name="class">
+            <xsl:text>a-button-preterminator</xsl:text>
+          </xsl:attribute>
+        </xsl:element>
+        <xsl:call-template name="appComponentScript">
+          <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+          <xsl:with-param name="ElementID">
+            <xsl:value-of select="@ElementID" />
+            <xsl:text>_Preterm</xsl:text>
+          </xsl:with-param>
+          <xsl:with-param name="FullName" select="$qFullName" />
+        </xsl:call-template>
         <xsl:element name="div">
+          <xsl:attribute name="style">
+            <xsl:if test="Style/@Width != ''">
+              <xsl:text>width: </xsl:text>
+              <xsl:value-of select="Style/@Width" />
+            </xsl:if>
+          </xsl:attribute>
           <xsl:attribute name="class">m-numberslider-horizontal</xsl:attribute>
+          <xsl:element name="div">
+            <xsl:attribute name="class">
+              <xsl:text>a-style-sliderborder</xsl:text>
+            </xsl:attribute>
+          </xsl:element>
+          <xsl:element name="div">
+            <xsl:attribute name="class">
+              <xsl:text>a-label-thumbvalue</xsl:text>
+            </xsl:attribute>
+          </xsl:element>
           <xsl:call-template name='MakeInputControl'>
             <xsl:with-param name="qGroup" select="$qGroup" />
             <xsl:with-param name="qFullName" select="$qFullName" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
           </xsl:call-template>
+          <xsl:element name="div">
+            <xsl:attribute name="class">
+              <xsl:text>m-label-ticklabels</xsl:text>
+            </xsl:attribute>
+          </xsl:element>
         </xsl:element>
+        <xsl:call-template name="appComponentScript">
+          <xsl:with-param name="ComponentName">
+            <xsl:text>aInput</xsl:text>
+            <xsl:call-template name="CamelCaseWord">
+              <xsl:with-param name="text" select="$qCustomType" />
+            </xsl:call-template>
+          </xsl:with-param>
+          <xsl:with-param name="ElementID" select="@ElementID" />
+          <xsl:with-param name="FullName" select="$qFullName" />
+        </xsl:call-template>
+        <xsl:element name="button">
+          <xsl:attribute name="class">
+            <xsl:text>a-button-postterminator</xsl:text>
+          </xsl:attribute>
+        </xsl:element>
+        <xsl:call-template name="appComponentScript">
+          <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
+          <xsl:with-param name="ElementID">
+            <xsl:value-of select="@ElementID" />
+            <xsl:text>_Postterm</xsl:text>
+          </xsl:with-param>
+          <xsl:with-param name="FullName" select="$qFullName" />
+        </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name='MakeInputControl'>
@@ -422,18 +479,18 @@
           <xsl:with-param name="qIsCustom" select="$qIsCustom" />
           <xsl:with-param name="qCustomType" select="$qCustomType" />
         </xsl:call-template>
+        <xsl:call-template name="appComponentScript">
+          <xsl:with-param name="ComponentName">
+            <xsl:text>aInput</xsl:text>
+            <xsl:call-template name="CamelCaseWord">
+              <xsl:with-param name="text" select="$qCustomType" />
+            </xsl:call-template>
+          </xsl:with-param>
+          <xsl:with-param name="ElementID" select="@ElementID" />
+          <xsl:with-param name="FullName" select="$qFullName" />
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:call-template name="appComponentScript">
-      <xsl:with-param name="ComponentName">
-        <xsl:text>aInput</xsl:text>
-        <xsl:call-template name="CamelCaseWord">
-          <xsl:with-param name="text" select="$qCustomType" />
-        </xsl:call-template>
-      </xsl:with-param>
-      <xsl:with-param name="ElementID" select="@ElementID" />
-      <xsl:with-param name="FullName" select="$qFullName" />
-    </xsl:call-template>
   </xsl:template>
   <xsl:template name="MultiLineEditControl">
     <xsl:param name="qGroup" />
@@ -1240,6 +1297,7 @@
   </xsl:template>
   <!--- Style Templates -->
   <xsl:template name="LabelStyle">
+    <xsl:param name="IgnoreWidth" select="'false'" />
     <xsl:if test="Style/@BgColor">
       background-color:
       <xsl:value-of select="Style/@BgColor" />
@@ -1250,7 +1308,7 @@
       <xsl:value-of select="Style/@Color" />
       ;
     </xsl:if>
-    <xsl:if test="Style/@Width">
+    <xsl:if test="Style/@Width and $IgnoreWidth != 'true'">
       width:
       <xsl:value-of select="Style/@Width" />
       ;
@@ -1298,8 +1356,11 @@
   </xsl:template>
   <xsl:template name="SpanStyle" />
   <xsl:template name="ControlStyle">
+    <xsl:param name="IgnoreWidth" select="'false'" />
     <!--- adds the control styles to a style attribute -->
-    <xsl:call-template name="LabelStyle" />
+    <xsl:call-template name="LabelStyle">
+      <xsl:with-param name="IgnoreWidth" select="$IgnoreWidth" />
+    </xsl:call-template>
   </xsl:template>
   <xsl:template name="TableStyle">
     <!--- adds the table styles to a style attribute -->
@@ -1389,11 +1450,14 @@
           <xsl:value-of select="*/Style/@Align" />
         </xsl:attribute>
       </xsl:if>
-      <xsl:if test="*/Style/Cell/@Width != ''">
-        <xsl:attribute name="width">
+      <xsl:attribute name="style">
+        <xsl:if test="*/Style/Cell/@Width != ''">
+          <xsl:text>min-width: </xsl:text>
           <xsl:value-of select="*/Style/Cell/@Width" />
-        </xsl:attribute>
-      </xsl:if>
+          <xsl:text>max-width: </xsl:text>
+          <xsl:value-of select="*/Style/Cell/@Width" />
+        </xsl:if>
+      </xsl:attribute>
       <xsl:apply-templates select="*" />
     </xsl:element>
   </xsl:template>
@@ -1474,7 +1538,18 @@
       </xsl:if>
       <!--- Set Control Style -->
       <xsl:attribute name="style">
-        <xsl:call-template name="ControlStyle" />
+        <xsl:call-template name="ControlStyle">
+          <xsl:with-param name="IgnoreWidth">
+            <xsl:choose>
+              <xsl:when test="$qCustomType = 'hnumberslider'">
+                <xsl:text>true</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>false</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:attribute>
       <!--- Max length -->
       <xsl:if test="@Length">
