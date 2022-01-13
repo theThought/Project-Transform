@@ -11,6 +11,20 @@
     margin-bottom: .5em;
     min-width: globals.$min-display-width;
 
+    &.has-value {
+        input[type=range]::-webkit-slider-thumb {
+            visibility: visible;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            visibility: visible;
+        }
+
+        input[type=range]::-ms-thumb {
+            visibility: visible;
+        }
+    }
+
     &.has-thumb-value {
         padding-top: 1em;
     }
@@ -95,6 +109,7 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     box-shadow: none;
     z-index: 4;
+    visibility: hidden;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
@@ -125,6 +140,7 @@ input[type=range]::-moz-range-thumb {
     border-radius: 50px;
     box-shadow: none;
     z-index: 4;
+    visibility: hidden;
 }
 
 .flood-to-value::-moz-range-progress {
@@ -178,6 +194,7 @@ input[type=range]::-ms-thumb {
     margin-top: 0px;
     box-shadow: none;
     z-index: 4;
+    visibility: hidden;
     /*Needed to keep the Edge thumb centred*/
 }
 
@@ -194,7 +211,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 @supports (-ms-ime-align:auto) {
-    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+    /* Pre-Chromium Edge only styles, selector taken from https://stackoverflow.com/a/32202953/7077589 */
     input[type=range] {
         margin: 0;
         /*Edge starts the margin from the thumb, not the track as other browsers do*/
