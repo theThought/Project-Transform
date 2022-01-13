@@ -170,10 +170,11 @@ define(
             var labelsElement = document.createElement('div');
             labelsElement.className = 'a-label-ticklabels';
 
-            var step = this.properties.ticklabels ? parseInt(this.properties.ticklabels) : 1;
-
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
+
+            var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
+            if (step === 0) step = (max-min)/100;
 
             for (var i = min; i <= max; i = i + step) {
                     labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
