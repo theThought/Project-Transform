@@ -39,13 +39,13 @@
 .o-question-hnumberslider .a-label-prelabel {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -0.8em;
   color: #455B97;
 }
 .o-question-hnumberslider .a-label-postlabel {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -0.8em;
   color: #455B97;
 }
 .o-question-hnumberslider .active .a-label-thumbvalue {

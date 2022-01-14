@@ -50,14 +50,14 @@
     .a-label-prelabel {
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -.8em;
         color: globals.$theme-primary;
     }
 
     .a-label-postlabel {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: -.8em;
         color: globals.$theme-primary;
     }
 

@@ -83,6 +83,7 @@ define(
             if (this.element.hasAttribute('value')) {
                 this.wrapper.classList.add('active');
                 this.organism.classList.add('has-value');
+                this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
             }
         }
 
@@ -210,7 +211,7 @@ define(
                     preElement.appendChild(preContent);
 
                     this.organism.classList.add('has-pre-label');
-                    this.organism.insertBefore(preElement, this.wrapper);
+                    this.wrapper.insertBefore(preElement, this.element);
                 }
 
                 if (val['post']) {
@@ -220,7 +221,7 @@ define(
                     postElement.appendChild(postContent);
 
                     this.organism.classList.add('has-post-label');
-                    this.organism.insertBefore(postElement, this.wrapper.nextSibling);
+                    this.wrapper.insertBefore(postElement, this.element.nextSibling);
                 }
             }
 
