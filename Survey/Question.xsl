@@ -409,6 +409,7 @@
           <xsl:attribute name="class">
             <xsl:text>a-button-preterminator</xsl:text>
           </xsl:attribute>
+          <xsl:comment>hnumberslider pre terminator</xsl:comment>
         </xsl:element>
         <xsl:call-template name="appComponentScript">
           <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
@@ -430,11 +431,19 @@
             <xsl:attribute name="class">
               <xsl:text>a-style-sliderborder</xsl:text>
             </xsl:attribute>
+            <xsl:comment> hnumberslider slider border </xsl:comment>
+          </xsl:element>
+          <xsl:element name="div">
+            <xsl:attribute name="class">
+              <xsl:text>m-style-slidermarks</xsl:text>
+            </xsl:attribute>
+            <xsl:comment> hnumberslider tick marks </xsl:comment>
           </xsl:element>
           <xsl:element name="div">
             <xsl:attribute name="class">
               <xsl:text>a-label-thumbvalue</xsl:text>
             </xsl:attribute>
+            <xsl:comment> hnumberslider thumb value </xsl:comment>
           </xsl:element>
           <xsl:call-template name='MakeInputControl'>
             <xsl:with-param name="qGroup" select="$qGroup" />
@@ -446,6 +455,7 @@
             <xsl:attribute name="class">
               <xsl:text>m-label-ticklabels</xsl:text>
             </xsl:attribute>
+            <xsl:comment> hnumberslider tick labels </xsl:comment>
           </xsl:element>
         </xsl:element>
         <xsl:call-template name="appComponentScript">
@@ -462,6 +472,7 @@
           <xsl:attribute name="class">
             <xsl:text>a-button-postterminator</xsl:text>
           </xsl:attribute>
+          <xsl:comment> hnumberslider post terminator </xsl:comment>
         </xsl:element>
         <xsl:call-template name="appComponentScript">
           <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
@@ -1452,10 +1463,12 @@
       </xsl:if>
       <xsl:attribute name="style">
         <xsl:if test="*/Style/Cell/@Width != ''">
-          <xsl:text>min-width: </xsl:text>
+          <xsl:text>min-width:</xsl:text>
           <xsl:value-of select="*/Style/Cell/@Width" />
-          <xsl:text>max-width: </xsl:text>
+          <xsl:text>; </xsl:text>
+          <xsl:text>max-width:</xsl:text>
           <xsl:value-of select="*/Style/Cell/@Width" />
+          <xsl:text>; </xsl:text>
         </xsl:if>
       </xsl:attribute>
       <xsl:apply-templates select="*" />
