@@ -423,7 +423,7 @@
                   <xsl:attribute name="class">
                      <xsl:text>a-button-preterminator</xsl:text>
                   </xsl:attribute>
-                  <xsl:attribute name="id">
+                  <xsl:attribute name="data-questionid">
                      <xsl:value-of select="@ElementID" />
                      <xsl:text>_Preterm</xsl:text>
                   </xsl:attribute>
@@ -464,7 +464,7 @@
                      <xsl:attribute name="class">
                         <xsl:text>a-label-thumbvalue</xsl:text>
                      </xsl:attribute>
-                     <xsl:attribute name="id">
+                     <xsl:attribute name="data-questionid">
                         <xsl:value-of select="@ElementID" />
                         <xsl:text>_Val</xsl:text>
                      </xsl:attribute>
@@ -477,7 +477,7 @@
                         </xsl:with-param>
                         <xsl:with-param name="ElementID">
                            <xsl:value-of select="@ElementID" />
-                           <xsl:text>_Val</xsl:text>
+                           <xsl:text>_Thumbvalue</xsl:text>
                         </xsl:with-param>
                         <xsl:with-param name="FullName" select="$qFullName" />
                      </xsl:call-template>
@@ -514,7 +514,7 @@
                   <xsl:attribute name="class">
                      <xsl:text>a-button-postterminator</xsl:text>
                   </xsl:attribute>
-                  <xsl:attribute name="id">
+                  <xsl:attribute name="data-questionid">
                      <xsl:value-of select="@ElementID" />
                      <xsl:text>_Postterm</xsl:text>
                   </xsl:attribute>
