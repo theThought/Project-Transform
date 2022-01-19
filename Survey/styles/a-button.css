@@ -25,6 +25,12 @@ button.a-button-postterminator {
   width: 2em;
   padding: 0 0.5em;
   margin: 0;
+  display: none;
+}
+
+.has-terminators .a-button-preterminator,
+.has-terminators .a-button-postterminator {
+  display: block;
 }
 
 button.a-button-postterminator {

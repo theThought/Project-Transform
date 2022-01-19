@@ -64,7 +64,18 @@
 .o-question-hnumberslider.has-value .a-label-thumbvalue {
   visibility: visible;
 }
-.o-question-hnumberslider .a-label-ticklabels {
+.o-question-hnumberslider .m-style-slidermarks {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  z-index: 2;
+  width: calc(100% - 12px);
+  left: 6px;
+  height: 16px;
+  top: 16px;
+  border-radius: 16px;
+}
+.o-question-hnumberslider .m-label-ticklabels {
   position: relative;
   top: -0.5em;
   -webkit-box-sizing: border-box;
@@ -78,7 +89,7 @@
           justify-content: space-between;
   color: #8797C8;
 }
-.o-question-hnumberslider .a-label-ticklabels > span {
+.o-question-hnumberslider .m-label-ticklabels > span {
   text-align: center;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0px;
