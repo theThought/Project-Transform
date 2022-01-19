@@ -58,7 +58,7 @@ define(
 
         oQuestionHNumberSlider.prototype.setThumbVisibility = function () {
             if (this.element.getAttribute('value').length) {
-                this.wrapper.classList.add('active');
+                this.organism.classList.add('active');
                 this.organism.classList.add('has-value');
                 this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
             }
@@ -199,7 +199,7 @@ define(
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
 
-                this.wrapper.classList.add('active');
+                this.organism.classList.add('active');
 
                 if (this.isExclusive) {
                     var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
@@ -236,11 +236,11 @@ define(
         }
 
         oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
-            this.wrapper.classList.remove('active');
+            this.organism.classList.remove('active');
         }
 
         oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
-            this.wrapper.classList.add('active');
+            this.organism.classList.add('active');
         }
 
         return oQuestionHNumberSlider;
