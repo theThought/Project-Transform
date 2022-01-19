@@ -80,7 +80,18 @@
         visibility: visible;
     }
 
-    .a-label-ticklabels {
+    .m-style-slidermarks {
+        box-sizing: border-box;
+        position: absolute;
+        z-index: 2;
+        width: calc(100% - 12px);
+        left: 6px;
+        height: 16px;
+        top: 16px;
+        border-radius: 16px;
+    }
+
+    .m-label-ticklabels {
         position: relative;
         top: -.5em;
         box-sizing: border-box;

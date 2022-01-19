@@ -32,8 +32,8 @@ define(
         }
 
         aLabelThumbValue.prototype.Init = function () {
-            this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
-            this.slider = document.querySelector('input[name="' + this.group + '"]');
+            this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
+            this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
 
             document.addEventListener(this.group + "_updateValue", this, false);
 

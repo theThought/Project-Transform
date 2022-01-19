@@ -1,10 +1,11 @@
 @use 'globals';
 
+// question response-level container
 .o-question-hnumberslider {
     overflow: visible;
 }
 
-.o-input-questionhnumberslider {
+.o-question-hnumberslider-control {
     position: relative;
     display: flex;
     align-items: center;
@@ -44,11 +45,11 @@
 }
 
 
-.slider-wrapper {
+.m-numberslider-horizontal {
     position: relative;
 }
 
-.slider-border {
+.a-style-sliderborder {
     box-sizing: border-box;
     position: absolute;
     z-index: 1;
@@ -58,17 +59,6 @@
     border-radius: 24px;
     top: 12px;
     background: white;
-}
-
-.slider-marks {
-    box-sizing: border-box;
-    position: absolute;
-    z-index: 2;
-    width: calc(100% - 12px);
-    left: 6px;
-    height: 16px;
-    top: 16px;
-    border-radius: 16px;
 }
 
 input[type=range] {
