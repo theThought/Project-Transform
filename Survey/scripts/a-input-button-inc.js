@@ -32,7 +32,7 @@ define(
         }
 
         aInputButtonInc.prototype.Init = function () {
-            this.element = document.querySelector('button[data-questionid="' + this.id + '"]');
+            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-postterminator');
             document.addEventListener("click", this, false);
         }
 

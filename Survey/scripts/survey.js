@@ -60,15 +60,15 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id].Init();
             });
             break;
-        case 'ainputbuttoninc':
-            requirejs(['a-input-button-inc'], function (aInputButtonInc) {
-                app.components[id] = new aInputButtonInc(id, group);
+        case 'abuttonpreterminator':
+            requirejs(['a-input-button-dec'], function (aInputButtonDec) {
+                app.components[id] = new aInputButtonDec(id, group);
                 app.components[id].Init();
             });
             break;
-        case 'ainputbuttondec':
-            requirejs(['a-input-button-dec'], function (aInputButtonDec) {
-                app.components[id] = new aInputButtonDec(id, group);
+        case 'abuttonpostterminator':
+            requirejs(['a-input-button-inc'], function (aInputButtonInc) {
+                app.components[id] = new aInputButtonInc(id, group);
                 app.components[id].Init();
             });
             break;
