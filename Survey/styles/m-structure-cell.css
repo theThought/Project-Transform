@@ -1,5 +1,10 @@
 .m-structure-cell {
   padding-bottom: 0.5em;
+  color: #8797C8;
+}
+
+td.m-structure-cell-altrow {
+  background: #ECEFF5;
 }
 
 /*# sourceMappingURL=m-structure-cell.css.map */
