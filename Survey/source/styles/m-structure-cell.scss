@@ -1,5 +1,12 @@
+@use 'globals';
+
 // sets first cell (technically, all cells) to a predetermined % of the table width
 // this is set to match the general question width in o-question-information
 .m-structure-cell {
     padding-bottom: .5em;
+    color: globals.$borders;
+}
+
+td.m-structure-cell-altrow {
+    background: globals.$icons-light;
 }
