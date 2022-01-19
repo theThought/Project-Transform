@@ -47,6 +47,11 @@
 
 .m-numberslider-horizontal {
     position: relative;
+    flex: 1 0 auto;
+}
+
+.m-numberslider-horizontal[style*="width"] {
+    flex: 0 0 auto;
 }
 
 .a-style-sliderborder {
