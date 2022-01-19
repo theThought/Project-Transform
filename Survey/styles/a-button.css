@@ -21,7 +21,7 @@ button:hover {
 button.a-button-preterminator,
 button.a-button-postterminator {
   position: relative;
-  top: -0.7em;
+  top: 0.3em;
   width: 2em;
   padding: 0 0.5em;
   margin: 0;
