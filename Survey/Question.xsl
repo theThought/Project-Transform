@@ -37,7 +37,7 @@
                   </xsl:call-template>
                </xsl:attribute>
                <xsl:attribute name="data-questiongroup">
-                  <xsl:value-of select="$qGroupName" />
+                  <xsl:value-of select="$qFullName" />
                </xsl:attribute>
                <xsl:call-template name="appComponentScript">
                   <xsl:with-param name="ComponentName">
@@ -62,6 +62,11 @@
                      <xsl:when test="name() = 'Control'">
                         <xsl:call-template name="Control">
                           <xsl:with-param name="qGroup" select="$qGroupName" />
+                          <xsl:with-param name="qFullName">
+                             <xsl:call-template name="CalculateQuestionName">
+                                <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+                             </xsl:call-template>
+                          </xsl:with-param>
                         </xsl:call-template>
                      </xsl:when>
                      <xsl:when test="name() = 'Label'">
@@ -263,11 +268,7 @@
    <!--- CONTROL -->
    <xsl:template name="Control">
       <xsl:param name="qGroup" />
-      <xsl:param name="qFullName">
-         <xsl:call-template name="CalculateQuestionName">
-            <xsl:with-param name="QuestionName" select="@QuestionName" />
-         </xsl:call-template>
-      </xsl:param>
+      <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom">
          <xsl:call-template name="TranslateZIndexToIsCustom">
             <xsl:with-param name="theID" select="Style/@ZIndex" />
@@ -415,7 +416,7 @@
                      <xsl:text>a-button-preterminator</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qGroup" />
+                     <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
                   <xsl:comment>hnumberslider pre terminator</xsl:comment>
                </xsl:element>
@@ -452,7 +453,7 @@
                         <xsl:text>a-label-thumbvalue</xsl:text>
                      </xsl:attribute>
                      <xsl:attribute name="data-questiongroup">
-                        <xsl:value-of select="$qGroup" />
+                        <xsl:value-of select="$qFullName" />
                      </xsl:attribute>
                      <xsl:call-template name="appComponentScript">
                         <xsl:with-param name="ComponentName">
@@ -474,7 +475,7 @@
                   </xsl:call-template>
                   <xsl:element name="div">
                      <xsl:attribute name="data-questiongroup">
-                        <xsl:value-of select="$qGroup" />
+                        <xsl:value-of select="$qFullName" />
                      </xsl:attribute>
                      <xsl:attribute name="class">
                         <xsl:text>m-label-ticklabels</xsl:text>
@@ -498,7 +499,7 @@
                      <xsl:text>a-button-postterminator</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qGroup" />
+                     <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
                   <xsl:comment>hnumberslider post terminator</xsl:comment>
                </xsl:element>
@@ -566,7 +567,7 @@
             <xsl:value-of select="@ElementID" />
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qGroup" />
+            <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <!--- Input name -->
          <xsl:attribute name="name">
@@ -811,7 +812,7 @@
             </xsl:if>
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qGroup" />
+            <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <xsl:if test="Category[1]/@CategoryID">
             <xsl:variable name="ElementID">
@@ -927,7 +928,7 @@
             </xsl:if>
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qGroup" />
+            <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('mOptionBase','</xsl:text>
@@ -1515,7 +1516,7 @@
             <xsl:value-of select="@ElementID" />
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qGroup" />
+            <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <!--- Set Control Type -->
          <xsl:choose>
