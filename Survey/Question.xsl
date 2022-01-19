@@ -268,7 +268,8 @@
                <xsl:when test="name() = 'Table'">
                   <xsl:apply-templates select="." />
                </xsl:when>
-               <xsl:when test="name() = 'Question'" />
+               <xsl:when test="name() = 'Question'">
+               </xsl:when>
             </xsl:choose>
          </xsl:for-each>
       </xsl:for-each>
@@ -1486,7 +1487,7 @@
          <xsl:attribute name="class">
             <xsl:text>m-structure-cell</xsl:text>
             <xsl:if test="*/Style/@BgColor != ''">
-               <xsl:text />
+               <xsl:value-of select="' '" />
                <xsl:text>m-structure-cell-</xsl:text>
                <xsl:value-of select="*/Style/@BgColor" />
             </xsl:if>
