@@ -61,12 +61,12 @@
                   <xsl:choose>
                      <xsl:when test="name() = 'Control'">
                         <xsl:call-template name="Control">
-                          <xsl:with-param name="qGroup" select="$qGroupName" />
-                          <xsl:with-param name="qFullName">
-                             <xsl:call-template name="CalculateQuestionName">
-                                <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-                             </xsl:call-template>
-                          </xsl:with-param>
+                           <xsl:with-param name="qGroup" select="$qGroupName" />
+                           <xsl:with-param name="qFullName">
+                              <xsl:call-template name="CalculateQuestionName">
+                                 <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+                              </xsl:call-template>
+                           </xsl:with-param>
                         </xsl:call-template>
                      </xsl:when>
                      <xsl:when test="name() = 'Label'">
@@ -107,7 +107,15 @@
             <xsl:for-each select="*">
                <xsl:choose>
                   <xsl:when test="name() = 'Control'">
-                     <xsl:apply-templates select="." />
+                     <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+                     <xsl:call-template name="Control">
+                        <xsl:with-param name="qGroup" select="$qGroupName" />
+                        <xsl:with-param name="qFullName">
+                           <xsl:call-template name="CalculateQuestionName">
+                              <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+                           </xsl:call-template>
+                        </xsl:with-param>
+                     </xsl:call-template>
                   </xsl:when>
                </xsl:choose>
             </xsl:for-each>
@@ -416,8 +424,8 @@
                      <xsl:text>a-button-preterminator</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="id">
-                    <xsl:value-of select="@ElementID" />
-                    <xsl:text>_Preterm</xsl:text>
+                     <xsl:value-of select="@ElementID" />
+                     <xsl:text>_Preterm</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
@@ -457,8 +465,8 @@
                         <xsl:text>a-label-thumbvalue</xsl:text>
                      </xsl:attribute>
                      <xsl:attribute name="id">
-                       <xsl:value-of select="@ElementID" />
-                       <xsl:text>_Val</xsl:text>
+                        <xsl:value-of select="@ElementID" />
+                        <xsl:text>_Val</xsl:text>
                      </xsl:attribute>
                      <xsl:attribute name="data-questiongroup">
                         <xsl:value-of select="$qFullName" />
@@ -507,8 +515,8 @@
                      <xsl:text>a-button-postterminator</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="id">
-                    <xsl:value-of select="@ElementID" />
-                    <xsl:text>_Postterm</xsl:text>
+                     <xsl:value-of select="@ElementID" />
+                     <xsl:text>_Postterm</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
@@ -1513,7 +1521,26 @@
                <xsl:text>;</xsl:text>
             </xsl:if>
          </xsl:attribute>
-         <xsl:apply-templates select="*" />
+         <xsl:for-each select="*">
+            <xsl:choose>
+               <xsl:when test="name() = 'Question'">
+                 <xsl:apply-templates select="." />
+               </xsl:when>
+               <xsl:when test="name() = 'Control'">
+                 <xsl:call-template name="Control">
+                   <xsl:with-param name="qGroup" select="@ElementID" />
+                   <xsl:with-param name="qFullName">
+                      <xsl:call-template name="CalculateQuestionName">
+                         <xsl:with-param name="QuestionName" select="@QuestionName" />
+                       </xsl:call-template>
+                     </xsl:with-param>
+                  </xsl:call-template>
+               </xsl:when>
+               <xsl:otherwise>
+                 <xsl:apply-templates select="." />
+               </xsl:otherwise>
+            </xsl:choose>
+          </xsl:for-each>
       </xsl:element>
    </xsl:template>
    <!--- Make Input Control -->
