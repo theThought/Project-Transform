@@ -415,6 +415,10 @@
                   <xsl:attribute name="class">
                      <xsl:text>a-button-preterminator</xsl:text>
                   </xsl:attribute>
+                  <xsl:attribute name="id">
+                    <xsl:value-of select="@ElementID" />
+                    <xsl:text>_Preterm</xsl:text>
+                  </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
@@ -451,6 +455,10 @@
                   <xsl:element name="div">
                      <xsl:attribute name="class">
                         <xsl:text>a-label-thumbvalue</xsl:text>
+                     </xsl:attribute>
+                     <xsl:attribute name="id">
+                       <xsl:value-of select="@ElementID" />
+                       <xsl:text>_Val</xsl:text>
                      </xsl:attribute>
                      <xsl:attribute name="data-questiongroup">
                         <xsl:value-of select="$qFullName" />
@@ -497,6 +505,10 @@
                   <xsl:attribute name="type">Button</xsl:attribute>
                   <xsl:attribute name="class">
                      <xsl:text>a-button-postterminator</xsl:text>
+                  </xsl:attribute>
+                  <xsl:attribute name="id">
+                    <xsl:value-of select="@ElementID" />
+                    <xsl:text>_Postterm</xsl:text>
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
