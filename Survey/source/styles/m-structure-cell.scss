@@ -2,11 +2,25 @@
 
 // sets first cell (technically, all cells) to a predetermined % of the table width
 // this is set to match the general question width in o-question-information
-.m-structure-cell {
-    padding-bottom: .5em;
+.m-structure-cell,
+.m-structure-cellm-structure-cell-altrow {
+    padding: .5em;
     color: globals.$borders;
 }
 
-td.m-structure-cell-altrow {
+.m-structure-cell-altrow,
+.m-structure-cellm-structure-cell-altrow {
     background: globals.$icons-light;
+}
+
+tr .m-structure-cell:first-child,
+tr .m-structure-cellm-structure-cell-altrow:first-child{
+    border-top-left-radius: globals.$border-radius;
+    border-bottom-left-radius: globals.$border-radius;
+}
+
+tr .m-structure-cell:last-child,
+tr .m-structure-cellm-structure-cell-altrow:last-child {
+    border-top-right-radius: globals.$border-radius;
+    border-bottom-right-radius: globals.$border-radius;
 }

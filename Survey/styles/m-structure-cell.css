@@ -1,10 +1,24 @@
-.m-structure-cell {
-  padding-bottom: 0.5em;
+.m-structure-cell,
+.m-structure-cellm-structure-cell-altrow {
+  padding: 0.5em;
   color: #8797C8;
 }
 
-td.m-structure-cell-altrow {
+.m-structure-cell-altrow,
+.m-structure-cellm-structure-cell-altrow {
   background: #ECEFF5;
+}
+
+tr .m-structure-cell:first-child,
+tr .m-structure-cellm-structure-cell-altrow:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+tr .m-structure-cell:last-child,
+tr .m-structure-cellm-structure-cell-altrow:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /*# sourceMappingURL=m-structure-cell.css.map */
