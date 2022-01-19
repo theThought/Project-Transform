@@ -727,7 +727,10 @@
                   <xsl:text>aLabelThumbValue</xsl:text>
                 </xsl:with-param>
 
-                <xsl:with-param name="ElementID" select="@ElementID"/>
+                <xsl:with-param name="ElementID">
+                  <xsl:value-of select="@ElementID" />
+                  <xsl:text>_Val</xsl:text>
+                </xsl:with-param>
 
                 <xsl:with-param name="FullName" select="$qFullName"/>
               </xsl:call-template>
