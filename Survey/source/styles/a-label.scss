@@ -54,7 +54,7 @@
     }
 }
 
-.o-question-hnumberslider {
+.o-question-hnumberslider-control {
 
     .a-label-prelabel {
         position: absolute;
@@ -70,12 +70,6 @@
         color: globals.$theme-primary;
     }
 
-    .active {
-        .a-label-thumbvalue {
-            visibility: visible;
-        }
-    }
-
     .a-label-thumbvalue {
         box-sizing: border-box;
         color: globals.$titles;
@@ -85,7 +79,7 @@
         transform: translateX(-50%);
     }
 
-    &.has-value .a-label-thumbvalue {
+    &.active.has-value.has-thumb-value .a-label-thumbvalue {
         visibility: visible;
     }
 
