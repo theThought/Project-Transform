@@ -78,6 +78,8 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id].Init();
             });
             break;
+        default:
+            console.log('An attempt was made to register the unrecognised component type ' + componentType + '.')
     }
 
 }
