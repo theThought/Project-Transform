@@ -48,6 +48,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id].Init();
             });
             break;
+        case 'oquestion':
         case 'oquestionchoice':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components[id] = new oQuestionChoice(id, group);
