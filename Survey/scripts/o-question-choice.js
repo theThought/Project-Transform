@@ -28,10 +28,10 @@ define(
         function oQuestionChoice(id, group) {
             this.id = id;
             this.group = group;
-            this.element = document.querySelector('div[data-questiongroup="' + this.id + '"]');
         }
 
         oQuestionChoice.prototype.Init = function () {
+            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.properties = app.properties[this.group];
             this.configureProperties();
         }
@@ -51,8 +51,8 @@ define(
             }
         }
 
-        oQuestionChoice.prototype.onesize = function(prop) {
-            if (prop === true) {
+        oQuestionChoice.prototype.onesize = function(props) {
+            if (props['state'] === true) {
                 this.element.classList.add('one-size');
             }
         }
