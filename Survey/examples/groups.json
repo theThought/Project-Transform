@@ -1,1 +1,10 @@
-{"groups":[]}
+{"groups":[
+  {"name":"", "balance":false, "onesize":null, "type":"multiple", "exclusives":["noneofabove"]},
+  {"name":"Group1", "balance":true, "onesize":"Group1","type":"single","exclusives":[]},
+  {"name":"Group2", "balance":true, "onesize":"Group2","type":"single","exclusives":[]},
+  {"name":"Group3", "balance":true, "onesize":"Group3","type":"single","exclusives":[]},
+  {"name":"Group4", "balance":true, "onesize":"Group4","type":"single","exclusives":[]},
+  {"name":"Group5", "balance":true, "onesize":"Group5","type":"single","exclusives":[]},
+  {"name":"Group6", "balance":true, "onesize":"Group6","type":"single","exclusives":[]},
+  {"name":"Group7", "balance":false, "onesize":"Group7","type":"multiple","exclusives":["Bisphosphonate","Denosumab"]}
+  ]}
