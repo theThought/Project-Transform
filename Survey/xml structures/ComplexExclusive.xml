@@ -1,0 +1,35 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" />
+    <Table UseTablesLayout="0" Summary="Supportive Care">
+      <Row Y="0">
+        <Cell X="0" Y="0">
+          <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category name="Group1" CategoryID="0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Acute Anti-emetic | 5-HT3 receptor antagonist</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="1">
+        <Cell X="0" Y="1">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category name="Group1" CategoryID="0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Acute Anti-emetic | 5-HT3 receptor antagonist</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>
