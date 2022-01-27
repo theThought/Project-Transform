@@ -6,7 +6,7 @@
         <Cell X="0" Y="0">
           <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" />
-            <Category name="Group1" CategoryID="0">
+            <Category Name="Group1" CategoryID="0">
               <Label>
                 <Style ElementAlign="Right" />
                 <Text>Acute Anti-emetic | 5-HT3 receptor antagonist</Text>
@@ -21,10 +21,405 @@
             <Style ElementAlign="NewLine" Indent="1">
               <Control Type="CheckButton" />
             </Style>
-            <Category name="Group1" CategoryID="0">
+            <Category Name="Acute__Granisetron" CategoryID="0_S0">
               <Label>
                 <Style ElementAlign="Right" />
-                <Text>Acute Anti-emetic | 5-HT3 receptor antagonist</Text>
+                <Text>Granisetron</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="2">
+        <Cell X="0" Y="2">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Ondansetron" CategoryID="0_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Ondansetron</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="3">
+        <Cell X="0" Y="3">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Palonosetron" CategoryID="0_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Palonosetron</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="4">
+        <Cell X="0" Y="4">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Other5HT3" CategoryID="0_S3">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Other 5HT3s</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="5">
+        <Cell X="0" Y="0">
+          <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Group2" CategoryID="1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Acute Anti-emetic | NK1 receptor antagonist</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="6">
+        <Cell X="0" Y="6">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Aprepitant" CategoryID="1_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Aprepitant Oral</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="7">
+        <Cell X="0" Y="7">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Fosaprepitant" CategoryID="1_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Fosaprepitant</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="8">
+        <Cell X="0" Y="8">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Fosnetupitant" CategoryID="1_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Fosnetupitant</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="9">
+        <Cell X="0" Y="9">
+          <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Group3" CategoryID="2">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Acute Anti-emitic | Other</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="10">
+        <Cell X="0" Y="10">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Oranzapine" CategoryID="2_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Acute Oranzapine</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="11">
+        <Cell X="0" Y="11">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Acute__Other" CategoryID="2_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Other Acute Anti-emetic</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="12">
+        <Cell X="0" Y="12">
+          <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Group4" CategoryID="3">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Delayed Anti-emitic | 5-HT3 receptor antagonist</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="13">
+        <Cell X="0" Y="13">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Granisetron" CategoryID="3_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Granisetron</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="14">
+        <Cell X="0" Y="14">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Ondansetron" CategoryID="3_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Ondansetron</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="15">
+        <Cell X="0" Y="15">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Palonosetron" CategoryID="3_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Palonosetron</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="16">
+        <Cell X="0" Y="16">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Other5HT3" CategoryID="3_S3">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Other 5HT3s</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="17">
+        <Cell X="0" Y="0">
+          <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Group5" CategoryID="4">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Delayed Anti-emetic | NK1 receptor antagonist</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="18">
+        <Cell X="0" Y="18">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Aprepitant" CategoryID="4_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Aprepitant Oral</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="19">
+        <Cell X="0" Y="19">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Fosaprepitant" CategoryID="4_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Fosaprepitant</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="20">
+        <Cell X="0" Y="20">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Fosnetupitant" CategoryID="4_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Fosnetupitant</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="21">
+        <Cell X="0" Y="21">
+          <Control Type="Static" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Group6" CategoryID="5">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Delayed Anti-emitic | Other</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="22">
+        <Cell X="0" Y="22">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Oranzapine" CategoryID="5_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Oranzapine</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="23">
+        <Cell X="0" Y="23">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Delayed__Other" CategoryID="5_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Other Delayed Anti-emitic</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="24">
+        <Cell X="0" Y="24">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Bisphosphonate" CategoryID="6">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Bone-Targeted Agent|Bisphosphonate</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="25">
+        <Cell X="0" Y="25">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Denosumab" CategoryID="7">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Bone-Targeted Agent|Denosumab</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="26">
+        <Cell X="0" Y="26">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="GrowthFactor" CategoryID="8">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Growth Factor (G-CSF/GSM-CSF)</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="27">
+        <Cell X="0" Y="27">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Anticachexia" CategoryID="9">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Anti-cachexia agent</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="28">
+        <Cell X="0" Y="28">
+          <Control Type="CheckButton" QuestionName="_QSupportiveCare_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Noneofabove" CategoryID="10">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>None of the above</Text>
               </Label>
             </Category>
           </Control>
