@@ -80,13 +80,13 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         default:
-            console.log('An attempt was made to register the unrecognised component type ' + componentType + '.')
+            console.warn('An attempt was made to register the unrecognised component type ' + componentType + '.')
     }
 
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
-    console.log('Registering properties for ' + id);
+    console.info('Registering properties for ' + id);
     app.properties[id] = this.sanitiseProperties(props);
 }
 
