@@ -97,16 +97,18 @@
     .m-label-ticklabels {
         position: relative;
         top: -.5em;
+        left: 6px;
         box-sizing: border-box;
-        width: 100%;
+        width: calc(100% - 12px);
         display: flex;
         justify-content: space-between;
         color: globals.$borders;
 
         & > span {
             text-align: center;
-            flex: 1 1 0;
+            flex: 0 1 40px;
         }
+
     }
 
 }
