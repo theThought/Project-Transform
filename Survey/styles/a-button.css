@@ -21,11 +21,14 @@ button:hover {
 button.a-button-preterminator,
 button.a-button-postterminator {
   position: relative;
+  border: none;
+  background: transparent;
   top: 0.3em;
   width: 2em;
   padding: 0 0.5em;
   margin: 0;
   display: none;
+  color: #455B97;
 }
 
 .has-terminators .a-button-preterminator,
