@@ -33,7 +33,20 @@ define(
 
         aInputButtonInc.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-postterminator');
+            this.element.innerHTML = '&raquo;'; // default arrow appearance
             document.addEventListener("click", this, false);
+
+            this.properties = app.properties[this.group];
+            this.configureProperties();
+        }
+
+        aInputButtonInc.prototype.configureProperties = function () {
+            for (var prop in this.properties) {
+                if (this.properties.hasOwnProperty(prop)
+                    && typeof this[prop] === 'function') {
+                    this[prop](this.properties[prop]);
+                }
+            }
         }
 
         aInputButtonInc.prototype.handleEvent = function (event) {
