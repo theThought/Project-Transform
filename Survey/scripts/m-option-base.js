@@ -73,6 +73,15 @@ define(
 
             if (event.target === this.checkbox) {
 
+                if (this.textInput !== null) {
+                    if (this.checkbox.checked) {
+                        this.textInput.focus();
+                    } else {
+                        this.textInput.placeholder = this.textInput.value;
+                        this.textInput.value = '';
+                    }
+                }
+
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
                     var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
