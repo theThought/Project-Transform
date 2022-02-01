@@ -30,6 +30,7 @@ define(
             this.element = null;
             this.wrapper = null;
             this.organism = null;
+            this.value = null;
             this.isExclusive = false;
         }
 
@@ -237,10 +238,14 @@ define(
 
         oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
             this.organism.classList.remove('active');
+            this.value = this.element.value;
+            this.element.disabled = true;
         }
 
         oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
             this.organism.classList.add('active');
+            this.element.disabled = false;
+            this.element.value = this.value;
         }
 
         return oQuestionHNumberSlider;
