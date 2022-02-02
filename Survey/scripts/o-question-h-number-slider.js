@@ -219,20 +219,20 @@ define(
         oQuestionHNumberSlider.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.max);
+            this.onInput(true);
 
             if (currentValue < maxValue) {
                 this.element.value++;
-                this.onInput(true);
             }
         }
 
         oQuestionHNumberSlider.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.min);
+            this.onInput(true);
 
             if (currentValue > maxValue) {
                 this.element.value--;
-                this.onInput(true);
             }
         }
 
