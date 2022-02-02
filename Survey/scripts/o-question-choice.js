@@ -61,11 +61,34 @@ define(
         oQuestionChoice.prototype.onesize = function (props) {
             if (props['state'] === true) {
                 this.element.classList.add('one-size');
+                window.addEventListener("resize", this, false);
             }
+        }
+
+        oQuestionChoice.prototype.onResize = function (props) {
+
+            var children = this.element.getElementsByClassName("m-option-base");
+            var tallest = 0;
+
+            for (var i = 0; i < children.length; i++) {
+                var element = children[i];
+                var dims = getComputedStyle(element);
+                var elementheight = element.clientHeight;
+                var contentheight = elementheight - (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
+                if (contentheight > tallest) tallest = contentheight;
+            }
+
+            for (i = 0; i < children.length; i++) {
+                children[i].style.minHeight = tallest + 'px';
+            }
+
         }
 
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'resize':
+                    this.onResize(event);
+                    break;
             }
         }
 

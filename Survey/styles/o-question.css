@@ -6,11 +6,6 @@
 .o-question-response > *:not(script):last-child {
   margin-bottom: 0;
 }
-.o-question-response.one-size {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-rows: 1fr;
-}
 .o-question-response.balance {
   display: -ms-grid;
   display: grid;
