@@ -55,6 +55,7 @@ define(
         oQuestionChoice.prototype.balance = function (prop) {
             if (prop === true) {
                 this.element.classList.add('balance');
+                window.addEventListener("resize", this, false);
             }
         }
 
@@ -69,19 +70,30 @@ define(
 
             var children = this.element.getElementsByClassName("m-option-base");
             var tallest = 0;
+            var widest = 0;
 
             for (var i = 0; i < children.length; i++) {
                 var element = children[i];
                 var dims = getComputedStyle(element);
                 var elementheight = element.clientHeight;
+                var elementwidth = element.clientWidth;
                 var contentheight = elementheight - (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
+                var contentwidth = elementwidth - (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
+
                 if (contentheight > tallest) tallest = contentheight;
+                if (contentwidth > widest) widest = contentwidth;
             }
 
             for (i = 0; i < children.length; i++) {
-                children[i].style.minHeight = tallest + 'px';
-            }
+                if (this.properties.onesize.state === true) {
+                    children[i].style.minHeight = tallest + 'px';
+                }
 
+                if (this.properties.balance === true) {
+                    children[i].style.minWidth = widest + 'px';
+                }
+
+            }
         }
 
         oQuestionChoice.prototype.handleEvent = function (event) {
