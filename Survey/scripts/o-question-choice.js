@@ -33,6 +33,8 @@ define(
         oQuestionChoice.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.properties = app.properties[this.group];
+            this.tallest = 0;
+            this.widest = 0;
 
             if (this.element === null) {
                 console.warn('Unable to find a DOM element for the oQuestionChoice component '
@@ -69,8 +71,6 @@ define(
         oQuestionChoice.prototype.onResize = function (props) {
 
             var children = this.element.getElementsByClassName("m-option-base");
-            var tallest = 0;
-            var widest = 0;
 
             for (var i = 0; i < children.length; i++) {
                 var element = children[i];
@@ -80,20 +80,16 @@ define(
                 var contentheight = elementheight - (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
                 var contentwidth = elementwidth - (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
 
-                if (contentheight > tallest) tallest = contentheight;
-                if (contentwidth > widest) widest = contentwidth;
+                if (contentheight > this.tallest) this.tallest = contentheight;
+                if (contentwidth > this.widest) this.widest = contentwidth;
             }
 
-            for (i = 0; i < children.length; i++) {
-                if (this.properties.onesize.state === true) {
-                    children[i].style.minHeight = tallest + 'px';
-                }
+            var resize = new CustomEvent(this.group + '_resize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(resize);
 
-                if (this.properties.balance === true) {
-                    children[i].style.minWidth = widest + 'px';
-                }
-
-            }
         }
 
         oQuestionChoice.prototype.handleEvent = function (event) {
