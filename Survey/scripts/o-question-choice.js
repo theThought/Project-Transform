@@ -71,6 +71,14 @@ define(
         oQuestionChoice.prototype.onResize = function (props) {
 
             var children = this.element.getElementsByClassName("m-option-base");
+            this.tallest = 0;
+            this.widest = 0;
+
+            var beginresize = new CustomEvent(this.group + '_beginResize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(beginresize);
 
             for (var i = 0; i < children.length; i++) {
                 var element = children[i];
@@ -84,11 +92,11 @@ define(
                 if (contentwidth > this.widest) this.widest = contentwidth;
             }
 
-            var resize = new CustomEvent(this.group + '_resize', {
+            var endresize = new CustomEvent(this.group + '_endResize', {
                 bubbles: true,
                 detail: this
             });
-            document.dispatchEvent(resize);
+            document.dispatchEvent(endresize);
 
         }
 

@@ -47,7 +47,8 @@ define(
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_textFocus", this, false);
-            document.addEventListener(this.group + "_resize", this, false);
+            document.addEventListener(this.group + "_beginResize", this, false);
+            document.addEventListener(this.group + "_endResize", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
@@ -67,13 +68,21 @@ define(
                 case this.group + "_textFocus":
                     this.onTextFocus(event);
                     break;
-                case this.group + "_resize":
-                    this.onResize(event);
+                case this.group + "_beginResize":
+                    this.onBeginResize();
+                    break;
+                case this.group + "_endResize":
+                    this.onEndResize(event);
                     break;
             }
         }
 
-        mOptionBase.prototype.onResize = function (event) {
+        mOptionBase.prototype.onBeginResize = function () {
+            this.element.style.minHeight = '0px';
+            this.element.style.minWidth = '0px';
+        }
+
+        mOptionBase.prototype.onEndResize = function (event) {
 
             if (event.detail.properties.onesize.state === true) {
                 this.element.style.minHeight = event.detail.tallest + 'px';
