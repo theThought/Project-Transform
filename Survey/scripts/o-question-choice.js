@@ -36,6 +36,8 @@ define(
             this.tallest = 0;
             this.widest = 0;
 
+            document.addEventListener("requestSize", this, false);
+
             if (this.element === null) {
                 console.warn('Unable to find a DOM element for the oQuestionChoice component '
                     + this.group
@@ -43,6 +45,8 @@ define(
             } else {
                 this.configureProperties();
             }
+
+            this.onResize();
         }
 
         oQuestionChoice.prototype.configureProperties = function () {
@@ -68,7 +72,7 @@ define(
             }
         }
 
-        oQuestionChoice.prototype.onResize = function (props) {
+        oQuestionChoice.prototype.onResize = function () {
 
             var children = this.element.getElementsByClassName("m-option-base");
             this.tallest = 0;
@@ -103,7 +107,8 @@ define(
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'resize':
-                    this.onResize(event);
+                case 'requestSize':
+                    this.onResize();
                     break;
             }
         }

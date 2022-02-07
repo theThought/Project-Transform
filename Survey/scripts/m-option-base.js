@@ -49,6 +49,12 @@ define(
             document.addEventListener(this.group + "_textFocus", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
+
+            var requestSize = new CustomEvent('requestSize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(requestSize);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
