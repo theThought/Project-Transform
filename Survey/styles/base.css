@@ -51,10 +51,8 @@ body > form {
   display: grid;
   -ms-grid-columns: 1fr minmax(343px, 1660px) 1fr;
   grid-template-columns: 1fr minmax(343px, 1660px) 1fr;
-  -ms-grid-rows: 110px auto 76px;
-  grid-template-rows: 110px auto 76px;
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  -ms-grid-rows: 130px auto 110px;
+  grid-template-rows: 130px auto 110px;
       grid-template-areas: ". header ." ". content ." ". footer .";
 }
 
@@ -62,7 +60,9 @@ body > form {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: header;
-  height: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 130px;
   padding-bottom: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -88,8 +88,55 @@ body > form {
 
   body > form {
     min-height: 85vh;
-    -ms-grid-rows: 85px auto 76px;
-    grid-template-rows: 85px auto 76px;
+    -ms-grid-columns: 1fr minmax(343px, 1660px) 1fr;
+    grid-template-columns: 1fr minmax(343px, 1660px) 1fr;
+    -ms-grid-rows: 75px auto 110px;
+    grid-template-rows: 75px auto 110px;
+  }
+
+  body > form > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  body > form > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+
+  body > form > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+
+  body > form > *:nth-child(4) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
+
+  body > form > *:nth-child(5) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+  }
+
+  body > form > *:nth-child(6) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+  }
+
+  body > form > *:nth-child(7) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+
+  body > form > *:nth-child(8) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+  }
+
+  body > form > *:nth-child(9) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
   }
 }
 .surroundcontent {
@@ -103,11 +150,9 @@ body > form {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: footer;
-  height: 76px;
+  height: 110px;
   border-top: 1px solid #8797C8;
   padding: 1em 0;
-  -ms-grid-row-align: end;
-      align-self: end;
 }
 
 .hiddencontrol {

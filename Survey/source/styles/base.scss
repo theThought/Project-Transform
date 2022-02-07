@@ -47,8 +47,7 @@ body > form {
     max-height: -webkit-fill-available;
     display: grid;
     grid-template-columns: 1fr minmax(globals.$min-display-width, globals.$max-display-width) 1fr;
-    grid-template-rows: 110px auto 76px;
-    align-content: stretch;
+    grid-template-rows: 130px auto 110px;
     grid-template-areas:
     ". header ."
     ". content ."
@@ -57,7 +56,8 @@ body > form {
 
 .header {
     grid-area: header;
-    height: 100px;
+    box-sizing: border-box;
+    height: 130px;
     padding-bottom: 1em;
     display: flex;
     justify-content: space-between;
@@ -75,7 +75,8 @@ body > form {
     }
     body > form {
         min-height: 85vh;
-        grid-template-rows: 85px auto 76px;
+        grid-template-columns: 1fr minmax(globals.$min-display-width, globals.$max-display-width) 1fr;
+        grid-template-rows: 75px auto 110px;
     }
 }
 
@@ -86,10 +87,9 @@ body > form {
 
 .footer {
     grid-area: footer;
-    height: 76px;
+    height: 110px;
     border-top: 1px solid globals.$borders;
     padding: 1em 0;
-    align-self: end;
 }
 
 .hiddencontrol {
