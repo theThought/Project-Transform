@@ -87,56 +87,8 @@ body > form {
   }
 
   body > form {
-    min-height: 85vh;
-    -ms-grid-columns: 1fr minmax(343px, 1660px) 1fr;
-    grid-template-columns: 1fr minmax(343px, 1660px) 1fr;
     -ms-grid-rows: 75px auto 110px;
     grid-template-rows: 75px auto 110px;
-  }
-
-  body > form > *:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-
-  body > form > *:nth-child(2) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-  }
-
-  body > form > *:nth-child(3) {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-  }
-
-  body > form > *:nth-child(4) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-  }
-
-  body > form > *:nth-child(5) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-  }
-
-  body > form > *:nth-child(6) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 3;
-  }
-
-  body > form > *:nth-child(7) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-  }
-
-  body > form > *:nth-child(8) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 2;
-  }
-
-  body > form > *:nth-child(9) {
-    -ms-grid-row: 3;
-    -ms-grid-column: 3;
   }
 }
 .surroundcontent {

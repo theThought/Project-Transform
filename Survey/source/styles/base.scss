@@ -74,8 +74,6 @@ body > form {
         padding-bottom: .8em;
     }
     body > form {
-        min-height: 85vh;
-        grid-template-columns: 1fr minmax(globals.$min-display-width, globals.$max-display-width) 1fr;
         grid-template-rows: 75px auto 110px;
     }
 }
