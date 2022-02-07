@@ -53,7 +53,8 @@ body > form {
   grid-template-columns: 1fr minmax(343px, 1660px) 1fr;
   -ms-grid-rows: 110px auto 76px;
   grid-template-rows: 110px auto 76px;
-  align-content: stretch;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
       grid-template-areas: ". header ." ". content ." ". footer .";
 }
 
@@ -67,11 +68,11 @@ body > form {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   border-bottom: 1px solid #8797C8;
 }
 
@@ -86,11 +87,10 @@ body > form {
   }
 
   body > form {
+    min-height: 85vh;
     -ms-grid-rows: 85px auto 76px;
     grid-template-rows: 85px auto 76px;
-    min-height: 85vh;
   }
-
 }
 .surroundcontent {
   -ms-grid-row: 2;
@@ -105,8 +105,9 @@ body > form {
   grid-area: footer;
   height: 76px;
   border-top: 1px solid #8797C8;
-  padding: 1em;\  -webkit-box-align: end;
-  -ms-flex-align: end;
+  padding: 1em 0;
+  -ms-grid-row-align: end;
+      align-self: end;
 }
 
 .hiddencontrol {
@@ -153,7 +154,4 @@ body > form {
 ::-ms-input-placeholder {
   color: #CCCCCC;
 }
-
-/*# sourceMappingURL=base.css.map */
-
 /*# sourceMappingURL=base.css.map */
