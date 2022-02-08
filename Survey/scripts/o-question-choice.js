@@ -105,10 +105,13 @@ define(
             for (var i = 0; i < children.length; i++) {
                 var element = children[i];
                 var dims = getComputedStyle(element);
-                var elementheight = element.clientHeight;
-                var elementwidth = element.clientWidth;
+                var elementheight = parseFloat(dims.height);
+                var elementwidth = parseFloat(dims.width);
                 var contentheight = elementheight - (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
                 var contentwidth = elementwidth - (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
+
+                contentheight = Math.ceil(contentheight);
+                contentwidth = Math.ceil(contentwidth);
 
                 if (contentheight > this.tallest) this.tallest = contentheight;
                 if (contentwidth > this.widest) this.widest = contentwidth;
