@@ -35,6 +35,8 @@ define(
             this.properties = app.properties[this.group];
             this.tallest = 0;
             this.widest = 0;
+            this.minwidth = '';
+            this.maxwidth = '';
 
             document.addEventListener("requestSize", this, false);
 
@@ -70,6 +72,22 @@ define(
                 this.element.classList.add('one-size');
                 window.addEventListener("resize", this, false);
             }
+
+            if (props['min-width']) {
+                this.setMinWidth(props['min-width']);
+            }
+
+            if (props['max-width']) {
+                this.setMaxWidth(props['max-width']);
+            }
+        }
+
+        oQuestionChoice.prototype.setMinWidth = function (minwidth) {
+            this.minwidth = minwidth;
+        }
+
+        oQuestionChoice.prototype.setMaxWidth = function (maxwidth) {
+            this.minwidth = maxwidth;
         }
 
         oQuestionChoice.prototype.onResize = function () {
@@ -101,7 +119,6 @@ define(
                 detail: this
             });
             document.dispatchEvent(endresize);
-
         }
 
         oQuestionChoice.prototype.handleEvent = function (event) {

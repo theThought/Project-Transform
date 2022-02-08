@@ -75,7 +75,7 @@ define(
                     this.onTextFocus(event);
                     break;
                 case this.group + "_beginResize":
-                    this.onBeginResize();
+                    this.onBeginResize(event);
                     break;
                 case this.group + "_endResize":
                     this.onEndResize(event);
@@ -83,19 +83,25 @@ define(
             }
         }
 
-        mOptionBase.prototype.onBeginResize = function () {
-            this.element.style.minHeight = '0px';
-            this.element.style.minWidth = '0px';
+        mOptionBase.prototype.onBeginResize = function (event) {
+            this.element.style.width = '';
+            this.element.style.height = '';
+
+            if (event.detail.properties.onesize.state === true) {
+                this.element.style.minWidth = event.detail.minwidth;
+                this.element.style.maxWidth = event.detail.maxwidth;
+            }
+
         }
 
         mOptionBase.prototype.onEndResize = function (event) {
 
-            if (event.detail.properties.onesize.state === true) {
-                this.element.style.minHeight = event.detail.tallest + 'px';
+            if (event.detail.properties.balance === true) {
+                this.element.style.width = event.detail.widest + 'px';
             }
 
-            if (event.detail.properties.balance === true) {
-                this.element.style.minWidth = event.detail.widest + 'px';
+            if (event.detail.properties.onesize.state === true) {
+                this.element.style.height = event.detail.tallest + 'px';
             }
 
         }
