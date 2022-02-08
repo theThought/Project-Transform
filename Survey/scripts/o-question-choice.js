@@ -38,7 +38,7 @@ define(
             this.minwidth = '';
             this.maxwidth = '';
 
-            document.addEventListener("requestSize", this, false);
+            document.addEventListener(this.group + "_requestSize", this, false);
 
             if (this.element === null) {
                 console.warn('Unable to find a DOM element for the oQuestionChoice component '
@@ -124,7 +124,7 @@ define(
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'resize':
-                case 'requestSize':
+                case this.group + '_requestSize':
                     this.onResize();
                     break;
             }

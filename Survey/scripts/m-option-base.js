@@ -50,7 +50,7 @@ define(
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
 
-            var requestSize = new CustomEvent('requestSize', {
+            var requestSize = new CustomEvent(this.group + '_requestSize', {
                 bubbles: true,
                 detail: this
             });
