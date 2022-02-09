@@ -41,8 +41,8 @@
         padding: 10px 16px;
         color: globals.$pre-post-text;
         white-space: nowrap;
-        height: 19px; // fix for Safari giving text inputs a 1px misalignment
-        line-height: 1.2; // fix for Safari giving text inputs a 1px misalignment
+        // height: 19px; // fix for Safari giving text inputs a 1px misalignment
+        // line-height: 1.2; // fix for Safari giving text inputs a 1px misalignment
     }
 
     .a-label-prelabel {
