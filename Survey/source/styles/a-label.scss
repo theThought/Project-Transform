@@ -20,8 +20,8 @@
     }
 
     .a-label-postlabel {
-        border: 1px solid globals.$theme-primary;
-        border-left-color: globals.$borders;
+        border: 1px solid globals.$theme-primary !important;
+        border-left-color: globals.$borders !important;
     }
 
     .a-label-prelabel {
