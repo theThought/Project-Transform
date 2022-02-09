@@ -7,6 +7,8 @@
     color: globals.$input-text;
     margin: 0 0 .5em 0;
     width: 197px;
+    height: 19px; // fix for Safari giving text inputs a 1px misalignment
+    line-height: 2.1; // fix for Safari giving text inputs a 1px misalignment
     background-color: globals.$background;
 }
 

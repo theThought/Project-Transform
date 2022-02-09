@@ -15,8 +15,8 @@
   outline: none;
 }
 .focused .a-label-postlabel {
-  border: 1px solid #455B97;
-  border-left-color: #8797C8;
+  border: 1px solid #455B97 !important;
+  border-left-color: #8797C8 !important;
 }
 .focused .a-label-prelabel {
   border: 1px solid #455B97;
@@ -33,6 +33,8 @@
   padding: 10px 16px;
   color: #A0ABCC;
   white-space: nowrap;
+  height: 19px;
+  line-height: 1.2;
 }
 .m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
