@@ -6,29 +6,6 @@
    <xsl:param name="qFullName" />
    <xsl:param name="qIsCustom" />
    <xsl:param name="qCustomType" />
-   <!--- Control Label -->
-   <xsl:if test="Category[1]/Label">
-      <xsl:choose>
-         <xsl:when test="$bIncludeElementIds">
-            <xsl:element name="label">
-               <xsl:attribute name="for">
-                  <xsl:value-of select="@ElementID" />
-                  <xsl:if test="Category[1]/@CategoryID">
-                     <xsl:value-of select="Category[1]/@CategoryID" />
-                  </xsl:if>
-               </xsl:attribute>
-               <xsl:apply-templates select="Category[1]/Label">
-                  <xsl:with-param name="sLabelClass" select="'mrSingleText'" />
-               </xsl:apply-templates>
-            </xsl:element>
-         </xsl:when>
-         <xsl:otherwise>
-            <xsl:apply-templates select="Category[1]/Label">
-               <xsl:with-param name="sLabelClass" select="'mrSingleText'" />
-            </xsl:apply-templates>
-         </xsl:otherwise>
-      </xsl:choose>
-   </xsl:if>
    <!--- Text Area -->
    <xsl:element name="textarea">
       <xsl:attribute name="data-questionid">
@@ -45,14 +22,12 @@
          </xsl:if>
       </xsl:attribute>
       <!--- ID -->
-      <xsl:if test="$bIncludeElementIds">
-         <xsl:attribute name="id">
-            <xsl:value-of select="@ElementID" />
-            <xsl:if test="Category[1]/@CategoryID">
-               <xsl:value-of select="Category[1]/@CategoryID" />
-            </xsl:if>
-         </xsl:attribute>
-      </xsl:if>
+       <xsl:attribute name="id">
+          <xsl:value-of select="@ElementID" />
+          <xsl:if test="Category[1]/@CategoryID">
+             <xsl:value-of select="Category[1]/@CategoryID" />
+          </xsl:if>
+       </xsl:attribute>
       <!--- Alt -->
       <xsl:if test="@Alt != ''">
          <xsl:attribute name="Alt">
@@ -60,9 +35,7 @@
          </xsl:attribute>
       </xsl:if>
       <!--- CSS Class -->
-      <xsl:if test="$bIncludeCSSStyles">
-         <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
-      </xsl:if>
+      <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
       <!--- Show Only -->
       <xsl:if test="$bShowOnly != false()">
          <xsl:attribute name="disabled" />
@@ -88,7 +61,7 @@
       </xsl:if>
       <!--- Set Control Style -->
       <xsl:attribute name="style">
-         <xsl:call-template name="ControlStyle" />
+         <xsl:call-template name="CSSStyles" />
       </xsl:attribute>
       <!--- Rows -->
       <xsl:choose>

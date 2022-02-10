@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>XSLT Combining System</title>
+  <link rel="stylesheet" href="base.css" />
+</head>
+
+<body>
+  <h1>Combining system</h1>
+  <article class="eventlog">
+    <header>
+      <div class="promptlabel">
+        Number of xslt files:
+      </div>
+      <div id="filestoprocess" class="promptvalue">
+        0
+      </div>
+      <div class="promptlabel">
+        Number of xslt sub files:
+      </div>
+      <div id="subfilestoprocess" class="promptvalue">
+        0
+      </div>
+    </header>
+    <section id="logcontainer" class="progress">
+    </section>
+    <footer>
+      <div class="promptlabel">
+        files requested:
+      </div>
+      <div id="filesrequested" class="promptvalue">
+        0
+      </div>
+      <div class="promptlabel">
+        files received:
+      </div>
+      <div id="filesreceived" class="promptvalue">
+        0
+      </div>
+      <div class="promptlabel">
+        files merged
+      </div>
+      <div id="filesmerged" class="promptvalue">
+        0
+      </div>
+    </footer>
+  </article>
+  <textarea id="result">
+
+    </textarea>
+    <textarea id="testresult">initial text</textarea>
+
+</body>
+<script type="text/javascript" src="combine.js">//Combining System</script>
+</html>

@@ -34,60 +34,14 @@
             <xsl:with-param name="FullName" select="$qFullName" />
          </xsl:call-template>
       </xsl:if>
-      <xsl:element name="input">
-         <xsl:attribute name="class">hiddencontrol</xsl:attribute>
-         <!--- Set Control Type -->
-         <xsl:attribute name="type">radio</xsl:attribute>
-         <!--- Input name -->
-         <xsl:attribute name="name">
-            <xsl:value-of select="@QuestionName" />
-         </xsl:attribute>
-         <!--- ID -->
-         <xsl:if test="$bIncludeElementIds">
-            <xsl:attribute name="id">
-               <xsl:value-of select="@ElementID" />
-               <xsl:if test="Category[1]/@CategoryID">
-                  <xsl:value-of select="Category[1]/@CategoryID" />
-               </xsl:if>
-            </xsl:attribute>
-         </xsl:if>
-         <!--- Alt -->
-         <xsl:if test="@Alt != ''">
-            <xsl:attribute name="Alt">
-               <xsl:value-of select="@Alt" />
-            </xsl:attribute>
-         </xsl:if>
-         <!--- CSS Class -->
-         <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false()">
-            <xsl:attribute name="disabled" />
-         </xsl:if>
-         <!--- Read Only -->
-         <xsl:if test="Style/Control/@ReadOnly = 'true'">
-            <xsl:attribute name="disabled" />
-         </xsl:if>
-         <!--- Accelerator access key -->
-         <xsl:if test="Style/Control/@Accelerator != ''">
-            <xsl:attribute name="accesskey">
-               <xsl:value-of select="Style/Control/@Accelerator" />
-            </xsl:attribute>
-         </xsl:if>
-         <!--- Set Control Style -->
-         <xsl:attribute name="style">
-            <xsl:call-template name="ControlStyle" />
-         </xsl:attribute>
-         <!--- Button Category -->
-         <xsl:attribute name="value">
-            <xsl:if test="Category[1]/@Name">
-               <xsl:value-of select="Category[1]/@Name" />
-            </xsl:if>
-         </xsl:attribute>
+      <xsl:call-template name="MakeInputControl">
+         <xsl:with-param name="qFullName" select="$qFullName" />
+         <xsl:with-param name="qIsCustom" select="'true'" />
+         <xsl:with-param name="qCustomType" select="$qCustomType" />
+         <xsl:with-param name="qInputType" select="'radiobutton'" />
+      </xsl:call-template>
          <!--- Is Button Checked -->
-         <xsl:if test="Category[1]/@Checked = 'true'">
-            <xsl:attribute name="checked" />
-         </xsl:if>
-      </xsl:element>
-      <xsl:element name="label">
+        <xsl:element name="label">
          <xsl:attribute name="for">
             <xsl:value-of select="@ElementID" />
             <xsl:if test="Category[1]/@CategoryID">
@@ -99,15 +53,12 @@
             <xsl:attribute name="data-icontype">single</xsl:attribute>
             <xsl:comment>This is a comment!</xsl:comment>
          </xsl:element>
-         <xsl:apply-templates select="Category[1]/Label">
-            <xsl:with-param name="labelType" select="'option'" />
-         </xsl:apply-templates>
+         <xsl:for-each select="Category[1]/Label">
+                <xsl:call-template name="Label">
+                   <xsl:with-param name="labelType" select="'option'"/>
+                </xsl:call-template>
+            </xsl:for-each>
       </xsl:element>
-      <xsl:apply-templates select="../Question">
-         <xsl:with-param name="bWithinTable" select="true()" />
-         <xsl:with-param name="qGroup" select="$qGroup" />
-         <xsl:with-param name="SubQuestion" select="true()" />
-      </xsl:apply-templates>
-   </xsl:element>
+    </xsl:element>
 </xsl:template>
 </xsl:stylesheet>
