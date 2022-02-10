@@ -87,7 +87,7 @@ define(
         }
 
         oQuestionChoice.prototype.setMaxWidth = function (maxwidth) {
-            this.minwidth = maxwidth;
+            this.maxwidth = maxwidth;
         }
 
         oQuestionChoice.prototype.onResize = function () {
