@@ -30,14 +30,15 @@ define(
             this.element = null;
             this.wrapper = null;
             this.organism = null;
+            this.clickablearea = null;
             this.value = null;
             this.isExclusive = false;
         }
 
         oQuestionHNumberSlider.prototype.Init = function () {
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
-            this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
             this.wrapper = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
+            this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             var value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value'): 0;
@@ -46,6 +47,7 @@ define(
             this.properties = app.properties[this.group];
             this.configureProperties();
 
+            this.createClickableArea();
             this.setThumbVisibility();
 
             document.addEventListener("input", this, false);
@@ -63,6 +65,13 @@ define(
                 this.organism.classList.add('has-value');
                 this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
             }
+        }
+
+        oQuestionHNumberSlider.prototype.createClickableArea = function () {
+            var clickableElement = document.createElement('div');
+            clickableElement.className = 'a-style-sliderclickablearea';
+            clickableElement.onclick = function () {};
+            this.clickablearea = this.wrapper.insertBefore(clickableElement, this.element);
         }
 
         oQuestionHNumberSlider.prototype.configureProperties = function () {
@@ -192,7 +201,7 @@ define(
 
         oQuestionHNumberSlider.prototype.onInput = function (event) {
 
-            if (event.target === this.element || event === true) {
+            if (event.target === this.element || event.target === this.clickablearea || event === true) {
 
                 this.organism.classList.add('has-value');
 
@@ -200,6 +209,7 @@ define(
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
                 document.dispatchEvent(clickedEvent);
 
+                this.element.disabled = false;
                 this.organism.classList.add('active');
 
                 if (this.isExclusive) {

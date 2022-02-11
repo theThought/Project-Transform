@@ -87,6 +87,11 @@ define(
             this.element.style.width = '';
             this.element.style.height = '';
 
+            if (typeof event.detail.properties === 'undefined') {
+                console.warn('Attempted to resize an object without providing required properties.')
+                return false;
+            }
+
             if (event.detail.properties.onesize.state === true) {
                 this.element.style.minWidth = event.detail.minwidth;
                 this.element.style.maxWidth = event.detail.maxwidth;
@@ -95,6 +100,11 @@ define(
         }
 
         mOptionBase.prototype.onEndResize = function (event) {
+
+            if (typeof event.detail.properties === 'undefined') {
+                console.warn('Attempted to resize an object without providing required properties.')
+                return false;
+            }
 
             if (event.detail.properties.balance === true) {
                 this.element.style.width = event.detail.widest + 'px';

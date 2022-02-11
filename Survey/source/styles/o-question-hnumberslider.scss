@@ -39,6 +39,12 @@
         padding-bottom: 0.8em;
     }
 
+    &.active {
+        .a-style-sliderclickablearea {
+            display: none;
+        }
+    }
+
     & > div {
         flex-grow: 1;
     }
@@ -64,6 +70,15 @@
     border-radius: 24px;
     top: 12px;
     background: white;
+}
+
+.a-style-sliderclickablearea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
 }
 
 input[type=range] {

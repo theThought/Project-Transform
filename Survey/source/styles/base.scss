@@ -101,6 +101,11 @@ body > form {
     white-space: nowrap;
 }
 
+// iOS disabled inputs normally become translucent - we want to define our own styles
+input:disabled {
+    opacity: 1;
+}
+
 /* Standardises the placeholder colour - these rules cannot be combined */
 ::-moz-placeholder {
     color: globals.$placeholder;
