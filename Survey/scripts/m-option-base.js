@@ -87,12 +87,11 @@ define(
             this.element.style.width = '';
             this.element.style.height = '';
 
-            if (typeof event.detail.properties === 'undefined') {
-                console.warn('Attempted to resize an object without providing required properties.')
+            if (event.detail.properties === null) {
                 return false;
             }
 
-            if (event.detail.properties.onesize.state === true) {
+            if (event.detail.isOnesize === true) {
                 this.element.style.minWidth = event.detail.minwidth;
                 this.element.style.maxWidth = event.detail.maxwidth;
             }
@@ -101,16 +100,11 @@ define(
 
         mOptionBase.prototype.onEndResize = function (event) {
 
-            if (typeof event.detail.properties === 'undefined') {
-                console.warn('Attempted to resize an object without providing required properties.')
-                return false;
-            }
-
-            if (event.detail.properties.balance === true) {
+            if (event.detail.isBalanced === true) {
                 this.element.style.width = event.detail.widest + 'px';
             }
 
-            if (event.detail.properties.onesize.state === true) {
+            if (event.detail.isOnesize === true) {
                 this.element.style.height = event.detail.tallest + 'px';
             }
 

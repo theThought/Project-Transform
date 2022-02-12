@@ -28,15 +28,19 @@ define(
         function oQuestionChoice(id, group) {
             this.id = id;
             this.group = group;
-        }
-
-        oQuestionChoice.prototype.Init = function () {
-            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
-            this.properties = app.properties[this.group];
+            this.element = null;
+            this.properties = null;
             this.tallest = 0;
             this.widest = 0;
             this.minwidth = '';
             this.maxwidth = '';
+            this.isOnesize = true;
+            this.isBalanced = false;
+        }
+
+        oQuestionChoice.prototype.Init = function () {
+            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.properties = app.properties[this.group] ?? null;
 
             document.addEventListener(this.group + "_requestSize", this, false);
 
@@ -45,13 +49,15 @@ define(
                     + this.group
                     + '. Intended behaviours are likely to be missing from this page.');
             } else {
-                this.configureProperties();
+                this.parseProperties();
+                this.configureBalance();
+                this.configureOnesize();
             }
 
             this.onResize();
         }
 
-        oQuestionChoice.prototype.configureProperties = function () {
+        oQuestionChoice.prototype.parseProperties = function () {
             for (var prop in this.properties) {
                 if (this.properties.hasOwnProperty(prop)
                     && typeof this[prop] === 'function') {
@@ -62,23 +68,43 @@ define(
 
         oQuestionChoice.prototype.balance = function (prop) {
             if (prop === true) {
-                this.element.classList.add('balance');
-                window.addEventListener("resize", this, false);
+                this.isBalanced = true;
             }
         }
 
         oQuestionChoice.prototype.onesize = function (props) {
-            if (props['state'] === true) {
+            if (props['state'] === false) {
+                this.isOnesize = false;
+            }
+        }
+        
+        oQuestionChoice.prototype.configureBalance = function() {
+            if (this.isBalanced) {
+                
+                this.element.classList.add('balance');
+                window.addEventListener("resize", this, false);
+                
+            }
+        }
+        
+        oQuestionChoice.prototype.configureOnesize = function () {
+            if (this.isOnesize) {
+                
                 this.element.classList.add('one-size');
                 window.addEventListener("resize", this, false);
-            }
 
-            if (props['min-width']) {
-                this.setMinWidth(props['min-width']);
-            }
+                if (this.properties === null) {
+                    return false;
+                }
 
-            if (props['max-width']) {
-                this.setMaxWidth(props['max-width']);
+                if (typeof this.properties.onesize['min-width'] !== 'undefined') {
+                    this.setMinWidth(props['min-width']);
+                }
+
+                if (typeof this.properties.onesize['max-width'] !== 'undefined') {
+                    this.setMaxWidth(props['max-width']);
+                }
+                
             }
         }
 
