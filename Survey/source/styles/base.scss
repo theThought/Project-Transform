@@ -1,3 +1,5 @@
+// version 2022-02-14.1
+
 @use 'globals';
 
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
@@ -91,10 +93,10 @@ body > form {
 }
 
 .hiddencontrol {
-    width: 1px;
-    height: 1px;
     position: absolute;
     left: -9999px;
+    width: 1px;
+    height: 1px;
 }
 
 .nowrap {
