@@ -33,6 +33,9 @@
   padding: 10px 16px;
   color: #A0ABCC;
   white-space: nowrap;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 19px;
 }
 .m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
