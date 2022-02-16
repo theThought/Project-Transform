@@ -23,6 +23,11 @@
         <xsl:with-param name="theID" select="//Style/@ZIndex" />
       </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="qIsCustom">
+      <xsl:call-template name="TranslateZIndexToIsCustom">
+        <xsl:with-param name="theID" select="//Style/@ZIndex" />
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:element name="div">
       <xsl:attribute name="class">
         <xsl:text>o-question-response</xsl:text>
@@ -57,6 +62,15 @@
               <xsl:with-param name="qFullName" select="$qFullName" />
             </xsl:call-template>
           </xsl:when>
+          <xsl:when test="name() = 'Table'">
+            <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+            <xsl:call-template name="OptionList">
+              <xsl:with-param name="qGroup" select="$qGroupName" />
+              <xsl:with-param name="qFullName" select="$qFullName" />
+              <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+              <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+          </xsl:when>
         </xsl:choose>
       </xsl:for-each>
     </xsl:element>
@@ -70,6 +84,7 @@
   <xsl:include href="style-css.xsl" />
   <xsl:include href="label.xsl" />
   <xsl:include href="input.xsl" />
+  <xsl:include href="optionlist.xsl" />
   <xsl:include href="radiobutton.xsl" />
   <xsl:include href="checkbutton.xsl" />
 </xsl:stylesheet>

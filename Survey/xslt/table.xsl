@@ -4,8 +4,6 @@
    <xsl:template match="Table">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
-      <xsl:param name="qIsCustom" />
-      <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
