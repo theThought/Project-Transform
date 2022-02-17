@@ -14,10 +14,19 @@ textarea {
 
 textarea:active,
 textarea:focus,
-textarea:focus-visible,
-textarea:focus-within,
 textarea:hover {
   outline: none;
+  color: #57699C;
+}
+
+textarea:focus {
+  border-color: #455B97;
+}
+
+textarea:focus-visible,
+textarea:focus-within {
+  outline: none;
+  border-color: #455B97;
   color: #57699C;
 }
 /*# sourceMappingURL=a-input-multilineedit.css.map */

@@ -15,9 +15,18 @@ textarea {
 
 textarea:active,
 textarea:focus,
-textarea:focus-visible,
-textarea:focus-within,
 textarea:hover {
     outline: none;
+    color: globals.$borders-hover;
+}
+
+textarea:focus  {
+    border-color: globals.$theme-primary;
+}
+
+textarea:focus-visible,
+textarea:focus-within  {
+    outline: none;
+    border-color: globals.$theme-primary;
     color: globals.$borders-hover;
 }
