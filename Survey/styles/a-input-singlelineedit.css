@@ -15,6 +15,10 @@
   text-align: right;
 }
 
+.a-input-singlelineedit[type=number]::-ms-clear {
+  display: none;
+}
+
 .m-input-singlelineedit {
   margin-bottom: 0.5em;
 }

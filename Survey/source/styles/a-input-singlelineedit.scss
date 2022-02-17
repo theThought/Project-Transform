@@ -16,6 +16,12 @@
     text-align: right;
 }
 
+.a-input-singlelineedit[type=number]::-ms-clear {
+    // bug in IE10 that breaks right-padding where the clear button appears
+    // it is necessary to remove the clear button as this cannot be solved.
+    display: none;
+}
+
 .m-input-singlelineedit {
     margin-bottom: .5em;
 
