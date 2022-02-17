@@ -40,7 +40,10 @@ define(
 
         oQuestionChoice.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
-            this.properties = app.properties[this.group] ?? null;
+
+            if (app.properties[this.group]) {
+                this.properties = app.properties[this.group];
+            }
 
             document.addEventListener(this.group + "_requestSize", this, false);
 
@@ -93,7 +96,7 @@ define(
                 this.element.classList.add('one-size');
                 window.addEventListener("resize", this, false);
 
-                if (this.properties === null) {
+                if (!this.properties || !this.properties.onesize) {
                     return false;
                 }
 
