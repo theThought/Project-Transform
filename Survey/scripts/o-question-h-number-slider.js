@@ -210,6 +210,7 @@ define(
                 document.dispatchEvent(clickedEvent);
 
                 this.element.disabled = false;
+                this.organism.classList.remove('inactive');
                 this.organism.classList.add('active');
 
                 if (this.isExclusive) {
@@ -250,12 +251,14 @@ define(
 
         oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
             this.organism.classList.remove('active');
+            this.organism.classList.add('inactive');
             this.value = this.element.value;
             this.element.disabled = true;
         }
 
         oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
             this.organism.classList.add('active');
+            this.organism.classList.remove('inactive');
             this.element.disabled = false;
             this.element.value = this.value;
         }

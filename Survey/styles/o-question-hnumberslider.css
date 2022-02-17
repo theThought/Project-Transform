@@ -31,8 +31,8 @@
 .o-question-hnumberslider-control.has-tick-labels {
   padding-bottom: 0.8em;
 }
-.o-question-hnumberslider-control.active .a-style-sliderclickablearea {
-  display: none;
+.o-question-hnumberslider-control.inactive .a-style-sliderclickablearea {
+  display: block;
 }
 .o-question-hnumberslider-control > div {
   -webkit-box-flex: 1;
@@ -73,6 +73,7 @@
   bottom: 0;
   right: 0;
   z-index: 10;
+  display: none;
 }
 
 input[type=range] {

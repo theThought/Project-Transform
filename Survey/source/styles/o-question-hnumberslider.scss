@@ -39,9 +39,9 @@
         padding-bottom: 0.8em;
     }
 
-    &.active {
+    &.inactive {
         .a-style-sliderclickablearea {
-            display: none;
+            display: block;
         }
     }
 
@@ -79,6 +79,7 @@
     bottom: 0;
     right: 0;
     z-index: 10;
+    display: none;
 }
 
 input[type=range] {
