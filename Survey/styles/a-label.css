@@ -19,8 +19,8 @@
   border-left-color: #8797C8 !important;
 }
 .focused .a-label-prelabel {
-  border: 1px solid #455B97;
-  border-right-color: #8797C8;
+  border: 1px solid #455B97 !important;
+  border-right-color: #8797C8 !important;
 }
 
 .m-input-singlelineedit .a-label-postlabel {

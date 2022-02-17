@@ -25,8 +25,8 @@
     }
 
     .a-label-prelabel {
-        border: 1px solid globals.$theme-primary;
-        border-right-color: globals.$borders;
+        border: 1px solid globals.$theme-primary !important;
+        border-right-color: globals.$borders !important;
     }
 }
 
