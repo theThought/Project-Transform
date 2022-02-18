@@ -69,8 +69,8 @@ define(
             }
         }
 
-        oQuestionChoice.prototype.balance = function (prop) {
-            if (prop === true) {
+        oQuestionChoice.prototype.balance = function (props) {
+            if (props['state'] === true) {
                 this.isBalanced = true;
             }
         }
@@ -86,7 +86,15 @@ define(
                 
                 this.element.classList.add('balance');
                 window.addEventListener("resize", this, false);
-                
+
+                if (!this.properties || !this.properties.balance) {
+                    return false;
+                }
+
+                if (typeof this.properties.balance['min-width'] !== 'undefined') {
+                    this.setMinWidth(this.properties.balance['min-width']);
+                }
+
             }
         }
         
@@ -100,12 +108,8 @@ define(
                     return false;
                 }
 
-                if (typeof this.properties.onesize['min-width'] !== 'undefined') {
-                    this.setMinWidth(props['min-width']);
-                }
-
                 if (typeof this.properties.onesize['max-width'] !== 'undefined') {
-                    this.setMaxWidth(props['max-width']);
+                    this.setMaxWidth(this.properties.onesize['max-width']);
                 }
                 
             }

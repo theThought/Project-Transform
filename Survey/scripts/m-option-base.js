@@ -92,8 +92,11 @@ define(
             }
 
             if (event.detail.isOnesize === true) {
-                this.element.style.minWidth = event.detail.minwidth;
                 this.element.style.maxWidth = event.detail.maxwidth;
+            }
+
+            if (event.detail.isBalanced === true) {
+                this.element.style.minWidth = event.detail.minwidth;
             }
 
         }
