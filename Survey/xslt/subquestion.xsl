@@ -9,15 +9,15 @@
    <xsl:template match="Question">
      <xsl:variable name="qFullName">
         <xsl:call-template name="CalculateQuestionName">
-           <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+           <xsl:with-param name="QuestionName" select="Control[1]/@QuestionName" />
         </xsl:call-template>
      </xsl:variable>
 
-     <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+     <xsl:variable name="qGroupName" select="Control[1]/@ElementID" />
 
      <xsl:variable name="qCustomType">
         <xsl:call-template name="TranslateZIndexToName">
-           <xsl:with-param name="theID" select="//Style/@ZIndex" />
+           <xsl:with-param name="theID" select="Style/@ZIndex" />
         </xsl:call-template>
      </xsl:variable>
 
@@ -39,7 +39,7 @@
                  <xsl:with-param name="text" select="$qCustomType" />
               </xsl:call-template>
            </xsl:with-param>
-           <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
+           <xsl:with-param name="ElementID" select="Control[1]/@ElementID" />
            <xsl:with-param name="FullName" select="$qFullName" />
         </xsl:call-template>
 

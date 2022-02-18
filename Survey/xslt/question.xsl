@@ -17,17 +17,17 @@
     <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
     <xsl:variable name="qFullName">
       <xsl:call-template name="CalculateQuestionName">
-        <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+        <xsl:with-param name="QuestionName" select="Control[1]/@QuestionName" />
       </xsl:call-template>
     </xsl:variable>
     <xsl:variable name="qCustomType">
       <xsl:call-template name="TranslateZIndexToName">
-        <xsl:with-param name="theID" select="//Style/@ZIndex" />
+        <xsl:with-param name="theID" select="Style/@ZIndex" />
       </xsl:call-template>
     </xsl:variable>
     <xsl:variable name="qIsCustom">
       <xsl:call-template name="TranslateZIndexToIsCustom">
-        <xsl:with-param name="theID" select="//Style/@ZIndex" />
+        <xsl:with-param name="theID" select="Style/@ZIndex" />
       </xsl:call-template>
     </xsl:variable>
     <xsl:element name="div">
@@ -46,12 +46,12 @@
           <xsl:call-template name="CamelCaseWord">
             <xsl:with-param name="text">
               <xsl:call-template name="TranslateZIndexToName">
-                <xsl:with-param name="theID" select="//Style/@ZIndex" />
+                <xsl:with-param name="theID" select="Style/@ZIndex" />
               </xsl:call-template>
             </xsl:with-param>
           </xsl:call-template>
         </xsl:with-param>
-        <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
+        <xsl:with-param name="ElementID" select="Control[1]/@ElementID" />
         <xsl:with-param name="FullName" select="$qFullName" />
       </xsl:call-template>
 
