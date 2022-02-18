@@ -38,7 +38,7 @@
          <xsl:with-param name="qFullName" select="$qFullName" />
          <xsl:with-param name="qIsCustom" select="'true'" />
          <xsl:with-param name="qCustomType" select="$qCustomType" />
-         <xsl:with-param name="qInputType" select="'radiobutton'" />
+         <xsl:with-param name="qInputType" select="'radio'" />
       </xsl:call-template>
          <!--- Is Button Checked -->
         <xsl:element name="label">

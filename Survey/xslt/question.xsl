@@ -8,7 +8,9 @@
   <xsl:param name="bAutoComplete" select="false()" />
 
   <xsl:template match="Questions">
-    <xsl:apply-templates select="Question" />
+    <Question>
+       <xsl:apply-templates select="Question" />
+    </Question>
   </xsl:template>
 
   <xsl:template match="Question">
@@ -56,14 +58,12 @@
       <xsl:for-each select="*">
         <xsl:choose>
           <xsl:when test="name() = 'Control'">
-            <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
             <xsl:call-template name="Control">
               <xsl:with-param name="qGroup" select="$qGroupName" />
               <xsl:with-param name="qFullName" select="$qFullName" />
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="name() = 'Table'">
-            <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
             <xsl:call-template name="OptionList">
               <xsl:with-param name="qGroup" select="$qGroupName" />
               <xsl:with-param name="qFullName" select="$qFullName" />
