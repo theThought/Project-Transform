@@ -155,7 +155,7 @@ input[type=range]::-moz-range-thumb {
     visibility: hidden;
 }
 
-.flood-to-value::-moz-range-progress {
+.has-value .flood-to-value::-moz-range-progress {
     background-color: globals.$borders-light !important;
     height: 16px;
     border-top-left-radius: 16px;
@@ -181,7 +181,7 @@ input[type=range]::-ms-fill-lower {
     border-radius: 16px;
 }
 
-.flood-to-value::-ms-fill-lower {
+.has-value .flood-to-value::-ms-fill-lower {
     background-color: globals.$borders-light !important;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
@@ -207,7 +207,7 @@ input[type=range]::-ms-thumb {
     box-shadow: none;
     z-index: 4;
     visibility: hidden;
-    /*Needed to keep the Edge thumb centred*/
+    /* Needed to keep the Edge thumb centred */
 }
 
 input[type=range]:focus {
@@ -218,7 +218,7 @@ input[type=range]:focus::-ms-fill-lower {
     background: transparent;
 }
 
-.flood-to-value:focus::-ms-fill-lower {
+.has-value .flood-to-value:focus::-ms-fill-lower {
     background: globals.$borders-light !important;
 }
 
