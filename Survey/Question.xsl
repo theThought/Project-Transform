@@ -24,7 +24,7 @@
             </xsl:variable>
             <xsl:variable name="qCustomType">
                <xsl:call-template name="TranslateZIndexToName">
-                  <xsl:with-param name="theID" select="Style/@ZIndex" />
+                  <xsl:with-param name="theID" select="//Style/@ZIndex" />
                </xsl:call-template>
             </xsl:variable>
             <xsl:element name="div">
@@ -33,7 +33,7 @@
                   <xsl:value-of select="' '" />
                   <xsl:text>o-question-</xsl:text>
                   <xsl:call-template name="TranslateZIndexToName">
-                     <xsl:with-param name="theID" select="Style/@ZIndex" />
+                     <xsl:with-param name="theID" select="//Style/@ZIndex" />
                   </xsl:call-template>
                </xsl:attribute>
                <xsl:attribute name="data-questiongroup">
@@ -45,7 +45,7 @@
                      <xsl:call-template name="CamelCaseWord">
                         <xsl:with-param name="text">
                            <xsl:call-template name="TranslateZIndexToName">
-                              <xsl:with-param name="theID" select="Style/@ZIndex" />
+                              <xsl:with-param name="theID" select="//Style/@ZIndex" />
                            </xsl:call-template>
                         </xsl:with-param>
                      </xsl:call-template>
