@@ -36,7 +36,7 @@ define(
             this.element.innerHTML = '&laquo;'; // default arrow appearance
             document.addEventListener("click", this, false);
 
-            this.properties = app.properties[this.group];
+            this.properties  = app.getProperties(this.group);
             this.configureProperties();
         }
 

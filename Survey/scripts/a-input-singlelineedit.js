@@ -39,7 +39,7 @@ define(
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
-            this.properties = app.properties[this.element.getAttribute('name')];
+            this.properties = app.getProperties(this.group);
             this.configureProperties();
 
             document.addEventListener("focusin", this, false);

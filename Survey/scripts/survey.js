@@ -1,18 +1,3 @@
-/*
-  functionality:
-
-
-  Parameters:
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 /**
  * Survey Class
  *
@@ -80,14 +65,20 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         default:
-            console.warn('An attempt was made to register the unrecognised component type ' + componentType + '.')
+            console.info('An attempt was made to register the unrecognised component type ' + componentType + '.')
     }
 
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
+    id = id.toLowerCase();
     console.info('Registering properties for ' + id);
     app.properties[id] = this.sanitiseProperties(props);
+}
+
+Survey.prototype.getProperties = function (id) {
+    id = id.toLowerCase();
+    return app.properties[id];
 }
 
 Survey.prototype.sanitiseProperties = function (props) {

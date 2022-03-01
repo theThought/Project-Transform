@@ -42,7 +42,7 @@ define(
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
 
             if (app.properties[this.group]) {
-                this.properties = app.properties[this.group];
+                this.properties  = app.getProperties(this.group);
             }
 
             document.addEventListener(this.group + "_requestSize", this, false);

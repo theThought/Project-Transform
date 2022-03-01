@@ -44,7 +44,7 @@ define(
             var value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value'): 0;
             this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + value + '%, #fff ' + value + '%, white 100%)');
 
-            this.properties = app.properties[this.group];
+            this.properties  = app.getProperties(this.group);
             this.configureProperties();
 
             this.createClickableArea();
