@@ -9,7 +9,6 @@ textarea {
   min-height: 100px;
   color: #757575;
   overflow-y: auto;
-  margin-bottom: 0.5em;
 }
 
 textarea:active,

@@ -10,11 +10,6 @@
         flex-wrap: wrap;
     }
 
-    &.balance > * {
-        margin-top: 0 !important;
-        margin-bottom: 1em;
-    }
-
     &.balance > .o-option-sublist {
         display: flex;
         flex-wrap: wrap;
@@ -24,10 +19,6 @@
     &.balance .a-label-heading-sublist {
         flex-basis: 100%;
         width: 100%;
-    }
-
-    &.balance > *:last-child {
-        margin-bottom: 1em;
     }
 
     padding: 1px;

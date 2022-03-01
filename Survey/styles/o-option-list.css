@@ -5,15 +5,17 @@
   color: #212C4C;
 }
 
-/* Separates sub-lists when they are immediately adjacent. */
-.o-option-sublist + .o-option-sublist {
-  margin-top: 1em;
+.balance .o-option-sublist:first-of-type {
+  margin-top: 0;
 }
 
-/* Separates individual (non-sublist) options when following a sub-list.
- * An example might be a "none of the above" m-option-base appearing
- * below a set of sub-lists. */
-.o-option-sublist + .m-option-base {
+.balance .o-option-sublist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* Separates sub-lists when they are immediately adjacent. */
+.o-option-sublist + .o-option-sublist {
   margin-top: 1em;
 }
 

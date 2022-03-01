@@ -13,10 +13,6 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.o-question-response.balance > * {
-  margin-top: 0 !important;
-  margin-bottom: 1em;
-}
 .o-question-response.balance > .o-option-sublist {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,8 +27,5 @@
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   width: 100%;
-}
-.o-question-response.balance > *:last-child {
-  margin-bottom: 1em;
 }
 /*# sourceMappingURL=o-question.css.map */
