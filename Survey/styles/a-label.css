@@ -5,7 +5,7 @@
   cursor: default;
 }
 
-.a-label-question {
+.a-label-option {
   color: #455B97;
   padding: 0;
   margin: 0;
@@ -106,10 +106,10 @@
   display: block;
 }
 
-.m-option-base input:checked + label > .a-label-question {
+.m-option-base input:checked + label > .a-label-option {
   color: #449B9B;
 }
-.m-option-base .a-label-question {
+.m-option-base .a-label-option {
   display: inline-block;
   padding-left: 1.5em;
 }
