@@ -136,7 +136,7 @@
       <xsl:call-template name="Label" />
    </xsl:template>
    <xsl:template name="Label">
-      <xsl:param name="labelType" select="'question'" />
+      <xsl:param name="labelType" select="'option'" />
       <xsl:element name="span">
          <xsl:attribute name="class">
             <xsl:text>a-label-</xsl:text>
