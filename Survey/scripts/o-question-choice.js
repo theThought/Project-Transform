@@ -41,18 +41,13 @@ define(
         oQuestionChoice.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
 
-            if (app.properties[this.group]) {
-                this.properties  = app.getProperties(this.group);
-            }
-
-            document.addEventListener(this.group + "_requestSize", this, false);
-
             if (this.element === null) {
                 console.warn('Unable to find a DOM element for the oQuestionChoice component '
                     + this.group
                     + '. Intended behaviours are likely to be missing from this page.');
             } else {
-                this.parseProperties();
+                this.configureProperties();
+                this.configureIncomingEventListeners();
                 this.configureBalance();
                 this.configureOnesize();
             }
@@ -60,12 +55,34 @@ define(
             this.onResize();
         }
 
-        oQuestionChoice.prototype.parseProperties = function () {
+        oQuestionChoice.prototype.configureProperties = function () {
+            var propertiesName = this.group.toLowerCase();
+
+            if (!app.properties[propertiesName]) {
+                return false;
+            }
+
+            this.properties = app.getProperties(propertiesName);
+
             for (var prop in this.properties) {
                 if (this.properties.hasOwnProperty(prop)
                     && typeof this[prop] === 'function') {
                     this[prop](this.properties[prop]);
                 }
+            }
+        }
+
+        oQuestionChoice.prototype.configureIncomingEventListeners = function() {
+            // for each event listener there must be a corresponding event handler
+            document.addEventListener(this.group + "_requestSize", this, false);
+        }
+
+        oQuestionChoice.prototype.handleEvent = function (event) {
+            switch (event.type) {
+                case 'resize':
+                case this.group + '_requestSize':
+                    this.onResize();
+                    break;
             }
         }
 
@@ -155,15 +172,6 @@ define(
                 detail: this
             });
             document.dispatchEvent(endresize);
-        }
-
-        oQuestionChoice.prototype.handleEvent = function (event) {
-            switch (event.type) {
-                case 'resize':
-                case this.group + '_requestSize':
-                    this.onResize();
-                    break;
-            }
         }
 
         return oQuestionChoice;

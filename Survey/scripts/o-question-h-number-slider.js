@@ -44,12 +44,32 @@ define(
             var value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value'): 0;
             this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + value + '%, #fff ' + value + '%, white 100%)');
 
-            this.properties  = app.getProperties(this.group);
             this.configureProperties();
-
+            this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
 
+        }
+
+        oQuestionHNumberSlider.prototype.configureProperties = function() {
+            var propertiesName = this.group.toLowerCase();
+
+            if (!app.properties[propertiesName]) {
+                return false;
+            }
+
+            this.properties = app.getProperties(propertiesName);
+
+            for (var prop in this.properties) {
+                if (this.properties.hasOwnProperty(prop)
+                    && typeof this[prop] === 'function') {
+                    this[prop](this.properties[prop]);
+                }
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function() {
+            // for each event listener there must be a corresponding event handler
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
             document.addEventListener("click", this, false);
@@ -57,6 +77,28 @@ define(
             document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_incrementValue", this, false);
             document.addEventListener(this.group + "_decrementValue", this, false);
+        }
+
+        oQuestionHNumberSlider.prototype.handleEvent = function (event) {
+            switch (event.type) {
+                case "click":
+                case "input":
+                case "change":
+                    this.onInput(event);
+                    break;
+                case this.group + "_enableExclusive":
+                    this.onEnableExclusive(event);
+                    break;
+                case this.group + "_dismissExclusive":
+                    this.onDismissExclusive(event);
+                    break;
+                case this.group + "_incrementValue":
+                    this.incrementValue();
+                    break;
+                case this.group + "_decrementValue":
+                    this.decrementValue();
+                    break;
+            }
         }
 
         oQuestionHNumberSlider.prototype.setThumbVisibility = function () {
@@ -72,15 +114,6 @@ define(
             clickableElement.className = 'a-style-sliderclickablearea';
             clickableElement.onclick = function () {};
             this.clickablearea = this.wrapper.insertBefore(clickableElement, this.element);
-        }
-
-        oQuestionHNumberSlider.prototype.configureProperties = function () {
-            for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
-                    this[prop](this.properties[prop]);
-                }
-            }
         }
 
         oQuestionHNumberSlider.prototype.values = function (props) {
@@ -174,28 +207,6 @@ define(
 
                 this.organism.classList.add('has-post-label');
                 this.wrapper.insertBefore(postElement, this.element.nextSibling);
-            }
-        }
-
-        oQuestionHNumberSlider.prototype.handleEvent = function (event) {
-            switch (event.type) {
-                case "click":
-                case "input":
-                case "change":
-                    this.onInput(event);
-                    break;
-                case this.group + "_enableExclusive":
-                    this.onEnableExclusive(event);
-                    break;
-                case this.group + "_dismissExclusive":
-                    this.onDismissExclusive(event);
-                    break;
-                case this.group + "_incrementValue":
-                    this.incrementValue();
-                    break;
-                case this.group + "_decrementValue":
-                    this.decrementValue();
-                    break;
             }
         }
 

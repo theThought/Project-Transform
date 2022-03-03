@@ -39,15 +39,20 @@ define(
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
-            this.properties = app.getProperties(this.group);
-            this.configureProperties();
 
-            document.addEventListener("focusin", this, false);
-            document.addEventListener("focusout", this, false);
-            document.addEventListener(this.group + "_enableExclusive", this, false);
+            this.configureIncomingEventListeners();
+            this.configureProperties();
         }
 
         aInputSingleLineEdit.prototype.configureProperties = function () {
+            var propertiesName = this.group.toLowerCase();
+
+            if (!app.properties[propertiesName]) {
+                return false;
+            }
+
+            this.properties = app.getProperties(propertiesName);
+
             for (var prop in this.properties) {
                 if (this.properties.hasOwnProperty(prop)
                     && typeof this[prop] === 'function') {
@@ -84,6 +89,13 @@ define(
 
                 wrapper.insertBefore(postElement, this.element.nextSibling);
             }
+        }
+
+        aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
+            document.addEventListener("focusin", this, false);
+            document.addEventListener("focusout", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
