@@ -26,8 +26,8 @@ define(['o-question'],
          */
 
         function oQuestionChoice(id, group) {
-            this.id = id;
-            this.group = group;
+            oQuestion.call(this, id, group);
+
             this.tallest = 0;
             this.widest = 0;
             this.minwidth = '';

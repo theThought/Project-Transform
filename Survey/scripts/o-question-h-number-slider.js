@@ -13,8 +13,8 @@
 
 */
 
-define(['component'],
-    function (component) {
+define(['o-question'],
+    function (oQuestion) {
 
         /**
          * Organism: Horizontal Number Slider
@@ -25,14 +25,14 @@ define(['component'],
          */
 
         function oQuestionHNumberSlider(id, group) {
-            this.id = id;
-            this.group = group;
+            oQuestion.call(this, id, group);
+
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.wrapper = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
             this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
-            this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value'): 0;
+            this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
 
             this.properties = {};
@@ -40,11 +40,12 @@ define(['component'],
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.createClickableArea();
-            this.setThumbVisibility();        }
+            this.setThumbVisibility();
+        }
 
-        oQuestionHNumberSlider.prototype = Object.create(component.prototype);
+        oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
 
-        oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function() {
+        oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
@@ -88,7 +89,8 @@ define(['component'],
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
             var clickableElement = document.createElement('div');
             clickableElement.className = 'a-style-sliderclickablearea';
-            clickableElement.onclick = function () {};
+            clickableElement.onclick = function () {
+            };
             this.clickablearea = this.wrapper.insertBefore(clickableElement, this.element);
         }
 

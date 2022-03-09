@@ -18,7 +18,7 @@ define(
     function () {
 
         /**
-         * Organism: Question Class
+         * Base component class
          *
          * @constructor
          * @param {String} id - element id
