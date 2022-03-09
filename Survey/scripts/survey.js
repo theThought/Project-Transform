@@ -84,6 +84,12 @@ Survey.prototype.getProperties = function (id) {
 Survey.prototype.sanitiseProperties = function (props) {
     for (var prop in props) {
         if (props.hasOwnProperty(prop)) {
+
+            // recursion for nested properties
+            if (typeof props[prop] === 'object') {
+                app.sanitiseProperties(props[prop]);
+            }
+
             if (props[prop] === 'true') {
                 props[prop] = true;
             }
