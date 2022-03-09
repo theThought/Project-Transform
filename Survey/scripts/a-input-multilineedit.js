@@ -15,8 +15,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Atom: aInputMultilineEdit
@@ -29,18 +29,14 @@ define(
         function aInputMultilineEdit(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.isExclusive = false;
-            this.defaultPlaceholder = '';
-        }
-
-        aInputMultilineEdit.prototype.Init = function () {
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
             this.configureIncomingEventListeners();
         }
+
+        aInputMultilineEdit.prototype = Object.create(component.prototype);
 
         aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

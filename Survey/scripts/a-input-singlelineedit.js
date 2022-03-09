@@ -15,8 +15,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Atom: aInputSingleLineEdit
@@ -29,37 +29,16 @@ define(
         function aInputSingleLineEdit(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.isExclusive = false;
-            this.defaultPlaceholder = '';
-            this.properties = {};
-        }
-
-        aInputSingleLineEdit.prototype.Init = function () {
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
+            this.properties = {};
 
             this.configureIncomingEventListeners();
             this.configureProperties();
         }
 
-        aInputSingleLineEdit.prototype.configureProperties = function () {
-            var propertiesName = this.group.toLowerCase();
-
-            if (!app.properties[propertiesName]) {
-                return false;
-            }
-
-            this.properties = app.getProperties(propertiesName);
-
-            for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
-                    this[prop](this.properties[prop]);
-                }
-            }
-        }
+        aInputSingleLineEdit.prototype = Object.create(component.prototype);
 
         aInputSingleLineEdit.prototype.type = function (val) {
             this.element.type = val;
@@ -116,7 +95,8 @@ define(
 
             if (event.target === this.element) {
 
-                this.element.parentNode.classList.add('focused');
+                var parentNode = this.element.parentNode;
+                parentNode.classList.add('focused');
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
@@ -133,7 +113,8 @@ define(
         }
 
         aInputSingleLineEdit.prototype.onFocusOut = function (event) {
-            this.element.parentNode.classList.remove('focused');
+            var parentNode = this.element.parentNode;
+            parentNode.classList.remove('focused');
         }
 
         aInputSingleLineEdit.prototype.onEnableExclusive = function () {

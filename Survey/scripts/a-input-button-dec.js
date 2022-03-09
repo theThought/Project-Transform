@@ -14,8 +14,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Atom: Decrement Button
@@ -28,18 +28,20 @@ define(
         function aInputButtonDec(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.symbol = '&laquo;'; // default arrow appearance
-        }
-
-        aInputButtonDec.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-preterminator');
-            this.element.innerHTML = this.symbol;
+            this.defaultsymbol = '&laquo;'; // default arrow appearance
 
+            this.symbol(this.defaultsymbol);
             this.configureIncomingEventListeners();
         }
 
-        aInputButtonDec.prototype.configureIncomingEventListeners = function() {
+        aInputButtonDec.prototype = Object.create(component.prototype);
+
+        aInputButtonDec.prototype.symbol = function (symbol) {
+            this.element.innerHTML = symbol;
+        }
+
+        aInputButtonDec.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
         }

@@ -14,11 +14,16 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
+
+        /**
+         * Organism: Option List
+         *
+         * @constructor
+         */
 
         function oOptionList() {
-
         }
 
         return oOptionList;

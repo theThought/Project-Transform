@@ -14,8 +14,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Atom: Decrement Button
@@ -28,15 +28,17 @@ define(
         function aInputButtonInc(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.symbol = '&raquo;' // default arrow appearance
+            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-postterminator');
+            this.defaultsymbol = '&raquo;' // default arrow appearance
+
+            this.symbol(this.defaultsymbol)
+            this.configureIncomingEventListeners();
         }
 
-        aInputButtonInc.prototype.Init = function () {
-            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-postterminator');
-            this.element.innerHTML = this.symbol;
+        aInputButtonInc.prototype = Object.create(component.prototype);
 
-            this.configureIncomingEventListeners();
+        aInputButtonInc.prototype.symbol = function (symbol) {
+            this.element.innerHTML = symbol;
         }
 
         aInputButtonInc.prototype.configureIncomingEventListeners = function () {

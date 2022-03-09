@@ -13,8 +13,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Organism: Horizontal Number Slider
@@ -27,47 +27,22 @@ define(
         function oQuestionHNumberSlider(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.wrapper = null;
-            this.organism = null;
-            this.clickablearea = null;
-            this.value = null;
-            this.isExclusive = false;
-            this.properties = {};
-        }
-
-        oQuestionHNumberSlider.prototype.Init = function () {
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.wrapper = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
             this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
+            this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value'): 0;
+            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
 
-            var value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value'): 0;
-            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + value + '%, #fff ' + value + '%, white 100%)');
+            this.properties = {};
 
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.createClickableArea();
-            this.setThumbVisibility();
+            this.setThumbVisibility();        }
 
-        }
-
-        oQuestionHNumberSlider.prototype.configureProperties = function() {
-            var propertiesName = this.group.toLowerCase();
-
-            if (!app.properties[propertiesName]) {
-                return false;
-            }
-
-            this.properties = app.getProperties(propertiesName);
-
-            for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
-                    this[prop](this.properties[prop]);
-                }
-            }
-        }
+        oQuestionHNumberSlider.prototype = Object.create(component.prototype);
 
         oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function() {
             // for each event listener there must be a corresponding event handler

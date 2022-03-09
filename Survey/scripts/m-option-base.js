@@ -16,8 +16,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Molecule: Base Option
@@ -30,20 +30,18 @@ define(
         function mOptionBase(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.checkbox = null;
-            this.textInput = null;
-            this.isExclusive = false;
-        }
-
-        mOptionBase.prototype.Init = function () {
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
             this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
             this.textInput = this.element.querySelector('input[type=text]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             this.configureIncomingEventListeners();
+            this.requestInitialSize();
+        }
 
+        mOptionBase.prototype = Object.create(component.prototype);
+
+        mOptionBase.prototype.requestInitialSize = function () {
             var requestSize = new CustomEvent(this.group + '_requestSize', {
                 bubbles: true,
                 detail: this

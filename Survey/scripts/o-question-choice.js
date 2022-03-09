@@ -14,8 +14,8 @@
 
 */
 
-define(
-    function () {
+define(['o-question'],
+    function (oQuestion) {
 
         /**
          * Organism: Question Class
@@ -28,8 +28,6 @@ define(
         function oQuestionChoice(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.parent = null;
             this.tallest = 0;
             this.widest = 0;
             this.minwidth = '';
@@ -37,9 +35,6 @@ define(
             this.isOnesize = true;
             this.isBalanced = false;
             this.properties = {};
-        }
-
-        oQuestionChoice.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
 
@@ -57,22 +52,7 @@ define(
             this.onResize();
         }
 
-        oQuestionChoice.prototype.configureProperties = function () {
-            var propertiesName = this.group.toLowerCase();
-
-            if (!app.properties[propertiesName]) {
-                return false;
-            }
-
-            this.properties = app.getProperties(propertiesName);
-
-            for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
-                    this[prop](this.properties[prop]);
-                }
-            }
-        }
+        oQuestionChoice.prototype = Object.create(oQuestion.prototype);
 
         oQuestionChoice.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
@@ -174,12 +154,6 @@ define(
                 detail: this
             });
             document.dispatchEvent(endresize);
-        }
-
-        oQuestionChoice.prototype.separator = function (val) {
-            if (val === false) {
-                this.parent.classList.add('no-separator');
-            }
         }
 
         return oQuestionChoice;

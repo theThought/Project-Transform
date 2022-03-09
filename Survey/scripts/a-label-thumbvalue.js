@@ -13,8 +13,8 @@
 
 */
 
-define(
-    function () {
+define(['component'],
+    function (component) {
 
         /**
          * Atom: Value label for slider
@@ -27,11 +27,6 @@ define(
         function aLabelThumbValue(id, group) {
             this.id = id;
             this.group = group;
-            this.element = null;
-            this.slider = null;
-        }
-
-        aLabelThumbValue.prototype.Init = function () {
             this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
             this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
 
@@ -40,6 +35,8 @@ define(
             // initialise the value - cannot be called as we don't know the thumbvalue element is ready
             this.updateValue({element: this.slider});
         }
+
+        aLabelThumbValue.prototype = Object.create(component.prototype);
 
         aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

@@ -1,5 +1,5 @@
 require(['domReady'], function (domReady) {
     domReady(function () {
-        app.Init();
+        // anything that needs to be run on DOM completion
     })
 });

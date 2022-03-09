@@ -9,63 +9,52 @@ function Survey() {
     this.properties = {};
 }
 
-Survey.prototype.Init = function () {
-}
-
 Survey.prototype.registerComponent = function (componentType, id, group) {
 
     switch (componentType.toLowerCase()) {
         case 'ainputsinglelineedit':
             requirejs(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
                 app.components[id] = new aInputSinglelineEdit(id, group);
-                app.components[id].Init();
             });
             break;
         case 'moptionbase':
             requirejs(['m-option-base'], function (mOptionBase) {
                 app.components[id] = new mOptionBase(id, group);
-                app.components[id].Init();
             });
             break;
         case 'ainputmultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.components[id] = new aInputMultilineEdit(id, group);
-                app.components[id].Init();
             });
             break;
         case 'oquestion':
         case 'oquestionchoice':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components[id] = new oQuestionChoice(id, group);
-                app.components[id].Init();
             });
             break;
         case 'oquestionhnumberslider':
             requirejs(['o-question-h-number-slider'], function (oQuestionHNumberSlider) {
                 app.components[id] = new oQuestionHNumberSlider(id, group);
-                app.components[id].Init();
             });
             break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.components[id] = new aInputButtonDec(id, group);
-                app.components[id].Init();
             });
             break;
         case 'abuttonpostterminator':
             requirejs(['a-input-button-inc'], function (aInputButtonInc) {
                 app.components[id] = new aInputButtonInc(id, group);
-                app.components[id].Init();
             });
             break;
         case 'alabelthumbvalue':
             requirejs(['a-label-thumbvalue'], function (aLabelThumbValue) {
                 app.components[id] = new aLabelThumbValue(id, group);
-                app.components[id].Init();
             });
             break;
         default:
-            console.info('An attempt was made to register the unrecognised component type ' + componentType + '.')
+            console.info('A request was made to register an unrecognised component type, ' + componentType + '.')
     }
 
 }
