@@ -29,17 +29,19 @@ define(
             this.id = id;
             this.group = group;
             this.element = null;
-            this.properties = null;
+            this.parent = null;
             this.tallest = 0;
             this.widest = 0;
             this.minwidth = '';
             this.maxwidth = '';
             this.isOnesize = true;
             this.isBalanced = false;
+            this.properties = {};
         }
 
         oQuestionChoice.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.parent = this.element.closest('div.o-question-container');
 
             if (this.element === null) {
                 console.warn('Unable to find a DOM element for the oQuestionChoice component '
@@ -72,7 +74,7 @@ define(
             }
         }
 
-        oQuestionChoice.prototype.configureIncomingEventListeners = function() {
+        oQuestionChoice.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener(this.group + "_requestSize", this, false);
         }
@@ -97,10 +99,10 @@ define(
                 this.isOnesize = false;
             }
         }
-        
-        oQuestionChoice.prototype.configureBalance = function() {
+
+        oQuestionChoice.prototype.configureBalance = function () {
             if (this.isBalanced) {
-                
+
                 this.element.classList.add('balance');
                 window.addEventListener("resize", this, false);
 
@@ -114,10 +116,10 @@ define(
 
             }
         }
-        
+
         oQuestionChoice.prototype.configureOnesize = function () {
             if (this.isOnesize) {
-                
+
                 this.element.classList.add('one-size');
                 window.addEventListener("resize", this, false);
 
@@ -128,7 +130,7 @@ define(
                 if (typeof this.properties.onesize['max-width'] !== 'undefined') {
                     this.setMaxWidth(this.properties.onesize['max-width']);
                 }
-                
+
             }
         }
 
@@ -172,6 +174,12 @@ define(
                 detail: this
             });
             document.dispatchEvent(endresize);
+        }
+
+        oQuestionChoice.prototype.separator = function (val) {
+            if (val === false) {
+                this.parent.classList.add('no-separator');
+            }
         }
 
         return oQuestionChoice;

@@ -2,6 +2,9 @@
 
 .o-question-container {
     padding: 1em 0;
+}
+
+.o-question-container:not(.no-separator) {
     border-bottom: 1px solid globals.$borders-light;
 }
 
@@ -11,10 +14,6 @@
 
 .surroundcontent > div:last-child {
     border-bottom: none;
-}
-
-.surroundcontent > div:first-child {
-
 }
 
 .sidebyside .o-question-core {

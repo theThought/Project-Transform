@@ -1,5 +1,8 @@
 .o-question-container {
   padding: 1em 0;
+}
+
+.o-question-container:not(.no-separator) {
   border-bottom: 1px solid #D0DAE6;
 }
 
