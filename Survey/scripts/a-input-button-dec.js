@@ -29,32 +29,14 @@ define(
             this.id = id;
             this.group = group;
             this.element = null;
+            this.symbol = '&laquo;'; // default arrow appearance
         }
 
         aInputButtonDec.prototype.Init = function () {
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-preterminator');
-            this.element.innerHTML = '&laquo;'; // default arrow appearance
+            this.element.innerHTML = this.symbol;
 
             this.configureIncomingEventListeners();
-            this.configureProperties();
-
-        }
-
-        aInputButtonDec.prototype.configureProperties = function () {
-            var propertiesName = this.group.toLowerCase();
-
-            if (!app.properties[propertiesName]) {
-                return false;
-            }
-
-            this.properties  = app.getProperties(propertiesName);
-
-            for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
-                    this[prop](this.properties[prop]);
-                }
-            }
         }
 
         aInputButtonDec.prototype.configureIncomingEventListeners = function() {

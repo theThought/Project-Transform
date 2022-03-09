@@ -35,10 +35,15 @@ define(
             this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
             this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
 
-            document.addEventListener(this.group + "_updateValue", this, false);
+            this.configureIncomingEventListeners();
 
             // initialise the value - cannot be called as we don't know the thumbvalue element is ready
             this.updateValue({element: this.slider});
+        }
+
+        aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
+            document.addEventListener(this.group + "_updateValue", this, false);
         }
 
         aLabelThumbValue.prototype.handleEvent = function (event) {

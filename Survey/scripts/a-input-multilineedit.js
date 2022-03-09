@@ -39,6 +39,11 @@ define(
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
+            this.configureIncomingEventListeners();
+        }
+
+        aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
             document.addEventListener("focusin", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
         }

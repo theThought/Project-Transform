@@ -33,6 +33,7 @@ define(
             this.clickablearea = null;
             this.value = null;
             this.isExclusive = false;
+            this.properties = {};
         }
 
         oQuestionHNumberSlider.prototype.Init = function () {
@@ -161,7 +162,7 @@ define(
             this.organism.classList.add('has-terminators');
         }
 
-        oQuestionHNumberSlider.prototype.ticklabels = function (props) {
+        oQuestionHNumberSlider.prototype.ticklabels = function () {
             // add a class to the parent which adds additional space for the thumb
             this.organism.classList.add('has-tick-labels');
 
@@ -181,28 +182,28 @@ define(
             // this.element.step = props;
         }
 
-        oQuestionHNumberSlider.prototype.floodtovalue = function (props) {
-            if (props === true) {
+        oQuestionHNumberSlider.prototype.floodtovalue = function (val) {
+            if (val === true) {
                 this.element.classList.add('flood-to-value');
             }
         }
 
-        oQuestionHNumberSlider.prototype.labels = function (val) {
+        oQuestionHNumberSlider.prototype.labels = function (props) {
 
-            if (val['pre']) {
+            if (props['pre']) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-prelabel';
-                var preContent = document.createTextNode(val['pre']);
+                var preContent = document.createTextNode(props['pre']);
                 preElement.appendChild(preContent);
 
                 this.organism.classList.add('has-pre-label');
                 this.wrapper.insertBefore(preElement, this.element);
             }
 
-            if (val['post']) {
+            if (props['post']) {
                 var postElement = document.createElement('span');
                 postElement.className = 'a-label-postlabel';
-                var postContent = document.createTextNode(val['post']);
+                var postContent = document.createTextNode(props['post']);
                 postElement.appendChild(postContent);
 
                 this.organism.classList.add('has-post-label');

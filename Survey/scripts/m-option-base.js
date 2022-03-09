@@ -42,19 +42,24 @@ define(
             this.textInput = this.element.querySelector('input[type=text]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
-            document.addEventListener("change", this, false);
-            document.addEventListener("click", this, false);
-            document.addEventListener(this.group + "_enableExclusive", this, false);
-            document.addEventListener(this.group + "_dismissExclusive", this, false);
-            document.addEventListener(this.group + "_textFocus", this, false);
-            document.addEventListener(this.group + "_beginResize", this, false);
-            document.addEventListener(this.group + "_endResize", this, false);
+            this.configureIncomingEventListeners();
 
             var requestSize = new CustomEvent(this.group + '_requestSize', {
                 bubbles: true,
                 detail: this
             });
             document.dispatchEvent(requestSize);
+        }
+
+        mOptionBase.prototype.configureIncomingEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
+            document.addEventListener("click", this, false);
+            document.addEventListener("change", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
+            document.addEventListener(this.group + "_dismissExclusive", this, false);
+            document.addEventListener(this.group + "_textFocus", this, false);
+            document.addEventListener(this.group + "_beginResize", this, false);
+            document.addEventListener(this.group + "_endResize", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
