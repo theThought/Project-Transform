@@ -36,7 +36,6 @@ define(['o-question'],
             this.isBalanced = false;
             this.properties = {};
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
-            this.parent = this.element.closest('div.o-question-container');
 
             if (this.element === null) {
                 console.warn('Unable to find a DOM element for the oQuestionChoice component '
@@ -53,6 +52,7 @@ define(['o-question'],
         }
 
         oQuestionChoice.prototype = Object.create(oQuestion.prototype);
+        oQuestionChoice.prototype.constructor = oQuestionChoice;
 
         oQuestionChoice.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

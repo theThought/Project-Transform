@@ -44,6 +44,7 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
+        oQuestionHNumberSlider.prototype.constructor = oQuestionHNumberSlider;
 
         oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
