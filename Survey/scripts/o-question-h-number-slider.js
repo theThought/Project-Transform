@@ -41,6 +41,7 @@ define(['o-question'],
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
+            this.updateValue();
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);

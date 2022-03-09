@@ -52,17 +52,18 @@ define(['component'],
         }
 
         aLabelThumbValue.prototype.updateValue = function (eventDetail) {
-            this.element.innerHTML = eventDetail.element.value;
+            var value = eventDetail.element.value;
+            this.element.innerHTML = value;
 
             var min = eventDetail.element.min ? eventDetail.element.min : 0;
             var max = eventDetail.element.max ? eventDetail.element.max : 100;
             var thumbWidth = 40;
             var range = max - min;
 
-            var position = Number(((eventDetail.element.value - min) / range) * 100);
+            var position = Number(((value - min) / range) * 100);
             var positionOffset = Math.round(thumbWidth * position / 100) - (thumbWidth / 2);
             var positionPaddingOffset = Math.round(12 * position / 100) - 6;
-
+console.log(value, min, max, range, position);
             this.element.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
         }
 
