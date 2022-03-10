@@ -1,0 +1,23 @@
+@use 'globals';
+
+.m-question-cover {
+    transition: opacity 1s 0ms, z-index 0ms 0ms;
+    background-color: globals.$background;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .9;
+    z-index: 999;
+    background-image: url("../images/loading.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.cover-off .m-question-cover {
+    transition: opacity 1s 0ms, z-index 0ms 1s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}

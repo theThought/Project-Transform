@@ -42,7 +42,7 @@ define(['component'],
         }
 
         oQuestion.prototype.onConfigurationComplete = function () {
-            console.log('Configuration complete for ' + this.id);
+            this.parent.classList.add('cover-off');
         }
 
         oQuestion.prototype.separator = function (val) {
