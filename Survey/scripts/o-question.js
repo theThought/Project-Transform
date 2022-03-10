@@ -26,14 +26,18 @@ define(['component'],
          */
 
         function oQuestion(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
-            this.properties = {};
         }
 
         oQuestion.prototype = Object.create(component.prototype);
+        oQuestion.prototype.constructor = oQuestion;
+
+        oQuestion.prototype.onConfigurationComplete = function () {
+            console.log('Configuration complete for ' + this.id);
+        }
 
         oQuestion.prototype.separator = function (val) {
             if (val === false) {

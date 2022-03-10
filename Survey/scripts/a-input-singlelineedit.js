@@ -27,18 +27,19 @@ define(['component'],
          */
 
         function aInputSingleLineEdit(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
-            this.properties = {};
 
+            this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureProperties();
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
+        aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
 
         aInputSingleLineEdit.prototype.type = function (val) {
             this.element.type = val;

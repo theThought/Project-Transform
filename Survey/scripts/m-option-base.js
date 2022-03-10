@@ -28,18 +28,20 @@ define(['component'],
          */
 
         function mOptionBase(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
             this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
             this.textInput = this.element.querySelector('input[type=text]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
+            this.configureProperties();
             this.configureIncomingEventListeners();
             this.requestInitialSize();
         }
 
         mOptionBase.prototype = Object.create(component.prototype);
+        mOptionBase.prototype.constructor = mOptionBase;
 
         mOptionBase.prototype.requestInitialSize = function () {
             var requestSize = new CustomEvent(this.group + '_requestSize', {

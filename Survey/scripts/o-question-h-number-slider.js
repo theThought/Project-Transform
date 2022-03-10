@@ -35,8 +35,6 @@ define(['o-question'],
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
 
-            this.properties = {};
-
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.createClickableArea();
@@ -256,6 +254,4 @@ define(['o-question'],
 
         return oQuestionHNumberSlider;
 
-    }
-)
-;
+    });

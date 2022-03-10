@@ -34,20 +34,12 @@ define(['o-question'],
             this.maxwidth = '';
             this.isOnesize = true;
             this.isBalanced = false;
-            this.properties = {};
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
 
-            if (this.element === null) {
-                console.warn('Unable to find a DOM element for the oQuestionChoice component '
-                    + this.group
-                    + '. Intended behaviours are likely to be missing from this page.');
-            } else {
-                this.configureProperties();
-                this.configureIncomingEventListeners();
-                this.configureBalance();
-                this.configureOnesize();
-            }
-
+            this.configureProperties();
+            this.configureIncomingEventListeners();
+            this.configureBalance();
+            this.configureOnesize();
             this.onResize();
         }
 

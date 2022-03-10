@@ -29,8 +29,6 @@ define(
             this.id = id;
             this.group = group;
             this.properties = {};
-
-            this.configureProperties();
         }
 
         component.prototype.configureProperties = function () {
