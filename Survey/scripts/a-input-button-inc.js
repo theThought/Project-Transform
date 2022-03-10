@@ -34,6 +34,7 @@ define(['component'],
             this.symbol(this.defaultsymbol)
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configurationComplete();
         }
 
         aInputButtonInc.prototype = Object.create(component.prototype);

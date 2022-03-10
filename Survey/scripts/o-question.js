@@ -30,10 +30,16 @@ define(['component'],
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
+
+            this.configureQuestionIncomingEventListeners();
         }
 
         oQuestion.prototype = Object.create(component.prototype);
         oQuestion.prototype.constructor = oQuestion;
+
+        oQuestion.prototype.configureQuestionIncomingEventListeners = function () {
+            document.addEventListener(this.group + "_configComplete", this, false);
+        }
 
         oQuestion.prototype.onConfigurationComplete = function () {
             console.log('Configuration complete for ' + this.id);

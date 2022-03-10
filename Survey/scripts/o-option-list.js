@@ -29,6 +29,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.configureProperties();
+            this.configurationComplete();
         }
 
         oOptionList.prototype = Object.create(component.prototype);

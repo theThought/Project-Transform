@@ -41,6 +41,7 @@ define(['o-question'],
             this.configureBalance();
             this.configureOnesize();
             this.onResize();
+            this.configurationComplete();
         }
 
         oQuestionChoice.prototype = Object.create(oQuestion.prototype);
@@ -56,6 +57,9 @@ define(['o-question'],
                 case 'resize':
                 case this.group + '_requestSize':
                     this.onResize();
+                    break;
+                case this.group + "_configComplete":
+                    this.onConfigurationComplete(event);
                     break;
             }
         }

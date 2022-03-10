@@ -48,6 +48,11 @@ define(
             }
         }
 
+        component.prototype.configurationComplete = function() {
+            var completeEvent = new CustomEvent(this.group + '_configComplete', {bubbles: true, detail: this});
+            document.dispatchEvent(completeEvent);
+        }
+
         return component;
 
     });

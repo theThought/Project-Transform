@@ -35,7 +35,7 @@ define(['component'],
 
             this.configureProperties();
             this.configureIncomingEventListeners();
-            this.configureProperties();
+            this.configurationComplete();
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);

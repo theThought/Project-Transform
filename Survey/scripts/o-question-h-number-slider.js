@@ -40,6 +40,7 @@ define(['o-question'],
             this.createClickableArea();
             this.setThumbVisibility();
             this.updateValue();
+            this.configurationComplete();
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
@@ -74,6 +75,9 @@ define(['o-question'],
                     break;
                 case this.group + "_decrementValue":
                     this.decrementValue();
+                    break;
+                case this.group + "_configComplete":
+                    this.onConfigurationComplete(event);
                     break;
             }
         }

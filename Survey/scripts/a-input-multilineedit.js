@@ -35,6 +35,7 @@ define(['component'],
 
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configurationComplete();
         }
 
         aInputMultilineEdit.prototype = Object.create(component.prototype);

@@ -35,6 +35,7 @@ define(['component'],
 
             // initialise the value - cannot be called as we don't know the thumbvalue element is ready
             this.updateValue({element: this.slider});
+            this.configurationComplete();
         }
 
         aLabelThumbValue.prototype = Object.create(component.prototype);

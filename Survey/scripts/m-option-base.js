@@ -38,6 +38,7 @@ define(['component'],
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.requestInitialSize();
+            this.configurationComplete();
         }
 
         mOptionBase.prototype = Object.create(component.prototype);
