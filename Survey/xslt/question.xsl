@@ -30,6 +30,15 @@
         <xsl:with-param name="theID" select="Style/@ZIndex" />
       </xsl:call-template>
     </xsl:variable>
+    <xsl:call-template name="appComponentScript">
+      <xsl:with-param name="ComponentName" select="'oQuestionContainer'" />
+      <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
+      <xsl:with-param name="FullName">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+         </xsl:call-template>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:element name="div">
       <xsl:attribute name="class">
         <xsl:text>o-question-response</xsl:text>
