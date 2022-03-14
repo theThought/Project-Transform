@@ -11,55 +11,68 @@
 	<meta name="Template" content="page.htm" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<link rel="stylesheet" type="text/css" href="/base.css" />
-	<script type="text/javascript" src="/script/require.js" data-main="scripts/base.js">
-		//QuestionRegister Class is Instantiated
+	<link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/styles/base.css" />
+	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/scripts/require.js">
+		<!-- Require Script -->
 	</script>
 	<script type="text/javascript">
 		require.config({
-			baseUrl: 'scripts'
+			baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/scripts'
 		});
 	</script>
-	<script type="text/javascript" src="/script/survey.js">
-		//Survey Class is Instantiated
+	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/scripts/survey.js">
+		//Survey Class
 	</script>
-	<script type="text/javascript" src="/script/base.js">
-		//Core functionality outside classes
+	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/scripts/base.js">
+		//Global Code
 	</script>
 	<script type="text/javascript">
 		require(['main'], function() {});
 	</script>
 	<title>Ipsos Healthcare Research</title>
-	<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png" />
-	<link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png" />
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-	<link rel="manifest" href="/manifest.json" />
+	<link rel="apple-touch-icon" sizes="57x57" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/apple-icon-180x180.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/android-icon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/favicon-16x16.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/favicons/favicon-32x32.png" />
+	<!-- <link rel="manifest" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/manifest.json" /> -->
 	<meta name="msapplication-TileColor" content="#ffffff" />
 	<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png" />
 	<meta name="theme-color" content="#ffffff" />
 </head>
 
-<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="1iislbob3voehh66yrb41nhypuaqaaaa" /><input
+<body>
+	<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="tt5mznvqfsluxfqmitshnece1aaqaaaa" /><input
 		  type="hidden" name="I.SavePoint" value="Comments" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
-		<table style="height: 100%; width: 100%">
-			<tr>
-				<td style="width: 16%; background-color: #49bfbc" />
-				<td class="mrProgressText">16%</td>
-			</tr>
-		</table>
+		<div class="header">
+			<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/survey/images/ipsoslogo192.png" />
+			<div class="overall-progress">
+				<div class="overall-progress-text">
+					<!-- progress text -->
+				</div>
+				<div class="overall-progress-bar">
+					<table style="height: 100%; width: 100%">
+						<tr>
+							<td style="width: 20%; background-color: #D0DAE6" />
+							<td />
+						</tr>
+					</table><!-- progress bar -->
+				</div>
+			</div>
+		</div>
 		<div class="surroundcontent">
 			<div class="o-question-container">
+				<div class="m-question-cover">
+					<!-- cover -->
+				</div>
 				<div class="o-question-error">
 				</div>
 				<div class="o-question-core">
@@ -68,31 +81,46 @@
 					</div>
 					<div class="o-question-instruction">
 					</div>
-					<div class="o-question-response" data-questionid="_QComments">
-						<textarea name="_QComments" id="_Q0" class="a-input-multilineedit" autocomplete="off" style=""></textarea>
-						<div class="m-option-base" data-exclusive="true">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+					<script>app.registerComponent('oQuestionContainer','_Q0','_QComments');</script>
+					<div class="o-question-response o-question-multilineedit" data-questiongroup="_QComments">
+						<script>app.registerComponent('oQuestionMultilineedit','_Q0','_QComments');</script>
+						<textarea data-questionid="_Q0" data-questiongroup="_QComments" name="_QComments" id="_Q0" class="a-input-multilineedit" autocomplete="off" style=""></textarea>
+						<script>app.registerComponent('aInputMultilineedit','_Q0','_QComments');</script>
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_X0" data-questiongroup="_QComments">
+							<script>app.registerComponent('mOptionBase','_Q0_X0','_QComments');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QComments_Xnocomments" id="_Q0_X0" style="" value="nocomments" />
 							<label for="_Q0_X0">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
-								</span>I don't have any positive or negative comments</label>
+								</span>
+								<span class="a-label-option">I don't have any positive or negative comments</span>
+							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="true">
-							<script>window.dispatchEvent("mOption_Base", this)</script>
+						<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_X1" data-questiongroup="_QComments">
+							<script>app.registerComponent('mOptionBase','_Q0_X1','_QComments');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QComments_Xsecond" id="_Q0_X1" style="" value="second" />
 							<label for="_Q0_X1">
 								<span class="a-icon-multistate" data-icontype="multiple">
 									<!--This is a comment!-->
-								</span>I refuse to answer this question</label>
+								</span>
+								<span class="a-label-option">I refuse to answer this question</span>
+							</label>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="nav-controls" class="btn-container nav-center">
-			<input type="submit" name="_NPrev" class="mrPrev" style="width: 70px;" value="Previous"></input>
-			<input type="submit" name="_NNext" class="mrNext" style="width: 70px;" value="Next"></input>
+		<div class="footer">
+			<div id="nav-controls" class="btn-container nav-center">
+				<div id="nextonly">
+					<input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
+				</div>
+				<div id="prevstop">
+					<input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
+					<input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
+				</div>
+			</div>
+			<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
 		</div>
 	</form>
 </body>
