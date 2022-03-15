@@ -9,7 +9,7 @@
 
   <xsl:template match="Questions">
     <Question>
-       <xsl:apply-templates select="Question" />
+      <xsl:apply-templates select="Question" />
     </Question>
   </xsl:template>
 
@@ -17,7 +17,7 @@
     <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
     <xsl:variable name="qFullName">
       <xsl:call-template name="CalculateQuestionName">
-        <xsl:with-param name="QuestionName" select="Control[1]/@QuestionName" />
+        <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
       </xsl:call-template>
     </xsl:variable>
     <xsl:variable name="qCustomType">
@@ -33,11 +33,7 @@
     <xsl:call-template name="appComponentScript">
       <xsl:with-param name="ComponentName" select="'oQuestionContainer'" />
       <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
-      <xsl:with-param name="FullName">
-         <xsl:call-template name="CalculateQuestionName">
-            <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-         </xsl:call-template>
-      </xsl:with-param>
+      <xsl:with-param name="FullName" select="$qFullName" />
     </xsl:call-template>
     <xsl:element name="div">
       <xsl:attribute name="class">
@@ -60,7 +56,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:with-param>
-        <xsl:with-param name="ElementID" select="Control[1]/@ElementID" />
+        <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
         <xsl:with-param name="FullName" select="$qFullName" />
       </xsl:call-template>
 

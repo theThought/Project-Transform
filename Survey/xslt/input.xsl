@@ -14,10 +14,10 @@
      </xsl:attribute>
      <!--- Input name -->
      <xsl:attribute name="name">
-        <xsl:value-of select="@QuestionName" />
-        <xsl:if test="Category[1]/@Name">
-           <xsl:value-of select="Category[1]/@Name" />
-        </xsl:if>
+       <xsl:value-of select="@QuestionName"/>
+       <xsl:if test="boolean(Category)">
+         <xsl:value-of select="Category/@Name" />
+       </xsl:if>
      </xsl:attribute>
      <!--- ID -->
      <xsl:if test="$bIncludeElementIds">
@@ -56,7 +56,12 @@
      </xsl:if>
      <!--- Default text -->
      <xsl:attribute name="value">
-       <xsl:value-of select="@Value" />
+       <xsl:if test="boolean(Category)">
+         <xsl:value-of select="Category/@Name" />
+       </xsl:if>
+       <xsl:if test="boolean(@value)">
+         <xsl:value-of select="@Value" />
+      </xsl:if>
      </xsl:attribute>
      <xsl:if test="Category[1]/@Checked = 'true'">
        <xsl:attribute name="checked" />
@@ -64,13 +69,14 @@
      <xsl:if test="($qIsCustom!='false')">
        <xsl:attribute name="class">hiddencontrol</xsl:attribute>
      </xsl:if>
-
-      <xsl:attribute name="data-questionid">
-         <xsl:value-of select="@ElementID" />
-      </xsl:attribute>
-      <xsl:attribute name="data-questiongroup">
-         <xsl:value-of select="$qFullName" />
-      </xsl:attribute>
+     <xsl:if test="boolean(Category)=false">
+       <xsl:attribute name="data-questionid">
+          <xsl:value-of select="@ElementID" />
+       </xsl:attribute>
+       <xsl:attribute name="data-questiongroup">
+          <xsl:value-of select="$qFullName" />
+       </xsl:attribute>
+     </xsl:if>
       <!--- Alt -->
       <xsl:if test="@Alt != ''">
          <xsl:attribute name="Alt">
