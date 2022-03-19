@@ -29,8 +29,6 @@ define(
             this.id = id;
             this.group = group;
             this.properties = {};
-
-            this.configureProperties();
         }
 
         component.prototype.configureProperties = function () {
@@ -48,6 +46,11 @@ define(
                     this[prop](this.properties[prop]);
                 }
             }
+        }
+
+        component.prototype.configurationComplete = function() {
+            var completeEvent = new CustomEvent(this.group + '_configComplete', {bubbles: true, detail: this});
+            document.dispatchEvent(completeEvent);
         }
 
         return component;

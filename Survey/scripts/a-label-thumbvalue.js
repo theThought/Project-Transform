@@ -25,18 +25,21 @@ define(['component'],
          */
 
         function aLabelThumbValue(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
             this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
 
+            this.configureProperties();
             this.configureIncomingEventListeners();
 
             // initialise the value - cannot be called as we don't know the thumbvalue element is ready
             this.updateValue({element: this.slider});
+            this.configurationComplete();
         }
 
         aLabelThumbValue.prototype = Object.create(component.prototype);
+        aLabelThumbValue.prototype.constructor = aLabelThumbValue;
 
         aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
@@ -63,7 +66,7 @@ define(['component'],
             var position = Number(((value - min) / range) * 100);
             var positionOffset = Math.round(thumbWidth * position / 100) - (thumbWidth / 2);
             var positionPaddingOffset = Math.round(12 * position / 100) - 6;
-console.log(value, min, max, range, position);
+
             this.element.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
         }
 

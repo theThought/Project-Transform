@@ -27,16 +27,19 @@ define(['component'],
          */
 
         function aInputMultilineEdit(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
+            this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configurationComplete();
         }
 
         aInputMultilineEdit.prototype = Object.create(component.prototype);
+        aInputMultilineEdit.prototype.constructor = aInputMultilineEdit;
 
         aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

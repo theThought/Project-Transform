@@ -26,14 +26,24 @@ define(['component'],
          */
 
         function oQuestion(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
-            this.properties = {};
+
+            this.configureQuestionIncomingEventListeners();
         }
 
         oQuestion.prototype = Object.create(component.prototype);
+        oQuestion.prototype.constructor = oQuestion;
+
+        oQuestion.prototype.configureQuestionIncomingEventListeners = function () {
+            document.addEventListener(this.group + "_configComplete", this, false);
+        }
+
+        oQuestion.prototype.onConfigurationComplete = function () {
+            this.parent.classList.add('cover-off');
+        }
 
         oQuestion.prototype.separator = function (val) {
             if (val === false) {

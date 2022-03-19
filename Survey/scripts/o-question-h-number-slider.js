@@ -35,13 +35,12 @@ define(['o-question'],
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
 
-            this.properties = {};
-
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
             this.updateValue();
+            this.configurationComplete();
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
@@ -76,6 +75,9 @@ define(['o-question'],
                     break;
                 case this.group + "_decrementValue":
                     this.decrementValue();
+                    break;
+                case this.group + "_configComplete":
+                    this.onConfigurationComplete(event);
                     break;
             }
         }
@@ -256,6 +258,4 @@ define(['o-question'],
 
         return oQuestionHNumberSlider;
 
-    }
-)
-;
+    });

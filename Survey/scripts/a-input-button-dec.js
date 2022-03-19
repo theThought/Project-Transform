@@ -26,16 +26,19 @@ define(['component'],
          */
 
         function aInputButtonDec(id, group) {
-            this.id = id;
-            this.group = group;
+            component.call(this, id, group);
+
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-preterminator');
-            this.defaultsymbol = '&laquo;'; // default arrow appearance
+            this.defaultsymbol = '&laquo;'; // default << appearance
 
             this.symbol(this.defaultsymbol);
+            this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configurationComplete();
         }
 
         aInputButtonDec.prototype = Object.create(component.prototype);
+        aInputButtonDec.prototype.constructor = aInputButtonDec;
 
         aInputButtonDec.prototype.symbol = function (symbol) {
             this.element.innerHTML = symbol;
