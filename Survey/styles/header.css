@@ -21,7 +21,7 @@
 }
 
 .overall-progress-text::after {
-  content: " steps were taken";
+  content: "";
   color: #A0ABCC;
 }
 
@@ -31,49 +31,12 @@
   border-radius: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 4px;
+  padding: 3px;
   background-color: #FFFFFF;
 }
 
-.overall-progress-bar div {
+.overall-progress-bar td:first-child {
   background-color: #D0DAE6;
   border-radius: 10px;
-  height: 100%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-1] {
-  width: 10%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-2] {
-  width: 20%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-3] {
-  width: 30%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-4] {
-  width: 40%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-5] {
-  width: 50%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-6] {
-  width: 60%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-7] {
-  width: 70%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-8] {
-  width: 80%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-9] {
-  width: 90%;
 }
 /*# sourceMappingURL=header.css.map */

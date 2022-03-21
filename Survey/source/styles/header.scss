@@ -24,7 +24,8 @@
 }
 
 .overall-progress-text::after {
-    content: ' steps were taken';
+    // placeholder for progress text content
+    content: '';
     color: globals.$pre-post-text;
 }
 
@@ -33,48 +34,11 @@
     border: 1px solid globals.$borders-light;
     border-radius: globals.$border-radius;
     box-sizing: border-box;
-    padding: 4px;
+    padding: 3px;
     background-color: #FFFFFF;
 }
 
-.overall-progress-bar div {
+.overall-progress-bar td:first-child {
     background-color: globals.$borders-light;
     border-radius: globals.$border-radius;
-    height: 100%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-1] {
-    width: 10%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-2] {
-    width: 20%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-3] {
-    width: 30%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-4] {
-    width: 40%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-5] {
-    width: 50%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-6] {
-    width: 60%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-7] {
-    width: 70%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-8] {
-    width: 80%;
-}
-
-.overall-progress-bar div[class^=overall-progress-meter-9] {
-    width: 90%;
 }
