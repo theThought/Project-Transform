@@ -17,7 +17,7 @@ table .m-option-base .a-icon-multistate {
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
-  background-image: url("../images/Checkbox.png");
+  background-image: url("../images/checkbox.png");
 }
 
 input[type=radio] + label > .a-icon-multistate {

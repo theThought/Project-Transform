@@ -122,7 +122,7 @@
     }
 
     input:disabled + label > .a-label-option {
-        color: globals.$icons-mid;
+        color: globals.$disabled-text;
     }
 
     .a-label-option {
