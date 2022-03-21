@@ -4,7 +4,7 @@
     display: inline-block;
     width: 1em;
     height: 1em;
-    background-position-x: 16px;
+    background-position-x: -28px;
 }
 
 .m-option-base .a-icon-multistate {
@@ -38,4 +38,9 @@ input[type=radio]:focus-visible + label,
 input[type=checkbox]:focus-within + label,
 input[type=radio]:focus-within + label {
     outline: 1px solid globals.$labels;
+}
+
+input[type=checkbox]:disabled + label > .a-icon-multistate,
+input[type=radio]:disabled + label > .a-icon-multistate {
+    background-position-x: -56px;
 }
