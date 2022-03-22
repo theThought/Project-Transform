@@ -61,6 +61,13 @@ button.a-button-preterminator {
     margin-right: 1em;
 }
 
+.balance {
+    .m-option-button {
+        flex: 0 0 auto;
+        margin-right: 1em;
+    }
+}
+
 /* buttons where used as part of
  * the page navigation controls */
 #nav-controls {

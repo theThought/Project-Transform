@@ -22,6 +22,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id] = new mOptionBase(id, group);
             });
             break;
+        case 'moptionbutton':
+            requirejs(['m-option-button'], function (mOptionButton) {
+                app.components[id] = new mOptionButton(id, group);
+            });
+            break;
         case 'ainputmultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.components[id] = new aInputMultilineEdit(id, group);
