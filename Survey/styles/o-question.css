@@ -3,7 +3,7 @@
   overflow-x: auto;
   overflow-y: visible;
 }
-.o-question-response > *:not(script):last-child {
+.o-question-response:not(.balance) > *:not(script):last-child {
   margin-bottom: 0;
 }
 .o-question-response.balance {
