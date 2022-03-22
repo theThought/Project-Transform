@@ -7,7 +7,7 @@ button {
   margin: 0 0 12px 0;
   border: 1px solid #455B97;
   border-radius: 10px;
-  width: 197px;
+  min-width: 197px;
   min-height: 40px;
   background: #455B97;
   color: #FFFFFF;

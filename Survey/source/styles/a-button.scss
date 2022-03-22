@@ -9,7 +9,7 @@ button {
     margin: 0 0 12px 0;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    width: 197px;
+    min-width: 197px;
     min-height: 40px;
     background: globals.$theme-primary;
     color: #FFFFFF;
