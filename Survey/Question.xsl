@@ -1240,7 +1240,7 @@
               <xsl:attribute name="data-questiongroup">
                  <xsl:value-of select="$qFullName" />
               </xsl:attribute>
-               <xsl:attribute name="type">button</xsl:attribute>
+               <xsl:attribute name="type">submit</xsl:attribute>
                <!--- Input name -->
                <xsl:attribute name="name">
                   <xsl:value-of select="@QuestionName" />
