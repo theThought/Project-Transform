@@ -120,7 +120,7 @@ define(['o-question'],
 
         oQuestionChoice.prototype.onResize = function () {
 
-            var children = this.element.getElementsByClassName("m-option-base");
+            var children = this.element.querySelectorAll(".m-option-base, .m-option-button");
             this.tallest = 0;
             this.widest = 0;
 

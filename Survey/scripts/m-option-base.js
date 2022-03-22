@@ -44,14 +44,6 @@ define(['component'],
         mOptionBase.prototype = Object.create(component.prototype);
         mOptionBase.prototype.constructor = mOptionBase;
 
-        mOptionBase.prototype.requestInitialSize = function () {
-            var requestSize = new CustomEvent(this.group + '_requestSize', {
-                bubbles: true,
-                detail: this
-            });
-            document.dispatchEvent(requestSize);
-        }
-
         mOptionBase.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
@@ -87,36 +79,6 @@ define(['component'],
                     this.onEndResize(event);
                     break;
             }
-        }
-
-        mOptionBase.prototype.onBeginResize = function (event) {
-            this.element.style.width = '';
-            this.element.style.height = '';
-
-            if (event.detail.properties === null) {
-                return false;
-            }
-
-            if (event.detail.isOnesize === true) {
-                this.element.style.maxWidth = event.detail.maxwidth;
-            }
-
-            if (event.detail.isBalanced === true) {
-                this.element.style.minWidth = event.detail.minwidth;
-            }
-
-        }
-
-        mOptionBase.prototype.onEndResize = function (event) {
-
-            if (event.detail.isBalanced === true) {
-                this.element.style.width = event.detail.widest + 'px';
-            }
-
-            if (event.detail.isOnesize === true) {
-                this.element.style.height = event.detail.tallest + 'px';
-            }
-
         }
 
         mOptionBase.prototype.onChange = function (event) {

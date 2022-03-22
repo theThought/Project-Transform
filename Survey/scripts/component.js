@@ -28,6 +28,7 @@ define(
         function component(id, group) {
             this.id = id;
             this.group = group;
+            this.element = null;
             this.properties = {};
         }
 
@@ -51,6 +52,45 @@ define(
         component.prototype.configurationComplete = function() {
             var completeEvent = new CustomEvent(this.group + '_configComplete', {bubbles: true, detail: this});
             document.dispatchEvent(completeEvent);
+        }
+
+
+        component.prototype.requestInitialSize = function () {
+            var requestSize = new CustomEvent(this.group + '_requestSize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(requestSize);
+        }
+
+        component.prototype.onBeginResize = function (event) {
+            this.element.style.width = '';
+            this.element.style.height = '';
+
+            if (event.detail.properties === null) {
+                return false;
+            }
+
+            if (event.detail.isOnesize === true) {
+                this.element.style.maxWidth = event.detail.maxwidth;
+            }
+
+            if (event.detail.isBalanced === true) {
+                this.element.style.minWidth = event.detail.minwidth;
+            }
+
+        }
+
+        component.prototype.onEndResize = function (event) {
+
+            if (event.detail.isBalanced === true) {
+                this.element.style.width = event.detail.widest + 'px';
+            }
+
+            if (event.detail.isOnesize === true) {
+                this.element.style.height = event.detail.tallest + 'px';
+            }
+
         }
 
         return component;

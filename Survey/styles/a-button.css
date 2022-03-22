@@ -7,7 +7,7 @@ button {
   margin: 0 0 12px 0;
   border: 1px solid #455B97;
   border-radius: 10px;
-  width: 197px;
+  min-width: 197px;
   min-height: 40px;
   background: #455B97;
   color: #FFFFFF;
@@ -53,6 +53,13 @@ button.a-button-postterminator {
 }
 
 button.a-button-preterminator {
+  margin-right: 1em;
+}
+
+.balance .m-option-button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   margin-right: 1em;
 }
 
