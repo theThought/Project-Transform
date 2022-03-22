@@ -1,0 +1,82 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-40"></Style>
+    <Table UseTablesLayout="0" Summary="Select one of the following colours">
+      <Row Y="0">
+        <Cell X="0" Y="0">
+          <Control Type="Button" QuestionName="_QChoiceAsButtons_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="Button"></Control>
+            </Style>
+            <Category Name="blue" CategoryID="0">
+              <Label>
+                <Style ElementAlign="Right"></Style>
+                <Text>blue</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="1">
+        <Cell X="0" Y="1">
+          <Control Type="Button" QuestionName="_QChoiceAsButtons_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="Button"></Control>
+            </Style>
+            <Category Name="pink" CategoryID="1">
+              <Label>
+                <Style ElementAlign="Right"></Style>
+                <Text>pink</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="2">
+        <Cell X="0" Y="2">
+          <Control Type="Button" QuestionName="_QChoiceAsButtons_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="Button"></Control>
+            </Style>
+            <Category Name="yellow" CategoryID="2">
+              <Label>
+                <Style ElementAlign="Right"></Style>
+                <Text>yellow</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="3">
+        <Cell X="0" Y="3">
+          <Control Type="Button" QuestionName="_QChoiceAsButtons_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="Button"></Control>
+            </Style>
+            <Category Name="lightgreen" CategoryID="3">
+              <Label>
+                <Style ElementAlign="Right"></Style>
+                <Text>light green</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="4">
+        <Cell X="0" Y="4">
+          <Control Type="Button" QuestionName="_QChoiceAsButtons_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="Button"></Control>
+            </Style>
+            <Category Name="orange" CategoryID="4">
+              <Label>
+                <Style ElementAlign="Right"></Style>
+                <Text>orange</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>

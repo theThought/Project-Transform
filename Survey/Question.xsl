@@ -357,7 +357,10 @@
             <xsl:call-template name="ListControlControl" />
          </xsl:when>
          <xsl:when test="@Type = 'Button'">
-            <xsl:call-template name="ButtonControl" />
+            <xsl:call-template name="ButtonControl">
+              <xsl:with-param name="qGroup" select="$qGroup" />
+              <xsl:with-param name="qFullName" select="$qFullName" />
+           </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'Date'">
             <xsl:call-template name="DateControl" />
@@ -1147,6 +1150,8 @@
       <B>ListControl NOT IMPLEMENTED</B>
    </xsl:template>
    <xsl:template name="ButtonControl">
+     <xsl:param name="qGroup" />
+     <xsl:param name="qFullName" />
       <xsl:choose>
          <xsl:when test="Style/@Image != ''">
             <!--- Image control buttons -->
@@ -1176,7 +1181,7 @@
                </xsl:if>
                <!--- CSS Class -->
                <xsl:if test="$bIncludeCSSStyles">
-                  <xsl:attribute name="sLabelClass">mrSingleText</xsl:attribute>
+                  <xsl:attribute name="sLabelClass">aButtonImage</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
                <xsl:if test="$bShowOnly != false()">
@@ -1215,8 +1220,27 @@
             </xsl:element>
          </xsl:when>
          <xsl:otherwise>
+           <xsl:element name="script">
+              <xsl:text>app.registerComponent('aButtonOption','</xsl:text>
+              <xsl:value-of select="@ElementID" />
+              <xsl:if test="Category[1]/@CategoryID">
+                 <xsl:value-of select="Category[1]/@CategoryID" />
+              </xsl:if>
+              <xsl:text>','</xsl:text>
+              <xsl:value-of select="$qFullName" />
+              <xsl:text>');</xsl:text>
+           </xsl:element>
             <xsl:element name="input">
-               <xsl:attribute name="type">submit</xsl:attribute>
+              <xsl:attribute name="data-questionid">
+                 <xsl:value-of select="@ElementID" />
+                 <xsl:if test="Category[1]/@CategoryID">
+                    <xsl:value-of select="Category[1]/@CategoryID" />
+                 </xsl:if>
+              </xsl:attribute>
+              <xsl:attribute name="data-questiongroup">
+                 <xsl:value-of select="$qFullName" />
+              </xsl:attribute>
+               <xsl:attribute name="type">button</xsl:attribute>
                <!--- Input name -->
                <xsl:attribute name="name">
                   <xsl:value-of select="@QuestionName" />
@@ -1235,7 +1259,7 @@
                </xsl:if>
                <!--- CSS Class -->
                <xsl:if test="$bIncludeCSSStyles">
-                  <xsl:attribute name="sLabelClass">mrSingleText</xsl:attribute>
+                  <xsl:attribute name="sLabelClass">aButtonOption</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
                <xsl:if test="$bShowOnly != false()">
