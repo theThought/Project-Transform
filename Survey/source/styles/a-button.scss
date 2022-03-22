@@ -4,8 +4,9 @@ input[type=button],
 input[type=submit],
 input[type=reset],
 button {
+    display: block;
     -webkit-appearance: none;
-    margin: 1em 0;
+    margin: 0 0 12px 0;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
     width: 197px;
@@ -63,6 +64,10 @@ button.a-button-preterminator {
 /* buttons where used as part of
  * the page navigation controls */
 #nav-controls {
+
+    input {
+        display: inline-block !important;
+    }
 
     input[type=submit] {
         margin: 0;
