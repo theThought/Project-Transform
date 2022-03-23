@@ -42,7 +42,19 @@ define(['component'],
         }
 
         oQuestion.prototype.onConfigurationComplete = function () {
-            this.parent.classList.add('cover-off');
+            this.parent.classList.add('config-complete');
+
+            this.configureVisibilityRules();
+        }
+
+        oQuestion.prototype.configureVisibilityRules = function () {
+            if (this.properties.visibility !== false) {
+                this.parent.classList.add('cover-off');
+            }
+
+            if (this.properties.visibility === false) {
+                this.parent.classList.add('unavailable');
+            }
         }
 
         oQuestion.prototype.separator = function (val) {

@@ -13,6 +13,27 @@
     background-image: url("../images/loading.gif");
     background-repeat: no-repeat;
     background-position: 50% 50%;
+
+    &::after {
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        opacity: 0;
+        font-size: x-large;
+    }
+}
+
+.config-complete .m-question-cover {
+    background-image: none;
+}
+
+.unavailable .m-question-cover {
+    &::after {
+        opacity: 1;
+        color: globals.$disabled-text-1;
+        // placeholder symbol for unavailable questions
+        content: "\20E0";
+    }
 }
 
 .cover-off .m-question-cover {
