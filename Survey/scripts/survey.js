@@ -73,6 +73,11 @@ Survey.prototype.RegisterProperties = function (id, props) {
 
 Survey.prototype.getProperties = function (id) {
     id = this.extractQuestionName(id);
+
+    if (typeof app.properties[id] == "undefined") {
+        return {};
+    }
+
     return app.properties[id];
 }
 
