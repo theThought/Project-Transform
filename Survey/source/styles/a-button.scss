@@ -83,12 +83,13 @@ button.a-button-preterminator {
         border-color: globals.$theme-secondary;
         background-color: globals.$theme-secondary;
         color: globals.$white;
+        width: 197px;
         min-width: 100px;
     }
 
     @media screen and (max-width: 1024px) {
         input[type=submit] {
-            width: 197px;
+            width: auto;
         }
     }
 
