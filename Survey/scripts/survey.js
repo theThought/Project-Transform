@@ -22,9 +22,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id] = new mOptionBase(id, group);
             });
             break;
-        case 'moptionbutton':
-            requirejs(['m-option-button'], function (mOptionButton) {
-                app.components[id] = new mOptionButton(id, group);
+        case 'abuttonoption':
+            requirejs(['a-button-option'], function (aButtonOption) {
+                app.components[id] = new aButtonOption(id, group);
             });
             break;
         case 'ainputmultilineedit':
@@ -66,14 +66,26 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
-    id = id.toLowerCase();
+    id = this.extractQuestionName(id);
     console.info('Registering properties for ' + id);
     app.properties[id] = this.sanitiseProperties(props);
 }
 
 Survey.prototype.getProperties = function (id) {
-    id = id.toLowerCase();
+    id = this.extractQuestionName(id);
+
+    if (typeof app.properties[id] == "undefined") {
+        return {};
+    }
+
     return app.properties[id];
+}
+
+Survey.prototype.extractQuestionName = function (id) {
+    id = id.toLowerCase();
+    id = id.split('_q');
+    id = id[id.length-1];
+    return id;
 }
 
 Survey.prototype.sanitiseProperties = function (props) {

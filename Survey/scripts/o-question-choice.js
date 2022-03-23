@@ -120,7 +120,7 @@ define(['o-question'],
 
         oQuestionChoice.prototype.onResize = function () {
 
-            var children = this.element.querySelectorAll(".m-option-base, .m-option-button");
+            var children = this.element.querySelectorAll(".m-option-base, .a-button-option");
             this.tallest = 0;
             this.widest = 0;
 
@@ -135,8 +135,8 @@ define(['o-question'],
                 var dims = getComputedStyle(element);
                 var elementheight = parseFloat(dims.height);
                 var elementwidth = parseFloat(dims.width);
-                var contentheight = elementheight - (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
-                var contentwidth = elementwidth - (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
+                var contentheight = elementheight ;//- (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
+                var contentwidth = elementwidth ;//- (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
 
                 contentheight = Math.ceil(contentheight);
                 contentwidth = Math.ceil(contentwidth);

@@ -5,12 +5,14 @@ input[type=submit],
 input[type=reset],
 button {
     display: block;
+    box-sizing: border-box;
+    min-width: 197px;
+    min-height: 40px;
     -webkit-appearance: none;
     margin: 0 0 12px 0;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    min-width: 197px;
-    min-height: 40px;
+    padding: 0 1em;
     background: globals.$theme-primary;
     color: #FFFFFF;
 }
@@ -62,7 +64,7 @@ button.a-button-preterminator {
 }
 
 .balance {
-    .m-option-button {
+    .a-button-option {
         flex: 0 0 auto;
         margin-right: 1em;
     }
@@ -81,6 +83,7 @@ button.a-button-preterminator {
         border-color: globals.$theme-secondary;
         background-color: globals.$theme-secondary;
         color: globals.$white;
+        width: 197px;
         min-width: 100px;
     }
 

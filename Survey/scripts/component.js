@@ -33,12 +33,7 @@ define(
         }
 
         component.prototype.configureProperties = function () {
-            var propertiesName = this.group.toLowerCase();
-
-            if (!app.properties[propertiesName]) {
-                return false;
-            }
-
+            var propertiesName = this.group;
             this.properties = app.getProperties(propertiesName);
 
             for (var prop in this.properties) {
