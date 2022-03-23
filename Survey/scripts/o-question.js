@@ -48,11 +48,11 @@ define(['component'],
         }
 
         oQuestion.prototype.configureVisibilityRules = function () {
-            if (this.properties.visibility !== false) {
+            if (typeof this.properties.visible == "undefined") {
                 this.parent.classList.add('cover-off');
             }
 
-            if (this.properties.visibility === false) {
+            if (typeof this.properties.visible === "object") {
                 this.parent.classList.add('unavailable');
             }
         }
