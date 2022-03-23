@@ -27,7 +27,7 @@ define(['component'],
          * @param {String} group - question group
          */
 
-        function mOptionButton(id, group) {
+        function aButtonOption(id, group) {
             component.call(this, id, group);
 
             this.element = document.querySelector('input#' + this.id);
@@ -39,10 +39,10 @@ define(['component'],
             this.configurationComplete();
         }
 
-        mOptionButton.prototype = Object.create(component.prototype);
-        mOptionButton.prototype.constructor = mOptionButton;
+        aButtonOption.prototype = Object.create(component.prototype);
+        aButtonOption.prototype.constructor = aButtonOption;
 
-        mOptionButton.prototype.configureIncomingEventListeners = function () {
+        aButtonOption.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
             document.addEventListener("change", this, false);
@@ -53,7 +53,7 @@ define(['component'],
             document.addEventListener(this.group + "_endResize", this, false);
         }
 
-        mOptionButton.prototype.handleEvent = function (event) {
+        aButtonOption.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "click":
                     this.onClick(event);
@@ -76,22 +76,22 @@ define(['component'],
             }
         }
 
-        mOptionButton.prototype.onChange = function (event) {
+        aButtonOption.prototype.onChange = function (event) {
 
         }
 
-        mOptionButton.prototype.onClick = function (event) {
+        aButtonOption.prototype.onClick = function (event) {
 
         }
 
-        mOptionButton.prototype.onEnableExclusive = function (event) {
+        aButtonOption.prototype.onEnableExclusive = function (event) {
 
         }
 
-        mOptionButton.prototype.onDismissExclusive = function (event) {
+        aButtonOption.prototype.onDismissExclusive = function (event) {
 
         }
 
-        return mOptionButton;
+        return aButtonOption;
 
     });

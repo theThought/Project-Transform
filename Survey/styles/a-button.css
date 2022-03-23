@@ -3,12 +3,15 @@ input[type=submit],
 input[type=reset],
 button {
   display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 197px;
+  min-height: 40px;
   -webkit-appearance: none;
   margin: 0 0 12px 0;
   border: 1px solid #455B97;
   border-radius: 10px;
-  min-width: 197px;
-  min-height: 40px;
+  padding: 0 1em;
   background: #455B97;
   color: #FFFFFF;
 }
@@ -56,7 +59,7 @@ button.a-button-preterminator {
   margin-right: 1em;
 }
 
-.balance .m-option-button {
+.balance .a-button-option {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -77,7 +80,7 @@ button.a-button-preterminator {
 }
 @media screen and (max-width: 1024px) {
   #nav-controls input[type=submit] {
-    width: auto;
+    width: 197px;
   }
 }
 #nav-controls input[type=submit]:hover {
