@@ -1259,7 +1259,7 @@
                </xsl:if>
                <!--- CSS Class -->
                <xsl:if test="$bIncludeCSSStyles">
-                  <xsl:attribute name="sLabelClass">aButtonOption</xsl:attribute>
+                  <xsl:attribute name="class">a-button-option</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
                <xsl:if test="$bShowOnly != false()">
