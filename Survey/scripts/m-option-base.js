@@ -127,6 +127,7 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element) {
                 this.checkbox.checked = false;
+                this.broadcastChange();
             }
 
         }
@@ -136,6 +137,7 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
                 this.checkbox.checked = false;
+                this.broadcastChange();
             }
         }
 
@@ -143,6 +145,7 @@ define(['component'],
 
             if (this.isExclusive && event.detail.element !== this.textInput) {
                 this.checkbox.checked = false;
+                this.broadcastChange();
             }
         }
 

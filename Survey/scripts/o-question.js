@@ -158,47 +158,21 @@ define(['component'],
         }
 
         oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
-            var incomingValue = 'null';
-            var valid = true;
 
-            if (broadcastingComponent.checkbox) {
-                if (broadcastingComponent.checkbox.checked) {
-                    incomingValue = broadcastingComponent.checkbox.value;
-                    if (incomingValue.toLowerCase() !== rule.value.toLowerCase()) {
-                        valid = false;
-                    }
-                }
-
-            } else {
-                incomingValue = broadcastingComponent.element.value;
-            }
-
-            if (!valid) {
-                return;
-            }
+            var incomingValue = broadcastingComponent.checkbox.value;
+            var incomingChecked = broadcastingComponent.checkbox.checked;
 
             if (rule.value.toLowerCase() === incomingValue.toLowerCase()) {
-                rule.satisfied = true;
-            } else {
-                rule.satisfied = false;
+                rule.satisfied = incomingChecked;
             }
         }
 
         oQuestion.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
-            var incomingValue = 'null';
+            var incomingValue = broadcastingComponent.checkbox.value;
+            var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (broadcastingComponent.checkbox) {
-                if (broadcastingComponent.checkbox.checked) {
-                    incomingValue = broadcastingComponent.checkbox.value;
-                }
-            } else {
-                incomingValue = broadcastingComponent.element.value;
-            }
-
-            if (rule.value.toLowerCase() !== incomingValue.toLowerCase()) {
-                rule.satisfied = true;
-            } else {
-                rule.satisfied = false;
+            if (rule.value.toLowerCase() === incomingValue.toLowerCase()) {
+                rule.satisfied = !incomingChecked;
             }
         }
 
