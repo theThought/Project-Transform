@@ -46,6 +46,12 @@ define(['component'],
 
         oQuestion.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'configComplete':
+                    this.onConfigurationComplete(event);
+                    break;
+                case 'broadcastChange':
+                    this.receiveBroadcast(event);
+                    break;
 
             }
         }
