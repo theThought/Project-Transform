@@ -28,4 +28,8 @@
       flex-basis: 100%;
   width: 100%;
 }
+
+.o-question-core {
+  z-index: 2;
+}
 /*# sourceMappingURL=o-question.css.map */
