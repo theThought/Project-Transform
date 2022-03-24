@@ -57,12 +57,13 @@ define(['component'],
         }
 
         oQuestion.prototype.onConfigurationComplete = function (event) {
+            this.configureVisibilityRules();
+
             if (!this.ready && event.detail.group === this.group) {
                 this.ready = true;
                 this.parent.classList.add('config-complete');
 
                 this.configureInitialVisibility();
-                this.configureVisibilityRules();
             }
 
         }
@@ -86,8 +87,15 @@ define(['component'],
         }
 
         oQuestion.prototype.receiveBroadcast = function (event) {
-            // determine starting visibility state
-            var currentVisibilityStatus = (this.parent.classList.contains('cover-off'));
+
+            // are there rules applicable to this question
+            var applicableRules = false;
+
+            // how many rules are there to process
+            var requiredScore = this.visibilityRules.length;
+
+            // number of rules that had their condition met
+            var score = 0;
 
             // originating component data
             var broadcastingComponent = event.detail;
@@ -98,13 +106,114 @@ define(['component'],
             // process visibility rules
             this.visibilityRules.forEach(function (rule) {
                 var ruleQuestion = rule.question.toLowerCase();
-                console.info('processing visibility rule ' + ruleQuestion)
+
                 if (broadcastingComponent.questionName === ruleQuestion) {
-                    self.parent.classList.remove('unavailable');
-                    self.liftCover();
+                    applicableRules = true;
+
+                    // incoming event matches a ruleset, begin processing
+                    switch (rule.type) {
+                        case 'min-value':
+                            self.processVisibilityMinValue(rule, broadcastingComponent);
+                            break;
+                        case 'specific-option':
+                            self.processVisibilitySpecificOption(rule, broadcastingComponent);
+                            break;
+                        case 'not-specific-option':
+                            self.processVisibilityNotSpecificOption(rule, broadcastingComponent);
+                            break;
+                    }
+
                 }
             });
 
+            this.visibilityRules.forEach(function (rule) {
+                if (rule.satisfied) {
+                    score++;
+                }
+            });
+
+            if (requiredScore === 0) {
+                // the current question has no visibility rules
+                this.makeAvailable();
+
+            } else if (applicableRules && score >= requiredScore) {
+                // the current question met its visibility criteria
+                this.makeAvailable();
+
+            } else if (applicableRules) {
+                // the current question has visibility rules and failed the criteria
+                this.makeUnavailable();
+            }
+
+        }
+
+        oQuestion.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
+            var incomingValue = broadcastingComponent.element.value;
+
+            if (incomingValue >= rule.value) {
+                rule.satisfied = true;
+            } else {
+                rule.satisfied = false;
+            }
+        }
+
+        oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
+            var incomingValue = 'null';
+            var valid = true;
+
+            if (broadcastingComponent.checkbox) {
+                if (broadcastingComponent.checkbox.checked) {
+                    incomingValue = broadcastingComponent.checkbox.value;
+                    if (incomingValue.toLowerCase() !== rule.value.toLowerCase()) {
+                        valid = false;
+                    }
+                }
+
+            } else {
+                incomingValue = broadcastingComponent.element.value;
+            }
+
+            if (!valid) {
+                return;
+            }
+
+            if (rule.value.toLowerCase() === incomingValue.toLowerCase()) {
+                rule.satisfied = true;
+            } else {
+                rule.satisfied = false;
+            }
+        }
+
+        oQuestion.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
+            var incomingValue = 'null';
+
+            if (broadcastingComponent.checkbox) {
+                if (broadcastingComponent.checkbox.checked) {
+                    incomingValue = broadcastingComponent.checkbox.value;
+                }
+            } else {
+                incomingValue = broadcastingComponent.element.value;
+            }
+
+            if (rule.value.toLowerCase() !== incomingValue.toLowerCase()) {
+                rule.satisfied = true;
+            } else {
+                rule.satisfied = false;
+            }
+        }
+
+        oQuestion.prototype.makeAvailable = function () {
+            this.parent.classList.remove('unavailable');
+            this.liftCover();
+        }
+
+        oQuestion.prototype.makeUnavailable = function () {
+            this.cover();
+            this.parent.classList.add('unavailable');
+        }
+
+        oQuestion.prototype.cover = function () {
+            this.parent.classList.remove('cover-off');
         }
 
         oQuestion.prototype.liftCover = function () {

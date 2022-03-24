@@ -52,7 +52,7 @@ define(
             this.broadcastChange();
         }
 
-        component.prototype.broadcastChange = function () {
+        component.prototype.broadcastChange = function (value) {
             var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
             document.dispatchEvent(broadcastChange);
         }
