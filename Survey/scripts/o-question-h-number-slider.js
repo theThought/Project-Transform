@@ -50,6 +50,7 @@ define(['o-question'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener("click", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
@@ -61,6 +62,9 @@ define(['o-question'],
             switch (event.type) {
                 case 'broadcastChange':
                     this.receiveBroadcast(event);
+                    break;
+                case 'clearEntries':
+                    this.clearEntries(event);
                     break;
                 case "click":
                 case "input":
@@ -85,12 +89,24 @@ define(['o-question'],
             }
         }
 
+        oQuestionHNumberSlider.prototype.clearEntries = function (event) {
+            if (event.detail.questionName === this.questionName) {
+                this.element.value = "";
+                this.updateValue();
+                this.broadcastChange();
+            }
+        }
+
         oQuestionHNumberSlider.prototype.setThumbVisibility = function () {
             if (this.element.getAttribute('value').length) {
                 this.organism.classList.add('active');
                 this.organism.classList.add('has-value');
-                this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
+                this.updateThumbPosition();
             }
+        }
+
+        oQuestionHNumberSlider.prototype.updateThumbPosition = function () {
+            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {

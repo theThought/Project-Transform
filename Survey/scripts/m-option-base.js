@@ -48,6 +48,7 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
             document.addEventListener("change", this, false);
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_textFocus", this, false);
@@ -62,6 +63,9 @@ define(['component'],
                     break;
                 case "change":
                     this.onChange(event);
+                    break;
+                case "clearEntries":
+                    this.clearEntries(event);
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
@@ -78,6 +82,16 @@ define(['component'],
                 case this.group + "_endResize":
                     this.onEndResize(event);
                     break;
+            }
+        }
+
+        mOptionBase.prototype.clearEntries = function (event) {
+            if (event.detail.questionName === this.questionName) {
+                this.checkbox.checked = false;
+
+                if (this.textInput !== null) {
+                    this.textInput.value = "";
+                }
             }
         }
 

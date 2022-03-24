@@ -197,6 +197,8 @@ define(['component'],
 
         oQuestion.prototype.makeUnavailable = function () {
             this.cover();
+            var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
+            document.dispatchEvent(clearEntries);
             this.parent.classList.add('unavailable');
         }
 

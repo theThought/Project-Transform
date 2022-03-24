@@ -44,6 +44,7 @@ define(['component'],
         aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("focusin", this, false);
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
@@ -51,6 +52,9 @@ define(['component'],
             switch (event.type) {
                 case "focusin":
                     this.onFocusIn(event);
+                    break;
+                case "clearEntries":
+                    this.clearEntries(event);
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();

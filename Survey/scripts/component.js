@@ -57,6 +57,13 @@ define(
             document.dispatchEvent(broadcastChange);
         }
 
+        component.prototype.clearEntries = function (event) {
+            if (event.detail.questionName === this.questionName) {
+                this.element.value = "";
+                this.broadcastChange();
+            }
+        }
+
         component.prototype.requestInitialSize = function () {
             var requestSize = new CustomEvent(this.group + '_requestSize', {
                 bubbles: true,
