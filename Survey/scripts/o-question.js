@@ -161,7 +161,7 @@ define(['component'],
 
             var incomingValue = broadcastingComponent.element.value;
 
-            rule.satisfied = incomingValue >= rule.value;
+            rule.satisfied = Number(incomingValue) >= Number(rule.value);
         }
 
         oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
