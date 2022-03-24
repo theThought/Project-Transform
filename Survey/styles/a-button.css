@@ -40,6 +40,7 @@ button.a-button-postterminator {
   background: transparent;
   top: 0.3em;
   width: 2em;
+  min-width: initial;
   padding: 0 0.5em;
   margin: 0;
   display: none;
