@@ -75,6 +75,16 @@ define(['component'],
 
             if (typeof this.properties.visible === "object") {
                 this.parent.classList.add('unavailable');
+
+                // at this point we need to iterate and request question values
+                this.visibilityRules.forEach(function (rule) {
+                    for (var component in app.components) {
+                        if (app.components[component].questionName === rule.question.toLowerCase()) {
+                            app.components[component].broadcastChange();
+                        }
+                    }
+                });
+
             }
         }
 
@@ -148,16 +158,16 @@ define(['component'],
         }
 
         oQuestion.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
+
             var incomingValue = broadcastingComponent.element.value;
 
-            if (incomingValue >= rule.value) {
-                rule.satisfied = true;
-            } else {
-                rule.satisfied = false;
-            }
+            rule.satisfied = incomingValue >= rule.value;
         }
 
         oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
+            if (typeof broadcastingComponent.checkbox == "undefined") {
+                return;
+            }
 
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
@@ -168,6 +178,10 @@ define(['component'],
         }
 
         oQuestion.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
+            if (typeof broadcastingComponent.checkbox == "undefined") {
+                return;
+            }
+
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
