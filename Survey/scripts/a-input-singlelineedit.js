@@ -73,6 +73,7 @@ define(['component'],
 
         aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
+            document.addEventListener("change", this, false);
             document.addEventListener("focusin", this, false);
             document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
@@ -80,6 +81,9 @@ define(['component'],
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case "change":
+                    this.onChange(event);
+                    break;
                 case "focusin":
                     this.onFocusIn(event);
                     break;
@@ -89,6 +93,12 @@ define(['component'],
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();
                     break;
+            }
+        }
+
+        aInputSingleLineEdit.prototype.onChange = function (event) {
+            if (event.target === this.element) {
+                this.broadcastChange();
             }
         }
 

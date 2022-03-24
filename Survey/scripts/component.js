@@ -29,6 +29,7 @@ define(
             this.id = id;
             this.group = group;
             this.element = null;
+            this.questionName = app.extractQuestionName(group);
             this.properties = {};
         }
 
@@ -44,11 +45,17 @@ define(
             }
         }
 
-        component.prototype.configurationComplete = function() {
-            var completeEvent = new CustomEvent(this.group + '_configComplete', {bubbles: true, detail: this});
+        component.prototype.configurationComplete = function () {
+            var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             document.dispatchEvent(completeEvent);
+
+            this.broadcastChange();
         }
 
+        component.prototype.broadcastChange = function () {
+            var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
+            document.dispatchEvent(broadcastChange);
+        }
 
         component.prototype.requestInitialSize = function () {
             var requestSize = new CustomEvent(this.group + '_requestSize', {

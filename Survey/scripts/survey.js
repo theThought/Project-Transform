@@ -34,7 +34,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             break;
         case 'oquestion':
         case 'oquestionchoice':
-        case 'oquestioncontainer':
+        case 'oquestionsinglelineedit':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components[id] = new oQuestionChoice(id, group);
             });
@@ -60,14 +60,13 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         default:
-            console.info('A request was made to register an unrecognised component type, ' + componentType + '.')
+            console.warn('A request was made to register an unrecognised component type, ' + componentType + '.')
     }
 
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
     id = this.extractQuestionName(id);
-    console.info('Registering properties for ' + id);
     app.properties[id] = this.sanitiseProperties(props);
 }
 

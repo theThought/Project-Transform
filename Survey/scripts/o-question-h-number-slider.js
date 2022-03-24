@@ -59,6 +59,9 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'broadcastChange':
+                    this.receiveBroadcast(event);
+                    break;
                 case "click":
                 case "input":
                 case "change":
@@ -76,7 +79,7 @@ define(['o-question'],
                 case this.group + "_decrementValue":
                     this.decrementValue();
                     break;
-                case this.group + "_configComplete":
+                case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
             }
@@ -137,6 +140,7 @@ define(['o-question'],
         oQuestionHNumberSlider.prototype.updateValue = function () {
             var updateEvent = new CustomEvent(this.group + '_updateValue', {bubbles: true, detail: this});
             document.dispatchEvent(updateEvent);
+            this.broadcastChange();
         }
 
         oQuestionHNumberSlider.prototype.showTerminators = function () {

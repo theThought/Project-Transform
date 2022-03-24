@@ -54,11 +54,14 @@ define(['o-question'],
 
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'broadcastChange':
+                    this.receiveBroadcast(event);
+                    break;
                 case 'resize':
                 case this.group + '_requestSize':
                     this.onResize();
                     break;
-                case this.group + "_configComplete":
+                case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
             }

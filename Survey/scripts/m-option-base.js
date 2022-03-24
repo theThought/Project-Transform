@@ -85,6 +85,8 @@ define(['component'],
 
             if (event.target === this.checkbox) {
 
+                this.broadcastChange();
+
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
                     var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
