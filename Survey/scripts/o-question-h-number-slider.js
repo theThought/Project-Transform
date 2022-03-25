@@ -33,12 +33,12 @@ define(['o-question'],
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
-            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
 
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
+            this.setInitialFloodToValue();
             this.configurationComplete();
             this.updateValue();
         }
@@ -96,7 +96,7 @@ define(['o-question'],
                 this.updateValue();
                 this.organism.classList.remove('has-value');
                 this.organism.classList.remove('active');
-                this.updateFloodFill();
+                this.setInitialFloodToValue();
                 this.broadcastChange();
             }
         }
@@ -107,6 +107,10 @@ define(['o-question'],
                 this.organism.classList.add('has-value');
                 this.updateFloodFill();
             }
+        }
+
+        oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
+            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
