@@ -37,6 +37,6 @@
   transition: opacity 1s 0ms, z-index 0ms 1s;
   opacity: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: -999;
 }
 /*# sourceMappingURL=m-question-cover.css.map */
