@@ -92,8 +92,11 @@ define(['o-question'],
         oQuestionHNumberSlider.prototype.clearEntries = function (event) {
             if (event.detail.questionName === this.questionName) {
                 this.element.value = "";
+                this.value = 0;
                 this.updateValue();
-                //this.updateFloodFill();
+                this.organism.classList.remove('has-value');
+                this.organism.classList.remove('active');
+                this.updateFloodFill();
                 this.broadcastChange();
             }
         }
