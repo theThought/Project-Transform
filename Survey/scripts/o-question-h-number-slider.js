@@ -93,6 +93,7 @@ define(['o-question'],
             if (event.detail.questionName === this.questionName) {
                 this.element.value = "";
                 this.updateValue();
+                //this.updateFloodFill();
                 this.broadcastChange();
             }
         }
@@ -101,11 +102,11 @@ define(['o-question'],
             if (this.element.getAttribute('value').length) {
                 this.organism.classList.add('active');
                 this.organism.classList.add('has-value');
-                this.updateThumbPosition();
+                this.updateFloodFill();
             }
         }
 
-        oQuestionHNumberSlider.prototype.updateThumbPosition = function () {
+        oQuestionHNumberSlider.prototype.updateFloodFill = function () {
             this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
         }
 
@@ -234,7 +235,7 @@ define(['o-question'],
                     document.dispatchEvent(enableExclusive);
                 }
 
-                this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
+                this.updateFloodFill();
                 this.updateValue();
             }
 
