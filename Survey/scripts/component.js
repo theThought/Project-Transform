@@ -33,9 +33,11 @@ define(
             this.properties = {};
         }
 
-        component.prototype.configureProperties = function () {
-            var propertiesName = this.group;
+        component.prototype.configureProperties = function (propertiesName) {
+            propertiesName = (propertiesName) ?? app.extractQuestionName(this.group);
+
             this.properties = app.getProperties(propertiesName);
+            this.properties.registered = true;
 
             for (var prop in this.properties) {
                 if (this.properties.hasOwnProperty(prop)

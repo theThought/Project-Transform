@@ -60,9 +60,21 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         default:
-            console.warn('A request was made to register an unrecognised component type, ' + componentType + '.')
+            console.info('A request was made to register an unrecognised component type, ' + componentType + '.')
     }
 
+}
+
+Survey.prototype.checkProperties = function () {
+    for (var prop in app.properties) {
+        if (!app.properties[prop].registered) {
+            console.warn('Properties registered for ' + prop + ' were not used by any component.');
+        }
+    }
+}
+
+Survey.prototype.registerInitialState = function (id, value) {
+    app.initialvalues[id] = value;
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
