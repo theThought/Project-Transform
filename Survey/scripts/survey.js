@@ -7,6 +7,7 @@
 function Survey() {
     this.components = {};
     this.properties = {};
+    this.initialvalues = {};
 }
 
 Survey.prototype.registerComponent = function (componentType, id, group) {

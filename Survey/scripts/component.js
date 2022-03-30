@@ -29,6 +29,7 @@ define(
             this.id = id;
             this.group = group;
             this.element = null;
+            this.value = null;
             this.questionName = app.extractQuestionName(group);
             this.properties = {};
         }
@@ -48,10 +49,21 @@ define(
         }
 
         component.prototype.configurationComplete = function () {
+            this.registerInitialState();
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             document.dispatchEvent(completeEvent);
 
             this.broadcastChange();
+        }
+
+        component.prototype.registerInitialState = function () {
+            if (typeof this.element.value !== 'undefined') {
+                app.registerInitialState(this.id, this.element.value);
+            }
+
+            if (typeof this.checkbox !== "undefined") {
+                app.registerInitialState(this.id, this.checkbox.checked);
+            }
         }
 
         component.prototype.broadcastChange = function (value) {
