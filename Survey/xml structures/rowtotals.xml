@@ -1,0 +1,380 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine"></Style>
+    <Table UseTablesLayout="-1" Summary="Indicate the number of hours worked this week, by your team">
+      <Row Y="0">
+        <Cell X="1" Y="0" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Monday</Text>
+          </Label>
+        </Cell>
+        <Cell X="2" Y="0" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Tuesday</Text>
+          </Label>
+        </Cell>
+        <Cell X="3" Y="0" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Wednesday</Text>
+          </Label>
+        </Cell>
+        <Cell X="4" Y="0" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Thursday</Text>
+          </Label>
+        </Cell>
+        <Cell X="5" Y="0" Class="mrGridQuestionText">
+          <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Friday</Text>
+          </Label>
+        </Cell>
+        <Cell X="0" Y="0"></Cell>
+      </Row>
+      <Row Y="1">
+        <Cell X="0" Y="1" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+            <Text>Jake</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="1">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJake_QHoursMon" ElementID="_Q0_Q0_Q0" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="1">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJake_QHoursTue" ElementID="_Q0_Q0_Q1" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="3" Y="1">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJake_QHoursWed" ElementID="_Q0_Q0_Q2" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="4" Y="1">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJake_QHoursThu" ElementID="_Q0_Q0_Q3" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="5" Y="1">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJake_QHoursFri" ElementID="_Q0_Q0_Q4" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+      </Row>
+      <Row Y="2">
+        <Cell X="0" Y="2" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+            <Text>Mary</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="2">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QMary_QHoursMon" ElementID="_Q0_Q1_Q0" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="2">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QMary_QHoursTue" ElementID="_Q0_Q1_Q1" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="3" Y="2">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QMary_QHoursWed" ElementID="_Q0_Q1_Q2" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="4" Y="2">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QMary_QHoursThu" ElementID="_Q0_Q1_Q3" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="5" Y="2">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QMary_QHoursFri" ElementID="_Q0_Q1_Q4" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+      </Row>
+      <Row Y="3">
+        <Cell X="0" Y="3" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+            <Text>Sally</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="3">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QSally_QHoursMon" ElementID="_Q0_Q2_Q0" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="3">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QSally_QHoursTue" ElementID="_Q0_Q2_Q1" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="3" Y="3">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QSally_QHoursWed" ElementID="_Q0_Q2_Q2" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="4" Y="3">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QSally_QHoursThu" ElementID="_Q0_Q2_Q3" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="5" Y="3">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QSally_QHoursFri" ElementID="_Q0_Q2_Q4" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+      </Row>
+      <Row Y="4">
+        <Cell X="0" Y="4" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+            <Text>Jane</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="4">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJane_QHoursMon" ElementID="_Q0_Q3_Q0" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="4">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJane_QHoursTue" ElementID="_Q0_Q3_Q1" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="3" Y="4">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJane_QHoursWed" ElementID="_Q0_Q3_Q2" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="4" Y="4">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJane_QHoursThu" ElementID="_Q0_Q3_Q3" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="5" Y="4">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QJane_QHoursFri" ElementID="_Q0_Q3_Q4" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+      </Row>
+      <Row Y="5">
+        <Cell X="0" Y="5" Class="mrGridCategoryText">
+          <Label>
+            <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+            <Text>Fred</Text>
+          </Label>
+        </Cell>
+        <Cell X="1" Y="5">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QFred_QHoursMon" ElementID="_Q0_Q4_Q0" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="2" Y="5">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QFred_QHoursTue" ElementID="_Q0_Q4_Q1" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="3" Y="5">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QFred_QHoursWed" ElementID="_Q0_Q4_Q2" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="4" Y="5">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QFred_QHoursThu" ElementID="_Q0_Q4_Q3" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+        <Cell X="5" Y="5">
+          <Question>
+            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+              <Control Type="SingleLineEdit"></Control>
+            </Style>
+            <Control Type="SingleLineEdit" QuestionName="_QRowTotals_QFred_QHoursFri" ElementID="_Q0_Q4_Q4" Value="" Length="2">
+              <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                <Control Type="SingleLineEdit"></Control>
+              </Style>
+            </Control>
+          </Question>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>
