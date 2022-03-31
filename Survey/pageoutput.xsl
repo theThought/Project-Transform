@@ -7,12 +7,6 @@
    <xsl:param name="bShowOnly" select="false()" />
    <xsl:param name="bAutoComplete" select="false()" />
 
-  <xsl:template match="/">
-    <xsl:element name="XML">
-       <xsl:apply-templates />
-    </xsl:element>
-  </xsl:template>
-
    <xsl:template match="*">
    <xsl:if test="name() != ''">
     <xsl:element name="{name()}">
@@ -25,4 +19,5 @@
     </xsl:element>
    </xsl:if>
    </xsl:template>
+
 </xsl:stylesheet>
