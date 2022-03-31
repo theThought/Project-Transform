@@ -174,6 +174,15 @@
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
+              <xsl:call-template name="appComponentScript">
+                 <xsl:with-param name="ComponentName" select="'oQuestionGrid'" />
+                 <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
+                 <xsl:with-param name="FullName">
+                    <xsl:call-template name="CalculateQuestionName">
+                       <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+                    </xsl:call-template>
+                 </xsl:with-param>
+               </xsl:call-template>
                <xsl:attribute name="class">
                   <xsl:text>o-structure-table</xsl:text>
                </xsl:attribute>
