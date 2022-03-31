@@ -74,6 +74,7 @@ define(['component'],
         aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("change", this, false);
+            document.addEventListener("keyup", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("focusin", this, false);
             document.addEventListener("focusout", this, false);
@@ -82,6 +83,7 @@ define(['component'],
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case "keyup":
                 case "change":
                     this.onChange(event);
                     break;
