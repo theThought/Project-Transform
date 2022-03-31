@@ -29,15 +29,33 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.rowtotals = {};
+            this.columntotals = {};
 
             var gridid = group.toLowerCase();
             var grididarray = gridid.split('_q');
             gridid = grididarray[grididarray.length - 3];
+
             this.configureProperties(gridid);
+            this.configurationComplete();
         }
 
         oQuestionGrid.prototype = Object.create(component.prototype);
         oQuestionGrid.prototype.constructor = oQuestionGrid;
+
+        oQuestionGrid.prototype.configureIncomingEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
+            document.addEventListener("broadcastChange", this, false);
+            document.addEventListener("configComplete", this, false);
+        }
+
+        oQuestionGrid.prototype.handleEvent = function (event) {
+            switch (event.type) {
+                case "broadcastChange":
+                    this.receiveBroadcast(event);
+                    break;
+            }
+        }
 
         oQuestionGrid.prototype.totals = function (props) {
             if (typeof props['rows'] == "object") {
@@ -49,6 +67,12 @@ define(['component'],
             }
         }
 
+        oQuestionGrid.prototype.receiveBroadcast = function (event) {
+            if (event.detail.id) {
+
+            }
+        }
+
         oQuestionGrid.prototype.configureRowTotals = function (props) {
             if (!props['visible']) {
                 return;
@@ -56,7 +80,7 @@ define(['component'],
 
             var grid = this.element.getElementsByClassName('o-structure-table')[0];
             var rowcount = grid.rows.length;
-            var title = props['title'] ?? '';
+            var title = (typeof props['title'] === 'undefined') ? '' : props['title'];
 
             for (var i = 0; i < rowcount; i++) {
                 var totalcell = grid.rows[i].insertCell(-1);
@@ -66,7 +90,9 @@ define(['component'],
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell m-structure-cell-total';
-                    totalcell.innerHTML = '<div class="a-row-total"><span>0</span></div>';
+                    totalcell.innerHTML = '<div class="a-row-total" data-rownumber="' + i + '"><span>0</span></div>';
+                    totalcell.onchange = function () {
+                    };
                 }
             }
 
@@ -81,7 +107,7 @@ define(['component'],
             var columncount = grid.rows[0].cells.length;
             var totalrow = grid.insertRow(-1);
             totalrow.className = 'm-structure-column-totals';
-            var title = props['title'] ?? '';
+            var title = (typeof props['title'] === 'undefined') ? '' : props['title'];
 
             for (var i = 0; i < columncount; i++) {
                 var totalcell = totalrow.insertCell(i);

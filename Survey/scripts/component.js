@@ -35,7 +35,7 @@ define(
         }
 
         component.prototype.configureProperties = function (propertiesName) {
-            propertiesName = (propertiesName) ?? app.extractQuestionName(this.group);
+            propertiesName = (typeof propertiesName === 'undefined') ? app.extractQuestionName(this.group) : propertiesName;
 
             this.properties = app.getProperties(propertiesName);
             this.properties.registered = true;
