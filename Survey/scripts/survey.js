@@ -33,9 +33,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id] = new aInputMultilineEdit(id, group);
             });
             break;
-        case 'ogridbase':
-            requirejs(['o-grid-base'], function (oGridBase) {
-                app.components[id] = new oGridBase(id, group);
+        case 'oquestiongrid':
+            requirejs(['o-question-grid'], function (oQuestionGrid) {
+                app.components[id] = new oQuestionGrid(id, group);
             });
             break;
         case 'oquestion':

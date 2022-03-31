@@ -25,7 +25,7 @@ define(['component'],
          * @param {String} group - question group
          */
 
-        function oGridBase(id, group) {
+        function oQuestionGrid(id, group) {
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
@@ -36,10 +36,10 @@ define(['component'],
             this.configureProperties(gridid);
         }
 
-        oGridBase.prototype = Object.create(component.prototype);
-        oGridBase.prototype.constructor = oGridBase;
+        oQuestionGrid.prototype = Object.create(component.prototype);
+        oQuestionGrid.prototype.constructor = oQuestionGrid;
 
-        oGridBase.prototype.totals = function (props) {
+        oQuestionGrid.prototype.totals = function (props) {
             if (typeof props['rows'] == "object") {
                 this.configureRowTotals(props['rows']);
             }
@@ -49,7 +49,7 @@ define(['component'],
             }
         }
 
-        oGridBase.prototype.configureRowTotals = function (props) {
+        oQuestionGrid.prototype.configureRowTotals = function (props) {
             if (!props['visible']) {
                 return;
             }
@@ -72,7 +72,7 @@ define(['component'],
 
         }
 
-        oGridBase.prototype.configureColumnTotals = function (props) {
+        oQuestionGrid.prototype.configureColumnTotals = function (props) {
             if (!props['visible']) {
                 return;
             }
@@ -96,6 +96,6 @@ define(['component'],
             }
         }
 
-        return oGridBase;
+        return oQuestionGrid;
 
     });
