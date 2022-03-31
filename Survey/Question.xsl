@@ -14,15 +14,6 @@
    <xsl:template match="Question">
       <xsl:param name="bWithinTable" select="false()" />
       <xsl:param name="SubQuestion" select="false()" />
-        <xsl:call-template name="appComponentScript">
-           <xsl:with-param name="ComponentName" select="'oQuestionContainer'" />
-           <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
-           <xsl:with-param name="FullName">
-              <xsl:call-template name="CalculateQuestionName">
-                 <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-              </xsl:call-template>
-           </xsl:with-param>
-         </xsl:call-template>
   <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
