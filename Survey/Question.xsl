@@ -27,6 +27,7 @@
                   <xsl:with-param name="theID" select="Style/@ZIndex" />
                </xsl:call-template>
             </xsl:variable>
+            <xsl:if test="$qGroupName!=''">
             <xsl:element name="div">
                <xsl:attribute name="class">
                   <xsl:text>o-question-response</xsl:text>
@@ -102,6 +103,7 @@
                   </xsl:choose>
                </xsl:for-each>
             </xsl:element>
+            </xsl:if>
          </xsl:when>
          <xsl:otherwise>
             <xsl:for-each select="*">
@@ -1516,7 +1518,30 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
-      <xsl:element name="td">
+        <xsl:variable name="cellType">
+          <xsl:choose>
+            <xsl:when test="@Class='mrGridCategoryText'">
+              <xsl:text>th</xsl:text>
+            </xsl:when>
+            <xsl:when test="@Class='mrGridQuestionText'">
+              <xsl:text>th</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>td</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="cellScope">
+          <xsl:choose>
+            <xsl:when test="@Class='mrGridCategoryText'">
+              <xsl:text>row</xsl:text>
+            </xsl:when>
+            <xsl:when test="@Class='mrGridQuestionText'">
+              <xsl:text>column</xsl:text>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:variable>
+      <xsl:element name="{$cellType}">
          <xsl:attribute name="class">
             <xsl:text>m-structure-cell</xsl:text>
             <xsl:if test="*/Style/@BgColor != ''">
@@ -1525,6 +1550,11 @@
                <xsl:value-of select="*/Style/@BgColor" />
             </xsl:if>
          </xsl:attribute>
+         <xsl:if test="$cellScope!=''">
+             <xsl:attribute name="scope">
+                 <xsl:value-of select="$cellScope" />
+             </xsl:attribute>
+         </xsl:if>
          <xsl:if test="@WeightY != ''">
             <xsl:attribute name="rowspan">
                <xsl:value-of select="@WeightY" />
