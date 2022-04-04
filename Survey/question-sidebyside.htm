@@ -1,5 +1,12 @@
 <mrSubTemplate>
 	<div class="o-question-container sidebyside">
+		<script type="text/javascript">
+		var questionName='<mrData QuestionElement="Parameter" Type="FullQuestionName"/>';
+		var questionId='<mrData QuestionElement="Parameter" Type="QuestionId"/>'
+		document.currentScript.parentNode.setAttribute('data-questiongroup', questionName);
+		document.currentScript.parentNode.setAttribute('id', questionId);
+		</script>
+		<mrData QuestionElement="Banner"  Name="RegisterContainer" />
 		<mrData QuestionElement="Banner"  Name="CustomProperties" />
 		<div class="m-question-cover"><!-- cover --></div>
 		<div class='o-question-errorandinstruction'>
