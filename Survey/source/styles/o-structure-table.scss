@@ -1,3 +1,19 @@
+@use 'globals';
+
 .o-structure-table {
     border-collapse: collapse;
+
+    caption,
+    th,
+    .m-structure-cell-column-total-title {
+        font-family: "Merriweather", serif;
+        font-weight: normal;
+        color: globals.$titles;
+    }
+
+    caption {
+        caption-side: top;
+        text-align: left;
+    }
+
 }

@@ -5,6 +5,10 @@
   cursor: default;
 }
 
+th .a-label-option {
+  color: #212C4C;
+}
+
 .a-label-option {
   color: #455B97;
   padding: 0;
