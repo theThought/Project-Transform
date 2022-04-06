@@ -3,6 +3,7 @@
 }
 .o-structure-table caption,
 .o-structure-table th,
+.o-structure-table .m-structure-cell-row-total-title,
 .o-structure-table .m-structure-cell-column-total-title {
   font-family: "Merriweather", serif;
   font-weight: normal;
