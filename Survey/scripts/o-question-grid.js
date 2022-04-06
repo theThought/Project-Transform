@@ -29,8 +29,9 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
-            this.rowtotals = {};
-            this.columntotals = {};
+            this.grid = this.element.getElementsByClassName('o-structure-table')[0];
+            this.rowtotals = [];
+            this.columntotals = [];
 
             var gridid = group.toLowerCase();
             var grididarray = gridid.split('_q');
@@ -71,6 +72,11 @@ define(['component'],
             if (event.detail.id) {
 
             }
+        }
+
+        oQuestionGrid.prototype.caption = function (caption) {
+            var newcaption = this.grid.createCaption();
+            newcaption.innerHTML = caption;
         }
 
         oQuestionGrid.prototype.configureRowTotals = function (props) {
