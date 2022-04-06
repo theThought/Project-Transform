@@ -59,12 +59,34 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.totals = function (props) {
-            if (typeof props['rows'] == "object") {
+            if (typeof props['rows'] == "object" && props['rows']['visible']) {
                 this.configureRowTotals(props['rows']);
+                this.getTableInputElements('row');
             }
 
-            if (typeof props['columns'] == "object") {
+            if (typeof props['columns'] == "object" && props['columns']['visible']) {
                 this.configureColumnTotals(props['columns']);
+                this.getTableInputElements('column');
+            }
+        }
+
+        oQuestionGrid.prototype.getTableInputElements = function (direction) {
+
+            for (var i = 0, row; row = this.grid.rows[i]; i++) {
+
+                // iterating through rows initially
+                // rows are accessed using the "row" variable
+
+                for (var j = 0, col; col = row.cells[j]; j++) {
+                    // nested column iteration
+                    // required to retrieve input elements
+                    if (inputelement = col.getElementsByTagName('input')[0]) {
+                        var inputelementid = inputelement.id;
+                        this[direction+'totals'][inputelementid] = inputelement.value;
+                    }
+
+
+                }
             }
         }
 
@@ -84,15 +106,14 @@ define(['component'],
                 return;
             }
 
-            var grid = this.element.getElementsByClassName('o-structure-table')[0];
-            var rowcount = grid.rows.length;
+            var rowcount = this.grid.rows.length;
             var title = (typeof props['title'] === 'undefined') ? '' : props['title'];
 
             for (var i = 0; i < rowcount; i++) {
-                var totalcell = grid.rows[i].insertCell(-1);
+                var totalcell = this.grid.rows[i].insertCell(-1);
 
                 if (i === 0) {
-                    totalcell.className = 'm-structure-cell m-structure-cell-total-title';
+                    totalcell.className = 'm-structure-cell m-structure-cell-row-total-title';
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell m-structure-cell-total';
@@ -109,16 +130,15 @@ define(['component'],
                 return;
             }
 
-            var grid = this.element.getElementsByClassName('o-structure-table')[0];
-            var columncount = grid.rows[0].cells.length;
-            var totalrow = grid.insertRow(-1);
+            var columncount = this.grid.rows[0].cells.length;
+            var totalrow = this.grid.insertRow(-1);
             totalrow.className = 'm-structure-column-totals';
             var title = (typeof props['title'] === 'undefined') ? '' : props['title'];
 
             for (var i = 0; i < columncount; i++) {
                 var totalcell = totalrow.insertCell(i);
                 if (i === 0) {
-                    totalcell.className = 'm-structure-cell m-structure-cell-total-title';
+                    totalcell.className = 'm-structure-cell m-structure-cell-column-total-title';
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell m-structure-cell-total';
