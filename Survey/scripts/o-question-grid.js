@@ -107,7 +107,7 @@ define(['component'],
             }
 
             var rowcount = this.grid.rows.length;
-            var title = (typeof props['title'] === 'undefined') ? '' : props['title'];
+            var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
 
             for (var i = 0; i < rowcount; i++) {
                 var totalcell = this.grid.rows[i].insertCell(-1);
@@ -133,7 +133,7 @@ define(['component'],
             var columncount = this.grid.rows[0].cells.length;
             var totalrow = this.grid.insertRow(-1);
             totalrow.className = 'm-structure-column-totals';
-            var title = (typeof props['title'] === 'undefined') ? '' : props['title'];
+            var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
 
             for (var i = 0; i < columncount; i++) {
                 var totalcell = totalrow.insertCell(i);
