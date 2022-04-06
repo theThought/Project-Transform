@@ -29,7 +29,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.ready = false;
-            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.element = document.querySelector('div[data-questiongroup*="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
             this.visibilityRules = [];
 
