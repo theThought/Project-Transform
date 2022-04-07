@@ -97,6 +97,10 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.receiveBroadcast = function (event) {
+            if (event.detail.element.tagName !== 'INPUT') {
+                return;
+            }
+
             var rowindex = this.rowtotals.map(function(e) { return e.id; }).indexOf(event.detail.id);
             var elementvalue = Number(event.detail.element.value);
 
