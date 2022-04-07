@@ -1,1077 +1,555 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Language" content="en-US" />
-  <meta http-equiv="Expires" content="-1" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta name="Robots" content="noindex, nofollow" />
-  <meta name="Generator" content="Interviewer Server HTML Player 1.0.23..312" />
-  <meta name="Template" content="page.htm" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/base.css" />
-  <script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js">
-    <!-- Require Script -->
-  </script>
-  <script type="text/javascript">
-    require.config({
-      baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts'
-    });
-  </script>
-  <script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">
-    //Survey Class
-  </script>
-  <script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">
-    //Global Code
-  </script>
-  <script type="text/javascript">
-    require(['main'], function() {});
-  </script>
-  <title>Ipsos Healthcare Research</title>
-  <link rel="apple-touch-icon" sizes="57x57" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-32x32.png" />
-  <!-- <link rel="manifest" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/manifest.json" /> -->
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
-</head>
-
-<body>
-  <form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden" name="I.Session" value="6yv1t6j3ewdunce3sprpsksy3uaqaaaa" /><input
-      type="hidden" name="I.SavePoint" value="TotalsPage-1" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
-    <div class="header">
-      <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png" />
-      <div class="overall-progress">
-        <div class="overall-progress-text">
-          <!-- progress text -->
-        </div>
-        <div class="overall-progress-bar">
-          <table style="height: 100%; width: 100%">
-            <tr>
-              <td style="width: 80%; background-color: #D0DAE6" />
-              <td />
-            </tr>
-          </table><!-- progress bar -->
-        </div>
-      </div>
-    </div>
-    <div class="surroundcontent">
-      <script type="text/javascript">
-        app.RegisterProperties('_Qrowtotals', {
-          "totals": {
-            "rows": {
-              "visible": true,
-              "exceptions": [],
-              "caption": "Total Hours"
-            },
-            "columns": {
-              "visible": false
-            }
-          }
-        });
-      </script>
-      <script type="text/javascript">
-        app.RegisterProperties('_QHoursMon', {
-          "type": "number"
-        });
-      </script>
-      <script type="text/javascript">
-        app.RegisterProperties('_QHoursTue', {
-          "type": "number"
-        });
-      </script>
-      <script type="text/javascript">
-        app.RegisterProperties('_QHoursWed', {
-          "type": "number"
-        });
-      </script>
-      <script type="text/javascript">
-        app.RegisterProperties('_QHoursThu', {
-          "type": "number"
-        });
-      </script>
-      <script type="text/javascript">
-        app.RegisterProperties('_QHoursFri', {
-          "type": "number"
-        });
-      </script>
-      <script>app.registerComponent('oQuestionContainer','_Q0','_QTotalsPage_QRowTotals');</script>Indicate the number of hours worked this week, by your team<div><br /></div>
-      <div class="o-question-response o-question-" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-        <script>app.registerComponent('oQuestion','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-        <table class="o-structure-table" name="Indicate the number of hours worked this week, by your team">
-          <script>app.registerComponent('oQuestionGrid','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-          <tr class="m-structure-row">
-            <td class="m-structure-cell" style=""></td>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Monday</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Tuesday</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Wednesday</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Thursday</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Friday</span>
-            </th>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Jake</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q0_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursMon" id="_Q0_Q0_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="6" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q0_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursTue" id="_Q0_Q0_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="6" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q1','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q0_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursWed" id="_Q0_Q0_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q2','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q0_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursThu" id="_Q0_Q0_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="8" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q3','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q0_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursFri" id="_Q0_Q0_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="10" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q4','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Mary</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q1_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursMon" id="_Q0_Q1_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="3" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q1_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursTue" id="_Q0_Q1_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q1','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q1_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursWed" id="_Q0_Q1_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q2','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q1_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursThu" id="_Q0_Q1_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q3','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q1_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursFri" id="_Q0_Q1_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q4','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Sally</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q2_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursMon" id="_Q0_Q2_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="3" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q2_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursTue" id="_Q0_Q2_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="7" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q1','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q2_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursWed" id="_Q0_Q2_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q2','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q2_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursThu" id="_Q0_Q2_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="2" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q3','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q2_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursFri" id="_Q0_Q2_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="6" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q4','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Jane</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q3_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursMon" id="_Q0_Q3_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q3_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursTue" id="_Q0_Q3_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="3" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q1','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q3_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursWed" id="_Q0_Q3_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q2','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q3_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursThu" id="_Q0_Q3_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="10" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q3','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q3_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursFri" id="_Q0_Q3_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="3" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q4','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Fred</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q4_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursMon" id="_Q0_Q4_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="4" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q4_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursTue" id="_Q0_Q4_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="5" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q1','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q4_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursWed" id="_Q0_Q4_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="7" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q2','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q4_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursThu" id="_Q0_Q4_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="10" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q3','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
-                <input data-questionid="_Q0_Q4_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursFri" id="_Q0_Q4_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>
-                  app.registerComponent('aInputSinglelineedit', '_Q0_Q4_Q4', '_QTotalsPage_QRowTotals_QJake_QHoursMon');
-                </script>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div><br /></div>
-      <script type="text/javascript">
-        app.RegisterProperties('_Qcolumntotals', {
-          "totals": {
-            "rows": {
-              "visible": false,
-              "exceptions": []
-            },
-            "columns": {
-              "visible": true,
-              "caption": "Total<br/>Hours"
-            }
-          }
-        });
-      </script>
-      <script>app.registerComponent('oQuestionContainer','_Q1','_QTotalsPage_Qcolumntotals');</script>Indicate the number of hours worked by the team on each project<div><br /></div>
-      <div class="o-question-response o-question-" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-        <script>app.registerComponent('oQuestion','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-        <table class="o-structure-table" name="Indicate the number of hours worked by the team on each project">
-          <script>app.registerComponent('oQuestionGrid','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-          <tr class="m-structure-row">
-            <td class="m-structure-cell" style=""></td>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Project Jupiter</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Project Neptune</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Project Saturn</span>
-            </th>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Monday</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q0_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QMon_QProjectA" id="_Q1_Q0_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="39" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q0_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QMon_QProjectB" id="_Q1_Q0_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="34" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q0_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QMon_QProjectC" id="_Q1_Q0_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="35" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q2','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Tuesday</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q1_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QTue_QProjectA" id="_Q1_Q1_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="26" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q1_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QTue_QProjectB" id="_Q1_Q1_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="7" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q1_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QTue_QProjectC" id="_Q1_Q1_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="35" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q2','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Wednesday</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q2_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QWed_QProjectA" id="_Q1_Q2_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="18" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q2_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QWed_QProjectB" id="_Q1_Q2_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="49" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q2_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QWed_QProjectC" id="_Q1_Q2_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="46" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q2','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Thursday</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q3_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QThu_QProjectA" id="_Q1_Q3_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q3_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QThu_QProjectB" id="_Q1_Q3_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="46" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q3_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QThu_QProjectC" id="_Q1_Q3_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="4" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q2','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Friday</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q4_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QFri_QProjectA" id="_Q1_Q4_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="45" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q4_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QFri_QProjectB" id="_Q1_Q4_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="41" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
-                <input data-questionid="_Q1_Q4_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" type="text" name="_QTotalsPage_Qcolumntotals_QFri_QProjectC" id="_Q1_Q4_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="42" />
-                <script>
-                  app.registerComponent('aInputSinglelineedit', '_Q1_Q4_Q2', '_QTotalsPage_Qcolumntotals_QMon_QProjectA');
-                </script>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div><br /></div>
-      <script type="text/javascript">
-        app.RegisterProperties('_Qgrandtotals', {
-          "topleft": "Fruit Consumed",
-          "totals": {
-            "rows": {
-              "visible": true,
-              "caption": "Total"
-            },
-            "columns": {
-              "visible": true,
-              "caption": "Total"
-            }
-          }
-        });
-      </script>
-      <script>app.registerComponent('oQuestionContainer','_Q2','_QTotalsPage_QGrandtotals');</script>Record the amount of fruit consumed by the family<div><br /></div>
-      <div class="o-question-response o-question-" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-        <script>app.registerComponent('oQuestion','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-        <table class="o-structure-table" name="Record the amount of fruit consumed by the family">
-          <script>app.registerComponent('oQuestionGrid','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-          <tr class="m-structure-row">
-            <td class="m-structure-cell" style=""></td>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Banana</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Apple</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Orange</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">kiwi fruit</span>
-            </th>
-            <th class="m-structure-cell" scope="column" style="">
-              <span class="a-label-option">Satsuma</span>
-            </th>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Jake</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q0_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJake_QBanana" id="_Q2_Q0_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q0_Q0_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q0_Q0_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJake_QBanana_XnoBananas" id="_Q2_Q0_Q0_X0" style="" value="noBananas" />
-                  <label for="_Q2_Q0_Q0_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q0_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJake_QApple" id="_Q2_Q0_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="7" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q1','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q0_Q1_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q0_Q1_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJake_QApple_XnoApples" id="_Q2_Q0_Q1_X0" style="" value="noApples" />
-                  <label for="_Q2_Q0_Q1_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q0_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJake_QOrange" id="_Q2_Q0_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q2','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q0_Q2_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q0_Q2_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJake_QOrange_XnoOranges" id="_Q2_Q0_Q2_X0" style="" value="noOranges" checked="" />
-                  <label for="_Q2_Q0_Q2_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q0_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJake_Qkiwi" id="_Q2_Q0_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q3','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q0_Q3_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q0_Q3_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJake_Qkiwi_Xnokiwis" id="_Q2_Q0_Q3_X0" style="" value="nokiwis" checked="" />
-                  <label for="_Q2_Q0_Q3_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q0_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJake_QSatsuma" id="_Q2_Q0_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q4','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q0_Q4_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q0_Q4_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJake_QSatsuma_XnoSatsumas" id="_Q2_Q0_Q4_X0" style="" value="noSatsumas" checked="" />
-                  <label for="_Q2_Q0_Q4_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Mary</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q1_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QMary_QBanana" id="_Q2_Q1_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="2" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q1_Q0_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q1_Q0_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QMary_QBanana_XnoBananas" id="_Q2_Q1_Q0_X0" style="" value="noBananas" />
-                  <label for="_Q2_Q1_Q0_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q1_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QMary_QApple" id="_Q2_Q1_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q1','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q1_Q1_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q1_Q1_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QMary_QApple_XnoApples" id="_Q2_Q1_Q1_X0" style="" value="noApples" checked="" />
-                  <label for="_Q2_Q1_Q1_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q1_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QMary_QOrange" id="_Q2_Q1_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q2','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q1_Q2_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q1_Q2_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QMary_QOrange_XnoOranges" id="_Q2_Q1_Q2_X0" style="" value="noOranges" checked="" />
-                  <label for="_Q2_Q1_Q2_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q1_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QMary_Qkiwi" id="_Q2_Q1_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="5" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q3','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q1_Q3_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q1_Q3_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QMary_Qkiwi_Xnokiwis" id="_Q2_Q1_Q3_X0" style="" value="nokiwis" />
-                  <label for="_Q2_Q1_Q3_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q1_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QMary_QSatsuma" id="_Q2_Q1_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q4','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q1_Q4_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q1_Q4_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QMary_QSatsuma_XnoSatsumas" id="_Q2_Q1_Q4_X0" style="" value="noSatsumas" />
-                  <label for="_Q2_Q1_Q4_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Sally</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q2_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QSally_QBanana" id="_Q2_Q2_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q2_Q0_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q2_Q0_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QSally_QBanana_XnoBananas" id="_Q2_Q2_Q0_X0" style="" value="noBananas" checked="" />
-                  <label for="_Q2_Q2_Q0_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q2_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QSally_QApple" id="_Q2_Q2_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q1','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q2_Q1_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q2_Q1_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QSally_QApple_XnoApples" id="_Q2_Q2_Q1_X0" style="" value="noApples" checked="" />
-                  <label for="_Q2_Q2_Q1_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q2_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QSally_QOrange" id="_Q2_Q2_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="4" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q2','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q2_Q2_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q2_Q2_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QSally_QOrange_XnoOranges" id="_Q2_Q2_Q2_X0" style="" value="noOranges" />
-                  <label for="_Q2_Q2_Q2_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q2_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QSally_Qkiwi" id="_Q2_Q2_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="7" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q3','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q2_Q3_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q2_Q3_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QSally_Qkiwi_Xnokiwis" id="_Q2_Q2_Q3_X0" style="" value="nokiwis" />
-                  <label for="_Q2_Q2_Q3_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q2_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QSally_QSatsuma" id="_Q2_Q2_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q4','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q2_Q4_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q2_Q4_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QSally_QSatsuma_XnoSatsumas" id="_Q2_Q2_Q4_X0" style="" value="noSatsumas" checked="" />
-                  <label for="_Q2_Q2_Q4_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Jane</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q3_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJane_QBanana" id="_Q2_Q3_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="10" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q3_Q0_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q3_Q0_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJane_QBanana_XnoBananas" id="_Q2_Q3_Q0_X0" style="" value="noBananas" />
-                  <label for="_Q2_Q3_Q0_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q3_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJane_QApple" id="_Q2_Q3_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="9" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q1','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q3_Q1_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q3_Q1_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJane_QApple_XnoApples" id="_Q2_Q3_Q1_X0" style="" value="noApples" />
-                  <label for="_Q2_Q3_Q1_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q3_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJane_QOrange" id="_Q2_Q3_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q2','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q3_Q2_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q3_Q2_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJane_QOrange_XnoOranges" id="_Q2_Q3_Q2_X0" style="" value="noOranges" />
-                  <label for="_Q2_Q3_Q2_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q3_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJane_Qkiwi" id="_Q2_Q3_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q3','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q3_Q3_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q3_Q3_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJane_Qkiwi_Xnokiwis" id="_Q2_Q3_Q3_X0" style="" value="nokiwis" />
-                  <label for="_Q2_Q3_Q3_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q3_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QJane_QSatsuma" id="_Q2_Q3_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q4','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q3_Q4_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q3_Q4_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QJane_QSatsuma_XnoSatsumas" id="_Q2_Q3_Q4_X0" style="" value="noSatsumas" checked="" />
-                  <label for="_Q2_Q3_Q4_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr class="m-structure-row">
-            <th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-              <span class="a-label-option">Fred</span>
-            </th>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q4_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QFred_QBanana" id="_Q2_Q4_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="10" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q4_Q0_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q4_Q0_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QFred_QBanana_XnoBananas" id="_Q2_Q4_Q0_X0" style="" value="noBananas" />
-                  <label for="_Q2_Q4_Q0_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q4_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QFred_QApple" id="_Q2_Q4_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="1" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q1','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q4_Q1_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q4_Q1_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QFred_QApple_XnoApples" id="_Q2_Q4_Q1_X0" style="" value="noApples" />
-                  <label for="_Q2_Q4_Q1_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q4_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QFred_QOrange" id="_Q2_Q4_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="0" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q2','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q4_Q2_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q4_Q2_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QFred_QOrange_XnoOranges" id="_Q2_Q4_Q2_X0" style="" value="noOranges" />
-                  <label for="_Q2_Q4_Q2_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q4_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QFred_Qkiwi" id="_Q2_Q4_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q3','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q4_Q3_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q4_Q3_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QFred_Qkiwi_Xnokiwis" id="_Q2_Q4_Q3_X0" style="" value="nokiwis" checked="" />
-                  <label for="_Q2_Q4_Q3_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-            <td class="m-structure-cell" valign="Middle" align="Center" style="">
-              <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                <script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <input data-questionid="_Q2_Q4_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" type="text" name="_QTotalsPage_QGrandtotals_QFred_QSatsuma" id="_Q2_Q4_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      "
-                  maxlength="2" value="9" />
-                <script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q4','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                <div class="m-option-base" data-exclusive="true" data-questionid="_Q2_Q4_Q4_X0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana">
-                  <script>app.registerComponent('mOptionBase','_Q2_Q4_Q4_X0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
-                  <input class="hiddencontrol" type="checkbox" name="_QTotalsPage_QGrandtotals_QFred_QSatsuma_XnoSatsumas" id="_Q2_Q4_Q4_X0" style="" value="noSatsumas" />
-                  <label for="_Q2_Q4_Q4_X0">
-                    <span class="a-icon-multistate" data-icontype="multiple">
-                      <!--This is a comment!-->
-                    </span>
-                    <span class="a-label-option">none</span>
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div><br /></div>
-    </div>
-    <div class="footer">
-      <div id="nav-controls" class="btn-container nav-center">
-        <div id="nextonly">
-          <input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
-        </div>
-        <div id="prevstop">
-          <input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
-          <input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
-        </div>
-      </div>
-      <div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
-    </div>
-  </form>
-</body>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta http-equiv="Content-Language" content="en-US"/><meta http-equiv="Expires" content="-1"/><meta http-equiv="Pragma" content="no-cache"/><meta name="Robots" content="noindex, nofollow"/><meta name="Generator" content="Interviewer Server HTML Player 1.0.23..312"/><meta name="Template" content="page.htm"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/base.css"/>
+		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js"><!-- Require Script --></script>
+		<script type="text/javascript">
+		require.config({
+			baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts'
+		});
+	</script>
+		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
+		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
+		<script type="text/javascript">
+		require(['main'], function() {});
+	</script>
+		<title>Ipsos Healthcare Research</title>
+		<link rel="apple-touch-icon" sizes="57x57" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-57x57.png"/>
+		<link rel="apple-touch-icon" sizes="60x60" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-60x60.png"/>
+		<link rel="apple-touch-icon" sizes="72x72" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-72x72.png"/>
+		<link rel="apple-touch-icon" sizes="76x76" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-76x76.png"/>
+		<link rel="apple-touch-icon" sizes="114x114" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-114x114.png"/>
+		<link rel="apple-touch-icon" sizes="120x120" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-120x120.png"/>
+		<link rel="apple-touch-icon" sizes="144x144" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-144x144.png"/>
+		<link rel="apple-touch-icon" sizes="152x152" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-152x152.png"/>
+		<link rel="apple-touch-icon" sizes="180x180" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-180x180.png"/>
+		<link rel="icon" type="image/png" sizes="192x192" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/android-icon-192x192.png"/>
+		<link rel="icon" type="image/png" sizes="16x16" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-16x16.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-32x32.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-32x32.png"/>
+		<!-- <link rel="manifest" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/manifest.json" /> -->
+		<meta name="msapplication-TileColor" content="#ffffff"/>
+		<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png"/>
+		<meta name="theme-color" content="#ffffff"/>
+	</head>
+	<body>
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="bsifdkgi5pcehkeswotqsm1zgqaqaaaa"/><input type="hidden" name="I.SavePoint" value="Grandtotals-2"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
+				<div class="overall-progress">
+					<div class="overall-progress-text">
+						<!-- progress text -->
+					</div>
+					<div class="overall-progress-bar">
+						<table style="height: 100%; width: 100%"><tr><td style="width: 70%; background-color: #D0DAE6"/><td/></tr></table><!-- progress bar -->
+					</div>
+				</div>
+			</div>
+			<div class="surroundcontent">
+				<div class="o-question-container sidebyside">
+					<script type="text/javascript">
+		var questionName='_QGrandtotals';
+		var questionId=''
+		document.currentScript.parentNode.setAttribute('data-questiongroup', questionName);
+		document.currentScript.parentNode.setAttribute('id', questionId);
+		</script>
+					<script>app.registerComponent('oQuestionContainer','_Q0','_QGrandtotals');</script><script type="text/javascript">app.RegisterProperties('_Qgrandtotals',{"caption":"Fruit Consumed","totals":{"rows":{"visible":true,"caption":"Total"},"columns":{"visible":true,"caption":"Total"}}});</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-errorandinstruction">
+						<div class="o-question-error">
+						</div>
+						<div class="o-question-instruction">
+						</div>
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-information">Record the amount of fruit consumed by the family</div>
+						<div class="o-question-response o-question-" data-questiongroup="_QGrandtotals_QJake_QBanana">
+							<script>app.registerComponent('oQuestion','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+							<table class="o-structure-table" name="Record the amount of fruit consumed by the family">
+								<script>app.registerComponent('oQuestionGrid','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+								<tr class="m-structure-row">
+									<td class="m-structure-cell" style=""></td>
+									<th class="m-structure-cell" scope="column" style="">
+										<span class="a-label-option">Banana</span>
+									</th>
+									<th class="m-structure-cell" scope="column" style="">
+										<span class="a-label-option">Apple</span>
+									</th>
+									<th class="m-structure-cell" scope="column" style="">
+										<span class="a-label-option">Orange</span>
+									</th>
+									<th class="m-structure-cell" scope="column" style="">
+										<span class="a-label-option">kiwi fruit</span>
+									</th>
+									<th class="m-structure-cell" scope="column" style="">
+										<span class="a-label-option">Satsuma</span>
+									</th>
+								</tr>
+								<tr class="m-structure-row">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-option">Jake</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q0_Q0" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJake_QBanana" id="_Q0_Q0_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q0_Q0_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q0_Q0_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJake_QBanana_XnoBananas" id="_Q0_Q0_Q0_X0" style="" value="noBananas" checked=""/>
+												<label for="_Q0_Q0_Q0_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q0_Q1" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJake_QApple" id="_Q0_Q0_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="9"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q1','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q0_Q1_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q0_Q1_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJake_QApple_XnoApples" id="_Q0_Q0_Q1_X0" style="" value="noApples"/>
+												<label for="_Q0_Q0_Q1_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q0_Q2" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJake_QOrange" id="_Q0_Q0_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="5"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q2','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q0_Q2_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q0_Q2_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJake_QOrange_XnoOranges" id="_Q0_Q0_Q2_X0" style="" value="noOranges"/>
+												<label for="_Q0_Q0_Q2_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q0_Q3" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJake_Qkiwi" id="_Q0_Q0_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="3"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q3','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q0_Q3_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q0_Q3_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJake_Qkiwi_Xnokiwis" id="_Q0_Q0_Q3_X0" style="" value="nokiwis"/>
+												<label for="_Q0_Q0_Q3_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q0_Q4" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJake_QSatsuma" id="_Q0_Q0_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q4','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q0_Q4_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q0_Q4_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJake_QSatsuma_XnoSatsumas" id="_Q0_Q0_Q4_X0" style="" value="noSatsumas" checked=""/>
+												<label for="_Q0_Q0_Q4_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-option">Mary</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q1_Q0" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QMary_QBanana" id="_Q0_Q1_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q1_Q0_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q1_Q0_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QMary_QBanana_XnoBananas" id="_Q0_Q1_Q0_X0" style="" value="noBananas" checked=""/>
+												<label for="_Q0_Q1_Q0_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q1_Q1" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QMary_QApple" id="_Q0_Q1_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q1','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q1_Q1_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q1_Q1_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QMary_QApple_XnoApples" id="_Q0_Q1_Q1_X0" style="" value="noApples" checked=""/>
+												<label for="_Q0_Q1_Q1_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q1_Q2" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QMary_QOrange" id="_Q0_Q1_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q2','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q1_Q2_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q1_Q2_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QMary_QOrange_XnoOranges" id="_Q0_Q1_Q2_X0" style="" value="noOranges" checked=""/>
+												<label for="_Q0_Q1_Q2_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q1_Q3" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QMary_Qkiwi" id="_Q0_Q1_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="1"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q3','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q1_Q3_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q1_Q3_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QMary_Qkiwi_Xnokiwis" id="_Q0_Q1_Q3_X0" style="" value="nokiwis"/>
+												<label for="_Q0_Q1_Q3_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q1_Q4" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QMary_QSatsuma" id="_Q0_Q1_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q4','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q1_Q4_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q1_Q4_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QMary_QSatsuma_XnoSatsumas" id="_Q0_Q1_Q4_X0" style="" value="noSatsumas" checked=""/>
+												<label for="_Q0_Q1_Q4_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-option">Sally</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q2_Q0" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QSally_QBanana" id="_Q0_Q2_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="1"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q2_Q0_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q2_Q0_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QSally_QBanana_XnoBananas" id="_Q0_Q2_Q0_X0" style="" value="noBananas"/>
+												<label for="_Q0_Q2_Q0_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q2_Q1" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QSally_QApple" id="_Q0_Q2_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q1','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q2_Q1_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q2_Q1_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QSally_QApple_XnoApples" id="_Q0_Q2_Q1_X0" style="" value="noApples" checked=""/>
+												<label for="_Q0_Q2_Q1_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q2_Q2" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QSally_QOrange" id="_Q0_Q2_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="6"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q2','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q2_Q2_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q2_Q2_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QSally_QOrange_XnoOranges" id="_Q0_Q2_Q2_X0" style="" value="noOranges"/>
+												<label for="_Q0_Q2_Q2_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q2_Q3" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QSally_Qkiwi" id="_Q0_Q2_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="0"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q3','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q2_Q3_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q2_Q3_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QSally_Qkiwi_Xnokiwis" id="_Q0_Q2_Q3_X0" style="" value="nokiwis"/>
+												<label for="_Q0_Q2_Q3_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q2_Q4" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QSally_QSatsuma" id="_Q0_Q2_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="5"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q4','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q2_Q4_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q2_Q4_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QSally_QSatsuma_XnoSatsumas" id="_Q0_Q2_Q4_X0" style="" value="noSatsumas"/>
+												<label for="_Q0_Q2_Q4_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-option">Jane</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q3_Q0" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJane_QBanana" id="_Q0_Q3_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q3_Q0_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q3_Q0_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJane_QBanana_XnoBananas" id="_Q0_Q3_Q0_X0" style="" value="noBananas" checked=""/>
+												<label for="_Q0_Q3_Q0_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q3_Q1" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJane_QApple" id="_Q0_Q3_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="8"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q1','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q3_Q1_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q3_Q1_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJane_QApple_XnoApples" id="_Q0_Q3_Q1_X0" style="" value="noApples"/>
+												<label for="_Q0_Q3_Q1_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q3_Q2" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJane_QOrange" id="_Q0_Q3_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="10"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q2','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q3_Q2_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q3_Q2_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJane_QOrange_XnoOranges" id="_Q0_Q3_Q2_X0" style="" value="noOranges"/>
+												<label for="_Q0_Q3_Q2_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q3_Q3" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJane_Qkiwi" id="_Q0_Q3_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q3','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q3_Q3_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q3_Q3_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJane_Qkiwi_Xnokiwis" id="_Q0_Q3_Q3_X0" style="" value="nokiwis" checked=""/>
+												<label for="_Q0_Q3_Q3_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q3_Q4" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QJane_QSatsuma" id="_Q0_Q3_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="1"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q4','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q3_Q4_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q3_Q4_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QJane_QSatsuma_XnoSatsumas" id="_Q0_Q3_Q4_X0" style="" value="noSatsumas"/>
+												<label for="_Q0_Q3_Q4_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-option">Fred</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q4_Q0" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QFred_QBanana" id="_Q0_Q4_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q4_Q0_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q4_Q0_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QFred_QBanana_XnoBananas" id="_Q0_Q4_Q0_X0" style="" value="noBananas" checked=""/>
+												<label for="_Q0_Q4_Q0_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q4_Q1" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QFred_QApple" id="_Q0_Q4_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="2"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q1','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q4_Q1_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q4_Q1_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QFred_QApple_XnoApples" id="_Q0_Q4_Q1_X0" style="" value="noApples"/>
+												<label for="_Q0_Q4_Q1_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q4_Q2" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QFred_QOrange" id="_Q0_Q4_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="8"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q2','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q4_Q2_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q4_Q2_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QFred_QOrange_XnoOranges" id="_Q0_Q4_Q2_X0" style="" value="noOranges"/>
+												<label for="_Q0_Q4_Q2_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q4_Q3" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QFred_Qkiwi" id="_Q0_Q4_Q3" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value=""/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q3','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q4_Q3_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q4_Q3_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QFred_Qkiwi_Xnokiwis" id="_Q0_Q4_Q3_X0" style="" value="nokiwis" checked=""/>
+												<label for="_Q0_Q4_Q3_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QGrandtotals_QJake_QBanana">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q0_Q4_Q4" data-questiongroup="_QGrandtotals_QJake_QBanana" type="text" name="_QGrandtotals_QFred_QSatsuma" id="_Q0_Q4_Q4" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="2" value="0"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q4','_QGrandtotals_QJake_QBanana');</script>
+											<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_Q4_Q4_X0" data-questiongroup="_QGrandtotals_QJake_QBanana">
+												<script>app.registerComponent('mOptionBase','_Q0_Q4_Q4_X0','_QGrandtotals_QJake_QBanana');</script>
+												<input class="hiddencontrol" type="checkbox" name="_QGrandtotals_QFred_QSatsuma_XnoSatsumas" id="_Q0_Q4_Q4_X0" style="" value="noSatsumas"/>
+												<label for="_Q0_Q4_Q4_X0">
+													<span class="a-icon-multistate" data-icontype="multiple">
+														<!--This is a comment!-->
+													</span>
+													<span class="a-label-option">none</span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div id="nav-controls" class="btn-container nav-center">
+					<div id="nextonly">
+						<input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
+					</div>
+					<div id="prevstop">
+						<input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
+						<input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
+					</div>
+				</div>
+				<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
+			</div>
+		</form></body>
 </html>
