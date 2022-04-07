@@ -57,6 +57,10 @@ define(['component'],
         }
 
         oQuestion.prototype.onConfigurationComplete = function (event) {
+            if (this.parent === null) {
+                return;
+            }
+
             this.configureVisibilityRules();
 
             if (!this.ready && event.detail.group === this.group) {
@@ -191,6 +195,10 @@ define(['component'],
         }
 
         oQuestion.prototype.makeAvailable = function () {
+            if (this.parent === null) {
+                return;
+            }
+
             this.parent.classList.remove('unavailable');
             this.liftCover();
         }
