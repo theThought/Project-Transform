@@ -183,7 +183,7 @@
                  </xsl:with-param>
                </xsl:call-template>
                <xsl:for-each select="./Row">
-                  <xsl:sort select="@Y" />
+                  <xsl:sort select="@Y" data-type="number" />
                   <xsl:call-template name="StructureRow">
                      <xsl:with-param name="qGroup" select="$qGroup" />
                      <xsl:with-param name="qFullName" select="$qFullName" />
@@ -1501,7 +1501,7 @@
             <xsl:text>m-structure-row</xsl:text>
          </xsl:attribute>
          <xsl:for-each select="./Cell">
-            <xsl:sort select="@X" />
+            <xsl:sort select="@X" data-type="number" />
             <xsl:call-template name="StructureCell">
                <xsl:with-param name="qGroup" select="$qGroup" />
                <xsl:with-param name="qFullName" select="$qFullName" />
