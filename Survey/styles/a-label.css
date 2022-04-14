@@ -19,6 +19,10 @@ th .a-label-option {
   text-align: right;
 }
 
+.a-label-total-column {
+  padding-right: 16px;
+}
+
 .focused * {
   outline: none;
 }
