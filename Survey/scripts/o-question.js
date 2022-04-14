@@ -3,7 +3,7 @@
 
   character countdown
 
-  Parameters: 
+  Parameters:
 
 
   Event Handlers:
@@ -83,7 +83,7 @@ define(['component'],
                 // at this point we need to iterate and request question values
                 this.visibilityRules.forEach(function (rule) {
                     for (var component in app.components) {
-                        if (app.components[component].questionName === rule.question.toLowerCase()) {
+                        if (app.components[component].questionName === rule.question.replaceAll("_", "__").toLowerCase()) {
                             app.components[component].broadcastChange();
                         }
                     }
@@ -119,7 +119,7 @@ define(['component'],
 
             // process visibility rules
             this.visibilityRules.forEach(function (rule) {
-                var ruleQuestion = rule.question.toLowerCase();
+                var ruleQuestion = rule.question.toLowerCase().replaceAll("_", "__");
 
                 if (broadcastingComponent.questionName === ruleQuestion) {
                     applicableRules = true;
