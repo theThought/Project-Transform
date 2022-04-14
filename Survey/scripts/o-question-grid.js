@@ -3,7 +3,7 @@
 
   character countdown
 
-  Parameters: 
+  Parameters:
 
 
   Event Handlers:
@@ -174,7 +174,7 @@ define(['component'],
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell m-structure-cell-total';
-                    totalcell.innerHTML = '<div class="a-row-total" data-rownumber="' + i + '"><span>0</span></div>';
+                    totalcell.innerHTML = '<div class="a-row-total a-label-total" data-rownumber="' + i + '"><span>0</span></div>';
                     totalcell.onchange = function () {
                     };
                 }
@@ -199,7 +199,7 @@ define(['component'],
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell m-structure-cell-total';
-                    totalcell.innerHTML = '<div class="a-column-total" data-colnumber="' + i + '"><span>0</span></div>';
+                    totalcell.innerHTML = '<div class="a-column-total a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
                 }
 
             }
