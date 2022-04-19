@@ -176,7 +176,7 @@ define(['component'],
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (rule.value.toLowerCase() === incomingValue.toLowerCase()) {
+            if (rule.value.toLowerCase().replaceAll("_", "__") === incomingValue.toLowerCase()) {
                 rule.satisfied = incomingChecked;
             }
         }
@@ -189,7 +189,7 @@ define(['component'],
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (rule.value.toLowerCase() === incomingValue.toLowerCase()) {
+            if (rule.value.toLowerCase().replaceAll("_","__") === incomingValue.toLowerCase()) {
                 rule.satisfied = !incomingChecked;
             }
         }
