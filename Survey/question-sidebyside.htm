@@ -3,8 +3,8 @@
 		<script type="text/javascript">
 		var questionName='<mrData QuestionElement="Parameter" Type="FullQuestionName"/>';
 		var questionId='<mrData QuestionElement="Parameter" Type="QuestionId"/>'
-		document.currentScript.parentNode.setAttribute('data-questiongroup', questionName);
-		document.currentScript.parentNode.setAttribute('id', questionId);
+		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
 		</script>
 		<mrData QuestionElement="Banner"  Name="RegisterContainer" />
 		<mrData QuestionElement="Banner"  Name="CustomProperties" />
