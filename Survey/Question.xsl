@@ -1537,7 +1537,7 @@
               <xsl:text>row</xsl:text>
             </xsl:when>
             <xsl:when test="@Class='mrGridQuestionText'">
-              <xsl:text>column</xsl:text>
+              <xsl:text>col</xsl:text>
             </xsl:when>
           </xsl:choose>
         </xsl:variable>
