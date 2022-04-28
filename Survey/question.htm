@@ -2,9 +2,10 @@
 	<div class="o-question-container">
 		<script type="text/javascript">
 		var questionName='<mrData QuestionElement="Parameter" Type="FullQuestionName"/>';
-		var questionId='<mrData QuestionElement="Parameter" Type="QuestionId"/>'
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 		<mrData QuestionElement="Banner"  Name="RegisterContainer" />
 		<mrData QuestionElement="Banner"  Name="CustomProperties" />
