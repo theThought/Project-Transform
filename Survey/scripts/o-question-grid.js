@@ -30,8 +30,11 @@ define(['component'],
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
             this.grid = this.element.getElementsByClassName('o-structure-table')[0];
+            this.hasrowtotals = false;
             this.rowtotals = [];
+            this.hascolumntotals = false;
             this.columntotals = [];
+            this.hasgrandtotal = false;
 
             var gridid = group.toLowerCase();
             var grididarray = gridid.split('_q');
@@ -88,7 +91,7 @@ define(['component'],
                             'column': j,
                             'row': i
                         };
-                        this[direction+'totals'].push(details);
+                        this[direction + 'totals'].push(details);
                     }
 
 
@@ -101,7 +104,9 @@ define(['component'],
                 return;
             }
 
-            var rowindex = this.rowtotals.map(function(e) { return e.id; }).indexOf(event.detail.id);
+            var rowindex = this.rowtotals.map(function (e) {
+                return e.id;
+            }).indexOf(event.detail.id);
             var elementvalue = Number(event.detail.element.value);
 
             if (rowindex !== -1) {
@@ -109,7 +114,9 @@ define(['component'],
                 this.recalculateRowTotals();
             }
 
-            var colindex = this.columntotals.map(function(e) { return e.id; }).indexOf(event.detail.id);
+            var colindex = this.columntotals.map(function (e) {
+                return e.id;
+            }).indexOf(event.detail.id);
 
             if (colindex !== -1) {
                 this.columntotals[colindex].value = elementvalue;
@@ -119,6 +126,7 @@ define(['component'],
 
         oQuestionGrid.prototype.recalculateRowTotals = function () {
             var rowcount = this.grid.rows.length;
+            var grandtotal = 0;
 
             for (var row = 1; row < rowcount; row++) {
                 var rowtotal = 0;
@@ -129,14 +137,20 @@ define(['component'],
                 }
 
                 // prevent attempts to update a total in a title row
-                if (this.grid.querySelector('div[data-rownumber="' + row + '"]')  !== null) {
+                if (this.grid.querySelector('div[data-rownumber="' + row + '"]') !== null) {
                     this.grid.querySelector('div[data-rownumber="' + row + '"]').innerHTML = rowtotal;
                 }
+
+                grandtotal += rowtotal;
             }
+
+            this.updateGrandTotal(grandtotal);
+
         }
 
         oQuestionGrid.prototype.recalculateColumnTotals = function () {
             var rowcount = this.grid.rows.length;
+            var grandtotal = 0;
 
             for (var column = 0; column < rowcount; column++) {
                 var coltotal = 0;
@@ -150,7 +164,21 @@ define(['component'],
                 if (this.grid.querySelector('div[data-colnumber="' + column + '"]') !== null) {
                     this.grid.querySelector('div[data-colnumber="' + column + '"]').innerHTML = coltotal;
                 }
+
+                grandtotal += coltotal;
             }
+
+            this.updateGrandTotal(grandtotal);
+
+        }
+
+        oQuestionGrid.prototype.updateGrandTotal = function (grandtotal) {
+            if (!this.hasgrandtotal) {
+                return;
+            }
+
+            document.querySelector('div.a-label-total-grand').innerHTML = grandtotal;
+
         }
 
         oQuestionGrid.prototype.caption = function (caption) {
@@ -162,6 +190,8 @@ define(['component'],
             if (!props['visible']) {
                 return;
             }
+
+            this.hasrowtotals = true;
 
             var rowcount = this.grid.rows.length;
             var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
@@ -180,12 +210,15 @@ define(['component'],
                 }
             }
 
+            this.recalculateRowTotals();
         }
 
         oQuestionGrid.prototype.configureColumnTotals = function (props) {
             if (!props['visible']) {
                 return;
             }
+
+            this.hascolumntotals = true;
 
             var columncount = this.grid.rows[0].cells.length;
             var totalrow = this.grid.insertRow(-1);
@@ -198,11 +231,20 @@ define(['component'],
                     totalcell.className = 'm-structure-cell m-structure-cell-column-total-title';
                     totalcell.innerHTML = title;
                 } else {
-                    totalcell.className = 'm-structure-cell m-structure-cell-total';
-                    totalcell.innerHTML = '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
+                    if (this.hasrowtotals && i===(columncount-1)) {
+                        this.hasgrandtotal = true;
+                        totalcell.className = 'm-structure-cell m-structure-cell-total m-structure-cell-grandtotal';
+                        totalcell.innerHTML = '<div class="a-label-total-grand a-label-total"><span>0</span></div>';
+                    } else {
+                        totalcell.className = 'm-structure-cell m-structure-cell-total';
+                        totalcell.innerHTML = '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
+                    }
+
                 }
 
             }
+
+            this.recalculateColumnTotals();
         }
 
         return oQuestionGrid;

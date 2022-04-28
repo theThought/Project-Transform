@@ -73,14 +73,18 @@ define(['component'],
         }
 
         oQuestion.prototype.configureInitialVisibility = function () {
+            // if there are no visibility rules defined for this question lift the cover immediately
             if (typeof this.properties.visible === "undefined") {
                 this.liftCover();
             }
 
+            // proceed if we have found a visibility ruleset for this question
             if (typeof this.properties.visible === "object") {
-                this.parent.classList.add('unavailable');
+                this.parent.classList.add('unavailable'); // initial visibility is hidden
 
-                // at this point we need to iterate and request question values
+                // at this point we need to iterate each rule and request relevant question values
+                // we do this by telling the contributing question to broadcast its current value
+                // TODO: Replace this with iteration of the event log to get logged values
                 this.visibilityRules.forEach(function (rule) {
                     for (var component in app.components) {
                         if (app.components[component].questionName === rule.question.replaceAll("_", "__").toLowerCase()) {
@@ -108,7 +112,7 @@ define(['component'],
             // how many rules are there to process
             var requiredScore = this.visibilityRules.length;
 
-            // number of rules that had their condition met
+            // number of rules that have had their condition met
             var score = 0;
 
             // originating component data
