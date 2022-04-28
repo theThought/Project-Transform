@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="demonstration"/><input type="hidden" name="I.Session" value="f62ssuz5ytju6blmucmafoabceaqaaaa"/><input type="hidden" name="I.SavePoint" value="sliderspage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="demonstration"/><input type="hidden" name="I.Session" value="ek1dvbpka1ielgcivfiulmpzl3aqaaaa"/><input type="hidden" name="I.SavePoint" value="sliderspage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -48,9 +48,10 @@
 			<div class="surroundcontent">Examples of sliders<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_QHowManyMissed';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q0','_Qsliderspage_QHowManyMissed');</script><script type="text/javascript">app.RegisterProperties('_QHowManyMissed',{"values":{"min":0,"max":10}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -79,7 +80,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q0_Thumbvalue','_Qsliderspage_QHowManyMissed');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q0" data-questiongroup="_Qsliderspage_QHowManyMissed" type="range" name="_Qsliderspage_QHowManyMissed" id="_Q0" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="0"/>
+									<input data-questionid="_Q0" data-questiongroup="_Qsliderspage_QHowManyMissed" type="range" name="_Qsliderspage_QHowManyMissed" id="_Q0" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="6"/>
 									<div data-questiongroup="_Qsliderspage_QHowManyMissed" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -96,9 +97,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_QHowManyMissedLabels';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q1','_Qsliderspage_QHowManyMissedLabels');</script><script type="text/javascript">app.RegisterProperties('_QHowManyMissedLabels',{"values":{"min":0,"max":10},"ticklabels":1});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -127,7 +129,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q1_Thumbvalue','_Qsliderspage_QHowManyMissedLabels');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q1" data-questiongroup="_Qsliderspage_QHowManyMissedLabels" type="range" name="_Qsliderspage_QHowManyMissedLabels" id="_Q1" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="5"/>
+									<input data-questionid="_Q1" data-questiongroup="_Qsliderspage_QHowManyMissedLabels" type="range" name="_Qsliderspage_QHowManyMissedLabels" id="_Q1" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="1"/>
 									<div data-questiongroup="_Qsliderspage_QHowManyMissedLabels" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -144,9 +146,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_QHowManyMissedMarksLabels';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q2','_Qsliderspage_QHowManyMissedMarksLabels');</script><script type="text/javascript">app.RegisterProperties('_QHowManyMissedMarksLabels',{"values":{"min":0,"max":10},"show":{"marks":true},"ticklabels":1});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -175,7 +178,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q2_Thumbvalue','_Qsliderspage_QHowManyMissedMarksLabels');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q2" data-questiongroup="_Qsliderspage_QHowManyMissedMarksLabels" type="range" name="_Qsliderspage_QHowManyMissedMarksLabels" id="_Q2" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="8"/>
+									<input data-questionid="_Q2" data-questiongroup="_Qsliderspage_QHowManyMissedMarksLabels" type="range" name="_Qsliderspage_QHowManyMissedMarksLabels" id="_Q2" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="2"/>
 									<div data-questiongroup="_Qsliderspage_QHowManyMissedMarksLabels" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -192,9 +195,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_QHowManyMissedThumbValue';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q3','_Qsliderspage_QHowManyMissedThumbValue');</script><script type="text/javascript">app.RegisterProperties('_QHowManyMissedThumbValue',{"values":{"min":0,"max":10},"show":{"value":true}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -223,7 +227,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q3_Thumbvalue','_Qsliderspage_QHowManyMissedThumbValue');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q3" data-questiongroup="_Qsliderspage_QHowManyMissedThumbValue" type="range" name="_Qsliderspage_QHowManyMissedThumbValue" id="_Q3" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="5"/>
+									<input data-questionid="_Q3" data-questiongroup="_Qsliderspage_QHowManyMissedThumbValue" type="range" name="_Qsliderspage_QHowManyMissedThumbValue" id="_Q3" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="0"/>
 									<div data-questiongroup="_Qsliderspage_QHowManyMissedThumbValue" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -240,9 +244,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_QHowManyMissedThumbMarks';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q4','_Qsliderspage_QHowManyMissedThumbMarks');</script><script type="text/javascript">app.RegisterProperties('_QHowManyMissedThumbMarks',{"values":{"min":0,"max":10},"show":{"value":true,"marks":true}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -271,7 +276,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q4_Thumbvalue','_Qsliderspage_QHowManyMissedThumbMarks');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q4" data-questiongroup="_Qsliderspage_QHowManyMissedThumbMarks" type="range" name="_Qsliderspage_QHowManyMissedThumbMarks" id="_Q4" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="2"/>
+									<input data-questionid="_Q4" data-questiongroup="_Qsliderspage_QHowManyMissedThumbMarks" type="range" name="_Qsliderspage_QHowManyMissedThumbMarks" id="_Q4" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="4"/>
 									<div data-questiongroup="_Qsliderspage_QHowManyMissedThumbMarks" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -288,9 +293,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_Qmodifications';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q5','_Qsliderspage_Qmodifications');</script><script type="text/javascript">app.RegisterProperties('_Qmodifications',{"values":{"min":-5,"max":5},"show":{"marks":true,"value":false,"terminators":true},"ticklabels":1,"floodtovalue":false});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -336,9 +342,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_Qsliderspage_QPercentageTreatments';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q6','_Qsliderspage_QPercentageTreatments');</script><script type="text/javascript">app.RegisterProperties('_QPercentageTreatments',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"labels":{"pre":"0%","post":"100%"},"floodtovalue":false});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">

@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="ghzpytb6wd3ujb2pdche6zldfuaqaaaa"/><input type="hidden" name="I.SavePoint" value="CustomPage-1"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="oqnskzobg15ebmqqbltvvh44quaqaaaa"/><input type="hidden" name="I.SavePoint" value="CustomPage-1"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -49,9 +49,10 @@
 				<div class="o-question-container sidebyside">
 					<script type="text/javascript">
 		var questionName='_QCustomPage_QHeight';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q0','_QCustomPage_QHeight');</script><script type="text/javascript">app.RegisterProperties('_QHeight',{"type":"number","labels":{"post":"cm"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-errorandinstruction">
@@ -66,7 +67,7 @@
 						</div>
 						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QHeight">
 							<script>app.registerComponent('oQuestionSinglelineedit','_Q0','_QCustomPage_QHeight');</script>
-							<input data-questionid="_Q0" data-questiongroup="_QCustomPage_QHeight" type="text" name="_QCustomPage_QHeight" id="_Q0" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="3" value="273"/>
+							<input data-questionid="_Q0" data-questiongroup="_QCustomPage_QHeight" type="text" name="_QCustomPage_QHeight" id="_Q0" class="a-input-singlelineedit" autocomplete="off" style="width:5em&#xA;         ;&#xA;      " maxlength="3" value="110"/>
 							<script>app.registerComponent('aInputSinglelineedit','_Q0','_QCustomPage_QHeight');</script>
 						</div>
 					</div>
@@ -74,9 +75,10 @@
 				<div class="o-question-container sidebyside">
 					<script type="text/javascript">
 		var questionName='_QCustomPage_QIncome';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q1','_QCustomPage_QIncome');</script><script type="text/javascript">app.RegisterProperties('_QIncome',{"type":"number","labels":{"pre":"£"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-errorandinstruction">
@@ -91,11 +93,11 @@
 						</div>
 						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QIncome">
 							<script>app.registerComponent('oQuestionSinglelineedit','_Q1','_QCustomPage_QIncome');</script>
-							<input data-questionid="_Q1" data-questiongroup="_QCustomPage_QIncome" type="text" name="_QCustomPage_QIncome" id="_Q1" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         7em&#xA;         ;&#xA;      " maxlength="7" value="1996243"/>
+							<input data-questionid="_Q1" data-questiongroup="_QCustomPage_QIncome" type="text" name="_QCustomPage_QIncome" id="_Q1" class="a-input-singlelineedit" autocomplete="off" style="width:7em&#xA;         ;&#xA;      " maxlength="7" value=""/>
 							<script>app.registerComponent('aInputSinglelineedit','_Q1','_QCustomPage_QIncome');</script>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_QCustomPage_QIncome">
 								<script>app.registerComponent('mOptionBase','_Q1_X0','_QCustomPage_QIncome');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QIncome_Xnoincome" id="_Q1_X0" style="" value="noincome"/>
+								<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QIncome_Xnoincome" id="_Q1_X0" style="" value="noincome" checked=""/>
 								<label for="_Q1_X0">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
@@ -109,9 +111,10 @@
 				<div class="o-question-container sidebyside">
 					<script type="text/javascript">
 		var questionName='_QCustomPage_QAge';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q2','_QCustomPage_QAge');</script><script type="text/javascript">app.RegisterProperties('_QAge',{"type":"number","labels":{"pre":"I was", "post":"years old on my last birthday"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-errorandinstruction">
@@ -126,7 +129,7 @@
 						</div>
 						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QAge">
 							<script>app.registerComponent('oQuestionSinglelineedit','_Q2','_QCustomPage_QAge');</script>
-							<input data-questionid="_Q2" data-questiongroup="_QCustomPage_QAge" type="text" name="_QCustomPage_QAge" id="_Q2" class="a-input-singlelineedit" autocomplete="off" style="&#xA;         width:&#xA;         5em&#xA;         ;&#xA;      " maxlength="3" value="2"/>
+							<input data-questionid="_Q2" data-questiongroup="_QCustomPage_QAge" type="text" name="_QCustomPage_QAge" id="_Q2" class="a-input-singlelineedit" autocomplete="off" style="width:5em&#xA;         ;&#xA;      " maxlength="3" value="26"/>
 							<script>app.registerComponent('aInputSinglelineedit','_Q2','_QCustomPage_QAge');</script>
 						</div>
 					</div>
@@ -134,9 +137,10 @@
 				<div class="o-question-container sidebyside">
 					<script type="text/javascript">
 		var questionName='_QCustomPage_QHowManyMissed';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q3','_QCustomPage_QHowManyMissed');</script><script type="text/javascript">app.RegisterProperties('_QHowManyMissed',{"values":{"min":0,"max":10},"show":{"marks":true,"value":false,"terminators":false},"ticklabels":1,"floodtovalue":false});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-errorandinstruction">
@@ -167,7 +171,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q3_Thumbvalue','_QCustomPage_QHowManyMissed');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q3" data-questiongroup="_QCustomPage_QHowManyMissed" type="range" name="_QCustomPage_QHowManyMissed" id="_Q3" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="6"/>
+									<input data-questionid="_Q3" data-questiongroup="_QCustomPage_QHowManyMissed" type="range" name="_QCustomPage_QHowManyMissed" id="_Q3" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="10"/>
 									<div data-questiongroup="_QCustomPage_QHowManyMissed" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -184,9 +188,10 @@
 				<div class="o-question-container sidebyside">
 					<script type="text/javascript">
 		var questionName='_QCustomPage_QPercentageTreatments';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q4','_QCustomPage_QPercentageTreatments');</script><script type="text/javascript">app.RegisterProperties('_QPercentageTreatments',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-errorandinstruction">
@@ -217,7 +222,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q4_Thumbvalue','_QCustomPage_QPercentageTreatments');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q4" data-questiongroup="_QCustomPage_QPercentageTreatments" type="range" name="_QCustomPage_QPercentageTreatments" id="_Q4" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value="32"/>
+									<input data-questionid="_Q4" data-questiongroup="_QCustomPage_QPercentageTreatments" type="range" name="_QCustomPage_QPercentageTreatments" id="_Q4" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value=""/>
 									<div data-questiongroup="_QCustomPage_QPercentageTreatments" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>
@@ -230,7 +235,7 @@
 							<script>app.registerComponent('aButtonPostTerminator','_Q4_Postterm','_QCustomPage_QPercentageTreatments');</script>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q4_X0" data-questiongroup="_QCustomPage_QPercentageTreatments">
 								<script>app.registerComponent('mOptionBase','_Q4_X0','_QCustomPage_QPercentageTreatments');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QPercentageTreatments_Xnovisits" id="_Q4_X0" style="" value="novisits"/>
+								<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QPercentageTreatments_Xnovisits" id="_Q4_X0" style="" value="novisits" checked=""/>
 								<label for="_Q4_X0">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
@@ -244,9 +249,10 @@
 				<div class="o-question-container sidebyside">
 					<script type="text/javascript">
 		var questionName='_QCustomPage_QPercentageEpisodes';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q5','_QCustomPage_QPercentageEpisodes');</script><script type="text/javascript">app.RegisterProperties('_QPercentageEpisodes',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"labels":{"pre":"0%","post":"100%"},"floodtovalue":false});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-errorandinstruction">
@@ -277,7 +283,7 @@
 										<script>app.registerComponent('aLabelThumbValue','_Q5_Thumbvalue','_QCustomPage_QPercentageEpisodes');</script>
 										<!--hnumberslider thumb value-->
 									</div>
-									<input data-questionid="_Q5" data-questiongroup="_QCustomPage_QPercentageEpisodes" type="range" name="_QCustomPage_QPercentageEpisodes" id="_Q5" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value="66"/>
+									<input data-questionid="_Q5" data-questiongroup="_QCustomPage_QPercentageEpisodes" type="range" name="_QCustomPage_QPercentageEpisodes" id="_Q5" class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value="11"/>
 									<div data-questiongroup="_QCustomPage_QPercentageEpisodes" class="m-label-ticklabels">
 										<!--hnumberslider tick labels-->
 									</div>

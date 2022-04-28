@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="yfddoa1dnymulkh2eh23o43mbyaqaaaa"/><input type="hidden" name="I.SavePoint" value="SmokePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="oyz1oiii4byune1yzezqptfswaaqaaaa"/><input type="hidden" name="I.SavePoint" value="SmokePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -48,9 +48,10 @@
 			<div class="surroundcontent">Questions about smoking and vaping<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_QSmokePage_QVisibilityStatement';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q0','_QSmokePage_QVisibilityStatement');</script><script type="text/javascript">app.RegisterProperties('_QVisibilityStatement',{"separator":true});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -65,9 +66,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_QSmokePage_QDoyou__smoke';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q1','_QSmokePage_QDoyou__smoke');</script><script type="text/javascript">app.RegisterProperties('_QDoYouSmoke',{"balance":{"state":false}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -114,9 +116,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_QSmokePage_QHowmanysmoked';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q2','_QSmokePage_QHowmanysmoked');</script><script type="text/javascript">app.RegisterProperties('_QHowmanysmoked',{"type":"number", visible:[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_Smoked"}]});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -137,9 +140,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_QSmokePage_QWeekendpercentage';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q3','_QSmokePage_QWeekendpercentage');</script><script type="text/javascript">app.RegisterProperties('_QWeekendpercentage',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true, visible:[{"question":"Howmanysmoked","type":"min-value","value":"30"}]});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -185,9 +189,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_QSmokePage_QHowmanyvaped';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q4','_QSmokePage_QHowmanyvaped');</script><script type="text/javascript">app.RegisterProperties('_QHowmanyvaped',{"type":"number", visible:[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"}]});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
@@ -244,9 +249,10 @@
 				<div class="o-question-container">
 					<script type="text/javascript">
 		var questionName='_QSmokePage_QDidyouPreviously';
-		var questionId=''
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[document.scripts.length - 1].parentNode.setAttribute('id', questionId);
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
 					<script>app.registerComponent('oQuestionContainer','_Q5','_QSmokePage_QDidyouPreviously');</script><script type="text/javascript">app.RegisterProperties('_QDidyoupreviously',{"balance":{"state":false}, visible:[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"},{"question":"DoYou_Smoke","type":"not-specific-option","value":"Yes_Smoked"}]});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
