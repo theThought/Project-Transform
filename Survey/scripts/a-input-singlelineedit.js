@@ -123,6 +123,7 @@ define(['component'],
                     && this.element.placeholder !== this.defaultPlaceholder) {
                     this.element.value = this.element.placeholder;
                     this.element.placeholder = this.defaultPlaceholder;
+                    this.broadcastChange();
                 }
 
             }
@@ -139,6 +140,7 @@ define(['component'],
             if (this.element.value) {
                 this.element.placeholder = this.element.value;
                 this.element.value = '';
+                this.broadcastChange();
             }
 
         }
