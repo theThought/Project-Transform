@@ -1396,22 +1396,22 @@
    <xsl:template name="LabelStyle">
       <xsl:param name="IgnoreWidth" select="'false'" />
       <xsl:if test="Style/@BgColor">
-         background-color:
+         <xsl:text>background-color:</xsl:text>
          <xsl:value-of select="Style/@BgColor" />
          ;
       </xsl:if>
       <xsl:if test="Style/@Color">
-         color:
+         <xsl:text>color:</xsl:text>
          <xsl:value-of select="Style/@Color" />
          ;
       </xsl:if>
       <xsl:if test="Style/@Width and $IgnoreWidth != 'true'">
-         width:
+         <xsl:text>width:</xsl:text>
          <xsl:value-of select="Style/@Width" />
          ;
       </xsl:if>
       <xsl:if test="Style/@Height">
-         height:
+         <xsl:text>height:</xsl:text>
          <xsl:value-of select="Style/@Height" />
          ;
       </xsl:if>
