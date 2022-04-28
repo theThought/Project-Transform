@@ -38,7 +38,19 @@
     background-color: #FFFFFF;
 }
 
+.overall-progress-bar table {
+    position: relative;
+}
+
 .overall-progress-bar td:first-child {
     background-color: globals.$borders-light;
     border-radius: globals.$border-radius;
+}
+
+.overall-progress-bar .mrProgressText {
+    display: block;
+    position: absolute;
+    font-size: 12px;
+    top: -3px;
+    text-indent: .5em;
 }
