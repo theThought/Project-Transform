@@ -87,7 +87,7 @@ define(['component'],
                 // TODO: Replace this with iteration of the event log to get logged values
                 this.visibilityRules.forEach(function (rule) {
                     for (var component in app.components) {
-                        if (app.components[component].questionName === rule.question.replaceAll("_", "__").toLowerCase()) {
+                        if (app.components[component].questionName === rule.question.replace(/_/g, "__").toLowerCase()) {
                             app.components[component].broadcastChange();
                         }
                     }
@@ -123,7 +123,7 @@ define(['component'],
 
             // process visibility rules
             this.visibilityRules.forEach(function (rule) {
-                var ruleQuestion = rule.question.toLowerCase().replaceAll("_", "__");
+                var ruleQuestion = rule.question.toLowerCase().replace(/_/g, "__");
 
                 if (broadcastingComponent.questionName === ruleQuestion) {
                     applicableRules = true;
@@ -180,7 +180,7 @@ define(['component'],
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (rule.value.toLowerCase().replaceAll("_", "__") === incomingValue.toLowerCase()) {
+            if (rule.value.toLowerCase().replace(/_/g, "__") === incomingValue.toLowerCase()) {
                 rule.satisfied = incomingChecked;
             }
         }

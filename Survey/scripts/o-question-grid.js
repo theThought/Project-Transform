@@ -232,6 +232,7 @@ define(['component'],
                     totalcell.innerHTML = title;
                 } else {
                     if (this.hasrowtotals && i===(columncount-1)) {
+                        // tables with column and row totals also have grand totals
                         this.hasgrandtotal = true;
                         totalcell.className = 'm-structure-cell m-structure-cell-total m-structure-cell-grandtotal';
                         totalcell.innerHTML = '<div class="a-label-total-grand a-label-total"><span>0</span></div>';
