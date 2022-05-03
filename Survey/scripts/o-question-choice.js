@@ -34,7 +34,7 @@ define(['o-question'],
             this.maxwidth = '';
             this.isOnesize = true;
             this.isBalanced = false;
-            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.element = document.querySelector('div[class*=o-question-choice][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
             this.configureIncomingEventListeners();
