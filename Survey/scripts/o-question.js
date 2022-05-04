@@ -31,6 +31,7 @@ define(['component'],
             this.ready = false;
             this.element = document.querySelector('div[data-questiongroup*="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
+            this.collapse = true;
             this.visibilityRules = [];
 
             this.configureQuestionIncomingEventListeners();
@@ -82,6 +83,10 @@ define(['component'],
             if (typeof this.properties.visible === "object") {
                 this.parent.classList.add('unavailable'); // initial visibility is hidden
 
+                if (this.collapse) {
+                    this.parent.classList.add('collapse');
+                }
+
                 // at this point we need to iterate each rule and request relevant question values
                 // we do this by telling the contributing question to broadcast its current value
                 // TODO: Replace this with iteration of the event log to get logged values
@@ -99,6 +104,10 @@ define(['component'],
         oQuestion.prototype.configureVisibilityRules = function () {
             if (typeof this.properties.visible === "undefined") {
                 return false;
+            }
+
+            if (this.properties.visible.collapse === false) {
+                this.collapse = false;
             }
 
             this.visibilityRules = this.properties.visible.rules;
@@ -224,6 +233,7 @@ define(['component'],
             }
 
             this.parent.classList.remove('unavailable');
+            this.requestInitialSize();
             this.liftCover();
         }
 

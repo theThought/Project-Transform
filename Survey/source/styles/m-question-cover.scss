@@ -27,6 +27,10 @@
     background-image: none;
 }
 
+.unavailable.collapse {
+    display: none;
+}
+
 .unavailable .m-question-cover {
     &::after {
         opacity: 1;
