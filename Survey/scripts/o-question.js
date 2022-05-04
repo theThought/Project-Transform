@@ -101,7 +101,7 @@ define(['component'],
                 return false;
             }
 
-            this.visibilityRules = this.properties.visible;
+            this.visibilityRules = this.properties.visible.rules;
         }
 
         oQuestion.prototype.receiveBroadcast = function (event) {
