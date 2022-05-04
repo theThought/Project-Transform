@@ -40,10 +40,14 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             break;
         case 'oquestion':
         case 'oquestionchoice':
-        case 'oquestioncontainer':
         case 'oquestionsinglelineedit':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components[id] = new oQuestionChoice(id, group);
+            });
+            break;
+        case 'oquestioncontainer':
+            requirejs(['o-question-container'], function (oQuestionContainer) {
+                app.components[id] = new oQuestionContainer(id, group);
             });
             break;
         case 'oquestionhnumberslider':
@@ -107,6 +111,7 @@ Survey.prototype.extractQuestionName = function (id) {
 }
 
 Survey.prototype.sanitiseProperties = function (props) {
+
     for (var prop in props) {
         if (props.hasOwnProperty(prop)) {
 
@@ -118,9 +123,11 @@ Survey.prototype.sanitiseProperties = function (props) {
             if (props[prop] === 'true') {
                 props[prop] = true;
             }
+
             if (props[prop] === 'false') {
                 props[prop] = false;
             }
+
         }
     }
 
