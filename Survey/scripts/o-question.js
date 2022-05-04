@@ -133,6 +133,12 @@ define(['component'],
                         case 'min-value':
                             self.processVisibilityMinValue(rule, broadcastingComponent);
                             break;
+                        case 'max-value':
+                            self.processVisibilityMaxValue(rule, broadcastingComponent);
+                            break;
+                        case 'not-value':
+                            self.processVisibilityNotValue(rule, broadcastingComponent);
+                            break;
                         case 'specific-option':
                             self.processVisibilitySpecificOption(rule, broadcastingComponent);
                             break;
@@ -170,6 +176,20 @@ define(['component'],
             var incomingValue = broadcastingComponent.element.value;
 
             rule.satisfied = Number(incomingValue) >= Number(rule.value);
+        }
+
+        oQuestion.prototype.processVisibilityMaxValue = function (rule, broadcastingComponent) {
+
+            var incomingValue = broadcastingComponent.element.value;
+
+            rule.satisfied = Number(incomingValue) <= Number(rule.value);
+        }
+
+        oQuestion.prototype.processVisibilityNotValue = function (rule, broadcastingComponent) {
+
+            var incomingValue = broadcastingComponent.element.value;
+
+            rule.satisfied = Number(incomingValue) !== Number(rule.value);
         }
 
         oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
