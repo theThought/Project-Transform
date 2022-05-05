@@ -29,6 +29,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.ready = false;
+            this.available = false;
             this.element = document.querySelector('div[data-questiongroup*="' + this.group + '"]');
             this.parent = this.element.closest('div.o-question-container');
             this.collapse = true;
@@ -115,11 +116,17 @@ define(['component'],
 
         oQuestion.prototype.receiveBroadcast = function (event) {
 
-            // are there rules applicable to this question
-            var applicableRules = false;
-
             // how many rules are there to process
             var requiredScore = this.visibilityRules.length;
+
+            // in the case that there are no rules to be processed and the question
+            // is already visible there is nothing to do
+            if (requiredScore === 0  && this.available) {
+                return;
+            }
+
+            // are there rules applicable to this question
+            var applicableRules = false;
 
             // number of rules that have had their condition met
             var score = 0;
@@ -228,16 +235,18 @@ define(['component'],
         }
 
         oQuestion.prototype.makeAvailable = function () {
-            if (this.parent === null) {
+            if (this.parent === null || this.available) {
                 return;
             }
 
+            this.available = true;
             this.parent.classList.remove('unavailable');
             this.requestInitialSize();
             this.liftCover();
         }
 
         oQuestion.prototype.makeUnavailable = function () {
+            this.available = false;
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
             document.dispatchEvent(clearEntries);
