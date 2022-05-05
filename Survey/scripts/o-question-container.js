@@ -28,7 +28,7 @@ define(['o-question'],
         function oQuestionContainer(id, group) {
             oQuestion.call(this, id, group);
 
-            this.element = document.querySelector('div[class=o-question-container][data-questiongroup="' + this.group + '"]');
+            this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
             this.configurationComplete();
