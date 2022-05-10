@@ -74,6 +74,7 @@
                     </xsl:element>
                      <xsl:element name="button">
                        <xsl:attribute name="class">a-button-list-dropdown</xsl:attribute>
+                       <xsl:attribute name="type">button</xsl:attribute>
                        <xsl:comment>dropdown image goes here</xsl:comment>
                      </xsl:element>
                      <xsl:element name="script">
