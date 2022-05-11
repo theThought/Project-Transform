@@ -41,7 +41,7 @@ define(['component'],
         aButtonListDropdown.prototype.constructor = aButtonListDropdown;
 
         aButtonListDropdown.prototype.symbol = function (symbol) {
-            this.element.innerHTML = symbol;
+            this.element.innerHTML = '<span>' + symbol + '</span>';
         }
 
         aButtonListDropdown.prototype.configureIncomingEventListeners = function () {

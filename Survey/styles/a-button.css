@@ -75,10 +75,13 @@ button.a-button-preterminator {
   height: 100%;
   width: 100%;
   border: none;
-  font-weight: bold;
   text-align: right;
   background: transparent;
   z-index: 2;
+}
+.a-button-list-dropdown span {
+  position: relative;
+  top: -5px;
 }
 .a-button-list-dropdown:hover {
   background: transparent;
