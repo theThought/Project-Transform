@@ -125,7 +125,12 @@ th .a-label-option {
   padding-left: 1.5em;
 }
 
+.m-list-optionlist .a-label-option {
+  width: calc(100% - 1.5em);
+}
+
 div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
-  padding-left: 0.5em;
+  padding-left: 3px;
+  width: calc(100% - 3px);
 }
 /*# sourceMappingURL=a-label.css.map */
