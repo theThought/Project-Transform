@@ -81,8 +81,9 @@ define(['component'],
         aInputListDropdown.prototype.receiveBroadcast = function (event) {
             if (event.detail.group === this.group) {
                 if (typeof event.detail.checkbox !== "undefined") {
+
                     if (event.detail.checkbox.checked) {
-                        this.element.value = event.detail.checkbox.value;
+                        this.element.value = event.detail.label.textContent;
                     }
                 }
             }
