@@ -28,6 +28,16 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components[id] = new aButtonOption(id, group);
             });
             break;
+        case 'abuttonlistdropdown':
+            requirejs(['a-button-list-dropdown'], function (aButtonListDropdown) {
+                app.components[id] = new aButtonListDropdown(id, group);
+            });
+            break;
+        case 'ainputlistdropdown':
+            requirejs(['a-input-list-dropdown'], function (aInputListDropdown) {
+                app.components[id] = new aInputListDropdown(id, group);
+            });
+            break;
         case 'ainputmultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.components[id] = new aInputMultilineEdit(id, group);
@@ -36,6 +46,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         case 'oquestiongrid':
             requirejs(['o-question-grid'], function (oQuestionGrid) {
                 app.components[id] = new oQuestionGrid(id, group);
+            });
+            break;
+        case 'oquestionlist':
+            requirejs(['o-question-list'], function (oQuestionList) {
+                app.components[id] = new oQuestionList(id, group);
             });
             break;
         case 'oquestion':

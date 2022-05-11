@@ -1,0 +1,20 @@
+@use 'globals';
+
+.m-list-optionlist {
+    position: absolute;
+    box-sizing: border-box;
+    display: none;
+    min-width: 300px;
+    margin-top: .5em;
+    border: 1px solid globals.$theme-primary;
+    border-radius: globals.$border-radius;
+    padding: .5em;
+    background-color: white;
+    z-index: 999;
+    max-height: 200px;
+    overflow: scroll;
+}
+
+.focused ~ .m-list-optionlist {
+    display: inline-block;
+}

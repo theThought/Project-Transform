@@ -1,0 +1,24 @@
+@use 'globals';
+
+.o-question-list {
+
+    & > div:first-of-type {
+        width: 300px;
+        position: relative;
+        display: flex;
+        background-color: globals.$theme-primary;
+        border-radius: globals.$border-radius;
+
+        input[type=text] {
+            margin: .6em;
+            color: white;
+            background: transparent;
+            border: none;
+
+            &.readonly {
+                cursor: default;
+            }
+        }
+
+    }
+}

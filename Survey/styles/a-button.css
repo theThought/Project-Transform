@@ -67,6 +67,24 @@ button.a-button-preterminator {
   margin-right: 1em;
 }
 
+.a-button-list-dropdown {
+  position: absolute;
+  margin: 0;
+  right: 0;
+  padding: 0 1em 0 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  text-align: right;
+  background: transparent;
+  z-index: 2;
+}
+.a-button-list-dropdown:hover {
+  background: transparent;
+  color: #FFFFFF;
+}
+
 /* buttons where used as part of
  * the page navigation controls */
 #nav-controls input {

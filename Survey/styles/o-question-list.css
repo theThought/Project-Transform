@@ -1,0 +1,19 @@
+.o-question-list > div:first-of-type {
+  width: 300px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #455B97;
+  border-radius: 10px;
+}
+.o-question-list > div:first-of-type input[type=text] {
+  margin: 0.6em;
+  color: white;
+  background: transparent;
+  border: none;
+}
+.o-question-list > div:first-of-type input[type=text].readonly {
+  cursor: default;
+}
+/*# sourceMappingURL=o-question-list.css.map */
