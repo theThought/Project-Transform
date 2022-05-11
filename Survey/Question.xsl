@@ -87,6 +87,7 @@
                   </xsl:element>
                   <xsl:element name="div">
                     <xsl:attribute name="class">m-list-responses</xsl:attribute>
+                    <xsl:comment>dropdown response options</xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                     <xsl:attribute name="class">m-list-optionlist</xsl:attribute>
