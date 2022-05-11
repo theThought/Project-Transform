@@ -42,4 +42,8 @@ input[type=checkbox]:disabled + label > .a-icon-multistate,
 input[type=radio]:disabled + label > .a-icon-multistate {
   background-position-x: -56px;
 }
+
+div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
+  display: none;
+}
 /*# sourceMappingURL=a-icon-multistate.css.map */

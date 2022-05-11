@@ -62,9 +62,13 @@ define(['o-question'],
 
         oQuestionList.prototype.onClick = function (event) {
             if (event.target === this.element) {
-
-                //var parentNode = this.element.parentNode;
                 this.element.classList.add('focused');
+            }
+        }
+
+        oQuestionList.prototype.displayicon = function (prop) {
+            if (prop === true) {
+                this.element.classList.add('display-icons');
             }
         }
 

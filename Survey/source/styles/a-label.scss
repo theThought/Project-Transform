@@ -140,4 +140,9 @@ th .a-label-option {
         display: inline-block;
         padding-left: 1.5em;
     }
+
+}
+
+div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
+    padding-left: .5em;
 }
