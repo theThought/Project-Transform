@@ -86,7 +86,7 @@ define(['component'],
         }
 
         mOptionBase.prototype.clearEntries = function (event) {
-            if (event.detail.questionName === this.questionName) {
+            if (event.detail.questionName === this.questionName && this.checkbox.checked) {
                 this.checkbox.checked = false;
 
                 if (this.textInput !== null) {
@@ -141,7 +141,7 @@ define(['component'],
         mOptionBase.prototype.onEnableExclusive = function (event) {
 
             // handle external events
-            if (this.element !== event.detail.element) {
+            if (this.element !== event.detail.element && this.checkbox.checked) {
                 this.checkbox.checked = false;
                 this.broadcastChange();
             }
@@ -151,7 +151,7 @@ define(['component'],
         mOptionBase.prototype.onDismissExclusive = function (event) {
 
             // handle external events
-            if (this.element !== event.detail.element && this.isExclusive) {
+            if (this.element !== event.detail.element && this.isExclusive && this.checkbox.checked) {
                 this.checkbox.checked = false;
                 this.broadcastChange();
             }
@@ -159,7 +159,7 @@ define(['component'],
 
         mOptionBase.prototype.onTextFocus = function (event) {
 
-            if (this.isExclusive && event.detail.element !== this.textInput) {
+            if (this.isExclusive && event.detail.element !== this.textInput && this.checkbox.checked) {
                 this.checkbox.checked = false;
                 this.broadcastChange();
             }
