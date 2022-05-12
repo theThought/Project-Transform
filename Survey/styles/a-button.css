@@ -67,6 +67,10 @@ button.a-button-preterminator {
   margin-right: 1em;
 }
 
+.focused > .a-button-list-dropdown {
+  background-image: url("../../images/white-chevron-up.png");
+}
+
 .a-button-list-dropdown {
   position: absolute;
   margin: 0;
@@ -77,10 +81,6 @@ button.a-button-preterminator {
   border: none;
   z-index: 2;
   background: url("../../images/white-chevron-down.png") 96% no-repeat transparent;
-}
-.a-button-list-dropdown span {
-  position: relative;
-  top: -5px;
 }
 .a-button-list-dropdown:hover {
   background-color: transparent;
