@@ -12,8 +12,9 @@
 }
 
 /* Grid layout */
-table .m-option-base .a-icon-multistate {
+.m-structure-cell .m-option-base .a-icon-multistate {
   position: relative;
+  top: 0.2em;
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
