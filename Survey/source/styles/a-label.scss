@@ -145,6 +145,18 @@ th .a-label-option {
 
 }
 
+.m-list-optionlist {
+    .a-label-option {
+        padding-bottom: .5em;
+    }
+
+    .m-option-base:last-child {
+        .a-label-option {
+            padding-bottom: 0;
+        }
+    }
+}
+
 .m-structure-cell .m-option-base .a-label-option {
     padding-left: .2em;
 }

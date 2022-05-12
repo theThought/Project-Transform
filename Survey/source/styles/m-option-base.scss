@@ -15,6 +15,12 @@ input + script + .m-option-base {
     margin-bottom: 0;
 }
 
+.m-list-optionlist {
+    .m-option-base {
+        margin-bottom: 0;
+    }
+}
+
 .balance {
     .m-option-base {
         flex: 0 0 auto;
