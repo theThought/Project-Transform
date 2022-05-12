@@ -44,7 +44,7 @@ body {
 body,
 input,
 textarea {
-    font-family: 'Karla', sans-serif;
+    font-family: globals.$primary-font;
 }
 
 body > form {

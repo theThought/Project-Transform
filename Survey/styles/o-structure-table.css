@@ -5,6 +5,7 @@
 .o-structure-table th,
 .o-structure-table .grid-row-total-title,
 .o-structure-table .grid-column-total-title {
+  font-family: "Merriweather", serif;
   font-weight: normal;
   color: #212C4C;
 }
