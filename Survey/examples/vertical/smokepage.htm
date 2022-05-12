@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="5iiggycsjduejcwt33qduowaueaqaaaa"/><input type="hidden" name="I.SavePoint" value="SmokePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="qua4c6yqyhxedposangbm64ppmaqaaaa"/><input type="hidden" name="I.SavePoint" value="SmokePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -71,7 +71,7 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q1','_QSmokePage_QDoyou__smoke');</script><script type="text/javascript">app.RegisterProperties('_QDoYou__Smoke',{"balance":{"state":false}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q1','_QSmokePage_QDoyou__smoke');</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -115,13 +115,67 @@
 				</div>
 				<div class="o-question-container">
 					<script type="text/javascript">
+		var questionName='_QSmokePage_Qsmokecigars';
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
+		</script>
+					<script>app.registerComponent('oQuestionContainer','_Q2','_QSmokePage_Qsmokecigars');</script><script type="text/javascript">app.RegisterProperties('_Qsmokecigars',{"separator":true, "onesize":{"state":true},"displayicon":false,"jumptofirstletter":false,"type":"dropdown","placeholder":"Select an answer","visible":{"collapse":true,"rules":[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_Smoked"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-error">
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-information">Do you smoke cigars or cigarettes</div>
+						<div class="o-question-instruction">
+						</div>
+						<div class="o-question-response o-question-list" data-questiongroup="_QSmokePage_Qsmokecigars">
+							<script>app.registerComponent('oQuestionList','_Q2_C','_QSmokePage_Qsmokecigars');</script>
+							<div>
+								<input class="a-input-list-dropdown" type="text"/>
+								<script>app.registerComponent('aInputListDropdown','_Q2_C','_QSmokePage_Qsmokecigars');</script>
+								<button class="a-button-list-dropdown" type="button">
+									<!--dropdown image goes here-->
+								</button>
+								<script>app.registerComponent('aButtonListDropDown','_Q2_C','_QSmokePage_Qsmokecigars');</script>
+							</div>
+							<div class="m-list-responses">
+								<!--dropdown response options-->
+							</div>
+							<div class="m-list-optionlist">
+								<script>app.registerComponent('mListOptionList','_Q2_C','_QSmokePage_Qsmokecigars');</script>
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C0" data-questiongroup="_QSmokePage_Qsmokecigars">
+									<script>app.registerComponent('mOptionBase','_Q2_C0','_QSmokePage_Qsmokecigars');</script>
+									<input class="hiddencontrol" type="radio" name="_QSmokePage_Qsmokecigars_C" id="_Q2_C0" style="" value="cigars"/>
+									<label for="_Q2_C0">
+										<span class="a-icon-multistate" data-icontype="single">
+											<!--This is a comment!-->
+										</span>
+										<span class="a-label-option">cigars</span>
+									</label>
+								</div>
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C1" data-questiongroup="_QSmokePage_Qsmokecigars">
+									<script>app.registerComponent('mOptionBase','_Q2_C1','_QSmokePage_Qsmokecigars');</script>
+									<input class="hiddencontrol" type="radio" name="_QSmokePage_Qsmokecigars_C" id="_Q2_C1" style="" value="cigarettes"/>
+									<label for="_Q2_C1">
+										<span class="a-icon-multistate" data-icontype="single">
+											<!--This is a comment!-->
+										</span>
+										<span class="a-label-option">cigarettes</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<script type="text/javascript">
 		var questionName='_QSmokePage_Qbrandswhich';
 		var baseScriptCount = 5
 		var currentScriptCount = document.scripts.length -1
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q2','_QSmokePage_Qbrandswhich');</script><script type="text/javascript">app.RegisterProperties('_Qbrandswhich',{"separator":true, "balanced":{"state":true},"onesize":{"state":true},visible:[{"question":"smokecigars","type":"specific-option","value":"cigars"}]});</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q3','_QSmokePage_Qbrandswhich');</script><script type="text/javascript">app.RegisterProperties('_Qbrandswhich',{"separator":true, "balanced":{"state":true},"onesize":{"state":true},"visible":{"collapse":true,"rules":[{"question":"smokecigars","type":"specific-option","value":"cigars"}]}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -129,125 +183,85 @@
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_Qbrandswhich">
-							<script>app.registerComponent('oQuestionChoice','_Q2_C','_QSmokePage_Qbrandswhich');</script>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C0" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C0','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CAshton" id="_Q2_C0" style="" value="Ashton"/>
-								<label for="_Q2_C0">
+							<script>app.registerComponent('oQuestionChoice','_Q3_C','_QSmokePage_Qbrandswhich');</script>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C0','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CAshton" id="_Q3_C0" style="" value="Ashton"/>
+								<label for="_Q3_C0">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Ashton</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C1" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C1','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CArturo" id="_Q2_C1" style="" value="Arturo"/>
-								<label for="_Q2_C1">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C1','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CArturo" id="_Q3_C1" style="" value="Arturo"/>
+								<label for="_Q3_C1">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Arturo Fuente</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C2" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C2','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_COliva" id="_Q2_C2" style="" value="Oliva"/>
-								<label for="_Q2_C2">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C2','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_COliva" id="_Q3_C2" style="" value="Oliva"/>
+								<label for="_Q3_C2">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Oliva</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C3" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C3','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CAroma" id="_Q2_C3" style="" value="Aroma"/>
-								<label for="_Q2_C3">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C3','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CAroma" id="_Q3_C3" style="" value="Aroma"/>
+								<label for="_Q3_C3">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">La Aroma de Cuba</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C4" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C4','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CPadron" id="_Q2_C4" style="" value="Padron"/>
-								<label for="_Q2_C4">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C4" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C4','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CPadron" id="_Q3_C4" style="" value="Padron"/>
+								<label for="_Q3_C4">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Padron</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C5" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C5','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CRomeo" id="_Q2_C5" style="" value="Romeo"/>
-								<label for="_Q2_C5">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C5" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C5','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CRomeo" id="_Q3_C5" style="" value="Romeo"/>
+								<label for="_Q3_C5">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Romeo y Julieta</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C6" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C6','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CCristobal" id="_Q2_C6" style="" value="Cristobal"/>
-								<label for="_Q2_C6">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C6" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C6','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CCristobal" id="_Q3_C6" style="" value="Cristobal"/>
+								<label for="_Q3_C6">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">San Cristobal</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C7" data-questiongroup="_QSmokePage_Qbrandswhich">
-								<script>app.registerComponent('mOptionBase','_Q2_C7','_QSmokePage_Qbrandswhich');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CFather" id="_Q2_C7" style="" value="Father"/>
-								<label for="_Q2_C7">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C7" data-questiongroup="_QSmokePage_Qbrandswhich">
+								<script>app.registerComponent('mOptionBase','_Q3_C7','_QSmokePage_Qbrandswhich');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QSmokePage_Qbrandswhich_CFather" id="_Q3_C7" style="" value="Father"/>
+								<label for="_Q3_C7">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">My Father</span>
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="o-question-container">
-					<script type="text/javascript">
-		var questionName='_QSmokePage_Qsmokecigars';
-		var baseScriptCount = 5
-		var currentScriptCount = document.scripts.length -1
-		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
-		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
-		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q3','_QSmokePage_Qsmokecigars');</script><script type="text/javascript">app.RegisterProperties('_Qsmokecigars',{"separator":true, "balanced":{"state":false}, "onesize":{"state":true},visible:[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_Smoked"}]});</script><div class="m-question-cover"><!-- cover --></div>
-					<div class="o-question-error">
-					</div>
-					<div class="o-question-core">
-						<div class="o-question-information">Do you smoke cigars or cigarettes</div>
-						<div class="o-question-instruction">
-						</div>
-						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_Qsmokecigars">
-							<script>app.registerComponent('oQuestionChoice','_Q3_C','_QSmokePage_Qsmokecigars');</script>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C0" data-questiongroup="_QSmokePage_Qsmokecigars">
-								<script>app.registerComponent('mOptionBase','_Q3_C0','_QSmokePage_Qsmokecigars');</script>
-								<input class="hiddencontrol" type="radio" name="_QSmokePage_Qsmokecigars_C" id="_Q3_C0" style="" value="cigars"/>
-								<label for="_Q3_C0">
-									<span class="a-icon-multistate" data-icontype="single">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">cigars</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C1" data-questiongroup="_QSmokePage_Qsmokecigars">
-								<script>app.registerComponent('mOptionBase','_Q3_C1','_QSmokePage_Qsmokecigars');</script>
-								<input class="hiddencontrol" type="radio" name="_QSmokePage_Qsmokecigars_C" id="_Q3_C1" style="" value="cigarettes"/>
-								<label for="_Q3_C1">
-									<span class="a-icon-multistate" data-icontype="single">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">cigarettes</span>
 								</label>
 							</div>
 						</div>
@@ -261,7 +275,7 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q4','_QSmokePage_QHowmanysmoked');</script><script type="text/javascript">app.RegisterProperties('_QHowmanysmoked',{"type":"number", visible:[{"question":"smokecigars","type":"specific-option","value":"cigarettes"}]});</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q4','_QSmokePage_QHowmanysmoked');</script><script type="text/javascript">app.RegisterProperties('_QHowmanysmoked',{"type":"number", "visible":{"collapse":true,"rules":[{"question":"smokecigars","type":"specific-option","value":"cigarettes"}]}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -285,7 +299,7 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q5','_QSmokePage_QWeekendpercentage');</script><script type="text/javascript">app.RegisterProperties('_QWeekendpercentage',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true, visible:[{"question":"Howmanysmoked","type":"min-value","value":"30"}]});</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q5','_QSmokePage_QWeekendpercentage');</script><script type="text/javascript">app.RegisterProperties('_QWeekendpercentage',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true, "visible":{"collapse":true,"rules":[{"question":"Howmanysmoked","type":"min-value","value":"30"}]}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -334,7 +348,7 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q6','_QSmokePage_QHowmanyvaped');</script><script type="text/javascript">app.RegisterProperties('_QHowmanyvaped',{"type":"number", visible:[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"}]});</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q6','_QSmokePage_QHowmanyvaped');</script><script type="text/javascript">app.RegisterProperties('_QHowmanyvaped',{"type":"number", "visible":{"collapse":true,"rules":[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"}]}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -394,7 +408,7 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q7','_QSmokePage_QDidyouPreviously');</script><script type="text/javascript">app.RegisterProperties('_QDidyoupreviously',{"balance":{"state":false}, visible:[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"},{"question":"DoYou_Smoke","type":"not-specific-option","value":"Yes_Smoked"}]});</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q7','_QSmokePage_QDidyouPreviously');</script><script type="text/javascript">app.RegisterProperties('_QDidyoupreviously',{"balance":{"state":false}, "visible":{"collapse":true,"rules":[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"},{"question":"DoYou_Smoke","type":"not-specific-option","value":"Yes_Smoked"}]}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -421,6 +435,46 @@
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">No, I never smoked before vaping</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<script type="text/javascript">
+		var questionName='_QSmokePage_QDoYouMind';
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
+		</script>
+					<script>app.registerComponent('oQuestionContainer','_Q8','_QSmokePage_QDoYouMind');</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-error">
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-information">Do you mind questions about smoking</div>
+						<div class="o-question-instruction">
+						</div>
+						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_QDoYouMind">
+							<script>app.registerComponent('oQuestionChoice','_Q8_C','_QSmokePage_QDoYouMind');</script>
+							<div class="m-option-base" data-exclusive="true" data-questionid="_Q8_C0" data-questiongroup="_QSmokePage_QDoYouMind">
+								<script>app.registerComponent('mOptionBase','_Q8_C0','_QSmokePage_QDoYouMind');</script>
+								<input class="hiddencontrol" type="radio" name="_QSmokePage_QDoYouMind_C" id="_Q8_C0" style="" value="yes"/>
+								<label for="_Q8_C0">
+									<span class="a-icon-multistate" data-icontype="single">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">yes</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="true" data-questionid="_Q8_C1" data-questiongroup="_QSmokePage_QDoYouMind">
+								<script>app.registerComponent('mOptionBase','_Q8_C1','_QSmokePage_QDoYouMind');</script>
+								<input class="hiddencontrol" type="radio" name="_QSmokePage_QDoYouMind_C" id="_Q8_C1" style="" value="no"/>
+								<label for="_Q8_C1">
+									<span class="a-icon-multistate" data-icontype="single">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">no</span>
 								</label>
 							</div>
 						</div>
