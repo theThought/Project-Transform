@@ -19,6 +19,12 @@ th .a-label-option {
   text-align: right;
 }
 
+.a-label-total-grand,
+.a-label-total-column,
+.a-label-total-row {
+  color: #212C4C;
+}
+
 .focused * {
   outline: none;
 }

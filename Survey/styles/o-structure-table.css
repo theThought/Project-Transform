@@ -3,11 +3,31 @@
 }
 .o-structure-table caption,
 .o-structure-table th,
-.o-structure-table .m-structure-cell-row-total-title,
-.o-structure-table .m-structure-cell-column-total-title {
-  font-family: "Merriweather", serif;
+.o-structure-table .grid-row-total-title,
+.o-structure-table .grid-column-total-title {
   font-weight: normal;
   color: #212C4C;
+}
+.o-structure-table th[scope=col] {
+  border-bottom: 1px solid #D0DAE6;
+}
+.o-structure-table .grid-column-total-title,
+.o-structure-table .grid-column-total {
+  border-top: 1px solid #D0DAE6;
+}
+.o-structure-table .grid-row-total-title {
+  border-bottom: 1px solid #D0DAE6;
+}
+.o-structure-table .grid-row-total-title,
+.o-structure-table .grid-row-total {
+  border-left: 1px solid #D0DAE6;
+  vertical-align: top;
+}
+.o-structure-table .grid-row-total {
+  padding-top: 1.2em;
+}
+.o-structure-table .grid-grandtotal {
+  padding-top: 0.5em;
 }
 .o-structure-table caption {
   caption-side: top;

@@ -5,11 +5,37 @@
 
     caption,
     th,
-    .m-structure-cell-row-total-title,
-    .m-structure-cell-column-total-title {
-        font-family: "Merriweather", serif;
+    .grid-row-total-title,
+    .grid-column-total-title {
         font-weight: normal;
         color: globals.$titles;
+    }
+
+    th[scope=col] {
+        border-bottom: 1px solid globals.$borders-light;
+    }
+
+    .grid-column-total-title,
+    .grid-column-total {
+        border-top: 1px solid globals.$borders-light;
+    }
+
+    .grid-row-total-title {
+        border-bottom: 1px solid globals.$borders-light;
+    }
+
+    .grid-row-total-title,
+    .grid-row-total {
+        border-left: 1px solid globals.$borders-light;
+        vertical-align: top;
+    }
+
+    .grid-row-total {
+        padding-top: 1.2em;
+    }
+
+    .grid-grandtotal {
+        padding-top: 0.5em;
     }
 
     caption {

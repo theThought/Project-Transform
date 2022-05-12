@@ -200,10 +200,10 @@ define(['component'],
                 var totalcell = this.grid.rows[i].insertCell(-1);
 
                 if (i === 0) {
-                    totalcell.className = 'm-structure-cell m-structure-cell-row-total-title';
+                    totalcell.className = 'm-structure-cell grid-row-total-title';
                     totalcell.innerHTML = title;
                 } else {
-                    totalcell.className = 'm-structure-cell m-structure-cell-total';
+                    totalcell.className = 'm-structure-cell grid-row-total';
                     totalcell.innerHTML = '<div class="a-label-total-row a-label-total" data-rownumber="' + i + '"><span>0</span></div>';
                     totalcell.onchange = function () {
                     };
@@ -228,16 +228,16 @@ define(['component'],
             for (var i = 0; i < columncount; i++) {
                 var totalcell = totalrow.insertCell(i);
                 if (i === 0) {
-                    totalcell.className = 'm-structure-cell m-structure-cell-column-total-title';
+                    totalcell.className = 'm-structure-cell grid-column-total-title';
                     totalcell.innerHTML = title;
                 } else {
                     if (this.hasrowtotals && i===(columncount-1)) {
                         // tables with column and row totals also have grand totals
                         this.hasgrandtotal = true;
-                        totalcell.className = 'm-structure-cell m-structure-cell-total m-structure-cell-grandtotal';
+                        totalcell.className = 'm-structure-cell m-structure-cell-total grid-grandtotal';
                         totalcell.innerHTML = '<div class="a-label-total-grand a-label-total"><span>0</span></div>';
                     } else {
-                        totalcell.className = 'm-structure-cell m-structure-cell-total';
+                        totalcell.className = 'm-structure-cell grid-column-total';
                         totalcell.innerHTML = '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
                     }
 
