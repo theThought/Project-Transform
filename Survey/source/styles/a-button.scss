@@ -79,9 +79,8 @@ button.a-button-preterminator {
     height: 100%;
     width: 100%;
     border: none;
-    text-align: right;
-    background: transparent;
     z-index: 2;
+    background: url("../../images/white-chevron-down.png") 96% no-repeat transparent;
 
     span {
         position: relative;
@@ -89,8 +88,7 @@ button.a-button-preterminator {
     }
 
     &:hover {
-        background: transparent;
-        color: globals.$white;
+        background-color: transparent;
     }
 
 }

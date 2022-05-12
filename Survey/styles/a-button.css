@@ -75,17 +75,15 @@ button.a-button-preterminator {
   height: 100%;
   width: 100%;
   border: none;
-  text-align: right;
-  background: transparent;
   z-index: 2;
+  background: url("../../images/white-chevron-down.png") 96% no-repeat transparent;
 }
 .a-button-list-dropdown span {
   position: relative;
   top: -5px;
 }
 .a-button-list-dropdown:hover {
-  background: transparent;
-  color: #FFFFFF;
+  background-color: transparent;
 }
 
 /* buttons where used as part of

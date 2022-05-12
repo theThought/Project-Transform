@@ -29,9 +29,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-list-dropdown');
-            this.defaultsymbol = '&#8964;'; // default down arrow appearance
 
-            this.symbol(this.defaultsymbol);
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configurationComplete();
@@ -39,10 +37,6 @@ define(['component'],
 
         aButtonListDropdown.prototype = Object.create(component.prototype);
         aButtonListDropdown.prototype.constructor = aButtonListDropdown;
-
-        aButtonListDropdown.prototype.symbol = function (symbol) {
-            this.element.innerHTML = '<span>' + symbol + '</span>';
-        }
 
         aButtonListDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
@@ -53,7 +47,6 @@ define(['component'],
 
             }
         }
-
 
         return aButtonListDropdown;
 
