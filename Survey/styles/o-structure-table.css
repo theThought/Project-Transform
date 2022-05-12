@@ -1,6 +1,42 @@
 .o-structure-table {
   border-collapse: collapse;
 }
+.o-structure-table.shade-columnheader th[scope=col],
+.o-structure-table.shade-columnheader td[scope=col] {
+  background-color: #ECEFF5;
+}
+.o-structure-table.shade-altcolumns td:nth-child(even),
+.o-structure-table.shade-altcolumns th:nth-child(even) {
+  background-color: #ECEFF5;
+}
+.o-structure-table.shade-altcolumns tr:first-child td,
+.o-structure-table.shade-altcolumns tr:first-child th {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.o-structure-table.shade-altcolumns tr:last-child td {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.o-structure-table.shade-rowheader th[scope=row],
+.o-structure-table.shade-rowheader td[scope=row] {
+  background-color: #ECEFF5;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.o-structure-table.shade-altrows tr:nth-child(even) td,
+.o-structure-table.shade-altrows tr:nth-child(even) th {
+  background-color: #ECEFF5;
+}
+.o-structure-table.shade-altrows tr:nth-child(even) td:first-child,
+.o-structure-table.shade-altrows tr:nth-child(even) th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.o-structure-table.shade-altrows tr:nth-child(even) td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 .o-structure-table caption,
 .o-structure-table th,
 .o-structure-table .grid-row-total-title,

@@ -62,6 +62,26 @@ define(['component'],
             }
         }
 
+        oQuestionGrid.prototype.cellshading = function (props) {
+
+            if (props['columnheader'] === true) {
+                this.grid.classList.add('shade-columnheader');
+            }
+
+            if (props['altcolumns'] === true) {
+                this.grid.classList.add('shade-altcolumns');
+            }
+
+            if (props['rowheader'] === true) {
+                this.grid.classList.add('shade-rowheader');
+            }
+
+            if (props['altrows'] === true) {
+                this.grid.classList.add('shade-altrows');
+            }
+
+        }
+
         oQuestionGrid.prototype.totals = function (props) {
             if (typeof props['rows'] == "object" && props['rows']['visible']) {
                 this.configureRowTotals(props['rows']);
@@ -200,6 +220,7 @@ define(['component'],
                 var totalcell = this.grid.rows[i].insertCell(-1);
 
                 if (i === 0) {
+                    totalcell.scope = 'col';
                     totalcell.className = 'm-structure-cell grid-row-total-title';
                     totalcell.innerHTML = title;
                 } else {
@@ -228,6 +249,7 @@ define(['component'],
             for (var i = 0; i < columncount; i++) {
                 var totalcell = totalrow.insertCell(i);
                 if (i === 0) {
+                    totalcell.scope = 'row';
                     totalcell.className = 'm-structure-cell grid-column-total-title';
                     totalcell.innerHTML = title;
                 } else {

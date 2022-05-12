@@ -3,6 +3,60 @@
 .o-structure-table {
     border-collapse: collapse;
 
+    &.shade-columnheader {
+        th[scope=col],
+        td[scope=col] {
+            background-color: globals.$icons-light;
+        }
+    }
+
+    &.shade-altcolumns {
+        td:nth-child(even),
+        th:nth-child(even) {
+            background-color: globals.$icons-light;
+        }
+
+        tr:first-child td,
+        tr:first-child th {
+            border-top-left-radius: globals.$border-radius;
+            border-top-right-radius: globals.$border-radius;
+        }
+
+        tr:last-child td {
+            border-bottom-left-radius: globals.$border-radius;
+            border-bottom-right-radius: globals.$border-radius;
+        }
+    }
+
+    &.shade-rowheader {
+        th[scope=row],
+        td[scope=row] {
+            background-color: globals.$icons-light;
+            border-top-left-radius: globals.$border-radius;
+            border-bottom-left-radius: globals.$border-radius;
+        }
+    }
+
+    &.shade-altrows {
+        tr:nth-child(even) {
+            td,
+            th {
+                background-color: globals.$icons-light;
+            }
+
+            td:first-child,
+            th:first-child {
+                border-top-left-radius: globals.$border-radius;
+                border-bottom-left-radius: globals.$border-radius;
+            }
+
+            td:last-child {
+                border-top-right-radius: globals.$border-radius;
+                border-bottom-right-radius: globals.$border-radius;
+            }
+        }
+    }
+
     caption,
     th,
     .grid-row-total-title,
