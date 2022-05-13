@@ -1,19 +1,23 @@
 @use 'globals';
 
+$shade-colour: globals.$icons-mid;
+$separator-colour: globals.$titles;
+
 .o-structure-table {
     border-collapse: collapse;
 
-    &.shade-columnheader {
-        th[scope=col],
-        td[scope=col] {
-            background-color: globals.$icons-light;
-        }
+    &.shade-headercolumn {
+        th[scope=row],
+        td[scope=row] {
+            background-color: $shade-colour;
+            border-top-left-radius: globals.$border-radius;
+            border-bottom-left-radius: globals.$border-radius;}
     }
 
     &.shade-altcolumns {
         td:nth-child(even),
         th:nth-child(even) {
-            background-color: globals.$icons-light;
+            background-color: $shade-colour;
         }
 
         tr:first-child td,
@@ -28,12 +32,12 @@
         }
     }
 
-    &.shade-rowheader {
-        th[scope=row],
-        td[scope=row] {
-            background-color: globals.$icons-light;
+    &.shade-headerrow {
+        th[scope=col],
+        td[scope=col] {
+            background-color: $shade-colour;
             border-top-left-radius: globals.$border-radius;
-            border-bottom-left-radius: globals.$border-radius;
+            border-top-right-radius: globals.$border-radius;
         }
     }
 
@@ -41,7 +45,7 @@
         tr:nth-child(even) {
             td,
             th {
-                background-color: globals.$icons-light;
+                background-color: $shade-colour;
             }
 
             td:first-child,
@@ -67,21 +71,21 @@
     }
 
     th[scope=col] {
-        border-bottom: 1px solid globals.$borders-light;
+        border-bottom: 1px solid $separator-colour;
     }
 
     .grid-column-total-title,
     .grid-column-total {
-        border-top: 1px solid globals.$borders-light;
+        border-top: 1px solid $separator-colour;
     }
 
     .grid-row-total-title {
-        border-bottom: 1px solid globals.$borders-light;
+        border-bottom: 1px solid $separator-colour;
     }
 
     .grid-row-total-title,
     .grid-row-total {
-        border-left: 1px solid globals.$borders-light;
+        border-left: 1px solid $separator-colour;
         vertical-align: top;
     }
 
@@ -96,6 +100,7 @@
     caption {
         caption-side: top;
         text-align: left;
+        margin-bottom: .5em;
     }
 
 }

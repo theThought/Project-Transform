@@ -1,13 +1,15 @@
 .o-structure-table {
   border-collapse: collapse;
 }
-.o-structure-table.shade-columnheader th[scope=col],
-.o-structure-table.shade-columnheader td[scope=col] {
-  background-color: #ECEFF5;
+.o-structure-table.shade-headercolumn th[scope=row],
+.o-structure-table.shade-headercolumn td[scope=row] {
+  background-color: #D6DDEB;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .o-structure-table.shade-altcolumns td:nth-child(even),
 .o-structure-table.shade-altcolumns th:nth-child(even) {
-  background-color: #ECEFF5;
+  background-color: #D6DDEB;
 }
 .o-structure-table.shade-altcolumns tr:first-child td,
 .o-structure-table.shade-altcolumns tr:first-child th {
@@ -18,15 +20,15 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.o-structure-table.shade-rowheader th[scope=row],
-.o-structure-table.shade-rowheader td[scope=row] {
-  background-color: #ECEFF5;
+.o-structure-table.shade-headerrow th[scope=col],
+.o-structure-table.shade-headerrow td[scope=col] {
+  background-color: #D6DDEB;
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .o-structure-table.shade-altrows tr:nth-child(even) td,
 .o-structure-table.shade-altrows tr:nth-child(even) th {
-  background-color: #ECEFF5;
+  background-color: #D6DDEB;
 }
 .o-structure-table.shade-altrows tr:nth-child(even) td:first-child,
 .o-structure-table.shade-altrows tr:nth-child(even) th:first-child {
@@ -46,18 +48,18 @@
   color: #212C4C;
 }
 .o-structure-table th[scope=col] {
-  border-bottom: 1px solid #D0DAE6;
+  border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-column-total-title,
 .o-structure-table .grid-column-total {
-  border-top: 1px solid #D0DAE6;
+  border-top: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title {
-  border-bottom: 1px solid #D0DAE6;
+  border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title,
 .o-structure-table .grid-row-total {
-  border-left: 1px solid #D0DAE6;
+  border-left: 1px solid #212C4C;
   vertical-align: top;
 }
 .o-structure-table .grid-row-total {
@@ -69,5 +71,6 @@
 .o-structure-table caption {
   caption-side: top;
   text-align: left;
+  margin-bottom: 0.5em;
 }
 /*# sourceMappingURL=o-structure-table.css.map */

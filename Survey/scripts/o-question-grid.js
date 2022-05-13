@@ -64,16 +64,16 @@ define(['component'],
 
         oQuestionGrid.prototype.cellshading = function (props) {
 
-            if (props['columnheader'] === true) {
-                this.grid.classList.add('shade-columnheader');
+            if (props['headercolumn'] === true) {
+                this.grid.classList.add('shade-headercolumn');
             }
 
             if (props['altcolumns'] === true) {
                 this.grid.classList.add('shade-altcolumns');
             }
 
-            if (props['rowheader'] === true) {
-                this.grid.classList.add('shade-rowheader');
+            if (props['headerrow'] === true) {
+                this.grid.classList.add('shade-headerrow');
             }
 
             if (props['altrows'] === true) {
