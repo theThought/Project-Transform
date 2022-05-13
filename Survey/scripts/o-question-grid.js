@@ -203,6 +203,7 @@ define(['component'],
 
         oQuestionGrid.prototype.caption = function (caption) {
             var newcaption = this.grid.createCaption();
+            newcaption.classList.add('a-label-heading')
             newcaption.innerHTML = caption;
         }
 
