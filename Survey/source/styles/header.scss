@@ -63,30 +63,43 @@
         display: inline-block;
         margin-right: .5em;
         border-radius: 4px;
-        background-color: globals.$theme-primary-hover;
     }
 
     div.m-progress-section {
         min-width: 24px;
         height: 24px;
 
+        div.a-progress-page {
+            display: none;
+        }
+
+        &.no-progress {
+            background: globals.$pre-post-text;
+        }
+
+        &.in-progress {
+            background: repeating-linear-gradient(
+                            45deg,
+                            globals.$pre-post-text,
+                            globals.$pre-post-text 4px,
+                            globals.$theme-primary 4px,
+                            globals.$theme-primary 8px
+            );
+        }
+
+        &.complete {
+            background: globals.$theme-primary-hover;
+        }
+
         &.current-section {
             min-width: 12px;
-            background-color: transparent;
+            background: transparent;
 
-            div {
+            div.a-progress-page {
                 display: inline-block;
             }
         }
 
-        div {
-            display: none;
-        }
-
-    }
-
-    div.m-progress-section.current-section ~ div.m-progress-section {
-        background-color: globals.$pre-post-text;
     }
 
     div.a-progress-page {
@@ -94,6 +107,7 @@
         height: 32px;
         position: relative;
         top: 4px;
+        background: globals.$theme-primary-hover;
     }
 
     div.a-progress-page.current-page {
@@ -108,7 +122,7 @@
 
     div.a-progress-page.current-page,
     div.a-progress-page.current-page ~ div.a-progress-page {
-        background-color: globals.$pre-post-text;
+        background: globals.$pre-post-text;
     }
 
     div:last-child {

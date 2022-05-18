@@ -55,30 +55,36 @@
   display: inline-block;
   margin-right: 0.5em;
   border-radius: 4px;
-  background-color: #324371;
 }
 .overall-progress.complex div.m-progress-section {
   min-width: 24px;
   height: 24px;
 }
-.overall-progress.complex div.m-progress-section.current-section {
-  min-width: 12px;
-  background-color: transparent;
-}
-.overall-progress.complex div.m-progress-section.current-section div {
-  display: inline-block;
-}
-.overall-progress.complex div.m-progress-section div {
+.overall-progress.complex div.m-progress-section div.a-progress-page {
   display: none;
 }
-.overall-progress.complex div.m-progress-section.current-section ~ div.m-progress-section {
-  background-color: #A0ABCC;
+.overall-progress.complex div.m-progress-section.no-progress {
+  background: #A0ABCC;
+}
+.overall-progress.complex div.m-progress-section.in-progress {
+  background: repeating-linear-gradient(45deg, #A0ABCC, #A0ABCC 4px, #455B97 4px, #455B97 8px);
+}
+.overall-progress.complex div.m-progress-section.complete {
+  background: #324371;
+}
+.overall-progress.complex div.m-progress-section.current-section {
+  min-width: 12px;
+  background: transparent;
+}
+.overall-progress.complex div.m-progress-section.current-section div.a-progress-page {
+  display: inline-block;
 }
 .overall-progress.complex div.a-progress-page {
   width: 12px;
   height: 32px;
   position: relative;
   top: 4px;
+  background: #324371;
 }
 .overall-progress.complex div.a-progress-page.current-page {
   outline: 1px solid #324371;
@@ -90,7 +96,7 @@
 }
 .overall-progress.complex div.a-progress-page.current-page,
 .overall-progress.complex div.a-progress-page.current-page ~ div.a-progress-page {
-  background-color: #A0ABCC;
+  background: #A0ABCC;
 }
 .overall-progress.complex div:last-child {
   margin-right: 0;
