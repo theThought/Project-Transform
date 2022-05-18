@@ -13,6 +13,11 @@ function Survey() {
 Survey.prototype.registerComponent = function (componentType, id, group) {
 
     switch (componentType.toLowerCase()) {
+        case 'oprogress':
+            requirejs(['o-progress'], function (oProgress) {
+                app.components[id] = new oProgress(id, group);
+            });
+            break;
         case 'ainputsinglelineedit':
             requirejs(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
                 app.components[id] = new aInputSinglelineEdit(id, group);

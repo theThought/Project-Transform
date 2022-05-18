@@ -17,18 +17,6 @@
     min-width: 250px;
 }
 
-.overall-progress-text {
-    text-align: center;
-    margin-bottom: 4px;
-    color: globals.$titles
-}
-
-.overall-progress-text::after {
-    // placeholder for progress text content
-    content: '';
-    color: globals.$pre-post-text;
-}
-
 .overall-progress-bar {
     height: 24px;
     border: 1px solid globals.$borders-light;
@@ -36,20 +24,90 @@
     box-sizing: border-box;
     padding: 1px;
     background-color: #FFFFFF;
+
+    .overall-progress-text {
+        text-align: center;
+        margin-bottom: 4px;
+        color: globals.$titles
+    }
+
+    .overall-progress-text::after {
+        // placeholder for progress text content
+        content: '';
+        color: globals.$pre-post-text;
+    }
+
+    table {
+        position: relative;
+    }
+
+    td:first-child {
+        background-color: globals.$borders-light;
+        border-radius: globals.$border-radius;
+    }
+
+    .mrProgressText {
+        display: block;
+        position: absolute;
+        top: -1px;
+        left: -42px;
+    }
 }
 
-.overall-progress-bar table {
+.overall-progress.complex {
+    width: auto;
+    min-width: 0;
     position: relative;
-}
 
-.overall-progress-bar td:first-child {
-    background-color: globals.$borders-light;
-    border-radius: globals.$border-radius;
-}
+    div {
+        display: inline-block;
+        margin-right: .5em;
+        border-radius: 4px;
+        background-color: globals.$theme-primary-hover;
+    }
 
-.overall-progress-bar .mrProgressText {
-    display: block;
-    position: absolute;
-    top: -1px;
-    left: -42px;
+    div.m-progress-section {
+        min-width: 24px;
+        min-height: 24px;
+
+        &.current-section {
+            background-color: transparent;
+
+            div {
+                display: inline-block;
+            }
+        }
+
+        div {
+            display: none;
+        }
+
+    }
+
+    div.m-progress-section.current-section ~ div.m-progress-section {
+        background-color: globals.$pre-post-text;
+    }
+
+    div.a-progress-question {
+        width: 12px;
+        height: 32px;
+        position: relative;
+        top: 4px;
+    }
+
+    div.a-progress-question.current-question {
+        outline: 1px solid globals.$theme-primary-hover;
+        outline-offset: 4px;
+        margin: 0 .75em 0 .25em;
+    }
+
+    div.a-progress-question.current-question,
+    div.a-progress-question.current-question ~ div.a-progress-question {
+        background-color: globals.$pre-post-text;
+    }
+
+    div:last-child {
+        margin-right: 0;
+    }
+
 }
