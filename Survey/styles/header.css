@@ -59,9 +59,10 @@
 }
 .overall-progress.complex div.m-progress-section {
   min-width: 24px;
-  min-height: 24px;
+  height: 24px;
 }
 .overall-progress.complex div.m-progress-section.current-section {
+  min-width: 12px;
   background-color: transparent;
 }
 .overall-progress.complex div.m-progress-section.current-section div {
@@ -73,19 +74,22 @@
 .overall-progress.complex div.m-progress-section.current-section ~ div.m-progress-section {
   background-color: #A0ABCC;
 }
-.overall-progress.complex div.a-progress-question {
+.overall-progress.complex div.a-progress-page {
   width: 12px;
   height: 32px;
   position: relative;
   top: 4px;
 }
-.overall-progress.complex div.a-progress-question.current-question {
+.overall-progress.complex div.a-progress-page.current-page {
   outline: 1px solid #324371;
   outline-offset: 4px;
   margin: 0 0.75em 0 0.25em;
 }
-.overall-progress.complex div.a-progress-question.current-question,
-.overall-progress.complex div.a-progress-question.current-question ~ div.a-progress-question {
+.overall-progress.complex div.a-progress-page.current-page:last-child {
+  margin-right: 0.25em;
+}
+.overall-progress.complex div.a-progress-page.current-page,
+.overall-progress.complex div.a-progress-page.current-page ~ div.a-progress-page {
   background-color: #A0ABCC;
 }
 .overall-progress.complex div:last-child {

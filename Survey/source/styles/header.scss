@@ -68,9 +68,10 @@
 
     div.m-progress-section {
         min-width: 24px;
-        min-height: 24px;
+        height: 24px;
 
         &.current-section {
+            min-width: 12px;
             background-color: transparent;
 
             div {
@@ -88,21 +89,25 @@
         background-color: globals.$pre-post-text;
     }
 
-    div.a-progress-question {
+    div.a-progress-page {
         width: 12px;
         height: 32px;
         position: relative;
         top: 4px;
     }
 
-    div.a-progress-question.current-question {
+    div.a-progress-page.current-page {
         outline: 1px solid globals.$theme-primary-hover;
         outline-offset: 4px;
         margin: 0 .75em 0 .25em;
     }
 
-    div.a-progress-question.current-question,
-    div.a-progress-question.current-question ~ div.a-progress-question {
+    div.a-progress-page.current-page:last-child {
+        margin-right: .25em;
+    }
+
+    div.a-progress-page.current-page,
+    div.a-progress-page.current-page ~ div.a-progress-page {
         background-color: globals.$pre-post-text;
     }
 

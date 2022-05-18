@@ -54,6 +54,7 @@ define(['component'],
 
         oProgress.prototype.createSection = function (section) {
             var self = this;
+            var pageindex = 1;
 
             var newSection = document.createElement('div');
             newSection.classList.add('m-progress-section');
@@ -64,24 +65,26 @@ define(['component'],
 
             newSection.title = section.title;
 
-            section.questions.forEach(function (question) {
-                newSection.appendChild(self.createQuestion(question));
-            })
+            for (pageindex = 1; pageindex <= section.pages; pageindex++) {
+                newSection.appendChild(self.createPage(pageindex, section.pages, section.title));
+            }
 
             return newSection;
         }
 
-        oProgress.prototype.createQuestion = function (question) {
-            var newQuestion = document.createElement('div');
-            newQuestion.classList.add('a-progress-question');
+        oProgress.prototype.createPage = function (pageindex, pagecount, sectiontitle) {
+            var newPage = document.createElement('div');
+            newPage.classList.add('a-progress-page');
 
-            if (question.title === this.properties.currentquestion) {
-                newQuestion.classList.add('current-question');
+            if (pageindex === this.properties.currentpage) {
+                newPage.classList.add('current-page');
             }
 
-            newQuestion.title = question.title;
+            newPage.title = sectiontitle
+                + " (" + pageindex
+                + "/" + pagecount + ")";
 
-            return newQuestion;
+            return newPage;
         }
 
         return oProgress;
