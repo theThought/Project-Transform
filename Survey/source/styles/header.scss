@@ -69,10 +69,6 @@
         min-width: 24px;
         height: 24px;
 
-        div.a-progress-page {
-            display: none;
-        }
-
         &.no-progress {
             background: globals.$pre-post-text;
         }
@@ -89,6 +85,10 @@
 
         &.complete {
             background: globals.$theme-primary-hover;
+        }
+
+        div.a-progress-page {
+            display: none;
         }
 
         &.current-section {

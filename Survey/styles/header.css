@@ -60,9 +60,6 @@
   min-width: 24px;
   height: 24px;
 }
-.overall-progress.complex div.m-progress-section div.a-progress-page {
-  display: none;
-}
 .overall-progress.complex div.m-progress-section.no-progress {
   background: #A0ABCC;
 }
@@ -71,6 +68,9 @@
 }
 .overall-progress.complex div.m-progress-section.complete {
   background: #324371;
+}
+.overall-progress.complex div.m-progress-section div.a-progress-page {
+  display: none;
 }
 .overall-progress.complex div.m-progress-section.current-section {
   min-width: 12px;
