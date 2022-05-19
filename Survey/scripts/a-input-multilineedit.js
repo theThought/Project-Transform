@@ -30,7 +30,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
-            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.isExclusive = (this.element.dataset.exclusive === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
             this.configureProperties();

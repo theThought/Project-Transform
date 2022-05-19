@@ -33,7 +33,7 @@ define(['component'],
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
             this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
             this.textInput = this.element.querySelector('input[type=text]');
-            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+            this.isExclusive = (this.element.dataset.exclusive === 'true') || false;
             this.label = this.element.querySelector('.a-label-option');
 
             this.configureProperties();
