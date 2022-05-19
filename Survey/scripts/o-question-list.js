@@ -28,10 +28,16 @@ define(['o-question'],
         function oQuestionList(id, group) {
             oQuestion.call(this, id, group);
 
+            this.tallest = 0;
+            this.widest = 0;
+            this.maxwidth = '';
+            this.isOnesize = true;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configureOnesize();
+            this.onResize();
             this.configurationComplete();
         }
 
@@ -42,7 +48,7 @@ define(['o-question'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
             document.addEventListener("mousedown", this, false);
-
+            document.addEventListener(this.group + "_requestSize", this, false);
         }
 
         oQuestionList.prototype.handleEvent = function (event) {
@@ -53,6 +59,10 @@ define(['o-question'],
                     break;
                 case 'broadcastChange':
                     this.receiveBroadcast(event);
+                    break;
+                case 'resize':
+                case this.group + '_requestSize':
+                    this.onResize();
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
@@ -70,6 +80,61 @@ define(['o-question'],
             if (prop === true) {
                 this.element.classList.add('display-icons');
             }
+        }
+
+        oQuestionList.prototype.configureOnesize = function () {
+            if (this.isOnesize) {
+
+                this.element.classList.add('one-size');
+                window.addEventListener("resize", this, false);
+
+                if (!this.properties || !this.properties.onesize) {
+                    return false;
+                }
+
+                if (typeof this.properties.onesize['max-width'] !== 'undefined') {
+                    this.setMaxWidth(this.properties.onesize['max-width']);
+                }
+
+            }
+        }
+
+        oQuestionList.prototype.setMaxWidth = function (maxwidth) {
+            this.maxwidth = maxwidth;
+        }
+
+        oQuestionList.prototype.onResize = function () {
+
+            var children = this.element.querySelectorAll(".m-option-base, .a-button-option");
+            this.tallest = 0;
+            this.widest = 0;
+
+            var beginresize = new CustomEvent(this.group + '_beginResize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(beginresize);
+
+            for (var i = 0; i < children.length; i++) {
+                var element = children[i];
+                var dims = getComputedStyle(element);
+                var elementheight = parseFloat(dims.height);
+                var elementwidth = parseFloat(dims.width);
+                var contentheight = elementheight;//- (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
+                var contentwidth = elementwidth;//- (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
+
+                contentheight = Math.ceil(contentheight);
+                contentwidth = Math.ceil(contentwidth);
+
+                if (contentheight > this.tallest) this.tallest = contentheight;
+                if (contentwidth > this.widest) this.widest = contentwidth;
+            }
+
+            var endresize = new CustomEvent(this.group + '_endResize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(endresize);
         }
 
         return oQuestionList;

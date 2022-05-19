@@ -3,7 +3,6 @@
 .m-list-optionlist {
     position: absolute;
     box-sizing: border-box;
-    display: none;
     min-width: 300px;
     margin-top: .5em;
     border: 1px solid globals.$theme-primary;
@@ -13,8 +12,12 @@
     z-index: 999;
     max-height: 200px;
     overflow: auto;
+    visibility: hidden;
+}
+
+.config-complete .m-list-optionlist {
 }
 
 .focused ~ .m-list-optionlist {
-    display: inline-block;
+    visibility: visible;
 }
