@@ -32,11 +32,10 @@ define(['component'],
             this.grid = this.element.getElementsByClassName('o-structure-table')[0];
             this.hasrowtotals = false;
             this.rowtotals = [];
-            this.hascolumntotals = false;
             this.columntotals = [];
             this.hasgrandtotal = false;
 
-            var gridid = group.toLowerCase();
+            var gridid = this.group.toLowerCase();
             var grididarray = gridid.split('_q');
             gridid = grididarray[grididarray.length - 3];
 
@@ -86,11 +85,13 @@ define(['component'],
             if (typeof props['rows'] == "object" && props['rows']['visible']) {
                 this.configureRowTotals(props['rows']);
                 this.getTableInputElements('row');
+                this.recalculateRowTotals();
             }
 
             if (typeof props['columns'] == "object" && props['columns']['visible']) {
                 this.configureColumnTotals(props['columns']);
                 this.getTableInputElements('column');
+                this.recalculateColumnTotals();
             }
         }
 
@@ -231,16 +232,12 @@ define(['component'],
                     };
                 }
             }
-
-            this.recalculateRowTotals();
         }
 
         oQuestionGrid.prototype.configureColumnTotals = function (props) {
             if (!props['visible']) {
                 return;
             }
-
-            this.hascolumntotals = true;
 
             var columncount = this.grid.rows[0].cells.length;
             var totalrow = this.grid.insertRow(-1);
@@ -267,8 +264,6 @@ define(['component'],
                 }
 
             }
-
-            this.recalculateColumnTotals();
         }
 
         return oQuestionGrid;
