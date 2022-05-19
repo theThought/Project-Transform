@@ -34,7 +34,7 @@
 .unavailable .m-question-cover {
     &::after {
         opacity: 1;
-        color: globals.$disabled-text-1;
+        color: globals.$disabled-text;
         // placeholder symbol for unavailable questions
         content: "\20E0";
     }

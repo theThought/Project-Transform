@@ -135,7 +135,7 @@ th .a-label-option {
     }
 
     input:disabled + label > .a-label-option {
-        color: globals.$disabled-text-1;
+        color: globals.$disabled-text;
     }
 
     .a-label-option {
