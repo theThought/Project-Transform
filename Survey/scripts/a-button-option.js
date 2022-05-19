@@ -32,6 +32,7 @@ define(['component'],
 
             this.element = document.querySelector('input#' + this.id);
             this.isExclusive = (this.element.dataset.exclusive === 'true') || false;
+            this.hiddenelement = null;
 
             this.configureButton();
             this.configureProperties();
@@ -76,6 +77,15 @@ define(['component'],
             if (!this.element.hasAttribute('data-checked')) {
                 this.element.setAttribute('data-checked', 'false');
             }
+
+            this.hiddeninput = this.element.cloneNode();
+            this.hiddeninput.type = 'text';
+
+            if (this.element.dataset.checked === 'false') {
+                this.hiddeninput.value = '';
+            }
+
+            this.element.appendChild(this.hiddeninput);
         }
 
         aButtonOption.prototype.onClick = function (event) {
@@ -85,8 +95,10 @@ define(['component'],
                 event.preventDefault();
 
                 if (this.element.dataset.checked === 'true') {
+                    this.hiddeninput.value = '';
                     this.element.setAttribute('data-checked', 'false');
                 } else {
+                    this.hiddeninput.value = this.element.value;
                     this.element.setAttribute('data-checked', 'true');
                 }
 
