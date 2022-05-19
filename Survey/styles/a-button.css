@@ -20,6 +20,13 @@ input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover,
 button:hover {
+  background-color: #324371;
+  color: #FFFFFF;
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
   background-color: #FFFFFF;
   color: #455B97;
 }
@@ -28,9 +35,15 @@ button:disabled,
 input[type=button]:disabled,
 input[type=submit]:disabled,
 input[type=reset]:disabled {
-  border-color: #D6DDEB !important;
-  background-color: #D6DDEB !important;
+  border-color: #9CADCB !important;
+  background-color: #9CADCB !important;
   color: #FFFFFF !important;
+}
+
+button[data-checked=true],
+input[type=button][data-checked=true],
+input[type=submit][data-checked=true] {
+  background-color: #449B9B;
 }
 
 button.a-button-preterminator,
