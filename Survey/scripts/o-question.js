@@ -121,7 +121,7 @@ define(['component'],
 
             // in the case that there are no rules to be processed and the question
             // is already visible there is nothing to do
-            if (requiredScore === 0  && this.available) {
+            if (requiredScore === 0 && this.available) {
                 return;
             }
 
@@ -229,7 +229,7 @@ define(['component'],
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (rule.value.toLowerCase().replaceAll("_","__") === incomingValue.toLowerCase()) {
+            if (rule.value.toLowerCase().replace(/_/g, "__") === incomingValue.toLowerCase()) {
                 rule.satisfied = !incomingChecked;
             }
         }

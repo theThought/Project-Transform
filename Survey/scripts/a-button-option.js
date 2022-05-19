@@ -31,7 +31,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('input#' + this.id);
-            this.isExclusive = (this.element.dataset.exclusive === 'true') || false;
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.hiddenelement = null;
 
             this.configureButton();
@@ -81,7 +81,7 @@ define(['component'],
             this.hiddeninput = this.element.cloneNode();
             this.hiddeninput.type = 'text';
 
-            if (this.element.dataset.checked === 'false') {
+            if (this.element.getAttribute('data-checked') === 'false') {
                 this.hiddeninput.value = '';
             }
 
@@ -94,7 +94,7 @@ define(['component'],
 
                 event.preventDefault();
 
-                if (this.element.dataset.checked === 'true') {
+                if (this.element.getAttribute('data-checked') === 'true') {
                     this.hiddeninput.value = '';
                     this.element.setAttribute('data-checked', 'false');
                 } else {
@@ -103,7 +103,7 @@ define(['component'],
                 }
 
                 // handle self-generated events
-                if (this.isExclusive && this.element.dataset.checked === 'true') {
+                if (this.isExclusive && this.element.getAttribute('data-checked') === 'true') {
                     var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
                         bubbles: true,
                         detail: this

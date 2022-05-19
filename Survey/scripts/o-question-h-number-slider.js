@@ -31,7 +31,7 @@ define(['o-question'],
             this.wrapper = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
             this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
             this.clickablearea = null;
-            this.isExclusive = (this.element.dataset.exclusive === 'true') || false;
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
 
             this.configureProperties();
