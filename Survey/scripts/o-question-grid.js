@@ -39,6 +39,7 @@ define(['component'],
             var grididarray = gridid.split('_q');
             gridid = grididarray[grididarray.length - 3];
 
+            this.configureCellEvents();
             this.configureIncomingEventListeners();
             this.configureProperties(gridid);
             this.configurationComplete();
@@ -58,6 +59,28 @@ define(['component'],
                 case "broadcastChange":
                     this.receiveBroadcast(event);
                     break;
+            }
+        }
+
+        oQuestionGrid.prototype.configureCellEvents = function () {
+            for (var i = 0, row; row = this.grid.rows[i]; i++) {
+
+                // iterating through rows initially
+                // rows are accessed using the "row" variable
+
+                for (var j = 0, col; col = row.cells[j]; j++) {
+                    // nested column iteration
+
+                    // if the cell is clicked pass the focus and click to the first input element
+                    col.onclick = function () {
+                        if (this.getElementsByTagName('INPUT').length) {
+                            var element = this.getElementsByTagName('INPUT')[0];
+                            element.click();
+                            element.focus();
+                        }
+                    }
+                }
+
             }
         }
 
@@ -115,8 +138,8 @@ define(['component'],
                         this[direction + 'totals'].push(details);
                     }
 
-
                 }
+
             }
         }
 
