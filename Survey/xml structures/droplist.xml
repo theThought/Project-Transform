@@ -1,0 +1,66 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-40">
+      <Control Type="DropList"></Control>
+    </Style>
+    <Control Type="DropList" QuestionName="_QQuestionTypes_C" ElementID="_Q0_C">
+      <Style ElementAlign="NewLine" Indent="1" ZIndex="-40">
+        <Control Type="DropList"></Control>
+      </Style>
+      <Category Name="basic" CategoryID="0">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Original Questions</Text>
+        </Label>
+      </Category>
+      <Category Name="custom" CategoryID="1">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Custom Property Questions</Text>
+        </Label>
+      </Category>
+      <Category Name="list" CategoryID="2">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Lists</Text>
+        </Label>
+      </Category>
+      <Category Name="ComplexGrids" CategoryID="3">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Complex Grids</Text>
+        </Label>
+      </Category>
+      <Category Name="Choice" CategoryID="4">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Choice questions</Text>
+        </Label>
+      </Category>
+      <Category Name="Visibility" CategoryID="5">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Questions that change visibility</Text>
+        </Label>
+      </Category>
+      <Category Name="Grids" CategoryID="6">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Just grids</Text>
+        </Label>
+      </Category>
+      <Category Name="Totals" CategoryID="7">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Grids with totals</Text>
+        </Label>
+      </Category>
+      <Category Name="Dropdown" CategoryID="8">
+        <Label>
+          <Style ElementAlign="Right"></Style>
+          <Text>Dropdown questions</Text>
+        </Label>
+      </Category>
+    </Control>
+  </Question>
+</Questions>
