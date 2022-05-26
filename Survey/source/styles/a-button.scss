@@ -85,7 +85,7 @@ button.a-button-preterminator {
 }
 
 .focused > .a-button-list-dropdown {
-    background-image: url("../../images/white-chevron-up.png");
+    background-image: url("../images/white-chevron-up.png");
 }
 
 .a-button-list-dropdown {
@@ -97,7 +97,7 @@ button.a-button-preterminator {
     width: 100%;
     border: none;
     z-index: 2;
-    background: url("../../images/white-chevron-down.png") 96% no-repeat transparent;
+    background: url("../images/white-chevron-down.png") 96% no-repeat transparent;
 
     &:hover {
         background-color: transparent;
