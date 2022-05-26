@@ -1301,7 +1301,6 @@
               <xsl:attribute name="data-questiongroup">
                  <xsl:value-of select="$qFullName" />
               </xsl:attribute>
-               <xsl:attribute name="type">submit</xsl:attribute>
                <!--- Input name -->
                <xsl:attribute name="name">
                   <xsl:value-of select="@QuestionName" />
@@ -1343,6 +1342,28 @@
                <!--- Button Label -->
                <xsl:attribute name="value">
                   <xsl:value-of select="Category/Label/Text" />
+               </xsl:attribute>
+               <!--- Checked Label -->
+               <xsl:choose>
+                 <xsl:when test="Category/@Checked='true'">
+                   <xsl:attribute name="data-checked">
+                     <xsl:text>true</xsl:text>
+                   </xsl:attribute>
+                 </xsl:when>
+                 <xsl:otherwise>
+                   <xsl:attribute name="data-checked">
+                     <xsl:text>false</xsl:text>
+                   </xsl:attribute>
+                 </xsl:otherwise>
+               </xsl:choose>
+               <xsl:attribute name="type">
+                 <xsl:value-of select="@Type" />
+               </xsl:attribute>
+               <xsl:attribute name="value">
+                  <xsl:value-of select="Category/Label/Text" />
+               </xsl:attribute>
+               <xsl:attribute name="data-exclusive">
+                  <xsl:text>true</xsl:text>
                </xsl:attribute>
                <!--- Alt text -->
                <xsl:attribute name="alt">

@@ -8,7 +8,7 @@
             <Style ElementAlign="NewLine" Indent="1">
               <Control Type="Button"></Control>
             </Style>
-            <Category Name="blue" CategoryID="0">
+            <Category Name="blue" CategoryID="0" Checked="true">
               <Label>
                 <Style ElementAlign="Right"></Style>
                 <Text>blue</Text>
