@@ -92,14 +92,12 @@ define(['component'],
             // stop buttons from submitting
             if (event.target === this.element) {
 
-                event.preventDefault();
-
                 if (this.element.getAttribute('data-checked') === 'true') {
-                    this.hiddeninput.value = '';
                     this.element.setAttribute('data-checked', 'false');
+                    this.hiddeninput.value = '';
                 } else {
-                    this.hiddeninput.value = this.element.value;
                     this.element.setAttribute('data-checked', 'true');
+                    this.hiddeninput.value = this.element.value;
                 }
 
                 // handle self-generated events
@@ -126,6 +124,8 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element) {
                 this.element.setAttribute('data-checked', 'false');
+                this.hiddeninput.value = '';
+                this.broadcastChange();
             }
 
         }
@@ -135,6 +135,8 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
                 this.element.setAttribute('data-checked', 'false');
+                this.hiddeninput.value = '';
+                this.broadcastChange();
             }
         }
 
