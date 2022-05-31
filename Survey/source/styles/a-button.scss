@@ -13,7 +13,7 @@ button {
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
     padding: 0 1em;
-    background: globals.$theme-primary;
+    background-color: globals.$theme-primary;
     color: globals.$white;
 }
 
@@ -21,14 +21,14 @@ input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover,
 button:hover {
-    background-color: globals.$theme-primary-hover;
+    background-color: globals.$theme-primary-hover !important;
     color: globals.$white;
 }
 
 input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active {
-    background-color: globals.$white;
+    background-color: globals.$white !important;
     color: globals.$theme-primary;
 }
 
@@ -45,7 +45,17 @@ input[type=reset]:disabled {
 button[data-checked="true"],
 input[type=button][data-checked="true"],
 input[type=submit][data-checked="true"] {
-    background-color: globals.$theme-secondary;
+    background-image: url("../images/blue_checkmark.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:active {
+        background-image: url("../images/blue_checkmark.png");
+    }
+
+    &:disabled {
+        background-image: url("../images/blue_checkmark.png");
+    }
 }
 
 button.a-button-preterminator,

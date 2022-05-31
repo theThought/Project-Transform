@@ -12,7 +12,7 @@ button {
   border: 1px solid #455B97;
   border-radius: 10px;
   padding: 0 1em;
-  background: #455B97;
+  background-color: #455B97;
   color: #FFFFFF;
 }
 
@@ -20,14 +20,14 @@ input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover,
 button:hover {
-  background-color: #324371;
+  background-color: #324371 !important;
   color: #FFFFFF;
 }
 
 input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
   color: #455B97;
 }
 
@@ -43,7 +43,19 @@ input[type=reset]:disabled {
 button[data-checked=true],
 input[type=button][data-checked=true],
 input[type=submit][data-checked=true] {
-  background-color: #449B9B;
+  background-image: url("../images/blue_checkmark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+button[data-checked=true]:active,
+input[type=button][data-checked=true]:active,
+input[type=submit][data-checked=true]:active {
+  background-image: url("../images/blue_checkmark.png");
+}
+button[data-checked=true]:disabled,
+input[type=button][data-checked=true]:disabled,
+input[type=submit][data-checked=true]:disabled {
+  background-image: url("../images/blue_checkmark.png");
 }
 
 button.a-button-preterminator,
