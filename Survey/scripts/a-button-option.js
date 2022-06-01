@@ -31,6 +31,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('input#' + this.id);
+            this.parent = this.element.parentNode;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.hiddenelement = null;
 
@@ -78,14 +79,19 @@ define(['component'],
                 this.element.setAttribute('data-checked', 'false');
             }
 
-            this.hiddeninput = this.element.cloneNode();
-            this.hiddeninput.type = 'text';
+            this.hiddenelement = this.element.cloneNode();
+            this.hiddenelement.type = 'hidden';
+
+            // remove the ID from the cloned element (duplicate IDs are not permitted)
+            // and the name from the original element (the name attribute is how forms are handled)
+            this.hiddenelement.id = '';
+            this.element.name = '';
 
             if (this.element.getAttribute('data-checked') === 'false') {
-                this.hiddeninput.value = '';
+                this.hiddenelement.value = '';
             }
 
-            this.element.appendChild(this.hiddeninput);
+            this.parent.insertBefore(this.hiddenelement, this.element);
         }
 
         aButtonOption.prototype.onClick = function (event) {
@@ -94,10 +100,10 @@ define(['component'],
 
                 if (this.element.getAttribute('data-checked') === 'true') {
                     this.element.setAttribute('data-checked', 'false');
-                    this.hiddeninput.value = '';
+                    this.hiddenelement.value = '';
                 } else {
                     this.element.setAttribute('data-checked', 'true');
-                    this.hiddeninput.value = this.element.value;
+                    this.hiddenelement.value = this.element.value;
                 }
 
                 // handle self-generated events
@@ -124,7 +130,7 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element) {
                 this.element.setAttribute('data-checked', 'false');
-                this.hiddeninput.value = '';
+                this.hiddenelement.value = '';
                 this.broadcastChange();
             }
 
@@ -135,7 +141,7 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
                 this.element.setAttribute('data-checked', 'false');
-                this.hiddeninput.value = '';
+                this.hiddenelement.value = '';
                 this.broadcastChange();
             }
         }
