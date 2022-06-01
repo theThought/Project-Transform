@@ -1357,7 +1357,7 @@
                  </xsl:otherwise>
                </xsl:choose>
                <xsl:attribute name="type">
-                 <xsl:value-of select="@Type" />
+                 <xsl:text>submit</xsl:text>
                </xsl:attribute>
                <xsl:attribute name="value">
                   <xsl:value-of select="Category/Label/Text" />
@@ -1579,6 +1579,9 @@
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
+            <xsl:if test="count(Cell/Question)=0">
+                <xsl:text>-heading</xsl:text>
+            </xsl:if>
          </xsl:attribute>
          <xsl:for-each select="./Cell">
             <xsl:sort select="@X" data-type="number" />
