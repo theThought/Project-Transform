@@ -724,6 +724,9 @@
        <xsl:element name="input">
          <xsl:attribute name="class">a-input-list-dropdown</xsl:attribute>
          <xsl:attribute name="type">text</xsl:attribute>
+         <xsl:if test="Style/@Width">
+           <xsl:attribute name="width"><xsl:value-of select="Style/@Width" /></xsl:attribute>
+         </xsl:if>
        </xsl:element>
        <xsl:element name="script">
          <xsl:text>app.registerComponent('aInputListDropdown','</xsl:text>
