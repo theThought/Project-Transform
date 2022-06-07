@@ -113,9 +113,12 @@
               </xsl:apply-templates>
            </xsl:when>
            <xsl:when test="name() = 'Error'">
-              <xsl:apply-templates select=".">
-                 <xsl:with-param name="sLabelClass" select="'mrErrorText'" />
-              </xsl:apply-templates>
+           <xsl:element name="div">
+            <xsl:attribute name="class">a-label-error</xsl:attribute>
+            <xsl:for-each select="Text">
+                <xsl:value-of select="." />
+            </xsl:for-each>
+           </xsl:element>
            </xsl:when>
            <xsl:when test="name() = 'Table'">
               <xsl:apply-templates select=".">
@@ -290,7 +293,7 @@
                </xsl:when>
                <xsl:when test="name() = 'Error'">
                   <xsl:apply-templates select=".">
-                     <xsl:with-param name="sLabelClass" select="'mrErrorText'" />
+                     <xsl:with-param name="sLabelClass" select="'a-label-error'" />
                      <xsl:with-param name="bWithinTable" select="true()" />
                   </xsl:apply-templates>
                </xsl:when>
