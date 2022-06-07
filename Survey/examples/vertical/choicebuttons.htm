@@ -41,7 +41,7 @@
 </head>
  
 <body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="1lkrfbw2hqlelo2wogxylhmhdyaqaaaa"/><input type="hidden" name="I.SavePoint" value="ChoiceAsButtons"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="hsqwvjrw3h1ebnrtihn22eg1qmaqaaaa"/><input type="hidden" name="I.SavePoint" value="ChoiceAsButtons"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress complex" id="_Progress" data-questiongroup="_Progress"><!-- progress bar -->
 					<script>app.registerComponent('oProgress', '_Progress', '_Progress');</script>
@@ -60,7 +60,7 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q0','_QChoiceAsButtons');</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q0','_QChoiceAsButtons');</script><script type="text/javascript">app.RegisterProperties('_QChoiceAsButtons',{"balance":{"state":true},"onesize":{"state":false}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -70,15 +70,15 @@
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoiceAsButtons">
 							<script>app.registerComponent('oQuestionChoice','_Q0_C','_QChoiceAsButtons');</script>
 							<script>app.registerComponent('aButtonOption','_Q0_C0','_QChoiceAsButtons');</script>
-							<input data-questionid="_Q0_C0" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Cblue" id="_Q0_C0" class="a-button-option" style="" value="blue" data-checked="true" type="Button" data-exclusive="true" alt="blue"></input>
+							<input data-questionid="_Q0_C0" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Cblue" id="_Q0_C0" class="a-button-option" style="" value="blue" data-checked="false" type="submit" data-exclusive="true" alt="blue"></input>
 							<script>app.registerComponent('aButtonOption','_Q0_C1','_QChoiceAsButtons');</script>
-							<input data-questionid="_Q0_C1" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Cpink" id="_Q0_C1" class="a-button-option" style="" value="pink" data-checked="false" type="Button" data-exclusive="true" alt="pink"></input>
+							<input data-questionid="_Q0_C1" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Cpink" id="_Q0_C1" class="a-button-option" style="" value="pink" data-checked="false" type="submit" data-exclusive="true" alt="pink"></input>
 							<script>app.registerComponent('aButtonOption','_Q0_C2','_QChoiceAsButtons');</script>
-							<input data-questionid="_Q0_C2" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Cyellow" id="_Q0_C2" class="a-button-option" style="" value="yellow" data-checked="false" type="Button" data-exclusive="true" alt="yellow"></input>
+							<input data-questionid="_Q0_C2" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Cyellow" id="_Q0_C2" class="a-button-option" style="" value="yellow" data-checked="false" type="submit" data-exclusive="true" alt="yellow"></input>
 							<script>app.registerComponent('aButtonOption','_Q0_C3','_QChoiceAsButtons');</script>
-							<input data-questionid="_Q0_C3" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Clightgreen" id="_Q0_C3" class="a-button-option" style="" value="light green" data-checked="false" type="Button" data-exclusive="true" alt="light green"></input>
+							<input data-questionid="_Q0_C3" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Clightgreen" id="_Q0_C3" class="a-button-option" style="" value="light green" data-checked="false" type="submit" data-exclusive="true" alt="light green"></input>
 							<script>app.registerComponent('aButtonOption','_Q0_C4','_QChoiceAsButtons');</script>
-							<input data-questionid="_Q0_C4" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Corange" id="_Q0_C4" class="a-button-option" style="" value="orange" data-checked="false" type="Button" data-exclusive="true" alt="orange"></input>
+							<input data-questionid="_Q0_C4" data-questiongroup="_QChoiceAsButtons" name="_QChoiceAsButtons_Corange" id="_Q0_C4" class="a-button-option" style="" value="orange" data-checked="false" type="submit" data-exclusive="true" alt="orange"></input>
 						</div>
 					</div>
 				</div>
@@ -90,6 +90,7 @@
 						<input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
 					</div>
 					<div id="prevstop">
+						<input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
 						<input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
 					</div>
 				</div>
