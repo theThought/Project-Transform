@@ -43,15 +43,9 @@
 <body>
 	<div class="header">
 		<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png" />
-		<div class="overall-progress">
-			<div class="overall-progress-text">
-				<!-- progress text -->
-			</div>
-			<div class="overall-progress complex" id="_Progress" data-questiongroup="_Progress">
-				<mrBannerText Name="CustomProgressBar" />
-				<script>app.registerComponent('oProgress', '_Progress', '_Progress');</script>
-
-			</div>
+		<div class="overall-progress complex" id="_Progress" data-questiongroup="_Progress"><!-- progress bar -->
+			<script>app.registerComponent('oProgress', '_Progress', '_Progress');</script>
+			<mrBannerText Name="CustomProgressBar" />
 		</div>
 	</div>
  
