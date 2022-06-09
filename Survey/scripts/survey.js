@@ -90,6 +90,10 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components.push(new aLabelThumbValue(id, group));
             });
             break;
+        case 'mlistoptionlist':
+            requirejs(['m-list-optionlist'], function (mListOptionList) {
+                app.components.push(new mListOptionList(id, group));
+            });
         default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.')
     }
