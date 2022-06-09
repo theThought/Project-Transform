@@ -9,6 +9,10 @@
         background-color: globals.$theme-primary;
         border-radius: globals.$border-radius;
 
+        &:hover {
+            background-color: globals.$theme-primary-hover;
+        }
+
         input[type=text] {
             margin: .6em;
             color: white;

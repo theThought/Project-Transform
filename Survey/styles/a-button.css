@@ -108,7 +108,7 @@ button.a-button-preterminator {
   background: url("../images/white-chevron-down.png") right 15px center no-repeat transparent;
 }
 .a-button-list-dropdown:hover {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 /* buttons where used as part of

@@ -7,6 +7,9 @@
   background-color: #455B97;
   border-radius: 10px;
 }
+.o-question-list > div:first-of-type:hover {
+  background-color: #324371;
+}
 .o-question-list > div:first-of-type input[type=text] {
   margin: 0.6em;
   color: white;

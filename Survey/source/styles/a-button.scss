@@ -110,7 +110,7 @@ button.a-button-preterminator {
     background: url("../images/white-chevron-down.png") right 15px center no-repeat transparent;
 
     &:hover {
-        background-color: transparent;
+        background-color: transparent !important;
     }
 
 }
