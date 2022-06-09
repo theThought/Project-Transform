@@ -9,6 +9,7 @@
   padding: 0.5em;
   background-color: white;
   z-index: 999;
+  max-height: 200px;
   overflow: auto;
   visibility: hidden;
 }
