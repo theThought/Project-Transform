@@ -7,6 +7,7 @@
         cursor: default;
     }
 }
+
 th .a-label-option {
     color: globals.$titles;
 }
@@ -25,6 +26,40 @@ th .a-label-option {
 .a-label-total-column,
 .a-label-total-row {
     color: globals.$titles;
+}
+
+// callout and warning labels
+.a-label-error {
+   color: globals.$error;
+}
+
+.o-question-error,
+.o-question-warning,
+.o-question-success {
+    *[class*=-label-] {
+        display: inline-block;
+        padding: 1em 1em 1em 2.5em;
+        border-radius: globals.$border-radius;
+        color: globals.$white;
+        margin-bottom: 1em;
+        background: no-repeat 1em;
+        background-size: 17px;
+    }
+}
+
+.o-question-error *[class*=-label-] {
+    background-image: url("../images/error.png");
+    background-color: globals.$error;
+}
+
+.o-question-warning *[class*=-label-] {
+    background-image: url("../images/warning.png");
+    background-color: globals.$warning;
+}
+
+.o-question-success *[class*=-label-] {
+    background-image: url("../images/success.png");
+    background-color: globals.$success
 }
 
 .focused {

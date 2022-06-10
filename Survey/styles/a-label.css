@@ -25,6 +25,37 @@ th .a-label-option {
   color: #212C4C;
 }
 
+.a-label-error {
+  color: #DA2911;
+}
+
+.o-question-error *[class*=-label-],
+.o-question-warning *[class*=-label-],
+.o-question-success *[class*=-label-] {
+  display: inline-block;
+  padding: 1em 1em 1em 2.5em;
+  border-radius: 10px;
+  color: #FFFFFF;
+  margin-bottom: 1em;
+  background: no-repeat 1em;
+  background-size: 17px;
+}
+
+.o-question-error *[class*=-label-] {
+  background-image: url("../images/error.png");
+  background-color: #DA2911;
+}
+
+.o-question-warning *[class*=-label-] {
+  background-image: url("../images/warning.png");
+  background-color: #E8BE5D;
+}
+
+.o-question-success *[class*=-label-] {
+  background-image: url("../images/success.png");
+  background-color: #469B9B;
+}
+
 .focused * {
   outline: none;
 }
