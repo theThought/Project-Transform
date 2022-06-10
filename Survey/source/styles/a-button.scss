@@ -133,14 +133,16 @@ button.a-button-preterminator {
     }
 
     @media screen and (max-width: 1024px) {
+
         input[type=submit] {
             width: auto;
         }
+
     }
 
     input[type=submit]:hover {
-        color: globals.$theme-secondary;
-        background-color: globals.$white;
+        color: globals.$theme-secondary !important;
+        background-color: globals.$white !important;
     }
 
     #prevstop input[type=submit] {
