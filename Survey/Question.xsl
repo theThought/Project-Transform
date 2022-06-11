@@ -37,6 +37,11 @@
          <xsl:otherwise>
             <xsl:for-each select="*">
                <xsl:choose>
+                 <xsl:when test="name() = 'Error'">
+                  <xsl:call-template name="Error">
+                   <xsl:with-param name="SubQuestion" select="true()" />
+                  </xsl:call-template>
+                 </xsl:when>
                   <xsl:when test="name() = 'Control'">
                      <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
                      <xsl:call-template name="Control">
@@ -113,12 +118,9 @@
               </xsl:apply-templates>
            </xsl:when>
            <xsl:when test="name() = 'Error'">
-           <xsl:element name="div">
-            <xsl:attribute name="class">a-label-error</xsl:attribute>
-            <xsl:for-each select="Text">
-                <xsl:value-of select="." />
-            </xsl:for-each>
-           </xsl:element>
+             <xsl:call-template name="Error">
+              <xsl:with-param name="SubQuestion" select="false()" />
+             </xsl:call-template>
            </xsl:when>
            <xsl:when test="name() = 'Table'">
               <xsl:apply-templates select=".">
@@ -145,7 +147,7 @@
    </xsl:template>
 
 
-   <xsl:template match="Label | Error">
+   <xsl:template match="Label">
       <xsl:param name="sLabelClass" select="'UNKNOWN'" />
       <xsl:param name="bWithinTable" select="false()" />
       <xsl:call-template name="LabelBase">
@@ -291,7 +293,7 @@
                      <xsl:with-param name="bWithinTable" select="true()" />
                   </xsl:apply-templates>
                </xsl:when>
-               <xsl:when test="name() = 'Error'">
+               <xsl:when test="name() = 'ErrorStopped'">
                   <xsl:apply-templates select=".">
                      <xsl:with-param name="sLabelClass" select="'a-label-error'" />
                      <xsl:with-param name="bWithinTable" select="true()" />
@@ -406,6 +408,31 @@
             <xsl:call-template name="StaticControl" />
          </xsl:otherwise>
       </xsl:choose>
+   </xsl:template>
+   <xsl:template name="Error">
+     <xsl:param name="SubQuestion" select="false()" />
+     <xsl:choose>
+     <xsl:when test="name() = 'Error'">
+    <xsl:choose>
+      <xsl:when test="$SubQuestion=false()">
+        <xsl:element name="div">
+          <xsl:attribute name="class">a-label-error</xsl:attribute>
+          <xsl:for-each select="Text">
+            <xsl:value-of select="." />
+          </xsl:for-each>
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:element name="span">
+          <xsl:attribute name="class">a-label-error</xsl:attribute>
+          <xsl:for-each select="Text">
+            <xsl:value-of select="." />
+          </xsl:for-each>
+        </xsl:element>
+      </xsl:otherwise>
+      </xsl:choose>
+     </xsl:when>
+     </xsl:choose>
    </xsl:template>
    <xsl:template name="StaticControl">
       <xsl:param name="qGroup" />

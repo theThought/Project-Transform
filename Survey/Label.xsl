@@ -6,24 +6,33 @@
     <xsl:param name="sLabelClass"/>
 
     <xsl:template match="*">
-        <label>
-            <xsl:choose>
-                <xsl:when test="$bIncludeElementIds and @ElementId != ''">
-                    <xsl:element name="label">
-                        <xsl:attribute name="for">
-                            <xsl:value-of select="@ElementId"/>
-                        </xsl:attribute>
-                        <xsl:call-template name="LabelBase"/>
-                    </xsl:element>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:call-template name="LabelBase"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </label>
+      <label>
+      <xsl:choose>
+        <xsl:when test="name()='Error'">
+          <xsl:attribute name="class">Error</xsl:attribute>
+          <xsl:call-template name="LabelBase"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:choose>
+              <xsl:when test="$bIncludeElementIds and @ElementId != ''">
+                  <xsl:element name="label">
+                      <xsl:attribute name="for">
+                          <xsl:value-of select="@ElementId"/>
+                      </xsl:attribute>
+                      <xsl:call-template name="LabelBase"/>
+                  </xsl:element>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:call-template name="LabelBase"/>
+              </xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
+      </xsl:choose>
+    </label>
     </xsl:template>
 
     <xsl:template name="LabelBase">
+      <xsl:value-of select="@Class" />
         <xsl:if test="$sLabelClass!='mrBannerText'">
 		    <xsl:if test="Style/@ElementAlign = 'NewLine'">
 		            <xsl:if test="$bIncludeCSSStyles">
