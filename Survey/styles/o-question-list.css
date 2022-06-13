@@ -1,10 +1,8 @@
 .o-question-list > div:first-of-type {
-  width: 300px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: inline-block;
   background-color: #455B97;
+  padding-right: 3em;
   border-radius: 10px;
 }
 .o-question-list > div:first-of-type:hover {

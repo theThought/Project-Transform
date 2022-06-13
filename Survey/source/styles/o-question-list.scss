@@ -3,10 +3,10 @@
 .o-question-list {
 
     & > div:first-of-type {
-        width: 300px;
         position: relative;
-        display: flex;
+        display: inline-block;
         background-color: globals.$theme-primary;
+        padding-right: 3em;
         border-radius: globals.$border-radius;
 
         &:hover {

@@ -32,9 +32,11 @@ define(['component'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = true;
+            this.buttonelement = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
+            this.setWidth();
             this.configureIncomingEventListeners();
             this.configureOnesize();
             this.onResize();
@@ -59,6 +61,10 @@ define(['component'],
                     this.onConfigurationComplete(event);
                     break;
             }
+        }
+
+        mListOptionList.prototype.setWidth = function () {
+            this.element.style.width = this.buttonelement.offsetWidth + 'px';
         }
 
         mListOptionList.prototype.listsize = function (prop) {

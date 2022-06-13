@@ -100,6 +100,7 @@ button.a-button-preterminator {
   position: absolute;
   margin: 0;
   right: 0;
+  top: 0;
   padding: 0 1em 0 0;
   height: 100%;
   width: 100%;
