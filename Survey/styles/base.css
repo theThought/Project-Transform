@@ -98,6 +98,7 @@ body > form {
   -ms-grid-column: 2;
   grid-area: content;
   margin-bottom: 1em;
+  min-height: 66vh;
 }
 
 .footer {
