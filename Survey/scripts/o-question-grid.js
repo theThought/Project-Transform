@@ -174,7 +174,17 @@ define(['component'],
 
             for (var row = 1; row < rowcount; row++) {
                 var rowtotal = 0;
+
+                if (Array.isArray(this.properties.totals.rows['exceptions']) && this.properties.totals.rows['exceptions'].indexOf(row) >= 0) {
+                    continue;
+                }
+
                 for (var inputitems = 0; inputitems < this.rowtotals.length; inputitems++) {
+
+                    if (Array.isArray(this.properties.totals.columns['exceptions']) && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[inputitems].column) >= 0) {
+                        continue;
+                    }
+
                     if (this.rowtotals[inputitems].row === row) {
                         rowtotal += Number(this.rowtotals[inputitems].value);
                     }
@@ -198,7 +208,21 @@ define(['component'],
 
             for (var column = 0; column < rowcount; column++) {
                 var coltotal = 0;
+
                 for (var j = 0; j < this.columntotals.length; j++) {
+
+                    if (Array.isArray(this.properties.totals.columns['exceptions'])
+                        && typeof this.rowtotals[j] !== 'undefined'
+                        && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[j].column) >= 0) {
+                        continue;
+                    }
+
+                    if (Array.isArray(this.properties.totals.columns['exceptions'])
+                        && typeof this.rowtotals[j] !== 'undefined'
+                        && this.properties.totals.rows['exceptions'].indexOf(this.rowtotals[j].row) >= 0) {
+                        continue;
+                    }
+
                     if (this.columntotals[j].column === column) {
                         coltotal += Number(this.columntotals[j].value);
                     }
@@ -242,6 +266,7 @@ define(['component'],
             var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
 
             for (var i = 0; i < rowcount; i++) {
+
                 var totalcell = this.grid.rows[i].insertCell(-1);
 
                 if (i === 0) {
@@ -250,9 +275,10 @@ define(['component'],
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell grid-row-total';
+                    if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
+                        continue;
+                    }
                     totalcell.innerHTML = '<div class="a-label-total-row a-label-total" data-rownumber="' + i + '"><span>0</span></div>';
-                    totalcell.onchange = function () {
-                    };
                 }
             }
         }
@@ -274,13 +300,16 @@ define(['component'],
                     totalcell.className = 'm-structure-cell grid-column-total-title';
                     totalcell.innerHTML = title;
                 } else {
-                    if (this.hasrowtotals && i===(columncount-1)) {
+                    if (this.hasrowtotals && i === (columncount - 1)) {
                         // tables with column and row totals also have grand totals
                         this.hasgrandtotal = true;
                         totalcell.className = 'm-structure-cell m-structure-cell-total grid-grandtotal';
                         totalcell.innerHTML = '<div class="a-label-total-grand a-label-total"><span>0</span></div>';
                     } else {
                         totalcell.className = 'm-structure-cell grid-column-total';
+                        if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
+                            continue;
+                        }
                         totalcell.innerHTML = '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
                     }
 
