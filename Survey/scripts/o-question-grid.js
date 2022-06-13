@@ -180,6 +180,11 @@ define(['component'],
                 }
 
                 for (var inputitems = 0; inputitems < this.rowtotals.length; inputitems++) {
+
+                    if (Array.isArray(this.properties.totals.columns['exceptions']) && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[inputitems].column) >= 0) {
+                        continue;
+                    }
+
                     if (this.rowtotals[inputitems].row === row) {
                         rowtotal += Number(this.rowtotals[inputitems].value);
                     }
@@ -204,14 +209,18 @@ define(['component'],
             for (var column = 0; column < rowcount; column++) {
                 var coltotal = 0;
 
-                if (Array.isArray(this.properties.totals.rows['exceptions']) && this.properties.totals.rows['exceptions'].indexOf(column) >= 0) {
-                    //continue;
-                }
-
                 for (var j = 0; j < this.columntotals.length; j++) {
 
-                    if (Array.isArray(this.properties.totals.columns['exceptions']) && this.properties.totals.columns['exceptions'].indexOf(j) >= 0) {
-                        //continue;
+                    if (Array.isArray(this.properties.totals.columns['exceptions'])
+                        && typeof this.rowtotals[j] !== 'undefined'
+                        && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[j].column) >= 0) {
+                        continue;
+                    }
+
+                    if (Array.isArray(this.properties.totals.columns['exceptions'])
+                        && typeof this.rowtotals[j] !== 'undefined'
+                        && this.properties.totals.rows['exceptions'].indexOf(this.rowtotals[j].row) >= 0) {
+                        continue;
                     }
 
                     if (this.columntotals[j].column === column) {
