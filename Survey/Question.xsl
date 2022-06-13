@@ -752,7 +752,11 @@
          <xsl:attribute name="class">a-input-list-dropdown</xsl:attribute>
          <xsl:attribute name="type">text</xsl:attribute>
          <xsl:if test="Style/@Width">
-           <xsl:attribute name="width"><xsl:value-of select="Style/@Width" /></xsl:attribute>
+           <xsl:attribute name="style">
+             <xsl:text>width:</xsl:text>
+             <xsl:value-of select="Style/@Width" />
+             <xsl:text>;</xsl:text>
+           </xsl:attribute>
          </xsl:if>
        </xsl:element>
        <xsl:element name="script">
