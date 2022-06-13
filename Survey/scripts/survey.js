@@ -94,8 +94,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             requirejs(['m-list-optionlist'], function (mListOptionList) {
                 app.components.push(new mListOptionList(id, group));
             });
+            break;
         default:
-            console.info('A request was made to register an unrecognised component type, ' + componentType + '.')
+            console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }
 
 }
@@ -130,7 +131,7 @@ Survey.prototype.getProperties = function (id) {
 Survey.prototype.extractQuestionName = function (id) {
     id = id.toLowerCase();
     id = id.split('_q');
-    id = id[id.length-1];
+    id = id[id.length - 1];
     return id;
 }
 
