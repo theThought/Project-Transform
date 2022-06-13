@@ -143,6 +143,13 @@ define(['component'],
                 var ruleQuestion = rule.question.toLowerCase().replace(/_/g, "__");
 
                 if (broadcastingComponent.questionName === ruleQuestion) {
+
+                    if (rule.type === 'specific-option'
+                        && typeof broadcastingComponent.checkbox !== "undefined"
+                        && broadcastingComponent.checkbox.value !== rule.value.replace(/_/g, "__")) {
+                        return;
+                    }
+
                     applicableRules = true;
 
                     // incoming event matches a ruleset, begin processing
@@ -249,8 +256,8 @@ define(['component'],
         oQuestion.prototype.makeUnavailable = function () {
             this.available = false;
             this.cover();
-            //var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
-            //document.dispatchEvent(clearEntries);
+            var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
+            document.dispatchEvent(clearEntries);
             this.parent.classList.add('unavailable');
         }
 
