@@ -75,6 +75,7 @@ define(['component'],
         }
 
         oQuestion.prototype.configureInitialVisibility = function () {
+
             // if there are no visibility rules defined for this question lift the cover immediately
             if (typeof this.properties.visible === "undefined") {
                 this.liftCover();
@@ -188,24 +189,24 @@ define(['component'],
         }
 
         oQuestion.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
-
-            var incomingValue = broadcastingComponent.element.value;
-
-            rule.satisfied = Number(incomingValue) >= Number(rule.value);
+            if (typeof broadcastingComponent.element.value !== 'undefined') {
+                var incomingValue = broadcastingComponent.element.value;
+                rule.satisfied = Number(incomingValue) >= Number(rule.value);
+            }
         }
 
         oQuestion.prototype.processVisibilityMaxValue = function (rule, broadcastingComponent) {
-
-            var incomingValue = broadcastingComponent.element.value;
-
-            rule.satisfied = Number(incomingValue) <= Number(rule.value);
+            if (typeof broadcastingComponent.element.value !== 'undefined') {
+                var incomingValue = broadcastingComponent.element.value;
+                rule.satisfied = Number(incomingValue) <= Number(rule.value);
+            }
         }
 
         oQuestion.prototype.processVisibilityNotValue = function (rule, broadcastingComponent) {
-
-            var incomingValue = broadcastingComponent.element.value;
-
-            rule.satisfied = Number(incomingValue) !== Number(rule.value);
+            if (typeof broadcastingComponent.element.value !== 'undefined') {
+                var incomingValue = broadcastingComponent.element.value;
+                rule.satisfied = Number(incomingValue) !== Number(rule.value);
+            }
         }
 
         oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
@@ -248,8 +249,8 @@ define(['component'],
         oQuestion.prototype.makeUnavailable = function () {
             this.available = false;
             this.cover();
-            var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
-            document.dispatchEvent(clearEntries);
+            //var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
+            //document.dispatchEvent(clearEntries);
             this.parent.classList.add('unavailable');
         }
 
