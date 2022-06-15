@@ -1667,6 +1667,20 @@
                <xsl:when test="name() = 'Question'">
                  <xsl:apply-templates select="." />
                </xsl:when>
+               <xsl:when test="name() = 'Label'">
+                   <xsl:call-template name="Label">
+                    <xsl:with-param name="labelType">
+                    <xsl:choose>
+                        <xsl:when test="../@Class='mrGridQuestionText'">
+                            <xsl:text>question</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="../@Class='mrGridCategoryText'">
+                            <xsl:text>iteration</xsl:text>
+                        </xsl:when>
+                    </xsl:choose>
+                    </xsl:with-param>
+                   </xsl:call-template>
+               </xsl:when>
                <xsl:when test="name() = 'Control'">
                  <xsl:if test="@Type != 'RadionButton' and @Type !='CheckButton'">
                    <xsl:call-template name="InsertQuestionDiv">
