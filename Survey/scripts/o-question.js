@@ -146,7 +146,7 @@ define(['component'],
 
                     if (rule.type === 'specific-option'
                         && typeof broadcastingComponent.checkbox !== "undefined"
-                        && broadcastingComponent.checkbox.value !== rule.value.replace(/_/g, "__")) {
+                        && broadcastingComponent.checkbox.value.toLowerCase() !== rule.value.toLowerCase().replace(/_/g, "__")) {
                         return;
                     }
 
