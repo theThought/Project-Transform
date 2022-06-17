@@ -825,7 +825,7 @@
              <xsl:attribute name="type">radio</xsl:attribute>
              <!--- Input name -->
              <xsl:attribute name="name">
-               <xsl:value-of select="QuestionID" />
+               <xsl:value-of select="$QuestionID" />
              </xsl:attribute>
              <!--- ID -->
              <xsl:if test="$bIncludeElementIds">
