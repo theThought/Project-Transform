@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html lang="en-US">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta http-equiv="Content-Language" content="en-US"/><meta http-equiv="Expires" content="-1"/><meta http-equiv="Pragma" content="no-cache"/><meta name="Robots" content="noindex, nofollow"/><meta name="Generator" content="Interviewer Server HTML Player 1.0.23..312"/><meta name="Template" content="page.htm"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta http-equiv="Content-Language" content="en-US"/><meta http-equiv="Expires" content="-1"/><meta http-equiv="Pragma" content="no-cache"/><meta name="Robots" content="noindex, nofollow"/><meta name="Generator" content="Interviewer Server HTML Player 1.0.23..312"/><meta name="Template" content="page (complex).htm"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 		<link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/base.css"/>
 		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js"><!-- Require Script --></script>
@@ -34,16 +34,11 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="azpgmfavpbpebp2yrdc23ntnmmaqaaaa"/><input type="hidden" name="I.SavePoint" value="ChoicePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="kx45gxpjnbzebdp3wjkqbu3hdqaqaaaa"/><input type="hidden" name="I.SavePoint" value="ChoicePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":20})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
-				<div class="overall-progress">
-					<div class="overall-progress-text">
-						<!-- progress text -->
-					</div>
-					<div class="overall-progress-bar">
-						<table style="height: 100%; width: 100%"><tr><td style="width: 90%; background-color: #D0DAE6"/><td class="mrProgressText">90%</td></tr></table><!-- progress bar -->
-					</div>
-				</div>
+				<div class="overall-progress complex" id="_Progress" data-questiongroup="_Progress"><!-- progress bar -->
+					<script>app.registerComponent('oProgress', '_Progress', '_Progress');</script>
+					<script>app.RegisterProperties('_Progress',{"currentsection":1,"sections":[{"title":"Section Selection","pages":{"total":1,"current":1}},{"title":"Original Questions","pages":{"total":6,"current":0}},{"title":"Custom Property Questions","pages":{"total":7,"current":0}},{"title":"droplists","pages":{"total":4,"current":0}},{"title":"Complex Grids","pages":{"total":4,"current":0}},{"title":"Choices","pages":{"total":8,"current":0}},{"title":"Visibility Rules","pages":{"total":1,"current":0}},{"title":"Basic Grids","pages":{"total":3,"current":0}},{"title":"Grids with Totals","pages":{"total":4,"current":0}},{"title":"Dropdowns","pages":{"total":2,"current":0}}]})</script></div>
 			</div>
 			<div class="surroundcontent">
 				<div class="o-question-container">
@@ -59,8 +54,7 @@
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-information">Please indicate your gender if you want to</div>
-						<div class="o-question-instruction">
-						</div>
+						<div class="o-question-instruction">Choose one option</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_QGenderReal">
 							<script>app.registerComponent('oQuestionChoice','_Q0_C','_QChoicePage_QGenderReal');</script>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C0" data-questiongroup="_QChoicePage_QGenderReal">
@@ -121,8 +115,7 @@
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-information">Which of the following drinks have you consumed in the last 7 days</div>
-						<div class="o-question-instruction">
-						</div>
+						<div class="o-question-instruction">Choose at least one option or 'none of the above'</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_QDrinks">
 							<script>app.registerComponent('oQuestionChoice','_Q1_C','_QChoicePage_QDrinks');</script>
 							<div class="o-option-sublist">
@@ -141,7 +134,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S1" data-questiongroup="_QChoicePage_QDrinks">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S1','_QChoicePage_QDrinks');</script>
-									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Cdiet" id="_Q1_C0_S1" style="" value="diet" checked=""/>
+									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Cdiet" id="_Q1_C0_S1" style="" value="diet"/>
 									<label for="_Q1_C0_S1">
 										<span class="a-icon-multistate" data-icontype="multiple">
 											<!--This is a comment!-->
@@ -151,7 +144,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C0_S2" data-questiongroup="_QChoicePage_QDrinks">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S2','_QChoicePage_QDrinks');</script>
-									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccherry" id="_Q1_C0_S2" style="" value="cherry" checked=""/>
+									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccherry" id="_Q1_C0_S2" style="" value="cherry"/>
 									<label for="_Q1_C0_S2">
 										<span class="a-icon-multistate" data-icontype="multiple">
 											<!--This is a comment!-->
@@ -216,7 +209,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S2" data-questiongroup="_QChoicePage_QDrinks">
 									<script>app.registerComponent('mOptionBase','_Q1_C1_S2','_QChoicePage_QDrinks');</script>
-									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CMaxCherry" id="_Q1_C1_S2" style="" value="MaxCherry" checked=""/>
+									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CMaxCherry" id="_Q1_C1_S2" style="" value="MaxCherry"/>
 									<label for="_Q1_C1_S2">
 										<span class="a-icon-multistate" data-icontype="multiple">
 											<!--This is a comment!-->
@@ -236,7 +229,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1_S4" data-questiongroup="_QChoicePage_QDrinks">
 									<script>app.registerComponent('mOptionBase','_Q1_C1_S4','_QChoicePage_QDrinks');</script>
-									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRaspberry" id="_Q1_C1_S4" style="" value="Raspberry" checked=""/>
+									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRaspberry" id="_Q1_C1_S4" style="" value="Raspberry"/>
 									<label for="_Q1_C1_S4">
 										<span class="a-icon-multistate" data-icontype="multiple">
 											<!--This is a comment!-->
@@ -257,7 +250,7 @@
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C2" data-questiongroup="_QChoicePage_QDrinks">
 								<script>app.registerComponent('mOptionBase','_Q1_C2','_QChoicePage_QDrinks');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccoffee" id="_Q1_C2" style="" value="coffee" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_Ccoffee" id="_Q1_C2" style="" value="coffee"/>
 								<label for="_Q1_C2">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
@@ -267,14 +260,14 @@
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C3" data-questiongroup="_QChoicePage_QDrinks">
 								<script>app.registerComponent('mOptionBase','_Q1_C3','_QChoicePage_QDrinks');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_COtherDrink" id="_Q1_C3" style="" value="OtherDrink" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_COtherDrink" id="_Q1_C3" style="" value="OtherDrink"/>
 								<label for="_Q1_C3">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Other Hot Drink</span>
 								</label>
-								<input data-questionid="_Q1_O3" data-questiongroup="_QChoicePage_QDrinks" type="text" name="_QChoicePage_QDrinks_OOtherDrink" id="_Q1_O3" class="hiddencontrol" autocomplete="off" style="" maxlength="1024" value="OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text response.  OtherDrink:  This is the generated text respons"/>
+								<input data-questionid="_Q1_O3" data-questiongroup="_QChoicePage_QDrinks" type="text" name="_QChoicePage_QDrinks_OOtherDrink" id="_Q1_O3" class="hiddencontrol" autocomplete="off" style="" maxlength="1024" value=""/>
 								<script>app.registerComponent('aInput','_Q1_O3','_QChoicePage_QDrinks');</script>
 							</div>
 							<div class="o-option-sublist">
@@ -303,7 +296,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S2" data-questiongroup="_QChoicePage_QDrinks">
 									<script>app.registerComponent('mOptionBase','_Q1_C4_S2','_QChoicePage_QDrinks');</script>
-									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRWhites" id="_Q1_C4_S2" style="" value="RWhites" checked=""/>
+									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CRWhites" id="_Q1_C4_S2" style="" value="RWhites"/>
 									<label for="_Q1_C4_S2">
 										<span class="a-icon-multistate" data-icontype="multiple">
 											<!--This is a comment!-->
@@ -323,7 +316,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C4_S4" data-questiongroup="_QChoicePage_QDrinks">
 									<script>app.registerComponent('mOptionBase','_Q1_C4_S4','_QChoicePage_QDrinks');</script>
-									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CLilt" id="_Q1_C4_S4" style="" value="Lilt" checked=""/>
+									<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinks_CLilt" id="_Q1_C4_S4" style="" value="Lilt"/>
 									<label for="_Q1_C4_S4">
 										<span class="a-icon-multistate" data-icontype="multiple">
 											<!--This is a comment!-->
@@ -368,8 +361,7 @@
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-information">Which of the odd options works for you</div>
-						<div class="o-question-instruction">
-						</div>
+						<div class="o-question-instruction">Choose all the relevant options</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_Qsizes">
 							<script>app.registerComponent('oQuestionChoice','_Q2_C','_QChoicePage_Qsizes');</script>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q2_C0" data-questiongroup="_QChoicePage_Qsizes">
@@ -418,143 +410,144 @@
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-information">Which of the following drinks have you consumed in the last 7 days</div>
-						<div class="o-question-instruction">
-						</div>
+						<div class="o-question-instruction">Choose at least one option or 'none of the above'</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_QDrinksRandom">
 							<script>app.registerComponent('oQuestionChoice','_Q3_C','_QChoicePage_QDrinksRandom');</script>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C0" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C0','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerovanilla" id="_Q3_C0" style="" value="zerovanilla" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMax" id="_Q3_C0" style="" value="Max"/>
 								<label for="_Q3_C0">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">zero sugar vanilla</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C1','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccherry" id="_Q3_C1" style="" value="cherry"/>
-								<label for="_Q3_C1">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Cherry</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C2','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cdiet" id="_Q3_C2" style="" value="diet" checked=""/>
-								<label for="_Q3_C2">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Diet</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C3','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cnocaffine" id="_Q3_C3" style="" value="nocaffine" checked=""/>
-								<label for="_Q3_C3">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">caffine free</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C4" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C4','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CLilt" id="_Q3_C4" style="" value="Lilt"/>
-								<label for="_Q3_C4">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Lilt</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C5" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C5','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMax" id="_Q3_C5" style="" value="Max"/>
-								<label for="_Q3_C5">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Max</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C6" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C6','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMaxCherry" id="_Q3_C6" style="" value="MaxCherry"/>
-								<label for="_Q3_C6">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Max (Cherry)</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C7" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C7','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccoffee" id="_Q3_C7" style="" value="coffee" checked=""/>
-								<label for="_Q3_C7">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">coffee</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C8" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C8','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMaxLime" id="_Q3_C8" style="" value="MaxLime"/>
-								<label for="_Q3_C8">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C1" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C1','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMaxLime" id="_Q3_C1" style="" value="MaxLime"/>
+								<label for="_Q3_C1">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Max (Lime)</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C9" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C9','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFire" id="_Q3_C9" style="" value="Fire"/>
-								<label for="_Q3_C9">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C2" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C2','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRaspberry" id="_Q3_C2" style="" value="Raspberry"/>
+								<label for="_Q3_C2">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-									<span class="a-label-option">Fire</span>
+									<span class="a-label-option">Raspberry</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C10" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C10','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRWhites" id="_Q3_C10" style="" value="RWhites"/>
-								<label for="_Q3_C10">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">R Whites Lemonade</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C11" data-questiongroup="_QChoicePage_QDrinksRandom">
-								<script>app.registerComponent('mOptionBase','_Q3_C11','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFantaOrange" id="_Q3_C11" style="" value="FantaOrange"/>
-								<label for="_Q3_C11">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C3" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C3','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFantaOrange" id="_Q3_C3" style="" value="FantaOrange"/>
+								<label for="_Q3_C3">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Fanta (Orange)</span>
 								</label>
 							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C4" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C4','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CMaxCherry" id="_Q3_C4" style="" value="MaxCherry"/>
+								<label for="_Q3_C4">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Max (Cherry)</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C5" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C5','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CFire" id="_Q3_C5" style="" value="Fire"/>
+								<label for="_Q3_C5">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Fire</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C6" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C6','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerovanilla" id="_Q3_C6" style="" value="zerovanilla"/>
+								<label for="_Q3_C6">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">zero sugar vanilla</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C7" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C7','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cdiet" id="_Q3_C7" style="" value="diet"/>
+								<label for="_Q3_C7">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Diet</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C8" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C8','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cregular" id="_Q3_C8" style="" value="regular"/>
+								<label for="_Q3_C8">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Original</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C9" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C9','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CLilt" id="_Q3_C9" style="" value="Lilt"/>
+								<label for="_Q3_C9">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Lilt</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C10" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C10','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_COtherDrink" id="_Q3_C10" style="" value="OtherDrink"/>
+								<label for="_Q3_C10">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Other Hot Drink</span>
+								</label>
+								<input data-questionid="_Q3_O10" data-questiongroup="_QChoicePage_QDrinksRandom" type="text" name="_QChoicePage_QDrinksRandom_OOtherDrink" id="_Q3_O10" class="hiddencontrol" autocomplete="off" style="" maxlength="1024" value=""/>
+								<script>app.registerComponent('aInput','_Q3_O10','_QChoicePage_QDrinksRandom');</script>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C11" data-questiongroup="_QChoicePage_QDrinksRandom">
+								<script>app.registerComponent('mOptionBase','_Q3_C11','_QChoicePage_QDrinksRandom');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRWhites" id="_Q3_C11" style="" value="RWhites"/>
+								<label for="_Q3_C11">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">R Whites Lemonade</span>
+								</label>
+							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C12" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C12','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CDrPepper" id="_Q3_C12" style="" value="DrPepper"/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cnocaffine" id="_Q3_C12" style="" value="nocaffine"/>
 								<label for="_Q3_C12">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-									<span class="a-label-option">Dr Pepper</span>
+									<span class="a-label-option">caffine free</span>
 								</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C13" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C13','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerocherry" id="_Q3_C13" style="" value="zerocherry" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Czerocherry" id="_Q3_C13" style="" value="zerocherry"/>
 								<label for="_Q3_C13">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
@@ -564,25 +557,23 @@
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C14" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C14','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CRaspberry" id="_Q3_C14" style="" value="Raspberry" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccherry" id="_Q3_C14" style="" value="cherry"/>
 								<label for="_Q3_C14">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-									<span class="a-label-option">Raspberry</span>
+									<span class="a-label-option">Cherry</span>
 								</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C15" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C15','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_COtherDrink" id="_Q3_C15" style="" value="OtherDrink"/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_CDrPepper" id="_Q3_C15" style="" value="DrPepper"/>
 								<label for="_Q3_C15">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-									<span class="a-label-option">Other Hot Drink</span>
+									<span class="a-label-option">Dr Pepper</span>
 								</label>
-								<input data-questionid="_Q3_O15" data-questiongroup="_QChoicePage_QDrinksRandom" type="text" name="_QChoicePage_QDrinksRandom_OOtherDrink" id="_Q3_O15" class="hiddencontrol" autocomplete="off" style="" maxlength="1024" value=""/>
-								<script>app.registerComponent('aInput','_Q3_O15','_QChoicePage_QDrinksRandom');</script>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C16" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C16','_QChoicePage_QDrinksRandom');</script>
@@ -596,12 +587,12 @@
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C17" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C17','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cregular" id="_Q3_C17" style="" value="regular" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Ccoffee" id="_Q3_C17" style="" value="coffee"/>
 								<label for="_Q3_C17">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-									<span class="a-label-option">Original</span>
+									<span class="a-label-option">coffee</span>
 								</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q3_C18" data-questiongroup="_QChoicePage_QDrinksRandom">
@@ -616,7 +607,7 @@
 							</div>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C19" data-questiongroup="_QChoicePage_QDrinksRandom">
 								<script>app.registerComponent('mOptionBase','_Q3_C19','_QChoicePage_QDrinksRandom');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cnone" id="_Q3_C19" style="" value="none"/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QDrinksRandom_Cnone" id="_Q3_C19" style="" value="none" checked=""/>
 								<label for="_Q3_C19">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
@@ -650,8 +641,7 @@
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-information">Where was the test performed?</div>
-						<div class="o-question-instruction">
-						</div>
+						<div class="o-question-instruction">Choose one option</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_Qtest__location">
 							<script>app.registerComponent('oQuestionChoice','_Q4_C','_QChoicePage_Qtest__location');</script>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C0" data-questiongroup="_QChoicePage_Qtest__location">
@@ -930,7 +920,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C27_S0" data-questiongroup="_QChoicePage_Qtest__location">
 									<script>app.registerComponent('mOptionBase','_Q4_C27_S0','_QChoicePage_Qtest__location');</script>
-									<input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C27_S0" style="" value="laverty" checked=""/>
+									<input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C27_S0" style="" value="laverty"/>
 									<label for="_Q4_C27_S0">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -1080,7 +1070,7 @@
 							</div>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q4_C33" data-questiongroup="_QChoicePage_Qtest__location">
 								<script>app.registerComponent('mOptionBase','_Q4_C33','_QChoicePage_Qtest__location');</script>
-								<input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C33" style="" value="private__reference__lab__other"/>
+								<input class="hiddencontrol" type="radio" name="_QChoicePage_Qtest__location_C" id="_Q4_C33" style="" value="private__reference__lab__other" checked=""/>
 								<label for="_Q4_C33">
 									<span class="a-icon-multistate" data-icontype="single">
 										<!--This is a comment!-->
@@ -1126,88 +1116,87 @@
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-information">Indicate which of these TV options you have</div>
-						<div class="o-question-instruction">
-						</div>
+						<div class="o-question-instruction">Choose at least one option or 'none of the above'</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
 							<script>app.registerComponent('oQuestionChoice','_Q5_C','_QChoicePage_QOtherSpecifyExample');</script>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C0" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
 								<script>app.registerComponent('mOptionBase','_Q5_C0','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CTerrestial" id="_Q5_C0" style="" value="Terrestial"/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CPrime" id="_Q5_C0" style="" value="Prime" checked=""/>
 								<label for="_Q5_C0">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Terrestial</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C1" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C1','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CApple" id="_Q5_C1" style="" value="Apple"/>
-								<label for="_Q5_C1">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Apple Tv</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C2" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C2','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CCable" id="_Q5_C2" style="" value="Cable"/>
-								<label for="_Q5_C2">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Cable</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C3" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C3','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CSatellite" id="_Q5_C3" style="" value="Satellite"/>
-								<label for="_Q5_C3">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Satellite</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C4" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C4','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CNetflix" id="_Q5_C4" style="" value="Netflix"/>
-								<label for="_Q5_C4">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">Netflix</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C5" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C5','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CiPlayer" id="_Q5_C5" disabled="" style="" value="iPlayer"/>
-								<label for="_Q5_C5">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">iPlayer</span>
-								</label>
-							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C6" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C6','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CPrime" id="_Q5_C6" style="" value="Prime"/>
-								<label for="_Q5_C6">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">Amazon Prime</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C7" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
-								<script>app.registerComponent('mOptionBase','_Q5_C7','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CFreeView" id="_Q5_C7" style="" value="FreeView"/>
-								<label for="_Q5_C7">
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C1" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C1','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CSatellite" id="_Q5_C1" style="" value="Satellite"/>
+								<label for="_Q5_C1">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Satellite</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C2" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C2','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CiPlayer" id="_Q5_C2" disabled="" style="" value="iPlayer"/>
+								<label for="_Q5_C2">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">iPlayer</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C3" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C3','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CFreeView" id="_Q5_C3" style="" value="FreeView"/>
+								<label for="_Q5_C3">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
 									<span class="a-label-option">FreeView</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C4" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C4','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CApple" id="_Q5_C4" style="" value="Apple" checked=""/>
+								<label for="_Q5_C4">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Apple Tv</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C5" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C5','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CTerrestial" id="_Q5_C5" style="" value="Terrestial"/>
+								<label for="_Q5_C5">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Terrestial</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C6" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C6','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CNetflix" id="_Q5_C6" style="" value="Netflix"/>
+								<label for="_Q5_C6">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Netflix</span>
+								</label>
+							</div>
+							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C7" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
+								<script>app.registerComponent('mOptionBase','_Q5_C7','_QChoicePage_QOtherSpecifyExample');</script>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_CCable" id="_Q5_C7" style="" value="Cable" checked=""/>
+								<label for="_Q5_C7">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+									<span class="a-label-option">Cable</span>
 								</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q5_C8" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
@@ -1224,7 +1213,7 @@
 							</div>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q5_C9" data-questiongroup="_QChoicePage_QOtherSpecifyExample">
 								<script>app.registerComponent('mOptionBase','_Q5_C9','_QChoicePage_QOtherSpecifyExample');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_Cnone" id="_Q5_C9" style="" value="none" checked=""/>
+								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QOtherSpecifyExample_Cnone" id="_Q5_C9" style="" value="none"/>
 								<label for="_Q5_C9">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
@@ -1247,21 +1236,20 @@
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
+						<div class="o-question-instruction">Choose one option</div>
 						<div class="o-question-information">Select one of the following colours</div>
-						<div class="o-question-instruction">
-						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_QChoiceAsButtons">
 							<script>app.registerComponent('oQuestionChoice','_Q6_C','_QChoicePage_QChoiceAsButtons');</script>
 							<script>app.registerComponent('aButtonOption','_Q6_C0','_QChoicePage_QChoiceAsButtons');</script>
-							<input data-questionid="_Q6_C0" data-questiongroup="_QChoicePage_QChoiceAsButtons" type="submit" name="_QChoicePage_QChoiceAsButtons_Cblue" id="_Q6_C0" class="a-button-option" style="" value="blue" alt="blue"></input>
+							<input data-questionid="_Q6_C0" data-questiongroup="_QChoicePage_QChoiceAsButtons" name="_QChoicePage_QChoiceAsButtons_Cblue" id="_Q6_C0" class="a-button-option" style="" value="blue" data-checked="false" type="submit" data-exclusive="true" alt="blue"></input>
 							<script>app.registerComponent('aButtonOption','_Q6_C1','_QChoicePage_QChoiceAsButtons');</script>
-							<input data-questionid="_Q6_C1" data-questiongroup="_QChoicePage_QChoiceAsButtons" type="submit" name="_QChoicePage_QChoiceAsButtons_Cpink" id="_Q6_C1" class="a-button-option" style="" value="pink" alt="pink"></input>
+							<input data-questionid="_Q6_C1" data-questiongroup="_QChoicePage_QChoiceAsButtons" name="_QChoicePage_QChoiceAsButtons_Cpink" id="_Q6_C1" class="a-button-option" style="" value="pink" data-checked="true" type="submit" data-exclusive="true" alt="pink"></input>
 							<script>app.registerComponent('aButtonOption','_Q6_C2','_QChoicePage_QChoiceAsButtons');</script>
-							<input data-questionid="_Q6_C2" data-questiongroup="_QChoicePage_QChoiceAsButtons" type="submit" name="_QChoicePage_QChoiceAsButtons_Cyellow" id="_Q6_C2" class="a-button-option" style="" value="yellow" alt="yellow"></input>
+							<input data-questionid="_Q6_C2" data-questiongroup="_QChoicePage_QChoiceAsButtons" name="_QChoicePage_QChoiceAsButtons_Cyellow" id="_Q6_C2" class="a-button-option" style="" value="yellow" data-checked="false" type="submit" data-exclusive="true" alt="yellow"></input>
 							<script>app.registerComponent('aButtonOption','_Q6_C3','_QChoicePage_QChoiceAsButtons');</script>
-							<input data-questionid="_Q6_C3" data-questiongroup="_QChoicePage_QChoiceAsButtons" type="submit" name="_QChoicePage_QChoiceAsButtons_Clightgreen" id="_Q6_C3" class="a-button-option" style="" value="light green" alt="light green"></input>
+							<input data-questionid="_Q6_C3" data-questiongroup="_QChoicePage_QChoiceAsButtons" name="_QChoicePage_QChoiceAsButtons_Clightgreen" id="_Q6_C3" class="a-button-option" style="" value="light green" data-checked="false" type="submit" data-exclusive="true" alt="light green"></input>
 							<script>app.registerComponent('aButtonOption','_Q6_C4','_QChoicePage_QChoiceAsButtons');</script>
-							<input data-questionid="_Q6_C4" data-questiongroup="_QChoicePage_QChoiceAsButtons" type="submit" name="_QChoicePage_QChoiceAsButtons_Corange" id="_Q6_C4" class="a-button-option" style="" value="orange" alt="orange"></input>
+							<input data-questionid="_Q6_C4" data-questiongroup="_QChoicePage_QChoiceAsButtons" name="_QChoicePage_QChoiceAsButtons_Corange" id="_Q6_C4" class="a-button-option" style="" value="orange" data-checked="false" type="submit" data-exclusive="true" alt="orange"></input>
 						</div>
 					</div>
 				</div>
@@ -1273,25 +1261,24 @@
 		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
 		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
 		</script>
-					<script>app.registerComponent('oQuestionContainer','_Q7','_QChoicePage_QChoiceAsButtonsWithCode');</script><div class="m-question-cover"><!-- cover --></div>
+					<script>app.registerComponent('oQuestionContainer','_Q7','_QChoicePage_QChoiceAsButtonsWithCode');</script><script type="text/javascript">app.RegisterProperties('_QChoiceAsButtonsWithCode',{"balance":{"state":false},"onesize":{"state":false}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
+						<div class="o-question-instruction">Choose one option</div>
 						<div class="o-question-information">Select one of the following colours</div>
-						<div class="o-question-instruction">
-						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode">
 							<script>app.registerComponent('oQuestionChoice','_Q7_C','_QChoicePage_QChoiceAsButtonsWithCode');</script>
 							<script>app.registerComponent('aButtonOption','_Q7_C0','_QChoicePage_QChoiceAsButtonsWithCode');</script>
-							<input data-questionid="_Q7_C0" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" type="submit" name="_QChoicePage_QChoiceAsButtonsWithCode_Cblue" id="_Q7_C0" class="a-button-option" style="" value="blue" alt="blue"></input>
+							<input data-questionid="_Q7_C0" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" name="_QChoicePage_QChoiceAsButtonsWithCode_Cblue" id="_Q7_C0" class="a-button-option" style="" value="blue" data-checked="false" type="submit" data-exclusive="true" alt="blue"></input>
 							<script>app.registerComponent('aButtonOption','_Q7_C1','_QChoicePage_QChoiceAsButtonsWithCode');</script>
-							<input data-questionid="_Q7_C1" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" type="submit" name="_QChoicePage_QChoiceAsButtonsWithCode_Cpink" id="_Q7_C1" class="a-button-option" style="" value="pink" alt="pink"></input>
+							<input data-questionid="_Q7_C1" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" name="_QChoicePage_QChoiceAsButtonsWithCode_Cpink" id="_Q7_C1" class="a-button-option" style="" value="pink" data-checked="false" type="submit" data-exclusive="true" alt="pink"></input>
 							<script>app.registerComponent('aButtonOption','_Q7_C2','_QChoicePage_QChoiceAsButtonsWithCode');</script>
-							<input data-questionid="_Q7_C2" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" type="submit" name="_QChoicePage_QChoiceAsButtonsWithCode_Cyellow" id="_Q7_C2" class="a-button-option" style="" value="yellow" alt="yellow"></input>
+							<input data-questionid="_Q7_C2" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" name="_QChoicePage_QChoiceAsButtonsWithCode_Cyellow" id="_Q7_C2" class="a-button-option" style="" value="yellow" data-checked="false" type="submit" data-exclusive="true" alt="yellow"></input>
 							<script>app.registerComponent('aButtonOption','_Q7_C3','_QChoicePage_QChoiceAsButtonsWithCode');</script>
-							<input data-questionid="_Q7_C3" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" type="submit" name="_QChoicePage_QChoiceAsButtonsWithCode_Clightgreen" id="_Q7_C3" class="a-button-option" style="" value="light green" alt="light green"></input>
+							<input data-questionid="_Q7_C3" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" name="_QChoicePage_QChoiceAsButtonsWithCode_Clightgreen" id="_Q7_C3" class="a-button-option" style="" value="light green" data-checked="true" type="submit" data-exclusive="true" alt="light green"></input>
 							<script>app.registerComponent('aButtonOption','_Q7_C4','_QChoicePage_QChoiceAsButtonsWithCode');</script>
-							<input data-questionid="_Q7_C4" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" type="submit" name="_QChoicePage_QChoiceAsButtonsWithCode_Corange" id="_Q7_C4" class="a-button-option" style="" value="orange" alt="orange"></input>
+							<input data-questionid="_Q7_C4" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode" name="_QChoicePage_QChoiceAsButtonsWithCode_Corange" id="_Q7_C4" class="a-button-option" style="" value="orange" data-checked="false" type="submit" data-exclusive="true" alt="orange"></input>
 							<div class="m-option-base" data-exclusive="true" data-questionid="_Q7_X0" data-questiongroup="_QChoicePage_QChoiceAsButtonsWithCode">
 								<script>app.registerComponent('mOptionBase','_Q7_X0','_QChoicePage_QChoiceAsButtonsWithCode');</script>
 								<input class="hiddencontrol" type="checkbox" name="_QChoicePage_QChoiceAsButtonsWithCode_Xnoneofthem" id="_Q7_X0" style="" value="noneofthem"/>

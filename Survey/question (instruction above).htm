@@ -1,0 +1,26 @@
+<mrSubTemplate>
+	<div class="o-question-container">
+		<script type="text/javascript">
+		var questionName='<mrData QuestionElement="Parameter" Type="FullQuestionName"/>';
+		var baseScriptCount = 5
+		var currentScriptCount = document.scripts.length -1
+		document.scripts[currentScriptCount].parentNode.setAttribute('data-questiongroup', questionName);
+		document.scripts[currentScriptCount].parentNode.setAttribute('id', '_Q' + (currentScriptCount-baseScriptCount));
+		</script>
+		<mrData QuestionElement="Banner"  Name="RegisterContainer" />
+		<mrData QuestionElement="Banner"  Name="CustomProperties" />
+		<div class="m-question-cover"><!-- cover --></div>
+	<div class='o-question-error'>
+		<mrData QuestionElement="Error" ShowErrors='TopMost' />
+	</div>
+	<div class='o-question-core'>
+		<div class='o-question-instruction'>
+			<mrData QuestionElement="Banner"  Name="Instruction" />
+		</div>
+		<div class='o-question-information'>
+			<mrData QuestionElement="Label" />
+		</div>
+		<mrData QuestionElement="Controls" />
+	</div>
+</div>
+</mrSubTemplate>
