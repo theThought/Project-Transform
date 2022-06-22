@@ -196,28 +196,40 @@ define(['component'],
         }
 
         oQuestion.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.element.value !== 'undefined') {
-                var incomingValue = broadcastingComponent.element.value;
-                rule.satisfied = Number(incomingValue) >= Number(rule.value);
+            if (typeof broadcastingComponent.element.value === 'undefined') {
+                return;
             }
+
+            var incomingValue = broadcastingComponent.element.value;
+            rule.satisfied = Number(incomingValue) >= Number(rule.value);
         }
 
         oQuestion.prototype.processVisibilityMaxValue = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.element.value !== 'undefined') {
-                var incomingValue = broadcastingComponent.element.value;
-                rule.satisfied = Number(incomingValue) <= Number(rule.value);
+            if (typeof broadcastingComponent.element.value === 'undefined') {
+                return;
             }
+
+            var incomingValue = broadcastingComponent.element.value;
+
+            // treat blank entries as a 0
+            if (incomingValue === '') {
+                incomingValue = 0;
+            }
+
+            rule.satisfied = Number(incomingValue) <= Number(rule.value);
         }
 
         oQuestion.prototype.processVisibilityNotValue = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.element.value !== 'undefined') {
-                var incomingValue = broadcastingComponent.element.value;
-                rule.satisfied = Number(incomingValue) !== Number(rule.value);
+            if (typeof broadcastingComponent.element.value === 'undefined') {
+                return;
             }
+
+            var incomingValue = broadcastingComponent.element.value;
+            rule.satisfied = Number(incomingValue) !== Number(rule.value);
         }
 
         oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.checkbox == "undefined") {
+            if (typeof broadcastingComponent.checkbox === "undefined") {
                 return;
             }
 
@@ -230,7 +242,7 @@ define(['component'],
         }
 
         oQuestion.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.checkbox == "undefined") {
+            if (typeof broadcastingComponent.checkbox === "undefined") {
                 return;
             }
 
