@@ -54,7 +54,6 @@ define(['component'],
                 case 'broadcastChange':
                     this.receiveBroadcast(event);
                     break;
-
             }
         }
 
@@ -91,7 +90,6 @@ define(['component'],
 
                 // at this point we need to iterate each rule and request relevant question values
                 // we do this by telling the contributing question to broadcast its current value
-                // TODO: Replace this with iteration of the event log to get logged values
                 this.visibilityRules.forEach(function (rule) {
                     for (var component in app.components) {
                         if (app.components[component].questionName === rule.question.replace(/_/g, "__").toLowerCase()) {
@@ -117,28 +115,38 @@ define(['component'],
 
         oQuestion.prototype.receiveBroadcast = function (event) {
 
-            // how many rules are there to process
-            var requiredScore = this.visibilityRules.length;
+            // get data from the component that broadcast the state
+            // change event and started this process
+            var broadcastingComponent = event.detail;
 
-            // in the case that there are no rules to be processed and the question
-            // is already visible there is nothing to do
+            // do not try and process visibility rules when the
+            // current component is the originating component
+            if (broadcastingComponent.id === this.id) {
+                return;
+            }
+
+            // the required visibility score is equal to the number
+            // of rules to be processed, as they are 'AND' rules
+            var requiredScore = this.visibilityRules.length;
+            var currentScore = 0;
+
+            // if there are no rules to be processed and the
+            // question is already visible, there is nothing to do
             if (requiredScore === 0 && this.available) {
                 return;
             }
 
-            // are there rules applicable to this question
-            var applicableRules = false;
-
-            // number of rules that have had their condition met
-            var score = 0;
-
-            // originating component data
-            var broadcastingComponent = event.detail;
+            // if there are no rules to be processed and the
+            // question is not visible, make it visible
+            if (requiredScore === 0 && !this.available) {
+                this.makeAvailable();
+                return;
+            }
 
             // get context
             var self = this;
 
-            // process visibility rules
+            // iterate and process the visibility rules
             this.visibilityRules.forEach(function (rule) {
                 var ruleQuestion = rule.question.toLowerCase().replace(/_/g, "__");
 
@@ -149,8 +157,6 @@ define(['component'],
                         && broadcastingComponent.checkbox.value.toLowerCase() !== rule.value.toLowerCase().replace(/_/g, "__")) {
                         return;
                     }
-
-                    applicableRules = true;
 
                     // incoming event matches a ruleset, begin processing
                     switch (rule.type) {
@@ -176,19 +182,15 @@ define(['component'],
 
             this.visibilityRules.forEach(function (rule) {
                 if (rule.satisfied) {
-                    score++;
+                    currentScore++;
                 }
             });
 
-            if (requiredScore === 0) {
-                // the current question has no visibility rules
-                this.makeAvailable();
-
-            } else if (applicableRules && score >= requiredScore) {
+            if (currentScore >= requiredScore) {
                 // the current question met its visibility criteria
                 this.makeAvailable();
 
-            } else if (applicableRules) {
+            } else if (this.available) {
                 // the current question has visibility rules and failed the criteria
                 this.makeUnavailable();
             }
