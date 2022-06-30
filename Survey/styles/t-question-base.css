@@ -35,15 +35,15 @@
           box-sizing: border-box;
   padding-right: 1em;
   margin-bottom: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 40%;
-          flex: 1 1 40%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
   min-width: 343px;
 }
 
 .sidebyside .o-question-response {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+      -ms-flex: 1;
+          flex: 1;
 }
 /*# sourceMappingURL=t-question-base.css.map */

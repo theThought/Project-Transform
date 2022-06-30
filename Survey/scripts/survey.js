@@ -13,6 +13,11 @@ function Survey() {
 Survey.prototype.registerComponent = function (componentType, id, group) {
 
     switch (componentType.toLowerCase()) {
+        case 'page':
+            requirejs(['page'], function (page) {
+                app.components.push(new page(id, group));
+            });
+            break;
         case 'oprogress':
             requirejs(['o-progress'], function (oProgress) {
                 app.components.push(new oProgress(id, group));
