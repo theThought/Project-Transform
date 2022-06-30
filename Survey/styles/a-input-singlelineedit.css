@@ -15,6 +15,24 @@
   text-align: right;
 }
 
+.a-input-singlelineedit:-moz-read-only {
+  border: none;
+  cursor: default;
+}
+
+.a-input-singlelineedit:read-only {
+  border: none;
+  cursor: default;
+}
+
+.a-input-singlelineedit:-moz-read-only:focus {
+  border: none;
+}
+
+.a-input-singlelineedit:read-only:focus {
+  border: none;
+}
+
 .a-input-singlelineedit[type=number]::-ms-clear {
   display: none;
 }
