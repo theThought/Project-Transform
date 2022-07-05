@@ -28,6 +28,7 @@ define(
 
             for (var i = 0; i < questionelements.length; i++) {
                 questionelements[i].style.flexBasis = width + '%';
+                questionelements[i].style.msFlex = '0 0 ' + width + '%';
             }
         }
 

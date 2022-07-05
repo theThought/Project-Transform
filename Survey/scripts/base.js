@@ -34,4 +34,4 @@ if (!Element.prototype.closest) {
 }
 
 var app = new Survey();
-app.registerComponent('Page', 'page', 'page');
+app.registerComponent('Page', 'Page', 'Page');

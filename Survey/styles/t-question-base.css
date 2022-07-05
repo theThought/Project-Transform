@@ -38,7 +38,7 @@
   -webkit-box-flex: 0;
       -ms-flex: 0 0 40%;
           flex: 0 0 40%;
-  min-width: 343px;
+  /*min-width: globals.$min-display-width;*/
 }
 
 .sidebyside .o-question-response {
