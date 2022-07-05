@@ -275,10 +275,28 @@ define(['component'],
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell grid-row-total';
+
                     if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                         continue;
                     }
-                    totalcell.innerHTML = '<div class="a-label-total-row a-label-total" data-rownumber="' + i + '"><span>0</span></div>';
+
+                    var htmlString = '';
+
+                    if (props['labels'] && props['labels']['pre']) {
+                        htmlString += '<span class="a-label-prelabel">'
+                        htmlString += props['labels']['pre'];
+                        htmlString += '</span>';
+                    }
+
+                    htmlString += '<div class="a-label-total-row a-label-total" data-rownumber="' + i + '"><span>0</span></div>';
+
+                    if (props['labels'] && props['labels']['post']) {
+                        htmlString += '<span class="a-label-postlabel">'
+                        htmlString += props['labels']['post'];
+                        htmlString += '</span>';
+                    }
+
+                    totalcell.innerHTML = htmlString;
                 }
             }
         }
@@ -310,11 +328,26 @@ define(['component'],
                         if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                             continue;
                         }
-                        totalcell.innerHTML = '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
+
+                        var htmlString = '';
+
+                        if (props['labels'] && props['labels']['pre']) {
+                            htmlString += '<span class="a-label-prelabel">'
+                            htmlString += props['labels']['pre'];
+                            htmlString += '</span>';
+                        }
+
+                        htmlString += '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
+
+                        if (props['labels'] && props['labels']['post']) {
+                            htmlString += '<span class="a-label-postlabel">'
+                            htmlString += props['labels']['post'];
+                            htmlString += '</span>';
+                        }
+
+                        totalcell.innerHTML = htmlString;
                     }
-
                 }
-
             }
         }
 

@@ -65,6 +65,10 @@
 .o-structure-table .grid-row-total {
   padding-top: 1.2em;
 }
+.o-structure-table .grid-row-total,
+.o-structure-table .grid-column-total {
+  text-align: right;
+}
 .o-structure-table .grid-grandtotal {
   padding-top: 0.5em;
 }

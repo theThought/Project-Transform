@@ -22,6 +22,7 @@ th .a-label-option {
 
 .a-label-total {
   text-align: right;
+  display: inline-block;
 }
 
 .a-label-total-grand,

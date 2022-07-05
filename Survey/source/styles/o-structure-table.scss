@@ -93,6 +93,11 @@ $separator-colour: globals.$titles;
         padding-top: 1.2em;
     }
 
+    .grid-row-total,
+    .grid-column-total {
+        text-align: right;
+    }
+
     .grid-grandtotal {
         padding-top: 0.5em;
     }
