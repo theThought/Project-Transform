@@ -18,6 +18,11 @@ th .a-label-option {
     margin: 0;
 }
 
+.a-label-iteration {
+    font-family: globals.$primary-font;
+    color: globals.$theme-primary;
+}
+
 .a-label-total {
   text-align: right;
 }
