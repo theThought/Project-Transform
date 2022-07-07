@@ -30,6 +30,10 @@
   margin-bottom: 0.5em;
 }
 
+.sidebyside .o-question-errorandinstruction {
+  padding-right: 1em;
+}
+
 .sidebyside .o-question-information {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
