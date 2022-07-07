@@ -13,6 +13,7 @@
       flex-wrap: wrap;
 }
 
+/* to be removed */
 #prevstop {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,9 +24,31 @@
   margin-right: 1em;
 }
 
+/* to be removed */
 #nextonly {
   display: block;
   text-align: right;
+}
+
+/* may not be required */
+.a-button-next {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+/* may not be required */
+.a-button-prev {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+/* may not be required */
+.a-button-stop {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
 .page-links {
