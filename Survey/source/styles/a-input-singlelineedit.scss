@@ -16,6 +16,11 @@
     text-align: right;
 }
 
+/* make the spinner permanently visible - specifically for Edge */
+.a-input-singlelineedit[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
+
 .a-input-singlelineedit:read-only {
     border: none;
     cursor: default;
