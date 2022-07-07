@@ -35,6 +35,10 @@ th .a-label-option {
   color: #DA2911;
 }
 
+.o-question-instruction {
+  color: #0063DE;
+}
+
 .o-question-error *[class*=-label-],
 .o-question-warning *[class*=-label-],
 .o-question-success *[class*=-label-] {

@@ -36,7 +36,11 @@ th .a-label-option {
 
 // callout and warning labels
 .a-label-error {
-   color: globals.$error;
+   color: globals.$error-text;
+}
+
+.o-question-instruction {
+    color: globals.$information-text;
 }
 
 .o-question-error,
@@ -55,17 +59,17 @@ th .a-label-option {
 
 .o-question-error *[class*=-label-] {
     background-image: url("../images/error.png");
-    background-color: globals.$error;
+    background-color: globals.$error-bg;
 }
 
 .o-question-warning *[class*=-label-] {
     background-image: url("../images/warning.png");
-    background-color: globals.$warning;
+    background-color: globals.$warning-bg;
 }
 
 .o-question-success *[class*=-label-] {
     background-image: url("../images/success.png");
-    background-color: globals.$success
+    background-color: globals.$success-bg;
 }
 
 .focused {
