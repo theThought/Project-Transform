@@ -27,8 +27,20 @@
 }
 
 .a-input-singlelineedit:read-only {
-    border: none;
+    border: transparent !important;
     cursor: default;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input:read-only::-webkit-outer-spin-button,
+input:read-only::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number]:read-only {
+    -moz-appearance: textfield;
 }
 
 .a-input-singlelineedit:read-only:focus {

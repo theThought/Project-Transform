@@ -108,6 +108,13 @@ th .a-label-option {
         color: globals.$pre-post-text;
         white-space: nowrap;
     }
+
+    &.read-only {
+        .a-label-prelabel,
+        .a-label-postlabel {
+            border: transparent !important;
+        }
+    }
 }
 
 .o-question-hnumberslider-control {

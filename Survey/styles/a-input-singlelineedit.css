@@ -26,13 +26,28 @@
 }
 
 .a-input-singlelineedit:-moz-read-only {
-  border: none;
+  border: transparent !important;
   cursor: default;
 }
 
 .a-input-singlelineedit:read-only {
-  border: none;
+  border: transparent !important;
   cursor: default;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input:read-only::-webkit-outer-spin-button,
+input:read-only::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number]:-moz-read-only {
+  -moz-appearance: textfield;
+}
+input[type=number]:read-only {
+  -moz-appearance: textfield;
 }
 
 .a-input-singlelineedit:-moz-read-only:focus {
