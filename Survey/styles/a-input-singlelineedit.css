@@ -20,6 +20,11 @@
   opacity: 1;
 }
 
+/* make the spinner permanently visible - specifically for Edge */
+.a-input-singlelineedit[type=number]:read-only::-webkit-inner-spin-button {
+  opacity: 0;
+}
+
 .a-input-singlelineedit:-moz-read-only {
   border: none;
   cursor: default;
