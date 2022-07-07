@@ -28,19 +28,19 @@
   text-align: right;
 }
 
-#navcontrols > .a-button-next {
+#nav-controls > .a-button-next {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
 }
 
-#navcontrols > .a-button-prev {
+#nav-controls > .a-button-prev {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
 }
 
-#navcontrols > .a-button-stop {
+#nav-controls > .a-button-stop {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
