@@ -7,31 +7,26 @@
     flex-wrap: wrap;
 }
 
-/* to be removed */
 #prevstop {
     display: flex;
     flex-grow: 1;
     margin-right: 1em;
 }
 
-/* to be removed */
 #nextonly {
     display: block;
     text-align: right;
 }
 
-/* may not be required */
-.a-button-next {
+#navcontrols > .a-button-next {
     order: 1;
 }
 
-/* may not be required */
-.a-button-prev {
+#navcontrols > .a-button-prev {
     order: 3;
 }
 
-/* may not be required */
-.a-button-stop {
+#navcontrols > .a-button-stop {
     order: 2;
 }
 
