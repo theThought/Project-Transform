@@ -66,8 +66,8 @@ input[type=number]:read-only {
     margin-bottom: 0;
 }
 
-.a-input-singlelineedit:hover,
-.a-input-singlelineedit:focus {
+.a-input-singlelineedit:hover:not(:read-only),
+.a-input-singlelineedit:focus:not(:read-only) {
     color: globals.$borders-hover;
 }
 

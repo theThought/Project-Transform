@@ -74,8 +74,12 @@ input[type=number]:read-only {
   margin-bottom: 0;
 }
 
-.a-input-singlelineedit:hover,
-.a-input-singlelineedit:focus {
+.a-input-singlelineedit:hover:not(:-moz-read-only), .a-input-singlelineedit:focus:not(:-moz-read-only) {
+  color: #57699C;
+}
+
+.a-input-singlelineedit:hover:not(:read-only),
+.a-input-singlelineedit:focus:not(:read-only) {
   color: #57699C;
 }
 
