@@ -29,8 +29,6 @@ define(
             var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
             // Edge (based on chromium) detection
             var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
-            // Blink engine detection
-            var isBlink = (isChrome || isOpera) && !!window.CSS;
 
             if (isFirefox) {
                 console.info('Browser is Firefox');
@@ -53,20 +51,17 @@ define(
             if (isEdgeChromium) {
                 console.info('Browser is EdgeChromium');
             }
-            if (isBlink) {
-                console.info('Browser is Blink');
-            }
 
             console.info('Reported user agent: ' + window.navigator.userAgent);
         }
 
         page.prototype.detectOS = function () {
-            var userAgent = window.navigator.userAgent,
-                platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
-                macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-                windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-                iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-                os = null;
+            var userAgent = window.navigator.userAgent;
+            var platform = window.navigator.platform;
+            var macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+            var windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+            var iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+            var os = null;
 
             if (macosPlatforms.indexOf(platform) !== -1) {
                 os = 'Mac OS';
