@@ -21,14 +21,24 @@ th .a-label-option {
 }
 
 .a-label-total {
-  text-align: right;
   display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  margin: 0 0 0.5em 0;
+  height: 19px;
+  text-align: right;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
 }
 
 .a-label-total-grand,
 .a-label-total-column,
 .a-label-total-row {
   color: #212C4C;
+}
+
+.a-label-total-column {
+  margin-bottom: 0;
 }
 
 .a-label-error {
@@ -76,6 +86,24 @@ th .a-label-option {
 .focused .a-label-prelabel {
   border: 1px solid #455B97 !important;
   border-right-color: #8797C8 !important;
+}
+
+.m-structure-cell .a-label-postlabel {
+  display: inline-block;
+  border: 1px transparent;
+  position: relative;
+  left: -0.5em;
+  padding: 10px 16px;
+  white-space: nowrap;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 19px;
+}
+.m-structure-cell .a-label-prelabel {
+  display: inline-block;
+  border: 1px transparent;
+  padding: 10px 16px;
+  white-space: nowrap;
 }
 
 .m-input-singlelineedit .a-label-postlabel {

@@ -24,14 +24,23 @@ th .a-label-option {
 }
 
 .a-label-total {
-  text-align: right;
     display: inline-block;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    margin: 0 0 .5em 0;
+    height: 19px;
+    text-align: right;
+    box-sizing: content-box;
 }
 
 .a-label-total-grand,
 .a-label-total-column,
 .a-label-total-row {
     color: globals.$titles;
+}
+
+.a-label-total-column {
+    margin-bottom: 0;
 }
 
 // callout and warning labels
@@ -85,6 +94,26 @@ th .a-label-option {
     .a-label-prelabel {
         border: 1px solid globals.$theme-primary !important;
         border-right-color: globals.$borders !important;
+    }
+}
+
+.m-structure-cell {
+    .a-label-postlabel {
+        display: inline-block;
+        border: 1px transparent;
+        position: relative;
+        left: -.5em;
+        padding: 10px 16px;
+        white-space: nowrap;
+        box-sizing: content-box;
+        height: 19px;
+    }
+
+    .a-label-prelabel {
+        display: inline-block;
+        border: 1px transparent;
+        padding: 10px 16px;
+        white-space: nowrap;
     }
 }
 
