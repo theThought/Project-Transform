@@ -49,6 +49,11 @@ define(['component'],
             var parent = this.element.parentNode;
             var wrapperElement = document.createElement('div');
             wrapperElement.className = 'm-input-singlelineedit nowrap';
+
+            if (this.element.readOnly) {
+                wrapperElement.classList.add('read-only');
+            }
+
             var wrapper = parent.insertBefore(wrapperElement, this.element);
             wrapper.appendChild(this.element);
 

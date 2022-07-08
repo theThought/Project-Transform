@@ -35,6 +35,10 @@ th .a-label-option {
   color: #DA2911;
 }
 
+.o-question-instruction {
+  color: #0063DE;
+}
+
 .o-question-error *[class*=-label-],
 .o-question-warning *[class*=-label-],
 .o-question-success *[class*=-label-] {
@@ -96,6 +100,10 @@ th .a-label-option {
   padding: 10px 16px;
   color: #A0ABCC;
   white-space: nowrap;
+}
+.m-input-singlelineedit.read-only .a-label-prelabel,
+.m-input-singlelineedit.read-only .a-label-postlabel {
+  border: transparent !important;
 }
 
 .o-question-hnumberslider-control .a-label-prelabel {
