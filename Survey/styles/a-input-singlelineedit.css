@@ -25,12 +25,8 @@
   opacity: 0;
 }
 
-.a-input-singlelineedit:-moz-read-only {
-  border: transparent !important;
-  cursor: default;
-}
-
-.a-input-singlelineedit:read-only {
+/* IE10 does not support :read-only selector */
+.read-only .a-input-singlelineedit {
   border: transparent !important;
   cursor: default;
 }
