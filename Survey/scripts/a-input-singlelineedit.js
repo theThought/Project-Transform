@@ -34,12 +34,22 @@ define(['component'],
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
 
             this.configureProperties();
+            this.setReadOnly();
             this.configureIncomingEventListeners();
             this.configurationComplete();
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
         aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
+
+        aInputSingleLineEdit.prototype.setReadOnly = function () {
+            if (!this.element.readOnly) {
+                return;
+            }
+
+            var parent = this.element.parentNode;
+            parent.classList.add('read-only');
+        }
 
         aInputSingleLineEdit.prototype.type = function (val) {
             this.element.type = val;
@@ -49,11 +59,6 @@ define(['component'],
             var parent = this.element.parentNode;
             var wrapperElement = document.createElement('div');
             wrapperElement.className = 'm-input-singlelineedit nowrap';
-
-            if (this.element.readOnly) {
-                wrapperElement.classList.add('read-only');
-            }
-
             var wrapper = parent.insertBefore(wrapperElement, this.element);
             wrapper.appendChild(this.element);
 
