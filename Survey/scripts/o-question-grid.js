@@ -181,7 +181,9 @@ define(['component'],
 
                 for (var inputitems = 0; inputitems < this.rowtotals.length; inputitems++) {
 
-                    if (Array.isArray(this.properties.totals.columns['exceptions']) && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[inputitems].column) >= 0) {
+                    if (typeof this.properties.totals.columns !== 'undefined'
+                        && Array.isArray(this.properties.totals.columns['exceptions'])
+                        && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[inputitems].column) >= 0) {
                         continue;
                     }
 
