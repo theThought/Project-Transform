@@ -41,16 +41,21 @@
 </head>
 
 <body>
-	<mrBannerText Name="PageCustomProperties" />
+    <mrBannerText Name="PageCustomProperties" />
 	<div class="header">
 		<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png" />
-		<div class="overall-progress complex" id="_Progress" data-questiongroup="_Progress"><!-- progress bar -->
-			<script>app.registerComponent('oProgress', '_Progress', '_Progress');</script>
-			<mrBannerText Name="CustomProgressBar" />
+		<div class="overall-progress">
+			<div class="overall-progress-text">
+				<!-- progress text -->
+			</div>
+			<div class="overall-progress-bar">
+				<mrProgressBar Color="#D0DAE6" ShowCounts="AsPercentage" />
+					<!-- progress bar -->
+			</div>
 		</div>
 	</div>
 
-	<mrPage IncludeElementIDs="true" QuestionXSL="question.xsl" LabelXSL="label.xsl" NavigationXSL="navigation.xsl" UseTablesLayout="false" ErrorTemplate="error.htm" BannerTemplate="banner.htm" />
+	<mrPage IncludeElementIDs="true" QuestionXSL="question.xsl" LabelXSL="`label.xsl" NavigationXSL="navigation.xsl" UseTablesLayout="false" ErrorTemplate="error.htm" BannerTemplate="banner.htm" />
 
 
 	<div class='surroundcontent'>
@@ -59,14 +64,10 @@
 
 	<div class="footer">
 		<div id="nav-controls" class="btn-container nav-center">
-			<div id="nextonly">
-				<mrNavButton Name="Next">Next</mrNavButton>
-			</div>
-			<div id="prevstop">
-				<mrNavButton Name="Prev">Previous</mrNavButton>
-				<mrNavButton Name="Stop">Stop</mrNavButton>
-			</div>
-		</div>
+            <mrNavButton Name="Next">Next</mrNavButton>
+            <mrNavButton Name="Stop">Stop</mrNavButton>
+            <mrNavButton Name="Prev">Previous</mrNavButton>
+        </div>
 		<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
 	</div>
 </body>
