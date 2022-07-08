@@ -35,7 +35,7 @@ define(['component'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.hiddenelement = null;
 
-            this.configureButton();
+            // this.configureButton();
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.requestInitialSize();
@@ -47,9 +47,9 @@ define(['component'],
 
         aButtonOption.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("click", this, false);
-            document.addEventListener(this.group + "_enableExclusive", this, false);
-            document.addEventListener(this.group + "_dismissExclusive", this, false);
+            // document.addEventListener("click", this, false);
+            // document.addEventListener(this.group + "_enableExclusive", this, false);
+            // document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
         }
