@@ -168,6 +168,30 @@ define(['component'],
             }
         }
 
+        oQuestionGrid.prototype.separators = function (props) {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            var color = '#212C4C';
+            var generatedstyles = '';
+
+            if (typeof props['columns'] !== "undefined" && Array.isArray(props['columns'])) {
+                for (var column = 0; column < props['columns'].length; column++) {
+                    generatedstyles += '.separator-column-' + props['columns'][column] + ' tr>:nth-child(' + props['columns'][column] + ') { border-right: 1px solid ' + color + '; } ';
+                    this.grid.classList.add('separator-column-' + props['columns'][column]);
+                }
+            }
+
+            if (typeof props['rows'] !== "undefined" && Array.isArray(props['rows'])) {
+                for (var row = 0; row < props['rows'].length; row++) {
+                    generatedstyles += '.separator-row-' + props['rows'][row] + ' tr:nth-of-type(' + props['rows'][row] + ') { border-bottom: 1px solid ' + color + '; } ';
+                    this.grid.classList.add('separator-row-' + props['rows'][row]);
+                }
+            }
+
+            style.innerHTML = generatedstyles;
+            document.getElementsByTagName('head')[0].appendChild(style);
+        }
+
         oQuestionGrid.prototype.recalculateRowTotals = function () {
             var rowcount = this.grid.rows.length;
             var grandtotal = 0;

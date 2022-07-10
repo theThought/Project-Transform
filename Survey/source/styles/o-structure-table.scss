@@ -3,6 +3,8 @@
 $shade-colour: globals.$icons-mid;
 $separator-colour: globals.$titles;
 
+/* note that the separator color used within tables is defined in JS - o-question-grid.js */
+
 .o-structure-table {
     border-collapse: collapse;
 
