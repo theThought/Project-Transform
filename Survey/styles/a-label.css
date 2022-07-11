@@ -49,6 +49,9 @@ th .a-label-option {
 .o-question-instruction {
   color: #0063DE;
 }
+.o-question-instruction p {
+  margin: 0.5em 0;
+}
 
 .o-question-error *[class*=-label-],
 .o-question-warning *[class*=-label-],

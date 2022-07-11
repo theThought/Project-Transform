@@ -51,6 +51,10 @@ th .a-label-option {
 
 .o-question-instruction {
     color: globals.$information-text;
+
+    p {
+        margin: .5em 0;
+    }
 }
 
 .o-question-error,
