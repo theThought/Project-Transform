@@ -28,6 +28,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components.push(new aInputSinglelineEdit(id, group));
             });
             break;
+        case 'ainputreadwriteedit':
+            requirejs(['a-input-readwriteedit'], function (aInputReadWriteEdit) {
+                app.components.push(new aInputReadWriteEdit (id, group));
+            });
+            break;
         case 'moptionbase':
             requirejs(['m-option-base'], function (mOptionBase) {
                 app.components.push(new mOptionBase(id, group));
