@@ -88,7 +88,7 @@ define(
         }
 
         component.prototype.onBeginResize = function (event) {
-            this.element.style.width = '';
+            //this.element.style.width = '';
             this.element.style.height = '';
 
             if (event.detail.properties === null) {
