@@ -70,6 +70,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             break;
         case 'oquestion':
         case 'oquestionchoice':
+        case 'oquestionreadwriteedit':
         case 'oquestionsinglelineedit':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
                 app.components.push(new oQuestionChoice(id, group));
