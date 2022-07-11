@@ -20,6 +20,12 @@ th .a-label-option {
   color: #455B97;
 }
 
+.a-label-caption {
+  font-family: "Merriweather", serif;
+  font-weight: normal;
+  color: #212C4C;
+}
+
 .a-label-total {
   display: inline-block;
   padding: 10px 16px;

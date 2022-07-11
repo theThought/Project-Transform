@@ -276,9 +276,45 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.caption = function (caption) {
+            // handle tables with exactly 2 rows
+            if (this.grid.rows.length === 2) {
+                this.addSingleRowCaption(caption);
+                return;
+            }
+
+            // handle tables with exactly 2 columns
+            if (this.grid.rows[0].cells.length === 2) {
+                this.addSingleColumnCaption(caption);
+                return;
+            }
+
+            // default position for other captions
             var newcaption = this.grid.createCaption();
-            newcaption.classList.add('a-label-heading')
+            newcaption.classList.add('a-label-caption')
             newcaption.innerHTML = caption;
+        }
+
+        oQuestionGrid.prototype.addSingleRowCaption = function (caption) {
+            // insert a blank cell in the heading row
+            this.grid.rows[0].insertCell(0);
+
+            // get the row that requires a caption and add a cell at the start
+            var captionrow = this.grid.rows[1];
+            var captioncell = captionrow.insertCell(0);
+            captioncell.className = 'm-structure-cell m-structure-column-caption';
+            captioncell.innerHTML = '<span class="a-label-caption">' + caption + '</span>';
+        }
+
+        oQuestionGrid.prototype.addSingleColumnCaption = function (caption) {
+            // add a new row at the start of the table with an appropriate class
+            var captionrow = this.grid.insertRow(0);
+            captionrow.className = 'm-structure-row m-structure-caption-row';
+
+            // insert two cells; the second cell will contain the caption
+            captionrow.insertCell(0);
+            var captioncell = captionrow.insertCell(1);
+            captioncell.className = 'm-structure-cell m-structure-column-caption';
+            captioncell.innerHTML = '<span class="a-label-caption">' + caption + '</span>';
         }
 
         oQuestionGrid.prototype.configureRowTotals = function (props) {

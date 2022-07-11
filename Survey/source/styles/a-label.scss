@@ -23,6 +23,12 @@ th .a-label-option {
     color: globals.$theme-primary;
 }
 
+.a-label-caption {
+    font-family: globals.$secondary-font;
+    font-weight: normal;
+    color: globals.$titles;
+}
+
 .a-label-total {
     display: inline-block;
     padding: 10px 16px;
