@@ -35,11 +35,17 @@ define(['component'],
             this.collapse = true;
             this.visibilityRules = [];
 
+            this.nameContainer();
             this.configureQuestionIncomingEventListeners();
         }
 
         oQuestion.prototype = Object.create(component.prototype);
         oQuestion.prototype.constructor = oQuestion;
+
+        oQuestion.prototype.nameContainer = function () {
+            this.parent.setAttribute('data-questiongroup', this.group);
+            this.parent.setAttribute('data-questionid', this.id);
+        }
 
         oQuestion.prototype.configureQuestionIncomingEventListeners = function () {
             document.addEventListener("configComplete", this, false);
