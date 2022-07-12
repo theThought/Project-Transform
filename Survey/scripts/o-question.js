@@ -30,21 +30,27 @@ define(['component'],
 
             this.ready = false;
             this.available = false;
-            this.element = document.querySelector('div[data-questiongroup*="' + this.group + '"]');
-            this.parent = this.element.closest('div.o-question-container');
             this.collapse = true;
             this.visibilityRules = [];
 
-            this.nameContainer();
+            this.container = this.getContainer();
+            this.element = document.querySelector('div[class*="o-question-"][data-questiongroup*="' + this.group + '"]');
+
             this.configureQuestionIncomingEventListeners();
         }
 
         oQuestion.prototype = Object.create(component.prototype);
         oQuestion.prototype.constructor = oQuestion;
 
-        oQuestion.prototype.nameContainer = function () {
-            this.parent.setAttribute('data-questiongroup', this.group);
-            this.parent.setAttribute('data-questionid', this.id);
+        oQuestion.prototype.getContainer = function () {
+            // some questions may register with a suffix, e.g. _Q0_C, we only want the initial question number
+            var scripttagid = this.id.split('_')[1];
+            var scripttag = document.querySelector('script[data-questionid="_' + scripttagid + '"]');
+            var container = scripttag.closest('div.o-question-container');
+            container.setAttribute('data-questiongroup', this.group);
+            container.setAttribute('data-questionid', this.id);
+
+            return container;
         }
 
         oQuestion.prototype.configureQuestionIncomingEventListeners = function () {
@@ -64,7 +70,7 @@ define(['component'],
         }
 
         oQuestion.prototype.onConfigurationComplete = function (event) {
-            if (this.parent === null) {
+            if (this.container === null) {
                 return;
             }
 
@@ -72,7 +78,7 @@ define(['component'],
 
             if (!this.ready && event.detail.group === this.group) {
                 this.ready = true;
-                this.parent.classList.add('config-complete');
+                this.container.classList.add('config-complete');
 
                 this.configureInitialVisibility();
             }
@@ -88,10 +94,10 @@ define(['component'],
 
             // proceed if we have found a visibility ruleset for this question
             if (typeof this.properties.visible === "object") {
-                this.parent.classList.add('unavailable'); // initial visibility is hidden
+                this.container.classList.add('unavailable'); // initial visibility is hidden
 
                 if (this.collapse) {
-                    this.parent.classList.add('collapse');
+                    this.container.classList.add('collapse');
                 }
 
                 // at this point we need to iterate each rule and request relevant question values
@@ -263,12 +269,12 @@ define(['component'],
         }
 
         oQuestion.prototype.makeAvailable = function () {
-            if (this.parent === null || this.available) {
+            if (this.container === null || this.available) {
                 return;
             }
 
             this.available = true;
-            this.parent.classList.remove('unavailable');
+            this.container.classList.remove('unavailable');
             this.requestInitialSize();
             this.liftCover();
         }
@@ -278,20 +284,20 @@ define(['component'],
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
             document.dispatchEvent(clearEntries);
-            this.parent.classList.add('unavailable');
+            this.container.classList.add('unavailable');
         }
 
         oQuestion.prototype.cover = function () {
-            this.parent.classList.remove('cover-off');
+            this.container.classList.remove('cover-off');
         }
 
         oQuestion.prototype.liftCover = function () {
-            this.parent.classList.add('cover-off');
+            this.container.classList.add('cover-off');
         }
 
         oQuestion.prototype.separator = function (val) {
             if (val === false) {
-                this.parent.classList.add('no-separator');
+                this.container.classList.add('no-separator');
             }
         }
 
