@@ -58,7 +58,7 @@ define(['component'],
         }
 
         aInputReadWriteEdit.prototype.hideQuestion = function () {
-            var container = document.querySelector('div.o-question-container[data-questiongroup="' + this.group + '"]');
+            var container = this.element.closest('div.o-question-container');
             container.style.display = 'none';
         }
 
