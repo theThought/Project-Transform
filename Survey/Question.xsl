@@ -345,6 +345,14 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="@Type = 'ReadWriteEdit'">
+            <xsl:call-template name="SingleLineEditControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'MultiLineEdit'">
             <xsl:call-template name="MultiLineEditControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
@@ -459,7 +467,7 @@
       <xsl:param name="qCustomType" />
       <!--- Need to decide whether to use a text area of a edit control -->
       <xsl:choose>
-         <xsl:when test="number(@Length) &gt; 40">
+         <xsl:when test="$qCustomType='multilineedit'">
             <xsl:call-template name="MultiLineEditControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
                <xsl:with-param name="qFullName" select="$qFullName" />
@@ -1472,22 +1480,22 @@
       <xsl:if test="Style/@BgColor">
          <xsl:text>background-color:</xsl:text>
          <xsl:value-of select="Style/@BgColor" />
-         ;
+         <xsl:text>;</xsl:text>
       </xsl:if>
       <xsl:if test="Style/@Color">
          <xsl:text>color:</xsl:text>
          <xsl:value-of select="Style/@Color" />
-         ;
+         <xsl:text>;</xsl:text>
       </xsl:if>
       <xsl:if test="Style/@Width and $IgnoreWidth != 'true'">
          <xsl:text>width:</xsl:text>
          <xsl:value-of select="Style/@Width" />
-         ;
+         <xsl:text>;</xsl:text>
       </xsl:if>
       <xsl:if test="Style/@Height">
          <xsl:text>height:</xsl:text>
          <xsl:value-of select="Style/@Height" />
-         ;
+         <xsl:text>;</xsl:text>
       </xsl:if>
       <xsl:if test="Style/@Hidden = 'true'">visibility: hidden;</xsl:if>
       <xsl:choose>
@@ -1500,21 +1508,21 @@
          <xsl:when test="Style/@Cursor = 'SResize'">cursor: s-resize;</xsl:when>
          <xsl:when test="Style/@Cursor = 'SEResize'">cursor: se-resize;</xsl:when>
          <xsl:when test="Style/@Cursor">
-            cursor:
+         <xsl:text>cursor:</xsl:text>
             <xsl:value-of select="Style/@Cursor" />
-            ;
+         <xsl:text>;</xsl:text>
          </xsl:when>
       </xsl:choose>
       <xsl:if test="Style/Cell/@Wrap = 'false'">white-space: nowrap;</xsl:if>
       <xsl:if test="Style/Font/@Family">
-         font-family:
+        <xsl:text>font-family:</xsl:text>
          <xsl:value-of select="Style/Font/@Family" />
-         ;
+         <xsl:text>;</xsl:text>
       </xsl:if>
       <xsl:if test="Style/Font/@Size">
-         font-size:
+         <xsl:text>font-size</xsl:text>
          <xsl:value-of select="Style/Font/@Size" />
-         pt;
+         <xsl:text>pt;</xsl:text>
       </xsl:if>
       <xsl:if test="Style/Font/@IsUnderline = 'true'">text-decoration: underline;</xsl:if>
       <xsl:if test="Style/Font/@IsItalic = 'true'">font-style: italic;</xsl:if>
@@ -1825,6 +1833,9 @@
          <xsl:when test="$theID = '-20'">
             <xsl:value-of select="'singlelineedit'" />
          </xsl:when>
+         <xsl:when test="$theID = '-21'">
+            <xsl:value-of select="'readwriteedit'" />
+         </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'multilineedit'" />
          </xsl:when>
@@ -1852,6 +1863,9 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-20'">
+            <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-21'">
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-30'">
