@@ -175,7 +175,7 @@ define(['component'],
                 browser = 'Edge Chromium';
             }
 
-            return browser + ' - ' + window.navigator.userAgent;
+            return browser;
         }
 
         aInputReadWriteEdit.prototype.detectOS = function () {
