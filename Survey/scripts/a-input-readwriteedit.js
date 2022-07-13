@@ -149,7 +149,7 @@ define(['component'],
             var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
             // Edge (based on chromium) detection
-            var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") !== -1);
+            var isEdgeChromium = (navigator.userAgent.indexOf("Edg") !== -1);
 
             var browser = 'Unrecognised';
 
