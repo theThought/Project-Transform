@@ -76,7 +76,8 @@ $separator-colour: globals.$titles;
     }
 
     .grid-column-total-title,
-    .grid-column-total {
+    .grid-column-total,
+    .grid-grandtotal {
         border-top: 1px solid $separator-colour;
     }
 
@@ -85,7 +86,8 @@ $separator-colour: globals.$titles;
     }
 
     .grid-row-total-title,
-    .grid-row-total {
+    .grid-row-total,
+    .grid-grandtotal {
         border-left: 1px solid $separator-colour;
         vertical-align: top;
     }
@@ -95,7 +97,8 @@ $separator-colour: globals.$titles;
     }
 
     .grid-row-total,
-    .grid-column-total {
+    .grid-column-total,
+    .grid-grandtotal {
         text-align: right;
     }
 

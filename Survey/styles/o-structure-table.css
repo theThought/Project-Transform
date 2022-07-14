@@ -51,14 +51,16 @@
   border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-column-total-title,
-.o-structure-table .grid-column-total {
+.o-structure-table .grid-column-total,
+.o-structure-table .grid-grandtotal {
   border-top: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title {
   border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title,
-.o-structure-table .grid-row-total {
+.o-structure-table .grid-row-total,
+.o-structure-table .grid-grandtotal {
   border-left: 1px solid #212C4C;
   vertical-align: top;
 }
@@ -66,7 +68,8 @@
   padding-top: 1.2em;
 }
 .o-structure-table .grid-row-total,
-.o-structure-table .grid-column-total {
+.o-structure-table .grid-column-total,
+.o-structure-table .grid-grandtotal {
   text-align: right;
 }
 .o-structure-table .grid-grandtotal {
