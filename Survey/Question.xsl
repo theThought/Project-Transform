@@ -1611,6 +1611,9 @@
             <xsl:when test="@Class='mrGridQuestionText'">
               <xsl:text>th</xsl:text>
             </xsl:when>
+            <xsl:when test="@X=0 and @Y=0">
+              <xsl:text>th</xsl:text>
+            </xsl:when>
             <xsl:otherwise>
               <xsl:text>td</xsl:text>
             </xsl:otherwise>
