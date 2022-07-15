@@ -82,6 +82,12 @@ define(['o-question'],
             }
         }
 
+        oQuestionList.prototype.onesize = function (props) {
+            if (props['state'] === false) {
+                this.isOnesize = false;
+            }
+        }
+
         oQuestionList.prototype.configureOnesize = function () {
             if (this.isOnesize) {
 

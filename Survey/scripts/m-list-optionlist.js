@@ -79,6 +79,12 @@ define(['component'],
             }
         }
 
+        mListOptionList.prototype.onesize = function (props) {
+            if (props['state'] === false) {
+                this.isOnesize = false;
+            }
+        }
+
         mListOptionList.prototype.configureOnesize = function () {
             if (this.isOnesize) {
 
