@@ -67,6 +67,7 @@ define(['component'],
             document.addEventListener("click", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
+            document.addEventListener(this.group + "_endResize", this, false);
         }
 
         aInputListDropdown.prototype.handleEvent = function (event) {
@@ -87,7 +88,19 @@ define(['component'],
                 case "broadcastChange":
                     this.receiveBroadcast(event);
                     break;
+                case this.group + "_endResize":
+                    this.onEndResize(event);
+                    break;
             }
+        }
+
+        aInputListDropdown.prototype.onEndResize = function (event) {
+            this.element.style.width = (event.detail.widest - 53)+ 'px';
+
+            if (event.detail.isOnesize === true) {
+                this.element.style.width = (event.detail.widest - 53)+ 'px';
+            }
+
         }
 
         aInputListDropdown.prototype.placeholder = function (prop) {

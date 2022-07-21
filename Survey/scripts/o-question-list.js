@@ -126,8 +126,8 @@ define(['o-question'],
                 var dims = getComputedStyle(element);
                 var elementheight = parseFloat(dims.height);
                 var elementwidth = parseFloat(dims.width);
-                var contentheight = elementheight;//- (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
-                var contentwidth = elementwidth;//- (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
+                var contentheight = elementheight;
+                var contentwidth = elementwidth;
 
                 contentheight = Math.ceil(contentheight);
                 contentwidth = Math.ceil(contentwidth);

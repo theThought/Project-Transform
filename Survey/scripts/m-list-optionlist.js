@@ -36,10 +36,9 @@ define(['component'],
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
-            this.setWidth();
+            //this.setWidth();
             this.configureIncomingEventListeners();
             this.configureOnesize();
-            this.onResize();
             this.configurationComplete();
         }
 
@@ -58,7 +57,7 @@ define(['component'],
                     this.onResize();
                     break;
                 case "configComplete":
-                    this.onConfigurationComplete(event);
+                    this.configurationComplete(event);
                     break;
             }
         }
