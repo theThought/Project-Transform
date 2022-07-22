@@ -36,10 +36,9 @@ define(['component'],
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
-            this.setWidth();
+            //this.setWidth();
             this.configureIncomingEventListeners();
             this.configureOnesize();
-            this.onResize();
             this.configurationComplete();
         }
 
@@ -58,7 +57,7 @@ define(['component'],
                     this.onResize();
                     break;
                 case "configComplete":
-                    this.onConfigurationComplete(event);
+                    this.configurationComplete(event);
                     break;
             }
         }
@@ -76,6 +75,12 @@ define(['component'],
         mListOptionList.prototype.displayicon = function (prop) {
             if (prop === true) {
                 this.element.classList.add('display-icons');
+            }
+        }
+
+        mListOptionList.prototype.onesize = function (props) {
+            if (props['state'] === false) {
+                this.isOnesize = false;
             }
         }
 
@@ -117,8 +122,8 @@ define(['component'],
                 var dims = getComputedStyle(element);
                 var elementheight = parseFloat(dims.height);
                 var elementwidth = parseFloat(dims.width);
-                var contentheight = elementheight;//- (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
-                var contentwidth = elementwidth;//- (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
+                var contentheight = elementheight;
+                var contentwidth = elementwidth;
 
                 contentheight = Math.ceil(contentheight);
                 contentwidth = Math.ceil(contentwidth);

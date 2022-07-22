@@ -296,13 +296,18 @@ define(['component'],
 
         oQuestionGrid.prototype.addSingleRowCaption = function (caption) {
             // insert a blank cell in the heading row
-            this.grid.rows[0].insertCell(0);
+            var headerrow = this.grid.rows[0];
+            var newth = document.createElement('th');
+            newth.scope = 'col';
+            headerrow.insertBefore(newth, headerrow.firstChild);
 
             // get the row that requires a caption and add a cell at the start
             var captionrow = this.grid.rows[1];
-            var captioncell = captionrow.insertCell(0);
+            var captioncell = document.createElement('th');
+            captioncell.scope = 'row';
             captioncell.className = 'm-structure-cell m-structure-column-caption';
             captioncell.innerHTML = '<span class="a-label-caption">' + caption + '</span>';
+            captionrow.insertBefore(captioncell, captionrow.firstChild);
         }
 
         oQuestionGrid.prototype.addSingleColumnCaption = function (caption) {
@@ -311,10 +316,13 @@ define(['component'],
             captionrow.className = 'm-structure-row m-structure-caption-row';
 
             // insert two cells; the second cell will contain the caption
-            captionrow.insertCell(0);
-            var captioncell = captionrow.insertCell(1);
+            var newth = document.createElement('th');
+            newth.scope = 'col';
+            captionrow.appendChild(newth);
+            var captioncell = newth.cloneNode();
             captioncell.className = 'm-structure-cell m-structure-column-caption';
             captioncell.innerHTML = '<span class="a-label-caption">' + caption + '</span>';
+            captionrow.appendChild(captioncell);
         }
 
         oQuestionGrid.prototype.configureRowTotals = function (props) {

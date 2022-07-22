@@ -55,6 +55,7 @@ define(['component'],
             document.addEventListener(this.group + "_textFocus", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
+            document.addEventListener(this.group + "_jumpToLetter", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
@@ -67,6 +68,9 @@ define(['component'],
                     break;
                 case "clearEntries":
                     this.clearEntries(event);
+                    break;
+                case this.group + "_jumpToLetter":
+                    this.jumpToLetter(event);
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
@@ -84,6 +88,20 @@ define(['component'],
                     this.onEndResize(event);
                     break;
             }
+        }
+
+        mOptionBase.prototype.jumpToLetter = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            var char = String.fromCharCode(event.detail.keypressed).toLowerCase();
+
+            if (this.label.innerHTML.toLowerCase().indexOf(char) === 0) {
+                this.checkbox.click();
+            }
+
+            console.info('Pressed key: ' + char);
         }
 
         mOptionBase.prototype.clearEntries = function (event) {

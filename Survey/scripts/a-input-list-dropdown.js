@@ -31,6 +31,9 @@ define(['component'],
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
             this.container = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.focused = false;
+            this.isJumpingToLetter = false;
+            this.keypressed = null;
             this.defaultPlaceholder = 'Select';
 
             this.setReadOnly();
@@ -60,13 +63,18 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("change", this, false);
             document.addEventListener("keyup", this, false);
+            document.addEventListener("keypress", this, false);
             document.addEventListener("click", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
+            document.addEventListener(this.group + "_endResize", this, false);
         }
 
         aInputListDropdown.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case "keypress":
+                    this.onKeypress(event);
+                    break;
                 case "keyup":
                 case "change":
                     this.onChange(event);
@@ -80,7 +88,19 @@ define(['component'],
                 case "broadcastChange":
                     this.receiveBroadcast(event);
                     break;
+                case this.group + "_endResize":
+                    this.onEndResize(event);
+                    break;
             }
+        }
+
+        aInputListDropdown.prototype.onEndResize = function (event) {
+            this.element.style.width = (event.detail.widest - 53)+ 'px';
+
+            if (event.detail.isOnesize === true) {
+                this.element.style.width = (event.detail.widest - 53)+ 'px';
+            }
+
         }
 
         aInputListDropdown.prototype.placeholder = function (prop) {
@@ -115,11 +135,44 @@ define(['component'],
             var parentNode = this.element.parentNode;
 
             if (event.target !== parentNode && !parentNode.contains(event.target)) {
+                this.focused = false;
                 parentNode.classList.remove('focused');
             } else {
+                this.focused = true;
                 parentNode.classList.toggle('focused');
             }
+        }
 
+        aInputListDropdown.prototype.jumptofirstletter = function (prop) {
+            if (prop === true) {
+                this.isJumpingToLetter = true;
+            }
+        }
+
+        aInputListDropdown.prototype.onKeypress = function (event) {
+            if (!this.focused) {
+                return;
+            }
+
+            if (event.keyCode) {
+                this.keypressed = event.keyCode;
+            } else if (event.which) {
+                this.keypressed = event.which;
+            } else  if (event.key) {
+                this.keypressed = event.key;
+            } else {
+                this.keypressed = event.code;
+            }
+
+            if (this.isJumpingToLetter) {
+                this.processKeyJump();
+            }
+            // other key handling stuff here
+        }
+
+        aInputListDropdown.prototype.processKeyJump = function () {
+            var keyEvent = new CustomEvent(this.group + '_jumpToLetter', {bubbles: true, detail: this});
+            document.dispatchEvent(keyEvent);
         }
 
         return aInputListDropdown;
