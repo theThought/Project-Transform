@@ -1603,6 +1603,9 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
+         <xsl:variable name='nodeCount'>
+         <xsl:value-of select="count(*)" />
+         </xsl:variable>
         <xsl:variable name="cellType">
           <xsl:choose>
             <xsl:when test="@Class='mrGridCategoryText'">
@@ -1611,7 +1614,7 @@
             <xsl:when test="@Class='mrGridQuestionText'">
               <xsl:text>th</xsl:text>
             </xsl:when>
-            <xsl:when test="@X=0 and @Y=0">
+            <xsl:when test="$nodeCount &lt; 1">
               <xsl:text>th</xsl:text>
             </xsl:when>
             <xsl:otherwise>
@@ -1621,6 +1624,9 @@
         </xsl:variable>
         <xsl:variable name="cellScope">
           <xsl:choose>
+            <xsl:when test="$nodeCount &lt; 1">
+              <xsl:text>col</xsl:text>
+            </xsl:when>
             <xsl:when test="@Class='mrGridCategoryText'">
               <xsl:text>row</xsl:text>
             </xsl:when>
@@ -1638,7 +1644,7 @@
                <xsl:value-of select="*/Style/@BgColor" />
             </xsl:if>
          </xsl:attribute>
-         <xsl:if test="$cellScope!=''">
+         <xsl:if test="not($cellScope='') and $cellType='th'">
              <xsl:attribute name="scope">
                  <xsl:value-of select="$cellScope" />
              </xsl:attribute>
