@@ -32,9 +32,11 @@ define(['o-question'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = true;
+            this.list = null;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
+            this.list = this.buildList();
             this.configureIncomingEventListeners();
             this.configureOnesize();
             this.onResize();
@@ -49,6 +51,7 @@ define(['o-question'],
             document.addEventListener("click", this, false);
             document.addEventListener("mousedown", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
+            document.addEventListener(this.group + "_jumpToLetter", this, false);
         }
 
         oQuestionList.prototype.handleEvent = function (event) {
@@ -60,6 +63,9 @@ define(['o-question'],
                 case 'broadcastChange':
                     this.receiveBroadcast(event);
                     break;
+                case this.group + "_jumpToLetter":
+                    this.jumpToLetter(event);
+                    break;
                 case 'resize':
                 case this.group + '_requestSize':
                     this.onResize();
@@ -67,6 +73,28 @@ define(['o-question'],
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
+            }
+        }
+
+        oQuestionList.prototype.buildList = function () {
+            var listcontainer = this.element.querySelector('.m-list-optionlist');
+            return listcontainer.querySelectorAll('.m-option-base');
+        }
+
+        oQuestionList.prototype.jumpToLetter = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            var char = String.fromCharCode(event.detail.keypressed).toLowerCase();
+            console.info('Pressed key: ' + char);
+
+            for (var i = 0; i<this.list.length; i++) {
+                var itemlabel = this.list[i].querySelector('.a-label-option');
+                if (itemlabel.innerHTML.toLowerCase().indexOf(char) === 0) {
+                    itemlabel.click();
+                    return;
+                }
             }
         }
 

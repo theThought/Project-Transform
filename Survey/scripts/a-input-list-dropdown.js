@@ -95,11 +95,11 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onEndResize = function (event) {
-            this.element.style.width = (event.detail.widest - 53)+ 'px';
 
             if (event.detail.isOnesize === true) {
-                this.element.style.width = (event.detail.widest - 53)+ 'px';
+                this.element.style.width = (event.detail.widest)+ 'px';
             }
+
 
         }
 
