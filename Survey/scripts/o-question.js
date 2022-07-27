@@ -187,6 +187,9 @@ define(['component'],
                         case 'not-specific-option':
                             self.processVisibilityNotSpecificOption(rule, broadcastingComponent);
                             break;
+                        case 'specific-list':
+                            self.processVisibilitySpecificList(rule, broadcastingComponent);
+                            break;
                     }
 
                 }
@@ -265,6 +268,28 @@ define(['component'],
 
             if (rule.value.toLowerCase().replace(/_/g, "__") === incomingValue.toLowerCase()) {
                 rule.satisfied = !incomingChecked;
+            }
+        }
+
+        oQuestion.prototype.processVisibilitySpecificList = function (rule, broadcastingComponent) {
+            if (typeof broadcastingComponent.checkbox === 'undefined') {
+                return;
+            }
+
+            if (!Array.isArray(rule.value)) {
+                console.warn('A specific-list visibility rule for ' + this.group + ' does not have a list of values.');
+                return;
+            }
+
+            var incomingValue = broadcastingComponent.checkbox.value;
+            var incomingChecked = broadcastingComponent.checkbox.checked;
+
+            var checkarray = rule.value.map(function (value) {
+                return value.toLowerCase().replace(/_/g, "__");
+            });
+
+            if (checkarray.indexOf(incomingValue.toLowerCase()) !== -1) {
+                rule.satisfied = incomingChecked;
             }
         }
 
