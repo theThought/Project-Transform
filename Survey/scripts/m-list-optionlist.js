@@ -36,7 +36,7 @@ define(['component'],
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
-            //this.setWidth();
+            this.setWidth();
             this.configureIncomingEventListeners();
             this.configureOnesize();
             this.configurationComplete();
@@ -63,7 +63,13 @@ define(['component'],
         }
 
         mListOptionList.prototype.setWidth = function () {
-            this.element.style.width = this.buttonelement.offsetWidth + 'px';
+            // determine whether a manual width has been set
+            var inputelement = this.buttonelement.getElementsByClassName('a-input-list-dropdown')[0];
+            var inputelementwidth = inputelement.style.width;
+            if (inputelementwidth.length > 0) {
+                this.element.classList.add('manual-width');
+                this.element.style.width = this.buttonelement.offsetWidth + 'px';
+            }
         }
 
         mListOptionList.prototype.listsize = function (prop) {
@@ -85,10 +91,10 @@ define(['component'],
         }
 
         mListOptionList.prototype.configureOnesize = function () {
-            if (this.isOnesize) {
+            window.addEventListener("resize", this, false);
 
+            if (this.isOnesize) {
                 this.element.classList.add('one-size');
-                window.addEventListener("resize", this, false);
 
                 if (!this.properties || !this.properties.onesize) {
                     return false;
@@ -102,7 +108,9 @@ define(['component'],
         }
 
         mListOptionList.prototype.setMaxWidth = function (maxwidth) {
+            var buttonpadding = 52;
             this.maxwidth = maxwidth;
+            this.element.style.maxWidth = "calc(" + maxwidth + " + " + buttonpadding + "px)";
         }
 
         mListOptionList.prototype.onResize = function () {

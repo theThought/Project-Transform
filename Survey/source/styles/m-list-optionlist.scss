@@ -6,12 +6,17 @@
     margin-top: .5em;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    padding: .5em;
+    padding: .5em 3em .5em .5em;
     background-color: white;
     z-index: 999;
     max-height: 227px;
     overflow: auto;
     visibility: hidden;
+    overflow-y: overlay; /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
+}
+
+.m-list-optionlist.manual-width {
+    padding-right: 0;
 }
 
 .config-complete .m-list-optionlist {
