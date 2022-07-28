@@ -66,9 +66,16 @@
            <xsl:text>o-question-response</xsl:text>
            <xsl:value-of select="' '" />
            <xsl:text>o-question-</xsl:text>
-           <xsl:call-template name="TranslateZIndexToName">
-              <xsl:with-param name="theID" select="Style/@ZIndex" />
-           </xsl:call-template>
+           <xsl:choose>
+             <xsl:when test="Style/@ZIndex">
+               <xsl:call-template name="TranslateZIndexToName">
+                  <xsl:with-param name="theID" select="Style/@ZIndex" />
+               </xsl:call-template>
+             </xsl:when>
+             <xsl:when test="Table">
+               <xsl:text>table</xsl:text>
+             </xsl:when>
+           </xsl:choose>
         </xsl:attribute>
         <xsl:attribute name="data-questiongroup">
            <xsl:value-of select="$qFullName" />
@@ -84,12 +91,8 @@
                  </xsl:with-param>
               </xsl:call-template>
            </xsl:with-param>
-           <xsl:with-param name="ElementID" select="//Control[1]/@ElementID" />
-           <xsl:with-param name="FullName">
-              <xsl:call-template name="CalculateQuestionName">
-                 <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-              </xsl:call-template>
-           </xsl:with-param>
+           <xsl:with-param name="ElementID" select="$qGroupName" />
+           <xsl:with-param name="FullName" select="$qFullName" />
         </xsl:call-template>
         <xsl:call-template name='TypePicker'>
           <xsl:with-param name="qGroupName" select="$qGroupName" />
@@ -122,7 +125,7 @@
           <xsl:when test="$inQuestion='Control'">
             <xsl:for-each select=".">
               <xsl:call-template name="TypePickerChoose">
-                <xsl:with-param name="qGroup" select="$qGroupName" />
+                <xsl:with-param name="qGroup" select="@ElementID" />
                 <xsl:with-param name="qFullName" select="$qFullName" />
               </xsl:call-template>
            </xsl:for-each>
@@ -137,11 +140,7 @@
            <xsl:when test="name() = 'Control'">
               <xsl:call-template name="Control">
                  <xsl:with-param name="qGroup" select="$qGroupName" />
-                 <xsl:with-param name="qFullName">
-                    <xsl:call-template name="CalculateQuestionName">
-                       <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-                    </xsl:call-template>
-                 </xsl:with-param>
+                 <xsl:with-param name="qFullName" select="$qFullName" />
               </xsl:call-template>
            </xsl:when>
            <xsl:when test="name() = 'Label'">
@@ -820,6 +819,7 @@
      <xsl:element name="div">
        <xsl:attribute name="class">m-list-responses</xsl:attribute>
        <xsl:comment>dropdown response options</xsl:comment>
+       </xsl:element>
      <xsl:element name="div">
        <xsl:attribute name="class">m-list-optionlist</xsl:attribute>
        <xsl:element name="script">
@@ -913,7 +913,7 @@
            </xsl:element>
          </xsl:element>
        </xsl:for-each>
-     </xsl:element>
+     
      </xsl:element>
    </xsl:template>
    <xsl:template name="ComboListControl">
@@ -1735,14 +1735,6 @@
                      <xsl:with-param name="qGroupName" select="@ElementID" />
                    </xsl:call-template>
                 </xsl:if>
-                 <xsl:call-template name="Control">
-                   <xsl:with-param name="qGroup" select="@ElementID" />
-                   <xsl:with-param name="qFullName">
-                      <xsl:call-template name="CalculateQuestionName">
-                         <xsl:with-param name="QuestionName" select="@QuestionName" />
-                       </xsl:call-template>
-                     </xsl:with-param>
-                  </xsl:call-template>
                </xsl:when>
                <xsl:otherwise>
                  <xsl:apply-templates select="." />
