@@ -65,9 +65,6 @@ define(['o-question'],
                 case this.group + "_jumpToLetter":
                     this.jumpToLetter(event);
                     break;
-                case "configComplete":
-                    this.onConfigurationComplete(event);
-                    break;
             }
         }
 

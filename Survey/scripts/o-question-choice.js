@@ -61,9 +61,6 @@ define(['o-question'],
                 case this.group + '_requestSize':
                     this.onResize();
                     break;
-                case "configComplete":
-                    this.onConfigurationComplete(event);
-                    break;
             }
         }
 
