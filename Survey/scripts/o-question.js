@@ -277,20 +277,31 @@ define(['component'],
             }
 
             if (!Array.isArray(rule.value)) {
-                console.warn('A specific-list visibility rule for ' + this.group + ' does not have a list of values.');
                 return;
             }
 
+            var requiredScore = 1; // for future consideration where we may require 2 out of 3 options, &c.
+            var currentScore = 0;
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            var checkarray = rule.value.map(function (value) {
-                return value.toLowerCase().replace(/_/g, "__");
+            if (typeof rule.valuessatisfied === "undefined") {
+                rule.valuessatisfied = [];
+            }
+
+            rule.value.forEach(function (item) {
+                if (incomingValue.toLowerCase() === item.toLowerCase().replace(/_/g, "__")) {
+                    if (incomingChecked) {
+                        rule.valuessatisfied.push(incomingValue);
+                    } else {
+                        var index = rule.valuessatisfied.indexOf(incomingValue);
+                        rule.valuessatisfied.splice(index, 1);
+                    }
+                }
             });
 
-            if (checkarray.indexOf(incomingValue.toLowerCase()) !== -1) {
-                rule.satisfied = incomingChecked;
-            }
+            currentScore = rule.valuessatisfied.length;
+            rule.satisfied = currentScore >= requiredScore;
         }
 
         oQuestion.prototype.makeAvailable = function () {
