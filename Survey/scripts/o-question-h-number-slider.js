@@ -83,9 +83,6 @@ define(['o-question'],
                 case this.group + "_decrementValue":
                     this.decrementValue();
                     break;
-                case "configComplete":
-                    this.onConfigurationComplete(event);
-                    break;
             }
         }
 

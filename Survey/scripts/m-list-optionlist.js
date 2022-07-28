@@ -56,9 +56,6 @@ define(['component'],
                 case this.group + '_requestSize':
                     this.onResize();
                     break;
-                case "configComplete":
-                    this.configurationComplete(event);
-                    break;
             }
         }
 
