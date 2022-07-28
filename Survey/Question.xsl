@@ -100,8 +100,40 @@
    <xsl:template name='TypePicker'>
      <xsl:param name="qGroupName" />
      <xsl:param name="qFullName" />
-     <xsl:for-each select="*">
+        <xsl:variable name="inQuestion">
         <xsl:choose>
+            <xsl:when test="name()='Question'">
+                <xsl:text>Question</xsl:text>
+            </xsl:when>
+            <xsl:when test="name()='Control'">
+                <xsl:text>Control</xsl:text>
+            </xsl:when>
+        </xsl:choose>   
+        </xsl:variable>
+        <xsl:choose>
+          <xsl:when test="$inQuestion='Question'">
+            <xsl:for-each select="*">
+              <xsl:call-template name="TypePickerChoose">
+                <xsl:with-param name="qGroup" select="$qGroupName" />
+                <xsl:with-param name="qFullName" select="$qFullName" />
+              </xsl:call-template>
+           </xsl:for-each>
+          </xsl:when>
+          <xsl:when test="$inQuestion='Control'">
+            <xsl:for-each select=".">
+              <xsl:call-template name="TypePickerChoose">
+                <xsl:with-param name="qGroup" select="$qGroupName" />
+                <xsl:with-param name="qFullName" select="$qFullName" />
+              </xsl:call-template>
+           </xsl:for-each>
+          </xsl:when>
+        </xsl:choose>
+   </xsl:template>
+
+  <xsl:template name='TypePickerChoose'>
+     <xsl:param name="qGroupName" />
+     <xsl:param name="qFullName" />
+            <xsl:choose>
            <xsl:when test="name() = 'Control'">
               <xsl:call-template name="Control">
                  <xsl:with-param name="qGroup" select="$qGroupName" />
@@ -143,10 +175,8 @@
               <xsl:apply-templates />
            </xsl:when>
         </xsl:choose>
-     </xsl:for-each>
-   </xsl:template>
-
-
+  </xsl:template>
+  
    <xsl:template match="Label">
       <xsl:param name="sLabelClass" select="'UNKNOWN'" />
       <xsl:param name="bWithinTable" select="false()" />
@@ -790,7 +820,6 @@
      <xsl:element name="div">
        <xsl:attribute name="class">m-list-responses</xsl:attribute>
        <xsl:comment>dropdown response options</xsl:comment>
-     </xsl:element>
      <xsl:element name="div">
        <xsl:attribute name="class">m-list-optionlist</xsl:attribute>
        <xsl:element name="script">
@@ -884,6 +913,7 @@
            </xsl:element>
          </xsl:element>
        </xsl:for-each>
+     </xsl:element>
      </xsl:element>
    </xsl:template>
    <xsl:template name="ComboListControl">
@@ -1699,7 +1729,7 @@
                    </xsl:call-template>
                </xsl:when>
                <xsl:when test="name() = 'Control'">
-                 <xsl:if test="@Type != 'RadionButton' and @Type !='CheckButton'">
+                 <xsl:if test="not(@Type = 'RadioButton') and not(@Type ='CheckButton')">
                    <xsl:call-template name="InsertQuestionDiv">
                      <xsl:with-param name="qFullName" select="@QuestionName" />
                      <xsl:with-param name="qGroupName" select="@ElementID" />
