@@ -39,7 +39,6 @@ define(['o-question'],
             this.list = this.buildList();
             this.configureIncomingEventListeners();
             this.configureOnesize();
-            this.onResize();
             this.configurationComplete();
         }
 
@@ -65,10 +64,6 @@ define(['o-question'],
                     break;
                 case this.group + "_jumpToLetter":
                     this.jumpToLetter(event);
-                    break;
-                case 'resize':
-                case this.group + '_requestSize':
-                    this.onResize();
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
@@ -135,40 +130,6 @@ define(['o-question'],
 
         oQuestionList.prototype.setMaxWidth = function (maxwidth) {
             this.maxwidth = maxwidth;
-        }
-
-        oQuestionList.prototype.onResize = function () {
-
-            var children = this.element.querySelectorAll(".m-option-base, .a-button-option");
-            this.tallest = 0;
-            this.widest = 0;
-
-            var beginresize = new CustomEvent(this.group + '_beginResize', {
-                bubbles: true,
-                detail: this
-            });
-            document.dispatchEvent(beginresize);
-
-            for (var i = 0; i < children.length; i++) {
-                var element = children[i];
-                var dims = getComputedStyle(element);
-                var elementheight = parseFloat(dims.height);
-                var elementwidth = parseFloat(dims.width);
-                var contentheight = elementheight;
-                var contentwidth = elementwidth;
-
-                contentheight = Math.ceil(contentheight);
-                contentwidth = Math.ceil(contentwidth);
-
-                if (contentheight > this.tallest) this.tallest = contentheight;
-                if (contentwidth > this.widest) this.widest = contentwidth;
-            }
-
-            var endresize = new CustomEvent(this.group + '_endResize', {
-                bubbles: true,
-                detail: this
-            });
-            document.dispatchEvent(endresize);
         }
 
         return oQuestionList;

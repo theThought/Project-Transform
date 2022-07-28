@@ -35,6 +35,7 @@ define(['component'],
             this.isJumpingToLetter = false;
             this.keypressed = null;
             this.defaultPlaceholder = 'Select';
+            this.manualWidth = this.checkManualWidth();
 
             this.setReadOnly();
             this.configureProperties();
@@ -45,6 +46,10 @@ define(['component'],
 
         aInputListDropdown.prototype = Object.create(component.prototype);
         aInputListDropdown.prototype.constructor = aInputListDropdown;
+
+        aInputListDropdown.prototype.checkManualWidth = function () {
+            return this.element.style.width.length > 0;
+        }
 
         aInputListDropdown.prototype.getValue = function () {
             var options = this.container.querySelectorAll('input[type=checkbox], input[type=radio]');
@@ -67,6 +72,7 @@ define(['component'],
             document.addEventListener("click", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
+            document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
         }
 
@@ -88,6 +94,7 @@ define(['component'],
                 case "broadcastChange":
                     this.receiveBroadcast(event);
                     break;
+                case this.group + "_beginResize":
                 case this.group + "_endResize":
                     this.onEndResize(event);
                     break;
@@ -96,16 +103,24 @@ define(['component'],
 
         aInputListDropdown.prototype.onEndResize = function (event) {
 
-            if (event.detail.isOnesize === true) {
-                this.element.style.width = (event.detail.widest)+ 'px';
+            if (event.detail.group !== this.group) {
+                return;
             }
 
+            if (this.manualWidth) {
+                return;
+            }
+
+            var manualwidth = this.element.style.width;
+
+            var buttonwidth = 0;
+            this.element.style.width = (event.detail.widest + buttonwidth) + 'px';
 
         }
 
         aInputListDropdown.prototype.placeholder = function (prop) {
             this.defaultPlaceholder = prop;
-            this.element.value  = this.defaultPlaceholder;
+            this.element.value = this.defaultPlaceholder;
         }
 
         aInputListDropdown.prototype.setReadOnly = function () {
@@ -158,7 +173,7 @@ define(['component'],
                 this.keypressed = event.keyCode;
             } else if (event.which) {
                 this.keypressed = event.which;
-            } else  if (event.key) {
+            } else if (event.key) {
                 this.keypressed = event.key;
             } else {
                 this.keypressed = event.code;

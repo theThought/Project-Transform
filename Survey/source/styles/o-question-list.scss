@@ -14,10 +14,12 @@
         }
 
         input[type=text] {
-            margin: .6em;
+            box-sizing: border-box;
+            margin: .6em 0 0.6em 0.6em;
             color: white;
             background: transparent;
             border: none;
+            padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
 
             &.readonly {
                 cursor: default;
