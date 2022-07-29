@@ -87,7 +87,7 @@ define(['component'],
                             element = this.getElementsByTagName('INPUT')[0];
                         }
 
-                        if (element !== 'null') {
+                        if (element !== null) {
                             element.click();
                             element.focus();
                         }
