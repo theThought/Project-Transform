@@ -27,6 +27,7 @@ define(['component'],
         function oProgress(id, group) {
             component.call(this, id, group);
             this.element = document.querySelector('div.overall-progress.complex#' + this.id);
+            this.currentsectionnumber = 1;
 
             this.configureProperties();
         }
@@ -42,6 +43,19 @@ define(['component'],
             switch (event.type) {
                 // event handlers to match incoming event listeners
             }
+        }
+
+        oProgress.prototype.currentsection = function (prop) {
+            this.currentsectionnumber = prop;
+        }
+
+        oProgress.prototype.addSectionTitle = function (title) {
+            var wrapper = this.element;
+            var firstsection = wrapper.firstChild;
+            var titleelement = document.createElement('div');
+            titleelement.classList.add('a-label-section-title');
+            titleelement.innerText = title;
+            wrapper.insertBefore(titleelement, firstsection);
         }
 
         oProgress.prototype.sections = function (sections) {
@@ -60,7 +74,8 @@ define(['component'],
             var newSection = document.createElement('div');
             newSection.classList.add('m-progress-section');
 
-            if (sectionindex === this.properties.currentsection) {
+            if (sectionindex === this.currentsectionnumber) {
+                this.addSectionTitle(section.title);
                 newSection.classList.add('current-section');
             }
 

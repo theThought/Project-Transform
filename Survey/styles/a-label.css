@@ -11,15 +11,19 @@
   width: 100%;
 }
 
-.a-label-section-title {
-  position: relative;
-  top: -4px;
-  margin-right: 16px !important;
-  display: inline-block;
+.overall-progress.complex .a-label-section-title {
+  display: block;
+  margin: 0 0 8px 0;
   font-size: 24px;
-  font-weight: 700;
+  text-align: right;
 }
 
+@media screen and (max-width: 1024px) {
+  .overall-progress.complex .a-label-section-title {
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+}
 th .a-label-option {
   color: #212C4C;
 }
