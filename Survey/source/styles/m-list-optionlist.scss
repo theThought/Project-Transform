@@ -13,6 +13,7 @@
     overflow: auto;
     visibility: hidden;
     overflow-y: overlay; /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
+    text-align: left;
 }
 
 .m-list-optionlist.manual-width {
