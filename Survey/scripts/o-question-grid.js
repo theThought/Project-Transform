@@ -62,6 +62,10 @@ define(['component'],
             }
         }
 
+        oQuestionGrid.prototype.onGridCellClick = function () {
+
+        }
+
         oQuestionGrid.prototype.configureCellEvents = function () {
             for (var i = 0, row; row = this.grid.rows[i]; i++) {
 
@@ -72,9 +76,18 @@ define(['component'],
                     // nested column iteration
 
                     // if the cell is clicked pass the focus and click to the first input element
-                    col.onclick = function () {
-                        if (this.getElementsByTagName('INPUT').length) {
-                            var element = this.getElementsByTagName('INPUT')[0];
+                    col.onclick = function (event) {
+                        if (event.target.type === 'input' || event.target.type === 'button') {
+                            return;
+                        }
+                        var element = null;
+                        if (this.getElementsByTagName('BUTTON').length) {
+                            element = this.getElementsByTagName('BUTTON')[0];
+                        } else if (this.getElementsByTagName('INPUT').length) {
+                            element = this.getElementsByTagName('INPUT')[0];
+                        }
+
+                        if (element !== 'null') {
                             element.click();
                             element.focus();
                         }
