@@ -1731,7 +1731,11 @@
                <xsl:when test="name() = 'Control'">
                  <xsl:if test="not(@Type = 'RadioButton') and not(@Type ='CheckButton')">
                    <xsl:call-template name="InsertQuestionDiv">
-                     <xsl:with-param name="qFullName" select="@QuestionName" />
+                     <xsl:with-param name="qFullName">
+                      <xsl:call-template name="CalculateQuestionName">
+                        <xsl:with-param name="QuestionName" select="@QuestionName" />
+                      </xsl:call-template>
+                     </xsl:with-param> 
                      <xsl:with-param name="qGroupName" select="@ElementID" />
                    </xsl:call-template>
                 </xsl:if>
