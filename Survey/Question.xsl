@@ -1906,14 +1906,14 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'choice'" />
          </xsl:when>
-         <xsl:when test="$theID = '-41'">
-            <xsl:value-of select="'list'" />
-         </xsl:when>
          <xsl:when test="$theID = '-50'">
             <xsl:value-of select="'hnumberslider'" />
          </xsl:when>
            <xsl:when test="$theID = '-60'">
               <xsl:value-of select="'list'" />
+           </xsl:when>
+           <xsl:when test="$theID = '-61'">
+              <xsl:value-of select="'combolist'" />
            </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select="theID" />
@@ -1945,6 +1945,9 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-61'">
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:otherwise>
