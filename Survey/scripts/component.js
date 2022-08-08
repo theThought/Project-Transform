@@ -88,6 +88,17 @@ define(
         }
 
         component.prototype.onBeginResize = function (event) {
+            if (!event.detail.isOnesize && !event.detail.isBalanced) {
+                return;
+            }
+
+            if (!this.element.hasAttribute('data-original-width')) {
+                // we must clear the element's width on resize to allow items to collapse as the container shrinks
+                // however we do not want to lose any original width intention from the publisher - this preserves
+                // a manually set width, if set.
+                this.element.setAttribute('data-original-width', this.element.style.width);
+            }
+
             this.element.style.width = '';
             this.element.style.height = '';
 

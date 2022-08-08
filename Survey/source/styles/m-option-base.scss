@@ -1,6 +1,7 @@
 @use 'globals';
 
 .m-option-base {
+    display: inline-block;
     box-sizing: border-box;
     position: relative;
     margin-bottom: .5em;

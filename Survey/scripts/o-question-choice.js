@@ -138,6 +138,10 @@ define(['o-question'],
                 var contentheight = elementheight ;//- (parseFloat(dims.paddingTop) + parseFloat(dims.paddingBottom));
                 var contentwidth = elementwidth ;//- (parseFloat(dims.paddingLeft) + parseFloat(dims.paddingRight));
 
+                if (element.hasAttribute('data-original-width')) {
+                    console.info('Have an original width - this will need to be converted into a pixel value here');
+                }
+
                 contentheight = Math.ceil(contentheight);
                 contentwidth = Math.ceil(contentwidth);
 
