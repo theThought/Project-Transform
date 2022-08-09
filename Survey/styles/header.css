@@ -35,7 +35,7 @@
 .overall-progress-bar table {
   position: relative;
 }
-.overall-progress-bar td:first-child {
+.overall-progress-bar td:first-child:not(.mrProgressText) {
   background-color: #D0DAE6;
   border-radius: 10px;
 }

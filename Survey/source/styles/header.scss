@@ -41,7 +41,7 @@
         position: relative;
     }
 
-    td:first-child {
+    td:first-child:not(.mrProgressText) {
         background-color: globals.$borders-light;
         border-radius: globals.$border-radius;
     }
