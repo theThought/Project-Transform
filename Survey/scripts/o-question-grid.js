@@ -77,19 +77,27 @@ define(['component'],
 
                     // if the cell is clicked pass the focus and click to the first input element
                     col.onclick = function (event) {
-                        if (event.target.type === 'input' || event.target.type === 'button') {
+
+                        // prevent bubbled events from firing this function
+                        if (typeof event.target.type !== 'undefined') {
                             return;
                         }
+
                         var element = null;
                         if (this.getElementsByTagName('BUTTON').length) {
                             element = this.getElementsByTagName('BUTTON')[0];
                         } else if (this.getElementsByTagName('INPUT').length) {
                             element = this.getElementsByTagName('INPUT')[0];
+                        } else if (this.getElementsByTagName('TEXTAREA')) {
+                            element = this.getElementsByTagName('TEXTAREA')[0];
                         }
 
                         if (element !== null) {
-                            element.click();
-                            element.focus();
+                            if (element.type === 'checkbox' || element.type === 'radio') {
+                                element.click();
+                            } else {
+                                element.focus();
+                            }
                         }
                     }
                 }
