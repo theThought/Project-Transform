@@ -136,6 +136,11 @@ th .a-label-option {
 }
 
 .m-structure-cell {
+    .read-only .a-label-postlabel,
+    .read-only .a-label-prelabel {
+        background: transparent;
+    }
+
     .a-label-postlabel {
         display: inline-block;
         border: 1px transparent;

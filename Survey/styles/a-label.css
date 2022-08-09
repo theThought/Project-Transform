@@ -117,6 +117,10 @@ th .a-label-option {
   border-right-color: #8797C8 !important;
 }
 
+.m-structure-cell .read-only .a-label-postlabel,
+.m-structure-cell .read-only .a-label-prelabel {
+  background: transparent;
+}
 .m-structure-cell .a-label-postlabel {
   display: inline-block;
   border: 1px transparent;

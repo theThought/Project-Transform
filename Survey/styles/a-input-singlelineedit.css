@@ -28,6 +28,7 @@
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit {
   border: transparent !important;
+  background: transparent;
   cursor: default;
 }
 
