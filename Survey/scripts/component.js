@@ -118,6 +118,13 @@ define(
 
         component.prototype.onEndResize = function (event) {
 
+            // preserve the original element width, if set
+            if (this.element.hasAttribute('data-original-width')
+                && this.element.getAttribute('data-original-width').length) {
+                this.element.style.width = this.element.getAttribute('data-original-width');
+                return;
+            }
+
             if (event.detail.isOnesize === true) {
                 this.element.style.width = event.detail.widest + 'px';
                 this.element.style.height = event.detail.tallest + 'px';
