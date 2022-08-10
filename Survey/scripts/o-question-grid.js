@@ -62,10 +62,6 @@ define(['component'],
             }
         }
 
-        oQuestionGrid.prototype.onGridCellClick = function () {
-
-        }
-
         oQuestionGrid.prototype.configureCellEvents = function () {
             for (var i = 0, row; row = this.grid.rows[i]; i++) {
 
@@ -296,7 +292,9 @@ define(['component'],
 
         }
 
-        oQuestionGrid.prototype.caption = function (caption) {
+        oQuestionGrid.prototype.caption = function (props) {
+            var caption = props['content'];
+            
             // handle tables with exactly 2 rows
             if (this.grid.rows.length === 2) {
                 this.addSingleRowCaption(caption);
