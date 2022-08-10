@@ -10,3 +10,18 @@
 .m-structure-cell-total {
   padding-top: 1.2em;
 }
+
+.grid-column-total.align-center,
+.grid-row-total.align-center {
+    text-align: center;
+}
+
+.grid-column-total.align-left,
+.grid-row-total.align-left {
+    text-align: left;
+}
+
+.grid-column-total.align-right,
+.grid-row-total.align-right {
+    text-align: right;
+}

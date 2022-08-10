@@ -62,6 +62,10 @@ th .a-label-option {
   color: #212C4C;
 }
 
+.a-label-total-column {
+  width: 197px;
+}
+
 .a-label-total-column,
 .a-label-total-grand {
   margin-bottom: 0;

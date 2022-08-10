@@ -354,7 +354,9 @@ define(['component'],
             this.hasrowtotals = true;
 
             var rowcount = this.grid.rows.length;
-            var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
+            var title = (typeof props['caption'] === "undefined") ? '' : props['caption'];
+            var align = (typeof props['align'] === "undefined") ? 'default' : props['align'];
+            var width = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
 
             for (var i = 0; i < rowcount; i++) {
 
@@ -363,9 +365,11 @@ define(['component'],
                 if (i === 0) {
                     totalcell.scope = 'col';
                     totalcell.className = 'm-structure-cell grid-row-total-title';
+                    totalcell.classList.add('align-' + align);
                     totalcell.innerHTML = title;
                 } else {
                     totalcell.className = 'm-structure-cell grid-row-total';
+                    totalcell.classList.add('align-' + align);
 
                     if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                         continue;
@@ -375,16 +379,19 @@ define(['component'],
 
                     if (props['labels'] && props['labels']['pre']) {
                         htmlString += '<span class="a-label-prelabel">'
-                        htmlString += props['labels']['pre'];
-                        htmlString += '</span>';
+                            + props['labels']['pre']
+                            + '</span>';
                     }
 
-                    htmlString += '<div class="a-label-total-row a-label-total" data-rownumber="' + i + '"><span>0</span></div>';
+                    htmlString += '<div class="a-label-total-row a-label-total" '
+                        + 'data-rownumber="' + i + '" '
+                        + 'style="' + width + '"'
+                        + '><span>0</span></div>';
 
                     if (props['labels'] && props['labels']['post']) {
                         htmlString += '<span class="a-label-postlabel">'
-                        htmlString += props['labels']['post'];
-                        htmlString += '</span>';
+                            + props['labels']['post']
+                            + '</span>';
                     }
 
                     totalcell.innerHTML = htmlString;
@@ -401,12 +408,17 @@ define(['component'],
             var totalrow = this.grid.insertRow(-1);
             totalrow.className = 'm-structure-column-totals';
             var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
+            var align = (typeof props['align'] === 'undefined') ? 'default' : props['align'];
+            var width = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
 
             for (var i = 0; i < columncount; i++) {
+
                 var totalcell = totalrow.insertCell(i);
+
                 if (i === 0) {
                     totalcell.scope = 'row';
                     totalcell.className = 'm-structure-cell grid-column-total-title';
+                    totalcell.classList.add('align-' + align);
                     totalcell.innerHTML = title;
                 } else {
                     if (this.hasrowtotals && i === (columncount - 1)) {
@@ -416,6 +428,8 @@ define(['component'],
                         totalcell.innerHTML = '<div class="a-label-total-grand a-label-total"><span>0</span></div>';
                     } else {
                         totalcell.className = 'm-structure-cell grid-column-total';
+                        totalcell.classList.add('align-' + align);
+
                         if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                             continue;
                         }
@@ -424,16 +438,19 @@ define(['component'],
 
                         if (props['labels'] && props['labels']['pre']) {
                             htmlString += '<span class="a-label-prelabel">'
-                            htmlString += props['labels']['pre'];
-                            htmlString += '</span>';
+                                + props['labels']['pre']
+                                + '</span>';
                         }
 
-                        htmlString += '<div class="a-label-total-column a-label-total" data-colnumber="' + i + '"><span>0</span></div>';
+                        htmlString += '<div class="a-label-total-column a-label-total" '
+                            + 'data-colnumber="' + i + '"'
+                            + 'style="' + width + '"'
+                            + '><span>0</span></div>';
 
                         if (props['labels'] && props['labels']['post']) {
                             htmlString += '<span class="a-label-postlabel">'
-                            htmlString += props['labels']['post'];
-                            htmlString += '</span>';
+                                + props['labels']['post']
+                                + '</span>';
                         }
 
                         totalcell.innerHTML = htmlString;
