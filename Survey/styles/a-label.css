@@ -43,6 +43,7 @@ th .a-label-option {
   font-family: "Merriweather", serif;
   font-weight: normal;
   color: #212C4C;
+  display: inline-block;
 }
 
 .a-label-total {

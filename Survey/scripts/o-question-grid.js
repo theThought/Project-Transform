@@ -293,24 +293,35 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.caption = function (props) {
-            var caption = props['content'];
-            
+
+            if (typeof props['content'] === 'undefined') {
+                console.warn(this.id + ' did not correctly define caption properties.');
+                props = {content: props};
+            }
+
+            var captioncontentcontainer = document.createElement('span');
+            captioncontentcontainer.classList.add('a-label-caption');
+            captioncontentcontainer.innerHTML = props['content'];
+
+            if (typeof props['width'] !== 'undefined') {
+                captioncontentcontainer.style.width = props['width'];
+            }
+
             // handle tables with exactly 2 rows
             if (this.grid.rows.length === 2) {
-                this.addSingleRowCaption(caption);
+                this.addSingleRowCaption(captioncontentcontainer);
                 return;
             }
 
             // handle tables with exactly 2 columns
             if (this.grid.rows[0].cells.length === 2) {
-                this.addSingleColumnCaption(caption);
+                this.addSingleColumnCaption(captioncontentcontainer);
                 return;
             }
 
             // default position for other captions
             var newcaption = this.grid.createCaption();
-            newcaption.classList.add('a-label-caption')
-            newcaption.innerHTML = caption;
+            newcaption.appendChild(captioncontentcontainer);
         }
 
         oQuestionGrid.prototype.addSingleRowCaption = function (caption) {
@@ -325,7 +336,7 @@ define(['component'],
             var captioncell = document.createElement('th');
             captioncell.scope = 'row';
             captioncell.className = 'm-structure-cell m-structure-column-caption';
-            captioncell.innerHTML = '<span class="a-label-caption">' + caption + '</span>';
+            captioncell.appendChild(caption);
             captionrow.insertBefore(captioncell, captionrow.firstChild);
         }
 
@@ -340,7 +351,7 @@ define(['component'],
             captionrow.appendChild(newth);
             var captioncell = newth.cloneNode();
             captioncell.className = 'm-structure-cell m-structure-column-caption';
-            captioncell.innerHTML = '<span class="a-label-caption">' + caption + '</span>';
+            captioncell.appendChild(caption);
             captionrow.appendChild(captioncell);
         }
 
