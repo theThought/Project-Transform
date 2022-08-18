@@ -1,5 +1,8 @@
-.m-option-base {
+input.a-button-option + .m-option-base {
   display: inline-block;
+}
+
+.m-option-base {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
