@@ -62,6 +62,17 @@
       </xsl:choose>
    </xsl:template>
    <xsl:template name="CellQuestion">
+     <xsl:for-each select="*">
+
+       <xsl:choose>
+         <xsl:when test="name() = 'Questions'">
+       <xsl:for-each select="Question">
+         <xsl:call-template name="CellQuestion" />
+       </xsl:for-each>
+           </xsl:when>
+          </xsl:choose>
+          </xsl:for-each>
+           <xsl:if test="name() = 'Question'">
       <xsl:variable name="qGroupName" select="Control/@ElementID" />
       <xsl:variable name="qFullName">
          <xsl:call-template name="CalculateQuestionName">
@@ -79,6 +90,7 @@
             <xsl:with-param name="qGroupName" select="$qGroupName" />
          </xsl:call-template>
       </xsl:if>
+           </xsl:if>
    </xsl:template>
    <xsl:template name="InsertQuestionDiv">
       <xsl:param name="qFullName" />
