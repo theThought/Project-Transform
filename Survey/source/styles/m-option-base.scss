@@ -1,7 +1,10 @@
 @use 'globals';
 
+input.a-button-option + .m-option-base {
+        display: inline-block;
+}
+
 .m-option-base {
-    display: inline-block;
     box-sizing: border-box;
     position: relative;
     margin-bottom: .5em;
