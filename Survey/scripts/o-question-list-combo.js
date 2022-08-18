@@ -25,7 +25,7 @@ define(['o-question'],
          * @param {String} group - question group
          */
 
-        function oQuestionList(id, group) {
+        function oQuestionComboList(id, group) {
             oQuestion.call(this, id, group);
 
             this.tallest = 0;
@@ -33,7 +33,7 @@ define(['o-question'],
             this.maxwidth = '';
             this.isOnesize = true;
             this.list = null;
-            this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
+            this.element = document.querySelector('div[class*=o-question-combolist][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
             this.list = this.buildList();
@@ -43,10 +43,10 @@ define(['o-question'],
             this.configurationComplete();
         }
 
-        oQuestionList.prototype = Object.create(oQuestion.prototype);
-        oQuestionList.prototype.constructor = oQuestionList;
+        oQuestionComboList.prototype = Object.create(oQuestion.prototype);
+        oQuestionComboList.prototype.constructor = oQuestionComboList;
 
-        oQuestionList.prototype.configureIncomingEventListeners = function () {
+        oQuestionComboList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
             document.addEventListener("mousedown", this, false);
@@ -54,7 +54,7 @@ define(['o-question'],
             document.addEventListener(this.group + "_jumpToLetter", this, false);
         }
 
-        oQuestionList.prototype.handleEvent = function (event) {
+        oQuestionComboList.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'click':
                 case 'mousedown':
@@ -69,18 +69,16 @@ define(['o-question'],
             }
         }
 
-        oQuestionList.prototype.configureInputElement = function () {
-            var inputelement = this.element.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input[type=text]');
-            inputelement.classList.add('readonly');
-            inputelement.readOnly = true;
+        oQuestionComboList.prototype.configureInputElement = function () {
+
         }
 
-        oQuestionList.prototype.buildList = function () {
+        oQuestionComboList.prototype.buildList = function () {
             var listcontainer = this.element.querySelector('.m-list-optionlist');
             return listcontainer.querySelectorAll('.m-option-base');
         }
 
-        oQuestionList.prototype.jumpToLetter = function (event) {
+        oQuestionComboList.prototype.jumpToLetter = function (event) {
             if (event.detail.questionName !== this.questionName) {
                 return;
             }
@@ -97,25 +95,25 @@ define(['o-question'],
             }
         }
 
-        oQuestionList.prototype.onClick = function (event) {
+        oQuestionComboList.prototype.onClick = function (event) {
             if (event.target === this.element) {
                 this.element.classList.add('focused');
             }
         }
 
-        oQuestionList.prototype.displayicon = function (prop) {
+        oQuestionComboList.prototype.displayicon = function (prop) {
             if (prop === true) {
                 this.element.classList.add('display-icons');
             }
         }
 
-        oQuestionList.prototype.onesize = function (props) {
+        oQuestionComboList.prototype.onesize = function (props) {
             if (props['state'] === false) {
                 this.isOnesize = false;
             }
         }
 
-        oQuestionList.prototype.configureOnesize = function () {
+        oQuestionComboList.prototype.configureOnesize = function () {
             if (this.isOnesize) {
 
                 this.element.classList.add('one-size');
@@ -132,10 +130,10 @@ define(['o-question'],
             }
         }
 
-        oQuestionList.prototype.setMaxWidth = function (maxwidth) {
+        oQuestionComboList.prototype.setMaxWidth = function (maxwidth) {
             this.maxwidth = maxwidth;
         }
 
-        return oQuestionList;
+        return oQuestionComboList;
 
     });

@@ -37,7 +37,6 @@ define(['component'],
             this.defaultPlaceholder = 'Select';
             this.manualWidth = this.checkManualWidth();
 
-            this.setReadOnly();
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.getValue();
@@ -121,11 +120,6 @@ define(['component'],
         aInputListDropdown.prototype.placeholder = function (prop) {
             this.defaultPlaceholder = prop;
             this.element.value = this.defaultPlaceholder;
-        }
-
-        aInputListDropdown.prototype.setReadOnly = function () {
-            this.element.classList.add('readonly');
-            this.element.readOnly = true;
         }
 
         aInputListDropdown.prototype.receiveBroadcast = function (event) {

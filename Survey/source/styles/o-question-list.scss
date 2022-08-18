@@ -1,6 +1,7 @@
 @use 'globals';
 
-.o-question-list {
+.o-question-list,
+.o-question-combolist {
 
     & > div:first-of-type {
         position: relative;

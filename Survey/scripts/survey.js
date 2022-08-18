@@ -68,6 +68,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.components.push(new oQuestionList(id, group));
             });
             break;
+        case 'oquestioncombolist':
+            requirejs(['o-question-list-combo'], function (oQuestionComboList) {
+                app.components.push(new oQuestionComboList(id, group));
+            });
+            break;
         case 'oquestion':
         case 'oquestionchoice':
         case 'oquestionreadwriteedit':

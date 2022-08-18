@@ -1,14 +1,17 @@
-.o-question-list > div:first-of-type {
+.o-question-list > div:first-of-type,
+.o-question-combolist > div:first-of-type {
   position: relative;
   display: inline-block;
   background-color: #455B97;
   padding-right: 3em;
   border-radius: 10px;
 }
-.o-question-list > div:first-of-type:hover {
+.o-question-list > div:first-of-type:hover,
+.o-question-combolist > div:first-of-type:hover {
   background-color: #324371;
 }
-.o-question-list > div:first-of-type input[type=text] {
+.o-question-list > div:first-of-type input[type=text],
+.o-question-combolist > div:first-of-type input[type=text] {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0.6em 0 0.6em 0.6em;
@@ -18,7 +21,8 @@
   padding-right: 0 !important;
   /* this is necessary to override JS applied padding to list elements */
 }
-.o-question-list > div:first-of-type input[type=text].readonly {
+.o-question-list > div:first-of-type input[type=text].readonly,
+.o-question-combolist > div:first-of-type input[type=text].readonly {
   cursor: default;
 }
 /*# sourceMappingURL=o-question-list.css.map */

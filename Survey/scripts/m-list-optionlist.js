@@ -32,8 +32,8 @@ define(['component'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = true;
-            this.buttonelement = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] > div');
-            this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
+            this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
+            this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
             this.setWidth();
