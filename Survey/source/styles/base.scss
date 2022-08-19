@@ -134,3 +134,17 @@ input:disabled {
 ::-ms-input-placeholder {
     color: globals.$placeholder;
 }
+
+sup {
+    vertical-align: top;
+    font-size: 0.6em;
+    position: relative;
+    top: -4px;
+}
+
+sub {
+    vertical-align: bottom;
+    font-size: 0.6em;
+    position: relative;
+    top: 4px;
+}
