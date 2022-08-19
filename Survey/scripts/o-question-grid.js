@@ -361,11 +361,20 @@ define(['component'],
             }
 
             this.hasrowtotals = true;
-
             var rowcount = this.grid.rows.length;
-            var title = (typeof props['caption'] === "undefined") ? '' : props['caption'];
-            var align = (typeof props['align'] === "undefined") ? 'default' : props['align'];
-            var width = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
+
+            var captiontitle = '';
+            var captionalign = '';
+            var captionwidth = '';
+
+            var figurealign = (typeof props['align'] === "undefined") ? 'default' : props['align'];
+            var figurewidth = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
+
+            if (typeof props['caption'] !== 'undefined') {
+                if (typeof props['caption']['content'] !== 'undefined') captiontitle = props['caption']['content'];
+                if (typeof props['caption']['align'] !== 'undefined') captionalign = props['caption']['align'];
+                if (typeof props['caption']['width'] !== 'undefined') captionwidth = props['caption']['width'];
+            }
 
             for (var i = 0; i < rowcount; i++) {
 
@@ -374,11 +383,11 @@ define(['component'],
                 if (i === 0) {
                     totalcell.scope = 'col';
                     totalcell.className = 'm-structure-cell grid-row-total-title';
-                    totalcell.classList.add('align-' + align);
-                    totalcell.innerHTML = title;
+                    totalcell.classList.add('align-' + captionalign);
+                    totalcell.innerHTML = captiontitle;
                 } else {
                     totalcell.className = 'm-structure-cell grid-row-total';
-                    totalcell.classList.add('align-' + align);
+                    totalcell.classList.add('align-' + figurealign);
 
                     if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                         continue;
@@ -394,7 +403,7 @@ define(['component'],
 
                     htmlString += '<div class="a-label-total-row a-label-total" '
                         + 'data-rownumber="' + i + '" '
-                        + 'style="' + width + '"'
+                        + 'style="' + figurewidth + '"'
                         + '><span>0</span></div>';
 
                     if (props['labels'] && props['labels']['post']) {
@@ -416,9 +425,19 @@ define(['component'],
             var columncount = this.grid.rows[0].cells.length;
             var totalrow = this.grid.insertRow(-1);
             totalrow.className = 'm-structure-column-totals';
-            var title = (typeof props['caption'] === 'undefined') ? '' : props['caption'];
-            var align = (typeof props['align'] === 'undefined') ? 'default' : props['align'];
-            var width = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
+
+            var captiontitle = '';
+            var captionalign = '';
+            var captionwidth = '';
+
+            var figurealign = (typeof props['align'] === "undefined") ? 'default' : props['align'];
+            var figurewidth = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
+
+            if (typeof props['caption'] !== 'undefined') {
+                if (typeof props['caption']['content'] !== 'undefined') captiontitle = props['caption']['content'];
+                if (typeof props['caption']['align'] !== 'undefined') captionalign = props['caption']['align'];
+                if (typeof props['caption']['width'] !== 'undefined') captionwidth = props['caption']['width'];
+            }
 
             for (var i = 0; i < columncount; i++) {
 
@@ -427,8 +446,8 @@ define(['component'],
                 if (i === 0) {
                     totalcell.scope = 'row';
                     totalcell.className = 'm-structure-cell grid-column-total-title';
-                    totalcell.classList.add('align-' + align);
-                    totalcell.innerHTML = title;
+                    totalcell.classList.add('align-' + captionalign);
+                    totalcell.innerHTML = captiontitle;
                 } else {
                     if (this.hasrowtotals && i === (columncount - 1)) {
                         // tables with column and row totals also have grand totals
@@ -437,7 +456,7 @@ define(['component'],
                         totalcell.innerHTML = '<div class="a-label-total-grand a-label-total"><span>0</span></div>';
                     } else {
                         totalcell.className = 'm-structure-cell grid-column-total';
-                        totalcell.classList.add('align-' + align);
+                        totalcell.classList.add('align-' + figurealign);
 
                         if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                             continue;
@@ -452,8 +471,8 @@ define(['component'],
                         }
 
                         htmlString += '<div class="a-label-total-column a-label-total" '
-                            + 'data-colnumber="' + i + '"'
-                            + 'style="' + width + '"'
+                            + 'data-colnumber="' + i + '" '
+                            + 'style="' + figurewidth + '"'
                             + '><span>0</span></div>';
 
                         if (props['labels'] && props['labels']['post']) {
