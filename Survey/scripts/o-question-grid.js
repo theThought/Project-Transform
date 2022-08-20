@@ -75,11 +75,12 @@ define(['component'],
                     col.onclick = function (event) {
 
                         // prevent bubbled events from firing this function
-                        if (typeof event.target.type !== 'undefined') {
+                        if (typeof event.target.type !== 'undefined' || event.detail === 0) {
                             return;
                         }
 
                         var element = null;
+
                         if (this.getElementsByTagName('BUTTON').length) {
                             element = this.getElementsByTagName('BUTTON')[0];
                         } else if (this.getElementsByTagName('INPUT').length) {
@@ -88,12 +89,13 @@ define(['component'],
                             element = this.getElementsByTagName('TEXTAREA')[0];
                         }
 
-                        if (element !== null) {
-                            if (element.type === 'checkbox' || element.type === 'radio') {
-                                element.click();
-                            } else {
-                                element.focus();
-                            }
+                        if (typeof element === "undefined" || element === null) {
+                            // this is an unexpected situation where we have a column that doesn't contain an input
+                            return;
+                        }
+
+                        if (element.type !== 'checkbox' && element.type !== 'radio') {
+                            element.focus();
                         }
                     }
                 }
