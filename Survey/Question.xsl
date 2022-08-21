@@ -63,52 +63,48 @@
    </xsl:template>
    <xsl:template name="CellQuestion">
      <xsl:for-each select="*">
-
        <xsl:choose>
          <xsl:when test="name() = 'Questions'">
-       <xsl:for-each select="Question">
-         <xsl:call-template name="CellQuestion" />
-       </xsl:for-each>
-           </xsl:when>
-          </xsl:choose>
+          <xsl:for-each select="Question">
+           <xsl:call-template name="CellQuestion" />
           </xsl:for-each>
-           <xsl:if test="name() = 'Question'">
-             <xsl:for-each select="*">
-               <xsl:choose>
-                 <xsl:when test="name() = 'Table'">
-                  <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
-                  <xsl:variable name="qFullName">
-                     <xsl:call-template name="CalculateQuestionName">
-                        <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-                     </xsl:call-template>
-                  </xsl:variable>
-                   <xsl:call-template name="TypePickerChoose">
-                      <xsl:with-param name="GroupName" select="$qGroupName" />
-                      <xsl:with-param name="FullName" select="$qFullName" />
-                   </xsl:call-template>
-                 </xsl:when>
-                 <xsl:when test="name() = 'Control'">
-                  <xsl:variable name="qGroupName" select="Control/@ElementID" />
-                  <xsl:variable name="qFullName">
-                     <xsl:call-template name="CalculateQuestionName">
-                        <xsl:with-param name="QuestionName" select="Control/@QuestionName" />
-                     </xsl:call-template>
-                  </xsl:variable>
-                  <xsl:variable name="qCustomType">
-                     <xsl:call-template name="TranslateZIndexToName">
-                        <xsl:with-param name="theID" select="Style/@ZIndex" />
-                     </xsl:call-template>
-                  </xsl:variable>
-                  <xsl:if test="$qGroupName!=''">
-                     <xsl:call-template name="InsertQuestionDiv">
-                        <xsl:with-param name="qFullName" select="$qFullName" />
-                        <xsl:with-param name="qGroupName" select="$qGroupName" />
-                     </xsl:call-template>
-                  </xsl:if>
-                 </xsl:when>
-               </xsl:choose>
-             </xsl:for-each>
-           </xsl:if>
+        </xsl:when>
+        <xsl:when test="name() = 'Question'">
+          <xsl:text>Question: </xsl:text>
+        </xsl:when>
+         <xsl:when test="name() = 'Table'">
+          <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+          <xsl:variable name="qFullName">
+             <xsl:call-template name="CalculateQuestionName">
+                <xsl:with-param name="QuestionName" select="Control[1]/@QuestionName" />
+             </xsl:call-template>
+          </xsl:variable>
+           <xsl:call-template name="InsertQuestionDiv">
+              <xsl:with-param name="GroupName" select="$qGroupName" />
+              <xsl:with-param name="FullName" select="$qFullName" />
+           </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="name() = 'Control'">
+          <xsl:variable name="qGroupName" select="@ElementID" />
+          <xsl:variable name="qFullName">
+             <xsl:call-template name="CalculateQuestionName">
+                <xsl:with-param name="QuestionName" select="@QuestionName" />
+             </xsl:call-template>
+          </xsl:variable>
+          <xsl:variable name="qCustomType">
+             <xsl:call-template name="TranslateZIndexToName">
+                <xsl:with-param name="theID" select="Style/@ZIndex" />
+             </xsl:call-template>
+          </xsl:variable>
+          <xsl:if test="$qGroupName!=''">
+             <xsl:call-template name="InsertQuestionDiv">
+                <xsl:with-param name="qFullName" select="$qFullName" />
+                <xsl:with-param name="qGroupName" select="$qGroupName" />
+             </xsl:call-template>
+          </xsl:if>
+         </xsl:when>
+      </xsl:choose>
+    </xsl:for-each>
    </xsl:template>
    <xsl:template name="InsertQuestionDiv">
       <xsl:param name="qFullName" />
@@ -1761,7 +1757,7 @@
          <xsl:for-each select="*">
             <xsl:choose>
                <xsl:when test="name() = 'Question'">
-                  <xsl:call-template name="CellQuestion" />
+                 <xsl:call-template name="CellQuestion" />
                </xsl:when>
                <xsl:when test="name() = 'Label'">
                   <xsl:call-template name="Label">
