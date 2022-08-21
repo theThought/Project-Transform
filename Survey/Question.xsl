@@ -103,6 +103,11 @@
              </xsl:call-template>
           </xsl:if>
          </xsl:when>
+          <xsl:when test="name() = 'Error'">
+          <xsl:call-template name="Error">
+               <xsl:with-param name="SubQuestion" select="false()" />
+            </xsl:call-template>
+         </xsl:when>
       </xsl:choose>
     </xsl:for-each>
    </xsl:template>
