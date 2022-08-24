@@ -105,7 +105,7 @@ button.a-button-preterminator {
   height: 100%;
   width: 100%;
   border: none;
-  z-index: 2;
+  z-index: 1;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat transparent;
 }
 .a-button-list-dropdown:hover {

@@ -39,7 +39,6 @@ define(['o-question'],
             this.list = this.buildList();
             this.configureIncomingEventListeners();
             this.configureOnesize();
-            this.configureInputElement();
             this.configurationComplete();
         }
 
@@ -50,29 +49,18 @@ define(['o-question'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("click", this, false);
             document.addEventListener("mousedown", this, false);
+            document.addEventListener("focusin", this, false);
+            document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
             document.addEventListener(this.group + "_jumpToLetter", this, false);
         }
 
         oQuestionList.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case 'click':
-                case 'mousedown':
-                    this.onClick(event);
-                    break;
-                case 'broadcastChange':
-                    this.receiveBroadcast(event);
-                    break;
                 case this.group + "_jumpToLetter":
                     this.jumpToLetter(event);
                     break;
             }
-        }
-
-        oQuestionList.prototype.configureInputElement = function () {
-            var inputelement = this.element.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input[type=text]');
-            inputelement.classList.add('readonly');
-            inputelement.readOnly = true;
         }
 
         oQuestionList.prototype.buildList = function () {
@@ -94,12 +82,6 @@ define(['o-question'],
                     itemlabel.click();
                     return;
                 }
-            }
-        }
-
-        oQuestionList.prototype.onClick = function (event) {
-            if (event.target === this.element) {
-                this.element.classList.add('focused');
             }
         }
 

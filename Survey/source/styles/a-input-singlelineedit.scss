@@ -33,6 +33,16 @@
     cursor: default;
 }
 
+input.read-only:focus-visible {
+    outline: none;
+}
+
+/* This following rule shouldn't be necessary as focus on a ready-only input shouldn't be possible? *
+ * I have observed Firefox adding an outline, regardless of the read-only state so dealing with it  */
+input:read-only:focus-visible {
+    outline: none;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input:read-only::-webkit-outer-spin-button,
 input:read-only::-webkit-inner-spin-button {

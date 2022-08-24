@@ -34,6 +34,7 @@ define(['component'],
             this.focused = false;
             this.isJumpingToLetter = false;
             this.keypressed = null;
+            this.menutype = 'droplist';
             this.defaultPlaceholder = 'Select';
             this.manualWidth = this.checkManualWidth();
 
@@ -119,7 +120,14 @@ define(['component'],
 
         aInputListDropdown.prototype.placeholder = function (prop) {
             this.defaultPlaceholder = prop;
-            this.element.value = this.defaultPlaceholder;
+            this.element.placeholder = this.defaultPlaceholder;
+        }
+
+        aInputListDropdown.prototype.type = function (prop) {
+            if (prop === 'dropdown') {
+                this.element.classList.add('readonly');
+                this.element.readOnly = true;
+            }
         }
 
         aInputListDropdown.prototype.receiveBroadcast = function (event) {
@@ -140,7 +148,6 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onClick = function (event) {
-
             var parentNode = this.element.parentNode;
 
             if (event.target !== parentNode && !parentNode.contains(event.target)) {
