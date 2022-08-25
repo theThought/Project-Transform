@@ -16,6 +16,17 @@
     text-align: left;
 }
 
+div.empty {
+    .a-list-placeholder {
+        display: block;
+    }
+}
+
+.a-list-placeholder {
+    display: none;
+    color: globals.$disabled-text;
+}
+
 .m-list-optionlist.manual-width {
     padding-right: 0;
 }

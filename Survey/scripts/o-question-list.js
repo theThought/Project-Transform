@@ -94,6 +94,7 @@ define(['o-question'],
             }
 
             var string = event.detail.element.value.toLowerCase();
+            var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
@@ -101,7 +102,22 @@ define(['o-question'],
                     this.list[i].classList.remove('filter-hidden');
                 } else {
                     this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
                 }
+            }
+
+            if (visibleitems === 0) {
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+        }
+
+        oQuestionList.prototype.togglePlaceholderVisibility = function (visibility) {
+            if (visibility) {
+                this.element.classList.add('empty');
+            } else {
+                this.element.classList.remove('empty');
             }
         }
 

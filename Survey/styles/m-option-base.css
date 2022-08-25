@@ -9,7 +9,7 @@ input.a-button-option + .m-option-base {
   margin-bottom: 0.5em;
 }
 
-.m-option-base.filter-hidden {
+.filter-hidden {
   display: none;
 }
 

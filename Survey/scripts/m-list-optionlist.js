@@ -32,10 +32,12 @@ define(['component'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = true;
+            this.placeholder = 'no items to display';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
+            this.addPlaceholder();
             this.setWidth();
             this.configureIncomingEventListeners();
             this.configureOnesize();
@@ -57,6 +59,13 @@ define(['component'],
                     this.onResize();
                     break;
             }
+        }
+
+        mListOptionList.prototype.addPlaceholder = function () {
+            var placeholderelement = document.createElement('div');
+            placeholderelement.classList.add('a-list-placeholder');
+            placeholderelement.innerHTML = this.placeholder;
+            this.element.appendChild(placeholderelement);
         }
 
         mListOptionList.prototype.setWidth = function () {
