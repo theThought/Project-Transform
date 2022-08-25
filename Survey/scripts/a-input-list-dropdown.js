@@ -34,7 +34,7 @@ define(['component'],
             this.focused = false;
             this.isJumpingToLetter = false;
             this.keypressed = null;
-            this.menutype = 'droplist';
+            this.editable = false;
             this.defaultPlaceholder = 'Select';
             this.manualWidth = this.checkManualWidth();
 
@@ -79,9 +79,14 @@ define(['component'],
         aInputListDropdown.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "keypress":
+                    this.getKeyPressed(event);
                     this.onKeypress(event);
                     break;
                 case "keyup":
+                    this.getKeyPressed(event);
+                    this.onKeyup(event);
+                    this.onChange(event);
+                    break;
                 case "change":
                     this.onChange(event);
                     break;
@@ -128,6 +133,10 @@ define(['component'],
                 this.element.classList.add('readonly');
                 this.element.readOnly = true;
             }
+
+            if (prop === 'combobox') {
+                this.editable = true;
+            }
         }
 
         aInputListDropdown.prototype.receiveBroadcast = function (event) {
@@ -170,6 +179,23 @@ define(['component'],
                 return;
             }
 
+            if (this.isJumpingToLetter) {
+                this.processKeyJump();
+            }
+
+        }
+
+        aInputListDropdown.prototype.onKeyup = function (event) {
+            if (!this.focused) {
+                return;
+            }
+
+            if (this.editable) {
+                this.processFilterList();
+            }
+        }
+
+        aInputListDropdown.prototype.getKeyPressed = function (event) {
             if (event.keyCode) {
                 this.keypressed = event.keyCode;
             } else if (event.which) {
@@ -179,15 +205,15 @@ define(['component'],
             } else {
                 this.keypressed = event.code;
             }
-
-            if (this.isJumpingToLetter) {
-                this.processKeyJump();
-            }
-            // other key handling stuff here
         }
 
         aInputListDropdown.prototype.processKeyJump = function () {
             var keyEvent = new CustomEvent(this.group + '_jumpToLetter', {bubbles: true, detail: this});
+            document.dispatchEvent(keyEvent);
+        }
+
+        aInputListDropdown.prototype.processFilterList = function () {
+            var keyEvent = new CustomEvent(this.group + '_filterList', {bubbles: true, detail: this});
             document.dispatchEvent(keyEvent);
         }
 

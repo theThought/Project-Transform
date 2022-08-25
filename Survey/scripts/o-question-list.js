@@ -53,12 +53,16 @@ define(['o-question'],
             document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
             document.addEventListener(this.group + "_jumpToLetter", this, false);
+            document.addEventListener(this.group + "_filterList", this, false);
         }
 
         oQuestionList.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case this.group + "_jumpToLetter":
                     this.jumpToLetter(event);
+                    break;
+                case this.group + "_filterList":
+                    this.filterList(event);
                     break;
             }
         }
@@ -74,13 +78,29 @@ define(['o-question'],
             }
 
             var char = String.fromCharCode(event.detail.keypressed).toLowerCase();
-            console.info('Pressed key: ' + char);
 
-            for (var i = 0; i<this.list.length; i++) {
+            for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.list[i].querySelector('.a-label-option');
                 if (itemlabel.innerHTML.toLowerCase().indexOf(char) === 0) {
                     itemlabel.click();
                     return;
+                }
+            }
+        }
+
+        oQuestionList.prototype.filterList = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            var string = event.detail.element.value;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
+                if (itemlabel.indexOf(string) === 0) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
                 }
             }
         }
