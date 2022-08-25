@@ -93,6 +93,40 @@ define(['o-question'],
                 return;
             }
 
+            switch  (event.detail.filtermethod) {
+                case 'starts':
+                    this.filterListStarts(event);
+                    break;
+                case 'contains':
+                    this.filterListContains(event);
+                    break;
+            }
+        }
+
+        oQuestionList.prototype.filterListContains = function (event) {
+
+            var string = event.detail.element.value.toLowerCase();
+            var visibleitems = this.list.length;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
+                if (itemlabel.indexOf(string) !== -1) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+        }
+
+        oQuestionList.prototype.filterListStarts = function (event) {
+
             var string = event.detail.element.value.toLowerCase();
             var visibleitems = this.list.length;
 

@@ -35,6 +35,7 @@ define(['component'],
             this.isJumpingToLetter = false;
             this.keypressed = null;
             this.editable = false;
+            this.filtermethod = 'contains';
             this.defaultPlaceholder = 'Select';
             this.manualWidth = this.checkManualWidth();
 
@@ -49,6 +50,10 @@ define(['component'],
 
         aInputListDropdown.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
+        }
+
+        aInputListDropdown.prototype.filtertype = function (prop) {
+            this.filtermethod = prop;
         }
 
         aInputListDropdown.prototype.getValue = function () {
