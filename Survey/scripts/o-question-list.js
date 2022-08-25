@@ -93,7 +93,7 @@ define(['o-question'],
                 return;
             }
 
-            var string = event.detail.element.value;
+            var string = event.detail.element.value.toLowerCase();
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
