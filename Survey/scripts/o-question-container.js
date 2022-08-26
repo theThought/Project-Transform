@@ -31,9 +31,9 @@ define(['o-question'],
             this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
+            this.configureIncomingEventListeners();
             this.configureVisibilityRules();
             this.configureInitialVisibility();
-            this.configureIncomingEventListeners();
             this.configurationComplete();
         }
 
@@ -84,7 +84,9 @@ define(['o-question'],
                 // we do this by telling the contributing question to broadcast its current value
                 this.visibilityRules.forEach(function (rule) {
                     for (var component in app.components) {
-                        if (app.components[component].questionName === rule.question.replace(/_/g, "__").toLowerCase()) {
+                        var groupname = app.components[component].group.toLowerCase();
+                        var questionrulename = rule.question.replace(/(\w)_([^qQ])/g, "$1__$2").toLowerCase();
+                        if (groupname.indexOf(questionrulename) !== -1) {
                             app.components[component].broadcastChange();
                         }
                     }
@@ -140,13 +142,14 @@ define(['o-question'],
 
             // iterate and process the visibility rules
             this.visibilityRules.forEach(function (rule) {
-                var ruleQuestion = rule.question.toLowerCase().replace(/_/g, "__");
+                var ruleQuestion = rule.question.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2");
+                var broadcastingComponentName = broadcastingComponent.group.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2");
 
-                if (broadcastingComponent.questionName === ruleQuestion) {
+                if (ruleQuestion.indexOf(broadcastingComponentName) !== 0) {
 
                     if (rule.type === 'specific-option'
                         && typeof broadcastingComponent.checkbox !== "undefined"
-                        && broadcastingComponent.checkbox.value.toLowerCase() !== rule.value.toLowerCase().replace(/_/g, "__")) {
+                        && broadcastingComponent.checkbox.value.toLowerCase() !== rule.value.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2")) {
                         return;
                     }
 
@@ -233,7 +236,7 @@ define(['o-question'],
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (rule.value.toLowerCase().replace(/_/g, "__") === incomingValue.toLowerCase()) {
+            if (rule.value.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2") === incomingValue.toLowerCase()) {
                 rule.satisfied = incomingChecked;
             }
         }
@@ -246,7 +249,7 @@ define(['o-question'],
             var incomingValue = broadcastingComponent.checkbox.value;
             var incomingChecked = broadcastingComponent.checkbox.checked;
 
-            if (rule.value.toLowerCase().replace(/_/g, "__") === incomingValue.toLowerCase()) {
+            if (rule.value.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2") === incomingValue.toLowerCase()) {
                 rule.satisfied = !incomingChecked;
             }
         }
@@ -270,7 +273,7 @@ define(['o-question'],
             }
 
             rule.value.forEach(function (item) {
-                if (incomingValue.toLowerCase() === item.toLowerCase().replace(/_/g, "__")) {
+                if (incomingValue.toLowerCase() === item.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2")) {
                     if (incomingChecked) {
                         if (rule.valuessatisfied.indexOf(incomingValue) === -1) {
                             rule.valuessatisfied.push(incomingValue);
