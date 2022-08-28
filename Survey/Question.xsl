@@ -45,6 +45,11 @@
                         <xsl:with-param name="SubQuestion" select="true()" />
                      </xsl:call-template>
                   </xsl:when>
+                 <xsl:when test="name() = 'Label'">
+                    <xsl:apply-templates select=".">
+                       <xsl:with-param name="sLabelClass" select="'mrQuestionText'" />
+                    </xsl:apply-templates>
+                 </xsl:when>
                   <xsl:when test="name() = 'Control'">
                      <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
                      <xsl:call-template name="Control">
@@ -370,6 +375,7 @@
                   </xsl:call-template>
                </xsl:when>
                <xsl:when test="name() = 'Label'">
+                 <xsl:text>LABEL</xsl:text>
                   <xsl:apply-templates select=".">
                      <xsl:with-param name="sLabelClass" select="'mrQuestionText'" />
                      <xsl:with-param name="bWithinTable" select="true()" />
@@ -1072,11 +1078,12 @@
                <xsl:with-param name="labelType" select="'option'" />
             </xsl:apply-templates>
          </xsl:element>
-         <xsl:apply-templates select="../Question">
-            <xsl:with-param name="bWithinTable" select="true()" />
-            <xsl:with-param name="qGroup" select="$qGroup" />
-            <xsl:with-param name="SubQuestion" select="true()" />
-         </xsl:apply-templates>
+         <xsl:for-each select="../Question">
+           <xsl:call-template name="Question">
+              <xsl:with-param name="bWithinTable" select="true()" />
+              <xsl:with-param name="SubQuestion" select="true()" />
+           </xsl:call-template>
+         </xsl:for-each>
       </xsl:element>
    </xsl:template>
    <xsl:template name="CheckButtonControl">
@@ -1188,11 +1195,12 @@
                <xsl:with-param name="labelType" select="'option'" />
             </xsl:apply-templates>
          </xsl:element>
-         <xsl:apply-templates select="../Question">
-            <xsl:with-param name="bWithinTable" select="true()" />
-            <xsl:with-param name="qGroup" select="$qGroup" />
-            <xsl:with-param name="SubQuestion" select="true()" />
-         </xsl:apply-templates>
+           <xsl:for-each select="../Question">
+             <xsl:call-template name="Question">
+                <xsl:with-param name="bWithinTable" select="false()" />
+                <xsl:with-param name="SubQuestion" select="true()" />
+             </xsl:call-template>
+           </xsl:for-each>
       </xsl:element>
    </xsl:template>
    <xsl:template name="ListBoxControl">
