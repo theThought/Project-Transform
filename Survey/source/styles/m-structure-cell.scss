@@ -11,7 +11,11 @@
   padding-top: 1.2em;
 }
 
-.grid-column-total.align-center,
+// the default alignment in columns is centre
+.grid-column-total {
+    text-align: center;
+}
+
 .grid-row-total.align-center {
     text-align: center;
 }
