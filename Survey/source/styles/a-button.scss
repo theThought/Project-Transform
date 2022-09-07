@@ -12,9 +12,10 @@ button {
     margin: 0 0 12px 0;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    padding: 0 1em;
+    padding: 8px 1em;
     background-color: globals.$theme-primary;
     color: globals.$white;
+    white-space: normal;
 }
 
 input[type=button]:hover,

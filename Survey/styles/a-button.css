@@ -11,9 +11,10 @@ button {
   margin: 0 0 12px 0;
   border: 1px solid #455B97;
   border-radius: 10px;
-  padding: 0 1em;
+  padding: 8px 1em;
   background-color: #455B97;
   color: #FFFFFF;
+  white-space: normal;
 }
 
 input[type=button]:hover,
