@@ -1,6 +1,9 @@
-/* note that the separator color used within tables is defined in JS - o-question-grid.js */
+/* MOTE: the separator color used within tables is defined
+ * in JavaScript - o-question-grid.js */
 .o-structure-table {
   border-collapse: collapse;
+  /* additional padding to allow for the presence of a number
+   * 'spinner' control in input cells above the total */
 }
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
@@ -80,6 +83,6 @@
   margin-bottom: 0.5em;
 }
 .o-structure-table .grid-column-total span {
-  padding-right: 18px;
+  padding-right: 16px;
 }
 /*# sourceMappingURL=o-structure-table.css.map */

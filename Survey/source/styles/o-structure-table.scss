@@ -3,7 +3,8 @@
 $shade-colour: globals.$icons-mid;
 $separator-colour: globals.$titles;
 
-/* note that the separator color used within tables is defined in JS - o-question-grid.js */
+/* MOTE: the separator color used within tables is defined
+ * in JavaScript - o-question-grid.js */
 
 .o-structure-table {
     border-collapse: collapse;
@@ -112,9 +113,10 @@ $separator-colour: globals.$titles;
         margin-bottom: .5em;
     }
 
-    // additional padding to allow for the presence of a number 'spinner' control in input cells above
+    /* additional padding to allow for the presence of a number
+     * 'spinner' control in input cells above the total */
     .grid-column-total span {
-        padding-right: 18px;
+        padding-right: 16px;
     }
 
 }

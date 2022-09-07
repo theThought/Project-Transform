@@ -1,5 +1,8 @@
 @use 'globals';
 
+/* a-input-singlelineedit
+ * essential styling for the fundamental HTML input element
+ */
 .a-input-singlelineedit {
     padding: 10px 16px;
     border-radius: globals.$border-radius;
@@ -12,18 +15,51 @@
     box-sizing: content-box;
 }
 
+/* m-input-singlelineedit
+ * the molecule gets added by JavaScript when the a-input-singlelineedit
+ * includes a pre or post label and therefore requires an additional wrapper
+ */
+.m-input-singlelineedit {
+    margin-bottom: .5em;
+
+    .a-input-singlelineedit {
+        margin-bottom: 0;
+    }
+}
+
+/* numerical single-line inputs
+ * styles for the input element (that are built on top of the above defaults)
+ * along with additional classes to manage the 'spinner' control that appears
+ */
 .a-input-singlelineedit[type=number] {
     text-align: right;
 }
 
-/* make the spinner permanently visible - specifically for Edge */
-.a-input-singlelineedit[type=number]::-webkit-inner-spin-button {
-    opacity: 1
+/* remove the clear entry button from IE as it breaks right-aligned text */
+.a-input-singlelineedit[type=number]::-ms-clear {
+    display: none;
 }
 
 /* make the spinner permanently visible - specifically for Edge */
+.a-input-singlelineedit[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+/* remove the spinner when read-only - specifically for Edge */
 .a-input-singlelineedit[type=number]:read-only::-webkit-inner-spin-button {
     opacity: 0
+}
+
+/* remove the spinner when read-only - for Chrome, Safari, Edge, Opera */
+input:read-only::-webkit-outer-spin-button,
+input:read-only::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* remove the spinner when read-only - specifically for Firefox */
+input[type=number]:read-only {
+    -moz-appearance: textfield;
 }
 
 /* IE10 does not support :read-only selector */
@@ -37,40 +73,14 @@ input.read-only:focus-visible {
     outline: none;
 }
 
-/* This following rule shouldn't be necessary as focus on a ready-only input shouldn't be possible? *
- * I have observed Firefox adding an outline, regardless of the read-only state so dealing with it  */
+/* This following rule shouldn't be necessary, as ready-only elements shouldn't get focus,
+ * however I have observed Firefox adding an outline and this prevents that behaviour  */
 input:read-only:focus-visible {
     outline: none;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input:read-only::-webkit-outer-spin-button,
-input:read-only::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type=number]:read-only {
-    -moz-appearance: textfield;
-}
-
 .a-input-singlelineedit:read-only:focus {
     border: none;
-}
-
-.a-input-singlelineedit[type=number]::-ms-clear {
-    // bug in IE10 that breaks right-padding where the clear button appears
-    // it is necessary to remove the clear button as this cannot be solved.
-    display: none;
-}
-
-.m-input-singlelineedit {
-    margin-bottom: .5em;
-
-    .a-input-singlelineedit {
-        margin-bottom: 0;
-    }
 }
 
 .m-input-singlelineedit:last-of-type,
@@ -88,6 +98,7 @@ input[type=number]:read-only {
     border: 1px solid globals.$theme-primary;
 }
 
+/* inputs when a child of a checkbox (other specifier) */
 .m-option-base {
     .a-input-singlelineedit {
         margin-left: .5em;
