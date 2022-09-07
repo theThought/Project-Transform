@@ -79,4 +79,7 @@
   text-align: left;
   margin-bottom: 0.5em;
 }
+.o-structure-table .grid-column-total span {
+  padding-right: 18px;
+}
 /*# sourceMappingURL=o-structure-table.css.map */

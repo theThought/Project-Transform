@@ -275,7 +275,9 @@ define(['component'],
 
                 // prevent attempts to update a total in a title column
                 if (this.grid.querySelector('div[data-colnumber="' + column + '"]') !== null) {
-                    this.grid.querySelector('div[data-colnumber="' + column + '"]').innerHTML = coltotal;
+                    this.grid.querySelector('div[data-colnumber="' + column + '"]').innerHTML = '<span>'
+                        + coltotal
+                        + '</span>';
                 }
 
                 grandtotal += coltotal;

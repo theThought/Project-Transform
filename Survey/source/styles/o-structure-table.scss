@@ -13,7 +13,8 @@ $separator-colour: globals.$titles;
         td[scope=row] {
             background-color: $shade-colour;
             border-top-left-radius: globals.$border-radius;
-            border-bottom-left-radius: globals.$border-radius;}
+            border-bottom-left-radius: globals.$border-radius;
+        }
     }
 
     &.shade-altcolumns {
@@ -109,6 +110,11 @@ $separator-colour: globals.$titles;
         caption-side: top;
         text-align: left;
         margin-bottom: .5em;
+    }
+
+    // additional padding to allow for the presence of a number 'spinner' control in input cells above
+    .grid-column-total span {
+        padding-right: 18px;
     }
 
 }
