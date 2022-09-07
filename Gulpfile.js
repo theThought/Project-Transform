@@ -6,12 +6,16 @@ function buildStyles() {
         autoprefixer = require('autoprefixer'),
         postcss = require('gulp-postcss');
 
-    return gulp.src('Survey/source/styles/*.scss')
+    var sourcepath = 'Survey/source/styles/*.scss';
+    var destpath = 'Survey/styles/';
+
+    return gulp
+        .src(sourcepath)
         .pipe(sourcemaps.init())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss([ autoprefixer({grid: 'autoplace'}) ]))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('Survey/styles'))
+        .pipe(gulp.dest(destpath))
 }
 
 exports.default = function() {

@@ -1,22 +1,1408 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
-@import url("header.css");
-@import url("navigation.css");
-@import url("t-question-base.css");
-@import url("o-question.css");
-@import url("o-question-hnumberslider.css");
-@import url("o-option-list.css");
-@import url("o-question-list.css");
-@import url("o-structure-table.css");
-@import url("m-list-optionlist.css");
-@import url("m-option-base.css");
-@import url("m-question-cover.css");
-@import url("m-structure-cell.css");
-@import url("a-button.css");
-@import url("a-icon-multistate.css");
-@import url("a-input-multilineedit.css");
-@import url("a-input-singlelineedit.css");
-@import url("a-label.css");
+.site-logo {
+  height: 75px;
+  width: 75px;
+}
+
+@media screen and (max-width: 1024px) {
+  .site-logo {
+    max-height: 55px;
+    max-width: 55px;
+  }
+}
+.overall-progress {
+  width: 33%;
+  min-width: 250px;
+}
+
+.overall-progress-bar {
+  height: 24px;
+  border: 1px solid #D0DAE6;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1px;
+  background-color: #FFFFFF;
+}
+.overall-progress-bar .overall-progress-text {
+  text-align: center;
+  margin-bottom: 4px;
+  color: #212C4C;
+}
+.overall-progress-bar .overall-progress-text::after {
+  content: "";
+  color: #A0ABCC;
+}
+.overall-progress-bar table {
+  position: relative;
+}
+.overall-progress-bar td:first-child:not(.mrProgressText) {
+  background-color: #D0DAE6;
+  border-radius: 10px;
+}
+.overall-progress-bar .mrProgressText {
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: -42px;
+}
+
+.overall-progress.complex {
+  width: auto;
+  min-width: 0;
+  position: relative;
+}
+.overall-progress.complex div {
+  display: inline-block;
+  margin-right: 0.5em;
+  border-radius: 4px;
+}
+.overall-progress.complex div.m-progress-section {
+  min-width: 24px;
+  height: 24px;
+}
+.overall-progress.complex div.m-progress-section.no-progress {
+  background: #A0ABCC;
+}
+.overall-progress.complex div.m-progress-section.in-progress {
+  background: repeating-linear-gradient(45deg, #A0ABCC, #A0ABCC 4px, #455B97 4px, #455B97 8px);
+}
+.overall-progress.complex div.m-progress-section.complete {
+  background: #324371;
+}
+.overall-progress.complex div.m-progress-section div.a-progress-page {
+  display: none;
+}
+.overall-progress.complex div.m-progress-section.current-section {
+  min-width: 12px;
+  background: transparent;
+}
+.overall-progress.complex div.m-progress-section.current-section div.a-progress-page {
+  display: inline-block;
+}
+.overall-progress.complex div.a-progress-page {
+  width: 12px;
+  height: 32px;
+  position: relative;
+  top: 4px;
+  background: #324371;
+}
+.overall-progress.complex div.a-progress-page.current-page {
+  outline: 1px solid #324371;
+  outline-offset: 4px;
+  margin: 0 0.75em 0 0.25em;
+}
+.overall-progress.complex div.a-progress-page.current-page:last-child {
+  margin-right: 0.25em;
+}
+.overall-progress.complex div.a-progress-page.current-page,
+.overall-progress.complex div.a-progress-page.current-page ~ div.a-progress-page {
+  background: #A0ABCC;
+}
+.overall-progress.complex div:last-child {
+  margin-right: 0;
+}
+
+#nav-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#prevstop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-right: 1em;
+}
+
+#nextonly {
+  display: block;
+  text-align: right;
+}
+
+#nav-controls > .a-button-next {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+#nav-controls > .a-button-prev {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+#nav-controls > .a-button-stop {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.page-links {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.page-links a {
+  color: #212C4C;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset],
+button {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 3em;
+  min-height: 40px;
+  -webkit-appearance: none;
+  margin: 0 0 12px 0;
+  border: 1px solid #455B97;
+  border-radius: 10px;
+  padding: 8px 1em;
+  background-color: #455B97;
+  color: #FFFFFF;
+  white-space: normal;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+button:hover {
+  background-color: #324371 !important;
+  color: #FFFFFF;
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+  background-color: #FFFFFF !important;
+  color: #455B97;
+}
+
+button:disabled,
+input[type=button]:disabled,
+input[type=submit]:disabled,
+input[type=reset]:disabled {
+  border-color: #9CADCB !important;
+  background-color: #9CADCB !important;
+  color: #FFFFFF !important;
+}
+
+button[data-checked=true],
+input[type=button][data-checked=true],
+input[type=submit][data-checked=true] {
+  background-image: url("../images/blue_checkmark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+button[data-checked=true]:active,
+input[type=button][data-checked=true]:active,
+input[type=submit][data-checked=true]:active {
+  background-image: url("../images/blue_checkmark.png");
+}
+button[data-checked=true]:disabled,
+input[type=button][data-checked=true]:disabled,
+input[type=submit][data-checked=true]:disabled {
+  background-image: url("../images/blue_checkmark.png");
+}
+
+button.a-button-preterminator,
+button.a-button-postterminator {
+  position: relative;
+  border: none;
+  background: transparent;
+  top: 0.3em;
+  width: 2em;
+  min-width: 2em;
+  padding: 0 0.5em;
+  margin: 0;
+  display: none;
+  color: #455B97;
+}
+
+.has-terminators .a-button-preterminator,
+.has-terminators .a-button-postterminator {
+  display: block;
+}
+
+button.a-button-postterminator {
+  margin-left: 1em;
+}
+
+button.a-button-preterminator {
+  margin-right: 1em;
+}
+
+.balance .a-button-option {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-right: 1em;
+}
+
+.focused > .a-button-list-dropdown {
+  background-image: url("../images/white-chevron-up.png");
+}
+
+.a-button-list-dropdown {
+  position: absolute;
+  margin: 0;
+  right: 0;
+  top: 0;
+  padding: 0 1em 0 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  z-index: 1;
+  background: url("../images/white-chevron-down.png") right 12px center no-repeat transparent;
+}
+.a-button-list-dropdown:hover {
+  background-color: transparent !important;
+}
+
+/* buttons where used as part of
+ * the page navigation controls */
+#nav-controls input {
+  display: inline-block !important;
+}
+#nav-controls input[type=submit] {
+  margin: 0;
+  border-color: #449B9B;
+  background-color: #449B9B;
+  color: #FFFFFF;
+  width: 197px;
+  min-width: 100px;
+}
+@media screen and (max-width: 1024px) {
+  #nav-controls input[type=submit] {
+    width: auto;
+  }
+}
+#nav-controls input[type=submit]:hover {
+  color: #449B9B !important;
+  background-color: #FFFFFF !important;
+}
+#nav-controls #prevstop input[type=submit] {
+  margin-right: 1em;
+}
+#nav-controls #prevstop input[type=submit]:last-child {
+  margin-right: 0;
+}
+
+.a-icon-multistate {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-position-x: -28px;
+}
+
+.m-option-base .a-icon-multistate {
+  position: absolute;
+  top: 0.1em;
+  left: 0;
+}
+
+/* Grid layout */
+.m-structure-cell .m-option-base .a-icon-multistate {
+  position: relative;
+  top: 0.2em;
+}
+
+input[type=checkbox] + label > .a-icon-multistate {
+  background-image: url("../images/checkbox-1.png");
+}
+
+input[type=radio] + label > .a-icon-multistate {
+  background-image: url("../images/radiobutton-1.png");
+}
+
+input[type=checkbox]:checked + label > .a-icon-multistate,
+input[type=radio]:checked + label > .a-icon-multistate {
+  background-position-x: 0;
+}
+
+input[type=checkbox]:focus + label,
+input[type=radio]:focus + label,
+input[type=checkbox]:focus-visible + label,
+input[type=radio]:focus-visible + label,
+input[type=checkbox]:focus-within + label,
+input[type=radio]:focus-within + label {
+  outline: 1px solid #324371;
+}
+
+input[type=checkbox]:disabled + label > .a-icon-multistate,
+input[type=radio]:disabled + label > .a-icon-multistate {
+  background-position-x: -56px;
+}
+
+div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
+  display: none;
+}
+
+textarea {
+  width: 100%;
+  background: #FAFAFA;
+  border: 1px solid #8797C8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0.5em;
+  min-height: 100px;
+  color: #757575;
+  overflow-y: auto;
+}
+
+textarea:active,
+textarea:focus,
+textarea:hover {
+  outline: none;
+  color: #57699C;
+}
+
+textarea:focus {
+  border-color: #455B97;
+}
+
+textarea:focus-visible,
+textarea:focus-within {
+  outline: none;
+  border-color: #455B97;
+  color: #57699C;
+}
+
+/* a-input-singlelineedit
+ * essential styling for the fundamental HTML input element
+ */
+.a-input-singlelineedit {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #8797C8;
+  color: #757575;
+  margin: 0 0 0.5em 0;
+  width: 197px;
+  height: 19px;
+  background-color: #FAFAFA;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/* m-input-singlelineedit
+ * the molecule gets added by JavaScript when the a-input-singlelineedit
+ * includes a pre or post label and therefore requires an additional wrapper
+ */
+.m-input-singlelineedit {
+  margin-bottom: 0.5em;
+}
+.m-input-singlelineedit .a-input-singlelineedit {
+  margin-bottom: 0;
+}
+
+/* numerical single-line inputs
+ * styles for the input element (that are built on top of the above defaults)
+ * along with additional classes to manage the 'spinner' control that appears
+ */
+.a-input-singlelineedit[type=number] {
+  text-align: right;
+}
+
+/* remove the clear entry button from IE as it breaks right-aligned text */
+.a-input-singlelineedit[type=number]::-ms-clear {
+  display: none;
+}
+
+/* make the spinner permanently visible - specifically for Edge */
+.a-input-singlelineedit[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+/* remove the spinner when read-only - specifically for Edge */
+.a-input-singlelineedit[type=number]:read-only::-webkit-inner-spin-button {
+  opacity: 0;
+}
+
+/* remove the spinner when read-only - for Chrome, Safari, Edge, Opera */
+input:read-only::-webkit-outer-spin-button,
+input:read-only::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* remove the spinner when read-only - specifically for Firefox */
+input[type=number]:-moz-read-only {
+  -moz-appearance: textfield;
+}
+input[type=number]:read-only {
+  -moz-appearance: textfield;
+}
+
+/* IE10 does not support :read-only selector */
+.read-only .a-input-singlelineedit {
+  border: transparent !important;
+  background: transparent;
+  cursor: default;
+}
+
+input.read-only:focus-visible {
+  outline: none;
+}
+
+/* This following rule shouldn't be necessary, as ready-only elements shouldn't get focus,
+ * however I have observed Firefox adding an outline and this prevents that behaviour  */
+input:-moz-read-only:focus-visible {
+  outline: none;
+}
+input:read-only:focus-visible {
+  outline: none;
+}
+
+.a-input-singlelineedit:-moz-read-only:focus {
+  border: none;
+}
+
+.a-input-singlelineedit:read-only:focus {
+  border: none;
+}
+
+.m-input-singlelineedit:last-of-type,
+.a-input-singlelineedit:last-of-type {
+  margin-bottom: 0;
+}
+
+.a-input-singlelineedit:hover:not(:-moz-read-only), .a-input-singlelineedit:focus:not(:-moz-read-only) {
+  color: #57699C;
+}
+
+.a-input-singlelineedit:hover:not(:read-only),
+.a-input-singlelineedit:focus:not(:read-only) {
+  color: #57699C;
+}
+
+.a-input-singlelineedit:focus {
+  outline: none;
+  border: 1px solid #455B97;
+}
+
+/* inputs when a child of a checkbox (other specifier) */
+.m-option-base .a-input-singlelineedit {
+  margin-left: 0.5em;
+  margin-bottom: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid;
+  width: 151px;
+  height: auto;
+}
+
+.a-label-prelabel + .a-input-singlelineedit {
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+
+*[class*=-label-] {
+  cursor: default;
+}
+*[class*=-label-] * {
+  cursor: default;
+}
+
+.m-list-optionlist label {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.overall-progress.complex .a-label-section-title {
+  display: block;
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  text-align: right;
+}
+
+@media screen and (max-width: 1024px) {
+  .overall-progress.complex .a-label-section-title {
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+}
+th .a-label-option {
+  font-family: "Karla", sans-serif;
+}
+
+.a-label-option {
+  color: #455B97;
+  padding: 0;
+  margin: 0;
+}
+
+.a-label-iteration {
+  font-family: "Karla", sans-serif;
+  color: #455B97;
+}
+
+.a-label-caption {
+  font-family: "Merriweather", serif;
+  font-weight: normal;
+  color: #212C4C;
+  display: inline-block;
+}
+
+.a-label-total {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  margin: 0 0 0.5em 0;
+  height: 19px;
+  text-align: right;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.a-label-total-grand,
+.a-label-total-column,
+.a-label-total-row {
+  color: #212C4C;
+}
+
+.a-label-total-column {
+  width: 197px;
+}
+
+.a-label-total-column,
+.a-label-total-grand {
+  margin-bottom: 0;
+}
+
+.a-label-error {
+  color: #DA2911;
+}
+
+.o-question-instruction {
+  color: #0063DE;
+}
+.o-question-instruction p {
+  margin: 0.5em 0;
+}
+
+.o-question-error *[class*=-label-],
+.o-question-warning *[class*=-label-],
+.o-question-success *[class*=-label-] {
+  display: inline-block;
+  padding: 1em 1em 1em 2.5em;
+  border-radius: 10px;
+  color: #FFFFFF;
+  margin-bottom: 1em;
+  background: no-repeat 1em;
+  background-size: 17px;
+}
+
+.o-question-error *[class*=-label-] {
+  background-image: url("../images/error.png");
+  background-color: #DA2911;
+}
+
+.o-question-warning *[class*=-label-] {
+  background-image: url("../images/warning.png");
+  background-color: #E8BE5D;
+}
+
+.o-question-success *[class*=-label-] {
+  background-image: url("../images/success.png");
+  background-color: #469B9B;
+}
+
+.focused * {
+  outline: none;
+}
+.focused .a-label-postlabel {
+  border: 1px solid #455B97 !important;
+  border-left-color: #8797C8 !important;
+}
+.focused .a-label-prelabel {
+  border: 1px solid #455B97 !important;
+  border-right-color: #8797C8 !important;
+}
+
+.m-structure-cell .read-only .a-label-postlabel,
+.m-structure-cell .read-only .a-label-prelabel {
+  background: transparent;
+}
+.m-structure-cell .a-label-postlabel {
+  display: inline-block;
+  border: 1px transparent;
+  position: relative;
+  left: -0.5em;
+  padding: 10px 16px;
+  white-space: nowrap;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 19px;
+}
+.m-structure-cell .a-label-prelabel {
+  display: inline-block;
+  border: 1px transparent;
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+
+.m-input-singlelineedit .a-label-postlabel {
+  display: inline-block;
+  border: 1px solid #8797C8;
+  border-radius: 0 10px 10px 0;
+  position: relative;
+  left: -0.5em;
+  background-color: #FAFAFA;
+  padding: 10px 16px;
+  color: #A0ABCC;
+  white-space: nowrap;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 19px;
+}
+.m-input-singlelineedit .a-label-prelabel {
+  display: inline-block;
+  border: 1px solid #8797C8;
+  border-radius: 10px 0 0 10px;
+  background-color: #FAFAFA;
+  padding: 10px 16px;
+  color: #A0ABCC;
+  white-space: nowrap;
+}
+.m-input-singlelineedit.read-only .a-label-prelabel,
+.m-input-singlelineedit.read-only .a-label-postlabel {
+  border: transparent !important;
+}
+
+.o-question-hnumberslider-control .a-label-prelabel {
+  position: absolute;
+  left: 0;
+  bottom: -0.8em;
+  color: #455B97;
+}
+.o-question-hnumberslider-control .a-label-postlabel {
+  position: absolute;
+  right: 0;
+  bottom: -0.8em;
+  color: #455B97;
+}
+.o-question-hnumberslider-control .a-label-thumbvalue {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #212C4C;
+  position: absolute;
+  top: -1.1em;
+  visibility: hidden;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.o-question-hnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue {
+  visibility: visible;
+}
+.o-question-hnumberslider-control .m-style-slidermarks {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  z-index: 2;
+  width: calc(100% - 12px);
+  left: 6px;
+  height: 16px;
+  top: 16px;
+  border-radius: 16px;
+}
+.o-question-hnumberslider-control .m-label-ticklabels {
+  position: relative;
+  top: -0.5em;
+  left: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: calc(100% - 12px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #8797C8;
+}
+.o-question-hnumberslider-control .m-label-ticklabels > span {
+  text-align: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40px;
+          flex: 0 1 40px;
+  display: block;
+}
+
+.m-structure-cell .m-option-base label {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.m-option-base input:checked + label > .a-label-option {
+  color: #449B9B;
+}
+.m-option-base input:disabled + label > .a-label-option {
+  color: #9CADCB;
+}
+.m-option-base .a-label-option {
+  display: inline-block;
+  padding-left: 1.5em;
+}
+
+.m-list-optionlist .a-label-option {
+  padding-bottom: 0.5em;
+}
+.m-list-optionlist .m-option-base:last-child .a-label-option {
+  padding-bottom: 0;
+}
+
+.m-structure-cell .m-option-base .a-label-option {
+  padding-left: 0.2em;
+}
+
+.m-list-optionlist .a-label-option {
+  width: calc(100% - 1.5em);
+}
+
+div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
+  padding-left: 3px;
+  width: calc(100% - 3px);
+}
+
+.m-list-optionlist {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 0.5em;
+  border: 1px solid #455B97;
+  border-radius: 10px;
+  padding: 0.5em 3em 0.5em 0.5em;
+  background-color: white;
+  z-index: 999;
+  max-height: 227px;
+  overflow: auto;
+  visibility: hidden;
+  overflow-y: overlay;
+  /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
+  text-align: left;
+}
+
+div.empty .a-list-placeholder {
+  display: block;
+}
+
+.a-list-placeholder {
+  display: none;
+  color: #9CADCB;
+}
+
+.m-list-optionlist.manual-width {
+  padding-right: 0;
+}
+
+.focused ~ .m-list-optionlist {
+  visibility: visible;
+}
+
+input.a-button-option + .m-option-base {
+  display: inline-block;
+}
+
+.m-option-base {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.filter-hidden {
+  display: none;
+}
+
+input + script + .m-option-base {
+  margin-top: 0.5em;
+}
+
+.m-option-base:first-child,
+.m-option-base:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+
+.m-list-optionlist .m-option-base {
+  margin-bottom: 0;
+  width: 100% !important;
+}
+
+.balance .m-option-base {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-right: 1em;
+}
+
+.m-question-cover {
+  -webkit-transition: opacity 1s 0ms, z-index 0ms 0ms;
+  transition: opacity 1s 0ms, z-index 0ms 0ms;
+  background-color: #FAFAFA;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  z-index: 999;
+  background-image: url("../images/loading.gif");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.m-question-cover::after {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  opacity: 0;
+  font-size: x-large;
+}
+
+.config-complete .m-question-cover {
+  background-image: none;
+}
+
+.unavailable.collapse {
+  display: none;
+}
+
+.unavailable .m-question-cover::after {
+  opacity: 1;
+  color: #9CADCB;
+  content: "⃠";
+}
+
+.cover-off .m-question-cover {
+  -webkit-transition: opacity 1s 0ms, z-index 0ms 1s;
+  transition: opacity 1s 0ms, z-index 0ms 1s;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -999;
+}
+
+.m-structure-cell,
+.m-structure-cellm-structure-cell-altrow {
+  padding: 0.5em;
+}
+
+.m-structure-cell-total {
+  padding-top: 1.2em;
+}
+
+.grid-column-total {
+  text-align: center;
+}
+
+.grid-row-total.align-center {
+  text-align: center;
+}
+
+.grid-column-total.align-left,
+.grid-row-total.align-left {
+  text-align: left;
+}
+
+.grid-column-total.align-right,
+.grid-row-total.align-right {
+  text-align: right;
+}
+
+/* Sublist heading */
+.o-option-sublist .a-label-heading-sublist {
+  font-family: "Merriweather", serif;
+  margin-bottom: 0.5em;
+  color: #212C4C;
+}
+
+.balance .o-option-sublist:first-of-type {
+  margin-top: 0;
+}
+
+.balance .o-option-sublist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* Separates sub-lists when they are immediately adjacent. */
+.o-option-sublist + .o-option-sublist {
+  margin-top: 1em;
+}
+
+/* This combination shouldn't be seen but was observed as part
+ * of a list during development, where a non-sub-listed item
+ * appeared in the middle of a set sub-lists */
+.m-option-base + .o-option-sublist {
+  margin-top: 1em;
+}
+
+.o-question-response {
+  padding: 1px;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+.o-question-response:not(.balance) > *:not(script):last-child {
+  margin-bottom: 0;
+}
+.o-question-response.balance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.o-question-response.balance > .o-option-sublist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+}
+.o-question-response.balance .a-label-heading-sublist {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  width: 100%;
+}
+
+.o-question-core {
+  z-index: 2;
+}
+
+.o-question-hnumberslider {
+  overflow: visible;
+}
+
+.o-question-hnumberslider-control {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 0.5em;
+  min-width: 343px;
+}
+.o-question-hnumberslider-control.has-value input[type=range]::-webkit-slider-thumb {
+  visibility: visible;
+}
+.o-question-hnumberslider-control.has-value input[type=range]::-moz-range-thumb {
+  visibility: visible;
+}
+.o-question-hnumberslider-control.has-value input[type=range]::-ms-thumb {
+  visibility: visible;
+}
+.o-question-hnumberslider-control.has-thumb-value {
+  padding-top: 1em;
+}
+.o-question-hnumberslider-control.has-pre-label, .o-question-hnumberslider-control.has-post-label {
+  padding-bottom: 0.8em;
+}
+.o-question-hnumberslider-control.has-tick-labels {
+  padding-bottom: 0.8em;
+}
+.o-question-hnumberslider-control.inactive .a-style-sliderclickablearea {
+  display: block;
+}
+.o-question-hnumberslider-control > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.m-numberslider-horizontal {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.m-numberslider-horizontal[style*=width] {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.a-style-sliderborder {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 24px;
+  border: 1px solid #8797C8;
+  border-radius: 24px;
+  top: 12px;
+  background: white;
+}
+
+.a-style-sliderclickablearea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: none;
+}
+
+input[type=range] {
+  position: relative;
+  z-index: 3;
+  width: calc(100% - 12px);
+  left: 6px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  border: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: transparent;
+  border: 0;
+  border-radius: 24px;
+  width: 100%;
+  height: 16px;
+}
+
+.active input[type=range]::-webkit-slider-thumb {
+  border-color: #7A3996;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -11px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 8px solid #8797C8;
+  border-radius: 50px;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.flood-to-value::-webkit-slider-runnable-track {
+  background: var(--track-background-fill, transparent) !important;
+}
+
+input[type=range]::-moz-range-track {
+  background: transparent;
+  border: 0;
+  border-radius: 22px;
+  width: 100%;
+  height: 22px;
+}
+
+.active input[type=range]::-moz-range-thumb {
+  border-color: #7A3996;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 8px solid #8797C8;
+  border-radius: 50px;
+  box-shadow: none;
+  z-index: 4;
+  visibility: hidden;
+}
+
+.has-value .flood-to-value::-moz-range-progress {
+  background-color: #D0DAE6 !important;
+  height: 16px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 5px 0;
+  color: transparent;
+  width: 100%;
+  height: 16px;
+  border-radius: 16px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: transparent;
+  border-radius: 16px;
+}
+
+.has-value .flood-to-value::-ms-fill-lower {
+  background-color: #D0DAE6 !important;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: transparent;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.active input[type=range]::-ms-thumb {
+  border-color: #7A3996;
+}
+
+input[type=range]::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 8px solid #8797C8;
+  border-radius: 50px;
+  margin-top: 0px;
+  box-shadow: none;
+  z-index: 4;
+  visibility: hidden;
+  /* Needed to keep the Edge thumb centred */
+}
+
+input[type=range]:focus {
+  border: none;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: transparent;
+}
+
+.has-value .flood-to-value:focus::-ms-fill-lower {
+  background: #D0DAE6 !important;
+}
+
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from https://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+.o-question-list > div:first-of-type,
+.o-question-combolist > div:first-of-type {
+  position: relative;
+  display: inline-block;
+  background-color: #455B97;
+  padding-right: 3em;
+  border-radius: 10px;
+}
+.o-question-list > div:first-of-type:hover,
+.o-question-combolist > div:first-of-type:hover {
+  background-color: #324371;
+}
+.o-question-list > div:first-of-type .a-input-list-dropdown,
+.o-question-combolist > div:first-of-type .a-input-list-dropdown {
+  position: relative;
+  z-index: 2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0.6em 0 0.6em 0.6em;
+  color: white;
+  background: transparent;
+  border: none;
+  padding-right: 0 !important;
+  /* this is necessary to override JS applied padding to list elements */
+}
+.o-question-list > div:first-of-type .a-input-list-dropdown.readonly,
+.o-question-combolist > div:first-of-type .a-input-list-dropdown.readonly {
+  cursor: default;
+}
+.o-question-list > div:first-of-type .a-input-list-dropdown:focus-visible,
+.o-question-combolist > div:first-of-type .a-input-list-dropdown:focus-visible {
+  outline: none;
+}
+
+/* MOTE: the separator color used within tables is defined
+ * in JavaScript - o-question-grid.js */
+.o-structure-table {
+  border-collapse: collapse;
+  /* additional padding to allow for the presence of a number
+   * 'spinner' control in input cells above the total */
+}
+.o-structure-table.shade-headercolumn th[scope=row],
+.o-structure-table.shade-headercolumn td[scope=row] {
+  background-color: #D6DDEB;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.o-structure-table.shade-altcolumns td:nth-child(even),
+.o-structure-table.shade-altcolumns th:nth-child(even) {
+  background-color: #D6DDEB;
+}
+.o-structure-table.shade-altcolumns tr:first-child td,
+.o-structure-table.shade-altcolumns tr:first-child th {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.o-structure-table.shade-altcolumns tr:last-child td {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.o-structure-table.shade-headerrow th[scope=col],
+.o-structure-table.shade-headerrow td[scope=col] {
+  background-color: #D6DDEB;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.o-structure-table.shade-altrows tr:nth-child(even) td,
+.o-structure-table.shade-altrows tr:nth-child(even) th {
+  background-color: #D6DDEB;
+}
+.o-structure-table.shade-altrows tr:nth-child(even) td:first-child,
+.o-structure-table.shade-altrows tr:nth-child(even) th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.o-structure-table.shade-altrows tr:nth-child(even) td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.o-structure-table th,
+.o-structure-table .grid-row-total-title,
+.o-structure-table .grid-column-total-title {
+  font-family: "Merriweather", serif;
+  font-weight: normal;
+  color: #212C4C;
+}
+.o-structure-table th[scope=col] {
+  border-bottom: 1px solid #212C4C;
+}
+.o-structure-table .grid-column-total-title,
+.o-structure-table .grid-column-total,
+.o-structure-table .grid-grandtotal {
+  border-top: 1px solid #212C4C;
+}
+.o-structure-table .grid-row-total-title {
+  border-bottom: 1px solid #212C4C;
+}
+.o-structure-table .grid-row-total-title,
+.o-structure-table .grid-row-total,
+.o-structure-table .grid-grandtotal {
+  border-left: 1px solid #212C4C;
+  vertical-align: top;
+}
+.o-structure-table .grid-row-total {
+  padding-top: 1.2em;
+}
+.o-structure-table .grid-row-total,
+.o-structure-table .grid-grandtotal {
+  text-align: right;
+}
+.o-structure-table .grid-grandtotal {
+  padding-top: 0.5em;
+}
+.o-structure-table caption {
+  caption-side: top;
+  text-align: left;
+  margin-bottom: 0.5em;
+}
+.o-structure-table .grid-column-total span {
+  padding-right: 16px;
+}
+
+.o-question-container {
+  padding: 1em 0;
+  position: relative;
+}
+
+.o-question-container:not(.no-separator) {
+  border-bottom: 1px solid #D0DAE6;
+}
+
+.o-question-container:last-child {
+  padding-bottom: 0;
+}
+
+.surroundcontent > div:last-child {
+  border-bottom: none;
+}
+
+.sidebyside .o-question-core {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.o-question-information {
+  margin-bottom: 0.5em;
+}
+
+.sidebyside .o-question-errorandinstruction {
+  width: 40%;
+  padding-right: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.sidebyside .o-question-information {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 1em;
+  margin-bottom: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+}
+
+.sidebyside .o-question-response {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 * {
   font-size: 16px;
   line-height: 19px;

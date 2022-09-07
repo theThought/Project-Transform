@@ -1,1 +1,0 @@
-{"version":3,"sources":["m-label.scss","m-label.css"],"names":[],"mappings":"AAGI;EACI,mBAAA;ACFR;;AAEA,sCAAsC","file":"m-label.css","sourcesContent":["@use 'globals';\r\n\r\n.m-label {\r\n    &.nowrap {\r\n        white-space: nowrap;\r\n    }\r\n}",".m-label.nowrap {\n  white-space: nowrap;\n}\n\n/*# sourceMappingURL=m-label.css.map */\n"]}

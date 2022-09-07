@@ -1,1 +1,0 @@
-{"version":3,"sources":["a-label-option.scss","a-label-option.css"],"names":[],"mappings":"AAGI;EACI,qBAAA;ACFR","file":"a-label-option.css","sourcesContent":["@use 'globals';\r\n\r\n.a-label-option {\r\n    label {\r\n        display: inline-block;\r\n    }\r\n}",".a-label-option label {\n  display: inline-block;\n}"]}
