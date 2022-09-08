@@ -52,7 +52,12 @@ define(['component'],
         }
 
         aInputSingleLineEdit.prototype.type = function (val) {
-            this.element.type = val;
+            try {
+                this.element.type = val;
+            } catch (e) {
+                console.warn(e);
+                this.element.type = 'text';
+            }
         }
 
         aInputSingleLineEdit.prototype.labels = function (props) {
