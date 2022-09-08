@@ -35,6 +35,19 @@
     text-align: right;
 }
 
+/* remove the spinner if the nospinner prop is set */
+.no-spinner .a-input-singlelineedit {
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        opacity: 0;
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+}
+
 /* remove the clear entry button from IE as it breaks right-aligned text */
 .a-input-singlelineedit[type=number]::-ms-clear {
     display: none;
