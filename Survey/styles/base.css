@@ -173,7 +173,7 @@
 input[type=button],
 input[type=submit],
 input[type=reset],
-button {
+button[class*=a-button] {
   display: block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -428,6 +428,16 @@ textarea:focus-within {
  */
 .a-input-singlelineedit[type=number] {
   text-align: right;
+}
+
+/* remove the spinner if the nospinner prop is set */
+.no-spinner .a-input-singlelineedit {
+  -moz-appearance: textfield;
+}
+.no-spinner .a-input-singlelineedit::-webkit-inner-spin-button, .no-spinner .a-input-singlelineedit::-webkit-outer-spin-button {
+  opacity: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* remove the clear entry button from IE as it breaks right-aligned text */
@@ -1264,8 +1274,6 @@ input[type=range]:focus::-ms-fill-lower {
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
   border-collapse: collapse;
-  /* additional padding to allow for the presence of a number
-   * 'spinner' control in input cells above the total */
 }
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
@@ -1344,8 +1352,15 @@ input[type=range]:focus::-ms-fill-lower {
   text-align: left;
   margin-bottom: 0.5em;
 }
-.o-structure-table .grid-column-total span {
+
+/* additional padding to allow for the presence of a number
+ * 'spinner' control in input cells above the total */
+.grid-column-total span {
   padding-right: 16px;
+}
+
+div.no-spinner .grid-column-total span {
+  padding-right: 0;
 }
 
 .o-question-container {

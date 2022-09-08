@@ -145,8 +145,6 @@ define(['o-question'],
                 var ruleQuestion = rule.question.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2");
                 var broadcastingComponentName = broadcastingComponent.group.toLowerCase().replace(/(\w)_([^qQ])/g, "$1_$2");
 
-                console.info(ruleQuestion.indexOf(broadcastingComponentName));
-
                 if (broadcastingComponentName.indexOf(ruleQuestion) !== -1) {
 
                     if (rule.type === 'specific-option'
