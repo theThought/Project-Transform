@@ -1359,7 +1359,7 @@ input[type=range]:focus::-ms-fill-lower {
   padding-right: 16px;
 }
 
-div.no-spinner .grid-column-total span {
+.no-spinner .grid-column-total span {
   padding-right: 0;
 }
 

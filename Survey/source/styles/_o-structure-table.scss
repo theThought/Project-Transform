@@ -113,10 +113,14 @@ $separator-colour: globals.$titles;
         margin-bottom: .5em;
     }
 
-    /* additional padding to allow for the presence of a number
-     * 'spinner' control in input cells above the total */
-    .grid-column-total span {
-        padding-right: 16px;
-    }
+}
 
+/* additional padding to allow for the presence of a number
+ * 'spinner' control in input cells above the total */
+.grid-column-total span {
+    padding-right: 16px;
+}
+
+.no-spinner .grid-column-total span {
+    padding-right: 0;
 }
