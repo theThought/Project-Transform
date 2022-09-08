@@ -143,9 +143,11 @@ define(['o-question'],
             // iterate and process the visibility rules
             this.visibilityRules.forEach(function (rule) {
                 var ruleQuestion = rule.question.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2");
-                var broadcastingComponentName = broadcastingComponent.group.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2");
+                var broadcastingComponentName = broadcastingComponent.group.toLowerCase().replace(/(\w)_([^qQ])/g, "$1_$2");
 
-                if (ruleQuestion.indexOf(broadcastingComponentName) !== 0) {
+                console.info(ruleQuestion.indexOf(broadcastingComponentName));
+
+                if (broadcastingComponentName.indexOf(ruleQuestion) !== -1) {
 
                     if (rule.type === 'specific-option'
                         && typeof broadcastingComponent.checkbox !== "undefined"
