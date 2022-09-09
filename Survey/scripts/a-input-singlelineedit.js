@@ -56,14 +56,24 @@ define(['component', 'pikaday'],
             if (val === 'month' || val === 'date') {
                 var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
                 val = 'text';
+                datemin = [2000, 1, 1];
+                datemax = [3000, 12, 31];
+
+                if (this.element.getAttribute('min') !== null) {
+                    var datemin = this.element.getAttribute('min').split('-');
+                }
+
+                if (this.element.getAttribute('max') !== null) {
+                    var datemax = this.element.getAttribute('max').split('-');
+                }
 
                 var picker = new datepicker(
                     {
                         field: this.element,
                         firstDay: 1,
                         format: outputformat,
-                        minDate: new Date(2000, 0, 1),
-                        maxDate: new Date(2022, 12, 31)
+                        minDate: new Date(datemin[0], datemin[1], datemin[2]),
+                        maxDate: new Date(datemax[0], datemax[1], datemax[2])
                     });
 
             }
