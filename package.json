@@ -1,5 +1,5 @@
 {
-  "name": "Project-Transform",
+  "name": "project-transform",
   "version": "1.0.0",
   "browserslist": [
     "> 1%",
@@ -7,11 +7,15 @@
     "ie >= 10"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.8",
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.49.7"
+    "sass": "^1.54.9"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "pikaday": "^1.8.2"
   }
 }

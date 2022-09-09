@@ -15,8 +15,8 @@
 
 */
 
-define(['component'],
-    function (component) {
+define(['component', 'pikaday'],
+    function (component, datepicker) {
 
         /**
          * Atom: aInputSingleLineEdit
@@ -52,10 +52,25 @@ define(['component'],
         }
 
         aInputSingleLineEdit.prototype.type = function (val) {
+
+            if (val === 'month' || val === 'date') {
+                var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
+                val = 'text';
+
+                var picker = new datepicker(
+                    {
+                        field: this.element,
+                        firstDay: 1,
+                        format: outputformat,
+                        minDate: new Date(2000, 0, 1),
+                        maxDate: new Date(2022, 12, 31)
+                    });
+
+            }
+
             try {
                 this.element.type = val;
             } catch (e) {
-                console.warn(e);
                 this.element.type = 'text';
             }
         }
