@@ -118,6 +118,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     display: inline-block;
 }
 
+.pika-select option {
+    font-size: 14px;
+    font-family: globals.$primary-font;
+}
+
 .pika-table {
     width: 100%;
     border-collapse: collapse;

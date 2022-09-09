@@ -122,6 +122,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   display: inline-block;
 }
 
+.pika-select option {
+  font-size: 14px;
+  font-family: "Karla", sans-serif;
+}
+
 .pika-table {
   width: 100%;
   border-collapse: collapse;
@@ -1060,8 +1065,7 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
   max-height: 227px;
   overflow: auto;
   visibility: hidden;
-  overflow-y: overlay;
-  /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
+  overflow-y: overlay; /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
   text-align: left;
 }
 
@@ -1501,8 +1505,7 @@ input[type=range]:focus::-ms-fill-lower {
   color: white;
   background: transparent;
   border: none;
-  padding-right: 0 !important;
-  /* this is necessary to override JS applied padding to list elements */
+  padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
 }
 .o-question-list > div:first-of-type .a-input-list-dropdown.readonly,
 .o-question-combolist > div:first-of-type .a-input-list-dropdown.readonly {
@@ -1726,12 +1729,10 @@ body > form {
   body {
     margin: 0 1em;
   }
-
   .header {
     height: 75px;
     padding-bottom: 0.8em;
   }
-
   body > form {
     -ms-grid-rows: 75px auto 110px;
     grid-template-rows: 75px auto 110px;
