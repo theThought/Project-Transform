@@ -32,7 +32,7 @@ define(['component'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = true;
-            this.placeholder = 'no items to display';
+            this.emptyplaceholder = 'no items to display';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
@@ -61,10 +61,14 @@ define(['component'],
             }
         }
 
+        mListOptionList.prototype.noitemsinlist = function (prop) {
+            this.emptyplaceholder = prop;
+        }
+
         mListOptionList.prototype.addPlaceholder = function () {
             var placeholderelement = document.createElement('div');
             placeholderelement.classList.add('a-list-placeholder');
-            placeholderelement.innerHTML = this.placeholder;
+            placeholderelement.innerHTML = this.emptyplaceholder;
             this.element.appendChild(placeholderelement);
         }
 
