@@ -6,32 +6,38 @@
     & > div:first-of-type {
         position: relative;
         display: inline-block;
-        background-color: globals.$theme-primary;
         padding-right: 3em;
         border-radius: globals.$border-radius;
 
-        &:hover {
-            background-color: globals.$theme-primary-hover;
+    }
+
+    .a-input-list-dropdown {
+        position: relative;
+        z-index: 2;
+        padding: 10px 16px;
+        border-radius: globals.$border-radius;
+        border: 1px solid globals.$borders;
+        color: globals.$input-text;
+        margin: 0 0 0.5em 0;
+        background-color: globals.$background;
+        box-sizing: border-box;
+    }
+
+    .a-input-list-dropdown.readonly {
+        box-sizing: border-box;
+        margin: .6em 0 0.6em 0.6em;
+        color: white;
+        background: transparent;
+        height: 19px;
+        border: none;
+        padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
+
+        &.readonly {
+            cursor: default;
         }
 
-       .a-input-list-dropdown {
-            position: relative;
-            z-index: 2;
-            box-sizing: border-box;
-            margin: .6em 0 0.6em 0.6em;
-            color: white;
-            background: transparent;
-            border: none;
-            padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
-
-            &.readonly {
-                cursor: default;
-            }
-
-           &:focus-visible {
-               outline: none;
-           }
+        &:focus-visible {
+            outline: none;
         }
-
     }
 }

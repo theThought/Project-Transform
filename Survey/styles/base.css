@@ -529,9 +529,6 @@ button.a-button-preterminator {
   z-index: 1;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat transparent;
 }
-.a-button-list-dropdown:hover {
-  background-color: transparent !important;
-}
 
 /* buttons where used as part of
  * the page navigation controls */
@@ -1487,32 +1484,39 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-combolist > div:first-of-type {
   position: relative;
   display: inline-block;
-  background-color: #455B97;
   padding-right: 3em;
   border-radius: 10px;
 }
-.o-question-list > div:first-of-type:hover,
-.o-question-combolist > div:first-of-type:hover {
-  background-color: #324371;
-}
-.o-question-list > div:first-of-type .a-input-list-dropdown,
-.o-question-combolist > div:first-of-type .a-input-list-dropdown {
+.o-question-list .a-input-list-dropdown,
+.o-question-combolist .a-input-list-dropdown {
   position: relative;
   z-index: 2;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #8797C8;
+  color: #757575;
+  margin: 0 0 0.5em 0;
+  background-color: #FAFAFA;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.o-question-list .a-input-list-dropdown.readonly,
+.o-question-combolist .a-input-list-dropdown.readonly {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0.6em 0 0.6em 0.6em;
   color: white;
   background: transparent;
+  height: 19px;
   border: none;
   padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
 }
-.o-question-list > div:first-of-type .a-input-list-dropdown.readonly,
-.o-question-combolist > div:first-of-type .a-input-list-dropdown.readonly {
+.o-question-list .a-input-list-dropdown.readonly.readonly,
+.o-question-combolist .a-input-list-dropdown.readonly.readonly {
   cursor: default;
 }
-.o-question-list > div:first-of-type .a-input-list-dropdown:focus-visible,
-.o-question-combolist > div:first-of-type .a-input-list-dropdown:focus-visible {
+.o-question-list .a-input-list-dropdown.readonly:focus-visible,
+.o-question-combolist .a-input-list-dropdown.readonly:focus-visible {
   outline: none;
 }
 
