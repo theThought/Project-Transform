@@ -18,18 +18,16 @@
         border-radius: globals.$border-radius;
         border: 1px solid globals.$borders;
         color: globals.$input-text;
-        margin: 0 0 0.5em 0;
+        margin-bottom: 0;
         background-color: globals.$background;
         box-sizing: border-box;
     }
 
     .a-input-list-dropdown.readonly {
         box-sizing: border-box;
-        margin: .6em 0 0.6em 0.6em;
         color: white;
         background: transparent;
-        height: 19px;
-        border: none;
+        border: 1px solid transparent; /* the border width must be specified or the browser interprets transparent as none and loses a few pixels of size */
         padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
 
         &.readonly {
