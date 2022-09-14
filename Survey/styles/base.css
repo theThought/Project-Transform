@@ -1500,6 +1500,26 @@ input[type=range]:focus::-ms-fill-lower {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.o-question-list .a-input-list-dropdown:hover:not(:-moz-read-only), .o-question-list .a-input-list-dropdown:focus:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:hover:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:focus:not(:-moz-read-only) {
+  color: #57699C;
+}
+.o-question-list .a-input-list-dropdown:hover:not(:read-only),
+.o-question-list .a-input-list-dropdown:focus:not(:read-only),
+.o-question-combolist .a-input-list-dropdown:hover:not(:read-only),
+.o-question-combolist .a-input-list-dropdown:focus:not(:read-only) {
+  color: #57699C;
+}
+.o-question-list .a-input-list-dropdown:focus:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:focus:not(:-moz-read-only) {
+  border-color: #57699C;
+}
+.o-question-list .a-input-list-dropdown:focus:not(:read-only),
+.o-question-combolist .a-input-list-dropdown:focus:not(:read-only) {
+  border-color: #57699C;
+}
+.o-question-list .a-input-list-dropdown:focus-visible,
+.o-question-combolist .a-input-list-dropdown:focus-visible {
+  outline: none;
+}
 .o-question-list .a-input-list-dropdown.readonly,
 .o-question-combolist .a-input-list-dropdown.readonly {
   -webkit-box-sizing: border-box;

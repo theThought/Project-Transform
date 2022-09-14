@@ -23,6 +23,19 @@
         box-sizing: border-box;
     }
 
+    .a-input-list-dropdown:hover:not(:read-only),
+    .a-input-list-dropdown:focus:not(:read-only) {
+        color: globals.$borders-hover;
+    }
+
+    .a-input-list-dropdown:focus:not(:read-only) {
+        border-color: globals.$borders-hover;
+    }
+
+    .a-input-list-dropdown:focus-visible {
+        outline: none;
+    }
+
     .a-input-list-dropdown.readonly {
         box-sizing: border-box;
         color: white;
