@@ -34,6 +34,6 @@ div.empty {
 .config-complete .m-list-optionlist {
 }
 
-.focused ~ .m-list-optionlist {
+.show-list ~ .m-list-optionlist {
     visibility: visible;
 }

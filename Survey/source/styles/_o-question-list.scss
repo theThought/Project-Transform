@@ -9,6 +9,12 @@
         padding-right: 3em;
         border-radius: globals.$border-radius;
 
+        &:hover {
+            button {
+                background-color: globals.$theme-primary-hover;
+            }
+        }
+
     }
 
     .a-input-list-dropdown {

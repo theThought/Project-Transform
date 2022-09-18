@@ -1079,7 +1079,7 @@ div.empty .a-list-placeholder {
   padding-right: 0;
 }
 
-.focused ~ .m-list-optionlist {
+.show-list ~ .m-list-optionlist {
   visibility: visible;
 }
 
@@ -1486,6 +1486,10 @@ input[type=range]:focus::-ms-fill-lower {
   display: inline-block;
   padding-right: 3em;
   border-radius: 10px;
+}
+.o-question-list > div:first-of-type:hover button,
+.o-question-combolist > div:first-of-type:hover button {
+  background-color: #324371;
 }
 .o-question-list .a-input-list-dropdown,
 .o-question-combolist .a-input-list-dropdown {

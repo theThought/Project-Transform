@@ -74,7 +74,9 @@ define(['component'],
             document.addEventListener("change", this, false);
             document.addEventListener("keyup", this, false);
             document.addEventListener("keypress", this, false);
-            document.addEventListener("click", this, false);
+            document.addEventListener("focusin", this, false);
+            //document.addEventListener("focusout", this, false);
+            //document.addEventListener("click", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
@@ -100,6 +102,12 @@ define(['component'],
                     break;
                 case "click":
                     this.onClick(event);
+                    break;
+                case "focusin":
+                    this.onFocusIn(event);
+                    break;
+                case "focusout":
+                    this.onFocusOut(event);
                     break;
                 case "broadcastChange":
                     this.receiveBroadcast(event);
@@ -137,6 +145,7 @@ define(['component'],
             if (prop === 'dropdown') {
                 this.element.classList.add('readonly');
                 this.element.readOnly = true;
+                this.element.tabIndex = -1;
             }
 
             if (prop === 'combobox') {
@@ -157,20 +166,53 @@ define(['component'],
 
         aInputListDropdown.prototype.onChange = function (event) {
             if (event.target === this.element) {
+                event.stopImmediatePropagation();
                 this.broadcastChange();
+            }
+        }
+
+        aInputListDropdown.prototype.onFocusIn = function (event) {
+            var parentNode = this.element.parentNode;
+
+            if (event.target === parentNode || parentNode.contains(event.target)) {
+                this.focused = true;
+                parentNode.classList.add('focused');
+
+                if (!this.editable) {
+                    this.showList();
+                }
+
+            } else {
+                this.onFocusOut(event);
             }
         }
 
         aInputListDropdown.prototype.onClick = function (event) {
             var parentNode = this.element.parentNode;
 
+            if (event.target === parentNode || parentNode.contains(event.target) && this.focused) {
+                this.onFocusOut(event);
+            }
+        }
+
+        aInputListDropdown.prototype.onFocusOut = function (event) {
+            var parentNode = this.element.parentNode;
+
             if (event.target !== parentNode && !parentNode.contains(event.target)) {
                 this.focused = false;
                 parentNode.classList.remove('focused');
-            } else {
-                this.focused = true;
-                parentNode.classList.toggle('focused');
+                this.hideList();
             }
+        }
+
+        aInputListDropdown.prototype.showList = function () {
+            var parentNode = this.element.parentNode;
+            parentNode.classList.add('show-list');
+        }
+
+        aInputListDropdown.prototype.hideList = function () {
+            var parentNode = this.element.parentNode;
+            parentNode.classList.remove('show-list');
         }
 
         aInputListDropdown.prototype.jumptofirstletter = function (prop) {
@@ -194,6 +236,8 @@ define(['component'],
             if (!this.focused) {
                 return;
             }
+
+            this.showList();
 
             if (this.editable) {
                 this.processFilterList();
