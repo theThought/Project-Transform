@@ -75,8 +75,7 @@ define(['component'],
             document.addEventListener("keyup", this, false);
             document.addEventListener("keypress", this, false);
             document.addEventListener("focusin", this, false);
-            //document.addEventListener("focusout", this, false);
-            //document.addEventListener("click", this, false);
+            //document.addEventListener("mousedown", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
@@ -100,7 +99,7 @@ define(['component'],
                 case "clearEntries":
                     this.clearEntries(event);
                     break;
-                case "click":
+                case "mousedown":
                     this.onClick(event);
                     break;
                 case "focusin":
@@ -188,10 +187,13 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onClick = function (event) {
+            event.preventDefault();
             var parentNode = this.element.parentNode;
 
             if (event.target === parentNode || parentNode.contains(event.target) && this.focused) {
                 this.onFocusOut(event);
+            } else {
+                this.onFocusIn(event);
             }
         }
 
