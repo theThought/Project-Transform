@@ -530,6 +530,44 @@ button.a-button-preterminator {
   background: url("../images/white-chevron-down.png") right 12px center no-repeat transparent;
 }
 
+.m-input-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.m-input-button-wrapper .m-button-spinner {
+  position: absolute;
+  right: calc(0.5em + 4px);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.m-input-button-wrapper .m-button-spinner button {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  min-width: 0;
+  min-height: 0;
+  background: #ECEFF5;
+  color: #757575;
+  font-size: 12px;
+  line-height: 1;
+  width: 12px;
+}
+.m-input-button-wrapper .m-button-spinner button.a-button-spinner-up {
+  padding: 2px 0 0 0;
+}
+.m-input-button-wrapper .m-button-spinner button.a-button-spinner-down {
+  padding: 0 0 2px 0;
+}
+.m-input-button-wrapper .m-button-spinner button:hover {
+  background: #D6DDEB !important;
+}
+
+.read-only .m-button-spinner,
+.no-spinner .m-button-spinner {
+  display: none;
+}
+
 /* buttons where used as part of
  * the page navigation controls */
 #nav-controls input {
@@ -673,46 +711,28 @@ textarea:focus-within {
  */
 .a-input-singlelineedit[type=number] {
   text-align: right;
+  padding-right: 28px;
+  width: 181px;
 }
 
-/* remove the spinner if the nospinner prop is set */
-.no-spinner .a-input-singlelineedit {
+.no-spinner .a-input-singlelineedit[type=number] {
+  width: 197px;
+  padding-right: 16px;
+}
+
+/* remove the default spinner as we are using a custom implementation */
+.a-input-singlelineedit[type=number] {
   -moz-appearance: textfield;
 }
-.no-spinner .a-input-singlelineedit::-webkit-inner-spin-button, .no-spinner .a-input-singlelineedit::-webkit-outer-spin-button {
-  opacity: 0;
+.a-input-singlelineedit[type=number]::-webkit-inner-spin-button, .a-input-singlelineedit[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+  opacity: 0;
   margin: 0;
 }
 
 /* remove the clear entry button from IE as it breaks right-aligned text */
 .a-input-singlelineedit[type=number]::-ms-clear {
   display: none;
-}
-
-/* make the spinner permanently visible - specifically for Edge */
-.a-input-singlelineedit[type=number]::-webkit-inner-spin-button {
-  opacity: 1;
-}
-
-/* remove the spinner when read-only - specifically for Edge */
-.a-input-singlelineedit[type=number]:read-only::-webkit-inner-spin-button {
-  opacity: 0;
-}
-
-/* remove the spinner when read-only - for Chrome, Safari, Edge, Opera */
-input:read-only::-webkit-outer-spin-button,
-input:read-only::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* remove the spinner when read-only - specifically for Firefox */
-input[type=number]:-moz-read-only {
-  -moz-appearance: textfield;
-}
-input[type=number]:read-only {
-  -moz-appearance: textfield;
 }
 
 /* IE10 does not support :read-only selector */
@@ -829,9 +849,7 @@ th .a-label-option {
 
 .a-label-total {
   display: inline-block;
-  padding: 10px 16px;
   border: 1px solid transparent;
-  margin: 0 0 0.5em 0;
   height: 19px;
   text-align: right;
   -webkit-box-sizing: content-box;
@@ -846,6 +864,11 @@ th .a-label-option {
 
 .a-label-total-column {
   width: 197px;
+  padding: 10px 16px;
+}
+
+.a-label-total-grand {
+  padding: 10px 0;
 }
 
 .a-label-total-column,
@@ -1628,7 +1651,7 @@ input[type=range]:focus::-ms-fill-lower {
 /* additional padding to allow for the presence of a number
  * 'spinner' control in input cells above the total */
 .grid-column-total span {
-  padding-right: 16px;
+  padding-right: 28px;
 }
 
 .no-spinner .grid-column-total span {

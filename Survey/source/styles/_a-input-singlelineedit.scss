@@ -1,4 +1,5 @@
 @use 'globals';
+$default-text-width: 197px;
 
 /* a-input-singlelineedit
  * essential styling for the fundamental HTML input element
@@ -9,7 +10,7 @@
     border: 1px solid globals.$borders;
     color: globals.$input-text;
     margin: 0 0 .5em 0;
-    width: 197px;
+    width: $default-text-width;
     height: 19px;
     background-color: globals.$background;
     box-sizing: content-box;
@@ -33,16 +34,22 @@
  */
 .a-input-singlelineedit[type=number] {
     text-align: right;
+    padding-right: 28px;
+    width: calc($default-text-width - 16px);}
+
+.no-spinner .a-input-singlelineedit[type=number] {
+    width: $default-text-width;
+    padding-right: 16px;
 }
 
-/* remove the spinner if the nospinner prop is set */
-.no-spinner .a-input-singlelineedit {
+/* remove the default spinner as we are using a custom implementation */
+.a-input-singlelineedit[type=number] {
     -moz-appearance: textfield;
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
-        opacity: 0;
         -webkit-appearance: none;
+        opacity: 0;
         margin: 0;
     }
 
@@ -51,28 +58,6 @@
 /* remove the clear entry button from IE as it breaks right-aligned text */
 .a-input-singlelineedit[type=number]::-ms-clear {
     display: none;
-}
-
-/* make the spinner permanently visible - specifically for Edge */
-.a-input-singlelineedit[type=number]::-webkit-inner-spin-button {
-    opacity: 1;
-}
-
-/* remove the spinner when read-only - specifically for Edge */
-.a-input-singlelineedit[type=number]:read-only::-webkit-inner-spin-button {
-    opacity: 0
-}
-
-/* remove the spinner when read-only - for Chrome, Safari, Edge, Opera */
-input:read-only::-webkit-outer-spin-button,
-input:read-only::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* remove the spinner when read-only - specifically for Firefox */
-input[type=number]:read-only {
-    -moz-appearance: textfield;
 }
 
 /* IE10 does not support :read-only selector */

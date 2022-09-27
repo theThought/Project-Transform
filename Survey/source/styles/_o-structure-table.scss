@@ -118,7 +118,7 @@ $separator-colour: globals.$titles;
 /* additional padding to allow for the presence of a number
  * 'spinner' control in input cells above the total */
 .grid-column-total span {
-    padding-right: 16px;
+    padding-right: 28px;
 }
 
 .no-spinner .grid-column-total span {

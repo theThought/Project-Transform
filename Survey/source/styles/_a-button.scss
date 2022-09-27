@@ -110,7 +110,49 @@ button.a-button-preterminator {
     border: none;
     z-index: 1;
     background: url("../images/white-chevron-down.png") right 12px center no-repeat transparent;
+}
 
+.m-input-button-wrapper {
+    position: relative;
+    display: inline-block;
+
+
+    .m-button-spinner {
+        position: absolute;
+        right: calc(.5em + 4px);
+        top: 50%;
+        transform: translateY(-50%);
+
+        button {
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            min-width: 0;
+            min-height: 0;
+            background: globals.$icons-light;
+            color: globals.$input-text;
+            font-size: 12px;
+            line-height: 1;
+            width: 12px;
+
+            &.a-button-spinner-up {
+                padding: 2px 0 0 0;
+            }
+
+            &.a-button-spinner-down {
+                padding: 0 0 2px 0;
+            }
+
+            &:hover {
+                background: globals.$icons-mid !important;
+            }
+        }
+    }
+}
+
+.read-only .m-button-spinner,
+.no-spinner .m-button-spinner {
+        display: none;
 }
 
 /* buttons where used as part of
