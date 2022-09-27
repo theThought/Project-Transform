@@ -697,9 +697,11 @@ textarea:focus-within {
 /* m-input-singlelineedit
  * the molecule gets added by JavaScript when the a-input-singlelineedit
  * includes a pre or post label and therefore requires an additional wrapper
+ * overflow: hidden added to fix issue with display in IE10
  */
 .m-input-singlelineedit {
   margin-bottom: 0.5em;
+  overflow: hidden;
 }
 .m-input-singlelineedit .a-input-singlelineedit {
   margin-bottom: 0;
