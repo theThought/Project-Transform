@@ -126,6 +126,7 @@ define(['component', 'pikaday'],
             }
             incButton.onmousedown = function (event) {
                 that.element.value = Number(that.element.value) + 1;
+                that.broadcastChange();
             };
             var decButton = document.createElement('button');
             decButton.className = 'a-button-spinner-down';
@@ -136,6 +137,7 @@ define(['component', 'pikaday'],
             }
             decButton.onmousedown = function (event) {
                 that.element.value = Number(that.element.value) - 1;
+                that.broadcastChange()
             }
             spinnerWrapper.appendChild(incButton);
             spinnerWrapper.appendChild(decButton);
