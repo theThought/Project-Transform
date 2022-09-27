@@ -146,7 +146,6 @@ define(['component', 'pikaday'],
             inputWrapper = this.wrapper.insertBefore(inputWrapper, this.element);
             inputWrapper.appendChild(this.element);
             inputWrapper.appendChild(spinnerWrapper);
-
         }
 
         aInputSingleLineEdit.prototype.labels = function (props) {
@@ -199,16 +198,6 @@ define(['component', 'pikaday'],
                     this.onEnableExclusive();
                     break;
             }
-        }
-
-        aInputSingleLineEdit.prototype.incButton = function (event) {
-            event.preventDefault();
-            this.element.value += 1;
-        }
-
-        aInputSingleLineEdit.prototype.decButton = function (event) {
-            event.preventDefault();
-            this.element.value -= 1;
         }
 
         aInputSingleLineEdit.prototype.onChange = function (event) {
