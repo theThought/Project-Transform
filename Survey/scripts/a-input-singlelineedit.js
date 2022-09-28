@@ -149,7 +149,6 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.labels = function (props) {
-
             if (props['pre']) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-prelabel';
@@ -228,8 +227,7 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.onFocusOut = function (event) {
-            var parentNode = this.element.parentNode;
-            parentNode.classList.remove('focused');
+            this.wrapper.classList.remove('focused');
         }
 
         aInputSingleLineEdit.prototype.onEnableExclusive = function () {
