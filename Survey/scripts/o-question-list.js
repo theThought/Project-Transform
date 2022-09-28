@@ -34,6 +34,9 @@ define(['o-question'],
             this.isOnesize = true;
             this.list = null;
             this.listtype = null;
+            this.mincharactersforlist = 1;
+            this.dropdownvisible = false;
+            this.autoshowlist = true;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
             this.inputelement = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
 
@@ -71,9 +74,32 @@ define(['o-question'],
         }
 
         oQuestionList.prototype.configureInitialFilter = function () {
-            if (this.listtype === 'combobox') {
-                this.filterListContains(this.inputelement.value);
+            if (this.listtype !== 'combobox') {
+                return;
             }
+
+            if (this.inputelement.value.length
+                && this.mincharactersforlist > 0) {
+                this.filterListContains(this.inputelement.value);
+                return;
+            }
+
+            if (this.mincharactersforlist > 0) {
+                this.filterListContains('--[empty-list]--');
+                return;
+            }
+        }
+
+        oQuestionList.prototype.mincharactersforlist = function (prop) {
+            this.mincharactersforlist = prop;
+        }
+
+        oQuestionList.prototype.autoshowlist = function (prop) {
+            this.autoshowlist = prop;
+        }
+
+        oQuestionList.prototype.dropdownvisible = function (prop) {
+            this.dropdownvisible = prop;
         }
 
         oQuestionList.prototype.type = function (prop) {

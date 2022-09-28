@@ -43,7 +43,7 @@ define(['component'],
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.getValue();
+            //this.getValue();
             this.configurationComplete();
         }
 
