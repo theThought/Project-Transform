@@ -52,9 +52,9 @@ define(['component'],
             return container;
         }
 
-        oQuestion.prototype.nospinner = function (prop) {
+        oQuestion.prototype.showspinner = function (prop) {
             if (prop === true) {
-                this.element.classList.add('no-spinner');
+                this.element.classList.add('show-spinner');
             }
         }
 

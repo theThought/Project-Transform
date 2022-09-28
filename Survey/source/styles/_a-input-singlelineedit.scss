@@ -36,12 +36,13 @@ $default-text-width: 197px;
  */
 .a-input-singlelineedit[type=number] {
     text-align: right;
-    padding-right: 28px;
-    width: calc($default-text-width - 16px);}
-
-.no-spinner .a-input-singlelineedit[type=number] {
     width: $default-text-width;
     padding-right: 16px;
+}
+
+.show-spinner .a-input-singlelineedit[type=number] {
+    padding-right: 28px;
+    width: calc($default-text-width - 16px);
 }
 
 /* remove the default spinner as we are using a custom implementation */

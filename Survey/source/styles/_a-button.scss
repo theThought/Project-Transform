@@ -118,6 +118,7 @@ button.a-button-preterminator {
 
 
     .m-button-spinner {
+        display: none;
         position: absolute;
         right: calc(.5em + 4px);
         top: 50%;
@@ -150,9 +151,12 @@ button.a-button-preterminator {
     }
 }
 
-.read-only .m-button-spinner,
-.no-spinner .m-button-spinner {
-        display: none;
+.show-spinner .m-button-spinner {
+    display: block;
+}
+
+.read-only .m-button-spinner {
+    display: none;
 }
 
 /* buttons where used as part of
