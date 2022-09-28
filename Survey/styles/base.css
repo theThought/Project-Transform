@@ -796,7 +796,11 @@ input:read-only:focus-visible {
   height: auto;
 }
 
-.a-label-prelabel + .a-input-singlelineedit {
+/* remove leading border if there is a pre-label which has to account for
+ * for the possibility of the presence of a button wrapper around the input
+ */
+.a-label-prelabel + .a-input-singlelineedit,
+.a-label-prelabel + div > .a-input-singlelineedit {
   border-left: none;
   border-radius: 0 10px 10px 0;
 }

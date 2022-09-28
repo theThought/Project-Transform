@@ -156,7 +156,7 @@ define(['component', 'pikaday'],
                 var preContent = document.createTextNode(props['pre']);
                 preElement.appendChild(preContent);
 
-                this.wrapper.insertBefore(preElement, this.element);
+                this.wrapper.insertBefore(preElement, this.wrapper.childNodes[0]);
             }
 
             if (props['post']) {
