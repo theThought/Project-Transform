@@ -33,12 +33,15 @@ define(['o-question'],
             this.maxwidth = '';
             this.isOnesize = true;
             this.list = null;
+            this.listtype = null;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
+            this.inputelement = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
 
-            this.configureProperties();
             this.list = this.buildList();
+            this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureOnesize();
+            this.configureInitialFilter();
             this.configurationComplete();
         }
 
@@ -65,6 +68,16 @@ define(['o-question'],
                     this.filterList(event);
                     break;
             }
+        }
+
+        oQuestionList.prototype.configureInitialFilter = function () {
+            if (this.listtype === 'combobox') {
+                this.filterListContains(this.inputelement.value);
+            }
+        }
+
+        oQuestionList.prototype.type = function (prop) {
+            this.listtype = prop;
         }
 
         oQuestionList.prototype.buildList = function () {
@@ -95,22 +108,21 @@ define(['o-question'],
 
             switch  (event.detail.filtermethod) {
                 case 'starts':
-                    this.filterListStarts(event);
+                    this.filterListStarts(event.detail.element.value.toLowerCase());
                     break;
                 case 'contains':
-                    this.filterListContains(event);
+                    this.filterListContains(event.detail.element.value.toLowerCase());
                     break;
             }
         }
 
-        oQuestionList.prototype.filterListContains = function (event) {
+        oQuestionList.prototype.filterListContains = function (string) {
 
-            var string = event.detail.element.value.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
-                if (itemlabel.indexOf(string) !== -1) {
+                if (itemlabel.indexOf(string.toLowerCase()) !== -1) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
                     this.list[i].classList.add('filter-hidden');
@@ -125,9 +137,8 @@ define(['o-question'],
             }
         }
 
-        oQuestionList.prototype.filterListStarts = function (event) {
+        oQuestionList.prototype.filterListStarts = function (string) {
 
-            var string = event.detail.element.value.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {

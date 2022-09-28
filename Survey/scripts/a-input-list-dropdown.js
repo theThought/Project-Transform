@@ -73,12 +73,9 @@ define(['component'],
 
         aInputListDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("change", this, false);
-            document.addEventListener("keyup", this, false);
-            document.addEventListener("keypress", this, false);
-            document.addEventListener("focusin", this, false);
-            document.addEventListener("focusout", this, false);
+
             //document.addEventListener("mousedown", this, false);
+            //document.addEventListener("click", this, false);
             document.addEventListener("closeDropdowns", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -87,7 +84,12 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.configureLocalEventListeners = function () {
+            this.wrapper.addEventListener("change", this, false);
+            this.wrapper.addEventListener("keyup", this, false);
+            this.wrapper.addEventListener("keypress", this, false);
             this.wrapper.addEventListener("click", this, false);
+            this.wrapper.addEventListener("focusout", this, false);
+            this.wrapper.addEventListener("focusin", this, false);
         }
 
         aInputListDropdown.prototype.handleEvent = function (event) {
@@ -155,7 +157,6 @@ define(['component'],
             if (prop === 'dropdown') {
                 this.element.classList.add('readonly');
                 this.element.readOnly = true;
-                this.element.tabIndex = -1;
             }
 
             if (prop === 'combobox') {
@@ -205,6 +206,7 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onClick = function (event) {
+
             event.stopImmediatePropagation();
 
             this.toggleVisibility();

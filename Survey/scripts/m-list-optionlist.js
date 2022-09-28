@@ -65,6 +65,10 @@ define(['component'],
             this.emptyplaceholder = prop;
         }
 
+        mListOptionList.prototype.configureInitialFilter = function () {
+
+        }
+
         mListOptionList.prototype.addPlaceholder = function () {
             var placeholderelement = document.createElement('div');
             placeholderelement.classList.add('a-list-placeholder');
