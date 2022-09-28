@@ -59,9 +59,7 @@ th .a-label-option {
 
 .a-label-total {
     display: inline-block;
-    padding: 10px 16px;
     border: 1px solid transparent;
-    margin: 0 0 .5em 0;
     height: 19px;
     text-align: right;
     box-sizing: content-box;
@@ -75,6 +73,11 @@ th .a-label-option {
 
 .a-label-total-column {
     width: 197px;
+    padding: 10px 16px;
+}
+
+.a-label-total-grand {
+    padding: 10px 0;
 }
 
 .a-label-total-column,

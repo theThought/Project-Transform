@@ -32,6 +32,7 @@ define(['component', 'pikaday'],
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
+            this.wrapper = this.createWrapper();
 
             this.configureProperties();
             this.setReadOnly();
@@ -47,35 +48,20 @@ define(['component', 'pikaday'],
                 return;
             }
 
-            var parent = this.element.parentNode;
-            parent.classList.add('read-only');
+            this.wrapper.classList.add('read-only');
         }
 
         aInputSingleLineEdit.prototype.type = function (val) {
 
-            if (val === 'month' || val === 'date') {
-                var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
-                val = 'text';
-                datemin = [2000, 1, 1];
-                datemax = [3000, 12, 31];
-
-                if (this.element.getAttribute('min') !== null) {
-                    var datemin = this.element.getAttribute('min').split('-');
-                }
-
-                if (this.element.getAttribute('max') !== null) {
-                    var datemax = this.element.getAttribute('max').split('-');
-                }
-
-                var picker = new datepicker(
-                    {
-                        field: this.element,
-                        firstDay: 1,
-                        format: outputformat,
-                        minDate: new Date(datemin[0], datemin[1], datemin[2]),
-                        maxDate: new Date(datemax[0], datemax[1], datemax[2])
-                    });
-
+            switch (val) {
+                case 'month':
+                case 'date':
+                    this.configureDateInput(val);
+                    val = 'text';
+                    break;
+                case 'number':
+                    this.configureNumericInput();
+                    break;
             }
 
             try {
@@ -85,12 +71,84 @@ define(['component', 'pikaday'],
             }
         }
 
-        aInputSingleLineEdit.prototype.labels = function (props) {
+        aInputSingleLineEdit.prototype.createWrapper = function () {
             var parent = this.element.parentNode;
             var wrapperElement = document.createElement('div');
             wrapperElement.className = 'm-input-singlelineedit nowrap';
             var wrapper = parent.insertBefore(wrapperElement, this.element);
             wrapper.appendChild(this.element);
+
+            return wrapper;
+        }
+
+        aInputSingleLineEdit.prototype.configureDateInput = function (val) {
+            var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
+
+            datemin = [2000, 1, 1];
+            datemax = [3000, 12, 31];
+
+            if (this.element.getAttribute('min') !== null) {
+                var datemin = this.element.getAttribute('min').split('-');
+            }
+
+            if (this.element.getAttribute('max') !== null) {
+                var datemax = this.element.getAttribute('max').split('-');
+            }
+
+            var picker = new datepicker(
+                {
+                    field: this.element,
+                    firstDay: 1,
+                    format: outputformat,
+                    minDate: new Date(datemin[0], datemin[1], datemin[2]),
+                    maxDate: new Date(datemax[0], datemax[1], datemax[2])
+                });
+        }
+
+        aInputSingleLineEdit.prototype.configureNumericInput = function () {
+            // create a wrapper to surround the input element and spinner buttons
+            var inputWrapper = document.createElement('div');
+            inputWrapper.className = 'm-input-button-wrapper';
+
+            // create a wrapper to surround the spinner buttons only
+            var spinnerWrapper = document.createElement('div');
+            spinnerWrapper.className = 'm-button-spinner';
+
+            var that = this;
+
+            // create the spinner buttons and append them to the spinner container
+            var incButton = document.createElement('button');
+            incButton.className = 'a-button-spinner-up';
+            incButton.innerHTML = '&#x25B2;'
+            incButton.tabIndex = -1;
+            incButton.onclick = function (event) {
+                event.preventDefault();
+            }
+            incButton.onmousedown = function (event) {
+                that.element.value = Number(that.element.value) + 1;
+                that.broadcastChange();
+            };
+            var decButton = document.createElement('button');
+            decButton.className = 'a-button-spinner-down';
+            decButton.innerHTML = '&#x25BC;';
+            decButton.tabIndex = -1;
+            decButton.onclick = function (event) {
+                event.preventDefault();
+            }
+            decButton.onmousedown = function (event) {
+                that.element.value = Number(that.element.value) - 1;
+                that.broadcastChange()
+            }
+            spinnerWrapper.appendChild(incButton);
+            spinnerWrapper.appendChild(decButton);
+
+            // insert the element wrapper to the DOM and append the input element to it
+            inputWrapper = this.wrapper.insertBefore(inputWrapper, this.element);
+            inputWrapper.appendChild(this.element);
+            inputWrapper.appendChild(spinnerWrapper);
+        }
+
+        aInputSingleLineEdit.prototype.labels = function (props) {
 
             if (props['pre']) {
                 var preElement = document.createElement('span');
@@ -98,7 +156,7 @@ define(['component', 'pikaday'],
                 var preContent = document.createTextNode(props['pre']);
                 preElement.appendChild(preContent);
 
-                wrapper.insertBefore(preElement, this.element);
+                this.wrapper.insertBefore(preElement, this.wrapper.childNodes[0]);
             }
 
             if (props['post']) {
@@ -107,7 +165,7 @@ define(['component', 'pikaday'],
                 var postContent = document.createTextNode(props['post']);
                 postElement.appendChild(postContent);
 
-                wrapper.insertBefore(postElement, this.element.nextSibling);
+                this.wrapper.appendChild(postElement);
             }
         }
 
@@ -152,8 +210,7 @@ define(['component', 'pikaday'],
 
             if (event.target === this.element) {
 
-                var parentNode = this.element.parentNode;
-                parentNode.classList.add('focused');
+                this.wrapper.classList.add('focused');
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});

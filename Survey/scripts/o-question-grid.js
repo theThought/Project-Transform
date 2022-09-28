@@ -292,7 +292,7 @@ define(['component'],
                 return;
             }
 
-            document.querySelector('div.a-label-total-grand').innerHTML = grandtotal;
+            this.grid.querySelector('div.a-label-total-grand').innerHTML = grandtotal;
 
         }
 
