@@ -153,13 +153,19 @@ define(['component'],
                 return;
             }
 
+            // TODO: this assumes that the style will always be in pixels
+            // make sure this is always comparing like with like
+            var manualwidth = this.element.style.width.replace(/\D/g,'');
+
             // TODO: resolve zero-width resize issue
             // this is a temporary measure while track down why I'm receiving zero-width resize requests
             if (event.detail.widest === 0) {
                 return;
             }
 
-            var manualwidth = this.element.style.width;
+            if (event.detail.widest <= manualwidth) {
+                return;
+            }
 
             var buttonwidth = 0;
             this.element.style.width = (event.detail.widest + buttonwidth) + 'px';
