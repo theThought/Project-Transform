@@ -153,6 +153,12 @@ define(['component'],
                 return;
             }
 
+            // TODO: resolve zero-width resize issue
+            // this is a temporary measure while track down why I'm receiving zero-width resize requests
+            if (event.detail.widest === 0) {
+                return;
+            }
+
             var manualwidth = this.element.style.width;
 
             var buttonwidth = 0;
