@@ -153,7 +153,7 @@ define(['o-question'],
         oQuestionList.prototype.filterListContains = function (string) {
 
             if (string.length === 0) {
-                this.clearEntries();
+                //this.clearEntries();
             }
 
             var visibleitems = this.list.length;
@@ -169,7 +169,7 @@ define(['o-question'],
             }
 
             if (visibleitems === 0) {
-                this.clearEntries();
+                //this.clearEntries();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
@@ -179,7 +179,13 @@ define(['o-question'],
         oQuestionList.prototype.filterListStarts = function (string) {
 
             if (string.length === 0) {
-                this.clearEntries();
+                //this.clearEntries();
+                string = '---[clear-all]---';
+            }
+
+            if (string.length < this.mincharactersforlist) {
+                //this.clearEntries();
+                string = '---[clear-all]---';
             }
 
             var visibleitems = this.list.length;
@@ -195,7 +201,7 @@ define(['o-question'],
             }
 
             if (visibleitems === 0) {
-                this.clearEntries();
+                //this.clearEntries();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
