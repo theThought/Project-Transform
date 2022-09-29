@@ -81,6 +81,7 @@ define(['component'],
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
         aInputListDropdown.prototype.configureLocalEventListeners = function () {
@@ -124,11 +125,22 @@ define(['component'],
                 case "broadcastChange":
                     this.receiveBroadcast(event);
                     break;
+                case this.group + "_enableExclusive":
+                    this.onEnableExclusive(event);
+                    break;
                 case this.group + "_beginResize":
                 case this.group + "_endResize":
                     this.onEndResize(event);
                     break;
             }
+        }
+
+        aInputListDropdown.prototype.onEnableExclusive = function (event) {
+            if (event.detail.group !== this.group) {
+                return;
+            }
+
+            this.onFocusOut();
         }
 
         aInputListDropdown.prototype.onEndResize = function (event) {
