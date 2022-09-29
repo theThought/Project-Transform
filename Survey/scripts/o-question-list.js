@@ -132,7 +132,7 @@ define(['o-question'],
                 return;
             }
 
-            switch  (event.detail.filtermethod) {
+            switch (event.detail.filtermethod) {
                 case 'starts':
                     this.filterListStarts(event.detail.element.value.toLowerCase());
                     break;
@@ -143,6 +143,10 @@ define(['o-question'],
         }
 
         oQuestionList.prototype.filterListContains = function (string) {
+
+            if (string.length === 0) {
+                this.clearEntries();
+            }
 
             var visibleitems = this.list.length;
 
@@ -157,6 +161,7 @@ define(['o-question'],
             }
 
             if (visibleitems === 0) {
+                this.clearEntries();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
@@ -164,6 +169,10 @@ define(['o-question'],
         }
 
         oQuestionList.prototype.filterListStarts = function (string) {
+
+            if (string.length === 0) {
+                this.clearEntries();
+            }
 
             var visibleitems = this.list.length;
 
@@ -178,6 +187,7 @@ define(['o-question'],
             }
 
             if (visibleitems === 0) {
+                this.clearEntries();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
@@ -190,6 +200,15 @@ define(['o-question'],
             } else {
                 this.element.classList.remove('empty');
             }
+        }
+
+        oQuestionList.prototype.clearEntries = function () {
+            var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
+                bubbles: true,
+                detail: this
+            });
+
+            document.dispatchEvent(enableExclusive);
         }
 
         oQuestionList.prototype.displayicon = function (prop) {
