@@ -73,9 +73,6 @@ define(['component'],
 
         aInputListDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-
-            //document.addEventListener("mousedown", this, false);
-            //document.addEventListener("click", this, false);
             document.addEventListener("closeDropdowns", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -88,9 +85,9 @@ define(['component'],
             this.wrapper.addEventListener("change", this, false);
             this.wrapper.addEventListener("keyup", this, false);
             this.wrapper.addEventListener("keypress", this, false);
-            this.wrapper.addEventListener("click", this, false);
-            this.wrapper.addEventListener("focusout", this, false);
-            this.wrapper.addEventListener("focusin", this, false);
+            this.wrapper.addEventListener("mousedown", this, false);
+            this.element.addEventListener("focusin", this, false);
+            //this.element.addEventListener("focusout", this, false);
         }
 
         aInputListDropdown.prototype.handleEvent = function (event) {
@@ -113,14 +110,14 @@ define(['component'],
                 case "clearEntries":
                     this.clearEntries(event);
                     break;
-                case "click":
-                    this.onClick(event);
+                case "mousedown":
+                    this.onMousedown(event);
                     break;
                 case "focusin":
-                    //this.onFocusIn(event);
+                    this.onFocusIn(event);
                     break;
                 case "focusout":
-                    //this.onFocusOut(event);
+                    this.onFocusOut(event);
                     break;
                 case "broadcastChange":
                     this.receiveBroadcast(event);
@@ -140,7 +137,7 @@ define(['component'],
                 return;
             }
 
-            this.onFocusOut();
+            this.removeFocus();
         }
 
         aInputListDropdown.prototype.onEndResize = function (event) {
@@ -207,33 +204,31 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onFocusIn = function (event) {
-            this.focused = true;
-            this.wrapper.classList.add('focused');
-
-            this.showList();
+            event.stopImmediatePropagation();
+            this.setFocus();
         }
 
-        aInputListDropdown.prototype.onFocusOut = function () {
-            this.focused = false;
-            this.wrapper.classList.remove('focused');
+        aInputListDropdown.prototype.onFocusOut = function (event) {
+            event.stopImmediatePropagation();
+            this.removeFocus();
+        }
 
-            this.hideList();
-
+        aInputListDropdown.prototype.onMousedown = function (event) {
+            event.stopImmediatePropagation();
+            this.toggleVisibility();
         }
 
         aInputListDropdown.prototype.toggleVisibility = function () {
             if (this.focused) {
-                this.onFocusOut()
+                this.removeFocus()
             } else {
-                this.onFocusIn()
+                this.setFocus()
             }
         }
 
-        aInputListDropdown.prototype.onClick = function (event) {
-
-            event.stopImmediatePropagation();
-
-            this.toggleVisibility();
+        aInputListDropdown.prototype.setFocus = function () {
+            this.focused = true;
+            this.wrapper.classList.add('focused');
 
             var closeDropdowns = new CustomEvent('closeDropdowns', {
                 bubbles: true,
@@ -241,6 +236,14 @@ define(['component'],
             });
             document.dispatchEvent(closeDropdowns);
 
+            this.showList();
+        }
+
+        aInputListDropdown.prototype.removeFocus = function () {
+            this.focused = false;
+            this.wrapper.classList.remove('focused');
+
+            this.hideList();
         }
 
         aInputListDropdown.prototype.onCloseDropdowns = function (event) {
@@ -248,7 +251,7 @@ define(['component'],
                 return;
             }
 
-            this.onFocusOut();
+            this.removeFocus();
         }
 
         aInputListDropdown.prototype.showList = function () {
