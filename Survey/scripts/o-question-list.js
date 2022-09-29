@@ -41,6 +41,7 @@ define(['o-question'],
             this.inputelement = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
 
             this.list = this.buildList();
+            this.disableTabindex(this.list);
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureOnesize();
@@ -109,6 +110,13 @@ define(['o-question'],
         oQuestionList.prototype.buildList = function () {
             var listcontainer = this.element.querySelector('.m-list-optionlist');
             return listcontainer.querySelectorAll('.m-option-base');
+        }
+
+        oQuestionList.prototype.disableTabindex = function (list) {
+            for (var i = 0; i < this.list.length; i++) {
+                var item = this.list[i].querySelector('input');
+                item.tabIndex = -1;
+            }
         }
 
         oQuestionList.prototype.jumpToLetter = function (event) {
