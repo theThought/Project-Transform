@@ -215,6 +215,11 @@ define(['component'],
 
         aInputListDropdown.prototype.onMousedown = function (event) {
             event.stopImmediatePropagation();
+
+            if (this.editable && this.focused) {
+                return;
+            }
+
             this.toggleVisibility();
         }
 
