@@ -30,7 +30,7 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
-            this.container = document.querySelector('div[data-questiongroup="' + this.group + '"]');
+            this.droplist = document.querySelector('div[data-questiongroup="' + this.group + '"] div.m-list-optionlist');
             this.wrapper = this.element.parentNode;
             this.focused = false;
             this.isJumpingToLetter = false;
@@ -59,7 +59,7 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.getValue = function () {
-            var options = this.container.querySelectorAll('input[type=checkbox], input[type=radio]');
+            var options = this.droplist.querySelectorAll('input[type=checkbox], input[type=radio]');
 
             for (var i = 0; i < options.length; i++) {
                 var element = options[i];
@@ -79,6 +79,7 @@ define(['component'],
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
+            document.addEventListener("click", this, false);
         }
 
         aInputListDropdown.prototype.configureLocalEventListeners = function () {
@@ -101,7 +102,7 @@ define(['component'],
                     break;
                 case "keyup":
                     this.getKeyPressed(event);
-                    this.onKeyup(event);
+                    this.onKeyup();
                     this.onChange(event);
                     break;
                 case "change":
@@ -118,6 +119,9 @@ define(['component'],
                     break;
                 case "focusout":
                     this.onFocusOut(event);
+                    break;
+                case "click":
+                    this.onClick(event);
                     break;
                 case "broadcastChange":
                     this.receiveBroadcast(event);
@@ -152,7 +156,7 @@ define(['component'],
 
             // TODO: this assumes that the style will always be in pixels
             // make sure this is always comparing like with like
-            var manualwidth = this.element.style.width.replace(/\D/g,'');
+            var manualwidth = this.element.style.width.replace(/\D/g, '');
 
             // TODO: resolve zero-width resize issue
             // this is a temporary measure while track down why I'm receiving zero-width resize requests
@@ -223,6 +227,19 @@ define(['component'],
             this.toggleVisibility();
         }
 
+        aInputListDropdown.prototype.onClick = function (event) {
+            if (!this.focused) {
+                return;
+            }
+
+            if (this.wrapper.contains(event.target) || event.target === this.droplist) {
+                event.stopImmediatePropagation();
+                return;
+            }
+
+            this.closeDropdowns();
+        }
+
         aInputListDropdown.prototype.toggleVisibility = function () {
             if (this.focused) {
                 this.removeFocus()
@@ -235,12 +252,7 @@ define(['component'],
             this.focused = true;
             this.wrapper.classList.add('focused');
 
-            var closeDropdowns = new CustomEvent('closeDropdowns', {
-                bubbles: true,
-                detail: this
-            });
-            document.dispatchEvent(closeDropdowns);
-
+            this.closeDropdowns();
             this.showList();
         }
 
@@ -249,6 +261,14 @@ define(['component'],
             this.wrapper.classList.remove('focused');
 
             this.hideList();
+        }
+
+        aInputListDropdown.prototype.closeDropdowns = function () {
+            var closeDropdowns = new CustomEvent('closeDropdowns', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(closeDropdowns);
         }
 
         aInputListDropdown.prototype.onCloseDropdowns = function (event) {
@@ -284,7 +304,7 @@ define(['component'],
 
         }
 
-        aInputListDropdown.prototype.onKeyup = function (event) {
+        aInputListDropdown.prototype.onKeyup = function () {
             if (!this.focused) {
                 return;
             }
