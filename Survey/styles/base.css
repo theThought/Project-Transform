@@ -1107,6 +1107,9 @@ div.empty .a-list-placeholder-empty {
 div.charrestriction .a-list-placeholder-restriction {
   display: block;
 }
+div.charrestriction .a-list-placeholder-empty {
+  display: none;
+}
 
 div[class^=a-list-placeholder-] {
   display: none;

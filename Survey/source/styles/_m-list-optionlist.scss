@@ -26,6 +26,10 @@ div.charrestriction {
     .a-list-placeholder-restriction {
         display: block;
     }
+
+    .a-list-placeholder-empty {
+        display: none;
+    }
 }
 
 div[class^=a-list-placeholder-] {

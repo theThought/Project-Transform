@@ -34,7 +34,7 @@ define(['o-question'],
             this.isOnesize = true;
             this.list = null;
             this.listtype = null;
-            this.mincharactersforlist = 1;
+            this.mincharacters = 0;
             this.dropdownvisible = false;
             this.autoshowlist = true;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
@@ -74,20 +74,20 @@ define(['o-question'],
                 return;
             }
 
-            if (this.inputelement.value.length
-                && this.mincharactersforlist > 0) {
-                this.filterListContains(this.inputelement.value);
+            if (this.inputelement.value.length) {
+                this.filterListStarts(this.inputelement.value);
                 return;
             }
 
-            if (this.mincharactersforlist > 0) {
-                this.filterListContains('--[empty-list]--');
+            if (this.mincharacters > 0) {
+                this.element.classList.add('charrestriction');
+                this.filterListStarts('');
                 return;
             }
         }
 
         oQuestionList.prototype.mincharactersforlist = function (prop) {
-            this.mincharactersforlist = prop;
+            this.mincharacters = prop;
         }
 
         oQuestionList.prototype.autoshowlist = function (prop) {
@@ -137,20 +137,22 @@ define(['o-question'],
 
             switch (event.detail.filtermethod) {
                 case 'starts':
-                    this.filterListStarts(event.detail.element.value.toLowerCase());
+                    this.filterListStarts(event.detail.element.value);
                     break;
                 case 'contains':
-                    this.filterListContains(event.detail.element.value.toLowerCase());
+                    this.filterListContains(event.detail.element.value);
                     break;
             }
         }
 
         oQuestionList.prototype.filterListContains = function (string) {
 
-            if (string.length === 0) {
-                //this.clearEntries();
+            if (string.length < this.mincharacters) {
+                this.element.classList.add('charrestriction');
+                return;
             }
 
+            string = string.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
@@ -173,16 +175,18 @@ define(['o-question'],
 
         oQuestionList.prototype.filterListStarts = function (string) {
 
+            if (string.length < this.mincharacters) {
+                //this.clearEntries();
+                this.element.classList.add('charrestriction');
+                string = '---[clear-all]---';
+            }
+
             if (string.length === 0) {
                 //this.clearEntries();
                 string = '---[clear-all]---';
             }
 
-            if (string.length < this.mincharactersforlist) {
-                //this.clearEntries();
-                string = '---[clear-all]---';
-            }
-
+            string = string.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
