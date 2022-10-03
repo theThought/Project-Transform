@@ -178,7 +178,9 @@ define(['o-question'],
             if (string.length < this.mincharacters) {
                 //this.clearEntries();
                 this.element.classList.add('charrestriction');
-                string = '---[clear-all]---';
+                string = '';
+            } else {
+                this.element.classList.remove('charrestriction');
             }
 
             if (string.length === 0) {
