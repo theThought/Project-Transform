@@ -237,7 +237,7 @@ define(['component'],
                 return;
             }
 
-            this.closeDropdowns();
+            this.removeFocus();
         }
 
         aInputListDropdown.prototype.toggleVisibility = function () {

@@ -33,11 +33,13 @@ define(['component'],
             this.maxwidth = '';
             this.isOnesize = true;
             this.emptyplaceholder = 'no items to display';
+            this.notenoughcharactersplaceholder = 'type at least [count] characters to see the list';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 
             this.configureProperties();
-            this.addPlaceholder();
+            this.addEmptyPlaceholder();
+            this.addCharRestrictionPlaceholder();
             this.setWidth();
             this.configureIncomingEventListeners();
             this.configureOnesize();
@@ -65,10 +67,21 @@ define(['component'],
             this.emptyplaceholder = prop;
         }
 
-        mListOptionList.prototype.addPlaceholder = function () {
+        mListOptionList.prototype.notenoughcharacters = function (prop) {
+            this.notenoughcharactersplaceholder = prop;
+        }
+
+        mListOptionList.prototype.addEmptyPlaceholder = function () {
             var placeholderelement = document.createElement('div');
-            placeholderelement.classList.add('a-list-placeholder');
+            placeholderelement.classList.add('a-list-placeholder-empty');
             placeholderelement.innerHTML = this.emptyplaceholder;
+            this.element.appendChild(placeholderelement);
+        }
+
+        mListOptionList.prototype.addCharRestrictionPlaceholder = function () {
+            var placeholderelement = document.createElement('div');
+            placeholderelement.classList.add('a-list-placeholder-restriction');
+            placeholderelement.innerHTML = this.notenoughcharactersplaceholder;
             this.element.appendChild(placeholderelement);
         }
 

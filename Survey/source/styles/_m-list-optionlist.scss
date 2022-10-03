@@ -17,12 +17,18 @@
 }
 
 div.empty {
-    .a-list-placeholder {
+    .a-list-placeholder-empty {
         display: block;
     }
 }
 
-.a-list-placeholder {
+div.charrestriction {
+    .a-list-placeholder-restriction {
+        display: block;
+    }
+}
+
+div[class^=a-list-placeholder-] {
     display: none;
     color: globals.$disabled-text;
 }

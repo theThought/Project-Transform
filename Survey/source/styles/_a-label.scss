@@ -1,6 +1,6 @@
 @use 'globals';
 
-*[class*="-label-"] {
+*[class*=-label-] {
     cursor: default;
 
     & * {
