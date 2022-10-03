@@ -141,6 +141,11 @@ define(['component'],
                 return;
             }
 
+            // do not hide list on option change if this is a combo box
+            if (this.editable) {
+                return;
+            }
+
             this.removeFocus();
         }
 
@@ -242,7 +247,8 @@ define(['component'],
                 return;
             }
 
-            if (this.wrapper.contains(event.target) || event.target === this.droplist) {
+            if (this.wrapper.contains(event.target) || event.target === this.droplist
+                || (this.editable && this.droplist.contains(event.target))) {
                 event.stopImmediatePropagation();
                 return;
             }
