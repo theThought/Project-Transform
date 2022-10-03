@@ -1521,6 +1521,10 @@ input[type=range]:focus::-ms-fill-lower {
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
+.o-question-list.combobox > div:first-of-type,
+.o-question-combolist.combobox > div:first-of-type {
+  padding-right: 0;
+}
 .o-question-list > div:first-of-type,
 .o-question-combolist > div:first-of-type {
   position: relative;

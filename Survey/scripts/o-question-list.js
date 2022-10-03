@@ -100,6 +100,8 @@ define(['o-question'],
 
         oQuestionList.prototype.type = function (prop) {
             this.listtype = prop;
+
+            this.element.classList.add(prop);
         }
 
         oQuestionList.prototype.buildList = function () {
