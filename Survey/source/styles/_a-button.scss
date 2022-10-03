@@ -144,7 +144,8 @@ button.a-button-preterminator {
                 padding: 0 0 2px 0;
             }
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background: globals.$icons-mid !important;
             }
         }
@@ -184,7 +185,8 @@ button.a-button-preterminator {
 
     }
 
-    input[type=submit]:hover {
+    input[type=submit]:hover,
+    input[type=submit]:focus {
         color: globals.$theme-secondary !important;
         background-color: globals.$white !important;
     }

@@ -560,7 +560,7 @@ button.a-button-preterminator {
 .m-input-button-wrapper .m-button-spinner button.a-button-spinner-down {
   padding: 0 0 2px 0;
 }
-.m-input-button-wrapper .m-button-spinner button:hover {
+.m-input-button-wrapper .m-button-spinner button:hover, .m-input-button-wrapper .m-button-spinner button:focus {
   background: #D6DDEB !important;
 }
 
@@ -590,7 +590,8 @@ button.a-button-preterminator {
     width: auto;
   }
 }
-#nav-controls input[type=submit]:hover {
+#nav-controls input[type=submit]:hover,
+#nav-controls input[type=submit]:focus {
   color: #449B9B !important;
   background-color: #FFFFFF !important;
 }
