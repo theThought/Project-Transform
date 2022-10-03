@@ -88,7 +88,7 @@ define(['component'],
             this.wrapper.addEventListener("keypress", this, false);
             this.wrapper.addEventListener("mousedown", this, false);
             this.element.addEventListener("focusin", this, false);
-            //this.element.addEventListener("focusout", this, false);
+            this.element.addEventListener("focusout", this, false);
         }
 
         aInputListDropdown.prototype.handleEvent = function (event) {
@@ -213,8 +213,18 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onFocusOut = function (event) {
-            event.stopImmediatePropagation();
-            this.removeFocus();
+            if (!this.focused) {
+                return;
+            }
+
+            if (event.relatedTarget === null) {
+                return;
+            }
+
+            if (!this.wrapper.contains(event.relatedTarget) ) {
+                event.stopImmediatePropagation();
+                this.removeFocus();
+            }
         }
 
         aInputListDropdown.prototype.onMousedown = function (event) {
