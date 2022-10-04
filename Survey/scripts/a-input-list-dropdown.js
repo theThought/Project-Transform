@@ -37,6 +37,7 @@ define(['component'],
             this.keypressed = null;
             this.editable = false;
             this.filtermethod = 'contains';
+            this.lastselectedvalue = '';
             this.defaultPlaceholder = 'Select';
             this.manualWidth = this.checkManualWidth();
 
@@ -200,6 +201,7 @@ define(['component'],
 
                     if (event.detail.checkbox.checked) {
                         this.element.value = event.detail.label.textContent;
+                        this.lastselectedvalue = event.detail.label.textContent;
                     }
                 }
             }
@@ -226,9 +228,19 @@ define(['component'],
                 return;
             }
 
-            if (!this.wrapper.contains(event.relatedTarget) ) {
+            if (this.editable) {
+                this.restoreSelection();
+            }
+
+            if (!this.wrapper.contains(event.relatedTarget)) {
                 event.stopImmediatePropagation();
                 this.removeFocus();
+            }
+        }
+
+        aInputListDropdown.prototype.restoreSelection = function () {
+            if (this.element.value !== this.lastselectedvalue) {
+                this.element.value = this.lastselectedvalue
             }
         }
 
@@ -251,6 +263,10 @@ define(['component'],
                 || (this.editable && this.droplist.contains(event.target))) {
                 event.stopImmediatePropagation();
                 return;
+            }
+
+            if (this.editable) {
+                this.restoreSelection();
             }
 
             this.removeFocus();
@@ -290,6 +306,10 @@ define(['component'],
         aInputListDropdown.prototype.onCloseDropdowns = function (event) {
             if (event.detail.group === this.group) {
                 return;
+            }
+
+            if (this.editable) {
+                this.restoreSelection();
             }
 
             this.removeFocus();
