@@ -36,7 +36,7 @@ define(['o-question'],
             this.listtype = null;
             this.mincharacters = 0;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
-            this.inputelement = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
+            this.inputelement = this.element.querySelector('input.a-input-list-dropdown');
 
             this.list = this.buildList();
             this.disableTabIndex(this.list);
