@@ -1153,6 +1153,10 @@ input + script + .m-option-base {
   width: 100% !important;
 }
 
+.charrestriction .m-option-base {
+  display: none;
+}
+
 .balance .m-option-base {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;

@@ -82,7 +82,6 @@ define(['o-question'],
             if (this.mincharacters > 0) {
                 this.element.classList.add('charrestriction');
                 this.filterListStarts('');
-                return;
             }
         }
 
@@ -187,7 +186,6 @@ define(['o-question'],
 
             if (string.length === 0) {
                 //this.clearEntries();
-                string = '---[clear-all]---';
             }
 
             string = string.toLowerCase();
