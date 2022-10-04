@@ -33,7 +33,7 @@ define(['component'],
             this.maxwidth = '';
             this.isOnesize = true;
             this.emptyplaceholder = 'no items to display';
-            this.notenoughcharactersplaceholder = 'type at least [count] characters to see the list';
+            this.notenoughcharactersplaceholder = 'begin typing to display the list';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
 

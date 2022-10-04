@@ -35,8 +35,6 @@ define(['o-question'],
             this.list = null;
             this.listtype = null;
             this.mincharacters = 0;
-            this.dropdownvisible = false;
-            this.autoshowlist = true;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
             this.inputelement = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
 
