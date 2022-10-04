@@ -114,9 +114,9 @@ define(['component'],
         }
 
         mListOptionList.prototype.configureOnesize = function () {
-            window.addEventListener("resize", this, false);
 
             if (this.isOnesize) {
+                window.addEventListener("resize", this, false);
                 this.element.classList.add('one-size');
 
                 if (!this.properties || !this.properties.onesize) {
