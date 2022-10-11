@@ -615,6 +615,10 @@ button.a-button-preterminator {
   left: 0;
 }
 
+.a-icon-multistate[data-icontype=single] {
+  left: 1px;
+}
+
 /* Grid layout */
 .m-structure-cell .m-option-base .a-icon-multistate {
   position: relative;
