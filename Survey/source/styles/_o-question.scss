@@ -25,7 +25,8 @@
         width: 100%;
     }
 
-    padding: 1px;
+    // removing to examine horizontal scroll issue on Android mobile
+    // padding: 1px;
     overflow-x: auto;
     overflow-y: visible;
 }

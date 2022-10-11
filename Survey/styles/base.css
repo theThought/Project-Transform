@@ -1265,7 +1265,6 @@ input + script + .m-option-base {
 }
 
 .o-question-response {
-  padding: 1px;
   overflow-x: auto;
   overflow-y: visible;
 }
