@@ -32,7 +32,7 @@ define(['o-question'],
             this.widest = 0;
             this.minwidth = '';
             this.maxwidth = '';
-            this.isOnesize = true;
+            this.isOnesize = false;
             this.isBalanced = false;
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]');
 
@@ -71,9 +71,7 @@ define(['o-question'],
         }
 
         oQuestionChoice.prototype.onesize = function (props) {
-            if (props['state'] === false) {
-                this.isOnesize = false;
-            }
+            this.isOnesize = props['state'];
         }
 
         oQuestionChoice.prototype.configureBalance = function () {
@@ -135,8 +133,8 @@ define(['o-question'],
                 var dims = getComputedStyle(element);
                 var elementheight = parseFloat(dims.height);
                 var elementwidth = parseFloat(dims.width);
-                var contentheight = elementheight ;
-                var contentwidth = elementwidth ;
+                var contentheight = elementheight;
+                var contentwidth = elementwidth;
 
                 if (element.hasAttribute('data-original-width')
                     && element.getAttribute('data-original-width').length) {

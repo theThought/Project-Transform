@@ -31,7 +31,7 @@ define(['o-question'],
             this.tallest = 0;
             this.widest = 0;
             this.maxwidth = '';
-            this.isOnesize = true;
+            this.isOnesize = false;
             this.list = null;
             this.listtype = null;
             this.mincharacters = 0;
@@ -231,9 +231,7 @@ define(['o-question'],
         }
 
         oQuestionList.prototype.onesize = function (props) {
-            if (props['state'] === false) {
-                this.isOnesize = false;
-            }
+            this.isOnesize = props['state'];
         }
 
         oQuestionList.prototype.configureOnesize = function () {

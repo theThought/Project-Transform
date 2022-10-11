@@ -31,7 +31,7 @@ define(['component'],
             this.tallest = 0;
             this.widest = 0;
             this.maxwidth = '';
-            this.isOnesize = true;
+            this.isOnesize = false;
             this.emptyplaceholder = 'no items to display';
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
@@ -108,9 +108,7 @@ define(['component'],
         }
 
         mListOptionList.prototype.onesize = function (props) {
-            if (props['state'] === false) {
-                this.isOnesize = false;
-            }
+            this.isOnesize = props['state'];
         }
 
         mListOptionList.prototype.configureOnesize = function () {
