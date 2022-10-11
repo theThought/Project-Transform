@@ -329,7 +329,7 @@ define(['component'],
             }
         }
 
-        aInputListDropdown.prototype.onKeypress = function (event) {
+        aInputListDropdown.prototype.onKeypress = function () {
             if (!this.focused) {
                 return;
             }

@@ -32,8 +32,8 @@ define(
                 questioninformation[i].style.msFlex = '0 0 ' + width + '%';
             }
 
-            for (var i = 0; i < questioninstruction.length; i++) {
-                questioninstruction[i].style.maxWidth = width + '%';
+            for (var j = 0; j < questioninstruction.length; j++) {
+                questioninstruction[j].style.maxWidth = width + '%';
             }
 
         }
