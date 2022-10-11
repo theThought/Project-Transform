@@ -113,17 +113,17 @@ th .a-label-option {
 }
 
 .o-question-error *[class*=-label-] {
-    background-image: url("../images/error.png");
+    background-image: url("/Survey/images/error.png");
     background-color: globals.$error-bg;
 }
 
 .o-question-warning *[class*=-label-] {
-    background-image: url("../images/warning.png");
+    background-image: url("/Survey/images/warning.png");
     background-color: globals.$warning-bg;
 }
 
 .o-question-success *[class*=-label-] {
-    background-image: url("../images/success.png");
+    background-image: url("/Survey/images/success.png");
     background-color: globals.$success-bg;
 }
 

@@ -46,16 +46,16 @@ input[type=reset]:disabled {
 button[data-checked="true"],
 input[type=button][data-checked="true"],
 input[type=submit][data-checked="true"] {
-    background-image: url("../images/blue_checkmark.png");
+    background-image: url("/Survey/images/blue_checkmark.png");
     background-repeat: no-repeat;
     background-position: center;
 
     &:active {
-        background-image: url("../images/blue_checkmark.png");
+        background-image: url("/Survey/images/blue_checkmark.png");
     }
 
     &:disabled {
-        background-image: url("../images/blue_checkmark.png");
+        background-image: url("/Survey/images/blue_checkmark.png");
     }
 }
 
@@ -96,7 +96,7 @@ button.a-button-preterminator {
 }
 
 .focused > .a-button-list-dropdown {
-    background-image: url("../images/white-chevron-up.png");
+    background-image: url("/Survey/images/white-chevron-up.png");
 }
 
 .a-button-list-dropdown {

@@ -3,6 +3,7 @@ var gulp = require('gulp');
 function buildStyles() {
     var sass = require('gulp-sass')(require('sass')),
         sourcemaps = require('gulp-sourcemaps'),
+        replace = require('gulp-replace'),
         autoprefixer = require('autoprefixer'),
         postcss = require('gulp-postcss');
 
@@ -14,6 +15,7 @@ function buildStyles() {
         .pipe(sourcemaps.init())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss([ autoprefixer({grid: 'autoplace'}) ]))
+        .pipe(replace('/Survey/images/', '../images/'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(destpath))
 }
