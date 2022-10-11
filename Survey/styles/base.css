@@ -640,10 +640,10 @@ input[type=radio]:checked + label > .a-icon-multistate {
 
 input[type=checkbox]:focus + label,
 input[type=radio]:focus + label,
-input[type=checkbox]:focus-visible + label,
 input[type=radio]:focus-visible + label,
-input[type=checkbox]:focus-within + label,
-input[type=radio]:focus-within + label {
+input[type=radio]:focus-within + label,
+input[type=checkbox]:focus-visible + label,
+input[type=checkbox]:focus-within + label {
   outline: 1px solid #324371;
 }
 
@@ -654,6 +654,11 @@ input[type=radio]:disabled + label > .a-icon-multistate {
 
 div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
   display: none;
+}
+
+.m-list-optionlist input:focus + label,
+.m-list-optionlist input:focus-visible + label {
+  outline: none;
 }
 
 textarea {

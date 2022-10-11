@@ -39,10 +39,10 @@ input[type=radio]:checked + label > .a-icon-multistate {
 
 input[type=checkbox]:focus + label,
 input[type=radio]:focus + label,
-input[type=checkbox]:focus-visible + label,
 input[type=radio]:focus-visible + label,
-input[type=checkbox]:focus-within + label,
-input[type=radio]:focus-within + label {
+input[type=radio]:focus-within + label,
+input[type=checkbox]:focus-visible + label,
+input[type=checkbox]:focus-within + label {
     outline: 1px solid globals.$labels;
 }
 
@@ -51,7 +51,15 @@ input[type=radio]:disabled + label > .a-icon-multistate {
     background-position-x: -56px;
 }
 
-// optionlists default to not show the icon
+// option lists will not show icons by default
 div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
     display: none;
+}
+
+// option lists should not display a focus outline
+.m-list-optionlist {
+    input:focus + label,
+    input:focus-visible + label {
+        outline: none;
+    }
 }
