@@ -182,10 +182,20 @@
          </xsl:when>
          <xsl:when test="$inQuestion='Control'">
             <xsl:for-each select=".">
+           <xsl:choose>
+             <xsl:when test="@ElementID">
                <xsl:call-template name="TypePickerChoose">
-                  <xsl:with-param name="qGroup" select="@ElementID" />
+                  <xsl:with-param name="qGroupName" select="@ElementID" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
                </xsl:call-template>
+             </xsl:when>
+             <xsl:otherwise>
+               <xsl:call-template name="TypePickerChoose">
+                  <xsl:with-param name="qGroup" select="$qGroupName" />
+                  <xsl:with-param name="qFullName" select="$qFullName" />
+               </xsl:call-template>
+             </xsl:otherwise>
+           </xsl:choose>
             </xsl:for-each>
          </xsl:when>
       </xsl:choose>
@@ -854,7 +864,7 @@
          </xsl:element>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('aInputListDropdown','</xsl:text>
-            <xsl:value-of select="//Control[1]/@ElementID" />
+            <xsl:value-of select="$qGroup" />
             <xsl:text>','</xsl:text>
             <xsl:value-of select="$qFullName" />
             <xsl:text>');</xsl:text>
@@ -866,7 +876,7 @@
          </xsl:element>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('aButtonListDropDown','</xsl:text>
-            <xsl:value-of select="//Control[1]/@ElementID" />
+            <xsl:value-of select="$qGroup" />
             <xsl:text>','</xsl:text>
             <xsl:value-of select="$qFullName" />
             <xsl:text>');</xsl:text>
@@ -880,13 +890,13 @@
          <xsl:attribute name="class">m-list-optionlist</xsl:attribute>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('mListOptionList','</xsl:text>
-            <xsl:value-of select="//Control[1]/@ElementID" />
+            <xsl:value-of select="$qGroup" />
             <xsl:text>','</xsl:text>
             <xsl:value-of select="$qFullName" />
             <xsl:text>');</xsl:text>
          </xsl:element>
          <xsl:variable name="data-questionid">
-            <xsl:value-of select="@ElementID" />
+            <xsl:value-of select="$qGroup" />
          </xsl:variable>
          <xsl:variable name="QuestionID">
             <xsl:value-of select="@QuestionName" />
@@ -1867,7 +1877,6 @@
          <!--- ID -->
          <xsl:if test="$bIncludeElementIds">
             <xsl:attribute name="id">
-               <xsl:value-of select="@ElementID" />
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
