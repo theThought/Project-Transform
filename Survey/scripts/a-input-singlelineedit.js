@@ -75,6 +75,11 @@ define(['component', 'pikaday'],
             var parent = this.element.parentNode;
             var wrapperElement = document.createElement('div');
             wrapperElement.className = 'm-input-singlelineedit nowrap';
+
+            if (this.element.style.visibility === 'hidden') {
+                wrapperElement.style.visibility = 'hidden';
+            }
+
             var wrapper = parent.insertBefore(wrapperElement, this.element);
             wrapper.appendChild(this.element);
 
