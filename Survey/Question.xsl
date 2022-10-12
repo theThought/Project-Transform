@@ -258,11 +258,21 @@
       <xsl:call-template name="Label" />
    </xsl:template>
    <xsl:template name="Label">
-      <xsl:param name="labelType" select="'option'" />
+      <xsl:param name="labelType" />
+      <xsl:variable name="labelsubclass">
+        <xsl:choose>
+        <xsl:when test="./Style/@ElementAlign='Right'">
+        <xsl:text>option</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>question</xsl:text>
+        </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
       <xsl:element name="span">
          <xsl:attribute name="class">
             <xsl:text>a-label-</xsl:text>
-            <xsl:value-of select="$labelType" />
+            <xsl:value-of select="$labelsubclass" />
          </xsl:attribute>
          <xsl:call-template name="LabelText" />
       </xsl:element>
