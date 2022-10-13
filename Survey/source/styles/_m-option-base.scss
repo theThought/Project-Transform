@@ -1,7 +1,7 @@
 @use 'globals';
 
 input.a-button-option + .m-option-base {
-        display: inline-block;
+    display: inline-block;
 }
 
 .m-option-base {
@@ -21,6 +21,10 @@ input + script + .m-option-base {
 .m-option-base:first-child,
 .m-option-base:nth-last-of-type(1) {
     margin-bottom: 0;
+}
+
+.balance.one-size .m-option-base:nth-last-of-type(1) {
+    margin-bottom: .5em;
 }
 
 .m-list-optionlist {

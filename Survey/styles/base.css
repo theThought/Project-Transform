@@ -1157,6 +1157,10 @@ input + script + .m-option-base {
   margin-bottom: 0;
 }
 
+.balance.one-size .m-option-base:nth-last-of-type(1) {
+  margin-bottom: 0.5em;
+}
+
 .m-list-optionlist .m-option-base {
   margin-bottom: 0;
   width: 100% !important;
