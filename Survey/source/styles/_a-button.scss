@@ -5,14 +5,14 @@ input[type=submit],
 input[type=reset],
 button[class^=a-button] {
     display: block;
-    box-sizing: border-box;
+    box-sizing: content-box;
     min-width: 3em;
-    min-height: 40px;
+    min-height: 30px;
     -webkit-appearance: none;
     margin: 0 0 12px 0;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    padding: 8px 1em;
+    padding: 4px 1em;
     background-color: globals.$theme-primary;
     color: globals.$white;
     white-space: normal;
