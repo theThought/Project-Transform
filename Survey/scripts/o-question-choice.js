@@ -54,6 +54,7 @@ define(['o-question'],
 
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'resize':
                 case this.group + '_requestSize':
                     this.onResize();
                     break;
