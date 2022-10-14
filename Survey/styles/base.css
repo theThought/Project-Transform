@@ -517,7 +517,9 @@ button.a-button-preterminator {
   background-image: url("../images/white-chevron-up.png");
 }
 
-.a-button-list-dropdown {
+button.a-button-list-dropdown {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: absolute;
   margin: 0;
   right: 0;
@@ -527,7 +529,7 @@ button.a-button-preterminator {
   width: 100%;
   border: none;
   z-index: 1;
-  background: url("../images/white-chevron-down.png") right 12px center no-repeat transparent;
+  background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
 }
 
 .m-input-button-wrapper {
