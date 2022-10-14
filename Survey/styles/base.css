@@ -254,7 +254,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   width: 75px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .site-logo {
     max-height: 55px;
     max-width: 55px;
@@ -586,7 +586,7 @@ button.a-button-preterminator {
   min-width: 88px;
   padding: 4px 8px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   #nav-controls input[type=submit] {
     width: auto;
   }
@@ -840,7 +840,7 @@ input:read-only:focus-visible {
   text-align: right;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .overall-progress.complex .a-label-section-title {
     margin-bottom: 4px;
     font-size: 18px;
@@ -1813,7 +1813,7 @@ body > form {
   border-bottom: 1px solid #8797C8;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   body {
     margin: 0 1em;
   }
