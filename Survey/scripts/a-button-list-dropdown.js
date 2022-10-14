@@ -27,16 +27,19 @@ define(['component'],
 
         function aButtonListDropdown(id, group) {
             component.call(this, id, group);
+        }
 
-            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-list-dropdown');
+        aButtonListDropdown.prototype = Object.create(component.prototype);
+        aButtonListDropdown.prototype.constructor = aButtonListDropdown;
+
+        aButtonListDropdown.prototype.init = function () {
+            this.wrapper = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]')
+            this.element = this.wrapper.querySelector('button.a-button-list-dropdown');
 
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configurationComplete();
         }
-
-        aButtonListDropdown.prototype = Object.create(component.prototype);
-        aButtonListDropdown.prototype.constructor = aButtonListDropdown;
 
         aButtonListDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

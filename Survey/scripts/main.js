@@ -3,7 +3,7 @@ require(['domready'], function (domReady) {
 
         var componentsReady = function () {
 
-            if (!app.components.length) {
+            if (app.components.length < 2) {
                 // if the component array hasn't finished building but the DOM is complete
                 // we need to wait a moment for components to finish registering prior to init()
                 setTimeout(componentsReady, 300)

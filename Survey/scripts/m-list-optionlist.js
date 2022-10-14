@@ -27,7 +27,12 @@ define(['component'],
 
         function mListOptionList(id, group) {
             component.call(this, id, group);
+        }
 
+        mListOptionList.prototype = Object.create(component.prototype);
+        mListOptionList.prototype.constructor = mListOptionList;
+
+        mListOptionList.prototype.init = function () {
             this.tallest = 0;
             this.widest = 0;
             this.maxwidth = '';
@@ -45,9 +50,6 @@ define(['component'],
             this.configureOnesize();
             this.configurationComplete();
         }
-
-        mListOptionList.prototype = Object.create(component.prototype);
-        mListOptionList.prototype.constructor = mListOptionList;
 
         mListOptionList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

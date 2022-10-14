@@ -28,9 +28,14 @@ define(['component'],
 
         function aInputListDropdown(id, group) {
             component.call(this, id, group);
+        }
 
-            this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
-            this.droplist = document.querySelector('div[data-questiongroup="' + this.group + '"] div.m-list-optionlist');
+        aInputListDropdown.prototype = Object.create(component.prototype);
+        aInputListDropdown.prototype.constructor = aInputListDropdown;
+
+        aInputListDropdown.prototype.init = function () {
+            this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
+            this.droplist = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
             this.wrapper = this.element.parentNode;
             this.focused = false;
             this.isJumpingToLetter = false;
@@ -48,9 +53,6 @@ define(['component'],
             this.configurationComplete();
         }
 
-        aInputListDropdown.prototype = Object.create(component.prototype);
-        aInputListDropdown.prototype.constructor = aInputListDropdown;
-
         aInputListDropdown.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }
@@ -67,7 +69,8 @@ define(['component'],
                 if (element.checked) {
                     // the label for the selected item is expected to be the immediately adjacent element
                     var labelElement = element.nextElementSibling;
-                    this.element.value = labelElement.getElementsByClassName('a-label-option')[0].innerHTML;
+                    this.lastselectedvalue = labelElement.getElementsByClassName('a-label-option')[0].innerHTML;
+                    this.element.value = this.lastselectedvalue;
                 }
             }
         }

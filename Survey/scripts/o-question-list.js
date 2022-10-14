@@ -27,7 +27,12 @@ define(['o-question'],
 
         function oQuestionList(id, group) {
             oQuestion.call(this, id, group);
+        }
 
+        oQuestionList.prototype = Object.create(oQuestion.prototype);
+        oQuestionList.prototype.constructor = oQuestionList;
+
+        oQuestionList.prototype.init = function () {
             this.tallest = 0;
             this.widest = 0;
             this.maxwidth = '';
@@ -46,9 +51,6 @@ define(['o-question'],
             this.configureInitialFilter();
             this.configurationComplete();
         }
-
-        oQuestionList.prototype = Object.create(oQuestion.prototype);
-        oQuestionList.prototype.constructor = oQuestionList;
 
         oQuestionList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
