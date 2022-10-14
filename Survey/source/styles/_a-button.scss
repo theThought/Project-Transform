@@ -174,7 +174,8 @@ button.a-button-preterminator {
         background-color: globals.$theme-secondary;
         color: globals.$white;
         width: 197px;
-        min-width: 100px;
+        min-width: 88px;
+        padding: 4px 8px;
     }
 
     @media screen and (max-width: 1024px) {
