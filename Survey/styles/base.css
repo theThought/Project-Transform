@@ -1091,8 +1091,8 @@ th .a-label-option {
 }
 
 div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
-  padding-left: 3px;
-  width: calc(100% - 3px);
+  padding-left: 8px;
+  width: calc(100% - 8px);
 }
 
 .m-list-optionlist {
@@ -1113,10 +1113,12 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
 }
 
 div.empty .a-list-placeholder-empty {
+  padding: 0 8px;
   display: block;
 }
 
 div.charrestriction .a-list-placeholder-restriction {
+  padding: 0 8px;
   display: block;
 }
 div.charrestriction .a-list-placeholder-empty {
