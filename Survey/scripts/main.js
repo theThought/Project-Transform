@@ -1,25 +1,19 @@
 require(['domready'], function (domReady) {
     domReady(function () {
+        setInterval(componentsReady, 300);
 
-        var componentsReady = function () {
+        function componentsReady () {
+            console.info('Calling init for ' + app.components.length + ' components');
+            var i = app.components.length;
 
-            if (app.components.length < 2) {
-                // if the component array hasn't finished building but the DOM is complete
-                // we need to wait a moment for components to finish registering prior to init()
-                setTimeout(componentsReady, 300)
-            } else {
-                // ready to init() components
-                for (var component in app.components) {
-                    var currentcomponent = app.components[component];
-                    if (typeof currentcomponent['init'] === 'function') {
-                        currentcomponent.init();
-                    }
+            while (i--) {
+                var currentcomponent = app.components[i];
+                if (typeof currentcomponent['init'] === 'function') {
+                    currentcomponent.init();
                 }
-
+                app.components.splice(i, 1);
             }
         }
-
-        componentsReady();
 
         // check whether there are any unused properties that might indicate a problem
         app.checkProperties();
