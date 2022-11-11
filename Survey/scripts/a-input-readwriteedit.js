@@ -110,6 +110,9 @@ define(['component'],
                 case 'OperatingSystem':
                     returnValue = this.detectOS();
                     break;
+                case 'OperatingSystemVersion':
+                    returnValue = this.detectOSVersion();
+                    break;
                 case 'Display':
                     returnValue = this.detectDisplay();
                     break;
@@ -206,6 +209,10 @@ define(['component'],
             }
 
             return os;
+        }
+
+        aInputReadWriteEdit.prototype.detectOSVersion = function () {
+            return '';
         }
 
         aInputReadWriteEdit.prototype.detectDisplay = function () {
