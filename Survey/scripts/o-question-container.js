@@ -29,6 +29,7 @@ define(['o-question'],
             oQuestion.call(this, id, group);
 
             this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
+            this.complexVisibilityRule = '';
 
             this.configureProperties();
             this.configureIncomingEventListeners();
@@ -56,7 +57,7 @@ define(['o-question'],
             }
         }
 
-        oQuestion.prototype.onConfigurationComplete = function (event) {
+        oQuestionContainer.prototype.onConfigurationComplete = function (event) {
 
             if (!this.ready && event.detail.group === this.group) {
                 this.ready = true;
@@ -65,14 +66,16 @@ define(['o-question'],
 
         }
 
-        oQuestion.prototype.configureInitialVisibility = function () {
+        oQuestionContainer.prototype.configureInitialVisibility = function () {
 
             // if there are no visibility rules defined for this question lift the cover immediately
-            if (typeof this.properties.visible === "undefined") {
+            if (typeof this.properties.visible === "undefined"
+                && typeof this.properties.complexVisibility === "undefined") {
                 this.liftCover();
             }
 
             // proceed if we have found a visibility ruleset for this question
+            // this can either be an old-style ruleset or a complex rule string
             if (typeof this.properties.visible === "object") {
                 this.element.classList.add('unavailable'); // initial visibility is hidden
 
@@ -82,20 +85,23 @@ define(['o-question'],
 
                 // at this point we need to iterate each rule and request relevant question values
                 // we do this by telling the contributing question to broadcast its current value
-                this.visibilityRules.forEach(function (rule) {
-                    for (var component in app.components) {
-                        var groupname = app.components[component].group.toLowerCase();
-                        var questionrulename = rule.question.replace(/(\w)_([^qQ])/g, "$1__$2").toLowerCase();
-                        if (groupname.indexOf(questionrulename) !== -1) {
-                            app.components[component].broadcastChange();
-                        }
-                    }
-                });
-
+                this.requestComponentValues();
             }
         }
 
-        oQuestion.prototype.configureVisibilityRules = function () {
+        oQuestionContainer.prototype.requestComponentValues = function () {
+            this.visibilityRules.forEach(function (rule) {
+                for (var component in app.components) {
+                    var groupname = app.components[component].group.toLowerCase();
+                    var questionrulename = rule.question.replace(/(\w)_([^qQ])/g, "$1__$2").toLowerCase();
+                    if (groupname.indexOf(questionrulename) !== -1) {
+                        app.components[component].broadcastChange();
+                    }
+                }
+            });
+        }
+
+        oQuestionContainer.prototype.configureVisibilityRules = function () {
             if (typeof this.properties.visible === "undefined") {
                 return false;
             }
@@ -104,10 +110,96 @@ define(['o-question'],
                 this.collapse = false;
             }
 
-            this.visibilityRules = this.properties.visible.rules;
+            // if a complex visibility rules exists any old-style rules
+            // will not be added to the container for processing
+            if (this.properties.visible.complexrule !== undefined) {
+                this.parseComplexVisibilityRule(this.properties.visible.complexrule);
+            } else {
+                this.visibilityRules = this.properties.visible.rules;
+            }
         }
 
-        oQuestion.prototype.processVisibilityRules = function (event) {
+        oQuestionContainer.prototype.parseComplexVisibilityRule = function (ruleString) {
+            var questions = ruleString.match(/%(.*?)%/g);
+
+            if (questions === null) {
+                console.warn('A complex visibility rule was found but did not identify any questions:');
+                console.warn(ruleString);
+                return;
+            }
+
+            ruleString = this.expandContainsAnyRule(ruleString);
+
+            for (var i = 0; i < questions.length; i++) {
+                var currentquestion = questions[i];
+                currentquestion = currentquestion.replace('_', '__');
+                currentquestion = currentquestion.replace(/%(.*?)%/, '_Q$1');
+                var questionelement = document.getElementsByName(currentquestion)[0];
+                var questionvalue = 0;
+
+                if (typeof questionelement === 'undefined') {
+                    console.warn('Could not find a question required by a visibility rule:');
+                    console.warn(currentquestion);
+                } else {
+                    questionvalue = questionelement.value;
+                }
+
+                ruleString = ruleString.replace(/%(.*?)%/, '"' + questionvalue + '"');
+            }
+
+            console.info(ruleString);
+
+            ruleString = this.replaceOperators(ruleString);
+
+            var func = function (string) {
+                return (new Function('return (' + string + ')')());
+            }
+
+            this.complexVisibilityRule = func(ruleString);
+            console.log(this.complexVisibilityRule);
+        }
+
+        oQuestionContainer.prototype.replaceOperators = function (ruleString) {
+            ruleString = ruleString.replace(/or/gi, '||');
+            ruleString = ruleString.replace(/and/gi, '&&');
+            ruleString = ruleString.replace(/=/g, '===');
+
+            return ruleString;
+        }
+
+        oQuestionContainer.prototype.expandContainsAnyRule = function (ruleString) {
+            if (ruleString.indexOf('containsAny') === -1) {
+                return ruleString;
+            }
+
+            var expandedString = '';
+            var re = /%(.*?)%(\s+containsAny\((.*?)\))?/g;
+            var rules = ruleString.match(re);
+            // match 0: full string
+            // match 1: question
+            // match 2: contains string
+
+            var contains = rules[2].split(',');
+            contains.forEach(function (item) {
+                expandedString += rules[1] + ' === ' + item + ' || ';
+            });
+
+            return expandedString;
+        }
+
+        oQuestionContainer.prototype.expandContainsAllRule = function (ruleString) {
+            if (ruleString.indexOf('containsAll') === -1) {
+                return ruleString;
+            }
+        }
+
+        oQuestionContainer.prototype.expandContainsNoneRule = function (ruleString) {
+            if (ruleString.indexOf('containsNone') === -1) {
+                return ruleString;
+            }
+        }
+
+        oQuestionContainer.prototype.processVisibilityRules = function (event) {
 
             // get data from the component that broadcast the state
             // change event and started this process
@@ -195,7 +287,7 @@ define(['o-question'],
 
         }
 
-        oQuestion.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
+        oQuestionContainer.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
             if (typeof broadcastingComponent.element.value === 'undefined') {
                 return;
             }
@@ -204,7 +296,7 @@ define(['o-question'],
             rule.satisfied = Number(incomingValue) >= Number(rule.value);
         }
 
-        oQuestion.prototype.processVisibilityMaxValue = function (rule, broadcastingComponent) {
+        oQuestionContainer.prototype.processVisibilityMaxValue = function (rule, broadcastingComponent) {
             if (typeof broadcastingComponent.element.value === 'undefined') {
                 return;
             }
@@ -219,7 +311,7 @@ define(['o-question'],
             rule.satisfied = Number(incomingValue) <= Number(rule.value);
         }
 
-        oQuestion.prototype.processVisibilityNotValue = function (rule, broadcastingComponent) {
+        oQuestionContainer.prototype.processVisibilityNotValue = function (rule, broadcastingComponent) {
             if (typeof broadcastingComponent.element.value === 'undefined') {
                 return;
             }
@@ -228,7 +320,7 @@ define(['o-question'],
             rule.satisfied = Number(incomingValue) !== Number(rule.value);
         }
 
-        oQuestion.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
+        oQuestionContainer.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
             if (typeof broadcastingComponent.checkbox === "undefined") {
                 return;
             }
@@ -241,7 +333,7 @@ define(['o-question'],
             }
         }
 
-        oQuestion.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
+        oQuestionContainer.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
             if (typeof broadcastingComponent.checkbox === "undefined") {
                 return;
             }
@@ -254,7 +346,7 @@ define(['o-question'],
             }
         }
 
-        oQuestion.prototype.processVisibilitySpecificList = function (rule, broadcastingComponent) {
+        oQuestionContainer.prototype.processVisibilitySpecificList = function (rule, broadcastingComponent) {
             if (typeof broadcastingComponent.checkbox === 'undefined') {
                 return;
             }
@@ -291,7 +383,7 @@ define(['o-question'],
             rule.satisfied = currentScore >= requiredScore;
         }
 
-        oQuestion.prototype.makeAvailable = function () {
+        oQuestionContainer.prototype.makeAvailable = function () {
             if (this.container === null || this.available) {
                 return;
             }
@@ -302,7 +394,7 @@ define(['o-question'],
             this.liftCover();
         }
 
-        oQuestion.prototype.makeUnavailable = function () {
+        oQuestionContainer.prototype.makeUnavailable = function () {
             this.available = false;
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
@@ -310,15 +402,15 @@ define(['o-question'],
             this.element.classList.add('unavailable');
         }
 
-        oQuestion.prototype.cover = function () {
+        oQuestionContainer.prototype.cover = function () {
             this.element.classList.remove('cover-off');
         }
 
-        oQuestion.prototype.liftCover = function () {
+        oQuestionContainer.prototype.liftCover = function () {
             this.element.classList.add('cover-off');
         }
 
-        oQuestion.prototype.separator = function (val) {
+        oQuestionContainer.prototype.separator = function (val) {
             if (val === false) {
                 this.element.classList.add('no-separator');
             }
