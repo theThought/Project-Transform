@@ -104,6 +104,9 @@ define(['component'],
                 case 'Browser':
                     returnValue = this.detectBrowser();
                     break;
+                case 'BrowserVersion':
+                    returnValue = this.detectBrowserVersion();
+                    break;
                 case 'OperatingSystem':
                     returnValue = this.detectOS();
                     break;
@@ -176,6 +179,10 @@ define(['component'],
             }
 
             return browser;
+        }
+
+        aInputReadWriteEdit.prototype.detectBrowserVersion = function () {
+            return '';
         }
 
         aInputReadWriteEdit.prototype.detectOS = function () {
