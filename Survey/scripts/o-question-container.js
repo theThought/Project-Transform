@@ -129,6 +129,8 @@ define(['o-question'],
             }
 
             ruleString = this.expandContainsAnyRule(ruleString);
+            ruleString = this.expandContainsAllRule(ruleString);
+            ruleString = this.expandContainsNoneRule(ruleString);
 
             for (var i = 0; i < questions.length; i++) {
                 var currentquestion = questions[i];
