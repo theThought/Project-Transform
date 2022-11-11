@@ -104,8 +104,14 @@ define(['component'],
                 case 'Browser':
                     returnValue = this.detectBrowser();
                     break;
+                case 'BrowserVersion':
+                    returnValue = this.detectBrowserVersion();
+                    break;
                 case 'OperatingSystem':
                     returnValue = this.detectOS();
+                    break;
+                case 'OperatingSystemVersion':
+                    returnValue = this.detectOSVersion();
                     break;
                 case 'Display':
                     returnValue = this.detectDisplay();
@@ -178,6 +184,10 @@ define(['component'],
             return browser;
         }
 
+        aInputReadWriteEdit.prototype.detectBrowserVersion = function () {
+            return '';
+        }
+
         aInputReadWriteEdit.prototype.detectOS = function () {
             var userAgent = window.navigator.userAgent;
             var platform = window.navigator.platform;
@@ -199,6 +209,10 @@ define(['component'],
             }
 
             return os;
+        }
+
+        aInputReadWriteEdit.prototype.detectOSVersion = function () {
+            return '';
         }
 
         aInputReadWriteEdit.prototype.detectDisplay = function () {
