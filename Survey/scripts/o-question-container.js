@@ -134,11 +134,28 @@ define(['o-question'],
             ruleString = this.expandContainsAnyRule(ruleString);
             ruleString = this.expandContainsAllRule(ruleString);
             ruleString = this.expandContainsNoneRule(ruleString);
+            ruleString = this.getQuestionValues(ruleString);
+            ruleString = this.replaceOperators(ruleString);
+
+            console.info(ruleString);
+
+            var func = function (string) {
+                return (new Function('return (' + string + ')')());
+            }
+
+            this.complexVisibilityRule = func(ruleString);
+            console.log(this.complexVisibilityRule);
+        }
+
+        oQuestionContainer.prototype.getQuestionValues = function (ruleString) {
+
+            var questionRe = /\s?(\w+?)\./;
+            var questions = ruleString.match(/%(.*?)%/g);
 
             for (var i = 0; i < questions.length; i++) {
                 var currentquestion = questions[i];
                 currentquestion = currentquestion.replace('_', '__');
-                currentquestion = currentquestion.replace(/%(.*?)%/, '_Q$1');
+                currentquestion = currentquestion.replace(questionRe, '_Q$1');
                 var questionelement = document.getElementsByName(currentquestion)[0];
                 var questionvalue = 0;
 
@@ -152,16 +169,7 @@ define(['o-question'],
                 ruleString = ruleString.replace(/%(.*?)%/, '"' + questionvalue + '"');
             }
 
-            console.info(ruleString);
-
-            ruleString = this.replaceOperators(ruleString);
-
-            var func = function (string) {
-                return (new Function('return (' + string + ')')());
-            }
-
-            this.complexVisibilityRule = func(ruleString);
-            console.log(this.complexVisibilityRule);
+            return ruleString;
         }
 
         oQuestionContainer.prototype.replaceOperators = function (ruleString) {
