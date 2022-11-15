@@ -120,6 +120,9 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.parseComplexVisibilityRule = function (ruleString) {
+            // regular expression that searches for a string followed by an operator
+            // operators are = < > <> .containsAny .containsNone .containsAll
+            var questionRe = /\s?(\w+)(\.containsAny|\.containsAll|\.containsNone|\s?[=<>]\s?)/;
             var questions = ruleString.match(/%(.*?)%/g);
 
             if (questions === null) {
