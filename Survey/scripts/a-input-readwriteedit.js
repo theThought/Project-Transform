@@ -92,7 +92,7 @@ define(['component'],
                     this.writeToLocalStorage();
                     break;
                 default:
-                    console.warn('An attempt was made to write to an unsupported location');
+                    this.debug('An attempt was made to write to an unsupported location', 2);
                     break;
             }
         }
@@ -117,7 +117,7 @@ define(['component'],
                     returnValue = this.detectDisplay();
                     break;
                 default:
-                    console.warn('A request was made for an unknown user agent item');
+                    this.debug('A request was made for an unknown user agent item', 2);
             }
 
             return returnValue;

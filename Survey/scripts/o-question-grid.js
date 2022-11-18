@@ -51,7 +51,6 @@ define(['component'],
         oQuestionGrid.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("broadcastChange", this, false);
-            document.addEventListener("configComplete", this, false);
         }
 
         oQuestionGrid.prototype.handleEvent = function (event) {
@@ -299,7 +298,7 @@ define(['component'],
         oQuestionGrid.prototype.caption = function (props) {
 
             if (typeof props['content'] === 'undefined') {
-                console.warn(this.id + ' did not correctly define caption properties.');
+                this.debug(this.id + ' did not correctly define caption properties.', 2);
                 props = {content: props};
             }
 

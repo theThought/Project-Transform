@@ -137,7 +137,7 @@ define(['o-question'],
                     && element.getAttribute('data-original-width').length) {
                     var elementname = element.name;
                     var originalwidth = element.getAttribute('data-original-width');
-                    console.info(elementname + ' has an original width of ' + originalwidth);
+                    this.debug(elementname + ' has an original width of ' + originalwidth, 3);
                 }
 
                 contentheight = Math.ceil(contentheight);

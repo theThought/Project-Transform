@@ -30,8 +30,31 @@ define(
             this.group = group;
             this.element = null;
             this.value = null;
+            this.isDebugging = true;
             this.questionName = app.extractQuestionName(group);
             this.properties = {};
+        }
+
+        component.prototype.debug = function (message, priority) {
+            if (!this.isDebugging) {
+                return;
+            }
+
+            priority = priority || 4;
+
+            switch (priority) {
+                case 1:
+                    console.error(message);
+                    break;
+                case 2:
+                    console.warn(message);
+                    break;
+                case 3:
+                    console.info(message);
+                    break;
+                default:
+                    console.log(message);
+            }
         }
 
         component.prototype.configureProperties = function (propertiesName) {
