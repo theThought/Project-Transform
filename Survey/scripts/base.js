@@ -33,5 +33,13 @@ if (!Element.prototype.closest) {
     };
 }
 
+// remove duplicate values from arrays
+function uniq(a) {
+    var seen = {};
+    return a.filter(function(item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+}
+
 var app = new Survey();
 app.registerComponent('Page', 'Page', 'Page');
