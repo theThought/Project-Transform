@@ -97,8 +97,10 @@ define(
         component.prototype.clearEntries = function (event) {
             if (event.detail.questionName === this.questionName) {
                 // this is responsible for clearing text areas
-                this.element.value = "";
-                this.broadcastChange();
+                if (this.element.value !== "") {
+                    this.element.value = "";
+                    this.broadcastChange();
+                }
             }
         }
 
