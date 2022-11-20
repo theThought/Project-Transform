@@ -31,7 +31,7 @@ define(['o-question'],
             this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
             this.collapse = false;
             this.complexVisibilityRule = '';
-            this.parsedVisibilityRule = '';
+            this.expandedVisibilityRule = '';
             this.sourceQuestions = [];
 
             this.configureProperties();
@@ -63,7 +63,6 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.onConfigurationComplete = function (event) {
-
             if (!this.ready && event.detail.group === this.group) {
                 this.ready = true;
                 this.element.classList.add('config-complete');
@@ -72,7 +71,6 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.configureInitialVisibility = function () {
-
             // if there are no visibility rules defined for this question lift the cover immediately
             if (typeof this.properties.visible === "undefined") {
                 this.liftCover();
@@ -111,40 +109,21 @@ define(['o-question'],
             ruleString = this.expandContainsAllRule(ruleString);
             ruleString = this.expandContainsNoneRule(ruleString);
             ruleString = this.replaceOperators(ruleString);
-            this.extractQuestionIdentifiers(ruleString);
-            ruleString = this.getQuestionValues(ruleString);
-            this.parsedVisibilityRule = ruleString;
+            ruleString = this.extractQuestionIdentifiers(ruleString);
+            this.expandedVisibilityRule = ruleString;
         }
 
         oQuestionContainer.prototype.extractQuestionIdentifiers = function (ruleString) {
             var questionRe = /%%(\w+)%%/g;
             var questions = ruleString.match(questionRe);
+            questions = uniq(questions);
 
             for (var i = 0; i < questions.length; i++) {
-                var currentquestion = questions[i].replace('_', '__');
-                currentquestion = currentquestion.replace(questionRe, '_Q$1');
-                this.sourceQuestions.push(currentquestion);
-            }
-        }
-
-        oQuestionContainer.prototype.getQuestionValues = function (ruleString) {
-            var questionRe = /%%(\w+?)%%/g;
-
-            for (var i = 0; i < this.sourceQuestions.length; i++) {
-                var currentquestion = this.sourceQuestions[i];
-                //currentquestion = currentquestion.replace('_', '__');
-                currentquestion = currentquestion.replace(questionRe, '_Q$1');
-                var questionelement = document.getElementsByName(currentquestion)[0];
-                var questionvalue = 0;
-
-                if (typeof questionelement === 'undefined') {
-                    this.debug('Could not find a question required by a visibility rule:', 2);
-                    this.debug(currentquestion, 2);
-                } else {
-                    questionvalue = questionelement.value;
-                }
-
-                ruleString = ruleString.replace(questionRe, "'" + questionvalue + "'");
+                var currentQuestionRe = new RegExp(questions[i], "g");
+                var currentQuestion = questions[i].replace('_', '__');
+                currentQuestion = currentQuestion.replace(questionRe, '_Q$1');
+                this.sourceQuestions.push(currentQuestion);
+                ruleString = ruleString.replace(currentQuestionRe, "%%" + currentQuestion + "%%");
             }
 
             return ruleString;
@@ -221,7 +200,7 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.processVisibilityRules = function () {
-            if (this.parsedVisibilityRule === '') {
+            if (this.expandedVisibilityRule === '') {
                 return;
             }
 
@@ -230,42 +209,31 @@ define(['o-question'],
             }
 
             this.debug(this.complexVisibilityRule, 3);
-            this.debug(this.parsedVisibilityRule, 3);
-            var rule = func(this.parsedVisibilityRule);
+            this.debug(this.expandedVisibilityRule, 3);
+            var ruleString = this.getQuestionValues(this.expandedVisibilityRule);
+            this.debug(ruleString, 3);
+            var rule = func(ruleString);
             this.debug(rule, 3);
         }
 
-        oQuestionContainer.prototype.processVisibilityMinValue = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.element.value === 'undefined') {
-                return;
+        oQuestionContainer.prototype.getQuestionValues = function (ruleString) {
+            for (var i = 0; i < this.sourceQuestions.length; i++) {
+                var currentQuestionRe = new RegExp("%%" + this.sourceQuestions[i] + "%%", "g");
+                var currentQuestion = this.sourceQuestions[i];
+
+                var questionElement = document.getElementsByName(currentQuestion)[0];
+                var questionValue = '0';
+
+                if (typeof questionElement === 'undefined') {
+                    this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
+                } else {
+                    questionValue = questionElement.value;
+                }
+
+                ruleString = ruleString.replace(currentQuestionRe, questionValue);
             }
 
-            var incomingValue = broadcastingComponent.element.value;
-            rule.satisfied = Number(incomingValue) >= Number(rule.value);
-        }
-
-        oQuestionContainer.prototype.processVisibilityMaxValue = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.element.value === 'undefined') {
-                return;
-            }
-
-            var incomingValue = broadcastingComponent.element.value;
-
-            // treat blank entries as a 0
-            if (incomingValue === '') {
-                incomingValue = 0;
-            }
-
-            rule.satisfied = Number(incomingValue) <= Number(rule.value);
-        }
-
-        oQuestionContainer.prototype.processVisibilityNotValue = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.element.value === 'undefined') {
-                return;
-            }
-
-            var incomingValue = broadcastingComponent.element.value;
-            rule.satisfied = Number(incomingValue) !== Number(rule.value);
+            return ruleString;
         }
 
         oQuestionContainer.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
@@ -278,19 +246,6 @@ define(['o-question'],
 
             if (rule.value.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2") === incomingValue.toLowerCase()) {
                 rule.satisfied = incomingChecked;
-            }
-        }
-
-        oQuestionContainer.prototype.processVisibilityNotSpecificOption = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.checkbox === "undefined") {
-                return;
-            }
-
-            var incomingValue = broadcastingComponent.checkbox.value;
-            var incomingChecked = broadcastingComponent.checkbox.checked;
-
-            if (rule.value.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2") === incomingValue.toLowerCase()) {
-                rule.satisfied = !incomingChecked;
             }
         }
 
