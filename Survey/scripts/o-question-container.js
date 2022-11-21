@@ -278,10 +278,14 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.makeUnavailable = function () {
+            if (!this.available) {
+                return;
+            }
+
             this.available = false;
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
-            //document.dispatchEvent(clearEntries);
+            document.dispatchEvent(clearEntries);
             this.element.classList.add('unavailable');
         }
 
