@@ -134,7 +134,7 @@ define(['o-question'],
             ruleString = ruleString.replace(/and/gi, '&&');
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
             ruleString = ruleString.replace(questionRe, "%%$1%%$2")
-            ruleString = ruleString.replace(/[^=<>]=[^=]/g, '===');
+            ruleString = ruleString.replace(/[^=<>]=[^=]/g, '==');
 
             return ruleString;
         }
@@ -157,10 +157,10 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '%%' + matches[1] + '%% === ';
+            var expandedString = '%%' + matches[1] + '%% == ';
             var contains = this.escapeString(matches[2]);
             contains = contains.split(',');
-            expandedString += contains.join(' || %%' + matches[1] + '%% === ');
+            expandedString += contains.join(' || %%' + matches[1] + '%% == ');
 
             return '(' + expandedString + ')';
         }
@@ -178,10 +178,10 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '%%' + matches[1] + '%% === ';
+            var expandedString = '%%' + matches[1] + '%% == ';
             var contains = this.escapeString(matches[2]);
             contains = contains.split(',');
-            expandedString += contains.join(' && %%' + matches[1] + '%% === ');
+            expandedString += contains.join(' && %%' + matches[1] + '%% == ');
 
             return '(' + expandedString + ')';
         }
@@ -199,10 +199,10 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '!%%' + matches[1] + '%% === ';
+            var expandedString = '!%%' + matches[1] + '%% == ';
             var contains = this.escapeString(matches[2]);
             contains = contains.split(',');
-            expandedString += contains.join(' && !%%' + matches[1] + '%% === ');
+            expandedString += contains.join(' && !%%' + matches[1] + '%% == ');
 
             return expandedString;
         }
