@@ -88,13 +88,15 @@ define(['component'],
 
         mOptionBase.prototype.clearEntries = function (event) {
             if (event.detail.questionName === this.questionName) {
-                this.checkbox.checked = false;
+                if (this.checkbox.checked) {
+                    this.checkbox.checked = false;
+                    this.broadcastChange();
+                }
 
                 if (this.textInput !== null) {
                     this.textInput.value = "";
                 }
 
-                this.broadcastChange();
             }
         }
 
@@ -143,8 +145,10 @@ define(['component'],
 
             // handle external events
             if (this.element !== event.detail.element) {
-                this.checkbox.checked = false;
-                this.broadcastChange();
+                if (this.checkbox.checked) {
+                    this.checkbox.checked = false;
+                    this.broadcastChange();
+                }
             }
 
         }
@@ -153,16 +157,20 @@ define(['component'],
 
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
-                this.checkbox.checked = false;
-                this.broadcastChange();
+                if (this.checkbox.checked) {
+                    this.checkbox.checked = false;
+                    this.broadcastChange();
+                }
             }
         }
 
         mOptionBase.prototype.onTextFocus = function (event) {
 
             if (this.isExclusive && event.detail.element !== this.textInput) {
-                this.checkbox.checked = false;
-                this.broadcastChange();
+                if (this.checkbox.checked) {
+                    this.checkbox.checked = false;
+                    this.broadcastChange();
+                }
             }
         }
 

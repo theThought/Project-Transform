@@ -32,7 +32,7 @@ define(['o-question'],
             this.collapse = false;
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
-            this.hasParsedRules = false;
+            this.ruleParsingComplete = false;
             this.sourceQuestions = [];
 
             this.configureProperties();
@@ -53,8 +53,7 @@ define(['o-question'],
         oQuestionContainer.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'broadcastChange':
-                    this.debug('Calling process from broadcastChange');
-                    this.processVisibilityRules();
+                    this.processVisibilityRulesFromExternalTrigger(event);
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
@@ -89,7 +88,7 @@ define(['o-question'],
 
         oQuestionContainer.prototype.parseVisibilityRules = function () {
             if (typeof this.properties.visible === "undefined") {
-                this.hasParsedRules = true;
+                this.ruleParsingComplete = true;
                 return;
             }
 
@@ -112,7 +111,7 @@ define(['o-question'],
             ruleString = this.replaceOperators(ruleString);
             ruleString = this.extractQuestionIdentifiers(ruleString);
             this.expandedVisibilityRule = ruleString;
-            this.hasParsedRules = true;
+            this.ruleParsingComplete = true;
         }
 
         oQuestionContainer.prototype.extractQuestionIdentifiers = function (ruleString) {
@@ -134,9 +133,9 @@ define(['o-question'],
         oQuestionContainer.prototype.replaceOperators = function (ruleString) {
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
-            ruleString = ruleString.replace(/[^=]=[^=]/g, '===');
-            var questionRe = /\s?(\w+)(\s?[=<>]\s?)/;
+            var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
             ruleString = ruleString.replace(questionRe, "%%$1%%$2")
+            ruleString = ruleString.replace(/[^=<>]=[^=]/g, '===');
 
             return ruleString;
         }
@@ -209,8 +208,12 @@ define(['o-question'],
             return expandedString;
         }
 
+        oQuestionContainer.prototype.processVisibilityRulesFromExternalTrigger = function (event) {
+            this.processVisibilityRules();
+        }
+
         oQuestionContainer.prototype.processVisibilityRules = function () {
-            if (!this.hasParsedRules) {
+            if (!this.ruleParsingComplete) {
                 this.parseVisibilityRules();
             }
 
@@ -222,16 +225,14 @@ define(['o-question'],
                 return (new Function('return (' + string + ')')());
             }
 
+            this.debug('Processing visibility rules for ' + this.questionName, 3);
             this.debug(this.complexVisibilityRule, 3);
-            this.debug(this.expandedVisibilityRule, 3);
             var ruleString = this.getQuestionValues(this.expandedVisibilityRule).toLowerCase();
             this.debug(ruleString, 3);
             if (func(ruleString)) {
-                this.debug('Rule satisified', 3);
                 this.makeAvailable();
             } else {
-                this.debug('Rule failed', 3);
-                //this.makeUnavailable();
+                this.makeUnavailable();
             }
         }
 
@@ -265,56 +266,6 @@ define(['o-question'],
             return ruleString;
         }
 
-        oQuestionContainer.prototype.processVisibilitySpecificOption = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.checkbox === "undefined") {
-                return;
-            }
-
-            var incomingValue = broadcastingComponent.checkbox.value;
-            var incomingChecked = broadcastingComponent.checkbox.checked;
-
-            if (rule.value.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2") === incomingValue.toLowerCase()) {
-                rule.satisfied = incomingChecked;
-            }
-        }
-
-        oQuestionContainer.prototype.processVisibilitySpecificList = function (rule, broadcastingComponent) {
-            if (typeof broadcastingComponent.checkbox === 'undefined') {
-                return;
-            }
-
-            if (!Array.isArray(rule.value)) {
-                return;
-            }
-
-            var requiredScore = 1; // for future consideration where we may require 2 out of 3 options, &c.
-            var currentScore = 0;
-            var incomingValue = broadcastingComponent.checkbox.value;
-            var incomingChecked = broadcastingComponent.checkbox.checked;
-
-            if (typeof rule.valuessatisfied === "undefined") {
-                rule.valuessatisfied = [];
-            }
-
-            rule.value.forEach(function (item) {
-                if (incomingValue.toLowerCase() === item.toLowerCase().replace(/(\w)_([^qQ])/g, "$1__$2")) {
-                    if (incomingChecked) {
-                        if (rule.valuessatisfied.indexOf(incomingValue) === -1) {
-                            rule.valuessatisfied.push(incomingValue);
-                        }
-                    } else {
-                        var index = rule.valuessatisfied.indexOf(incomingValue);
-                        if (index !== -1) {
-                            rule.valuessatisfied.splice(index, 1);
-                        }
-                    }
-                }
-            });
-
-            currentScore = rule.valuessatisfied.length;
-            rule.satisfied = currentScore >= requiredScore;
-        }
-
         oQuestionContainer.prototype.makeAvailable = function () {
             if (this.container === null || this.available) {
                 return;
@@ -330,7 +281,7 @@ define(['o-question'],
             this.available = false;
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
-            document.dispatchEvent(clearEntries);
+            //document.dispatchEvent(clearEntries);
             this.element.classList.add('unavailable');
         }
 
