@@ -66,7 +66,6 @@ define(['o-question'],
                 this.ready = true;
                 this.element.classList.add('config-complete');
             }
-
         }
 
         oQuestionContainer.prototype.configureInitialVisibility = function () {
@@ -221,19 +220,21 @@ define(['o-question'],
                 return;
             }
 
-            var func = function (string) {
-                return (new Function('return (' + string + ')')());
-            }
-
             this.debug('Processing visibility rules for ' + this.questionName, 3);
             this.debug(this.complexVisibilityRule, 3);
-            var ruleString = this.getQuestionValues(this.expandedVisibilityRule).toLowerCase();
-            this.debug(ruleString, 3);
-            if (func(ruleString)) {
+            var ruleString = this.getQuestionValues(this.expandedVisibilityRule);
+
+            if (this.evaluateRule(ruleString)) {
                 this.makeAvailable();
             } else {
                 this.makeUnavailable();
             }
+        }
+
+        oQuestionContainer.prototype.evaluateRule = function (string) {
+            string = string.toLowerCase();
+            this.debug(string, 3);
+            return (new Function('return (' + string + ')')());
         }
 
         oQuestionContainer.prototype.getQuestionValues = function (ruleString) {
@@ -255,7 +256,6 @@ define(['o-question'],
 
                         var questionValue = questionElements[j].value;
                         ruleString = ruleString.replace("%%" + this.sourceQuestions[i] + "%%", "'" + questionValue + "'");
-
                     }
                 }
 
