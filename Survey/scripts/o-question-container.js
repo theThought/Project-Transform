@@ -133,7 +133,7 @@ define(['o-question'],
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
-            ruleString = ruleString.replace(questionRe, "%%$1%%$2")
+            ruleString = ruleString.replace(questionRe, "%%$1%% $2")
             ruleString = ruleString.replace(/[^=<>]=[^=]/g, '==');
 
             return ruleString;
@@ -161,8 +161,11 @@ define(['o-question'],
             var contains = this.escapeString(matches[2]);
             contains = contains.split(',');
             expandedString += contains.join(' || %%' + matches[1] + '%% == ');
+            expandedString = '(' + expandedString + ')';
 
-            return '(' + expandedString + ')';
+            ruleString = ruleString.replace(matches[0], expandedString);
+
+            return ruleString;
         }
 
         oQuestionContainer.prototype.expandContainsAllRule = function (ruleString) {
@@ -182,8 +185,11 @@ define(['o-question'],
             var contains = this.escapeString(matches[2]);
             contains = contains.split(',');
             expandedString += contains.join(' && %%' + matches[1] + '%% == ');
+            expandedString = '(' + expandedString + ')';
 
-            return '(' + expandedString + ')';
+            ruleString = ruleString.replace(matches[0], expandedString);
+
+            return ruleString;
         }
 
         oQuestionContainer.prototype.expandContainsNoneRule = function (ruleString) {
@@ -203,8 +209,11 @@ define(['o-question'],
             var contains = this.escapeString(matches[2]);
             contains = contains.split(',');
             expandedString += contains.join(' && !%%' + matches[1] + '%% == ');
+            expandedString = '(' + expandedString + ')';
 
-            return expandedString;
+            ruleString = ruleString.replace(matches[0], expandedString);
+
+            return ruleString;
         }
 
         oQuestionContainer.prototype.processVisibilityRulesFromExternalTrigger = function (event) {
