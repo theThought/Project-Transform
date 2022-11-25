@@ -149,8 +149,6 @@ define(['o-question'],
                 return ruleString;
             }
 
-            // use array.indexOf
-
             var re = /\s?(\w+)\.containsAny\((.*?)\)/g;
             var matches;
 
@@ -160,9 +158,6 @@ define(['o-question'],
             matches = re.exec(ruleString);
 
             var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) != -1';
-            // var contains = this.escapeString(matches[2]);
-            // contains = contains.split(',');
-            // expandedString += contains.join(' || %%' + matches[1] + '%% == ');
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -175,7 +170,7 @@ define(['o-question'],
                 return ruleString;
             }
 
-            // use array.every
+            // TODO: replace indexOf with array.every()
 
             var re = /\s?(\w+)\.containsAll\((.*?)\)/g;
             var matches;
@@ -186,9 +181,6 @@ define(['o-question'],
             matches = re.exec(ruleString);
 
             var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) != -1';
-            // var contains = this.escapeString(matches[2]);
-            // contains = contains.split(',');
-            // expandedString += contains.join(' && %%' + matches[1] + '%% == ');
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -201,8 +193,6 @@ define(['o-question'],
                 return ruleString;
             }
 
-            // use negated array.indexOf
-
             var re = /\s?(\w+)\.containsNone\((.*?)\)/g;
             var matches;
 
@@ -212,10 +202,6 @@ define(['o-question'],
             matches = re.exec(ruleString);
 
             var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) == -1';
-            // var expandedString = '!%%' + matches[1] + '%% == ';
-            // var contains = this.escapeString(matches[2]);
-            // contains = contains.split(',');
-            // expandedString += contains.join(' && !%%' + matches[1] + '%% == ');
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -264,12 +250,9 @@ define(['o-question'],
             // a final safety net that should ultimately be unnecessary
             string = string.replace(/%%(\w+)%%/g, 'null');
 
-            // we cannot lowercase when using functions such as indexOf
-            //string = string.toLowerCase();
             this.debug(string, 3);
 
-            var result = (new Function('return (' + string + ')')());
-            return result;
+            return (new Function('return (' + string + ')')());
         }
 
         oQuestionContainer.prototype.getQuestionValues = function () {
