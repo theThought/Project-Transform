@@ -33,7 +33,7 @@ define(['o-question'],
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
             this.ruleParsingComplete = false;
-            this.sourceQuestions = [];
+            this.sourceQuestions = {};
 
             this.configureProperties();
             this.configureIncomingEventListeners();
@@ -120,9 +120,9 @@ define(['o-question'],
 
             for (var i = 0; i < questions.length; i++) {
                 var currentQuestionRe = new RegExp(questions[i], "g");
-                var currentQuestion = this.escapeString(questions[i]);
+                var currentQuestion = questions[i];
                 currentQuestion = currentQuestion.replace(questionRe, '_Q$1');
-                this.sourceQuestions.push(currentQuestion);
+                this.sourceQuestions[currentQuestion] = [];
                 ruleString = ruleString.replace(currentQuestionRe, "%%" + currentQuestion + "%%");
             }
 
@@ -133,14 +133,14 @@ define(['o-question'],
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
-            ruleString = ruleString.replace(questionRe, "%%$1%% $2")
-            ruleString = ruleString.replace(/[^=<>]=[^=]/g, '==');
+            ruleString = ruleString.replace(questionRe, " %%$1%% $2 ")
+            ruleString = ruleString.replace(/[^=!<>]=[^=]/g, '==');
 
             return ruleString;
         }
 
         oQuestionContainer.prototype.escapeString = function (string) {
-            string = string.replace('_', '__');
+            string = string.replace(/_/g, '__');
             return string;
         }
 
@@ -149,7 +149,9 @@ define(['o-question'],
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.containsAny\((.*)\)/g;
+            // use array.indexOf
+
+            var re = /\s?(\w+)\.containsAny\((.*?)\)/g;
             var matches;
 
             // match 0: full string
@@ -157,10 +159,10 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '%%' + matches[1] + '%% == ';
-            var contains = this.escapeString(matches[2]);
-            contains = contains.split(',');
-            expandedString += contains.join(' || %%' + matches[1] + '%% == ');
+            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) != -1';
+            // var contains = this.escapeString(matches[2]);
+            // contains = contains.split(',');
+            // expandedString += contains.join(' || %%' + matches[1] + '%% == ');
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -173,7 +175,9 @@ define(['o-question'],
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.containsAll\((.*)\)/g;
+            // use array.every
+
+            var re = /\s?(\w+)\.containsAll\((.*?)\)/g;
             var matches;
 
             // match 0: full string
@@ -181,10 +185,10 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '%%' + matches[1] + '%% == ';
-            var contains = this.escapeString(matches[2]);
-            contains = contains.split(',');
-            expandedString += contains.join(' && %%' + matches[1] + '%% == ');
+            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) != -1';
+            // var contains = this.escapeString(matches[2]);
+            // contains = contains.split(',');
+            // expandedString += contains.join(' && %%' + matches[1] + '%% == ');
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -197,7 +201,9 @@ define(['o-question'],
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.containsNone\((.*)\)/g;
+            // use negated array.indexOf
+
+            var re = /\s?(\w+)\.containsNone\((.*?)\)/g;
             var matches;
 
             // match 0: full string
@@ -205,10 +211,11 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '!%%' + matches[1] + '%% == ';
-            var contains = this.escapeString(matches[2]);
-            contains = contains.split(',');
-            expandedString += contains.join(' && !%%' + matches[1] + '%% == ');
+            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) == -1';
+            // var expandedString = '!%%' + matches[1] + '%% == ';
+            // var contains = this.escapeString(matches[2]);
+            // contains = contains.split(',');
+            // expandedString += contains.join(' && !%%' + matches[1] + '%% == ');
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -231,7 +238,8 @@ define(['o-question'],
 
             this.debug('Processing visibility rules for ' + this.questionName, 3);
             this.debug(this.complexVisibilityRule, 3);
-            var ruleString = this.getQuestionValues(this.expandedVisibilityRule);
+            this.getQuestionValues();
+            var ruleString = this.insertQuestionValuesIntoRule();
 
             if (this.evaluateRule(ruleString)) {
                 this.makeAvailable();
@@ -240,39 +248,57 @@ define(['o-question'],
             }
         }
 
-        oQuestionContainer.prototype.evaluateRule = function (string) {
-            string = string.toLowerCase();
-            this.debug(string, 3);
-            return (new Function('return (' + string + ')')());
+        oQuestionContainer.prototype.insertQuestionValuesIntoRule = function () {
+            var ruleString = this.expandedVisibilityRule;
+            for (var question in this.sourceQuestions) {
+                if (this.sourceQuestions.hasOwnProperty(question)) {
+                    var questionData = this.sourceQuestions[question].join("','");
+                }
+                ruleString = ruleString.replace('%%' + question + '%%', "'" + questionData + "'");
+            }
+            return ruleString;
         }
 
-        oQuestionContainer.prototype.getQuestionValues = function (ruleString) {
-            for (var i = 0; i < this.sourceQuestions.length; i++) {
-                var allQuestionsRe = new RegExp("%%" + this.sourceQuestions[i] + "%%", "g");
-                var currentQuestion = this.sourceQuestions[i];
+        oQuestionContainer.prototype.evaluateRule = function (string) {
+            // replace any remaining question placeholders with null --
+            // a final safety net that should ultimately be unnecessary
+            string = string.replace(/%%(\w+)%%/g, 'null');
 
-                var questionElements = document.querySelectorAll("input[name*='" + currentQuestion + "']");
-                var defaultValue = 'null';
+            // we cannot lowercase when using functions such as indexOf
+            //string = string.toLowerCase();
+            this.debug(string, 3);
 
-                if (!questionElements.length) {
-                    this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
-                } else {
-                    for (var j = 0; j < questionElements.length; j++) {
-                        var questionType = questionElements[j].type;
-                        if ((questionType === 'checkbox' || questionType === 'radio') && !questionElements[j].checked) {
-                            continue;
+            var result = (new Function('return (' + string + ')')());
+            return result;
+        }
+
+        oQuestionContainer.prototype.getQuestionValues = function () {
+            for (var currentQuestion in this.sourceQuestions) {
+                if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
+                    this.sourceQuestions[currentQuestion] = [];
+                    var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
+                    var questionElements = document.querySelectorAll("input[name*='" + currentQuestion + "']");
+
+                    if (!questionElements.length) {
+                        this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
+                    } else {
+                        var questionSubstitutionString = "";
+
+                        for (var j = 0; j < questionElements.length; j++) {
+                            // determine the input type - required for handling unselected checkboxes/radio buttons
+                            var questionType = questionElements[j].type;
+
+                            if ((questionType === 'checkbox' || questionType === 'radio') && !questionElements[j].checked) {
+                                continue;
+                            }
+
+                            var questionValue = questionElements[j].value.toLowerCase();
+                            this.sourceQuestions[currentQuestion].push(questionValue);
                         }
-
-                        var questionValue = questionElements[j].value;
-                        ruleString = ruleString.replace("%%" + this.sourceQuestions[i] + "%%", "'" + questionValue + "'");
+                        this.sourceQuestions[currentQuestion] = uniq(this.sourceQuestions[currentQuestion]);
                     }
                 }
-
-                // replace any remaining questions in the string with the default/not present value
-                ruleString = ruleString.replace(allQuestionsRe, defaultValue);
             }
-
-            return ruleString;
         }
 
         oQuestionContainer.prototype.makeAvailable = function () {
