@@ -157,7 +157,7 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) != -1';
+            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) >= 0';
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
@@ -170,8 +170,6 @@ define(['o-question'],
                 return ruleString;
             }
 
-            // TODO: replace indexOf with array.every()
-
             var re = /\s?(\w+)\.containsAll\((.*?)\)/g;
             var matches;
 
@@ -180,7 +178,7 @@ define(['o-question'],
             // match 2: contains string
             matches = re.exec(ruleString);
 
-            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) != -1';
+            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
             expandedString = '(' + expandedString + ')';
 
             ruleString = ruleString.replace(matches[0], expandedString);
