@@ -33,12 +33,14 @@ define(['o-question'],
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
             this.ruleParsingComplete = false;
+            this.optionRuleParsingComplete = false;
             this.sourceQuestions = {};
 
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureInitialVisibility();
             this.processVisibilityRules();
+            this.processOptionVisibilityRules();
             this.configurationComplete();
         }
 
@@ -85,14 +87,7 @@ define(['o-question'],
             this.element.classList.add('unavailable');
         }
 
-        oQuestionContainer.prototype.parseVisibilityRules = function () {
-            if (typeof this.properties.visible === "undefined") {
-                this.ruleParsingComplete = true;
-                return;
-            }
-
-            this.complexVisibilityRule = this.properties.visible.rules;
-            var ruleString = this.complexVisibilityRule;
+        oQuestionContainer.prototype.parseVisibilityRules = function (ruleString) {
             // regular expression that searches for a string followed by an operator
             // operators are = < > <> .containsNone .containsNone .containsAll
             var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>]\s?)/;
@@ -109,8 +104,9 @@ define(['o-question'],
             ruleString = this.expandContainsNoneRule(ruleString);
             ruleString = this.replaceOperators(ruleString);
             ruleString = this.extractQuestionIdentifiers(ruleString);
-            this.expandedVisibilityRule = ruleString;
             this.ruleParsingComplete = true;
+
+            return ruleString;
         }
 
         oQuestionContainer.prototype.extractQuestionIdentifiers = function (ruleString) {
@@ -212,8 +208,14 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.processVisibilityRules = function () {
+            if (typeof this.properties.visible === "undefined") {
+                this.ruleParsingComplete = true;
+                return;
+            }
+
             if (!this.ruleParsingComplete) {
-                this.parseVisibilityRules();
+                this.complexVisibilityRule = this.properties.visible.rules;
+                this.expandedVisibilityRule = this.parseVisibilityRules(this.complexVisibilityRule);
             }
 
             if (this.expandedVisibilityRule === '') {
@@ -223,7 +225,7 @@ define(['o-question'],
             this.debug('Processing visibility rules for ' + this.questionName, 3);
             this.debug(this.complexVisibilityRule, 3);
             this.getQuestionValues();
-            var ruleString = this.insertQuestionValuesIntoRule();
+            var ruleString = this.insertQuestionValuesIntoRule(this.expandedVisibilityRule);
 
             if (this.evaluateRule(ruleString)) {
                 this.makeAvailable();
@@ -232,14 +234,32 @@ define(['o-question'],
             }
         }
 
-        oQuestionContainer.prototype.insertQuestionValuesIntoRule = function () {
-            var ruleString = this.expandedVisibilityRule;
+        oQuestionContainer.prototype.processOptionVisibilityRules = function () {
+            if (!this.optionRuleParsingComplete) {
+                this.parseOptionVisibilityRules();
+            }
+        }
+
+        oQuestionContainer.prototype.parseOptionVisibilityRules = function () {
+            if (typeof this.properties.options === "undefined") {
+                this.optionRuleParsingComplete = true;
+                return;
+            }
+
+            for (var i = 0; i < this.properties.options.length; i++) {
+                var ruleString = this.properties.options[i].invisibility.rules;
+                this.properties.options[i].invisibility.parsedRule = this.parseVisibilityRules(ruleString);
+            }
+        }
+
+        oQuestionContainer.prototype.insertQuestionValuesIntoRule = function (ruleString) {
             for (var question in this.sourceQuestions) {
                 if (this.sourceQuestions.hasOwnProperty(question)) {
                     var questionData = this.sourceQuestions[question].join("','");
                 }
                 ruleString = ruleString.replace('%%' + question + '%%', "'" + questionData + "'");
             }
+
             return ruleString;
         }
 
