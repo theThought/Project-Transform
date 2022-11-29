@@ -136,7 +136,7 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.escapeString = function (string) {
-            string = string.replace(/_/g, '__');
+            string = string.replace(/_[^Q]/g, '__');
             return string;
         }
 
