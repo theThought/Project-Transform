@@ -129,14 +129,16 @@ define(['o-question'],
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
-            ruleString = ruleString.replace(questionRe, " %%$1%% $2 ")
+            ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
+            ruleString = ruleString.replace('%gt%', '>');
+            ruleString = ruleString.replace('%lt%', '<');
             ruleString = ruleString.replace(/[^=!<>]=[^=]/g, '==');
 
             return ruleString;
         }
 
         oQuestionContainer.prototype.escapeString = function (string) {
-            string = string.replace(/_[^Q]/g, '__');
+            string = string.replace(/_([^Q])/g, '__$1');
             return string;
         }
 
@@ -145,7 +147,7 @@ define(['o-question'],
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.containsAny\((.*?)\)/g;
+            var re = /\s?(\w+)\.containsAny\((.*?)\)/ig;
             var matches;
 
             // match 0: full string
@@ -166,7 +168,7 @@ define(['o-question'],
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.containsAll\((.*?)\)/g;
+            var re = /\s?(\w+)\.containsAll\((.*?)\)/ig;
             var matches;
 
             // match 0: full string
@@ -187,7 +189,7 @@ define(['o-question'],
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.containsNone\((.*?)\)/g;
+            var re = /\s?(\w+)\.containsNone\((.*?)\)/ig;
             var matches;
 
             // match 0: full string
