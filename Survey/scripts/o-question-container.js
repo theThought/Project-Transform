@@ -128,8 +128,8 @@ define(['o-question'],
         oQuestionContainer.prototype.replaceOperators = function (ruleString) {
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
-            ruleString = ruleString.replace('%gt%', '>');
-            ruleString = ruleString.replace('%lt%', '<');
+            ruleString = ruleString.replace(/%gt%/g, '>');
+            ruleString = ruleString.replace(/%lt%/g, '<');
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
             ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
             ruleString = ruleString.replace(/[^=!<>]=[^=]/g, '==');
