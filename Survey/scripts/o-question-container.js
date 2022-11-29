@@ -153,12 +153,13 @@ define(['o-question'],
             // match 0: full string
             // match 1: question
             // match 2: contains string
-            matches = re.exec(ruleString);
+            while (null !== (matches = re.exec(ruleString))) {
+                var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].some(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
+                expandedString = '(' + expandedString + ')';
 
-            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].indexOf(%%' + this.escapeString(matches[1]) + '%%) >= 0';
-            expandedString = '(' + expandedString + ')';
+                ruleString = ruleString.replace(matches[0], expandedString);
+            }
 
-            ruleString = ruleString.replace(matches[0], expandedString);
 
             return ruleString;
         }
@@ -174,12 +175,13 @@ define(['o-question'],
             // match 0: full string
             // match 1: question
             // match 2: contains string
-            matches = re.exec(ruleString);
+            while (null !== (matches = re.exec(ruleString))) {
+                var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
+                expandedString = '(' + expandedString + ')';
 
-            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
-            expandedString = '(' + expandedString + ')';
+                ruleString = ruleString.replace(matches[0], expandedString);
+            }
 
-            ruleString = ruleString.replace(matches[0], expandedString);
 
             return ruleString;
         }
@@ -195,12 +197,12 @@ define(['o-question'],
             // match 0: full string
             // match 1: question
             // match 2: contains string
-            matches = re.exec(ruleString);
+            while (null !== (matches = re.exec(ruleString))) {
+                var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) == -1})';
+                expandedString = '(' + expandedString + ')';
 
-            var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) == -1})';
-            expandedString = '(' + expandedString + ')';
-
-            ruleString = ruleString.replace(matches[0], expandedString);
+                ruleString = ruleString.replace(matches[0], expandedString);
+            }
 
             return ruleString;
         }
@@ -255,11 +257,12 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.insertQuestionValuesIntoRule = function (ruleString) {
-            for (var question in this.sourceQuestions) {
-                if (this.sourceQuestions.hasOwnProperty(question)) {
-                    var questionData = this.sourceQuestions[question].join("','");
+            for (var currentQuestion in this.sourceQuestions) {
+                if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
+                    var questionData = this.sourceQuestions[currentQuestion].join("','");
                 }
-                ruleString = ruleString.replace('%%' + question + '%%', "'" + questionData + "'");
+                var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
+                ruleString = ruleString.replace(allQuestionsRe, "'" + questionData + "'");
             }
 
             return ruleString;
