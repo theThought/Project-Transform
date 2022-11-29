@@ -129,7 +129,9 @@ define(['o-question'],
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
-            ruleString = ruleString.replace(questionRe, " %%$1%% $2 ")
+            ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
+            ruleString = ruleString.replace('%gt%', '>');
+            ruleString = ruleString.replace('%lt%', '<');
             ruleString = ruleString.replace(/[^=!<>]=[^=]/g, '==');
 
             return ruleString;
