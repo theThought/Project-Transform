@@ -126,11 +126,12 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.replaceOperators = function (ruleString) {
+            var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
+
             ruleString = ruleString.replace(/or/gi, '||');
             ruleString = ruleString.replace(/and/gi, '&&');
             ruleString = ruleString.replace(/%gt%/g, '>');
             ruleString = ruleString.replace(/%lt%/g, '<');
-            var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
             ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
             ruleString = ruleString.replace(/[^=!<>]=[^=]/g, '==');
 
@@ -156,10 +157,8 @@ define(['o-question'],
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].some(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
                 expandedString = '(' + expandedString + ')';
-
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
-
 
             return ruleString;
         }
@@ -178,7 +177,6 @@ define(['o-question'],
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
                 expandedString = '(' + expandedString + ')';
-
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
@@ -200,14 +198,13 @@ define(['o-question'],
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) == -1})';
                 expandedString = '(' + expandedString + ')';
-
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
             return ruleString;
         }
 
-        oQuestionContainer.prototype.processVisibilityRulesFromExternalTrigger = function (event) {
+        oQuestionContainer.prototype.processVisibilityRulesFromExternalTrigger = function () {
             this.processVisibilityRules();
         }
 
@@ -261,6 +258,7 @@ define(['o-question'],
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     var questionData = this.sourceQuestions[currentQuestion].join("','");
                 }
+
                 var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
                 ruleString = ruleString.replace(allQuestionsRe, "'" + questionData + "'");
             }
@@ -282,14 +280,11 @@ define(['o-question'],
             for (var currentQuestion in this.sourceQuestions) {
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     this.sourceQuestions[currentQuestion] = [];
-                    var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
                     var questionElements = document.querySelectorAll("input[name*='" + currentQuestion + "']");
 
                     if (!questionElements.length) {
                         this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
                     } else {
-                        var questionSubstitutionString = "";
-
                         for (var j = 0; j < questionElements.length; j++) {
                             // determine the input type - required for handling unselected checkboxes/radio buttons
                             var questionType = questionElements[j].type;
@@ -301,6 +296,7 @@ define(['o-question'],
                             var questionValue = questionElements[j].value.toLowerCase();
                             this.sourceQuestions[currentQuestion].push(questionValue);
                         }
+
                         this.sourceQuestions[currentQuestion] = uniq(this.sourceQuestions[currentQuestion]);
                     }
                 }
