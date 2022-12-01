@@ -33,10 +33,12 @@ define(['component'],
             this.collapse = true;
             this.sourceQuestions = {};
             this.optionRuleParsingComplete = false;
+            this.hasOptionVisibilityRules = false;
 
             this.container = this.getContainer();
             this.element = document.querySelector('div[class*="o-question-"][data-questiongroup*="' + this.group + '"]');
 
+            this.configureProperties();
             this.processOptionVisibilityRules();
         }
 
@@ -60,10 +62,6 @@ define(['component'],
             }
         }
 
-        oQuestion.prototype.handleEvent = function (event) {
-
-        }
-
         oQuestion.prototype.evaluateRule = function (string) {
             // replace any remaining question placeholders with null --
             // a final safety net that should ultimately be unnecessary
@@ -74,10 +72,59 @@ define(['component'],
             return (new Function('return (' + string + ')')());
         }
 
+        oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function () {
+            this.processOptionVisibilityRules();
+        }
+
         oQuestion.prototype.processOptionVisibilityRules = function () {
             if (!this.optionRuleParsingComplete) {
                 this.parseOptionVisibilityRules();
             }
+
+            if (!this.hasOptionVisibilityRules) {
+                return;
+            }
+
+            this.debug('Processing option invisibility rules for ' + this.questionName, 3);
+            this.getQuestionValues();
+
+            for (var i = 0; i < this.properties.options.invisible.length; i++) {
+                if (this.properties.options.invisible[i].parsedRule === "undefined") {
+                    continue;
+                }
+
+                var ruleString = this.properties.options.invisible[i].parsedRule;
+                ruleString = this.insertQuestionValuesIntoRule(ruleString);
+
+                if (this.evaluateRule(ruleString)) {
+                    this.hideOption(this.properties.options.invisible[i].name);
+                } else {
+                    this.showOption(this.properties.options.invisible[i].name);
+                }
+            }
+        }
+
+        oQuestion.prototype.hideOption = function (itemValue) {
+            var option = this.element.querySelector("[value='" + itemValue + "']");
+
+            if (option === null) {
+                this.debug('Could not find the option to hide.', 2);
+                return;
+            }
+
+            option.checked = false;
+            option.parentNode.style.display = 'none';
+        }
+
+        oQuestion.prototype.showOption = function (itemValue) {
+            var option = this.element.querySelector("[value='" + itemValue + "']");
+
+            if (option === null) {
+                this.debug('Could not find the option to hide.', 2);
+                return;
+            }
+
+            option.parentNode.style.display = 'block';
         }
 
         oQuestion.prototype.getQuestionValues = function () {
@@ -126,12 +173,13 @@ define(['component'],
                 return;
             }
 
-            for (var i = 0; i < this.properties.options.length; i++) {
-                var ruleString = this.properties.options[i].invisibility.rules;
-                this.properties.options[i].invisibility.parsedRule = this.parseVisibilityRules(ruleString);
+            for (var i = 0; i < this.properties.options.invisible.length; i++) {
+                this.hasOptionVisibilityRules = true;
+                var ruleString = this.properties.options.invisible[i].rule;
+                this.properties.options.invisible[i].parsedRule = this.parseVisibilityRules(ruleString);
             }
         }
-        
+
         oQuestion.prototype.parseVisibilityRules = function (ruleString) {
             // regular expression that searches for a string followed by an operator
             // operators are = < > <> .containsNone .containsNone .containsAll

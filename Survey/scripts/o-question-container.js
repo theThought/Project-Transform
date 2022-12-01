@@ -52,7 +52,7 @@ define(['o-question'],
         oQuestionContainer.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'broadcastChange':
-                    this.processVisibilityRulesFromExternalTrigger(event);
+                    this.processVisibilityRulesFromExternalTrigger();
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);

@@ -50,10 +50,14 @@ define(['o-question'],
         oQuestionChoice.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener(this.group + "_requestSize", this, false);
+            document.addEventListener("broadcastChange", this, false);
         }
 
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'broadcastChange':
+                    this.processOptionVisibilityRulesFromExternalTrigger();
+                    break;
                 case 'resize':
                 case this.group + '_requestSize':
                     this.onResize();
