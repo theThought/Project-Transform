@@ -3,15 +3,15 @@ require(['domready'], function (domReady) {
         setInterval(componentsReady, 300);
 
         function componentsReady () {
-            console.info('Calling init for ' + app.components.length + ' components');
-            var i = app.components.length;
+            console.info('Calling init for ' + app.preinitcomponents.length + ' components');
+            var i = app.preinitcomponents.length;
 
             while (i--) {
-                var currentcomponent = app.components[i];
+                var currentcomponent = app.preinitcomponents[i];
                 if (typeof currentcomponent['init'] === 'function') {
                     currentcomponent.init();
                 }
-                app.components.splice(i, 1);
+                app.components.push(app.preinitcomponents.splice(i, 1));
             }
         }
 

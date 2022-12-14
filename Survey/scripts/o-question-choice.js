@@ -55,9 +55,6 @@ define(['o-question'],
 
         oQuestionChoice.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case 'broadcastChange':
-                    this.processOptionVisibilityRulesFromExternalTrigger();
-                    break;
                 case 'resize':
                 case this.group + '_requestSize':
                     this.onResize();

@@ -27,12 +27,17 @@ define(['o-question'],
 
         function oQuestionContainer(id, group) {
             oQuestion.call(this, id, group);
+        }
 
-            this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
+        oQuestionContainer.prototype = Object.create(oQuestion.prototype);
+        oQuestionContainer.prototype.constructor = oQuestionContainer;
+
+        oQuestionContainer.prototype.init = function () {
             this.collapse = false;
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
             this.ruleParsingComplete = false;
+            this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
             this.configureIncomingEventListeners();
@@ -40,9 +45,6 @@ define(['o-question'],
             this.processVisibilityRules();
             this.configurationComplete();
         }
-
-        oQuestionContainer.prototype = Object.create(oQuestion.prototype);
-        oQuestionContainer.prototype.constructor = oQuestionContainer;
 
         oQuestionContainer.prototype.configureIncomingEventListeners = function () {
             document.addEventListener("configComplete", this, false);
@@ -52,7 +54,8 @@ define(['o-question'],
         oQuestionContainer.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'broadcastChange':
-                    this.processVisibilityRulesFromExternalTrigger();
+                    this.processVisibilityRulesFromExternalTrigger(event);
+                    this.processOptionVisibilityRulesFromExternalTrigger(event);
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
@@ -84,7 +87,11 @@ define(['o-question'],
             this.element.classList.add('unavailable');
         }
 
-        oQuestionContainer.prototype.processVisibilityRulesFromExternalTrigger = function () {
+        oQuestionContainer.prototype.processVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.element === event.detail.element) {
+                return;
+            }
+
             this.processVisibilityRules();
         }
 
@@ -97,6 +104,7 @@ define(['o-question'],
             if (!this.ruleParsingComplete) {
                 this.complexVisibilityRule = this.properties.visible.rules;
                 this.expandedVisibilityRule = this.parseVisibilityRules(this.complexVisibilityRule);
+                this.ruleParsingComplete = true;
             }
 
             if (this.expandedVisibilityRule === '') {

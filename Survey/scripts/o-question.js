@@ -72,7 +72,11 @@ define(['component'],
             return (new Function('return (' + string + ')')());
         }
 
-        oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function () {
+        oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.element === event.detail.element) {
+                return;
+            }
+
             this.processOptionVisibilityRules();
         }
 
@@ -108,7 +112,7 @@ define(['component'],
             var option = this.element.querySelector("[value='" + itemValue + "']");
 
             if (option === null) {
-                this.debug('Could not find the option to hide.', 2);
+                this.debug('Could not find the option ' + itemValue + ' to hide.', 2);
                 return;
             }
 
@@ -120,7 +124,7 @@ define(['component'],
             var option = this.element.querySelector("[value='" + itemValue + "']");
 
             if (option === null) {
-                this.debug('Could not find the option to hide.', 2);
+                this.debug('Could not find the option ' + itemValue + ' to display.', 2);
                 return;
             }
 
@@ -175,9 +179,13 @@ define(['component'],
 
             for (var i = 0; i < this.properties.options.invisible.length; i++) {
                 this.hasOptionVisibilityRules = true;
-                var ruleString = this.properties.options.invisible[i].rule;
+                var ruleString = this.properties.options.invisible[i].rules;
+                var optionName = this.properties.options.invisible[i].name;
+                this.properties.options.invisible[i].name = this.escapeString(optionName);
                 this.properties.options.invisible[i].parsedRule = this.parseVisibilityRules(ruleString);
             }
+
+            this.optionRuleParsingComplete = true;
         }
 
         oQuestion.prototype.parseVisibilityRules = function (ruleString) {
@@ -197,7 +205,6 @@ define(['component'],
             ruleString = this.expandContainsNoneRule(ruleString);
             ruleString = this.replaceOperators(ruleString);
             ruleString = this.extractQuestionIdentifiers(ruleString);
-            this.ruleParsingComplete = true;
 
             return ruleString;
         }
@@ -232,6 +239,7 @@ define(['component'],
         }
 
         oQuestion.prototype.escapeString = function (string) {
+            string = string.replace(/__([^Q])/g, '_$1');
             string = string.replace(/_([^Q])/g, '__$1');
             return string;
         }
