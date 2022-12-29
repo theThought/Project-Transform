@@ -9,7 +9,7 @@
       </Style>
     </Control>
     <Control Type="CheckButton" QuestionName="_QBasicPage_QComments_X" ElementID="_Q1_X">
-      <Style ElementAlign="NewLine" Indent="1">
+      <Style ElementAlign="Sameline" Indent="1">
         <Control Type="CheckButton" />
       </Style>
       <Category Name="nocomments" CategoryID="0">
