@@ -1887,6 +1887,9 @@
          <!--- ID -->
          <xsl:if test="$bIncludeElementIds">
             <xsl:attribute name="id">
+               <xsl:if test="@ElementID">
+                  <xsl:value-of select="@ElementID" />
+               </xsl:if>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
