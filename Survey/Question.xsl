@@ -175,7 +175,7 @@
          <xsl:when test="$inQuestion='Question'">
             <xsl:for-each select="*">
                <xsl:call-template name="TypePickerChoose">
-                  <xsl:with-param name="qGroup" select="$qGroupName" />
+                  <xsl:with-param name="qGroupName" select="$qGroupName" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
                </xsl:call-template>
             </xsl:for-each>
@@ -191,7 +191,7 @@
              </xsl:when>
              <xsl:otherwise>
                <xsl:call-template name="TypePickerChoose">
-                  <xsl:with-param name="qGroup" select="$qGroupName" />
+                  <xsl:with-param name="qGroupName" select="$qGroupName" />
                   <xsl:with-param name="qFullName" select="$qFullName" />
                </xsl:call-template>
              </xsl:otherwise>
