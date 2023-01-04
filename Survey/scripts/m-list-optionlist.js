@@ -159,6 +159,10 @@ define(['component'],
                 contentheight = Math.ceil(contentheight);
                 contentwidth = Math.ceil(contentwidth);
 
+                if (isNaN(contentwidth) || isNaN(contentheight)) {
+                    continue;
+                }
+
                 if (contentheight > this.tallest) this.tallest = contentheight;
                 if (contentwidth > this.widest) this.widest = contentwidth;
             }
