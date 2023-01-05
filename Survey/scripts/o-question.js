@@ -109,6 +109,7 @@ define(['component'],
                 } else {
                     this.showOption(this.properties.options.invisible[i].name);
                 }
+
             }
         }
 
@@ -120,8 +121,10 @@ define(['component'],
                 return;
             }
 
+            var optiongroup = option.parentNode.getAttribute('data-questiongroup');
             option.checked = false;
             option.parentNode.style.display = 'none';
+            this.sendResizeNotifier(optiongroup);
         }
 
         oQuestion.prototype.showOption = function (itemValue) {
@@ -132,7 +135,17 @@ define(['component'],
                 return;
             }
 
+            var optiongroup = option.parentNode.getAttribute('data-questiongroup');
             option.parentNode.style.display = 'block';
+            this.sendResizeNotifier(optiongroup);
+        }
+
+        oQuestion.prototype.sendResizeNotifier = function (groupname) {
+            var beginresize = new CustomEvent(groupname + '_beginResize', {
+                bubbles: true,
+                detail: this
+            });
+            document.dispatchEvent(beginresize);
         }
 
         oQuestion.prototype.getQuestionValues = function () {

@@ -150,7 +150,9 @@ define(
                 return;
             }
 
-            if (event.detail.isOnesize === true) {
+            if (event.detail.isOnesize === true
+                && event.detail.widest > 0
+                && event.detail.tallest > 0) {
                 this.element.style.width = event.detail.widest + 'px';
                 this.element.style.height = event.detail.tallest + 'px';
             }
