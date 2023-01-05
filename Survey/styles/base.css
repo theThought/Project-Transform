@@ -1612,6 +1612,9 @@ input[type=range]:focus::-ms-fill-lower {
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
   border-collapse: collapse;
+  /* the empty-header-row class is added programmatically when the system detects a row
+   * that contains headers but is entirely empty - in these cases there should be no border
+   */
 }
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
@@ -1657,6 +1660,10 @@ input[type=range]:focus::-ms-fill-lower {
   font-family: "Merriweather", serif;
   font-weight: normal;
   color: #212C4C;
+}
+.o-structure-table tr.empty-header-row th,
+.o-structure-table tr.empty-header-row td {
+  border: 0 !important;
 }
 .o-structure-table th[scope=col] {
   border-bottom: 1px solid #212C4C;

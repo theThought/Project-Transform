@@ -21,5 +21,5 @@ function buildStyles() {
 }
 
 exports.default = function() {
-    gulp.watch('Survey/source/styles/*.scss', buildStyles);
+    gulp.watch('Survey/source/styles/*.scss', {usePolling: true}, buildStyles);
 };

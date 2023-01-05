@@ -40,6 +40,7 @@ define(['component'],
             gridid = grididarray[grididarray.length - 3];
 
             this.configureCellEvents();
+            this.configureTHStyles();
             this.configureIncomingEventListeners();
             this.configureProperties(gridid);
             this.configurationComplete();
@@ -58,6 +59,30 @@ define(['component'],
                 case "broadcastChange":
                     this.receiveBroadcast(event);
                     break;
+            }
+        }
+
+        oQuestionGrid.prototype.configureTHStyles = function () {
+            for (var i = 0, row; row = this.grid.rows[i]; i++) {
+
+                // get total number of cells in the current row
+                var cellcount = row.cells.length;
+                var emptyheadercount = 0;
+
+                for (var j = 0, col; col = row.cells[j]; j++) {
+
+                    if (col.tagName.toLowerCase() === 'th'
+                    && col.innerHTML === '') {
+                        emptyheadercount++;
+                    }
+
+                }
+
+                if (emptyheadercount === cellcount) {
+                    this.debug('Completely empty header row found.');
+                    this.grid.rows[i].classList.add('empty-header-row');
+                }
+
             }
         }
 
