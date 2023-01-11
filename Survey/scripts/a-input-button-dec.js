@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  switching states
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -30,15 +14,17 @@ define(['component'],
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-preterminator');
             this.defaultsymbol = '&laquo;'; // default << appearance
+        }
 
+        aInputButtonDec.prototype = Object.create(component.prototype);
+        aInputButtonDec.prototype.constructor = aInputButtonDec;
+
+        aInputButtonDec.prototype.init = function () {
             this.symbol(this.defaultsymbol);
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configurationComplete();
         }
-
-        aInputButtonDec.prototype = Object.create(component.prototype);
-        aInputButtonDec.prototype.constructor = aInputButtonDec;
 
         aInputButtonDec.prototype.symbol = function (symbol) {
             this.element.innerHTML = symbol;

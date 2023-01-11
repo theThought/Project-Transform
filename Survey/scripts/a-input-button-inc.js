@@ -1,24 +1,8 @@
-/*
-  functionality:
-
-  switching states
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Atom: Decrement Button
+         * Atom: Increment Button
          *
          * @constructor
          * @param {String} id - element id
@@ -30,15 +14,17 @@ define(['component'],
 
             this.element = document.querySelector('div[data-questiongroup="' + this.group + '"] button.a-button-postterminator');
             this.defaultsymbol = '&raquo;' // default >> appearance
+        }
 
+        aInputButtonInc.prototype = Object.create(component.prototype);
+        aInputButtonInc.prototype.constructor = aInputButtonInc;
+
+        aInputButtonInc.prototype.init = function () {
             this.symbol(this.defaultsymbol)
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configurationComplete();
         }
-
-        aInputButtonInc.prototype = Object.create(component.prototype);
-        aInputButtonInc.prototype.constructor = aInputButtonInc;
 
         aInputButtonInc.prototype.symbol = function (symbol) {
             this.element.innerHTML = symbol;

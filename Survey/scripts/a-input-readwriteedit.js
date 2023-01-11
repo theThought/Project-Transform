@@ -1,23 +1,8 @@
-/*
-  functionality:
-
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Atom: aInputReadWriteEdit
+         * Atom: Hidden item for gathering/storing data
          *
          * @constructor
          * @param {String} id - element id
@@ -30,16 +15,18 @@ define(['component'],
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.storagedestination = '';
             this.storagename = '';
+        }
 
+        aInputReadWriteEdit.prototype = Object.create(component.prototype);
+        aInputReadWriteEdit.prototype.constructor = aInputReadWriteEdit;
+
+        aInputReadWriteEdit.prototype.init = function () {
             this.hideQuestion();
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.writeInitialValue();
             this.configurationComplete();
         }
-
-        aInputReadWriteEdit.prototype = Object.create(component.prototype);
-        aInputReadWriteEdit.prototype.constructor = aInputReadWriteEdit;
 
         aInputReadWriteEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

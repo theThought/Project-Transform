@@ -1,25 +1,8 @@
-/*
-  functionality:
-
-  placeholders
-  expanding box as you type
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component', 'pikaday'],
     function (component, datepicker) {
 
         /**
-         * Atom: aInputSingleLineEdit
+         * Atom: Single line input, text or date
          *
          * @constructor
          * @param {String} id - element id
@@ -33,15 +16,17 @@ define(['component', 'pikaday'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
             this.wrapper = this.createWrapper();
+        }
 
+        aInputSingleLineEdit.prototype = Object.create(component.prototype);
+        aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
+
+        aInputSingleLineEdit.prototype.init = function () {
             this.configureProperties();
             this.setReadOnly();
             this.configureIncomingEventListeners();
             this.configurationComplete();
         }
-
-        aInputSingleLineEdit.prototype = Object.create(component.prototype);
-        aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
             if (!this.element.readOnly) {

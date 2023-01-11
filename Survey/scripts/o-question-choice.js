@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  character countdown
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['o-question'],
     function (oQuestion) {
 
@@ -35,7 +19,12 @@ define(['o-question'],
             this.isOnesize = false;
             this.isBalanced = false;
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]');
+        }
 
+        oQuestionChoice.prototype = Object.create(oQuestion.prototype);
+        oQuestionChoice.prototype.constructor = oQuestionChoice;
+
+        oQuestionChoice.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureBalance();
@@ -43,9 +32,6 @@ define(['o-question'],
             this.onResize();
             this.configurationComplete();
         }
-
-        oQuestionChoice.prototype = Object.create(oQuestion.prototype);
-        oQuestionChoice.prototype.constructor = oQuestionChoice;
 
         oQuestionChoice.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

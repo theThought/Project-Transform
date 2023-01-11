@@ -1,24 +1,8 @@
-/*
-  functionality:
-
-  switching states
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Atom: Decrement Button
+         * Atom: Dropdown toggle button
          *
          * @constructor
          * @param {String} id - element id
@@ -27,15 +11,15 @@ define(['component'],
 
         function aButtonListDropdown(id, group) {
             component.call(this, id, group);
+
+            this.wrapper = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]')
+            this.element = this.wrapper.querySelector('button.a-button-list-dropdown');
         }
 
         aButtonListDropdown.prototype = Object.create(component.prototype);
         aButtonListDropdown.prototype.constructor = aButtonListDropdown;
 
         aButtonListDropdown.prototype.init = function () {
-            this.wrapper = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]')
-            this.element = this.wrapper.querySelector('button.a-button-list-dropdown');
-
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configurationComplete();

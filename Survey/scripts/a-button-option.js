@@ -1,26 +1,8 @@
-/*
-  functionality:
-
-  click event to change state
-  disabled state
-  receive broadcast to change state
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Molecule: Base Option
+         * Atom: Button
          *
          * @constructor
          * @param {String} id - element id
@@ -34,22 +16,19 @@ define(['component'],
             this.parent = this.element.parentNode;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.hiddenelement = null;
+        }
 
-            // this.configureButton();
+        aButtonOption.prototype = Object.create(component.prototype);
+        aButtonOption.prototype.constructor = aButtonOption;
+
+        aButtonOption.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.requestInitialSize();
             this.configurationComplete();
         }
 
-        aButtonOption.prototype = Object.create(component.prototype);
-        aButtonOption.prototype.constructor = aButtonOption;
-
         aButtonOption.prototype.configureIncomingEventListeners = function () {
-            // for each event listener there must be a corresponding event handler
-            // document.addEventListener("click", this, false);
-            // document.addEventListener(this.group + "_enableExclusive", this, false);
-            // document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
         }

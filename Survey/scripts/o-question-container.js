@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  character countdown
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['o-question'],
     function (oQuestion) {
 
@@ -36,6 +20,14 @@ define(['o-question'],
             this.collapse = false;
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
+        }
+
+        oQuestionContainer.prototype.configureIncomingEventListeners = function () {
+            document.addEventListener("configComplete", this, false);
+            document.addEventListener("broadcastChange", this, false);
+        }
+
+        oQuestionContainer.prototype.init = function () {
             this.ruleParsingComplete = false;
             this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
 
@@ -44,11 +36,6 @@ define(['o-question'],
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.configurationComplete();
-        }
-
-        oQuestionContainer.prototype.configureIncomingEventListeners = function () {
-            document.addEventListener("configComplete", this, false);
-            document.addEventListener("broadcastChange", this, false);
         }
 
         oQuestionContainer.prototype.handleEvent = function (event) {

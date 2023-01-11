@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  character countdown
-
-  Parameters:
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -34,7 +18,12 @@ define(['component'],
             this.rowtotals = [];
             this.columntotals = [];
             this.hasgrandtotal = false;
+        }
 
+        oQuestionGrid.prototype = Object.create(component.prototype);
+        oQuestionGrid.prototype.constructor = oQuestionGrid;
+
+        oQuestionGrid.prototype.init = function () {
             var gridid = this.group.toLowerCase();
             var grididarray = gridid.split('_q');
             gridid = grididarray[grididarray.length - 3];
@@ -45,9 +34,6 @@ define(['component'],
             this.configureProperties(gridid);
             this.configurationComplete();
         }
-
-        oQuestionGrid.prototype = Object.create(component.prototype);
-        oQuestionGrid.prototype.constructor = oQuestionGrid;
 
         oQuestionGrid.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

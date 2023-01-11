@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  character countdown
-
-  Parameters:
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -37,13 +21,15 @@ define(['component'],
 
             this.container = this.getContainer();
             this.element = document.querySelector('div[class*="o-question-"][data-questiongroup*="' + this.group + '"]');
-
-            this.configureProperties();
-            this.processOptionVisibilityRules();
         }
 
         oQuestion.prototype = Object.create(component.prototype);
         oQuestion.prototype.constructor = oQuestion;
+
+        oQuestion.prototype.init = function () {
+            this.configureProperties();
+            this.processOptionVisibilityRules();
+        }
 
         oQuestion.prototype.getContainer = function () {
             // some questions may register with a suffix, e.g. _Q0_C, we only want the initial question number

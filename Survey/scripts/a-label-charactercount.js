@@ -1,23 +1,8 @@
-/*
-  functionality:
-
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Atom: aLabelCharacterCount
+         * Atom: Character count element for text input areas
          *
          * @constructor
          * @param {String} id - element id
@@ -26,13 +11,15 @@ define(['component'],
 
         function aLabelCharacterCount(id, group) {
             component.call(this, id, group);
-
-            this.configureProperties();
-            this.configurationComplete();
         }
 
         aLabelCharacterCount.prototype = Object.create(component.prototype);
         aLabelCharacterCount.prototype.constructor = aLabelCharacterCount;
+
+        aLabelCharacterCount.prototype.init = function () {
+            this.configureProperties();
+            this.configurationComplete();
+        }
 
         return aLabelCharacterCount;
 

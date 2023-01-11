@@ -1,18 +1,3 @@
-/*
-  functionality:
-
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -26,14 +11,17 @@ define(['component'],
 
         function oProgress(id, group) {
             component.call(this, id, group);
+
             this.element = document.querySelector('div.overall-progress.complex#' + this.id);
             this.currentsectionnumber = 1;
-
-            this.configureProperties();
         }
 
         oProgress.prototype = Object.create(component.prototype);
         oProgress.prototype.constructor = oProgress;
+
+        oProgress.prototype.init = function () {
+            this.configureProperties();
+        }
 
         oProgress.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  character countdown
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -27,12 +11,7 @@ define(['component'],
 
         function mListOptionList(id, group) {
             component.call(this, id, group);
-        }
 
-        mListOptionList.prototype = Object.create(component.prototype);
-        mListOptionList.prototype.constructor = mListOptionList;
-
-        mListOptionList.prototype.init = function () {
             this.tallest = 0;
             this.widest = 0;
             this.maxwidth = '';
@@ -41,7 +20,12 @@ define(['component'],
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
+        }
 
+        mListOptionList.prototype = Object.create(component.prototype);
+        mListOptionList.prototype.constructor = mListOptionList;
+
+        mListOptionList.prototype.init = function () {
             this.configureProperties();
             this.addEmptyPlaceholder();
             this.addCharRestrictionPlaceholder();

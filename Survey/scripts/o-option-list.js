@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  balancing space for each option
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -27,13 +11,15 @@ define(['component'],
 
         function oOptionList(id, group) {
             component.call(this, id, group);
-
-            this.configureProperties();
-            this.configurationComplete();
         }
 
         oOptionList.prototype = Object.create(component.prototype);
         oOptionList.prototype.constructor = oOptionList;
+
+        oOptionList.prototype.init = function () {
+            this.configureProperties();
+            this.configurationComplete();
+        }
 
         return oOptionList;
 

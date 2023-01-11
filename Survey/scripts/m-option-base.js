@@ -1,26 +1,8 @@
-/*
-  functionality:
-
-  click event to change state
-  disabled state
-  receive broadcast to change state
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Molecule: Base Option
+         * Molecule: Basic toggle option
          *
          * @constructor
          * @param {String} id - element id
@@ -35,26 +17,32 @@ define(['component'],
             this.textInput = this.element.querySelector('input[type=text]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.label = this.element.querySelector('.a-label-option');
-
-            this.configureProperties();
-            this.configureIncomingEventListeners();
-            this.requestInitialSize();
-            this.configurationComplete();
         }
 
         mOptionBase.prototype = Object.create(component.prototype);
         mOptionBase.prototype.constructor = mOptionBase;
 
+        mOptionBase.prototype.init = function () {
+            this.configureProperties();
+            this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
+            this.requestInitialSize();
+            this.configurationComplete();
+        }
+
         mOptionBase.prototype.configureIncomingEventListeners = function () {
-            // for each event listener there must be a corresponding event handler
-            document.addEventListener("click", this, false);
-            document.addEventListener("change", this, false);
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_textFocus", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
+            document.addEventListener("clearEntries", this, false);
+        }
+
+        mOptionBase.prototype.configureLocalEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
+            this.element.addEventListener("click", this, false);
+            this.element.addEventListener("change", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
@@ -102,6 +90,7 @@ define(['component'],
 
         mOptionBase.prototype.onChange = function (event) {
 
+            event.stopImmediatePropagation();
             if (event.target === this.checkbox) {
 
                 this.broadcastChange();
@@ -135,6 +124,7 @@ define(['component'],
 
         mOptionBase.prototype.onClick = function (event) {
 
+            event.stopImmediatePropagation();
             if (event.target === this.textInput) {
                 this.checkbox.checked = true;
             }

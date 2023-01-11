@@ -142,6 +142,12 @@ Survey.prototype.getProperties = function (id) {
         return {};
     }
 
+    // The parse() and stringify() used below are to ensure that a copy
+    // of the component properties gets returned and NOT a reference to
+    // the original version. This prevents multiple components that might
+    // access the same properties from modifying each other.
+    //return JSON.parse(JSON.stringify(app.properties[id]));
+
     return app.properties[id];
 }
 

@@ -1,18 +1,3 @@
-/*
-  Functionality:
-
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['o-question'],
     function (oQuestion) {
 
@@ -33,7 +18,12 @@ define(['o-question'],
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
+        }
 
+        oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
+        oQuestionHNumberSlider.prototype.constructor = oQuestionHNumberSlider;
+
+        oQuestionHNumberSlider.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.createClickableArea();
@@ -42,9 +32,6 @@ define(['o-question'],
             this.configurationComplete();
             this.updateValue();
         }
-
-        oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
-        oQuestionHNumberSlider.prototype.constructor = oQuestionHNumberSlider;
 
         oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

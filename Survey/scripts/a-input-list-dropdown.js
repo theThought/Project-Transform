@@ -1,25 +1,8 @@
-/*
-  functionality:
-
-  placeholders
-  expanding box as you type
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Atom: aInputSingleLineEdit
+         * Atom: Dropdown list wrapper - should be molecule?
          *
          * @constructor
          * @param {String} id - element id
@@ -28,12 +11,7 @@ define(['component'],
 
         function aInputListDropdown(id, group) {
             component.call(this, id, group);
-        }
 
-        aInputListDropdown.prototype = Object.create(component.prototype);
-        aInputListDropdown.prototype.constructor = aInputListDropdown;
-
-        aInputListDropdown.prototype.init = function () {
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
             this.droplist = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
             this.wrapper = this.element.parentNode;
@@ -45,7 +23,12 @@ define(['component'],
             this.lastselectedvalue = '';
             this.defaultPlaceholder = 'Select';
             this.manualWidth = this.checkManualWidth();
+        }
 
+        aInputListDropdown.prototype = Object.create(component.prototype);
+        aInputListDropdown.prototype.constructor = aInputListDropdown;
+
+        aInputListDropdown.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();

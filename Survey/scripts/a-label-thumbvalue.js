@@ -1,18 +1,3 @@
-/*
-  functionality:
-
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
@@ -29,7 +14,12 @@ define(['component'],
 
             this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
             this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
+        }
 
+        aLabelThumbValue.prototype = Object.create(component.prototype);
+        aLabelThumbValue.prototype.constructor = aLabelThumbValue;
+
+        aLabelThumbValue.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
 
@@ -37,9 +27,6 @@ define(['component'],
             this.updateValue({element: this.slider});
             this.configurationComplete();
         }
-
-        aLabelThumbValue.prototype = Object.create(component.prototype);
-        aLabelThumbValue.prototype.constructor = aLabelThumbValue;
 
         aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

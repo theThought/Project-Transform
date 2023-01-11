@@ -1,25 +1,8 @@
-/*
-  functionality:
-
-  placeholders
-  expanding box as you type
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['component'],
     function (component) {
 
         /**
-         * Atom: aInputMultilineEdit
+         * Atom: Multi-line text input
          *
          * @constructor
          * @param {String} id - element id
@@ -32,14 +15,16 @@ define(['component'],
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
-
-            this.configureProperties();
-            this.configureIncomingEventListeners();
-            this.configurationComplete();
         }
 
         aInputMultilineEdit.prototype = Object.create(component.prototype);
         aInputMultilineEdit.prototype.constructor = aInputMultilineEdit;
+
+        aInputMultilineEdit.prototype.init = function () {
+            this.configureProperties();
+            this.configureIncomingEventListeners();
+            this.configurationComplete();
+        }
 
         aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler

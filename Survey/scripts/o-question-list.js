@@ -1,19 +1,3 @@
-/*
-  functionality:
-
-  character countdown
-
-  Parameters: 
-
-
-  Event Handlers:
-
-
-  Configuration:
-  {}
-
-*/
-
 define(['o-question'],
     function (oQuestion) {
 
@@ -27,12 +11,7 @@ define(['o-question'],
 
         function oQuestionList(id, group) {
             oQuestion.call(this, id, group);
-        }
 
-        oQuestionList.prototype = Object.create(oQuestion.prototype);
-        oQuestionList.prototype.constructor = oQuestionList;
-
-        oQuestionList.prototype.init = function () {
             this.tallest = 0;
             this.widest = 0;
             this.maxwidth = '';
@@ -42,7 +21,12 @@ define(['o-question'],
             this.mincharacters = 0;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
             this.inputelement = this.element.querySelector('input.a-input-list-dropdown');
+        }
 
+        oQuestionList.prototype = Object.create(oQuestion.prototype);
+        oQuestionList.prototype.constructor = oQuestionList;
+
+        oQuestionList.prototype.init = function () {
             this.list = this.buildList();
             this.disableTabIndex(this.list);
             this.configureProperties();
