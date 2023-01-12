@@ -1687,7 +1687,8 @@ input[type=range]:focus::-ms-fill-lower {
   vertical-align: top;
 }
 .o-structure-table .grid-row-total {
-  padding-top: 1.2em;
+  /* This should be unnecessary now that child elements correctly size */
+  /* padding-top: 1.2em; */
 }
 .o-structure-table .grid-row-total,
 .o-structure-table .grid-grandtotal {

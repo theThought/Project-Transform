@@ -107,7 +107,8 @@ $separator-colour: globals.$titles;
     }
 
     .grid-row-total {
-        padding-top: 1.2em;
+        /* This should be unnecessary now that child elements correctly size */
+        /* padding-top: 1.2em; */
     }
 
     .grid-row-total,
