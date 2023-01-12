@@ -40,7 +40,7 @@ define(['component'],
             // prevent sub-questions from overwriting attributes in a parent container
             if (container !== null && container.getAttribute('data-questiongroup') === null) {
                 container.setAttribute('data-questiongroup', this.group);
-                container.setAttribute('data-questionid', this.id);
+                container.setAttribute('data-questionid', '_'+scripttagid);
             }
 
             return container;

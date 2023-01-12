@@ -11,6 +11,8 @@ define(['o-question'],
 
         function oQuestionContainer(id, group) {
             oQuestion.call(this, id, group);
+
+            this.element = document.querySelector('div[class~="o-question-container"][data-questionid="' + this.id + '"]');
         }
 
         oQuestionContainer.prototype = Object.create(oQuestion.prototype);
@@ -20,22 +22,18 @@ define(['o-question'],
             this.collapse = false;
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
-        }
-
-        oQuestionContainer.prototype.configureIncomingEventListeners = function () {
-            document.addEventListener("configComplete", this, false);
-            document.addEventListener("broadcastChange", this, false);
-        }
-
-        oQuestionContainer.prototype.init = function () {
             this.ruleParsingComplete = false;
-            this.element = document.querySelector('div[class~="o-question-container"][data-questiongroup="' + this.group + '"]');
 
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.configurationComplete();
+        }
+
+        oQuestionContainer.prototype.configureIncomingEventListeners = function () {
+            document.addEventListener("configComplete", this, false);
+            document.addEventListener("broadcastChange", this, false);
         }
 
         oQuestionContainer.prototype.handleEvent = function (event) {
