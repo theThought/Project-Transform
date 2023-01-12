@@ -57,9 +57,24 @@ define(['component'],
 
                 for (var j = 0, col; col = row.cells[j]; j++) {
 
-                    if (col.tagName.toLowerCase() === 'th'
-                    && col.innerHTML === '') {
-                        emptyheadercount++;
+                    var celltext = '';
+
+                    // it is necessary to examine the content of the cell and all child nodes
+                    // to ascertain if there is any text contained within them - this could be
+                    // text directly in the <th> or text within a child <span> - but only if
+                    // there is actually text (do not return html tags as valid headers)
+
+                    if (col.tagName.toLowerCase() === 'th') {
+                        for (var k = 0; k < col.childNodes.length; k++) {
+                            var curNode = col.childNodes[k];
+                            if (curNode.nodeName === "#text") {
+                                celltext += curNode.nodeValue.trim(); // avoid spaces and newlines from contributing
+                            }
+                        }
+
+                        if (!celltext.length) {
+                            emptyheadercount++;
+                        }
                     }
 
                 }

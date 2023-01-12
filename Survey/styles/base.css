@@ -1615,6 +1615,7 @@ input[type=range]:focus::-ms-fill-lower {
   /* the empty-header-row class is added programmatically when the system detects a row
    * that contains headers but is entirely empty - in these cases there should be no border
    */
+  /* may remove the following styles if display: none above is the appropriate solution */
 }
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
@@ -1660,6 +1661,9 @@ input[type=range]:focus::-ms-fill-lower {
   font-family: "Merriweather", serif;
   font-weight: normal;
   color: #212C4C;
+}
+.o-structure-table tr.empty-header-row {
+  display: none;
 }
 .o-structure-table tr.empty-header-row th,
 .o-structure-table tr.empty-header-row td {

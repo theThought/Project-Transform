@@ -76,6 +76,10 @@ $separator-colour: globals.$titles;
     /* the empty-header-row class is added programmatically when the system detects a row
      * that contains headers but is entirely empty - in these cases there should be no border
      */
+    tr.empty-header-row {
+        display: none;
+    }
+    /* may remove the following styles if display: none above is the appropriate solution */
     tr.empty-header-row th,
     tr.empty-header-row td {
         border: 0 !important;
