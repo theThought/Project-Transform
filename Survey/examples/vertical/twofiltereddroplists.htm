@@ -34,14 +34,14 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="knykilcyzvjedozlt2sa4sqpmeaqaaaa"/><input type="hidden" name="I.SavePoint" value="FilterOnGenderPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="kicwokvkgb2ubbwtnplhegkm5maqaaaa"/><input type="hidden" name="I.SavePoint" value="FilterOnGenderPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
 						<!-- progress text -->
 					</div>
 					<div class="overall-progress-bar">
-						<table style="height: 100%; width: 100%"><tr><td style="width: 2%; background-color: #D0DAE6"/><td class="mrProgressText">2%</td></tr></table><!-- progress bar -->
+						<table style="height: 100%; width: 100%"><tr><td class="mrProgressText">0%</td></tr></table><!-- progress bar -->
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,10 @@
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Gender</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Gender</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-table" data-questiongroup="_QFilterOnGenderPage_QfilterOnGender">
@@ -109,6 +112,9 @@
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
+							<div class="o-question-information-content">
+							</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
@@ -116,241 +122,241 @@
 							<script>app.registerComponent('oQuestionList','_Q1_C','_QFilterOnGenderPage_Qdiagnosis1');</script>
 							<div>
 								<input class="a-input-list-dropdown" type="text"/>
-								<script>app.registerComponent('aInputListDropdown','','_QFilterOnGenderPage_Qdiagnosis1');</script>
+								<script>app.registerComponent('aInputListDropdown','_Q1_C','_QFilterOnGenderPage_Qdiagnosis1');</script>
 								<button class="a-button-list-dropdown" type="button">
 									<!--dropdown image goes here-->
 								</button>
-								<script>app.registerComponent('aButtonListDropDown','','_QFilterOnGenderPage_Qdiagnosis1');</script>
+								<script>app.registerComponent('aButtonListDropDown','_Q1_C','_QFilterOnGenderPage_Qdiagnosis1');</script>
 							</div>
 							<div class="m-list-responses">
 								<!--dropdown response options-->
 							</div>
 							<div class="m-list-optionlist">
-								<script>app.registerComponent('mListOptionList','','_QFilterOnGenderPage_Qdiagnosis1');</script>
-								<div class="m-option-base" data-exclusive="true" data-questionid="0" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','0','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="0" value="select"/>
-									<label for="0">
+								<script>app.registerComponent('mListOptionList','_Q1_C','_QFilterOnGenderPage_Qdiagnosis1');</script>
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C0','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C0" value="select"/>
+									<label for="_Q1_C0">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">SELECT DIAGNOSIS</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="1" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','1','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="1" value="bone__and__sarcoma____excluding__gist__"/>
-									<label for="1">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C1" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C1','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C1" value="bone__and__sarcoma____excluding__gist__"/>
+									<label for="_Q1_C1">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Bone and Sarcoma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="2" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','2','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="2" value="gist"/>
-									<label for="2">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C2" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C2','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C2" value="gist"/>
+									<label for="_Q1_C2">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">GIST</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="3" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','3','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="3" value="brain______nervous__system"/>
-									<label for="3">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C3" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C3','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C3" value="brain______nervous__system"/>
+									<label for="_Q1_C3">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Brain and nervous system</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="4" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','4','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="4" value="breast"/>
-									<label for="4">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C4" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C4','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C4" value="breast"/>
+									<label for="_Q1_C4">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Breast</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="5" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','5','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="5" value="colorectal"/>
-									<label for="5">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C5" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C5','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C5" value="colorectal"/>
+									<label for="_Q1_C5">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Colorectal</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="6" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','6','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="6" value="endocrine"/>
-									<label for="6">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C6" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C6','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C6" value="endocrine"/>
+									<label for="_Q1_C6">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Endocrine (incl. Thyroid, NETs)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="7" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','7','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="7" value="female__reprod"/>
-									<label for="7">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C7" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C7','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C7" value="female__reprod"/>
+									<label for="_Q1_C7">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Female Reproductive (incl. Ovarian)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="8" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','8','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="8" value="gastric"/>
-									<label for="8">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C8" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C8','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C8" value="gastric"/>
+									<label for="_Q1_C8">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Gastrointestinal (incl. pancreas and peritoneum)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="9" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','9','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="9" value="head______neck"/>
-									<label for="9">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C9" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C9','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C9" value="head______neck"/>
+									<label for="_Q1_C9">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Head and neck</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="10" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','10','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="10" value="hepato__biliary"/>
-									<label for="10">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C10" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C10','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C10" value="hepato__biliary"/>
+									<label for="_Q1_C10">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Hepatobiliary</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="11" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','11','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="11" value="leukaemia"/>
-									<label for="11">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C11" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C11','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C11" value="leukaemia"/>
+									<label for="_Q1_C11">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Leukaemia</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="12" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','12','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="12" value="lung"/>
-									<label for="12">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C12" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C12','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C12" value="lung"/>
+									<label for="_Q1_C12">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Lung</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="13" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','13','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="13" value="lymphoma"/>
-									<label for="13">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C13" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C13','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C13" value="lymphoma"/>
+									<label for="_Q1_C13">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Lymphoma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="14" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','14','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="14" value="male__reprod"/>
-									<label for="14">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C14" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C14','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C14" value="male__reprod"/>
+									<label for="_Q1_C14">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Male Reproductive (incl. Prostate)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="15" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','15','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="15" value="myelodysplasia"/>
-									<label for="15">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C15" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C15','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C15" value="myelodysplasia"/>
+									<label for="_Q1_C15">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Myelodysplasia</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="16" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','16','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="16" value="myeloma"/>
-									<label for="16">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C16" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C16','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C16" value="myeloma"/>
+									<label for="_Q1_C16">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Multiple Myeloma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="17" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','17','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="17" value="myeloproliferative__disorder"/>
-									<label for="17">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C17" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C17','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C17" value="myeloproliferative__disorder"/>
+									<label for="_Q1_C17">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Myeloproliferative disorder</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="18" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','18','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="18" value="neuroblastoma"/>
-									<label for="18">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C18" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C18','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C18" value="neuroblastoma"/>
+									<label for="_Q1_C18">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Neuroblastoma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="19" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','19','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="19" value="skin"/>
-									<label for="19">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C19" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C19','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C19" value="skin"/>
+									<label for="_Q1_C19">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Skin (incl. Melanoma)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="20" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','20','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="20" value="urinary__and__bladder"/>
-									<label for="20">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C20" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C20','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C20" value="urinary__and__bladder"/>
+									<label for="_Q1_C20">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Urinary (incl. RCC)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="21" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','21','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="21" value="unknown"/>
-									<label for="21">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C21" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C21','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C21" value="unknown"/>
+									<label for="_Q1_C21">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">unknown Primary</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="22" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
-									<script>app.registerComponent('mOptionBase','22','_QFilterOnGenderPage_Qdiagnosis1');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="22" value="other"/>
-									<label for="22">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C22" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis1">
+									<script>app.registerComponent('mOptionBase','_Q1_C22','_QFilterOnGenderPage_Qdiagnosis1');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis1_C" id="_Q1_C22" value="other"/>
+									<label for="_Q1_C22">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
@@ -369,6 +375,9 @@
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
+							<div class="o-question-information-content">
+							</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
@@ -376,241 +385,241 @@
 							<script>app.registerComponent('oQuestionList','_Q2_C','_QFilterOnGenderPage_Qdiagnosis2');</script>
 							<div>
 								<input class="a-input-list-dropdown" type="text"/>
-								<script>app.registerComponent('aInputListDropdown','','_QFilterOnGenderPage_Qdiagnosis2');</script>
+								<script>app.registerComponent('aInputListDropdown','_Q2_C','_QFilterOnGenderPage_Qdiagnosis2');</script>
 								<button class="a-button-list-dropdown" type="button">
 									<!--dropdown image goes here-->
 								</button>
-								<script>app.registerComponent('aButtonListDropDown','','_QFilterOnGenderPage_Qdiagnosis2');</script>
+								<script>app.registerComponent('aButtonListDropDown','_Q2_C','_QFilterOnGenderPage_Qdiagnosis2');</script>
 							</div>
 							<div class="m-list-responses">
 								<!--dropdown response options-->
 							</div>
 							<div class="m-list-optionlist">
-								<script>app.registerComponent('mListOptionList','','_QFilterOnGenderPage_Qdiagnosis2');</script>
-								<div class="m-option-base" data-exclusive="true" data-questionid="0" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','0','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="0" value="select"/>
-									<label for="0">
+								<script>app.registerComponent('mListOptionList','_Q2_C','_QFilterOnGenderPage_Qdiagnosis2');</script>
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C0" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C0','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C0" value="select"/>
+									<label for="_Q2_C0">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">SELECT DIAGNOSIS</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="1" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','1','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="1" value="bone__and__sarcoma____excluding__gist__"/>
-									<label for="1">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C1" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C1','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C1" value="bone__and__sarcoma____excluding__gist__"/>
+									<label for="_Q2_C1">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Bone and Sarcoma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="2" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','2','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="2" value="gist"/>
-									<label for="2">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C2" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C2','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C2" value="gist"/>
+									<label for="_Q2_C2">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">GIST</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="3" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','3','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="3" value="brain______nervous__system"/>
-									<label for="3">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C3" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C3','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C3" value="brain______nervous__system"/>
+									<label for="_Q2_C3">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Brain and nervous system</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="4" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','4','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="4" value="breast"/>
-									<label for="4">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C4" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C4','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C4" value="breast"/>
+									<label for="_Q2_C4">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Breast</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="5" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','5','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="5" value="colorectal"/>
-									<label for="5">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C5" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C5','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C5" value="colorectal"/>
+									<label for="_Q2_C5">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Colorectal</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="6" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','6','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="6" value="endocrine"/>
-									<label for="6">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C6" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C6','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C6" value="endocrine"/>
+									<label for="_Q2_C6">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Endocrine (incl. Thyroid, NETs)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="7" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','7','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="7" value="female__reprod"/>
-									<label for="7">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C7" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C7','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C7" value="female__reprod"/>
+									<label for="_Q2_C7">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Female Reproductive (incl. Ovarian)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="8" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','8','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="8" value="gastric"/>
-									<label for="8">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C8" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C8','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C8" value="gastric"/>
+									<label for="_Q2_C8">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Gastrointestinal (incl. pancreas and peritoneum)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="9" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','9','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="9" value="head______neck"/>
-									<label for="9">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C9" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C9','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C9" value="head______neck"/>
+									<label for="_Q2_C9">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Head and neck</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="10" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','10','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="10" value="hepato__biliary"/>
-									<label for="10">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C10" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C10','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C10" value="hepato__biliary"/>
+									<label for="_Q2_C10">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Hepatobiliary</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="11" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','11','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="11" value="leukaemia"/>
-									<label for="11">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C11" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C11','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C11" value="leukaemia"/>
+									<label for="_Q2_C11">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Leukaemia</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="12" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','12','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="12" value="lung"/>
-									<label for="12">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C12" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C12','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C12" value="lung"/>
+									<label for="_Q2_C12">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Lung</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="13" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','13','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="13" value="lymphoma"/>
-									<label for="13">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C13" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C13','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C13" value="lymphoma"/>
+									<label for="_Q2_C13">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Lymphoma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="14" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','14','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="14" value="male__reprod"/>
-									<label for="14">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C14" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C14','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C14" value="male__reprod"/>
+									<label for="_Q2_C14">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Male Reproductive (incl. Prostate)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="15" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','15','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="15" value="myelodysplasia"/>
-									<label for="15">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C15" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C15','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C15" value="myelodysplasia"/>
+									<label for="_Q2_C15">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Myelodysplasia</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="16" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','16','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="16" value="myeloma"/>
-									<label for="16">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C16" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C16','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C16" value="myeloma"/>
+									<label for="_Q2_C16">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Multiple Myeloma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="17" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','17','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="17" value="myeloproliferative__disorder"/>
-									<label for="17">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C17" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C17','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C17" value="myeloproliferative__disorder"/>
+									<label for="_Q2_C17">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Myeloproliferative disorder</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="18" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','18','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="18" value="neuroblastoma"/>
-									<label for="18">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C18" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C18','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C18" value="neuroblastoma"/>
+									<label for="_Q2_C18">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Neuroblastoma</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="19" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','19','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="19" value="skin"/>
-									<label for="19">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C19" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C19','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C19" value="skin"/>
+									<label for="_Q2_C19">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Skin (incl. Melanoma)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="20" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','20','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="20" value="urinary__and__bladder"/>
-									<label for="20">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C20" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C20','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C20" value="urinary__and__bladder"/>
+									<label for="_Q2_C20">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Urinary (incl. RCC)</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="21" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','21','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="21" value="unknown"/>
-									<label for="21">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C21" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C21','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C21" value="unknown"/>
+									<label for="_Q2_C21">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">unknown Primary</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="22" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
-									<script>app.registerComponent('mOptionBase','22','_QFilterOnGenderPage_Qdiagnosis2');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="22" value="other"/>
-									<label for="22">
+								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C22" data-questiongroup="_QFilterOnGenderPage_Qdiagnosis2">
+									<script>app.registerComponent('mOptionBase','_Q2_C22','_QFilterOnGenderPage_Qdiagnosis2');</script>
+									<input class="hiddencontrol" type="radio" name="_QFilterOnGenderPage_Qdiagnosis2_C" id="_Q2_C22" value="other"/>
+									<label for="_Q2_C22">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
