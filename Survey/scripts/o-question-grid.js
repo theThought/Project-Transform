@@ -65,12 +65,7 @@ define(['component'],
                     // there is actually text (do not return html tags as valid headers)
 
                     if (col.tagName.toLowerCase() === 'th') {
-                        for (var k = 0; k < col.childNodes.length; k++) {
-                            var curNode = col.childNodes[k];
-                            if (curNode.nodeName === "#text") {
-                                celltext += curNode.nodeValue.trim(); // avoid spaces and newlines from contributing
-                            }
-                        }
+                        celltext += this.recursiveTextSearch(col, '');
 
                         if (!celltext.length) {
                             emptyheadercount++;
@@ -85,6 +80,21 @@ define(['component'],
                 }
 
             }
+        }
+
+        oQuestionGrid.prototype.recursiveTextSearch = function (node, text) {
+            if (node.nodeType === document.TEXT_NODE) {
+                var content = node.nodeValue.trim();
+                text += content;
+            } else if (node.nodeType === document.ELEMENT_NODE) {
+                for (var i = 0; i < node.childNodes.length; i++) {
+                    if (text += this.recursiveTextSearch(node.childNodes[i], text)) {
+                        return text;
+                    }
+                }
+            }
+
+            return text;
         }
 
         oQuestionGrid.prototype.configureCellEvents = function () {
