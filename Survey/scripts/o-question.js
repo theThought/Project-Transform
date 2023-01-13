@@ -52,6 +52,29 @@ define(['component'],
             }
         }
 
+        oQuestion.prototype.labels = function (prop) {
+            var alternativescontainer = this.container.querySelector('div.o-question-alternatives');
+
+            // guard condition to prevent old-style pages, lacking the new container,
+            // from throwing errors
+            if (alternativescontainer === null) {
+                return;
+            }
+
+            // do not add the labels a second time
+            if (alternativescontainer.childNodes.length > 1) {
+                return;
+            }
+
+            prop.alternatives.forEach(function(item) {
+                var alternative = document.createElement('div');
+                alternative.setAttribute('name', item.name);
+                alternative.classList.add('o-question-information-content');
+                alternative.innerHTML = item.label;
+                alternativescontainer.appendChild(alternative);
+            });
+        }
+
         oQuestion.prototype.evaluateRule = function (string) {
             // replace any remaining question placeholders with null --
             // a final safety net that should ultimately be unnecessary
@@ -311,3 +334,4 @@ define(['component'],
         return oQuestion;
 
     });
+    
