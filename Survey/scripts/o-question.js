@@ -67,7 +67,8 @@ define(['component'],
             }
 
             prop.alternatives.forEach(function(item) {
-                var alternative = document.createElement('div');
+                var elementtype = item.block ? 'div' : 'span';
+                var alternative = document.createElement(elementtype);
                 alternative.setAttribute('name', item.name);
                 alternative.classList.add('o-question-information-content');
                 alternative.innerHTML = item.label;
