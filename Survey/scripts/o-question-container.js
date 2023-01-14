@@ -28,6 +28,7 @@ define(['o-question'],
             this.configureIncomingEventListeners();
             this.configureInitialVisibility();
             this.processVisibilityRules();
+            this.processAlternativeVisibilityRules();
             this.configurationComplete();
         }
 
@@ -130,6 +131,49 @@ define(['o-question'],
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
             document.dispatchEvent(clearEntries);
             this.element.classList.add('unavailable');
+        }
+
+        oQuestionContainer.prototype.processAlternativeVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.element === event.detail.element) {
+                return;
+            }
+
+            this.processAlternativeVisibilityRules();
+        }
+
+        oQuestionContainer.prototype.processAlternativeVisibilityRules = function () {
+            if (!this.alternativeRuleParsingComplete) {
+                this.parseAlternativeVisibilityRules();
+            }
+
+            if (!this.hasAlternativeVisibilityRules) {
+                return;
+            }
+
+            this.debug('Processing alternative label rules for ' + this.questionName, 3);
+            this.getQuestionValues();
+
+            for (var i = 0; i < this.properties.labels.alternatives.length; i++) {
+                var ruleString = this.insertQuestionValuesIntoRule(this.properties.labels.alternatives[i].visible.parsedRule);
+                this.debug(ruleString, 3);
+
+                if (this.evaluateRule(ruleString)) {
+                    this.makeAlternativeAvailable(this.properties.labels.alternatives[i].name);
+                } else {
+                    this.makeAlternativeUnavailable(this.properties.labels.alternatives[i].name);
+                }
+            }
+
+        }
+
+        oQuestionContainer.prototype.makeAlternativeAvailable = function (name) {
+            var labelelement = this.element.querySelector('.o-question-information-content[name="' + name + '"]')
+            this.element.querySelector('.o-question-information-content').appendChild(labelelement);
+        }
+
+        oQuestionContainer.prototype.makeAlternativeUnavailable = function (name) {
+            var labelelement = this.element.querySelector('.o-question-information-content[name="' + name + '"]')
+            this.element.querySelector('.o-question-alternatives').appendChild(labelelement);
         }
 
         oQuestionContainer.prototype.cover = function () {

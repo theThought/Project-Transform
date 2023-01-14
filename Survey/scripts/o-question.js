@@ -17,6 +17,7 @@ define(['component'],
             this.collapse = true;
             this.sourceQuestions = {};
             this.optionRuleParsingComplete = false;
+            this.alternativeRuleParsingComplete = false;
             this.hasOptionVisibilityRules = false;
 
             this.container = this.getContainer();
@@ -29,7 +30,6 @@ define(['component'],
         oQuestion.prototype.init = function () {
             this.configureProperties();
             this.processOptionVisibilityRules();
-            this.processAlternativeVisibilityRules();
         }
 
         oQuestion.prototype.getContainer = function () {
@@ -85,18 +85,6 @@ define(['component'],
             this.debug(string, 3);
 
             return (new Function('return (' + string + ')')());
-        }
-        
-        oQuestion.prototype.processAlternativeVisibilityRulesFromExternalTrigger = function (event) {
-            if (this.element === event.detail.element) {
-                return;
-            }
-            
-            this.processAlternativeVisibilityRules();
-        }
-         
-        oQuestion.prototype.processAlternativeVisibilityRules = function () {
-            
         }
 
         oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function (event) {
@@ -211,6 +199,21 @@ define(['component'],
             return ruleString;
         }
 
+        oQuestion.prototype.parseAlternativeVisibilityRules = function () {
+            if (typeof this.properties.labels === "undefined") {
+                this.alternativeRuleParsingComplete = true;
+                return;
+            }
+
+            for (var i = 0; i < this.properties.labels.alternatives.length; i++) {
+                this.hasAlternativeVisibilityRules = true;
+                var ruleString = this.properties.labels.alternatives[i].visible.rules;
+                this.properties.labels.alternatives[i].visible.parsedRule = this.parseVisibilityRules(ruleString);
+            }
+
+            this.alternativeRuleParsingComplete = true;
+        }
+
         oQuestion.prototype.parseOptionVisibilityRules = function () {
             if (typeof this.properties.options === "undefined") {
                 this.optionRuleParsingComplete = true;
@@ -268,8 +271,8 @@ define(['component'],
         oQuestion.prototype.replaceOperators = function (ruleString) {
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
 
-            ruleString = ruleString.replace(/or/gi, '||');
-            ruleString = ruleString.replace(/and/gi, '&&');
+            ruleString = ruleString.replace(/or /gi, '|| ');
+            ruleString = ruleString.replace(/and /gi, '&& ');
             ruleString = ruleString.replace(/%gt%/g, '>');
             ruleString = ruleString.replace(/%lt%/g, '<');
             ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
