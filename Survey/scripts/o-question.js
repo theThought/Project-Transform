@@ -29,6 +29,7 @@ define(['component'],
         oQuestion.prototype.init = function () {
             this.configureProperties();
             this.processOptionVisibilityRules();
+            this.processAlternativeVisibilityRules();
         }
 
         oQuestion.prototype.getContainer = function () {
@@ -84,6 +85,18 @@ define(['component'],
             this.debug(string, 3);
 
             return (new Function('return (' + string + ')')());
+        }
+        
+        oQuestion.prototype.processAlternativeVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.element === event.detail.element) {
+                return;
+            }
+            
+            this.processAlternativeVisibilityRules();
+        }
+         
+        oQuestion.prototype.processAlternativeVisibilityRules = function () {
+            
         }
 
         oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function (event) {

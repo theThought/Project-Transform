@@ -39,6 +39,7 @@ define(['o-question'],
         oQuestionContainer.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'broadcastChange':
+                    this.processAlternativeVisibilityRulesFromExternalTrigger(event);
                     this.processVisibilityRulesFromExternalTrigger(event);
                     this.processOptionVisibilityRulesFromExternalTrigger(event);
                     break;
