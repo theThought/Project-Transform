@@ -54,6 +54,10 @@ define(['component'],
         }
 
         oQuestion.prototype.labels = function (prop) {
+            if (typeof prop.alternatives === "undefined") {
+                return;
+            }
+
             var alternativescontainer = this.container.querySelector('div.o-question-alternatives');
 
             // guard condition to prevent old-style pages, lacking the new container,
@@ -201,6 +205,11 @@ define(['component'],
 
         oQuestion.prototype.parseAlternativeVisibilityRules = function () {
             if (typeof this.properties.labels === "undefined") {
+                this.alternativeRuleParsingComplete = true;
+                return;
+            }
+
+            if (typeof this.properties.labels.alternatives === "undefined") {
                 this.alternativeRuleParsingComplete = true;
                 return;
             }
