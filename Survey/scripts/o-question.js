@@ -17,6 +17,7 @@ define(['component'],
             this.collapse = true;
             this.sourceQuestions = {};
             this.optionRuleParsingComplete = false;
+            this.alternativeRuleParsingComplete = false;
             this.hasOptionVisibilityRules = false;
 
             this.container = this.getContainer();
@@ -50,6 +51,34 @@ define(['component'],
             if (prop === true) {
                 this.element.classList.add('show-spinner');
             }
+        }
+
+        oQuestion.prototype.labels = function (prop) {
+            if (typeof prop.alternatives === "undefined") {
+                return;
+            }
+
+            var alternativescontainer = this.container.querySelector('div.o-question-alternatives');
+
+            // guard condition to prevent old-style pages, lacking the new container,
+            // from throwing errors
+            if (alternativescontainer === null) {
+                return;
+            }
+
+            // do not add the labels a second time
+            if (alternativescontainer.childNodes.length > 1) {
+                return;
+            }
+
+            prop.alternatives.forEach(function(item) {
+                var elementtype = item.block ? 'div' : 'span';
+                var alternative = document.createElement(elementtype);
+                alternative.setAttribute('name', item.name);
+                alternative.classList.add('o-question-information-content');
+                alternative.innerHTML = item.label;
+                alternativescontainer.appendChild(alternative);
+            });
         }
 
         oQuestion.prototype.evaluateRule = function (string) {
@@ -174,6 +203,26 @@ define(['component'],
             return ruleString;
         }
 
+        oQuestion.prototype.parseAlternativeVisibilityRules = function () {
+            if (typeof this.properties.labels === "undefined") {
+                this.alternativeRuleParsingComplete = true;
+                return;
+            }
+
+            if (typeof this.properties.labels.alternatives === "undefined") {
+                this.alternativeRuleParsingComplete = true;
+                return;
+            }
+
+            for (var i = 0; i < this.properties.labels.alternatives.length; i++) {
+                this.hasAlternativeVisibilityRules = true;
+                var ruleString = this.properties.labels.alternatives[i].visible.rules;
+                this.properties.labels.alternatives[i].visible.parsedRule = this.parseVisibilityRules(ruleString);
+            }
+
+            this.alternativeRuleParsingComplete = true;
+        }
+
         oQuestion.prototype.parseOptionVisibilityRules = function () {
             if (typeof this.properties.options === "undefined") {
                 this.optionRuleParsingComplete = true;
@@ -231,8 +280,8 @@ define(['component'],
         oQuestion.prototype.replaceOperators = function (ruleString) {
             var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
 
-            ruleString = ruleString.replace(/or/gi, '||');
-            ruleString = ruleString.replace(/and/gi, '&&');
+            ruleString = ruleString.replace(/or /gi, '|| ');
+            ruleString = ruleString.replace(/and /gi, '&& ');
             ruleString = ruleString.replace(/%gt%/g, '>');
             ruleString = ruleString.replace(/%lt%/g, '<');
             ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
@@ -311,3 +360,4 @@ define(['component'],
         return oQuestion;
 
     });
+    

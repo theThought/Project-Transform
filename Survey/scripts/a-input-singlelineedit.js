@@ -142,8 +142,12 @@ define(['component', 'pikaday'],
             if (props['pre']) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-prelabel';
-                var preContent = document.createTextNode(props['pre']);
-                preElement.appendChild(preContent);
+                var preContentText = props['pre'];
+                preContentText = preContentText.replace(/%lt%/g, '<');
+                preContentText = preContentText.replace(/%gt%/g, '>');
+                //var preContent = document.createTextNode(preContentText);
+                //preElement.appendChild(preContent);
+                preElement.innerHTML = preContentText;
 
                 this.wrapper.insertBefore(preElement, this.wrapper.childNodes[0]);
             }
@@ -151,8 +155,12 @@ define(['component', 'pikaday'],
             if (props['post']) {
                 var postElement = document.createElement('span');
                 postElement.className = 'a-label-postlabel';
-                var postContent = document.createTextNode(props['post']);
-                postElement.appendChild(postContent);
+                var postContentText = props['post'];
+                postContentText = postContentText.replace(/%lt%/g, '<');
+                postContentText = postContentText.replace(/%gt%/g, '>');
+                //var postContent = document.createTextNode(props['post']);
+                //postElement.appendChild(postContent);
+                postElement.innerHTML = postContentText;
 
                 this.wrapper.appendChild(postElement);
             }
