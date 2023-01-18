@@ -74,9 +74,18 @@ define(['component'],
             prop.alternatives.forEach(function(item) {
                 var elementtype = item.block ? 'div' : 'span';
                 var alternative = document.createElement(elementtype);
+
                 alternative.setAttribute('name', item.name);
                 alternative.classList.add('o-question-information-content');
                 alternative.innerHTML = item.label;
+
+                if (prop.separator !== 'undefined' && prop.separator.length) {
+                    var alternativeseparator = document.createElement('span');
+                    alternativeseparator.className = 'a-label-alternative-separator';
+                    alternativeseparator.innerHTML = prop.separator;
+                    alternative.appendChild(alternativeseparator);
+                }
+
                 alternativescontainer.appendChild(alternative);
             });
         }

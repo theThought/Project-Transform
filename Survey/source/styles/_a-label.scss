@@ -143,6 +143,12 @@ th .a-label-option {
     }
 }
 
+.o-question-information-content span:last-child {
+    .a-label-alternative-separator {
+        display: none;
+    }
+}
+
 .m-structure-cell {
     .read-only .a-label-postlabel,
     .read-only .a-label-prelabel {

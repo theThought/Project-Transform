@@ -949,6 +949,10 @@ th .a-label-option {
   border-right-color: #8797C8 !important;
 }
 
+.o-question-information-content span:last-child .a-label-alternative-separator {
+  display: none;
+}
+
 .m-structure-cell .read-only .a-label-postlabel,
 .m-structure-cell .read-only .a-label-prelabel {
   background: transparent;
