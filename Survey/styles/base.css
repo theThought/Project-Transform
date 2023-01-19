@@ -1265,17 +1265,32 @@ input + script + .m-option-base {
   color: #212C4C;
 }
 
+.balance {
+  /* half the normal margin as the flex version of the
+   * container will not collapse the margins */
+}
 .balance .o-option-sublist:first-of-type {
   margin-top: 0;
 }
-
 .balance .o-option-sublist {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+.balance .o-option-sublist + .m-option-base {
+  margin-top: 0;
+}
+.balance .m-option-base + .o-option-sublist {
+  margin-top: 0.5em;
+}
 
-/* Separates sub-lists when they are immediately adjacent. */
+/* Separates sub-lists when they are immediately adjacent */
 .o-option-sublist + .o-option-sublist {
+  margin-top: 1em;
+}
+
+/* Separates m-option-base elements when they are not
+ * part of a sub-list but directly follow a sub-list */
+.o-option-sublist + .m-option-base {
   margin-top: 1em;
 }
 
