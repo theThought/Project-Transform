@@ -41,7 +41,7 @@ define(['component'],
             // prevent sub-questions from overwriting attributes in a parent container
             if (container !== null && container.getAttribute('data-questiongroup') === null) {
                 container.setAttribute('data-questiongroup', this.group);
-                container.setAttribute('data-questionid', '_'+scripttagid);
+                container.setAttribute('data-questionid', '_' + scripttagid);
             }
 
             return container;
@@ -71,7 +71,8 @@ define(['component'],
                 return;
             }
 
-            prop.alternatives.forEach(function(item) {
+            prop.alternatives.forEach(function (item, idx, arr) {
+
                 var elementtype = item.block ? 'div' : 'span';
                 var alternative = document.createElement(elementtype);
 
@@ -79,7 +80,7 @@ define(['component'],
                 alternative.classList.add('o-question-information-content');
                 alternative.innerHTML = item.label;
 
-                if (prop.separator !== 'undefined' && prop.separator.length) {
+                if (prop.separator !== 'undefined' && prop.separator.length && idx !== arr.length - 1) {
                     var alternativeseparator = document.createElement('span');
                     alternativeseparator.className = 'a-label-alternative-separator';
                     alternativeseparator.innerHTML = prop.separator;
