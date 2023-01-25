@@ -132,7 +132,9 @@ Survey.prototype.registerInitialState = function (id, value) {
 
 Survey.prototype.RegisterProperties = function (id, props) {
     id = this.extractQuestionName(id);
-    app.properties[id] = this.sanitiseProperties(props);
+    var newprops = this.sanitiseProperties(props);
+    var currprops = app.properties[id] ? app.properties[id] : {};
+    app.properties[id] = Object.assign(currprops, newprops);
 }
 
 Survey.prototype.getProperties = function (id) {
