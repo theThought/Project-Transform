@@ -63,8 +63,8 @@ button.a-button-preterminator,
 button.a-button-postterminator {
     position: relative;
     border: none;
-    background: transparent;
-    top: .3em;
+    background: transparent !important;
+    top: .5em;
     width: 2em;
     min-width: 2em;
     padding: 0 .5em;
