@@ -1686,12 +1686,18 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
+         <xsl:text>Group: </xsl:text>
+         <xsl:value-of select="$qGroup" />
+         <xsl:text>, Fullname: </xsl:text>
+         <xsl:value-of select="$qFullName" />
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
             <xsl:if test="count(Cell/Question)=0">
                <xsl:text>-heading</xsl:text>
             </xsl:if>
+         </xsl:attribute>
+         <xsl:attribute name='data-iterationname'>
          </xsl:attribute>
          <xsl:for-each select="./Cell">
             <xsl:sort select="@X" data-type="number" />
@@ -1995,6 +2001,9 @@
          <xsl:when test="$theID = '-61'">
             <xsl:value-of select="'combolist'" />
          </xsl:when>
+         <xsl:when test="$theID = '-65'">
+            <xsl:value-of select="'droplist'" />
+         </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select="theID" />
          </xsl:otherwise>
@@ -2028,6 +2037,9 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-61'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-65'">
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:otherwise>
