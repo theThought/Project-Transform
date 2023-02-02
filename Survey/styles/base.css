@@ -1292,6 +1292,11 @@ input + script + .m-option-base {
   margin-top: 1em;
 }
 
+/* prevents corrects separation of lists when they are balanced */
+.balance > .o-option-sublist + .o-option-sublist {
+  margin-top: 0;
+}
+
 /* Separates m-option-base elements when they are not
  * part of a sub-list but directly follow a sub-list */
 .o-option-sublist + .m-option-base {
