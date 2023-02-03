@@ -319,7 +319,7 @@ define(['component'],
             // match 2: contains string
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].some(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
-                expandedString = '(' + expandedString + ')';
+                expandedString = ' (' + expandedString + ') ';
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
@@ -339,7 +339,7 @@ define(['component'],
             // match 2: contains string
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) >= 0})';
-                expandedString = '(' + expandedString + ')';
+                expandedString = ' (' + expandedString + ') ';
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
@@ -360,7 +360,7 @@ define(['component'],
             // match 2: contains string
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) == -1})';
-                expandedString = '(' + expandedString + ')';
+                expandedString = ' (' + expandedString + ') ';
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
