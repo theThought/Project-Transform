@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="grruyuh5ngdunlc2r1zsdjkavqaqaaaa"/><input type="hidden" name="I.SavePoint" value="SmokePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="lnutv25yf2ruvbug6mfj3kyl5qaqaaaa"/><input type="hidden" name="I.SavePoint" value="SmokePage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -46,14 +46,17 @@
 				</div>
 			</div>
 			<div class="surroundcontent">Questions about smoking and vaping<div class="o-question-container">
-					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QSmokePage_QVisibilityStatement');</script><script type="text/javascript">app.RegisterProperties('_QVisibilityStatement',{"separator":true});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QSmokePage_QVisibilityStatement');</script><script type="text/javascript">app.RegisterProperties("_QVisibilityStatement",{"separator":true});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
-							<p>This group of questions have been setup to test the new visibility rules.  There are currently three visibility rules implemented:<UL><LI>Specific Option</LI><LI>Not Specific Option</LI><LI>Min Value</LI></UL></p></div>
+							<div class="o-question-information-content">
+								<p>This group of questions have been setup to test the new visibility rules.  There are currently three visibility rules implemented:<UL><LI>Specific Option</LI><LI>Not Specific Option</LI><LI>Min Value</LI></UL></p></div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 					</div>
@@ -65,7 +68,10 @@
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Have you smoked at least one cigarette, or vaped in the last week</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Have you smoked at least one cigarette, or vaped in the last week</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_QDoyou__smoke">
@@ -77,7 +83,7 @@
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-									<span class="a-label-option">At least one cigarette</span>
+									<span class="a-label-option">At least one cigarette/Cigar</span>
 								</label>
 							</div>
 							<div class="m-option-base" data-exclusive="false" data-questionid="_Q1_C1" data-questiongroup="_QSmokePage_QDoyou__smoke">
@@ -104,13 +110,16 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QSmokePage_Qsmokecigars');</script><script type="text/javascript">app.RegisterProperties('_Qsmokecigars',{"separator":true, "onesize":{"state":true},"displayicon":false,"jumptofirstletter":false,"type":"dropdown","placeholder":"Select an answer","visible":{"collapse":true,"rules":[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_Smoked"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QSmokePage_Qsmokecigars');</script><script type="text/javascript">app.RegisterProperties("_Qsmokecigars",{"separator":true, "onesize":{"state":true},"displayicon":false,"jumptofirstletter":false,"type":"dropdown","placeholder":"Select an answer","visible":{"collapse":true,"rules":"Doyou_smoke.containsAny('Yes_Smoked')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Do you smoke cigars or cigarettes</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Do you smoke cigars or cigarettes</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-list" data-questiongroup="_QSmokePage_Qsmokecigars">
@@ -153,13 +162,16 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QSmokePage_Qbrandswhich');</script><script type="text/javascript">app.RegisterProperties('_Qbrandswhich',{"separator":true, "balanced":{"state":true},"onesize":{"state":true},"visible":{"collapse":true,"rules":[{"question":"smokecigars","type":"specific-option","value":"cigars"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QSmokePage_Qbrandswhich');</script><script type="text/javascript">app.RegisterProperties("_Qbrandswhich",{"separator":true, "balanced":{"state":true},"onesize":{"state":true},"visible":{"collapse":true,"rules":"smokecigars.containsAny('cigars')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Which of the following cigar brand have you used in the last month</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Which of the following cigar brand have you used in the last month</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_Qbrandswhich">
@@ -248,14 +260,17 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q4">app.registerComponent('oQuestionContainer','_Q4','_QSmokePage_QHowmanysmoked');</script><script type="text/javascript">app.RegisterProperties('_QHowmanysmoked',{"separator":false, "type":"number", "visible":{"collapse":true,"rules":[{"question":"smokecigars","type":"specific-option","value":"cigarettes"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q4">app.registerComponent('oQuestionContainer','_Q4','_QSmokePage_QHowmanysmoked');</script><script type="text/javascript">app.RegisterProperties("_QHowmanysmoked",{"separator":false, "type":"number", "visible":{"collapse":true,"rules":"smokecigars.containsAny('cigarettes')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
-							<label for="_Q4">How many cigarettes did you smoke in the last seven days</label>
+							<div class="o-question-information-content">
+								<label for="_Q4">How many cigarettes did you smoke in the last seven days</label>
+							</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
@@ -267,26 +282,32 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q5">app.registerComponent('oQuestionContainer','_Q5','_QSmokePage_QPleaseReview');</script><script type="text/javascript">app.RegisterProperties('_QPleaseReview',{"visible":{"collapse":true,"rules":[{"question":"Howmanysmoked","type":"max-value","value":"0"}]}});</script><div class="m-question-cover"><!-- cover --></div>
-					<div class="o-question-error">
-					</div>
-					<div class="o-question-core">
-						<div class="o-question-warning">
-						</div>
-						<div class="o-question-information">Please review your answers if you did not smoke any cigarettes in the last seven days</div>
-						<div class="o-question-instruction">
-						</div>
-					</div>
-				</div>
-				<div class="o-question-container">
-					<script data-questionid="_Q6">app.registerComponent('oQuestionContainer','_Q6','_QSmokePage_QWeekendpercentage');</script><script type="text/javascript">app.RegisterProperties('_QWeekendpercentage',{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true, "visible":{"collapse":true,"rules":[{"question":"Howmanysmoked","type":"min-value","value":"30"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q5">app.registerComponent('oQuestionContainer','_Q5','_QSmokePage_QPleaseReview');</script><script type="text/javascript">app.RegisterProperties("_QPleaseReview",{"visible":{"collapse":true,"rules":"Doyou_smoke.containsAny('Yes_Smoked') and smokecigars.containsAny('cigarettes') and Howmanysmoked %lt%= 0"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
-							<label for="_Q6">What percentage do you smoke at the weekend</label>
+							<div class="o-question-information-content">Please review your answers if you did not smoke any cigarettes in the last seven days</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
+						<div class="o-question-instruction">
+						</div>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<script data-questionid="_Q6">app.registerComponent('oQuestionContainer','_Q6','_QSmokePage_QWeekendpercentage');</script><script type="text/javascript">app.RegisterProperties("_QWeekendpercentage",{"values":{"min":0,"max":100},"show":{"marks":false,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true, "visible":{"collapse":true,"rules":"Howmanysmoked %gt%= 30"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-error">
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-warning">
+						</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">
+								<label for="_Q6">What percentage do you smoke at the weekend</label>
+							</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
@@ -323,13 +344,16 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q7">app.registerComponent('oQuestionContainer','_Q7','_QSmokePage_QHowmanyvaped');</script><script type="text/javascript">app.RegisterProperties('_QHowmanyvaped',{"type":"number", "visible":{"collapse":true,"rules":[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q7">app.registerComponent('oQuestionContainer','_Q7','_QSmokePage_QHowmanyvaped');</script><script type="text/javascript">app.RegisterProperties("_QHowmanyvaped",{"visible":{"collapse":true,"rules":"Doyou_smoke.containsAny('Yes_vaped')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">How many times did you use your vape in the last seven days?</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">How many times did you use your vape in the last seven days?</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_QHowmanyvaped">
@@ -378,13 +402,16 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q8">app.registerComponent('oQuestionContainer','_Q8','_QSmokePage_QDidyouPreviously');</script><script type="text/javascript">app.RegisterProperties('_QDidyoupreviously',{"balance":{"state":false}, "visible":{"collapse":true,"rules":[{"question":"DoYou_Smoke","type":"specific-option","value":"Yes_vaped"},{"question":"DoYou_Smoke","type":"not-specific-option","value":"Yes_Smoked"}]}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q8">app.registerComponent('oQuestionContainer','_Q8','_QSmokePage_QDidyouPreviously');</script><script type="text/javascript">app.RegisterProperties("_QDidyouPreviously",{"visible":{"collapse":true,"rules":"Doyou_smoke.containsAny('Yes_smoked','yes_vaped')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Did you previously smoke?</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Did you previously smoke?</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_QDidyouPreviously">
@@ -419,7 +446,10 @@
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Do you mind questions about smoking</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Do you mind questions about smoking</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
 						<div class="o-question-response o-question-choice" data-questiongroup="_QSmokePage_QDoYouMind">
