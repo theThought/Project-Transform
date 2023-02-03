@@ -1686,10 +1686,6 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
-         <xsl:text>Group: </xsl:text>
-         <xsl:value-of select="$qGroup" />
-         <xsl:text>, Fullname: </xsl:text>
-         <xsl:value-of select="$qFullName" />
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
