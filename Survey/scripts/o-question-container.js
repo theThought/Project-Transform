@@ -60,7 +60,7 @@ define(['o-question'],
         oQuestionContainer.prototype.configureInitialVisibility = function () {
             // if there are no visibility rules defined for this question lift the cover immediately
             if (typeof this.properties.visible === "undefined") {
-                this.liftCover();
+                this.makeAvailable();
                 return;
             }
 
@@ -79,14 +79,31 @@ define(['o-question'],
                 return;
             }
 
-            this.processVisibilityRules();
+            if (typeof this.properties.visible !== "undefined") {
+                this.processVisibleRules();
+            }
+
+            if (typeof this.properties.invisible !== "undefined") {
+                this.processInvisibleRules();
+            }
         }
 
         oQuestionContainer.prototype.processVisibilityRules = function () {
-            if (typeof this.properties.visible === "undefined") {
+            if (typeof this.properties.visible === "undefined"
+                && typeof this.properties.invisible === "undefined") {
                 this.ruleParsingComplete = true;
                 return;
             }
+
+            if (typeof this.properties.visible !== "undefined") {
+                this.processVisibleRules();
+                return;
+            }
+
+            this.processInvisibleRules();
+        }
+
+        oQuestionContainer.prototype.processVisibleRules = function () {
 
             if (!this.ruleParsingComplete) {
                 this.complexVisibilityRule = this.properties.visible.rules;
@@ -98,7 +115,7 @@ define(['o-question'],
                 return;
             }
 
-            this.debug('Processing visibility rules for ' + this.questionName, 3);
+            this.debug('Processing visible rules for ' + this.questionName, 3);
             this.debug(this.complexVisibilityRule, 3);
             this.getQuestionValues();
             var ruleString = this.insertQuestionValuesIntoRule(this.expandedVisibilityRule);
@@ -107,6 +124,30 @@ define(['o-question'],
                 this.makeAvailable();
             } else {
                 this.makeUnavailable();
+            }
+        }
+
+        oQuestionContainer.prototype.processInvisibleRules = function () {
+
+            if (!this.ruleParsingComplete) {
+                this.complexVisibilityRule = this.properties.invisible.rules;
+                this.expandedVisibilityRule = this.parseVisibilityRules(this.complexVisibilityRule);
+                this.ruleParsingComplete = true;
+            }
+
+            if (this.expandedVisibilityRule === '') {
+                return;
+            }
+
+            this.debug('Processing invisible rules for ' + this.questionName, 3);
+            this.debug(this.complexVisibilityRule, 3);
+            this.getQuestionValues();
+            var ruleString = this.insertQuestionValuesIntoRule(this.expandedVisibilityRule);
+
+            if (this.evaluateRule(ruleString)) {
+                this.makeUnavailable();
+            } else {
+                this.makeAvailable();
             }
         }
 
