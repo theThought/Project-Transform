@@ -96,7 +96,7 @@ define(['component'],
             // a final safety net that should ultimately be unnecessary
             string = string.replace(/%%(\w+)%%/g, 'null');
 
-            this.debug(string, 3);
+            this.debug(this.questionName + ': ' + string, 3);
 
             return (new Function('return (' + string + ')')());
         }
@@ -258,7 +258,7 @@ define(['component'],
 
             if (questions === null) {
                 this.debug('A visibility rule was found but did not identify any questions:', 2);
-                this.debug(ruleString, 2);
+                this.debug(this.questionName + ': ' + ruleString, 2);
                 return;
             }
 
@@ -288,7 +288,7 @@ define(['component'],
         }
 
         oQuestion.prototype.replaceOperators = function (ruleString) {
-            var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/;
+            var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/g;
 
             ruleString = ruleString.replace(/or /gi, '|| ');
             ruleString = ruleString.replace(/and /gi, '&& ');
