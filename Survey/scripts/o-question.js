@@ -226,8 +226,15 @@ define(['component'],
 
             for (var i = 0; i < this.properties.labels.alternatives.length; i++) {
                 this.hasAlternativeVisibilityRules = true;
-                var ruleString = this.properties.labels.alternatives[i].visible.rules;
-                this.properties.labels.alternatives[i].visible.parsedRule = this.parseVisibilityRules(ruleString);
+                var ruleString = "";
+
+                if (typeof this.properties.labels.alternatives[i].visible !== "undefined") {
+                    ruleString = this.properties.labels.alternatives[i].visible.rules;
+                } else {
+                    ruleString = this.properties.labels.alternatives[i].invisible.rules;
+                }
+
+                this.properties.labels.alternatives[i].parsedRule = this.parseVisibilityRules(ruleString);
             }
 
             this.alternativeRuleParsingComplete = true;
@@ -253,7 +260,7 @@ define(['component'],
         oQuestion.prototype.parseVisibilityRules = function (ruleString) {
             // regular expression that searches for a string followed by an operator
             // operators are = < > <> .containsNone .containsNone .containsAll
-            var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>]|\s?%gt%|\s?%lt%)/;
+            var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%)/;
             var questions = ruleString.match(questionRe);
 
             if (questions === null) {
@@ -288,7 +295,7 @@ define(['component'],
         }
 
         oQuestion.prototype.replaceOperators = function (ruleString) {
-            var questionRe = /\s?(\w+)(\s?[=<>]+\s?)/g;
+            var questionRe = /\s?(\w+)(\s?[=<>+-]+\s?)/g;
 
             ruleString = ruleString.replace(/or /gi, '|| ');
             ruleString = ruleString.replace(/and /gi, '&& ');

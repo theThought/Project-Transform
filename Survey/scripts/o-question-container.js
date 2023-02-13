@@ -195,16 +195,35 @@ define(['o-question'],
             this.getQuestionValues();
 
             for (var i = 0; i < this.properties.labels.alternatives.length; i++) {
-                var ruleString = this.insertQuestionValuesIntoRule(this.properties.labels.alternatives[i].visible.parsedRule);
-                this.debug(ruleString, 3);
+                var currentRuleset = this.properties.labels.alternatives[i];
+                var ruleString = this.insertQuestionValuesIntoRule(currentRuleset.parsedRule);
+                this.debug(currentRuleset.parsedRule, 3);
 
-                if (this.evaluateRule(ruleString)) {
-                    this.makeAlternativeAvailable(this.properties.labels.alternatives[i].name);
+                if (typeof currentRuleset.visible !== "undefined") {
+                    this.evaluateAlternativeVisibleRule(ruleString, currentRuleset.name)
                 } else {
-                    this.makeAlternativeUnavailable(this.properties.labels.alternatives[i].name);
+                    this.evaluateAlternativeInvisibleRule(ruleString, currentRuleset.name);
                 }
-            }
 
+            }
+        }
+
+        oQuestionContainer.prototype.evaluateAlternativeVisibleRule = function (rule, name) {
+
+            if (this.evaluateRule(rule)) {
+                this.makeAlternativeAvailable(name);
+            } else {
+                this.makeAlternativeUnavailable(name);
+            }
+        }
+
+        oQuestionContainer.prototype.evaluateAlternativeInvisibleRule = function (rule, name) {
+
+            if (this.evaluateRule(rule)) {
+                this.makeAlternativeUnavailable(name);
+            } else {
+                this.makeAlternativeAvailable(name);
+            }
         }
 
         oQuestionContainer.prototype.makeAlternativeAvailable = function (name) {
