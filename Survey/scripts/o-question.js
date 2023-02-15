@@ -184,7 +184,15 @@ define(['component'],
         }
 
         oQuestion.prototype.sendResizeNotifier = function (groupname) {
-            window.dispatchEvent(new Event('resize'));
+            if (typeof(Event) === 'function') {
+                // modern browsers
+                window.dispatchEvent(new Event('resize'));
+            } else {
+                // for IE and other old browsers
+                var evt = document.createEvent('UIEvents');
+                evt.initUIEvent('resize', true, false, window, 0);
+                window.dispatchEvent(evt);
+            }
         }
 
         oQuestion.prototype.getQuestionValues = function () {
