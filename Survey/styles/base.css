@@ -1007,6 +1007,16 @@ th .a-label-option {
   border: transparent !important;
 }
 
+.o-question-hnumberslider-control .a-label-outer-prelabel {
+  position: relative;
+  top: 0.9em;
+  color: #455B97;
+}
+.o-question-hnumberslider-control .a-label-outer-postlabel {
+  position: relative;
+  top: 0.9em;
+  color: #455B97;
+}
 .o-question-hnumberslider-control .a-label-prelabel {
   position: absolute;
   left: 0;

@@ -185,6 +185,29 @@ define(['o-question'],
 
             if (props['pre']) {
                 var preElement = document.createElement('span');
+                preElement.className = 'a-label-outer-prelabel';
+                var preContent = document.createTextNode(props['pre']);
+                preElement.appendChild(preContent);
+
+                this.organism.classList.add('has-pre-label');
+                this.organism.insertBefore(preElement, this.organism.firstChild);
+            }
+
+            if (props['post']) {
+                var postElement = document.createElement('span');
+                postElement.className = 'a-label-outer-postlabel';
+                var postContent = document.createTextNode(props['post']);
+                postElement.appendChild(postContent);
+
+                this.organism.classList.add('has-post-label');
+                this.organism.appendChild(postElement);
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.old_labels = function (props) {
+
+            if (props['pre']) {
+                var preElement = document.createElement('span');
                 preElement.className = 'a-label-prelabel';
                 var preContent = document.createTextNode(props['pre']);
                 preElement.appendChild(preContent);
