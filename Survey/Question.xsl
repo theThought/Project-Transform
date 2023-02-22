@@ -7,6 +7,7 @@
    <xsl:param name="sImageLocation" />
    <xsl:param name="bShowOnly" select="false()" />
    <xsl:param name="bAutoComplete" select="false()" />
+   <!--- Basic Structure -->
    <xsl:template match="Questions">
       <xsl:for-each select="Question">
          <Question>
@@ -158,6 +159,7 @@
          </xsl:call-template>
       </xsl:element>
    </xsl:template>
+   <!--- Type Picker -->
    <xsl:template name='TypePicker'>
       <xsl:param name="qGroupName" />
       <xsl:param name="qFullName" />
@@ -200,7 +202,6 @@
          </xsl:when>
       </xsl:choose>
    </xsl:template>
-
    <xsl:template name='TypePickerChoose'>
       <xsl:param name="qGroupName" />
       <xsl:param name="qFullName" />
@@ -243,7 +244,117 @@
          </xsl:when>
       </xsl:choose>
    </xsl:template>
-
+    <xsl:template name="Control">
+      <xsl:param name="qGroup" />
+      <xsl:param name="qFullName" />
+      <xsl:param name="qIsCustom">
+         <xsl:call-template name="TranslateZIndexToIsCustom">
+            <xsl:with-param name="theID" select="Style/@ZIndex" />
+         </xsl:call-template>
+      </xsl:param>
+      <xsl:param name="qCustomType">
+         <xsl:call-template name="TranslateZIndexToName">
+            <xsl:with-param name="theID" select="Style/@ZIndex" />
+         </xsl:call-template>
+      </xsl:param>
+      
+      <xsl:choose>
+         <xsl:when test="@Type = 'Static'">
+            <xsl:call-template name="StaticControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'Edit'">
+            <xsl:call-template name="EditControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'SingleLineEdit'">
+            <xsl:call-template name="SingleLineEditControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'ReadWriteEdit'">
+            <xsl:call-template name="SingleLineEditControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'MultiLineEdit'">
+            <xsl:call-template name="MultiLineEditControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'DropList'">
+           <xsl:text>THIS IS A DROP LIST</xsl:text>
+            <xsl:call-template name="DropListControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'ComboList'">
+            <xsl:call-template name="ComboListControl" />
+         </xsl:when>
+         <xsl:when test="@Type = 'RadioButton'">
+            <xsl:call-template name="RadioButtonControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'CheckButton'">
+            <xsl:call-template name="CheckButtonControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'ListBox'">
+            <xsl:call-template name="ListBoxControl" />
+         </xsl:when>
+         <xsl:when test="@Type = 'ListControl'">
+            <xsl:call-template name="ListControlControl" />
+         </xsl:when>
+         <xsl:when test="@Type = 'Button'">
+            <xsl:call-template name="ButtonControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'Date'">
+            <xsl:call-template name="DateControl" />
+         </xsl:when>
+         <xsl:when test="@Type = 'Time'">
+            <xsl:call-template name="TimeControl" />
+         </xsl:when>
+         <xsl:when test="@Type = 'DateTime'">
+            <xsl:call-template name="DateTimeControl" />
+         </xsl:when>
+         <xsl:when test="@Type = 'Password'">
+            <xsl:call-template name="PasswordControl" />
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:call-template name="StaticControl" />
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+  <!--- Labels -->
    <xsl:template match="Label">
       <xsl:param name="sLabelClass" select="'UNKNOWN'" />
       <xsl:param name="bWithinTable" select="false()" />
@@ -414,114 +525,7 @@
       </xsl:for-each>
    </xsl:template>
    <!--- CONTROL -->
-   <xsl:template name="Control">
-      <xsl:param name="qGroup" />
-      <xsl:param name="qFullName" />
-      <xsl:param name="qIsCustom">
-         <xsl:call-template name="TranslateZIndexToIsCustom">
-            <xsl:with-param name="theID" select="Style/@ZIndex" />
-         </xsl:call-template>
-      </xsl:param>
-      <xsl:param name="qCustomType">
-         <xsl:call-template name="TranslateZIndexToName">
-            <xsl:with-param name="theID" select="Style/@ZIndex" />
-         </xsl:call-template>
-      </xsl:param>
-      <xsl:choose>
-         <xsl:when test="@Type = 'Static'">
-            <xsl:call-template name="StaticControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'Edit'">
-            <xsl:call-template name="EditControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'SingleLineEdit'">
-            <xsl:call-template name="SingleLineEditControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'ReadWriteEdit'">
-            <xsl:call-template name="SingleLineEditControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'MultiLineEdit'">
-            <xsl:call-template name="MultiLineEditControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'DropList'">
-            <xsl:call-template name="DropListControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'ComboList'">
-            <xsl:call-template name="ComboListControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'RadioButton'">
-            <xsl:call-template name="RadioButtonControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'CheckButton'">
-            <xsl:call-template name="CheckButtonControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'ListBox'">
-            <xsl:call-template name="ListBoxControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'ListControl'">
-            <xsl:call-template name="ListControlControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'Button'">
-            <xsl:call-template name="ButtonControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'Date'">
-            <xsl:call-template name="DateControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'Time'">
-            <xsl:call-template name="TimeControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'DateTime'">
-            <xsl:call-template name="DateTimeControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'Password'">
-            <xsl:call-template name="PasswordControl" />
-         </xsl:when>
-         <xsl:otherwise>
-            <xsl:call-template name="StaticControl" />
-         </xsl:otherwise>
-      </xsl:choose>
-   </xsl:template>
+  
    <xsl:template name="Error">
       <xsl:param name="SubQuestion" select="false()" />
       <xsl:choose>
@@ -861,9 +865,8 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:element name="div">
-         <xsl:element name="input">
-            <xsl:attribute name="class">a-input-list-dropdown</xsl:attribute>
-            <xsl:attribute name="type">text</xsl:attribute>
+         <xsl:element name="select">
+            <xsl:attribute name="class">m-select-droplist</xsl:attribute>
             <xsl:if test="Style/@Width">
                <xsl:attribute name="style">
                   <xsl:text>width:</xsl:text>
@@ -873,38 +876,13 @@
             </xsl:if>
          </xsl:element>
          <xsl:element name="script">
-            <xsl:text>app.registerComponent('aInputListDropdown','</xsl:text>
+            <xsl:text>app.registerComponent('aInputDropList','</xsl:text>
             <xsl:value-of select="$qGroup" />
             <xsl:text>','</xsl:text>
             <xsl:value-of select="$qFullName" />
             <xsl:text>');</xsl:text>
          </xsl:element>
-         <xsl:element name="button">
-            <xsl:attribute name="class">a-button-list-dropdown</xsl:attribute>
-            <xsl:attribute name="type">button</xsl:attribute>
-            <xsl:comment>dropdown image goes here</xsl:comment>
-         </xsl:element>
-         <xsl:element name="script">
-            <xsl:text>app.registerComponent('aButtonListDropDown','</xsl:text>
-            <xsl:value-of select="$qGroup" />
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-         </xsl:element>
-      </xsl:element>
-      <xsl:element name="div">
-         <xsl:attribute name="class">m-list-responses</xsl:attribute>
-         <xsl:comment>dropdown response options</xsl:comment>
-      </xsl:element>
-      <xsl:element name="div">
-         <xsl:attribute name="class">m-list-optionlist</xsl:attribute>
-         <xsl:element name="script">
-            <xsl:text>app.registerComponent('mListOptionList','</xsl:text>
-            <xsl:value-of select="$qGroup" />
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-         </xsl:element>
+
          <xsl:variable name="data-questionid">
             <xsl:value-of select="$qGroup" />
          </xsl:variable>
@@ -912,11 +890,8 @@
             <xsl:value-of select="@QuestionName" />
          </xsl:variable>
          <xsl:for-each select="Category">
-            <xsl:element name="div">
-               <xsl:attribute name="class">m-option-base</xsl:attribute>
-               <xsl:attribute name="data-exclusive">
-                  <xsl:text>true</xsl:text>
-               </xsl:attribute>
+            <xsl:element name="option">
+               <xsl:attribute name="class">a-select-option</xsl:attribute>
                <xsl:attribute name="data-questionid">
                   <xsl:value-of select="$data-questionid" />
                   <xsl:value-of select="@CategoryID" />
@@ -924,72 +899,41 @@
                <xsl:attribute name="data-questiongroup">
                   <xsl:value-of select="$qFullName" />
                </xsl:attribute>
+                <xsl:if test="$bShowOnly != false()">
+                   <xsl:attribute name="disabled" />
+                </xsl:if>
+                <!--- Read Only -->
+                <xsl:if test="../Style/Control/@ReadOnly = 'true'">
+                   <xsl:attribute name="disabled" />
+                </xsl:if>
+               <xsl:attribute name="value">
+                   <xsl:value-of select="@Name" />
+                </xsl:attribute>
+                  <xsl:if test="@Alt != ''">
+                     <xsl:attribute name="Alt">
+                        <xsl:value-of select="@Alt" />
+                     </xsl:attribute>
+                  </xsl:if>
+               <xsl:if test="$bIncludeElementIds">
+                   <xsl:attribute name="id">
+                      <xsl:value-of select="$data-questionid" />
+                      <xsl:value-of select="@CategoryID" />
+                   </xsl:attribute>
+                </xsl:if>
+                  <xsl:if test="@Checked = 'true'">
+                     <xsl:attribute name="selected" />
+                  </xsl:if>
                <xsl:call-template name="appComponentScript">
-                  <xsl:with-param name="ComponentName" select="'mOptionBase'" />
+                  <xsl:with-param name="ComponentName" select="'aSelectOption'" />
                   <xsl:with-param name="ElementID">
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
                   </xsl:with-param>
                   <xsl:with-param name="FullName" select="$qFullName" />
                </xsl:call-template>
-               <xsl:element name="input">
-                  <xsl:attribute name="class">hiddencontrol</xsl:attribute>
-                  <!--- Set Control Type -->
-                  <xsl:attribute name="type">radio</xsl:attribute>
-                  <!--- Input name -->
-                  <xsl:attribute name="name">
-                     <xsl:value-of select="$QuestionID" />
-                  </xsl:attribute>
-                  <!--- ID -->
-                  <xsl:if test="$bIncludeElementIds">
-                     <xsl:attribute name="id">
-                        <xsl:value-of select="$data-questionid" />
-                        <xsl:value-of select="@CategoryID" />
-                     </xsl:attribute>
-                  </xsl:if>
-                  <!--- Alt -->
-                  <xsl:if test="@Alt != ''">
-                     <xsl:attribute name="Alt">
-                        <xsl:value-of select="@Alt" />
-                     </xsl:attribute>
-                  </xsl:if>
-                  <!--- CSS Class -->
-                  <!--- Show Only -->
-                  <xsl:if test="$bShowOnly != false()">
-                     <xsl:attribute name="disabled" />
-                  </xsl:if>
-                  <!--- Read Only -->
-                  <xsl:if test="../Style/Control/@ReadOnly = 'true'">
-                     <xsl:attribute name="disabled" />
-                  </xsl:if>
-                  <!--- Button Category -->
-                  <xsl:attribute name="value">
-                     <xsl:if test="@Name">
-                        <xsl:value-of select="@Name" />
-                     </xsl:if>
-                  </xsl:attribute>
-                  <!--- Is Button Checked -->
-                  <xsl:if test="@Checked = 'true'">
-                     <xsl:attribute name="checked" />
-                  </xsl:if>
-               </xsl:element>
-               <xsl:element name="label">
-                  <xsl:attribute name="for">
-                     <xsl:value-of select="$data-questionid" />
-                     <xsl:value-of select="@CategoryID" />
-                  </xsl:attribute>
-                  <xsl:element name="span">
-                     <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
-                     <xsl:attribute name="data-icontype">single</xsl:attribute>
-                     <xsl:comment>This is a comment!</xsl:comment>
-                  </xsl:element>
-                  <xsl:apply-templates select="Label">
-                     <xsl:with-param name="labelType" select="'option'" />
-                  </xsl:apply-templates>
-               </xsl:element>
+               <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
             </xsl:element>
          </xsl:for-each>
-
       </xsl:element>
    </xsl:template>
    <xsl:template name="ComboListControl">
@@ -1664,22 +1608,9 @@
       <!--- adds the border styles to a style attribute -->
    </xsl:template>
    <xsl:template name="PaddingStyle" />
-   <xsl:template name="appComponentScript">
-      <xsl:param name="ComponentName" />
-      <xsl:param name="ElementID" />
-      <xsl:param name="FullName" />
-      <xsl:element name="script">
-         <xsl:text>app.registerComponent('</xsl:text>
-         <xsl:value-of select="$ComponentName" />
-         <xsl:text>','</xsl:text>
-         <xsl:value-of select="$ElementID" />
-         <xsl:text>','</xsl:text>
-         <xsl:value-of select="$FullName" />
-         <xsl:text>');</xsl:text>
-      </xsl:element>
-   </xsl:template>
+   
    <!--- Custom Templates -->
-   <!--- StructureRow -->
+   <!--- Handling Grids -->
    <xsl:template name="StructureRow">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -1706,7 +1637,6 @@
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
-   <!--- StructureCell -->
    <xsl:template name="StructureCell">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -1856,7 +1786,7 @@
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
-   <!--- Make Input Control -->
+   <!--- General Functions -->
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -2042,6 +1972,20 @@
             <xsl:value-of select="'true'" />
          </xsl:otherwise>
       </xsl:choose>
+   </xsl:template>
+   <xsl:template name="appComponentScript">
+      <xsl:param name="ComponentName" />
+      <xsl:param name="ElementID" />
+      <xsl:param name="FullName" />
+      <xsl:element name="script">
+         <xsl:text>app.registerComponent('</xsl:text>
+         <xsl:value-of select="$ComponentName" />
+         <xsl:text>','</xsl:text>
+         <xsl:value-of select="$ElementID" />
+         <xsl:text>','</xsl:text>
+         <xsl:value-of select="$FullName" />
+         <xsl:text>');</xsl:text>
+      </xsl:element>
    </xsl:template>
    <xsl:template name="CamelCaseWord">
       <xsl:param name="text" />
