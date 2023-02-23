@@ -298,7 +298,6 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'DropList'">
-           <xsl:text>THIS IS A DROP LIST</xsl:text>
             <xsl:call-template name="DropListControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
                <xsl:with-param name="qFullName" select="$qFullName" />
