@@ -959,6 +959,26 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
+         <xsl:attribute name="data-position">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="class">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
          <xsl:if test="Category[1]/@CategoryID">
             <xsl:variable name="ElementID">
                <xsl:value-of select="@ElementID" />
@@ -1075,6 +1095,26 @@
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
+         </xsl:attribute>
+         <xsl:attribute name="data-position">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="class">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
          </xsl:attribute>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('mOptionBase','</xsl:text>
