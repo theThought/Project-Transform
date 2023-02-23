@@ -1799,6 +1799,17 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
+         <!--- Set Indicate position as side or below -->
+         <xsl:attribute name="data-position">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
          <!--- Set Control Type -->
          <xsl:choose>
             <xsl:when test="$qCustomType='hnumberslider'">
@@ -1894,9 +1905,19 @@
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
-            <xsl:attribute name="class">hiddencontrol</xsl:attribute>
-         </xsl:if>
+         <xsl:attribute name="class">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+            <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
+               <xsl:text> hiddencontrol</xsl:text>
+            </xsl:if>
+         </xsl:attribute>
       </xsl:element>
    </xsl:template>
    <xsl:template name="TranslateZIndexToName">
