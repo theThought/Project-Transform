@@ -1,17 +1,17 @@
 <Questions>
   <Question>
-    <Style ElementAlign="NewLine" Indent="1" />
-    <Table UseTablesLayout="0" Summary="Indicate which of these TV options you have">
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-40"></Style>
+    <Table UseTablesLayout="0" Summary="Please indicate your gender if you want to">
       <Row Y="0">
         <Cell X="0" Y="0">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
+          <Control Type="RadioButton" QuestionName="_QGenderReal_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
+              <Control Type="RadioButton"></Control>
             </Style>
-            <Category Name="iPlayer" CategoryID="0">
+            <Category Name="male" CategoryID="0">
               <Label>
-                <Style ElementAlign="Right" />
-                <Text>iPlayer</Text>
+                <Style ElementAlign="Right"></Style>
+                <Text>male</Text>
               </Label>
             </Category>
           </Control>
@@ -19,14 +19,14 @@
       </Row>
       <Row Y="1">
         <Cell X="0" Y="1">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
+          <Control Type="RadioButton" QuestionName="_QGenderReal_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
+              <Control Type="RadioButton"></Control>
             </Style>
-            <Category Name="Terrestial" CategoryID="1">
+            <Category Name="female" CategoryID="1">
               <Label>
-                <Style ElementAlign="Right" />
-                <Text>Terrestial</Text>
+                <Style ElementAlign="Right"></Style>
+                <Text>female</Text>
               </Label>
             </Category>
           </Control>
@@ -34,135 +34,43 @@
       </Row>
       <Row Y="2">
         <Cell X="0" Y="2">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
+          <Control Type="RadioButton" QuestionName="_QGenderReal_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
+              <Control Type="RadioButton"></Control>
             </Style>
-            <Category Name="Prime" CategoryID="2">
+            <Category Name="othergender" CategoryID="2">
               <Label>
-                <Style ElementAlign="Right" />
-                <Text>Amazon Prime</Text>
-              </Label>
-            </Category>
-          </Control>
-        </Cell>
-      </Row>
-      <Row Y="3">
-        <Cell X="0" Y="3">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
-            <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
-            </Style>
-            <Category Name="Cable" CategoryID="3">
-              <Label>
-                <Style ElementAlign="Right" />
-                <Text>Cable</Text>
-              </Label>
-            </Category>
-          </Control>
-        </Cell>
-      </Row>
-      <Row Y="4">
-        <Cell X="0" Y="4">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
-            <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
-            </Style>
-            <Category Name="FreeView" CategoryID="4">
-              <Label>
-                <Style ElementAlign="Right" />
-                <Text>FreeView</Text>
-              </Label>
-            </Category>
-          </Control>
-        </Cell>
-      </Row>
-      <Row Y="5">
-        <Cell X="0" Y="5">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
-            <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
-            </Style>
-            <Category Name="Apple" CategoryID="5">
-              <Label>
-                <Style ElementAlign="Right" />
-                <Text>Apple TV</Text>
-              </Label>
-            </Category>
-          </Control>
-        </Cell>
-      </Row>
-      <Row Y="6">
-        <Cell X="0" Y="6">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
-            <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
-            </Style>
-            <Category Name="Satellite" CategoryID="6">
-              <Label>
-                <Style ElementAlign="Right" />
-                <Text>Satellite</Text>
-              </Label>
-            </Category>
-          </Control>
-        </Cell>
-      </Row>
-      <Row Y="7">
-        <Cell X="0" Y="7">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
-            <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
-            </Style>
-            <Category Name="Netflix" CategoryID="7">
-              <Label>
-                <Style ElementAlign="Right" />
-                <Text>Netflix</Text>
-              </Label>
-            </Category>
-          </Control>
-        </Cell>
-      </Row>
-      <Row Y="8">
-        <Cell X="0" Y="8">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
-            <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
-            </Style>
-            <Category Name="OtherTV" CategoryID="8">
-              <Label>
-                <Style ElementAlign="Right" />
-                <Text>Other</Text>
+                <Style ElementAlign="Right"></Style>
+                <Text>Other gender, </Text>
               </Label>
             </Category>
           </Control>
           <Question>
-            <Style ElementAlign="Right">
-              <Control Type="SingleLineEdit" />
+            <Style ElementAlign="Right" ZIndex="-20">
+              <Control Type="SingleLineEdit"></Control>
             </Style>
-            <Label ElementId="_Q0_O8">
-              <Style ElementAlign="Right" />
-              <Text>Please Specify</Text>
+            <Label ElementId="_Q0_O2">
+              <Style ElementAlign="Right"></Style>
+              <Text>please specify</Text>
             </Label>
-            <Control Type="SingleLineEdit" QuestionName="_QOtherSpecifyExample_OOtherTV" ElementID="_Q0_O8" Value="" Length="200">
-              <Style ElementAlign="Right">
-                <Control Type="SingleLineEdit" />
+            <Control Type="SingleLineEdit" QuestionName="_QGenderReal_Oothergender" ElementID="_Q0_O2" Value="" Length="200">
+              <Style ElementAlign="Right" ZIndex="-20">
+                <Control Type="SingleLineEdit"></Control>
               </Style>
             </Control>
           </Question>
         </Cell>
       </Row>
-      <Row Y="9">
-        <Cell X="0" Y="9">
-          <Control Type="CheckButton" QuestionName="_QOtherSpecifyExample_C" ElementID="_Q0_C">
+      <Row Y="3">
+        <Cell X="0" Y="3">
+          <Control Type="RadioButton" QuestionName="_QGenderReal_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1">
-              <Control Type="CheckButton" />
+              <Control Type="RadioButton"></Control>
             </Style>
-            <Category Name="none" CategoryID="9">
+            <Category Name="dontsay" CategoryID="3">
               <Label>
-                <Style ElementAlign="Right">
-                  <Font IsBold="true" />
-                </Style>
-                <Text>Netflix</Text>
+                <Style ElementAlign="Right"></Style>
+                <Text>prefer not to say</Text>
               </Label>
             </Category>
           </Control>
