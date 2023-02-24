@@ -1949,7 +1949,7 @@
             </xsl:if>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text>below</xsl:text>
+                  <xsl:text> below</xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
                   <xsl:text> side</xsl:text>
