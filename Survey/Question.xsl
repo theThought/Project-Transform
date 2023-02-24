@@ -946,7 +946,6 @@
       <xsl:param name="qCustomType" />
       <!--- Control Label -->
       <xsl:element name="div">
-         <xsl:attribute name="class">m-option-base</xsl:attribute>
          <xsl:attribute name="data-exclusive">
             <xsl:text>true</xsl:text>
          </xsl:attribute>
@@ -970,6 +969,7 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
+            <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
                   <xsl:text>below</xsl:text>
@@ -1076,7 +1076,6 @@
       <xsl:param name="qCustomType" />
       <!--- Control Label -->
       <xsl:element name="div">
-         <xsl:attribute name="class">m-option-base</xsl:attribute>
          <xsl:attribute name="data-exclusive">
             <xsl:choose>
                <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
@@ -1107,6 +1106,7 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
+            <xsl:text>m-option-base</xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
                   <xsl:text>below</xsl:text>
