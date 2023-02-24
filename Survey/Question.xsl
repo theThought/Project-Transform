@@ -353,7 +353,7 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-  <!--- Labels -->
+   <!--- Labels -->
    <xsl:template match="Label">
       <xsl:param name="sLabelClass" select="'UNKNOWN'" />
       <xsl:param name="bWithinTable" select="false()" />
@@ -1884,12 +1884,7 @@
             </xsl:attribute>
          </xsl:if>
          <!--- CSS Class -->
-         <xsl:if test="$bIncludeCSSStyles">
-            <xsl:attribute name="class">
-               <xsl:text>a-input-</xsl:text>
-               <xsl:value-of select="$qCustomType" />
-            </xsl:attribute>
-         </xsl:if>
+         
          <!--- Show Only -->
          <xsl:if test="$bShowOnly != false()">
             <xsl:attribute name="disabled" />
@@ -1946,12 +1941,18 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
+            <xsl:if test="$bIncludeCSSStyles">
+               <xsl:attribute name="class">
+                  <xsl:text>a-input-</xsl:text>
+                  <xsl:value-of select="$qCustomType" />
+               </xsl:attribute>
+            </xsl:if>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
                   <xsl:text>below</xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text>side</xsl:text>
+                  <xsl:text> side</xsl:text>
                </xsl:when>
             </xsl:choose>
             <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
