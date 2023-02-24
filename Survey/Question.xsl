@@ -1941,12 +1941,8 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
-            <xsl:if test="$bIncludeCSSStyles">
-               <xsl:attribute name="class">
-                  <xsl:text>a-input-</xsl:text>
-                  <xsl:value-of select="$qCustomType" />
-               </xsl:attribute>
-            </xsl:if>
+            <xsl:text>a-input-</xsl:text>
+            <xsl:value-of select="$qCustomType" />
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
                   <xsl:text> below</xsl:text>
