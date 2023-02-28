@@ -864,6 +864,9 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xls:text>o-select-droplist</xsl:text>
+         </xsl:attribute>
          <xsl:element name="select">
             <xsl:attribute name="class">m-select-droplist</xsl:attribute>
             <xsl:if test="Style/@Width">
