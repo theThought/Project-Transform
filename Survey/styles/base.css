@@ -1245,6 +1245,36 @@ input + script + .m-option-base {
   z-index: -999;
 }
 
+.m-select-droplist {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 40px;
+  line-height: 40px;
+  min-width: 3em;
+  margin: 0;
+  padding: 0 1em 0 16px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  z-index: 1;
+  background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
+  color: white;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.m-select-droplist option {
+  background-color: #FFFFFF;
+  color: #455B97;
+}
+
 .m-structure-cell,
 .m-structure-cellm-structure-cell-altrow {
   padding: 0.5em;
@@ -1835,7 +1865,8 @@ body {
 
 body,
 input,
-textarea {
+textarea,
+select {
   font-family: "Karla", sans-serif;
 }
 

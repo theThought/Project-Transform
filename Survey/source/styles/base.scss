@@ -1,4 +1,4 @@
-// version 2022-09-07.08
+// version 2023-02-23.01
 
 @use 'globals';
 
@@ -15,6 +15,7 @@
 @import 'm-list-optionlist';
 @import 'm-option-base';
 @import 'm-question-cover';
+@import 'm-select-droplist';
 @import 'm-structure-cell';
 @import 'o-option-list';
 @import 'o-question';
@@ -43,7 +44,8 @@ body {
 
 body,
 input,
-textarea {
+textarea,
+select {
     font-family: globals.$primary-font;
 }
 

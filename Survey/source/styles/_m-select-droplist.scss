@@ -1,0 +1,29 @@
+@use 'globals';
+
+.m-select-droplist {
+    appearance: none;
+    display: block;
+    box-sizing: border-box;
+    min-height: 40px;
+    line-height: 40px;
+    min-width: 3em;
+    margin: 0;
+    padding: 0 1em 0 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: globals.$border-radius;
+    z-index: 1;
+    background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
+    color: white;
+    text-indent: 8px;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.m-select-droplist option {
+    background-color: globals.$white;
+    color: globals.$theme-primary;
+}
