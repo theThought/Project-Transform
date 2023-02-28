@@ -866,6 +866,7 @@
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-select-droplist</xsl:text>
+            <xsl:comment>rapid droplist</xsl:comment>
          </xsl:attribute>
          <xsl:element name="select">
             <xsl:attribute name="class">m-select-droplist</xsl:attribute>
