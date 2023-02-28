@@ -867,6 +867,13 @@
          <xsl:attribute name="class">
             <xsl:text>o-select-droplist</xsl:text>
             <xsl:comment>rapid droplist</xsl:comment>
+            <xsl:element name="script">
+               <xsl:text>app.registerComponent('oSelectDroplist','</xsl:text>
+               <xsl:value-of select="$qGroup" />
+               <xsl:text>','</xsl:text>
+               <xsl:value-of select="$qFullName" />
+               <xsl:text>');</xsl:text>
+         </xsl:element>
          </xsl:attribute>
          <xsl:element name="select">
             <xsl:attribute name="class">m-select-droplist</xsl:attribute>
