@@ -866,15 +866,20 @@
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-select-droplist</xsl:text>
-            <xsl:comment>rapid droplist</xsl:comment>
-            <xsl:element name="script">
-               <xsl:text>app.registerComponent('oSelectDroplist','</xsl:text>
-               <xsl:value-of select="$qGroup" />
-               <xsl:text>','</xsl:text>
-               <xsl:value-of select="$qFullName" />
-               <xsl:text>');</xsl:text>
-         </xsl:element>
          </xsl:attribute>
+         <xsl:element name="script">
+            <xsl:text>app.registerComponent('oSelectDroplist','</xsl:text>
+            <xsl:value-of select="$qGroup" />
+            <xsl:text>','</xsl:text>
+            <xsl:value-of select="$qFullName" />
+            <xsl:text>');</xsl:text>
+         </xsl:element>
+         <xsl:variable name="data-questionid">
+            <xsl:value-of select="$qGroup" />
+         </xsl:variable>
+         <xsl:variable name="QuestionID">
+            <xsl:value-of select="@QuestionName" />
+         </xsl:variable>
          <xsl:element name="select">
             <xsl:attribute name="class">m-select-droplist</xsl:attribute>
             <xsl:if test="Style/@Width">
@@ -884,22 +889,7 @@
                   <xsl:text>;</xsl:text>
                </xsl:attribute>
             </xsl:if>
-         </xsl:element>
-         <xsl:element name="script">
-            <xsl:text>app.registerComponent('aInputDropList','</xsl:text>
-            <xsl:value-of select="$qGroup" />
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-         </xsl:element>
-
-         <xsl:variable name="data-questionid">
-            <xsl:value-of select="$qGroup" />
-         </xsl:variable>
-         <xsl:variable name="QuestionID">
-            <xsl:value-of select="@QuestionName" />
-         </xsl:variable>
-         <xsl:for-each select="Category">
+                     <xsl:for-each select="Category">
             <xsl:element name="option">
                <xsl:attribute name="class">a-select-option</xsl:attribute>
                <xsl:attribute name="data-questionid">
@@ -944,7 +934,18 @@
                <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
             </xsl:element>
          </xsl:for-each>
+
+         </xsl:element>
       </xsl:element>
+      <xsl:element name="script">
+         <xsl:text>app.registerComponent('aSelectDropList','</xsl:text>
+         <xsl:value-of select="$qGroup" />
+         <xsl:text>','</xsl:text>
+         <xsl:value-of select="$qFullName" />
+         <xsl:text>');</xsl:text>
+      </xsl:element>
+      <xsl:comment>rapid droplist</xsl:comment>
+
    </xsl:template>
    <xsl:template name="ComboListControl">
       <br />
