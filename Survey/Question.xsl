@@ -244,7 +244,7 @@
          </xsl:when>
       </xsl:choose>
    </xsl:template>
-    <xsl:template name="Control">
+   <xsl:template name="Control">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom">
@@ -299,6 +299,14 @@
          </xsl:when>
          <xsl:when test="@Type = 'DropList'">
             <xsl:call-template name="DropListControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'ComboBox'">
+            <xsl:call-template name="ComboBoxControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
                <xsl:with-param name="qFullName" select="$qFullName" />
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
@@ -858,6 +866,7 @@
          <xsl:with-param name="FullName" select="$qFullName" />
       </xsl:call-template>
    </xsl:template>
+   
    <xsl:template name="DropListControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -947,6 +956,105 @@
       <xsl:comment>rapid droplist</xsl:comment>
 
    </xsl:template>
+
+   <xsl:template name="ComboBoxControl">
+      <xsl:param name="qGroup" />
+      <xsl:param name="qFullName" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xsl:text>o-select-combobox</xsl:text>
+         </xsl:attribute>
+         <xsl:element name="script">
+            <xsl:text>app.registerComponent('oSelectCombbox','</xsl:text>
+            <xsl:value-of select="$qGroup" />
+            <xsl:text>','</xsl:text>
+            <xsl:value-of select="$qFullName" />
+            <xsl:text>');</xsl:text>
+         </xsl:element>
+         <xsl:variable name="data-questionid">
+            <xsl:value-of select="$qGroup" />
+         </xsl:variable>
+         <xsl:variable name="QuestionID">
+            <xsl:value-of select="@QuestionName" />
+         </xsl:variable>
+
+         <xsl:call-template name="MakeInputControl">
+            <xsl:with-param name="qGroup" select="$qGroup" />
+            <xsl:with-param name="qFullName" select="$qFullName" />
+            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+            <xsl:with-param name="qCustomType" select="$qCustomType" />
+         </xsl:call-template>
+
+         <xsl:element name="datalist">
+            <xsl:attribute name="class">m-select-combobox-datalist</xsl:attribute>
+            <xsl:if test="Style/@Width">
+               <xsl:attribute name="style">
+                  <xsl:text>width:</xsl:text>
+                  <xsl:value-of select="Style/@Width" />
+                  <xsl:text>;</xsl:text>
+               </xsl:attribute>
+            </xsl:if>
+            <xsl:for-each select="Category">
+               <xsl:element name="option">
+               <xsl:attribute name="class">a-select-option</xsl:attribute>
+               <xsl:attribute name="data-questionid">
+                  <xsl:value-of select="$data-questionid" />
+                  <xsl:value-of select="@CategoryID" />
+               </xsl:attribute>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qFullName" />
+               </xsl:attribute>
+                <xsl:if test="$bShowOnly != false()">
+                   <xsl:attribute name="disabled" />
+                </xsl:if>
+                <!--- Read Only -->
+                <xsl:if test="../Style/Control/@ReadOnly = 'true'">
+                   <xsl:attribute name="disabled" />
+                </xsl:if>
+               <xsl:attribute name="value">
+                   <xsl:value-of select="@Name" />
+                </xsl:attribute>
+                  <xsl:if test="@Alt != ''">
+                     <xsl:attribute name="Alt">
+                        <xsl:value-of select="@Alt" />
+                     </xsl:attribute>
+                  </xsl:if>
+               <xsl:if test="$bIncludeElementIds">
+                   <xsl:attribute name="id">
+                      <xsl:value-of select="$data-questionid" />
+                      <xsl:value-of select="@CategoryID" />
+                   </xsl:attribute>
+                </xsl:if>
+                  <xsl:if test="@Checked = 'true'">
+                     <xsl:attribute name="selected" />
+                  </xsl:if>
+               <xsl:call-template name="appComponentScript">
+                  <xsl:with-param name="ComponentName" select="'aSelectOption'" />
+                  <xsl:with-param name="ElementID">
+                     <xsl:value-of select="$data-questionid" />
+                     <xsl:value-of select="@CategoryID" />
+                  </xsl:with-param>
+                  <xsl:with-param name="FullName" select="$qFullName" />
+               </xsl:call-template>
+               <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
+               </xsl:element>
+            </xsl:for-each>
+
+         </xsl:element>
+      </xsl:element>
+      <xsl:element name="script">
+         <xsl:text>app.registerComponent('mSelectDropList','</xsl:text>
+         <xsl:value-of select="$qGroup" />
+         <xsl:text>','</xsl:text>
+         <xsl:value-of select="$qFullName" />
+         <xsl:text>');</xsl:text>
+      </xsl:element>
+      <xsl:comment>rapid droplist</xsl:comment>
+
+   </xsl:template>
+
    <xsl:template name="ComboListControl">
       <br />
       <B>ComboList NOT IMPLEMENTED</B>
@@ -1999,6 +2107,9 @@
          <xsl:when test="$theID = '-65'">
             <xsl:value-of select="'droplist'" />
          </xsl:when>
+         <xsl:when test="$theID = '-68'">
+            <xsl:value-of select="'combobox'" />
+         </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select="theID" />
          </xsl:otherwise>
@@ -2035,6 +2146,9 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-65'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-68'">
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:otherwise>
