@@ -257,9 +257,6 @@
             <xsl:with-param name="theID" select="Style/@ZIndex" />
          </xsl:call-template>
       </xsl:param>
-      <xsl:text>CHECK:</xsl:text>
-      <xsl:text>Custom Type: </xsl:text>
-      <xsl:value-of select="$qCustomType" />
       <xsl:choose>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
@@ -968,7 +965,6 @@
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
-      <xsl:text>COMBOBOXCONTROL</xsl:text>
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-select-combobox</xsl:text>
