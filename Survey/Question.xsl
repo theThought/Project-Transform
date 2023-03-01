@@ -938,7 +938,7 @@
          </xsl:element>
       </xsl:element>
       <xsl:element name="script">
-         <xsl:text>app.registerComponent('aSelectDropList','</xsl:text>
+         <xsl:text>app.registerComponent('mSelectDropList','</xsl:text>
          <xsl:value-of select="$qGroup" />
          <xsl:text>','</xsl:text>
          <xsl:value-of select="$qFullName" />
