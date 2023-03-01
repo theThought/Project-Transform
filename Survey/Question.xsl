@@ -257,7 +257,9 @@
             <xsl:with-param name="theID" select="Style/@ZIndex" />
          </xsl:call-template>
       </xsl:param>
-      
+      <xsl:text>CHECK:</xsl:text>
+      <xsl:text>Custom Type: </xsl:text>
+      <xsl:value-of select="$qCustomType" />
       <xsl:choose>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
@@ -298,20 +300,24 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'DropList'">
-            <xsl:call-template name="DropListControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'ComboBox'">
-            <xsl:call-template name="ComboBoxControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
+            <xsl:choose>
+              <xsl:when test="$qCustomType='droplist'">
+                <xsl:call-template name="DropListControl">
+                   <xsl:with-param name="qGroup" select="$qGroup" />
+                   <xsl:with-param name="qFullName" select="$qFullName" />
+                   <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                   <xsl:with-param name="qCustomType" select="$qCustomType" />
+                </xsl:call-template>
+              </xsl:when>
+              <xsl:when test="$qCustomType='combobox'">
+                <xsl:call-template name="ComboBoxControl">
+                   <xsl:with-param name="qGroup" select="$qGroup" />
+                   <xsl:with-param name="qFullName" select="$qFullName" />
+                   <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                   <xsl:with-param name="qCustomType" select="$qCustomType" />
+                </xsl:call-template>
+              </xsl:when>
+            </xsl:choose>
          </xsl:when>
          <xsl:when test="@Type = 'ComboList'">
             <xsl:call-template name="ComboListControl" />
@@ -962,6 +968,7 @@
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
+      <xsl:text>COMBOBOXCONTROL</xsl:text>
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-select-combobox</xsl:text>
