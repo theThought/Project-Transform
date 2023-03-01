@@ -1,0 +1,42 @@
+<Questions>
+<Question>
+							<Style ElementAlign="NewLine" Indent="1" ZIndex="-68">
+								<Control Type="DropList"></Control>
+							</Style>
+							<Control Type="DropList" QuestionName="_QComboNewProducts_C" ElementID="_Q0_C">
+								<Style ElementAlign="NewLine" Indent="1" ZIndex="-68">
+									<Control Type="DropList"></Control>
+								</Style>
+								<Category Name="first" CategoryID="0_S0">
+									<Label>
+										<Style ElementAlign="Right"></Style>
+										<Text>I am always among the first to prescribe a new product</Text>
+									</Label>
+								</Category>
+								<Category Name="reluctant" CategoryID="0_S1">
+									<Label>
+										<Style ElementAlign="Right"></Style>
+										<Text>I am very reluctant to prescribe new products/switch to new products</Text>
+									</Label>
+								</Category>
+								<Category Name="waitShort" CategoryID="0_S2">
+									<Label>
+										<Style ElementAlign="Right"></Style>
+										<Text>I like to wait a while (for a few months) after a new product is approved before I start prescribing it</Text>
+									</Label>
+								</Category>
+								<Category Name="waitLong" CategoryID="0_S3">
+									<Label>
+										<Style ElementAlign="Right"></Style>
+										<Text>I prefer to prescribe products that are tried and trusted</Text>
+									</Label>
+								</Category>
+								<Category Name="waitMedium" CategoryID="0_S4">
+									<Label>
+										<Style ElementAlign="Right"></Style>
+										<Text>I wait to be comfortable (for more than a few months) with a new product by speaking to colleagues, hearing about its success before I prescribe it</Text>
+									</Label>
+								</Category>
+							</Control>
+						</Question>
+</Questions>
