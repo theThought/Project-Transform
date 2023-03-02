@@ -59,9 +59,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new aInputListDropdown(id, group));
             });
             break;
-        case 'ainputdroplist':
-            requirejs(['a-input-droplist'], function (aInputDropList) {
-                app.preinitcomponents.push(new aInputDropList(id, group));
+        case 'mselectdroplist':
+            requirejs(['m-select-droplist'], function (mSelectDroplist) {
+                app.preinitcomponents.push(new mSelectDroplist(id, group));
             });
             break;
         case 'ainputmultilineedit':
