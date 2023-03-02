@@ -879,6 +879,9 @@
          <xsl:attribute name="class">
             <xsl:text>o-select-droplist</xsl:text>
          </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qFullName" />
+         </xsl:attribute>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('oSelectDroplist','</xsl:text>
             <xsl:value-of select="$qGroup" />
@@ -907,9 +910,6 @@
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
-                  </xsl:attribute>
-                  <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
                   <xsl:if test="$bShowOnly != false()">
                      <xsl:attribute name="disabled" />
@@ -959,6 +959,9 @@
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-select-combobox</xsl:text>
+         </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <xsl:element name="script">
             <xsl:text>app.registerComponent('oSelectCombbox','</xsl:text>
