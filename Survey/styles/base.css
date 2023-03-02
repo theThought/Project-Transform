@@ -1250,20 +1250,21 @@ input + script + .m-option-base {
      -moz-appearance: none;
           appearance: none;
   display: block;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   min-height: 40px;
   line-height: 40px;
   min-width: 3em;
   margin: 0;
-  padding: 0 1em 0 16px;
+  padding: 0 1em 0 0;
   height: 100%;
-  width: 100%;
+  width: 197px;
   border: none;
   border-radius: 10px;
   z-index: 1;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
   color: white;
+  text-indent: 8px;
 }
 
 select::-ms-expand {

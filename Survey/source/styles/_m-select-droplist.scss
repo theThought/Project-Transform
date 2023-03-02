@@ -3,14 +3,14 @@
 .m-select-droplist {
     appearance: none;
     display: block;
-    box-sizing: border-box;
+    box-sizing: content-box;
     min-height: 40px;
     line-height: 40px;
     min-width: 3em;
     margin: 0;
     padding: 0 1em 0 0;
     height: 100%;
-    width: 100%;
+    width: 197px;
     border: none;
     border-radius: globals.$border-radius;
     z-index: 1;
