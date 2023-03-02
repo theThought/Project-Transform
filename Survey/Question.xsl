@@ -992,6 +992,10 @@
 
          <xsl:element name="datalist">
             <xsl:attribute name="class">m-select-combobox-datalist</xsl:attribute>
+            <xsl:attribute name="id">
+               <xsl:value-of select="$qFullName" />
+               <xsl:text>_list</xsl:text>
+            </xsl:attribute>
             <xsl:if test="Style/@Width">
                <xsl:attribute name="style">
                   <xsl:text>width:</xsl:text>
@@ -2052,6 +2056,15 @@
                <xsl:value-of select="@Length" />
             </xsl:attribute>
          </xsl:if>
+         <!--- list -->
+         <xsl:choose>
+            <xsl:when test="$qCustomType='combobox'">
+               <xsl:attribute name="list">
+                  <xsl:value-of select="$qFullName" />
+                  <xsl:text>_list</xsl:text>
+               </xsl:attribute>
+            </xsl:when>
+         </xsl:choose>
          <!--- Default text -->
          <xsl:attribute name="value">
             <xsl:choose>
@@ -2178,6 +2191,7 @@
       <xsl:value-of select="translate(substring($text,1,1),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
       <xsl:value-of select="translate(substring($text,2,string-length($text)-1),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
    </xsl:template>
+
    <xsl:template name="CalculateQuestionName">
       <xsl:param name="QuestionName" />
       <xsl:choose>
