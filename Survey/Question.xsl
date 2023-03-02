@@ -935,14 +935,6 @@
                   <xsl:if test="@Checked = 'true'">
                      <xsl:attribute name="selected" />
                   </xsl:if>
-                  <xsl:call-template name="appComponentScript">
-                     <xsl:with-param name="ComponentName" select="'aSelectOption'" />
-                     <xsl:with-param name="ElementID">
-                        <xsl:value-of select="$data-questionid" />
-                        <xsl:value-of select="@CategoryID" />
-                     </xsl:with-param>
-                     <xsl:with-param name="FullName" select="$qFullName" />
-                  </xsl:call-template>
                   <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
@@ -956,7 +948,6 @@
          <xsl:value-of select="$qFullName" />
          <xsl:text>');</xsl:text>
       </xsl:element>
-      <xsl:comment>rapid droplist</xsl:comment>
 
    </xsl:template>
 
@@ -1037,14 +1028,6 @@
                   <xsl:if test="@Checked = 'true'">
                      <xsl:attribute name="selected" />
                   </xsl:if>
-                  <xsl:call-template name="appComponentScript">
-                     <xsl:with-param name="ComponentName" select="'aSelectOption'" />
-                     <xsl:with-param name="ElementID">
-                        <xsl:value-of select="$data-questionid" />
-                        <xsl:value-of select="@CategoryID" />
-                     </xsl:with-param>
-                     <xsl:with-param name="FullName" select="$qFullName" />
-                  </xsl:call-template>
                   <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
