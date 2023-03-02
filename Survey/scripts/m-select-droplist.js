@@ -14,6 +14,8 @@ define(['component'],
 
             this.wrapper = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]')
             this.element = this.wrapper.querySelector('select.m-select-droplist');
+            this.isJumpingToLetter = false;
+            this.defaultPlaceholder = 'Select';
         }
 
         mSelectDroplist.prototype = Object.create(component.prototype);
@@ -33,6 +35,7 @@ define(['component'],
         mSelectDroplist.prototype.configureLocalEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             this.element.addEventListener("change", this, false);
+            this.element.addEventListener("keydown", this, false);
         }
 
         mSelectDroplist.prototype.handleEvent = function (event) {
@@ -40,12 +43,34 @@ define(['component'],
                 case "change":
                     this.onChange(event);
                     break;
+                case "keydown":
+                    this.onKeydown(event);
+                    break;
             }
         }
 
-        mSelectDroplist.prototype.onChange = function (event) {
+        mSelectDroplist.prototype.placeholder = function (prop) {
+            this.defaultPlaceholder = prop;
+            var el = new Option(prop, '');
+            this.element.insertBefore(el, this.element.firstChild);
+        }
+
+        mSelectDroplist.prototype.jumptofirstletter = function (prop) {
+            if (prop === true) {
+                this.isJumpingToLetter = true;
+            }
+        }
+
+        mSelectDroplist.prototype.onChange = function () {
             this.value = this.element.options[this.element.selectedIndex].value;
             this.broadcastChange();
+        }
+
+        mSelectDroplist.prototype.onKeydown = function (event) {
+            if (!this.isJumpingToLetter) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
         }
 
         return mSelectDroplist;
