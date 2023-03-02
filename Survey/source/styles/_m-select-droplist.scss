@@ -8,7 +8,7 @@
     line-height: 40px;
     min-width: 3em;
     margin: 0;
-    padding: 0 1em 0 0;
+    padding: 0 16px;
     height: 100%;
     width: 197px;
     border: none;
@@ -16,7 +16,6 @@
     z-index: 1;
     background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
     color: white;
-    text-indent: 8px;
 }
 
 select::-ms-expand {
