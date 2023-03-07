@@ -57,6 +57,7 @@ define(['component'],
             this.defaultPlaceholder = prop;
             var el = new Option(prop, '');
             this.element.insertBefore(el, this.element.firstChild);
+            this.element.selectedIndex = 0;
         }
 
         mSelectDroplist.prototype.jumptofirstletter = function (prop) {
