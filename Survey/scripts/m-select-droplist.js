@@ -30,6 +30,7 @@ define(['component'],
 
         mSelectDroplist.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
+            document.addEventListener("clearEntries", this, false);
         }
 
         mSelectDroplist.prototype.configureLocalEventListeners = function () {
@@ -45,6 +46,9 @@ define(['component'],
                     break;
                 case "keydown":
                     this.onKeydown(event);
+                    break;
+                case "clearEntries":
+                    this.clearEntries(event);
                     break;
             }
         }
