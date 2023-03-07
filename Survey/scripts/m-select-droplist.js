@@ -37,6 +37,8 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             this.element.addEventListener("change", this, false);
             this.element.addEventListener("keydown", this, false);
+            this.element.addEventListener("keypress", this, false);
+            this.element.addEventListener("keyup", this, false);
         }
 
         mSelectDroplist.prototype.handleEvent = function (event) {
@@ -45,7 +47,9 @@ define(['component'],
                     this.onChange(event);
                     break;
                 case "keydown":
-                    this.onKeydown(event);
+                case "keypress":
+                case "keyup":
+                    this.onKeyEvent(event);
                     break;
                 case "clearEntries":
                     this.clearEntries(event);
@@ -71,10 +75,13 @@ define(['component'],
             this.broadcastChange();
         }
 
-        mSelectDroplist.prototype.onKeydown = function (event) {
+        mSelectDroplist.prototype.onKeyEvent = function (event) {
             if (!this.isJumpingToLetter) {
-                event.preventDefault();
-                event.stopPropagation();
+                // this functionality is not supported consistently with select menus
+                // as it generally just captures tabbing into the control and using
+                // the space bar to expand it - preventing this is undesirable
+                // event.preventDefault();
+                // event.stopPropagation();
             }
         }
 
