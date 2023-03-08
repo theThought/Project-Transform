@@ -25,4 +25,32 @@
     input::-webkit-calendar-picker-indicator {
         display: none !important;
     }
+
+    input.visible {
+        background-image: url("../images/white-chevron-up.png");
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0.5em 0 0 0;
+        padding: 1em;
+        border: 1px solid globals.$theme-primary;
+        border-radius: globals.$border-radius;
+        background-color: globals.$white;
+        display: none;
+        position: absolute;
+    }
+
+    input.visible+ul {
+        display: block;
+    }
+
+    li {
+        padding: 0 0 8px 0;
+        cursor: default;
+    }
+
+    li:last-of-type {
+        padding-bottom: 0;
+    }
 }

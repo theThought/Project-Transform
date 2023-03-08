@@ -1702,6 +1702,29 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox input::-webkit-calendar-picker-indicator {
   display: none !important;
 }
+.o-select-combobox input.visible {
+  background-image: url("../images/white-chevron-up.png");
+}
+.o-select-combobox ul {
+  list-style-type: none;
+  margin: 0.5em 0 0 0;
+  padding: 1em;
+  border: 1px solid #455B97;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  display: none;
+  position: absolute;
+}
+.o-select-combobox input.visible + ul {
+  display: block;
+}
+.o-select-combobox li {
+  padding: 0 0 8px 0;
+  cursor: default;
+}
+.o-select-combobox li:last-of-type {
+  padding-bottom: 0;
+}
 
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
