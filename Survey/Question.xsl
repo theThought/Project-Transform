@@ -984,11 +984,14 @@
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
 
-         <xsl:element name="datalist">
-            <xsl:attribute name="class">m-select-combobox-datalist</xsl:attribute>
+         <xsl:element name="ul">
+            <xsl:attribute name="class">m-select-combobox-unorderedlist</xsl:attribute>
             <xsl:attribute name="id">
                <xsl:value-of select="$qFullName" />
                <xsl:text>_list</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="data-questiongroup">
+               <xsl:value-of select="$qFullName" />
             </xsl:attribute>
             <xsl:if test="Style/@Width">
                <xsl:attribute name="style">
@@ -998,8 +1001,8 @@
                </xsl:attribute>
             </xsl:if>
             <xsl:for-each select="Category">
-               <xsl:element name="option">
-                  <xsl:attribute name="class">a-select-option</xsl:attribute>
+               <xsl:element name="li">
+                  <xsl:attribute name="class">a-select-combobox-option</xsl:attribute>
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
@@ -1014,7 +1017,7 @@
                   <xsl:if test="../Style/Control/@ReadOnly = 'true'">
                      <xsl:attribute name="disabled" />
                   </xsl:if>
-                  <xsl:attribute name="value">
+                  <xsl:attribute name="data-value">
                      <xsl:value-of select="@Name" />
                   </xsl:attribute>
                   <xsl:if test="@Alt != ''">
@@ -1034,18 +1037,8 @@
                   <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
-
          </xsl:element>
       </xsl:element>
-      <xsl:element name="script">
-         <xsl:text>app.registerComponent('mSelectDropList','</xsl:text>
-         <xsl:value-of select="$qGroup" />
-         <xsl:text>','</xsl:text>
-         <xsl:value-of select="$qFullName" />
-         <xsl:text>');</xsl:text>
-      </xsl:element>
-      <xsl:comment>rapid droplist</xsl:comment>
-
    </xsl:template>
 
    <xsl:template name="ComboListControl">
