@@ -1,0 +1,23 @@
+@use 'globals';
+
+.o-select-combobox {
+    input[type=text] {
+        border: none;
+        border-radius: globals.$border-radius;
+        background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
+        color: globals.$white;
+        min-width: 3em;
+        width: 197px;
+        box-sizing: content-box;
+        line-height: 40px;
+        padding: 0 16px;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+
+    input::-webkit-calendar-picker-indicator {
+        display: none !important;
+    }
+}
