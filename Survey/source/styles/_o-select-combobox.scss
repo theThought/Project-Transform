@@ -38,6 +38,7 @@
         border-radius: globals.$border-radius;
         background-color: globals.$white;
         display: none;
+        position: absolute;
     }
 
     input.visible+ul {

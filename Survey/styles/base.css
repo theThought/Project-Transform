@@ -1713,6 +1713,7 @@ input[type=range]:focus::-ms-fill-lower {
   border-radius: 10px;
   background-color: #FFFFFF;
   display: none;
+  position: absolute;
 }
 .o-select-combobox input.visible + ul {
   display: block;
