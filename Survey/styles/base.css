@@ -1691,9 +1691,13 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: content-box;
   line-height: 40px;
   padding: 0 16px;
+  height: 40px;
 }
 .o-select-combobox input:focus-visible {
   outline: none;
+}
+.o-select-combobox input::-ms-clear {
+  display: none !important;
 }
 .o-select-combobox input::-webkit-calendar-picker-indicator {
   display: none !important;

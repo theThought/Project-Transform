@@ -18,6 +18,10 @@
         outline: none;
     }
 
+    input::-ms-clear {
+        display: none !important;
+    }
+
     input::-webkit-calendar-picker-indicator {
         display: none !important;
     }
