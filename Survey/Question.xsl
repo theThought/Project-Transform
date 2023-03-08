@@ -964,7 +964,7 @@
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <xsl:element name="script">
-            <xsl:text>app.registerComponent('oSelectCombbox','</xsl:text>
+            <xsl:text>app.registerComponent('oSelectCombobox','</xsl:text>
             <xsl:value-of select="$qGroup" />
             <xsl:text>','</xsl:text>
             <xsl:value-of select="$qFullName" />
