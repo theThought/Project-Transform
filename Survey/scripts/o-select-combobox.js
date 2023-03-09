@@ -319,7 +319,7 @@ define(['component'],
 
         oSelectComboBox.prototype.listsize = function (prop) {
             // todo: how do we calculate this as height changes?
-            var height = 27 * prop + 7;
+            var height = (27 * prop);
             this.droplist.style.maxHeight = height + 'px';
         }
 
