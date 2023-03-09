@@ -272,6 +272,10 @@ define(['component'],
             }
         }
 
+        oSelectComboBox.prototype.showList = function () {
+            this.droplist.classList.add('visible');
+        }
+
         oSelectComboBox.prototype.hideList = function () {
             this.droplist.classList.remove('visible');
         }
@@ -299,6 +303,7 @@ define(['component'],
 
         oSelectComboBox.prototype.onKeyup = function () {
             // potentially add logic to determine what sort of input this is
+            this.showList();
             this.filterList();
         }
 
