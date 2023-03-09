@@ -1723,7 +1723,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox ul {
   list-style-type: none;
   margin: 4px 0;
-  padding: 4px 0;
+  padding: 8px 0;
   border: 1px solid #455B97;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -1751,7 +1751,7 @@ input[type=range]:focus::-ms-fill-lower {
   display: block;
 }
 .o-select-combobox li {
-  padding: 8px 16px;
+  padding: 4px 16px;
   cursor: default;
 }
 .o-select-combobox li:hover {
