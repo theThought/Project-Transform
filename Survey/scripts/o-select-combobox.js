@@ -2,7 +2,7 @@ define(['component'],
     function (component) {
 
         /**
-         * Organism: Question combo-box with list
+         * Organism: Input combo-box with list
          *
          * @constructor
          * @param {String} id - element id
@@ -16,12 +16,8 @@ define(['component'],
             this.droplist = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] ul');
             this.wrapper = document.querySelector('div[class*=o-select-combobox][data-questiongroup="' + this.group + '"]');
             this.hiddenelement = null;
-            this.tallest = 0;
-            this.widest = 0;
             this.mincharacters = 0;
-            this.maxwidth = '';
             this.keypressed = null;
-            this.isJumpingToLetter = false;
             this.list = null;
             this.filtermethod = 'contains';
             this.noitemsplaceholder = 'no items to display';
@@ -45,12 +41,11 @@ define(['component'],
         oSelectComboBox.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('click', this, false);
-            document.addEventListener('dblclick', this, false);
             document.addEventListener("clearEntries", this, false);
         }
 
         oSelectComboBox.prototype.configureLocalEventListeners = function () {
-            this.element.addEventListener('keypress', this, false);
+            this.element.addEventListener('dblclick', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
         }
@@ -67,10 +62,6 @@ define(['component'],
                 case 'click':
                 case 'dblclick':
                     this.onClick(event);
-                    break;
-                case 'keypress':
-                    this.getKeyPressed(event);
-                    this.onKeypress(event);
                     break;
                 case 'keyup':
                     this.getKeyPressed(event);
@@ -129,7 +120,6 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.filterListStarts = function (string) {
-
             if (string.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
@@ -160,7 +150,6 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.filterListContains = function (string) {
-
             if (string.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
@@ -300,26 +289,10 @@ define(['component'],
             this.droplist.style.width = this.element.offsetWidth + 'px';
         }
 
-        oSelectComboBox.prototype.onKeypress = function () {
-            if (this.isJumpingToLetter) {
-                this.processKeyJump();
-            }
-        }
-
         oSelectComboBox.prototype.onKeyup = function () {
             // potentially add logic to determine what sort of input this is
             this.showList();
             this.filterList();
-        }
-
-        oSelectComboBox.prototype.processKeyJump = function () {
-            // may not need implementing for combo-boxes
-        }
-
-        oSelectComboBox.prototype.jumptofirstletter = function (prop) {
-            if (prop === true) {
-                this.isJumpingToLetter = true;
-            }
         }
 
         oSelectComboBox.prototype.filtertype = function (prop) {
