@@ -230,6 +230,13 @@ define(['component'],
                 return;
             }
 
+            if (event.target === this.droplist) {
+                this.hideList();
+                return;
+            }
+
+            this.clearOptions();
+
             event.target.classList.add('selected');
             this.element.value = selectedOption.innerText;
             this.hiddenelement.value = selectedOption.getAttribute('data-value');
