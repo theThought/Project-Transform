@@ -1686,11 +1686,11 @@ input[type=range]:focus::-ms-fill-lower {
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
   color: #FFFFFF;
   min-width: 3em;
-  width: 197px;
+  width: 165px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   line-height: 40px;
-  padding: 0 16px;
+  padding: 0 44px 0 16px;
   height: 40px;
 }
 .o-select-combobox input:focus-visible {
@@ -1705,15 +1705,47 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox input.visible {
   background-image: url("../images/white-chevron-up.png");
 }
+.o-select-combobox input::-webkit-input-placeholder {
+  color: #CCCCCC;
+}
+.o-select-combobox input::-moz-placeholder {
+  color: #CCCCCC;
+}
+.o-select-combobox input:-ms-input-placeholder {
+  color: #CCCCCC;
+}
+.o-select-combobox input::-ms-input-placeholder {
+  color: #CCCCCC;
+}
+.o-select-combobox input::placeholder {
+  color: #CCCCCC;
+}
 .o-select-combobox ul {
   list-style-type: none;
-  margin: 0.5em 0 0 0;
-  padding: 1em;
+  margin: 8px 0 0 0;
+  padding: 16px 44px 16px 16px;
   border: 1px solid #455B97;
   border-radius: 10px;
   background-color: #FFFFFF;
   display: none;
   position: absolute;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.o-select-combobox ul.charrestriction li:not(.a-list-placeholder-restriction) {
+  display: none;
+}
+.o-select-combobox ul.charrestriction li.a-list-placeholder-restriction {
+  display: block;
+}
+.o-select-combobox ul.empty li.a-list-placeholder-empty {
+  display: block;
+}
+.o-select-combobox li.a-list-placeholder-empty {
+  display: none;
+}
+.o-select-combobox li.a-list-placeholder-restriction {
+  display: none;
 }
 .o-select-combobox input.visible + ul {
   display: block;
@@ -1721,6 +1753,15 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox li {
   padding: 0 0 8px 0;
   cursor: default;
+}
+.o-select-combobox li:hover {
+  color: #324371;
+}
+.o-select-combobox li.selected {
+  color: #449B9B;
+}
+.o-select-combobox li.filter-hidden {
+  display: none;
 }
 .o-select-combobox li:last-of-type {
   padding-bottom: 0;
