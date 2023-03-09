@@ -117,6 +117,7 @@ define(['component'],
         oSelectComboBox.prototype.filterListStarts = function (string) {
 
             if (string.length < this.mincharacters) {
+                this.clearOptions();
                 this.droplist.classList.add('charrestriction');
                 string = '';
             } else {
@@ -137,6 +138,7 @@ define(['component'],
             }
 
             if (visibleitems === 0) {
+                this.clearOptions();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
@@ -146,6 +148,7 @@ define(['component'],
         oSelectComboBox.prototype.filterListContains = function (string) {
 
             if (string.length < this.mincharacters) {
+                this.clearOptions();
                 this.droplist.classList.add('charrestriction');
                 return;
             } else {
@@ -166,6 +169,7 @@ define(['component'],
             }
 
             if (visibleitems === 0) {
+                this.clearOptions();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
@@ -209,7 +213,6 @@ define(['component'],
 
             if (this.droplist.contains(event.target)) {
                 event.stopImmediatePropagation();
-                this.clearOptions();
                 this.selectOption(event);
                 return;
             }
