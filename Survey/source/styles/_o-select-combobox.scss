@@ -36,8 +36,8 @@
 
     ul {
         list-style-type: none;
-        margin: 8px 0 0 0;
-        padding: 16px 44px 16px 16px;
+        margin: 4px 0;
+        padding: 4px 0;
         border: 1px solid globals.$theme-primary;
         border-radius: globals.$border-radius;
         background-color: globals.$white;
@@ -65,12 +65,10 @@
 
     li.a-list-placeholder-empty {
         display: none;
-        padding: 0;
     }
 
     li.a-list-placeholder-restriction {
         display: none;
-        padding: 0;
     }
 
     ul.visible {
@@ -78,7 +76,7 @@
     }
 
     li {
-        padding: 0 0 8px 0;
+        padding: 8px 16px;
         cursor: default;
     }
 
@@ -94,7 +92,4 @@
         display: none;
     }
 
-    li:last-of-type {
-        padding-bottom: 0;
-    }
 }

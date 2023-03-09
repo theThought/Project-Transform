@@ -1722,8 +1722,8 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox ul {
   list-style-type: none;
-  margin: 8px 0 0 0;
-  padding: 16px 44px 16px 16px;
+  margin: 4px 0;
+  padding: 4px 0;
   border: 1px solid #455B97;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -1743,17 +1743,15 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox li.a-list-placeholder-empty {
   display: none;
-  padding: 0;
 }
 .o-select-combobox li.a-list-placeholder-restriction {
   display: none;
-  padding: 0;
 }
 .o-select-combobox ul.visible {
   display: block;
 }
 .o-select-combobox li {
-  padding: 0 0 8px 0;
+  padding: 8px 16px;
   cursor: default;
 }
 .o-select-combobox li:hover {
@@ -1764,9 +1762,6 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox li.filter-hidden {
   display: none;
-}
-.o-select-combobox li:last-of-type {
-  padding-bottom: 0;
 }
 
 /* MOTE: the separator color used within tables is defined

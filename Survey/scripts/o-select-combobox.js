@@ -269,8 +269,7 @@ define(['component'],
             }
 
             // set the width of the drop list to the width of the input
-            var dims = getComputedStyle(this.element);
-            this.droplist.style.width = dims.width;
+            this.droplist.style.width = this.element.offsetWidth + 'px';
         }
 
         oSelectComboBox.prototype.onKeypress = function () {
