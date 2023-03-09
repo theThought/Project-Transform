@@ -14,7 +14,8 @@ define(['component'],
 
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input.a-input-combobox');
             this.droplist = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] ul');
-            this.wrapper = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]');
+            this.wrapper = document.querySelector('div[class*=o-select-combobox][data-questiongroup="' + this.group + '"]');
+            this.hiddenelement = null;
             this.tallest = 0;
             this.widest = 0;
             this.mincharacters = 0;
@@ -32,6 +33,7 @@ define(['component'],
 
         oSelectComboBox.prototype.init = function () {
             this.list = this.buildList();
+            this.cloneInputElement();
             this.configureProperties();
             this.setWidth();
             this.configureInitialFilter();
@@ -74,6 +76,15 @@ define(['component'],
                     this.onChange(event);
                     break;
             }
+        }
+
+        oSelectComboBox.prototype.cloneInputElement = function () {
+            var newelement = this.element.cloneNode();
+            newelement.id = '';
+            newelement.name = '';
+            this.element.type = 'hidden';
+            this.hiddenelement = this.element;
+            this.element = this.wrapper.insertBefore(newelement, this.droplist);
         }
 
         oSelectComboBox.prototype.buildList = function () {
@@ -192,12 +203,11 @@ define(['component'],
                 return;
             }
 
-            if (!this.element.classList.contains('visible')) {
+            if (!this.droplist.classList.contains('visible')) {
                 return;
             }
 
-            if (event.target === this.droplist
-                || (this.droplist.contains(event.target))) {
+            if (this.droplist.contains(event.target)) {
                 event.stopImmediatePropagation();
                 this.clearOptions();
                 this.selectOption(event);
@@ -209,9 +219,22 @@ define(['component'],
 
         oSelectComboBox.prototype.selectOption = function (event) {
             var selectedOption = event.target;
+
+            if (selectedOption.classList.contains('a-list-placeholder-restriction')) {
+                this.hideList();
+                return;
+            }
+
+            if (selectedOption.classList.contains('a-list-placeholder-empty')) {
+                this.hideList();
+                return;
+            }
+
             event.target.classList.add('selected');
             this.element.value = selectedOption.innerText;
+            this.hiddenelement.value = selectedOption.getAttribute('data-value');
             this.hideList();
+            this.onChange(event);
         }
 
         oSelectComboBox.prototype.clearOptions = function () {
@@ -221,11 +244,11 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.hideList = function () {
-            this.element.classList.remove('visible');
+            this.droplist.classList.remove('visible');
         }
 
         oSelectComboBox.prototype.toggleList = function () {
-            this.element.classList.toggle('visible');
+            this.droplist.classList.toggle('visible');
         }
 
         oSelectComboBox.prototype.setWidth = function () {
@@ -286,7 +309,7 @@ define(['component'],
         oSelectComboBox.prototype.listsize = function (prop) {
             // todo: how do we calculate this as height changes?
             var height = 27 * prop + 7;
-            this.element.style.maxHeight = height + 'px';
+            this.droplist.style.maxHeight = height + 'px';
         }
 
         oSelectComboBox.prototype.mincharactersforlist = function (prop) {

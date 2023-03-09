@@ -1743,11 +1743,13 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox li.a-list-placeholder-empty {
   display: none;
+  padding: 0;
 }
 .o-select-combobox li.a-list-placeholder-restriction {
   display: none;
+  padding: 0;
 }
-.o-select-combobox input.visible + ul {
+.o-select-combobox ul.visible {
   display: block;
 }
 .o-select-combobox li {
