@@ -116,7 +116,7 @@ define(['component'],
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.list[i].innerHTML.toLowerCase();
+                var itemlabel = this.list[i].innerText.toLowerCase();
                 if (itemlabel.indexOf(string) === 0) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
@@ -145,7 +145,7 @@ define(['component'],
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.list[i].innerHTML.toLowerCase();
+                var itemlabel = this.list[i].innerText.toLowerCase();
                 if (itemlabel.indexOf(string) !== -1) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
