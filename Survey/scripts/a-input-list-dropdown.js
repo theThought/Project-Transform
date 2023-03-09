@@ -36,28 +36,6 @@ define(['component'],
             this.configurationComplete();
         }
 
-        aInputListDropdown.prototype.checkManualWidth = function () {
-            return this.element.style.width.length > 0;
-        }
-
-        aInputListDropdown.prototype.filtertype = function (prop) {
-            this.filtermethod = prop;
-        }
-
-        aInputListDropdown.prototype.getValue = function () {
-            var options = this.droplist.querySelectorAll('input[type=checkbox], input[type=radio]');
-
-            for (var i = 0; i < options.length; i++) {
-                var element = options[i];
-                if (element.checked) {
-                    // the label for the selected item is expected to be the immediately adjacent element
-                    var labelElement = element.nextElementSibling;
-                    this.lastselectedvalue = labelElement.getElementsByClassName('a-label-option')[0].innerHTML;
-                    this.element.value = this.lastselectedvalue;
-                }
-            }
-        }
-
         aInputListDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("closeDropdowns", this, false);
@@ -120,6 +98,28 @@ define(['component'],
                 case this.group + "_endResize":
                     this.onEndResize(event);
                     break;
+            }
+        }
+
+        aInputListDropdown.prototype.checkManualWidth = function () {
+            return this.element.style.width.length > 0;
+        }
+
+        aInputListDropdown.prototype.filtertype = function (prop) {
+            this.filtermethod = prop;
+        }
+
+        aInputListDropdown.prototype.getValue = function () {
+            var options = this.droplist.querySelectorAll('input[type=checkbox], input[type=radio]');
+
+            for (var i = 0; i < options.length; i++) {
+                var element = options[i];
+                if (element.checked) {
+                    // the label for the selected item is expected to be the immediately adjacent element
+                    var labelElement = element.nextElementSibling;
+                    this.lastselectedvalue = labelElement.getElementsByClassName('a-label-option')[0].innerHTML;
+                    this.element.value = this.lastselectedvalue;
+                }
             }
         }
 

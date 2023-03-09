@@ -16,7 +16,7 @@ define(['component'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = false;
-            this.emptyplaceholder = 'no items to display';
+            this.noitemsplaceholder = 'no items to display';
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
@@ -60,7 +60,7 @@ define(['component'],
         mListOptionList.prototype.addEmptyPlaceholder = function () {
             var placeholderelement = document.createElement('div');
             placeholderelement.classList.add('a-list-placeholder-empty');
-            placeholderelement.innerHTML = this.emptyplaceholder;
+            placeholderelement.innerHTML = this.noitemsplaceholder;
             this.element.appendChild(placeholderelement);
         }
 
