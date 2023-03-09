@@ -248,9 +248,10 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.clearOptions = function () {
-            this.list.forEach(function (item) {
+            for (var i = 0; i < this.list.length; i++) {
+                var item = this.list[i];
                 item.classList.remove('selected');
-            });
+            }
         }
 
         oSelectComboBox.prototype.hideList = function () {
