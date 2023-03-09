@@ -80,6 +80,7 @@ define(['component'],
                 // this functionality is not supported consistently with select menus
                 // as it generally just captures tabbing into the control and using
                 // the space bar to expand it - preventing this is undesirable
+
                 // event.preventDefault();
                 // event.stopPropagation();
             }
