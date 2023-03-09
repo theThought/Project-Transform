@@ -273,14 +273,17 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.showList = function () {
+            this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
         }
 
         oSelectComboBox.prototype.hideList = function () {
+            this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
         }
 
         oSelectComboBox.prototype.toggleList = function () {
+            this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
         }
 

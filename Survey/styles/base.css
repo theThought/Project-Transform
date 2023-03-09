@@ -1702,7 +1702,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox input::-webkit-calendar-picker-indicator {
   display: none !important;
 }
-.o-select-combobox input.visible {
+.o-select-combobox input.list-visible {
   background-image: url("../images/white-chevron-up.png");
 }
 .o-select-combobox input::-webkit-input-placeholder {
