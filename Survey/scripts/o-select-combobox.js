@@ -93,7 +93,7 @@ define(['component'],
 
         oSelectComboBox.prototype.configureInitialFilter = function () {
             if (this.element.value.length) {
-                this.filterListStarts(this.element.value);
+                this.filterListByVal(this.element.value);
                 return;
             }
 
@@ -114,6 +114,18 @@ define(['component'],
             }
         }
 
+        oSelectComboBox.prototype.filterListByVal = function (value) {
+            for (var i = 0; i < this.list.length; i++) {
+                var item = this.list[i];
+                if (item.getAttribute('data-value') === value) {
+                    this.element.value = this.sanitiseText(item.innerText);
+                    item.classList.add('selected');
+                } else {
+                    item.classList.add('filter-hidden');
+                }
+            }
+        }
+
         oSelectComboBox.prototype.filterListStarts = function (string) {
 
             if (string.length < this.mincharacters) {
@@ -128,7 +140,7 @@ define(['component'],
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.list[i].innerText.toLowerCase();
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
                 if (itemlabel.indexOf(string) === 0) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
@@ -159,7 +171,7 @@ define(['component'],
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.list[i].innerText.toLowerCase();
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
                 if (itemlabel.indexOf(string) !== -1) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
@@ -182,6 +194,12 @@ define(['component'],
             } else {
                 this.droplist.classList.remove('empty');
             }
+        }
+
+        oSelectComboBox.prototype.sanitiseText = function (string) {
+            string = string.replace(/[\r\n\t]/mg, ' ');
+            string = string.replace(/\s\s+/mg, ' ');
+            return string.trim();
         }
 
         oSelectComboBox.prototype.onChange = function (event) {
@@ -241,7 +259,7 @@ define(['component'],
             this.clearOptions();
 
             event.target.classList.add('selected');
-            this.element.value = selectedOption.innerText;
+            this.element.value = this.sanitiseText(selectedOption.innerText);
             this.hiddenelement.value = selectedOption.getAttribute('data-value');
             this.hideList();
             this.onChange(event);
