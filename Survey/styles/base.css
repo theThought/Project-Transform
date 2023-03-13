@@ -1256,7 +1256,7 @@ input + script + .m-option-base {
   line-height: 40px;
   min-width: 3em;
   margin: 0;
-  padding: 0 16px;
+  padding: 0 44px 0 16px;
   width: 197px;
   border: none;
   border-radius: 10px;
