@@ -46,6 +46,7 @@ define(['component'],
 
         oSelectComboBox.prototype.configureLocalEventListeners = function () {
             this.element.addEventListener('dblclick', this, false);
+            this.element.addEventListener('keydown', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
         }
@@ -63,8 +64,11 @@ define(['component'],
                 case 'dblclick':
                     this.onClick(event);
                     break;
-                case 'keyup':
+                case 'keydown':
                     this.getKeyPressed(event);
+                    this.onKeydown();
+                    break;
+                case 'keyup':
                     this.onKeyup();
                     this.onChange(event);
                     break;
@@ -210,6 +214,17 @@ define(['component'],
             }
         }
 
+        oSelectComboBox.prototype.onKeydown = function () {
+            if (this.keypressed === 9) {
+                this.hideList();
+            }
+        }
+        oSelectComboBox.prototype.onKeyup = function () {
+            // potentially add logic to determine what sort of input this is
+            this.showList();
+            this.filterList();
+        }
+
         oSelectComboBox.prototype.onClick = function (event) {
             if (event.target === this.element) {
                 this.toggleList();
@@ -287,12 +302,6 @@ define(['component'],
 
             // set the width of the drop list to the width of the input
             this.droplist.style.width = this.element.offsetWidth + 'px';
-        }
-
-        oSelectComboBox.prototype.onKeyup = function () {
-            // potentially add logic to determine what sort of input this is
-            this.showList();
-            this.filterList();
         }
 
         oSelectComboBox.prototype.filtertype = function (prop) {
