@@ -174,7 +174,7 @@ button.a-button-list-dropdown {
         border-color: globals.$theme-secondary;
         background-color: globals.$theme-secondary;
         color: globals.$white;
-        width: 197px;
+        width: globals.$default-input-width;
         min-width: 88px;
         padding: 4px 8px;
     }

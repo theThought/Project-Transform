@@ -1685,7 +1685,7 @@ input[type=range]:focus::-ms-fill-lower {
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
   color: #FFFFFF;
   min-width: 3em;
-  width: 165px;
+  width: 197px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   line-height: 40px;

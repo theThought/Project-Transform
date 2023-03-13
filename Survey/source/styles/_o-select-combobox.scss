@@ -7,7 +7,7 @@
         background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
         color: globals.$white;
         min-width: 3em;
-        width: 165px;
+        width: globals.$default-input-width;
         box-sizing: content-box;
         line-height: 40px;
         padding: 0 44px 0 16px;
