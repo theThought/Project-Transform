@@ -40,12 +40,11 @@ define(['component'],
 
         oSelectComboBox.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener('click', this, false);
+            document.addEventListener('mousedown', this, false);
             document.addEventListener("clearEntries", this, false);
         }
 
         oSelectComboBox.prototype.configureLocalEventListeners = function () {
-            this.element.addEventListener('dblclick', this, false);
             this.element.addEventListener('keydown', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
@@ -60,8 +59,7 @@ define(['component'],
                 case 'change':
                     this.onChange(event);
                     break;
-                case 'click':
-                case 'dblclick':
+                case 'mousedown':
                     this.onClick(event);
                     break;
                 case 'keydown':
