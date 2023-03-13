@@ -1,10 +1,10 @@
 <Questions>
   <Question>
-    <Style ElementAlign="NewLine" Indent="1" ZIndex="-60" Width="15em">
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-65" Width="15em">
       <Control Type="DropList"></Control>
     </Style>
     <Control Type="DropList" QuestionName="_QDrugComboSingle_C" ElementID="_Q0_C">
-      <Style ElementAlign="NewLine" Indent="1" ZIndex="-60" Width="15em">
+      <Style ElementAlign="NewLine" Indent="1" ZIndex="-65" Width="15em">
         <Control Type="DropList"></Control>
       </Style>
       <Category Name="__3__0002__0002" CategoryID="0">

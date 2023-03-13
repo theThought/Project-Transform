@@ -897,6 +897,12 @@
          </xsl:variable>
          <xsl:element name="select">
             <xsl:attribute name="class">m-select-droplist</xsl:attribute>
+            <xsl:attribute name="id">
+               <xsl:value-of select="$qGroup" />
+            </xsl:attribute>
+            <xsl:attribute name="name">
+               <xsl:value-of select="@QuestionName" />
+            </xsl:attribute>
             <xsl:if test="Style/@Width">
                <xsl:attribute name="style">
                   <xsl:text>width:</xsl:text>
@@ -933,12 +939,13 @@
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:if test="@Checked = 'true'">
-                     <xsl:attribute name="selected" />
+                     <xsl:attribute name="selected">
+                        <xsl:text>selected</xsl:text>
+                     </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
-
          </xsl:element>
       </xsl:element>
       <xsl:element name="script">
