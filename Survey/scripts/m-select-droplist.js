@@ -61,7 +61,11 @@ define(['component'],
             this.defaultPlaceholder = prop;
             var el = new Option(prop, '');
             this.element.insertBefore(el, this.element.firstChild);
-            this.element.selectedIndex = 0;
+
+            // select the placeholder value only if an existing selection does not exist
+            if (this.element.options[this.element.selectedIndex].value === '') {
+                this.element.selectedIndex = 0;
+            }
         }
 
         mSelectDroplist.prototype.jumptofirstletter = function (prop) {
