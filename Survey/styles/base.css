@@ -1753,6 +1753,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox li {
   padding: 4px 16px;
   cursor: default;
+  text-align: left;
 }
 .o-select-combobox li:hover {
   color: #324371;
