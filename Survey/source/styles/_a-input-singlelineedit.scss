@@ -1,5 +1,5 @@
 @use 'globals';
-$default-text-width: 197px;
+$default-text-width: globals.$default-input-width;
 
 /* a-input-singlelineedit
  * essential styling for the fundamental HTML input element

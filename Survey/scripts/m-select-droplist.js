@@ -2,7 +2,7 @@ define(['component'],
     function (component) {
 
         /**
-         * Atom: Dropdown toggle button
+         * Molecule: Select element
          *
          * @constructor
          * @param {String} id - element id
@@ -12,8 +12,8 @@ define(['component'],
         function mSelectDroplist(id, group) {
             component.call(this, id, group);
 
+            this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] select.m-select-droplist');
             this.wrapper = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"]')
-            this.element = this.wrapper.querySelector('select.m-select-droplist');
             this.isJumpingToLetter = false;
             this.defaultPlaceholder = 'Select';
         }
@@ -61,7 +61,11 @@ define(['component'],
             this.defaultPlaceholder = prop;
             var el = new Option(prop, '');
             this.element.insertBefore(el, this.element.firstChild);
-            this.element.selectedIndex = 0;
+
+            // select the placeholder value only if an existing selection does not exist
+            if (this.element.options[this.element.selectedIndex].value === '') {
+                this.element.selectedIndex = 0;
+            }
         }
 
         mSelectDroplist.prototype.jumptofirstletter = function (prop) {
