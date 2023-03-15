@@ -1730,6 +1730,7 @@ input[type=range]:focus::-ms-fill-lower {
   position: absolute;
   max-height: 300px;
   overflow-y: auto;
+  z-index: 10;
 }
 .o-select-combobox ul.charrestriction li:not(.a-list-placeholder-restriction) {
   display: none;

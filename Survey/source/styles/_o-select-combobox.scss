@@ -45,6 +45,7 @@
         position: absolute;
         max-height: 300px;
         overflow-y: auto;
+        z-index: 10;
     }
 
     ul.charrestriction {
