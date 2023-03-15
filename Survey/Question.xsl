@@ -1039,7 +1039,9 @@
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:if test="@Checked = 'true'">
-                     <xsl:attribute name="selected" />
+                     <xsl:attribute name="selected">
+                        <xsl:text>selected</xsl:text>
+                     </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
                </xsl:element>
@@ -1222,7 +1224,7 @@
             <xsl:text>m-option-base</xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text>below</xsl:text>
+                  <xsl:text> below</xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
                   <xsl:text>side</xsl:text>
