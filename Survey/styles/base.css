@@ -1260,9 +1260,9 @@ input + script + .m-option-base {
   width: 197px;
   border: none;
   border-radius: 10px;
-  z-index: 1;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
   color: white;
+  z-index: 10;
 }
 
 select::-ms-expand {

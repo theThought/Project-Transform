@@ -63,7 +63,7 @@ define(['component'],
             this.element.insertBefore(el, this.element.firstChild);
 
             // select the placeholder value only if an existing selection does not exist
-            if (this.element.options[this.element.selectedIndex].value === '') {
+            if (this.element.selectedIndex === -1) {
                 this.element.selectedIndex = 0;
             }
         }

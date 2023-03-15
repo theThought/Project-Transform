@@ -12,9 +12,9 @@
     width: globals.$default-input-width;
     border: none;
     border-radius: globals.$border-radius;
-    z-index: 1;
     background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
     color: white;
+    z-index: 10;
 }
 
 select::-ms-expand {
