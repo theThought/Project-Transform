@@ -298,7 +298,7 @@
          </xsl:when>
          <xsl:when test="@Type = 'DropList'">
             <xsl:choose>
-               <xsl:when test="$qCustomType='dropdown'">
+               <xsl:when test="$qCustomType='list'">
                   <xsl:call-template name="DropDownControl">
                      <xsl:with-param name="qGroup" select="$qGroup" />
                      <xsl:with-param name="qFullName" select="$qFullName" />
@@ -877,7 +877,7 @@
          <xsl:with-param name="FullName" select="$qFullName" />
       </xsl:call-template>
    </xsl:template>
-   <xsl:template name="DropDownControl">
+    <xsl:template name="DropDownControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
@@ -2247,7 +2247,7 @@
             <xsl:value-of select="'hnumberslider'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
-            <xsl:value-of select="'dropdown'" />
+            <xsl:value-of select="'list'" />
          </xsl:when>
          <xsl:when test="$theID = '-61'">
             <xsl:value-of select="'combolist'" />
