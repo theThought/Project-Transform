@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="gd3uxajx52cu6eyychwtsj6f4uaqaaaa"/><input type="hidden" name="I.SavePoint" value="FilterPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="wuq5pddtpsre4kkb35cmuv1i4eaqaaaa"/><input type="hidden" name="I.SavePoint" value="FilterPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -59,9 +59,9 @@
 						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-table" data-questiongroup="_QFilterPage_QFirstChoice">
-							<script>app.registerComponent('oQuestion','_Q0_C','_QFilterPage_QFirstChoice');</script>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C0" data-questiongroup="_QFilterPage_QFirstChoice">
+						<div class="o-question-response o-question-choice" data-questiongroup="_QFilterPage_QFirstChoice">
+							<script>app.registerComponent('oQuestionChoice','_Q0_C','_QFilterPage_QFirstChoice');</script>
+							<div data-exclusive="true" data-questionid="_Q0_C0" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C0','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C0" style="" value="first"/>
 								<label for="_Q0_C0">
@@ -71,9 +71,9 @@
 									<span class="a-label-option">1<sup>st</sup> edition</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C1" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C1" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C1','_QFilterPage_QFirstChoice');</script>
-								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C1" style="" value="Sun"/>
+								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C1" style="" value="Sun" checked=""/>
 								<label for="_Q0_C1">
 									<span class="a-icon-multistate" data-icontype="single">
 										<!--This is a comment!-->
@@ -81,7 +81,7 @@
 									<span class="a-label-option">Sun</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C2" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C2" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C2','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C2" style="" value="Mail"/>
 								<label for="_Q0_C2">
@@ -91,7 +91,7 @@
 									<span class="a-label-option">The Daily Mail</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C3" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C3" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C3','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C3" style="" value="Express"/>
 								<label for="_Q0_C3">
@@ -101,7 +101,7 @@
 									<span class="a-label-option">Daily Express</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C4" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C4" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C4','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C4" style="" value="Mirror"/>
 								<label for="_Q0_C4">
@@ -111,7 +111,7 @@
 									<span class="a-label-option">The Mirror</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C5" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C5" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C5','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C5" style="" value="Telegraph"/>
 								<label for="_Q0_C5">
@@ -121,7 +121,7 @@
 									<span class="a-label-option">The Daily Telegraph</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C6" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C6" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C6','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C6" style="" value="Independent"/>
 								<label for="_Q0_C6">
@@ -131,7 +131,7 @@
 									<span class="a-label-option">The Independent</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C7" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C7" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C7','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C7" style="" value="Guardian"/>
 								<label for="_Q0_C7">
@@ -141,7 +141,7 @@
 									<span class="a-label-option">Guardian</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C8" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C8" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C8','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C8" style="" value="star"/>
 								<label for="_Q0_C8">
@@ -151,7 +151,7 @@
 									<span class="a-label-option">Daily Star</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C9" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C9" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C9','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C9" style="" value="Times"/>
 								<label for="_Q0_C9">
@@ -161,7 +161,7 @@
 									<span class="a-label-option">The Times</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C10" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C10" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C10','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C10" style="" value="I"/>
 								<label for="_Q0_C10">
@@ -171,7 +171,7 @@
 									<span class="a-label-option">i</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C11" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C11" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C11','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C11" style="" value="Metro"/>
 								<label for="_Q0_C11">
@@ -181,7 +181,7 @@
 									<span class="a-label-option">Metro</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C12" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C12" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C12','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C12" style="" value="Post"/>
 								<label for="_Q0_C12">
@@ -191,7 +191,7 @@
 									<span class="a-label-option">The Washington Post</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C13" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C13" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C13','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C13" style="" value="LeMonde"/>
 								<label for="_Q0_C13">
@@ -201,7 +201,7 @@
 									<span class="a-label-option">Le Monde</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C14" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C14" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C14','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C14" style="" value="Journal"/>
 								<label for="_Q0_C14">
@@ -211,7 +211,7 @@
 									<span class="a-label-option">The Wall Street Journal</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C15" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C15" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C15','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C15" style="" value="STimes"/>
 								<label for="_Q0_C15">
@@ -221,7 +221,7 @@
 									<span class="a-label-option">Sunday Times</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C16" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C16" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C16','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C16" style="" value="Observer"/>
 								<label for="_Q0_C16">
@@ -231,7 +231,7 @@
 									<span class="a-label-option">Observer</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C17" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C17" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C17','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C17" style="" value="STelegraph"/>
 								<label for="_Q0_C17">
@@ -241,7 +241,7 @@
 									<span class="a-label-option">Sunday Telegraph</span>
 								</label>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q0_C18" data-questiongroup="_QFilterPage_QFirstChoice">
+							<div data-exclusive="true" data-questionid="_Q0_C18" data-questiongroup="_QFilterPage_QFirstChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q0_C18','_QFilterPage_QFirstChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QFirstChoice_C" id="_Q0_C18" style="" value="otherpaper"/>
 								<label for="_Q0_C18">
@@ -251,14 +251,14 @@
 									<span class="a-label-option">Other Paper</span>
 								</label>
 								<span class="a-label-option"></span>
-								<input data-questionid="_Q0_O18" data-questiongroup="_QFilterPage_QFirstChoice" type="text" name="_QFilterPage_QFirstChoice_Ootherpaper" id="_Q0_O18" class="hiddencontrol" autocomplete="off" style="" maxlength="1024" value=""/>
+								<input data-questionid="_Q0_O18" data-questiongroup="_QFilterPage_QFirstChoice" data-position="side" type="text" name="_QFilterPage_QFirstChoice_Ootherpaper" id="_Q0_O18" autocomplete="off" style="" maxlength="1024" value="" class="a-input- side hiddencontrol"/>
 								<script>app.registerComponent('aInput','_Q0_O18','_QFilterPage_QFirstChoice');</script>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QFilterPage_QSecondChoice');</script><script type="text/javascript">app.RegisterProperties("_QSecondChoice",{"filter":{"source":"FirstChoice","exclusions":["otherpaper"]}});</script><script type="text/javascript">app.RegisterProperties("_QSecondChoice",{"separator":true,"onesize":{"state":false},"balance":{"state":true}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QFilterPage_QSecondChoice');</script><script type="text/javascript">app.RegisterProperties("_QSecondChoice",{"filter":{"source":"FirstChoice","exclusions":["otherpaper"]}});</script><script type="text/javascript">app.RegisterProperties("_QSecondChoice",{"separator":true,"onesize":{"state":true,"max-width":"10em"}});</script><script type="text/javascript">app.RegisterProperties("_QSecondChoice",{"balance":{"state":true}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -270,13 +270,13 @@
 						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-table" data-questiongroup="_QFilterPage_QSecondChoice">
-							<script>app.registerComponent('oQuestion','_Q1_C','_QFilterPage_QSecondChoice');</script>
+						<div class="o-question-response o-question-choice" data-questiongroup="_QFilterPage_QSecondChoice">
+							<script>app.registerComponent('oQuestionChoice','_Q1_C','_QFilterPage_QSecondChoice');</script>
 							<div class="o-option-sublist">
 								<div class="a-label-heading-sublist" style="">
 									<span class="a-label-option">Daily Papers</span>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S0" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S0" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S0','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S0" style="" value="first"/>
 									<label for="_Q1_C0_S0">
@@ -286,7 +286,7 @@
 										<span class="a-label-option">1<sup>st</sup> edition</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S1" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S1" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S1','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S1" style="" value="Sun"/>
 									<label for="_Q1_C0_S1">
@@ -296,7 +296,7 @@
 										<span class="a-label-option">Sun</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S2" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S2" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S2','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S2" style="" value="Mail"/>
 									<label for="_Q1_C0_S2">
@@ -306,7 +306,7 @@
 										<span class="a-label-option">The Daily Mail</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S3" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S3" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S3','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S3" style="" value="Express"/>
 									<label for="_Q1_C0_S3">
@@ -316,7 +316,7 @@
 										<span class="a-label-option">Daily Express</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S4" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S4" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S4','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S4" style="" value="Mirror"/>
 									<label for="_Q1_C0_S4">
@@ -326,7 +326,7 @@
 										<span class="a-label-option">The Mirror</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S5" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S5" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S5','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S5" style="" value="Telegraph"/>
 									<label for="_Q1_C0_S5">
@@ -336,7 +336,7 @@
 										<span class="a-label-option">The Daily Telegraph</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S6" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S6" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S6','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S6" style="" value="Independent"/>
 									<label for="_Q1_C0_S6">
@@ -346,7 +346,7 @@
 										<span class="a-label-option">The Independent</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S7" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S7" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S7','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S7" style="" value="Guardian"/>
 									<label for="_Q1_C0_S7">
@@ -356,7 +356,7 @@
 										<span class="a-label-option">Guardian</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S8" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S8" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S8','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S8" style="" value="star"/>
 									<label for="_Q1_C0_S8">
@@ -366,7 +366,7 @@
 										<span class="a-label-option">Daily Star</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S9" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S9" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S9','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S9" style="" value="Times"/>
 									<label for="_Q1_C0_S9">
@@ -376,7 +376,7 @@
 										<span class="a-label-option">The Times</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S10" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S10" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S10','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S10" style="" value="I"/>
 									<label for="_Q1_C0_S10">
@@ -386,9 +386,9 @@
 										<span class="a-label-option">i</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S11" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C0_S11" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S11','_QFilterPage_QSecondChoice');</script>
-									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S11" style="" value="Metro"/>
+									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C0_S11" style="" value="Metro" checked=""/>
 									<label for="_Q1_C0_S11">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -401,7 +401,7 @@
 								<div class="a-label-heading-sublist" style="">
 									<span class="a-label-option">Internationals</span>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C1_S0" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C1_S0" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C1_S0','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C1_S0" style="" value="Post"/>
 									<label for="_Q1_C1_S0">
@@ -411,7 +411,7 @@
 										<span class="a-label-option">The Washington Post</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C1_S1" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C1_S1" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C1_S1','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C1_S1" style="" value="LeMonde"/>
 									<label for="_Q1_C1_S1">
@@ -421,7 +421,7 @@
 										<span class="a-label-option">Le Monde</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C1_S2" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C1_S2" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C1_S2','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C1_S2" style="" value="Journal"/>
 									<label for="_Q1_C1_S2">
@@ -436,7 +436,7 @@
 								<div class="a-label-heading-sublist" style="">
 									<span class="a-label-option">Sunday</span>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C2_S0" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C2_S0" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C2_S0','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C2_S0" style="" value="STimes"/>
 									<label for="_Q1_C2_S0">
@@ -446,7 +446,7 @@
 										<span class="a-label-option">Sunday Times</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C2_S1" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C2_S1" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C2_S1','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C2_S1" style="" value="Observer"/>
 									<label for="_Q1_C2_S1">
@@ -456,7 +456,7 @@
 										<span class="a-label-option">Observer</span>
 									</label>
 								</div>
-								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C2_S2" data-questiongroup="_QFilterPage_QSecondChoice">
+								<div data-exclusive="true" data-questionid="_Q1_C2_S2" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q1_C2_S2','_QFilterPage_QSecondChoice');</script>
 									<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C2_S2" style="" value="STelegraph"/>
 									<label for="_Q1_C2_S2">
@@ -467,7 +467,7 @@
 									</label>
 								</div>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C3" data-questiongroup="_QFilterPage_QSecondChoice">
+							<div data-exclusive="true" data-questionid="_Q1_C3" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q1_C3','_QFilterPage_QSecondChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C3" style="" value="otherpaper"/>
 								<label for="_Q1_C3">
@@ -477,10 +477,10 @@
 									<span class="a-label-option">Other Paper</span>
 								</label>
 								<span class="a-label-option"></span>
-								<input data-questionid="_Q1_O3" data-questiongroup="_QFilterPage_QSecondChoice" type="text" name="_QFilterPage_QSecondChoice_Ootherpaper" id="_Q1_O3" class="hiddencontrol" autocomplete="off" style="" maxlength="1024" value=""/>
+								<input data-questionid="_Q1_O3" data-questiongroup="_QFilterPage_QSecondChoice" data-position="side" type="text" name="_QFilterPage_QSecondChoice_Ootherpaper" id="_Q1_O3" autocomplete="off" style="" maxlength="1024" value="" class="a-input- side hiddencontrol"/>
 								<script>app.registerComponent('aInput','_Q1_O3','_QFilterPage_QSecondChoice');</script>
 							</div>
-							<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C4" data-questiongroup="_QFilterPage_QSecondChoice">
+							<div data-exclusive="true" data-questionid="_Q1_C4" data-questiongroup="_QFilterPage_QSecondChoice" data-position="below" class="m-option-base below">
 								<script>app.registerComponent('mOptionBase','_Q1_C4','_QFilterPage_QSecondChoice');</script>
 								<input class="hiddencontrol" type="radio" name="_QFilterPage_QSecondChoice_C" id="_Q1_C4" style="" value="noneofthem"/>
 								<label for="_Q1_C4">
