@@ -1187,7 +1187,7 @@
                         <xsl:text>selected</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
-                  <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
+                  <xsl:value-of select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
          </xsl:element>
