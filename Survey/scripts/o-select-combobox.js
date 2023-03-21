@@ -87,15 +87,21 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.configureInitialFilter = function () {
-            if (this.element.value.length) {
-                this.filterListByVal(this.element.value);
-                return;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var item = this.list[i];
+                if (item.getAttribute('data-selected')) {
+                    this.element.value = this.sanitiseText(item.innerText);
+                    item.classList.add('selected');
+                    this.filterList();
+                }
             }
 
-            if (this.mincharacters > 0) {
+            if (!this.element.value.length && this.mincharacters > 0) {
                 this.droplist.classList.add('charrestriction');
                 this.filterListStarts('');
             }
+
         }
 
         oSelectComboBox.prototype.filterList = function () {
