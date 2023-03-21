@@ -4,7 +4,7 @@
     display: inline-block;
     width: 1em;
     height: 1em;
-    background-position-x: -28px;
+    background-position-x: -144px;
 }
 
 .m-option-base .a-icon-multistate {
@@ -25,7 +25,7 @@
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
-    background-image: url("/Survey/images/checkbox-1.png");
+    background-image: url("/Survey/images/checkbox-3.png");
 }
 
 input[type=radio] + label > .a-icon-multistate {
@@ -48,7 +48,11 @@ input[type=checkbox]:focus-within + label {
 
 input[type=checkbox]:disabled + label > .a-icon-multistate,
 input[type=radio]:disabled + label > .a-icon-multistate {
-    background-position-x: -56px;
+    background-position-x: -288px;
+}
+
+input[type=checkbox]:disabled:checked + label > .a-icon-multistate {
+    background-position: -428px;
 }
 
 // option lists will not show icons by default
