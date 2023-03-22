@@ -115,18 +115,6 @@ define(['component'],
             }
         }
 
-        oSelectComboBox.prototype.filterListByVal = function (value) {
-            for (var i = 0; i < this.list.length; i++) {
-                var item = this.list[i];
-                if (item.getAttribute('data-value') === value) {
-                    this.element.value = this.sanitiseText(item.innerText);
-                    item.classList.add('selected');
-                } else {
-                    item.classList.add('filter-hidden');
-                }
-            }
-        }
-
         oSelectComboBox.prototype.filterListStarts = function (string) {
             if (string.length < this.mincharacters) {
                 this.clearOptions();
@@ -251,17 +239,19 @@ define(['component'],
         oSelectComboBox.prototype.selectOption = function (event) {
             var selectedOption = event.target;
 
+            // ignore clicks on the drop-list background or scrollbar
+            if (event.target === this.droplist) {
+                return;
+            }
+
+            // hide the list if a restricted option is selected
             if (selectedOption.classList.contains('a-list-placeholder-restriction')) {
                 this.hideList();
                 return;
             }
 
+            // hide the list if a restricted option is selected
             if (selectedOption.classList.contains('a-list-placeholder-empty')) {
-                this.hideList();
-                return;
-            }
-
-            if (event.target === this.droplist) {
                 this.hideList();
                 return;
             }

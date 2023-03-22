@@ -1726,7 +1726,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox ul {
   list-style-type: none;
   margin: 4px 0;
-  padding: 8px 0;
+  padding: 0;
   border: 1px solid #455B97;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -1741,9 +1741,11 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox ul.charrestriction li.a-list-placeholder-restriction {
   display: block;
+  padding: 12px 16px;
 }
 .o-select-combobox ul.empty li.a-list-placeholder-empty {
   display: block;
+  padding: 12px 16px;
 }
 .o-select-combobox li.a-list-placeholder-empty {
   display: none;
@@ -1758,6 +1760,12 @@ input[type=range]:focus::-ms-fill-lower {
   padding: 4px 16px;
   cursor: default;
   text-align: left;
+}
+.o-select-combobox li:not(.filter-hidden) {
+  padding-top: 12px;
+}
+.o-select-combobox li:not(.filter-hidden) ~ li {
+  padding-top: 4px;
 }
 .o-select-combobox li:hover {
   color: #324371;

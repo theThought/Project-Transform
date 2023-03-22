@@ -37,7 +37,7 @@
     ul {
         list-style-type: none;
         margin: 4px 0;
-        padding: 8px 0;
+        padding: 0;
         border: 1px solid globals.$theme-primary;
         border-radius: globals.$border-radius;
         background-color: globals.$white;
@@ -55,12 +55,14 @@
 
         li.a-list-placeholder-restriction {
             display: block;
+            padding: 12px 16px;
         }
     }
 
     ul.empty {
         li.a-list-placeholder-empty {
             display: block;
+            padding: 12px 16px;
         }
     }
 
@@ -80,6 +82,14 @@
         padding: 4px 16px;
         cursor: default;
         text-align: left;
+    }
+
+    li:not(.filter-hidden) {
+        padding-top: 12px;
+    }
+
+    li:not(.filter-hidden) ~ li {
+        padding-top: 4px;
     }
 
     li:hover {
