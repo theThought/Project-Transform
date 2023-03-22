@@ -37,7 +37,7 @@
     ul {
         list-style-type: none;
         margin: 4px 0;
-        padding: 0;
+        padding: 0 0 8px 0;
         border: 1px solid globals.$theme-primary;
         border-radius: globals.$border-radius;
         background-color: globals.$white;
@@ -55,14 +55,14 @@
 
         li.a-list-placeholder-restriction {
             display: block;
-            padding: 12px 16px;
+            padding: 12px 16px 4px 16px;
         }
     }
 
     ul.empty {
         li.a-list-placeholder-empty {
             display: block;
-            padding: 12px 16px;
+            padding: 12px 16px 4px 16px;
         }
     }
 

@@ -19,6 +19,7 @@ define(['component'],
             this.mincharacters = 0;
             this.keypressed = null;
             this.list = null;
+            this.currentlistposition = -1;
             this.filtermethod = 'contains';
             this.noitemsplaceholder = 'no items to display';
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
@@ -64,10 +65,10 @@ define(['component'],
                     break;
                 case 'keydown':
                     this.getKeyPressed(event);
-                    this.onKeydown();
+                    this.onKeydown(event);
                     break;
                 case 'keyup':
-                    this.onKeyup();
+                    this.onKeyup(event);
                     this.onChange(event);
                     break;
             }
@@ -86,8 +87,13 @@ define(['component'],
             return this.droplist.querySelectorAll('li');
         }
 
-        oSelectComboBox.prototype.configureInitialFilter = function () {
+        oSelectComboBox.prototype.buildVisibleList = function () {
+            var list = this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
+            console.log(list);
+            return list;
+        }
 
+        oSelectComboBox.prototype.configureInitialFilter = function () {
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 if (item.getAttribute('data-selected')) {
@@ -105,6 +111,8 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.filterList = function () {
+            this.resetCurrentListPosition();
+
             switch (this.filtermethod) {
                 case 'starts':
                     this.filterListStarts(this.element.value);
@@ -206,15 +214,86 @@ define(['component'],
             }
         }
 
-        oSelectComboBox.prototype.onKeydown = function () {
-            if (this.keypressed === 9) {
-                this.hideList();
+        oSelectComboBox.prototype.onKeydown = function (event) {
+            switch (this.keypressed) {
+                case 9: // tab key
+                    this.hideList();
+                    break;
+                case 38: // up arrow
+                case 40: // down arrow
+                    event.preventDefault(); // prevent caret from moving
+                    break;
+                case 13: // enter key
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                    this.selectOption(event);
+                    break;
             }
         }
-        oSelectComboBox.prototype.onKeyup = function () {
-            // potentially add logic to determine what sort of input this is
+
+
+        oSelectComboBox.prototype.onKeyup = function (event) {
+
+            switch (this.keypressed) {
+                case 38: // up arrow
+                    this.navigateUp();
+                    break;
+                case 40: // down arrow
+                    this.navigateDown();
+                    break;
+                case 13: // enter key
+                    return;
+                default:
+                    this.filterList();
+            }
+
             this.showList();
-            this.filterList();
+        }
+
+        oSelectComboBox.prototype.navigateUp = function () {
+            if (this.currentlistposition < 1) {
+                return;
+            }
+
+            this.currentlistposition--;
+
+            if (this.currentlistposition === -1) {
+                return;
+            }
+
+            this.updateSelectedEntry(this.currentlistposition);
+            this.updateScrollPosition(this.currentlistposition);
+        }
+
+        oSelectComboBox.prototype.navigateDown = function () {
+            if (this.currentlistposition === this.buildVisibleList().length-1) {
+                return;
+            }
+
+            this.currentlistposition++;
+
+            this.updateSelectedEntry(this.currentlistposition);
+            this.updateScrollPosition(this.currentlistposition);
+        }
+
+
+        oSelectComboBox.prototype.updateScrollPosition = function (position) {
+            this.droplist.scrollTop = 0;//set to top
+            var currentitem = this.buildVisibleList()[position];
+            var scrollposition = currentitem.offsetTop-this.droplist.clientHeight;
+            this.droplist.scrollTop = scrollposition+100;
+        }
+
+        oSelectComboBox.prototype.updateSelectedEntry = function (position) {
+            var currentvisiblelist = this.buildVisibleList();
+
+            for (var i = 0; i < currentvisiblelist.length; i++) {
+                if (position === i) {
+                    currentvisiblelist[i].classList.add('selected');
+                } else {
+                    currentvisiblelist[i].classList.remove('selected');
+                }
+            }
         }
 
         oSelectComboBox.prototype.onClick = function (event) {
@@ -238,6 +317,10 @@ define(['component'],
 
         oSelectComboBox.prototype.selectOption = function (event) {
             var selectedOption = event.target;
+
+            if (event.type === 'keydown') {
+                selectedOption = this.buildVisibleList()[this.currentlistposition];
+            }
 
             // ignore clicks on the drop-list background or scrollbar
             if (event.target === this.droplist) {
@@ -278,13 +361,19 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.hideList = function () {
+            this.resetCurrentListPosition();
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
         }
 
         oSelectComboBox.prototype.toggleList = function () {
+            this.resetCurrentListPosition();
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
+        }
+
+        oSelectComboBox.prototype.resetCurrentListPosition = function () {
+            this.currentlistposition = -1;
         }
 
         oSelectComboBox.prototype.setWidth = function () {
@@ -321,7 +410,6 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.listsize = function (prop) {
-            // todo: how do we calculate this as height changes?
             var height = (27 * prop);
             this.droplist.style.maxHeight = height + 'px';
         }
