@@ -14,6 +14,7 @@ define(['component'],
 
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input.a-input-list-dropdown');
             this.droplist = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
+            this.button = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] button.a-button-list-dropdown');
             this.wrapper = this.element.parentNode;
             this.focused = false;
             this.isJumpingToLetter = false;
@@ -33,6 +34,7 @@ define(['component'],
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.getValue();
+            this.disableButtonTabIndex();
             this.configurationComplete();
         }
 
@@ -107,6 +109,10 @@ define(['component'],
 
         aInputListDropdown.prototype.filtertype = function (prop) {
             this.filtermethod = prop;
+        }
+
+        aInputListDropdown.prototype.disableButtonTabIndex = function () {
+            this.button.tabIndex = -1;
         }
 
         aInputListDropdown.prototype.getValue = function () {
@@ -231,7 +237,7 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onMousedown = function (event) {
-            event.stopImmediatePropagation();
+            event.stopPropagation();
 
             if (this.editable && this.focused) {
                 return;
