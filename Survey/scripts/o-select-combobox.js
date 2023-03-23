@@ -49,6 +49,7 @@ define(['component'],
             this.element.addEventListener('keydown', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
+            this.element.addEventListener('focusout', this, false);
         }
 
         oSelectComboBox.prototype.handleEvent = function (event) {
@@ -71,6 +72,9 @@ define(['component'],
                     this.onKeyup(event);
                     this.onChange(event);
                     break;
+                case 'focusout':
+                    this.onFocusOut(event);
+                    break;
             }
         }
 
@@ -89,7 +93,6 @@ define(['component'],
 
         oSelectComboBox.prototype.buildVisibleList = function () {
             var list = this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
-            console.log(list);
             return list;
         }
 
@@ -200,6 +203,18 @@ define(['component'],
         oSelectComboBox.prototype.onChange = function (event) {
             event.stopImmediatePropagation();
             this.broadcastChange();
+        }
+
+        oSelectComboBox.prototype.onFocusOut = function (event) {
+
+            if (event.relatedTarget === null) {
+                return;
+            }
+
+            if (!this.wrapper.contains(event.relatedTarget)) {
+                event.stopImmediatePropagation();
+                this.hideList();
+            }
         }
 
         oSelectComboBox.prototype.getKeyPressed = function (event) {
