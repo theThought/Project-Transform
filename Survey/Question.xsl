@@ -136,6 +136,16 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
+         <xsl:attribute name="data-hidden">
+            <xsl:choose>
+               <xsl:when test="@Hidden='true'">
+                  <xsl:text>true</xsl:text>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:text>false</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
