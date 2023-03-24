@@ -138,7 +138,7 @@
          </xsl:attribute>
          <xsl:attribute name="data-hidden">
             <xsl:choose>
-               <xsl:when test="@Hidden='true'">
+               <xsl:when test="Style/@Hidden='true'">
                   <xsl:text>true</xsl:text>
                </xsl:when>
                <xsl:otherwise>

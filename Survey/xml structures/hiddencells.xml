@@ -47,7 +47,7 @@
                         <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
                             <Control Type="SingleLineEdit"></Control>
                         </Style>
-                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimplequestion" ElementID="_Q0_Q0_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimpleque" Length="1024">
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimplequestion" ElementID="_Q0_Q0_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion" Length="1024">
                             <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
                                 <Control Type="SingleLineEdit"></Control>
                             </Style>
@@ -83,7 +83,7 @@
                                 <Text>female</Text>
                             </Label>
                         </Category>
-                        <Category Name="none" CategoryID="2" Checked="true">
+                        <Category Name="none" CategoryID="2">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>non-binary</Text>
@@ -141,7 +141,7 @@
                         <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
                             <Control Type="SingleLineEdit"></Control>
                         </Style>
-                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimplequestion" ElementID="_Q0_Q1_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text resp" Length="1024">
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimplequestion" ElementID="_Q0_Q1_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  as" Length="1024">
                             <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
                                 <Control Type="SingleLineEdit"></Control>
                             </Style>
@@ -235,7 +235,7 @@
                         <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
                             <Control Type="SingleLineEdit"></Control>
                         </Style>
-                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimplequestion" ElementID="_Q0_Q2_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the" Length="1024">
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimplequestion" ElementID="_Q0_Q2_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This" Length="1024">
                             <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
                                 <Control Type="SingleLineEdit"></Control>
                             </Style>
@@ -259,7 +259,7 @@
                         <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60" Width="9em">
                             <Control Type="DropList"></Control>
                         </Style>
-                        <Category Name="male" CategoryID="0" Checked="true">
+                        <Category Name="male" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>male</Text>
@@ -296,7 +296,7 @@
                                 <Text>female</Text>
                             </Label>
                         </Category>
-                        <Category Name="none" CategoryID="2">
+                        <Category Name="none" CategoryID="2" Checked="true">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>non-binary</Text>
@@ -315,4 +315,8 @@
                             </Style>
                         </Control>
                     </Question>
-                </Questions>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>
