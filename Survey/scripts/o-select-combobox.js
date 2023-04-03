@@ -101,6 +101,7 @@ define(['component'],
                 var item = this.list[i];
                 if (item.getAttribute('data-selected')) {
                     this.element.value = this.sanitiseText(item.innerText);
+                    item.data.setAttribute('data-selected', 'selected');
                     item.classList.add('selected');
                     this.filterList();
                 }
@@ -305,9 +306,13 @@ define(['component'],
             for (var i = 0; i < currentvisiblelist.length; i++) {
                 if (position === i) {
                     currentvisiblelist[i].classList.add('selected');
+                    currentvisiblelist[i].setAttribute('data-selected', 'selected');
                 } else {
                     currentvisiblelist[i].classList.remove('selected');
+                    currentvisiblelist[i].removeAttribute('data-selected');
                 }
+
+                this.broadcastChange();
             }
         }
 
@@ -357,6 +362,7 @@ define(['component'],
             this.clearOptions();
 
             event.target.classList.add('selected');
+            event.target.setAttribute('data-selected', 'selected');
             this.element.value = this.sanitiseText(selectedOption.innerText);
             this.hiddenelement.value = selectedOption.getAttribute('data-value');
             this.hideList();
@@ -367,7 +373,9 @@ define(['component'],
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');
+                item.removeAttribute('data-selected');
             }
+            this.broadcastChange();
         }
 
         oSelectComboBox.prototype.showList = function () {

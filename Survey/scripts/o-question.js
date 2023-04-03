@@ -94,7 +94,10 @@ define(['component'],
             if (typeof event.detail.droplist !== "undefined") {
                 var selectedelement = event.detail.droplist.querySelector('[data-selected]');
 
-                if (typeof selectedelement !== "undefined") {
+                if (selectedelement === null) {
+                    this.showOption(null, 'filter');
+                } else {
+                    this.hideOption(selectedelement.getAttribute('data-value'), 'filter');
 
                 }
 
@@ -206,7 +209,7 @@ define(['component'],
         }
 
         oQuestion.prototype.hideOption = function (itemValue, hideMethod) {
-            var option = this.element.querySelector("[value='" + itemValue + "']");
+            var option = this.element.querySelector("[value='" + itemValue + "'], [data-value='" + itemValue + "']");
 
             if (option === null) {
                 this.debug('Could not find the option ' + itemValue + ' to hide.', 2);
@@ -214,19 +217,31 @@ define(['component'],
             }
 
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
-            option.checked = false;
+
+            // for m-option-base we should operate on the parent element
+            if (option.tagName !== 'LI') {
+                option.checked = false;
+                option = option.parentNode;
+            }
 
             if (hideMethod === 'filter') {
-                option.parentNode.classList.add('hidden-filter');
+                option.classList.add('hidden-filter');
             } else {
-                option.parentNode.classList.add('hidden-rule');
+                option.classList.add('hidden-rule');
             }
 
             this.sendResizeNotifier(optiongroup);
         }
 
         oQuestion.prototype.showOption = function (itemValue, hideMethod) {
-            var option = this.element.querySelector("[value='" + itemValue + "']");
+            var option;
+
+            if (itemValue === null) {
+                option = this.element.querySelector(".hidden-filter");
+            } else {
+                option = this.element.querySelector("[value='" + itemValue + "']");
+                option = option.parentNode;
+            }
 
             if (option === null) {
                 this.debug('Could not find the option ' + itemValue + ' to display.', 2);
@@ -236,9 +251,9 @@ define(['component'],
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
 
             if (hideMethod === 'filter') {
-                option.parentNode.classList.remove('hidden-filter');
+                option.classList.remove('hidden-filter');
             } else {
-                option.parentNode.classList.remove('hidden-rule');
+                option.classList.remove('hidden-rule');
             }
 
             this.sendResizeNotifier(optiongroup);
