@@ -1,6 +1,9 @@
 @use 'globals';
 
-.hidden-filter,
+.hidden-filter {
+    visibility: hidden;
+
+}
 .hidden-rule {
     display: none !important;
 }

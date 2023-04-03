@@ -1305,7 +1305,10 @@ select::-ms-expand {
   text-align: right;
 }
 
-.hidden-filter,
+.hidden-filter {
+  visibility: hidden;
+}
+
 .hidden-rule {
   display: none !important;
 }

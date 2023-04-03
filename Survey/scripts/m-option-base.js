@@ -91,7 +91,8 @@ define(['component'],
         mOptionBase.prototype.onChange = function (event) {
 
             event.stopImmediatePropagation();
-            if (event.target === this.checkbox) {
+
+            if (this.element.contains(event.target)) {
 
                 this.broadcastChange();
 
@@ -124,10 +125,14 @@ define(['component'],
 
         mOptionBase.prototype.onClick = function (event) {
 
+            event.preventDefault();
             event.stopImmediatePropagation();
-            if (event.target === this.textInput) {
+
+            if (event.target === this.textInput || this.element.contains(event.target)) {
                 this.checkbox.checked = true;
             }
+
+            this.onChange(event);
 
         }
 
@@ -137,8 +142,8 @@ define(['component'],
             if (this.element !== event.detail.element) {
                 if (this.checkbox.checked) {
                     this.checkbox.checked = false;
-                    this.broadcastChange();
                 }
+                this.broadcastChange();
             }
 
         }
