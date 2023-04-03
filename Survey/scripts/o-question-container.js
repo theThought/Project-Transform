@@ -43,6 +43,7 @@ define(['o-question'],
                     this.processAlternativeVisibilityRulesFromExternalTrigger(event);
                     this.processVisibilityRulesFromExternalTrigger(event);
                     this.processOptionVisibilityRulesFromExternalTrigger(event);
+                    this.processFilter(event);
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);

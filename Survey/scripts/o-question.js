@@ -16,6 +16,7 @@ define(['component'],
             this.available = false;
             this.collapse = true;
             this.sourceQuestions = {};
+            this.isFiltered = false;
             this.optionRuleParsingComplete = false;
             this.alternativeRuleParsingComplete = false;
             this.hasOptionVisibilityRules = false;
@@ -50,6 +51,51 @@ define(['component'],
         oQuestion.prototype.showspinner = function (prop) {
             if (prop === true) {
                 this.element.classList.add('show-spinner');
+            }
+        }
+
+        oQuestion.prototype.filter = function (props) {
+            this.isFiltered = true;
+            this.filterSource = props.source;
+            this.filterExclusions = props.exclusions;
+        }
+
+        oQuestion.prototype.processFilter = function (event) {
+            // this question does not have a filter rule declared
+            if (!this.isFiltered) {
+                return;
+            }
+
+            // do not process events originating with the current question
+            if (event.detail.group === this.group) {
+                return;
+            }
+
+            // the incoming question is not included in the list of filter sources
+            if (event.detail.questionName.toLowerCase() !== this.filterSource.toLowerCase()) {
+                return;
+            }
+
+            // the incoming value has been found in the exclusions list
+            if (typeof event.detail.checkbox !== "undefined"
+                && this.filterExclusions.includes(event.detail.checkbox.value)) {
+                return;
+            }
+
+            if (typeof event.detail.checkbox !== "undefined"
+                && event.detail.checkbox.checked) {
+                this.debug('Identified incoming value from a filter source.');
+                this.hideOption(event.detail.checkbox.value); 
+            }
+
+            if (typeof event.detail.droplist !== "undefined") {
+                var selectedelement = event.detail.droplist.querySelector('[data-selected]');
+
+                if (typeof selectedelement !== "undefined") {
+
+                }
+
+                this.debug('Identified incoming value from a filter source.');
             }
         }
 
@@ -184,7 +230,7 @@ define(['component'],
         }
 
         oQuestion.prototype.sendResizeNotifier = function (groupname) {
-            if (typeof(Event) === 'function') {
+            if (typeof (Event) === 'function') {
                 // modern browsers
                 window.dispatchEvent(new Event('resize'));
             } else {
