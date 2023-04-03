@@ -82,10 +82,13 @@ define(['component'],
                 return;
             }
 
-            if (typeof event.detail.checkbox !== "undefined"
-                && event.detail.checkbox.checked) {
-                this.debug('Identified incoming value from a filter source.');
-                this.hideOption(event.detail.checkbox.value); 
+            if (typeof event.detail.checkbox !== "undefined") {
+                if (event.detail.checkbox.checked) {
+                    this.debug('Identified incoming value from a filter source.');
+                    this.hideOption(event.detail.checkbox.value, 'filter');
+                } else {
+                    this.showOption(event.detail.checkbox.value, 'filter');
+                }
             }
 
             if (typeof event.detail.droplist !== "undefined") {
@@ -177,9 +180,9 @@ define(['component'],
                     ruleString = this.insertQuestionValuesIntoRule(ruleString);
 
                     if (this.evaluateRule(ruleString)) {
-                        this.hideOption(this.properties.options.invisible[i].name);
+                        this.hideOption(this.properties.options.invisible[i].name, 'rule');
                     } else {
-                        this.showOption(this.properties.options.invisible[i].name);
+                        this.showOption(this.properties.options.invisible[i].name, 'rule');
                     }
                 }
             }
@@ -194,15 +197,15 @@ define(['component'],
                     ruleString = this.insertQuestionValuesIntoRule(ruleString);
 
                     if (this.evaluateRule(ruleString)) {
-                        this.showOption(this.properties.options.visible[i].name);
+                        this.showOption(this.properties.options.visible[i].name, 'rule');
                     } else {
-                        this.hideOption(this.properties.options.visible[i].name);
+                        this.hideOption(this.properties.options.visible[i].name, 'rule');
                     }
                 }
             }
         }
 
-        oQuestion.prototype.hideOption = function (itemValue) {
+        oQuestion.prototype.hideOption = function (itemValue, hideMethod) {
             var option = this.element.querySelector("[value='" + itemValue + "']");
 
             if (option === null) {
@@ -212,11 +215,17 @@ define(['component'],
 
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
             option.checked = false;
-            option.parentNode.style.display = 'none';
+
+            if (hideMethod === 'filter') {
+                option.parentNode.classList.add('hidden-filter');
+            } else {
+                option.parentNode.classList.add('hidden-rule');
+            }
+
             this.sendResizeNotifier(optiongroup);
         }
 
-        oQuestion.prototype.showOption = function (itemValue) {
+        oQuestion.prototype.showOption = function (itemValue, hideMethod) {
             var option = this.element.querySelector("[value='" + itemValue + "']");
 
             if (option === null) {
@@ -225,7 +234,13 @@ define(['component'],
             }
 
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
-            option.parentNode.style.display = 'block';
+
+            if (hideMethod === 'filter') {
+                option.parentNode.classList.remove('hidden-filter');
+            } else {
+                option.parentNode.classList.remove('hidden-rule');
+            }
+
             this.sendResizeNotifier(optiongroup);
         }
 

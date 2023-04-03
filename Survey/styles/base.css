@@ -1305,6 +1305,11 @@ select::-ms-expand {
   text-align: right;
 }
 
+.hidden-filter,
+.hidden-rule {
+  display: none !important;
+}
+
 /* Sublist heading */
 .o-option-sublist .a-label-heading-sublist {
   font-family: "Merriweather", serif;
