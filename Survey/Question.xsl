@@ -136,16 +136,6 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:attribute name="data-hidden">
-            <xsl:choose>
-               <xsl:when test="Style/@Hidden='true'">
-                  <xsl:text>true</xsl:text>
-               </xsl:when>
-               <xsl:otherwise>
-                  <xsl:text>false</xsl:text>
-               </xsl:otherwise>
-            </xsl:choose>
-         </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
@@ -283,6 +273,14 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'SingleLineEdit'">
+            <xsl:call-template name="SingleLineEditControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
+         <xsl:when test="@Type = 'decimal'">
             <xsl:call-template name="SingleLineEditControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
                <xsl:with-param name="qFullName" select="$qFullName" />
@@ -1097,7 +1095,7 @@
                         <xsl:text>selected</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
-                  <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
+                  <xsl:value-of disable-output-escaping="no" select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
          </xsl:element>
@@ -1193,11 +1191,11 @@
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:if test="@Checked = 'true'">
-                     <xsl:attribute name="data-selected">
-                        <xsl:text>true</xsl:text>
+                     <xsl:attribute name="selected">
+                        <xsl:text>selected</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
-                  <xsl:value-of disable-output-escaping="yes" select="Label/Text" />
+                  <xsl:value-of select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
          </xsl:element>
@@ -2124,8 +2122,15 @@
             <xsl:when test="$qCustomType='hnumberslider'">
                <xsl:attribute name="type">range</xsl:attribute>
             </xsl:when>
+            <xsl:when test="$qCustomtype='decimal'">
+               <xsl:attribute name="step">any</xsl:attribute>
+               <xsl:attribute name="type">number</xsl:attribute>
+            </xsl:when>
             <xsl:otherwise>
                <xsl:attribute name="type">text</xsl:attribute>
+               <xsl:if test="@Length>10">
+                  <xsl:attribute name="step">any</xsl:attribute>
+               </xsl:if>
             </xsl:otherwise>
          </xsl:choose>
          <!--- Input name -->
@@ -2247,6 +2252,9 @@
          <xsl:when test="$theID = '-21'">
             <xsl:value-of select="'readwriteedit'" />
          </xsl:when>
+         <xsl:when test="$theID = '-22'">
+            <xsl:value-of select="'decimal'" />
+         </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'multilineedit'" />
          </xsl:when>
@@ -2283,6 +2291,9 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-21'">
+            <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-22'">
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-30'">
