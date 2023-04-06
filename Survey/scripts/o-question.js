@@ -219,7 +219,7 @@ define(['component'],
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
 
             // for m-option-base we should operate on the parent element
-            if (option.tagName !== 'LI') {
+            if (option.tagName === 'INPUT') {
                 option.checked = false;
                 option = option.parentNode;
             }
@@ -240,12 +240,15 @@ define(['component'],
                 option = this.element.querySelector(".hidden-filter");
             } else {
                 option = this.element.querySelector("[value='" + itemValue + "']");
-                option = option.parentNode;
             }
 
             if (option === null) {
                 this.debug('Could not find the option ' + itemValue + ' to display.', 2);
                 return;
+            }
+
+            if (itemValue !== null) {
+                option = option.parentNode;
             }
 
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');

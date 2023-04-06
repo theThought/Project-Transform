@@ -1,10 +1,25 @@
 require(['domready'], function (domReady) {
     domReady(function () {
-        setInterval(componentsReady, 300);
+        var initInterval = 300;
+        var initRuns = 0;
+        var initEmpy = 0;
+        var initLimit = 10;
+
+        var initTimer = setInterval(componentsReady, 300);
 
         function componentsReady () {
-            console.info('Calling init for ' + app.preinitcomponents.length + ' components');
+            initRuns++;
             var i = app.preinitcomponents.length;
+
+            if (i===0) {
+                initEmpy++;
+            } else {
+                console.info('Calling init for ' + i + ' components');
+            }
+
+            if (initEmpy === initLimit) {
+                clearInterval(initInterval);
+            }
 
             while (i--) {
                 var currentcomponent = app.preinitcomponents[i];
