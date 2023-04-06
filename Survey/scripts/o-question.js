@@ -219,7 +219,7 @@ define(['component'],
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
 
             // for m-option-base we should operate on the parent element
-            if (option.tagName === 'INPUT') {
+            if (option.tagName === 'INPUT' && !option.classList.contains('a-input-combobox')) {
                 option.checked = false;
                 option = option.parentNode;
             }
