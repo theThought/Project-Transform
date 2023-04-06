@@ -1306,7 +1306,7 @@ select::-ms-expand {
 }
 
 .hidden-filter {
-  visibility: hidden;
+  display: none !important;
 }
 
 .hidden-rule {
