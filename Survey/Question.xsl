@@ -2122,7 +2122,7 @@
             <xsl:when test="$qCustomType='hnumberslider'">
                <xsl:attribute name="type">range</xsl:attribute>
             </xsl:when>
-            <xsl:when test="$qCustomtype='decimal'">
+            <xsl:when test="$qCustomType='decimal'">
                <xsl:attribute name="step">any</xsl:attribute>
                <xsl:attribute name="type">number</xsl:attribute>
             </xsl:when>
