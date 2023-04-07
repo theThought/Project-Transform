@@ -2141,16 +2141,14 @@
             </xsl:if>
          </xsl:attribute>
          <!--- ID -->
-         <xsl:if test="$bIncludeElementIds">
-            <xsl:attribute name="id">
-               <xsl:if test="@ElementID">
-                  <xsl:value-of select="@ElementID" />
-               </xsl:if>
-               <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
-                  <xsl:value-of select="Category[1]/@CategoryID" />
-               </xsl:if>
-            </xsl:attribute>
-         </xsl:if>
+         <xsl:attribute name="id">
+            <xsl:if test="@ElementID">
+               <xsl:value-of select="@ElementID" />
+            </xsl:if>
+            <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
+               <xsl:value-of select="Category[1]/@CategoryID" />
+            </xsl:if>
+         </xsl:attribute>
          <!--- Alt -->
          <xsl:if test="@Alt != ''">
             <xsl:attribute name="Alt">
