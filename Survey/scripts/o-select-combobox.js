@@ -12,8 +12,8 @@ define(['component'],
         function oSelectComboBox(id, group) {
             component.call(this, id, group);
 
-            this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] input.a-input-combobox');
-            this.droplist = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] ul');
+            this.element = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"]');
+            this.droplist = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-select-combobox][data-questiongroup="' + this.group + '"]');
             this.hiddenelement = null;
             this.mincharacters = 0;
@@ -101,7 +101,7 @@ define(['component'],
                 var item = this.list[i];
                 if (item.getAttribute('data-selected')) {
                     this.element.value = this.sanitiseText(item.innerText);
-                    item.data.setAttribute('data-selected', 'selected');
+                    item.setAttribute('data-selected', 'selected');
                     item.classList.add('selected');
                     this.filterList();
                 }
