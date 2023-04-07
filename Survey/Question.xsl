@@ -1191,8 +1191,8 @@
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:if test="@Checked = 'true'">
-                     <xsl:attribute name="selected">
-                        <xsl:text>selected</xsl:text>
+                     <xsl:attribute name="data-selected">
+                        <xsl:text>true</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of select="Label/Text" />

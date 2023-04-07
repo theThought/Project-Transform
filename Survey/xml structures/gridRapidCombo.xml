@@ -32,7 +32,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -291,7 +291,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -384,7 +384,7 @@
                                 <Text>Adriacin</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__0233__0023" CategoryID="16">
+                        <Category Name="__2__0233__0023" CategoryID="16" Checked="true">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Adriamycin</Text>
@@ -558,7 +558,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -663,7 +663,7 @@
                                 <Text>Afatinib</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__7007__7309" CategoryID="18">
+                        <Category Name="__2__7007__7309" CategoryID="18" Checked="true">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Afinitor</Text>
@@ -817,7 +817,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -910,7 +910,7 @@
                                 <Text>Adriacin</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__0233__0023" CategoryID="16">
+                        <Category Name="__2__0233__0023" CategoryID="16" Checked="true">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Adriamycin</Text>
@@ -1084,7 +1084,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -1189,7 +1189,7 @@
                                 <Text>Afatinib</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__7007__7309" CategoryID="18">
+                        <Category Name="__2__7007__7309" CategoryID="18" Checked="true">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Afinitor</Text>
@@ -1343,7 +1343,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -1436,7 +1436,7 @@
                                 <Text>Adriacin</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__0233__0023" CategoryID="16">
+                        <Category Name="__2__0233__0023" CategoryID="16" Checked="true">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Adriamycin</Text>
@@ -1610,7 +1610,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -1715,7 +1715,7 @@
                                 <Text>Afatinib</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__7007__7309" CategoryID="18">
+                        <Category Name="__2__7007__7309" CategoryID="18" Checked="true">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Afinitor</Text>
@@ -1869,7 +1869,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -1962,7 +1962,7 @@
                                 <Text>Adriacin</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__0233__0023" CategoryID="16">
+                        <Category Name="__2__0233__0023" CategoryID="16" Checked="true">
                             <Label>
                                 <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Adriamycin</Text>
@@ -2136,7 +2136,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -2241,7 +2241,7 @@
                                 <Text>Afatinib</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__7007__7309" CategoryID="18">
+                        <Category Name="__2__7007__7309" CategoryID="18" Checked="true">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Afinitor</Text>
@@ -2395,7 +2395,7 @@
                         <Category Name="__3__0002__0002" CategoryID="0">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                                <Text WellFormed="false">5 &amp; FU</Text>
+                                <Text>5 &amp;amp; FU</Text>
                             </Label>
                         </Category>
                         <Category Name="__3__0004__0004" CategoryID="1">
@@ -2488,7 +2488,7 @@
                                 <Text>Adriacin</Text>
                             </Label>
                         </Category>
-                        <Category Name="__2__0233__0023" CategoryID="16">
+                        <Category Name="__2__0233__0023" CategoryID="16" Checked="true">
                             <Label>
                                 <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
                                 <Text>Adriamycin</Text>
