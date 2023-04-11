@@ -139,6 +139,17 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
+         <xsl:if test="Style/@Hidden">
+            <xsl:attribute name="data-hidden">
+               <xsl:text>true</xsl:text>
+            </xsl:attribute>
+         </xsl:if>
+         <xsl:if test="Style/Control/@ReadOnly='true'">
+            <xsl:attribute name="data-readonly">
+               <xsl:text>true</xsl:text>
+            </xsl:attribute>
+         </xsl:if>
+
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
