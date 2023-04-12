@@ -17,6 +17,8 @@ define(['component'],
             this.collapse = true;
             this.sourceQuestions = {};
             this.isFiltered = false;
+            this.isReadOnly = false;
+            this.isHidden = false;
             this.optionRuleParsingComplete = false;
             this.alternativeRuleParsingComplete = false;
             this.hasOptionVisibilityRules = false;

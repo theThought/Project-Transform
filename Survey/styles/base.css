@@ -1365,6 +1365,9 @@ select::-ms-expand {
   overflow-x: auto;
   overflow-y: visible;
 }
+.o-question-response[data-hidden=true] * {
+  display: none;
+}
 .o-question-response:not(.balance) > *:not(script):last-child {
   margin-bottom: 0;
 }

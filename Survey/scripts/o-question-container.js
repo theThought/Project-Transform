@@ -29,6 +29,7 @@ define(['o-question'],
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.processAlternativeVisibilityRules();
+            this.processResponseContainerDataTags();
             this.configurationComplete();
         }
 
@@ -48,6 +49,26 @@ define(['o-question'],
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
+            }
+        }
+
+        oQuestionContainer.prototype.processResponseContainerDataTags = function () {
+            var element = this.element.querySelector('.o-question-response');
+            var attr;
+
+            for (var i = 0; i < element.attributes.length; i++) {
+                attr = element.attributes[i];
+
+                if (/^data-/.test(attr.nodeName)) {
+                    switch (attr.nodeName) {
+                        case 'data-hidden':
+                            this.isHidden = true;
+                            break;
+                        case 'data-readonly':
+                            this.isReadOnly = true;
+                            break;
+                    }
+                }
             }
         }
 
