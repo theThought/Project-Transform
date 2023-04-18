@@ -2224,8 +2224,8 @@
          <!--- Default text -->
          <xsl:attribute name="value">
             <xsl:choose>
-               <xsl:when test="Category[1]/@Checked = 'true'">
-                  <xsl:value-of select="'*'" />
+               <xsl:when test="$qCustomType='combobox'">
+                  <xsl:call-template name='CheckedToString' />
                </xsl:when>
                <xsl:otherwise>
                   <xsl:value-of select="@Value" />
@@ -2365,4 +2365,13 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
+
+   <xsl:template name="CheckedToString">
+      <xsl:for-each select="Category">
+         <xsl:if test="@Checked">
+            <xsl:value-of select='@Name' />
+         </xsl:if>
+      </xsl:for-each>
+   </xsl:template>
+
 </xsl:stylesheet>

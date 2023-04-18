@@ -19,7 +19,7 @@
 					<Text>I am very reluctant to prescribe new products/switch to new products</Text>
 				</Label>
 			</Category>
-			<Category Name="waitShort" CategoryID="0_S2">
+			<Category Name="waitShort" CategoryID="0_S2" Checked='true'>
 				<Label>
 					<Style ElementAlign="Right"></Style>
 					<Text>I like to wait a while (for a few months) after a new product is approved before I start prescribing it</Text>
