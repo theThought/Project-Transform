@@ -56,6 +56,10 @@ define(['o-question'],
             var element = this.element.querySelector('.o-question-response');
             var attr;
 
+            if (element === null) {
+                return;
+            }
+
             for (var i = 0; i < element.attributes.length; i++) {
                 attr = element.attributes[i];
 
