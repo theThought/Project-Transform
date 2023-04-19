@@ -75,9 +75,10 @@ define(['component'],
             // determine whether a manual width has been set
             var inputelement = this.buttonelement.getElementsByClassName('a-input-list-dropdown')[0];
             var inputelementwidth = inputelement.style.width;
+
             if (inputelementwidth.length > 0) {
                 this.element.classList.add('manual-width');
-                this.element.style.width = this.buttonelement.offsetWidth + 'px';
+                this.element.style.width = inputelementwidth;
             }
         }
 
