@@ -46,6 +46,9 @@
         max-height: 300px;
         overflow-y: auto;
         z-index: 10;
+        min-width: 3em;
+        width: calc(197px + 44px + 16px); // allows for padding of input element
+        box-sizing: border-box;
     }
 
     ul.charrestriction {

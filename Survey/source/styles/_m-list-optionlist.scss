@@ -3,7 +3,7 @@
 .m-list-optionlist {
     position: absolute;
     box-sizing: border-box;
-    margin-top: .5em;
+    margin-top: 4px;
     border: 1px solid globals.$theme-primary;
     border-radius: globals.$border-radius;
     padding: .5em 3em .5em .5em;
@@ -14,6 +14,8 @@
     visibility: hidden;
     overflow-y: overlay; /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
     text-align: left;
+    min-width: 3em;
+    width: 197px;
 }
 
 div.empty {

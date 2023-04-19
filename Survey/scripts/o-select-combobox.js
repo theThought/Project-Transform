@@ -400,15 +400,10 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.setWidth = function () {
-            // determine whether a manual width has been set
-            if (this.element.length > 0) {
-                this.element.classList.add('manual-width');
-                this.element.style.width = this.element.offsetWidth + 'px';
-            }
-
             // set the width of the drop list to the width of the input
-            if (this.element.offsetWidth > 0) {
-                this.droplist.style.width = this.element.offsetWidth + 'px';
+            if (this.element.style.width.length > 0) {
+                this.droplist.classList.add('manual-width');
+                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 44px + 16px)';
             }
         }
 

@@ -1121,7 +1121,7 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
   position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-top: 0.5em;
+  margin-top: 4px;
   border: 1px solid #455B97;
   border-radius: 10px;
   padding: 0.5em 3em 0.5em 0.5em;
@@ -1132,6 +1132,8 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
   visibility: hidden;
   overflow-y: overlay; /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
   text-align: left;
+  min-width: 3em;
+  width: 197px;
 }
 
 div.empty .a-list-placeholder-empty {
@@ -1636,7 +1638,6 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-combolist > div:first-of-type {
   position: relative;
   display: inline-block;
-  padding-right: 3em;
   border-radius: 10px;
 }
 .o-question-list > div:first-of-type:hover button,
@@ -1647,14 +1648,18 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-combolist .a-input-list-dropdown {
   position: relative;
   z-index: 2;
-  padding: 10px 16px;
+  border: none;
   border-radius: 10px;
-  border: 1px solid #8797C8;
   color: #757575;
   margin-bottom: 0;
   background-color: #FAFAFA;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  min-width: 3em;
+  width: 197px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  line-height: 40px;
+  padding: 0 44px 0 16px;
+  height: 40px;
 }
 .o-question-list .a-input-list-dropdown:hover:not(:-moz-read-only), .o-question-list .a-input-list-dropdown:focus:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:hover:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:focus:not(:-moz-read-only) {
   color: #57699C;
@@ -1678,12 +1683,8 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-question-list .a-input-list-dropdown.readonly,
 .o-question-combolist .a-input-list-dropdown.readonly {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   color: white;
   background: transparent;
-  border: 1px solid transparent; /* the border width must be specified or the browser interprets transparent as none and loses a few pixels of size */
-  padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
 }
 .o-question-list .a-input-list-dropdown.readonly.readonly,
 .o-question-combolist .a-input-list-dropdown.readonly.readonly {
@@ -1746,6 +1747,10 @@ input[type=range]:focus::-ms-fill-lower {
   max-height: 300px;
   overflow-y: auto;
   z-index: 10;
+  min-width: 3em;
+  width: 257px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .o-select-combobox ul.charrestriction li:not(.a-list-placeholder-restriction) {
   display: none;

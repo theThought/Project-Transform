@@ -10,7 +10,6 @@
     & > div:first-of-type {
         position: relative;
         display: inline-block;
-        padding-right: 3em;
         border-radius: globals.$border-radius;
 
 
@@ -26,13 +25,17 @@
     .a-input-list-dropdown {
         position: relative;
         z-index: 2;
-        padding: 10px 16px;
+        border: none;
         border-radius: globals.$border-radius;
-        border: 1px solid globals.$borders;
         color: globals.$input-text;
         margin-bottom: 0;
         background-color: globals.$background;
-        box-sizing: border-box;
+        min-width: 3em;
+        width: 197px;
+        box-sizing: content-box;
+        line-height: 40px;
+        padding: 0 44px 0 16px;
+        height: 40px;
     }
 
     .a-input-list-dropdown:hover:not(:read-only),
@@ -49,11 +52,8 @@
     }
 
     .a-input-list-dropdown.readonly {
-        box-sizing: border-box;
         color: white;
         background: transparent;
-        border: 1px solid transparent; /* the border width must be specified or the browser interprets transparent as none and loses a few pixels of size */
-        padding-right: 0 !important; /* this is necessary to override JS applied padding to list elements */
 
         &.readonly {
             cursor: default;

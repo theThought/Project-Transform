@@ -144,6 +144,11 @@ define(['component'],
 
         aInputListDropdown.prototype.onEndResize = function (event) {
 
+            // temporarily retire this method while investigating if this should be supported
+            if (true) {
+                return;
+            }
+
             if (event.detail.group !== this.group) {
                 return;
             }
