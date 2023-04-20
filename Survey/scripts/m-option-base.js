@@ -128,8 +128,12 @@ define(['component'],
             event.preventDefault();
             event.stopImmediatePropagation();
 
-            if (event.target === this.textInput || this.element.contains(event.target)) {
+            if (event.target === this.textInput) {
                 this.checkbox.checked = true;
+            }
+
+            if (this.element.contains(event.target)) {
+                this.checkbox.checked = !this.checkbox.checked;
             }
 
             this.onChange(event);
