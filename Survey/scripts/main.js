@@ -17,7 +17,7 @@ require(['domready'], function (domReady) {
                 console.info('Calling init for ' + i + ' components');
             }
 
-            if (initEmpy === initLimit) {
+            if (initEmpy >= initLimit) {
                 clearInterval(initInterval);
             }
 

@@ -46,6 +46,12 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
+            if (this.checkbox.readOnly) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return;
+            }
+
             switch (event.type) {
                 case "click":
                     this.onClick(event);
@@ -128,11 +134,16 @@ define(['component'],
             event.preventDefault();
             event.stopImmediatePropagation();
 
-            if (event.target === this.textInput || this.element.contains(event.target)) {
+            if (event.target === this.textInput) {
                 this.checkbox.checked = true;
+                //this.onChange(event);
+                return;
             }
 
-            this.onChange(event);
+            if (this.element.contains(event.target)) {
+                this.checkbox.checked = !this.checkbox.checked;
+                this.onChange(event);
+            }
 
         }
 

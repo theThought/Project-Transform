@@ -51,8 +51,8 @@ define(['component'],
 
         aInputListDropdown.prototype.configureLocalEventListeners = function () {
             this.wrapper.addEventListener("change", this, false);
+            this.wrapper.addEventListener("keydown", this, false);
             this.wrapper.addEventListener("keyup", this, false);
-            this.wrapper.addEventListener("keypress", this, false);
             this.wrapper.addEventListener("mousedown", this, false);
             this.element.addEventListener("focusin", this, false);
             this.element.addEventListener("focusout", this, false);
@@ -63,9 +63,9 @@ define(['component'],
                 case "closeDropdowns":
                     this.onCloseDropdowns(event);
                     break;
-                case "keypress":
+                case "keydown":
                     this.getKeyPressed(event);
-                    this.onKeypress(event);
+                    this.onKeydown(event);
                     break;
                 case "keyup":
                     this.getKeyPressed(event);
@@ -326,15 +326,26 @@ define(['component'],
             }
         }
 
-        aInputListDropdown.prototype.onKeypress = function () {
+        aInputListDropdown.prototype.onKeydown = function (event) {
             if (!this.focused) {
                 return;
             }
 
-            if (this.isJumpingToLetter) {
-                this.processKeyJump();
+            switch (this.keypressed) {
+                case 9: // tab key
+                    this.hideList();
+                    break;
+                case 38: //up arrow
+                case 40: // down arrow
+                    event.preventDefault();
+                    break;
+                case 13: // enter key
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                    break;
+                default:
+                    this.processKeyJump();
             }
-
         }
 
         aInputListDropdown.prototype.onKeyup = function () {
@@ -342,11 +353,14 @@ define(['component'],
                 return;
             }
 
-            this.showList();
-
-            if (this.editable) {
-                this.processFilterList();
+            switch (this.keypressed) {
+                case 13: // enter key
+                    return;
+                default:
+                    this.processFilterList();
             }
+
+            this.showList();
         }
 
         aInputListDropdown.prototype.getKeyPressed = function (event) {
@@ -362,11 +376,19 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.processKeyJump = function () {
+            if (!this.isJumpingToLetter) {
+                return;
+            }
+
             var keyEvent = new CustomEvent(this.group + '_jumpToLetter', {bubbles: true, detail: this});
             document.dispatchEvent(keyEvent);
         }
 
         aInputListDropdown.prototype.processFilterList = function () {
+            if (!this.editable) {
+                return;
+            }
+
             var keyEvent = new CustomEvent(this.group + '_filterList', {bubbles: true, detail: this});
             document.dispatchEvent(keyEvent);
         }

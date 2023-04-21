@@ -2,7 +2,7 @@
 
 .o-question-response {
 
-    &[data-hidden=true] {
+    &[data-hidden="true"] {
         * {
             display: none;
         }

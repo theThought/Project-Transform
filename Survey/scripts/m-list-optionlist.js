@@ -16,10 +16,14 @@ define(['component'],
             this.widest = 0;
             this.maxwidth = '';
             this.isOnesize = false;
+            this.keypressed = null;
             this.noitemsplaceholder = 'no items to display';
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
+            this.inputelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] .a-input-list-dropdown')
             this.buttonelement = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] > div');
             this.element = document.querySelector('div[class*=o-question-response][data-questiongroup="' + this.group + '"] div.m-list-optionlist');
+            this.list = null;
+            this.currentlistposition = -1;
         }
 
         mListOptionList.prototype = Object.create(component.prototype);
@@ -30,14 +34,22 @@ define(['component'],
             this.addEmptyPlaceholder();
             this.addCharRestrictionPlaceholder();
             this.setWidth();
+            this.list = this.buildList();
             this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
             this.configureOnesize();
             this.configurationComplete();
         }
 
         mListOptionList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
+        }
+
+        mListOptionList.prototype.configureLocalEventListeners = function () {
+            this.buttonelement.addEventListener('keydown', this, false);
+            this.buttonelement.addEventListener('keyup', this, false);
         }
 
         mListOptionList.prototype.handleEvent = function (event) {
@@ -46,8 +58,123 @@ define(['component'],
                 case this.group + '_requestSize':
                     this.onResize();
                     break;
+                case 'keydown':
+                    this.getKeyPressed(event);
+                    this.onKeydown(event);
+                    break;
+                case 'keyup':
+                    this.onKeyup(event);
+                    break;
+                case "clearEntries":
+                    this.clearEntries(event);
+                    break;
             }
         }
+
+        mListOptionList.prototype.clearEntries = function (event) {
+            if (event.detail.questionName === this.questionName) {
+                this.currentlistposition = -1;
+            }
+        }
+
+        mListOptionList.prototype.buildList = function () {
+            return this.element.querySelectorAll('.m-option-base');
+        }
+
+        mListOptionList.prototype.hideList = function () {
+            this.buttonelement.classList.remove('show-list', 'focused');
+            this.inputelement.blur();
+        }
+
+        mListOptionList.prototype.getKeyPressed = function (event) {
+            if (event.keyCode) {
+                this.keypressed = event.keyCode;
+            } else if (event.which) {
+                this.keypressed = event.which;
+            } else if (event.key) {
+                this.keypressed = event.key;
+            } else {
+                this.keypressed = event.code;
+            }
+        }
+
+        mListOptionList.prototype.onKeydown = function (event) {
+            switch (this.keypressed) {
+                case 38: // up arrow
+                case 40: // down arrow
+                    event.preventDefault(); // prevent caret from moving
+                    break;
+                case 13: // enter key
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                    this.hideList();
+                    break;
+            }
+        }
+
+        mListOptionList.prototype.onKeyup = function (event) {
+            switch (this.keypressed) {
+                case 38: // up arrow
+                    this.navigateUp();
+                    break;
+                case 40: // down arrow
+                    this.navigateDown();
+                    break;
+                case 13: // enter key
+                    return;
+            }
+        }
+
+        mListOptionList.prototype.navigateUp = function () {
+            if (this.currentlistposition < 1) {
+                return;
+            }
+
+            this.currentlistposition--;
+
+            if (this.currentlistposition === -1) {
+                return;
+            }
+
+            this.updateSelectedEntry(this.currentlistposition);
+            this.updateScrollPosition(this.currentlistposition);
+        }
+
+        mListOptionList.prototype.navigateDown = function () {
+            if (this.currentlistposition === this.list.length - 1) {
+                return;
+            }
+
+            this.currentlistposition++;
+
+            this.updateSelectedEntry(this.currentlistposition);
+            this.updateScrollPosition(this.currentlistposition);
+        }
+
+        mListOptionList.prototype.updateScrollPosition = function (position) {
+            this.element.scrollTop = 0; //set to top
+            var currentitem = this.list[position];
+            var scrollposition = currentitem.offsetTop - this.element.clientHeight;
+            this.element.scrollTop = scrollposition + 100;
+        }
+
+        mListOptionList.prototype.updateSelectedEntry = function (position) {
+            for (var i = 0; i < this.list.length; i++) {
+                if (position === i) {
+                    this.inputelement.value = this.list[i].querySelector('.a-label-option').innerHTML;
+                    this.list[i].querySelector('input').checked = true;
+                    this.list[i].classList.add('selected');
+                    this.list[i].setAttribute('data-selected', 'selected');
+                } else {
+                    this.list[i].querySelector('input').checked = false;
+                    this.list[i].classList.remove('selected');
+                    this.list[i].removeAttribute('data-selected');
+                }
+
+                this.broadcastChange();
+            }
+        }
+
 
         mListOptionList.prototype.noitemsinlist = function (prop) {
             this.emptyplaceholder = prop;
@@ -73,11 +200,9 @@ define(['component'],
 
         mListOptionList.prototype.setWidth = function () {
             // determine whether a manual width has been set
-            var inputelement = this.buttonelement.getElementsByClassName('a-input-list-dropdown')[0];
-
-            if (inputelement.style.width.length > 0) {
+            if (this.inputelement.style.width.length > 0) {
                 this.element.classList.add('manual-width');
-                this.element.style.width = 'calc(' + inputelement.style.width + ' + 44px + 16px)';
+                this.element.style.width = 'calc(' + this.inputelement.style.width + ' + 44px + 16px)';
             }
         }
 

@@ -651,7 +651,9 @@ input[type=checkbox]:focus-within + label {
 }
 
 input[type=checkbox]:disabled + label > .a-icon-multistate,
-input[type=radio]:disabled + label > .a-icon-multistate {
+input[type=radio]:disabled + label > .a-icon-multistate,
+div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate,
+div[data-readonly=true] input[type=radio] + label > .a-icon-multistate {
   background-position-x: -288px;
 }
 
@@ -1086,6 +1088,10 @@ th .a-label-option {
   height: 100%;
 }
 
+div[data-readonly=true] .m-option-base .a-label-option {
+  color: #8797C8 !important;
+}
+
 .m-option-base input:checked + label > .a-label-option {
   color: #449B9B;
 }
@@ -1095,6 +1101,9 @@ th .a-label-option {
 .m-option-base .a-label-option {
   display: inline-block;
   padding-left: 1.5em;
+}
+.m-option-base label + .a-label-option {
+  padding-left: 0;
 }
 
 .m-list-optionlist .a-label-option {

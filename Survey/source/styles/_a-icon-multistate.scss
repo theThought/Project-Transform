@@ -47,7 +47,9 @@ input[type=checkbox]:focus-within + label {
 }
 
 input[type=checkbox]:disabled + label > .a-icon-multistate,
-input[type=radio]:disabled + label > .a-icon-multistate {
+input[type=radio]:disabled + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=checkbox] + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=radio] + label > .a-icon-multistate {
     background-position-x: -288px;
 }
 
