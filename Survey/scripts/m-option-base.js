@@ -130,13 +130,14 @@ define(['component'],
 
             if (event.target === this.textInput) {
                 this.checkbox.checked = true;
+                //this.onChange(event);
+                return;
             }
 
             if (this.element.contains(event.target)) {
                 this.checkbox.checked = !this.checkbox.checked;
+                this.onChange(event);
             }
-
-            this.onChange(event);
 
         }
 

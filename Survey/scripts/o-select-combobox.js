@@ -247,9 +247,7 @@ define(['component'],
             }
         }
 
-
         oSelectComboBox.prototype.onKeyup = function (event) {
-
             switch (this.keypressed) {
                 case 38: // up arrow
                     this.navigateUp();
@@ -291,7 +289,6 @@ define(['component'],
             this.updateSelectedEntry(this.currentlistposition);
             this.updateScrollPosition(this.currentlistposition);
         }
-
 
         oSelectComboBox.prototype.updateScrollPosition = function (position) {
             this.droplist.scrollTop = 0;//set to top
