@@ -291,6 +291,10 @@ th .a-label-option {
     }
 }
 
+div[data-readonly="true"] .m-option-base .a-label-option {
+    color: globals.$borders !important;
+}
+
 .m-option-base {
     input:checked + label > .a-label-option {
         color: globals.$theme-secondary;

@@ -651,7 +651,9 @@ input[type=checkbox]:focus-within + label {
 }
 
 input[type=checkbox]:disabled + label > .a-icon-multistate,
-input[type=radio]:disabled + label > .a-icon-multistate {
+input[type=radio]:disabled + label > .a-icon-multistate,
+div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate,
+div[data-readonly=true] input[type=radio] + label > .a-icon-multistate {
   background-position-x: -288px;
 }
 
@@ -1084,6 +1086,10 @@ th .a-label-option {
   display: inline-block;
   width: 100%;
   height: 100%;
+}
+
+div[data-readonly=true] .m-option-base .a-label-option {
+  color: #8797C8 !important;
 }
 
 .m-option-base input:checked + label > .a-label-option {

@@ -46,6 +46,12 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
+            if (this.checkbox.readOnly) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return;
+            }
+
             switch (event.type) {
                 case "click":
                     this.onClick(event);

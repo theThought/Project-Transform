@@ -66,13 +66,22 @@ define(['o-question'],
                 if (/^data-/.test(attr.nodeName)) {
                     switch (attr.nodeName) {
                         case 'data-hidden':
-                            this.isHidden = true;
+                            // this.isHidden = true;
                             break;
                         case 'data-readonly':
-                            this.isReadOnly = true;
+                            this.setReadOnly();
                             break;
                     }
                 }
+            }
+        }
+
+        oQuestionContainer.prototype.setReadOnly = function () {
+            // this.isReadOnly = true;
+            var inputelements = this.element.querySelectorAll('input, textarea, select');
+
+            for (var i = 0; i < inputelements.length; i++) {
+                inputelements[i].readOnly = true;
             }
         }
 
