@@ -44,7 +44,7 @@
                   <xsl:when test="name() = 'Error'">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
-                     </xsl:call-template>
+                     </xsl:call-template>              
                   </xsl:when>
                   <xsl:when test="name() = 'Label'">
                      <xsl:apply-templates select=".">
@@ -110,9 +110,7 @@
                </xsl:if>
             </xsl:when>
             <xsl:when test="name() = 'Error'">
-               <xsl:call-template name="Error">
-                  <xsl:with-param name="SubQuestion" select="false()" />
-               </xsl:call-template>
+
             </xsl:when>
          </xsl:choose>
       </xsl:for-each>
@@ -1934,6 +1932,12 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:param name="Orientation" select="Column" />
+      <xsl:variable name="ErrorCount">
+         <xsl:call-template name="CountErrors" />
+      </xsl:variable>
+      <xsl:if test="$ErrorCount>0">
+         <xsl:call-template name="StructureError" />
+      </xsl:if>
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
@@ -2103,7 +2107,30 @@
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
+   <xsl:template name="StructureError">
+      <xsl:element name="tr">
+         <xsl:attribute name="class">
+            <xsl:text>m-structure-row-error</xsl:text>
+         </xsl:attribute>
+         <xsl:for-each select="Cell">
+            <xsl:element name="td">
+               <xsl:if test="Question/Error">
+                  <xsl:attribute name="class">
+                     <xsl:text>m-structure-cell-error</xsl:text>
+                  </xsl:attribute>
+                  <xsl:for-each select="Question/Error">
+                     <xsl:call-template name="Error">
+                        <xsl:with-param name="SubQuestion" select="true()" />
+                     </xsl:call-template>
+                  </xsl:for-each>
+               </xsl:if>
+            </xsl:element>
+         </xsl:for-each>
+      </xsl:element>
+   </xsl:template>
+
    <!--- General Functions -->
+   
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -2352,6 +2379,10 @@
       <xsl:param name="text" />
       <xsl:value-of select="translate(substring($text,1,1),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
       <xsl:value-of select="translate(substring($text,2,string-length($text)-1),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
+   </xsl:template>
+
+   <xsl:template name="CountErrors">
+      <xsl:value-of select="count(./Cell[Question/Error])"/>
    </xsl:template>
 
    <xsl:template name="CalculateQuestionName">
