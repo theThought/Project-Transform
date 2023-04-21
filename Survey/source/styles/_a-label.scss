@@ -148,6 +148,7 @@ th .a-label-option {
         display: none;
     }
 }
+
 .o-question-information-content div:last-child {
     .a-label-alternative-separator {
         display: none;
@@ -309,6 +310,9 @@ div[data-readonly="true"] .m-option-base .a-label-option {
         padding-left: 1.5em;
     }
 
+    label + .a-label-option {
+        padding-left: 0;
+    }
 }
 
 .m-list-optionlist {
