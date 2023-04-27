@@ -80,7 +80,15 @@ input:read-only:focus-visible {
     outline: none;
 }
 
+input[readonly]:focus-visible {
+    outline: none;
+}
+
 .a-input-singlelineedit:read-only:focus {
+    border: none;
+}
+
+.a-input-singlelineedit[readonly]:focus {
     border: none;
 }
 

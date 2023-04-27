@@ -46,7 +46,7 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-            if (this.checkbox.readOnly) {
+            if (this.checkbox.readOnly || this.checkbox.disabled) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 return;
