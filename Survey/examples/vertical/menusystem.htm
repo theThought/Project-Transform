@@ -34,7 +34,7 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="apxhqjen1l2u4nl4xlqcislnzyaqaaaa"/><input type="hidden" name="I.SavePoint" value="ChooseType"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="sxb4m4sx2bke2nhcx45wn23ry3aqaaaa"/><input type="hidden" name="I.SavePoint" value="ChooseType"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
@@ -49,6 +49,7 @@
 				<div class="o-question-container">
 					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QChooseType');</script><script type="text/javascript">app.RegisterProperties("_QChooseType",{"separator":true, "onesize":{"state":true},"balance":{"state":true}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
+						<div class="a-label-error">Missing Answer(s).</div>
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
@@ -59,7 +60,7 @@
 						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-choice" data-questiongroup="_QChooseType">
+						<div class="o-question-response o-question-choice" data-questiongroup="_QChooseType" data-readonly="false">
 							<script>app.registerComponent('oQuestionChoice','_Q0_C','_QChooseType');</script>
 							<div class="o-option-sublist">
 								<div class="a-label-heading-sublist" style="">
@@ -77,7 +78,7 @@
 								</div>
 								<div data-exclusive="true" data-questionid="_Q0_C0_S1" data-questiongroup="_QChooseType" data-position="below" class="m-option-base below">
 									<script>app.registerComponent('mOptionBase','_Q0_C0_S1','_QChooseType');</script>
-									<input class="hiddencontrol" type="radio" name="_QChooseType_C" id="_Q0_C0_S1" style="" value="special" checked=""/>
+									<input class="hiddencontrol" type="radio" name="_QChooseType_C" id="_Q0_C0_S1" style="" value="special"/>
 									<label for="_Q0_C0_S1">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -207,7 +208,7 @@
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
-										<span class="a-label-option">Rapid Combbox</span>
+										<span class="a-label-option">Rapid Combo-box</span>
 									</label>
 								</div>
 								<div data-exclusive="true" data-questionid="_Q0_C1_S6" data-questiongroup="_QChooseType" data-position="below" class="m-option-base below">
@@ -227,7 +228,17 @@
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
-										<span class="a-label-option">Rappid Grid of Comboboxes</span>
+										<span class="a-label-option">Rapid Grid of Combo-boxes</span>
+									</label>
+								</div>
+								<div data-exclusive="true" data-questionid="_Q0_C1_S8" data-questiongroup="_QChooseType" data-position="below" class="m-option-base below">
+									<script>app.registerComponent('mOptionBase','_Q0_C1_S8','_QChooseType');</script>
+									<input class="hiddencontrol" type="radio" name="_QChooseType_C" id="_Q0_C1_S8" style="" value="OtherSpecifyLists"/>
+									<label for="_Q0_C1_S8">
+										<span class="a-icon-multistate" data-icontype="single">
+											<!--This is a comment!-->
+										</span>
+										<span class="a-label-option">Lists with other specify options</span>
 									</label>
 								</div>
 							</div>
@@ -263,6 +274,16 @@
 											<!--This is a comment!-->
 										</span>
 										<span class="a-label-option">Loop in loop questions</span>
+									</label>
+								</div>
+								<div data-exclusive="true" data-questionid="_Q0_C2_S3" data-questiongroup="_QChooseType" data-position="below" class="m-option-base below">
+									<script>app.registerComponent('mOptionBase','_Q0_C2_S3','_QChooseType');</script>
+									<input class="hiddencontrol" type="radio" name="_QChooseType_C" id="_Q0_C2_S3" style="" value="HiddenCells"/>
+									<label for="_Q0_C2_S3">
+										<span class="a-icon-multistate" data-icontype="single">
+											<!--This is a comment!-->
+										</span>
+										<span class="a-label-option">Hidden Cells</span>
 									</label>
 								</div>
 							</div>

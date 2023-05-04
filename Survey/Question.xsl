@@ -7,6 +7,16 @@
    <xsl:param name="sImageLocation" />
    <xsl:param name="bShowOnly" select="false()" />
    <xsl:param name="bAutoComplete" select="false()" />
+   <xsl:variable name="tReadOnly">
+      <xsl:choose>
+         <xsl:when test='Questions/Question[1]/Style/Control/@ReadOnly'>
+            <xsl:value-of select='true()' />
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:value-of select='false()' />
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:variable>
    <!--- Basic Structure -->
    <xsl:template match="Questions">
       <xsl:for-each select="Question">
@@ -142,13 +152,10 @@
                <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
-         <xsl:if test="Style/Control/@ReadOnly='true'">
-            <xsl:attribute name="data-readonly">
-               <xsl:text>true</xsl:text>
-            </xsl:attribute>
-         </xsl:if>
-
-         <xsl:call-template name="appComponentScript">
+        <xsl:attribute name="data-readonly">
+            <xsl:value-of select='$tReadOnly' />
+         </xsl:attribute>
+          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
                <xsl:call-template name="CamelCaseWord">
@@ -836,8 +843,10 @@
             <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false()">
-            <xsl:attribute name="disabled" />
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="disabled">
+               <xsl:text>disabled</xsl:text>
+            </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
          <xsl:if test="Style/Control/@Accelerator != ''">
@@ -855,10 +864,10 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-         <xsl:if test="Style/Control/@ReadOnly = 'true'">
-            <xsl:attribute name="readonly" />
-         </xsl:if>
-         <!--- Set Control Style -->
+        <xsl:attribute name="data-readonly">
+            <xsl:value-of select='$tReadOnly' />
+         </xsl:attribute>
+          <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle" />
          </xsl:attribute>
@@ -994,12 +1003,10 @@
                   </xsl:if>
                   <!--- CSS Class -->
                   <!--- Show Only -->
-                  <xsl:if test="$bShowOnly != false()">
-                     <xsl:attribute name="disabled" />
-                  </xsl:if>
-                  <!--- Read Only -->
-                  <xsl:if test="../Style/Control/@ReadOnly = 'true'">
-                     <xsl:attribute name="disabled" />
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="disabled">
+                        <xsl:text>disabled</xsl:text>
+                     </xsl:attribute>
                   </xsl:if>
                   <!--- Button Category -->
                   <xsl:attribute name="value">
@@ -1078,12 +1085,10 @@
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
-                  <xsl:if test="$bShowOnly != false()">
-                     <xsl:attribute name="disabled" />
-                  </xsl:if>
-                  <!--- Read Only -->
-                  <xsl:if test="../Style/Control/@ReadOnly = 'true'">
-                     <xsl:attribute name="disabled" />
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="disabled">
+                        <xsl:text>disabled</xsl:text>
+                     </xsl:attribute>
                   </xsl:if>
                   <xsl:attribute name="value">
                      <xsl:value-of select="@Name" />
@@ -1178,12 +1183,10 @@
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
-                  <xsl:if test="$bShowOnly != false()">
-                     <xsl:attribute name="disabled" />
-                  </xsl:if>
-                  <!--- Read Only -->
-                  <xsl:if test="../Style/Control/@ReadOnly = 'true'">
-                     <xsl:attribute name="disabled" />
+                  <xsl:if test="$bShowOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="disabled">
+                        <xsl:text>disabled</xsl:text>
+                     </xsl:attribute>
                   </xsl:if>
                   <xsl:attribute name="data-value">
                      <xsl:value-of select="@Name" />
@@ -1293,12 +1296,10 @@
             </xsl:if>
             <!--- CSS Class -->
             <!--- Show Only -->
-            <xsl:if test="$bShowOnly != false()">
-               <xsl:attribute name="disabled" />
-            </xsl:if>
-            <!--- Read Only -->
-            <xsl:if test="Style/Control/@ReadOnly = 'true'">
-               <xsl:attribute name="disabled" />
+            <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
+               <xsl:attribute name="disabled">
+                  <xsl:text>disabled</xsl:text>
+               </xsl:attribute>
             </xsl:if>
             <!--- Accelerator access key -->
             <xsl:if test="Style/Control/@Accelerator != ''">
@@ -1430,12 +1431,10 @@
             </xsl:if>
             <!--- CSS Class -->
             <!--- Show Only -->
-            <xsl:if test="$bShowOnly != false()">
-               <xsl:attribute name="disabled" />
-            </xsl:if>
-            <!--- Read Only -->
-            <xsl:if test="Style/Control/@ReadOnly = 'true'">
-               <xsl:attribute name="disabled" />
+            <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or Style/Control/@ReadOnly != 'false'">
+               <xsl:attribute name="disabled">
+                  <xsl:text>disabled</xsl:text>
+               </xsl:attribute>
             </xsl:if>
             <!--- Accelerator access key -->
             <xsl:if test="Style/Control/@Accelerator != ''">
@@ -1507,8 +1506,10 @@
             <xsl:attribute name="class">mrListBox</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false()">
-            <xsl:attribute name="disabled" />
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="disabled">
+               <xsl:text>disabled</xsl:text>
+            </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
          <xsl:if test="Style/Control/@Accelerator != ''">
@@ -1614,8 +1615,10 @@
                   <xsl:attribute name="sLabelClass">aButtonImage</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false()">
-                  <xsl:attribute name="disabled" />
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+                  <xsl:attribute name="disabled">
+                     <xsl:text>disabled</xsl:text>
+                  </xsl:attribute>
                </xsl:if>
                <!--- Accelerator access key -->
                <xsl:if test="Style/Control/@Accelerator != ''">
@@ -1691,8 +1694,10 @@
                   <xsl:attribute name="class">a-button-option</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false()">
-                  <xsl:attribute name="disabled" />
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+                  <xsl:attribute name="disabled">
+                     <xsl:text>disabled</xsl:text>
+                  </xsl:attribute>
                </xsl:if>
                <!--- Accelerator access key -->
                <xsl:if test="Style/Control/@Accelerator != ''">
@@ -1796,8 +1801,10 @@
             <xsl:attribute name="class">mrEdit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false()">
-            <xsl:attribute name="disabled" />
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="disabled">
+               <xsl:text>disabled</xsl:text>
+            </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
          <xsl:if test="Style/Control/@Accelerator != ''">
@@ -1815,9 +1822,9 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-         <xsl:if test="Style/Control/@ReadOnly = 'true'">
-            <xsl:attribute name="readonly" />
-         </xsl:if>
+         <xsl:attribute name="data-readonly">
+            <xsl:value-of select='$tReadOnly' />
+         </xsl:attribute>
          <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle" />
@@ -2196,8 +2203,10 @@
          <!--- CSS Class -->
 
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false()">
-            <xsl:attribute name="disabled" />
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="disabled">
+               <xsl:text>disabled</xsl:text>
+            </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
          <xsl:if test="Style/Control/@Accelerator != ''">
@@ -2215,10 +2224,10 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-         <xsl:if test="Style/Control/@ReadOnly = 'true'">
-            <xsl:attribute name="readonly" />
-         </xsl:if>
-         <!--- Set Control Style -->
+        <xsl:attribute name="data-readonly">
+            <xsl:value-of select='$tReadOnly' />
+         </xsl:attribute>
+          <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle">
                <xsl:with-param name="IgnoreWidth">
