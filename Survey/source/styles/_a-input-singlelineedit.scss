@@ -22,6 +22,15 @@ $default-text-width: globals.$default-input-width;
  * overflow: hidden added to fix issue with display in IE10
  */
 .m-input-singlelineedit {
+
+    &.position-below {
+        display: block;
+
+        .a-input-singlelineedit {
+            margin-left: 0;
+        }
+    }
+
     margin-bottom: .5em;
     overflow: hidden;
 

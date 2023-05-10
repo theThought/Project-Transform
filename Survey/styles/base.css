@@ -726,6 +726,12 @@ textarea:focus-within {
   margin-bottom: 0.5em;
   overflow: hidden;
 }
+.m-input-singlelineedit.position-below {
+  display: block;
+}
+.m-input-singlelineedit.position-below .a-input-singlelineedit {
+  margin-left: 0;
+}
 .m-input-singlelineedit .a-input-singlelineedit {
   margin-bottom: 0;
 }

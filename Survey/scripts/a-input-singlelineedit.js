@@ -58,8 +58,10 @@ define(['component', 'pikaday'],
 
         aInputSingleLineEdit.prototype.createWrapper = function () {
             var parent = this.element.parentNode;
-            var wrapperElement = document.createElement('div');
-            wrapperElement.className = 'm-input-singlelineedit nowrap';
+            var wrapperElement = document.createElement('span');
+            wrapperElement.classList.add('m-input-singlelineedit');
+            wrapperElement.classList.add('nowrap');
+            wrapperElement.classList.add('position-' + this.element.getAttribute('data-position'));
 
             if (this.element.style.visibility === 'hidden') {
                 wrapperElement.style.visibility = 'hidden';
