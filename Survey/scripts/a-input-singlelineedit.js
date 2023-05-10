@@ -89,7 +89,7 @@ define(['component', 'pikaday'],
             }
 
             if (numberformat === 'double') {
-                this.step(0.1);
+                this.step(0.01);
             } else {
                 this.step(1);
             }
