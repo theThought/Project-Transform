@@ -38,6 +38,7 @@ define(['o-question'],
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
             document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
             document.addEventListener("click", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
@@ -52,6 +53,9 @@ define(['o-question'],
                     break;
                 case 'clearEntries':
                     this.clearEntries(event);
+                    break;
+                case 'restoreEntries':
+                    this.restoreEntries(event);
                     break;
                 case "click":
                 case "input":
@@ -83,6 +87,19 @@ define(['o-question'],
                 this.setInitialFloodToValue();
                 this.broadcastChange();
             }
+        }
+
+        oQuestionHNumberSlider.prototype.restoreEntries = function (event) {
+            if (event.details.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
+                return;
+            }
+
+            this.element.value = this.initialValue;
+            this.value = this.initialValue;
+            this.updateValue();
+            this.organism.classList.add('has-value');
+            this.setInitialFloodToValue();
+            this.broadcastChange();
         }
 
         oQuestionHNumberSlider.prototype.setThumbVisibility = function () {

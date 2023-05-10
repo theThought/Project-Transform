@@ -198,6 +198,7 @@ define(['component', 'pikaday'],
             document.addEventListener("change", this, false);
             document.addEventListener("keyup", this, false);
             document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
             document.addEventListener("focusin", this, false);
             document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
@@ -211,6 +212,9 @@ define(['component', 'pikaday'],
                     break;
                 case "clearEntries":
                     this.clearEntries(event);
+                    break;
+                case "restoreEntries":
+                    this.restoreEntries(event);
                     break;
                 case "focusin":
                     this.onFocusIn(event);

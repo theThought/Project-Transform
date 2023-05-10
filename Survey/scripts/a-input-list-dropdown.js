@@ -42,6 +42,7 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("closeDropdowns", this, false);
             document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
@@ -77,6 +78,9 @@ define(['component'],
                     break;
                 case "clearEntries":
                     this.clearEntries(event);
+                    break;
+                case "restoreEntries":
+                    this.restoreEntries(event);
                     break;
                 case "mousedown":
                     this.onMousedown(event);

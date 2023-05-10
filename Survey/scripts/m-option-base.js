@@ -37,6 +37,7 @@ define(['component'],
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
             document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
         }
 
         mOptionBase.prototype.configureLocalEventListeners = function () {
@@ -62,6 +63,9 @@ define(['component'],
                 case "clearEntries":
                     this.clearEntries(event);
                     break;
+                case "restoreEntries":
+                    this.restoreEntries(event);
+                    break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
                     break;
@@ -81,16 +85,27 @@ define(['component'],
         }
 
         mOptionBase.prototype.clearEntries = function (event) {
-            if (event.detail.questionName === this.questionName) {
-                if (this.checkbox.checked) {
-                    this.checkbox.checked = false;
-                    this.broadcastChange();
-                }
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
 
-                if (this.textInput !== null) {
-                    this.textInput.value = "";
-                }
+            if (this.checkbox.checked) {
+                this.checkbox.checked = false;
+                this.broadcastChange();
+            }
 
+            if (this.textInput !== null) {
+                this.textInput.value = "";
+            }
+        }
+
+        mOptionBase.prototype.restoreEntries = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            if (this.textInput !== null) {
+                this.textInput.value = this.initialValue;
             }
         }
 

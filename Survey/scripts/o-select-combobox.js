@@ -43,6 +43,7 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener('mousedown', this, false);
             document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
         }
 
         oSelectComboBox.prototype.configureLocalEventListeners = function () {
@@ -57,6 +58,10 @@ define(['component'],
                 case 'clearEntries':
                     this.clearOptions();
                     this.clearEntries(event);
+                    break;
+                case 'restoreEntries':
+                    this.restoreOptions();
+                    this.restoreEntries(event);
                     break;
                 case 'change':
                     this.onChange(event);
@@ -373,6 +378,10 @@ define(['component'],
                 item.removeAttribute('data-selected');
             }
             this.broadcastChange();
+        }
+
+        oSelectComboBox.prototype.restoreOptions = function () {
+
         }
 
         oSelectComboBox.prototype.showList = function () {

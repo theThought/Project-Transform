@@ -44,6 +44,7 @@ define(['component'],
         mListOptionList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
         }
 
@@ -68,13 +69,26 @@ define(['component'],
                 case "clearEntries":
                     this.clearEntries(event);
                     break;
+                case "restoreEntries":
+                    this.restoreEntries(event);
+                    break;
             }
         }
 
         mListOptionList.prototype.clearEntries = function (event) {
-            if (event.detail.questionName === this.questionName) {
-                this.currentlistposition = -1;
+            if (event.detail.questionName !== this.questionName) {
+                return;
             }
+
+            this.currentlistposition = -1;
+        }
+
+        mListOptionList.prototype.restoreEntries = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            this.currentlistposition = -1;
         }
 
         mListOptionList.prototype.buildList = function () {

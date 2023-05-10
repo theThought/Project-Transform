@@ -8,7 +8,6 @@ function Survey() {
     this.preinitcomponents = [];
     this.components = [];
     this.properties = {};
-    this.initialvalues = {};
 }
 
 Survey.prototype.registerComponent = function (componentType, id, group) {
@@ -134,10 +133,6 @@ Survey.prototype.checkProperties = function () {
             console.warn('Properties registered for ' + prop + ' were not used by any component.');
         }
     }
-}
-
-Survey.prototype.registerInitialState = function (id, value) {
-    app.initialvalues[id] = value;
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {

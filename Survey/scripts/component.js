@@ -14,6 +14,8 @@ define(
             this.group = group;
             this.element = null;
             this.value = null;
+            this.restoreValues = false;
+            this.initialValue = null;
             this.isDebugging = true;
             this.questionName = app.extractQuestionName(group);
             this.properties = {};
@@ -56,21 +58,14 @@ define(
         }
 
         component.prototype.configurationComplete = function () {
-            this.registerInitialState();
+            if (typeof this.element.value !== 'undefined') {
+                this.initialValue = this.element.value;
+            }
+
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             document.dispatchEvent(completeEvent);
 
             this.broadcastChange();
-        }
-
-        component.prototype.registerInitialState = function () {
-            if (typeof this.element.value !== 'undefined') {
-                app.registerInitialState(this.id, this.element.value);
-            }
-
-            if (typeof this.checkbox !== "undefined") {
-                app.registerInitialState(this.id, this.checkbox.checked);
-            }
         }
 
         component.prototype.broadcastChange = function () {
@@ -79,12 +74,31 @@ define(
         }
 
         component.prototype.clearEntries = function (event) {
-            if (event.detail.questionName === this.questionName) {
-                // this is responsible for clearing text areas
-                if (this.element.value !== "") {
-                    this.element.value = "";
-                    this.broadcastChange();
-                }
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            // this is responsible for clearing text areas
+            if (this.element.value !== "") {
+                this.element.value = "";
+                this.broadcastChange();
+            }
+        }
+
+        component.prototype.restoreEntries = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            if (this.restoreValues && this.element.value !== this.initialValue) {
+                this.element.value = this.initialValue;
+                this.broadcastChange();
+            }
+        }
+
+        component.prototype.resettonull = function (val) {
+            if (val === false) {
+                this.restoreValues = true;
             }
         }
 

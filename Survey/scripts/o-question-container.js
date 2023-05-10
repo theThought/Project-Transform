@@ -194,7 +194,13 @@ define(['o-question'],
             this.available = true;
             this.element.classList.remove('unavailable');
             this.requestInitialSize();
+            this.resetValues();
             this.liftCover();
+        }
+
+        oQuestionContainer.prototype.resetValues = function () {
+            var restoreEntries = new CustomEvent('restoreEntries', {bubbles: true, detail: this});
+            document.dispatchEvent(restoreEntries);
         }
 
         oQuestionContainer.prototype.makeUnavailable = function () {
