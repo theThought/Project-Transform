@@ -16,6 +16,7 @@ define(['component', 'pikaday'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
             this.wrapper = this.createWrapper();
+            this.stepValue = 1;
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
@@ -73,6 +74,11 @@ define(['component', 'pikaday'],
             return wrapper;
         }
 
+        aInputSingleLineEdit.prototype.step = function (val) {
+            this.stepValue = Number(val);
+            this.element.step = this.stepValue;
+        }
+
         aInputSingleLineEdit.prototype.configureDateInput = function (val) {
             var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
 
@@ -117,7 +123,7 @@ define(['component', 'pikaday'],
                 event.preventDefault();
             }
             incButton.onmousedown = function (event) {
-                that.element.value = Number(that.element.value) + 1;
+                that.element.value = Number(that.element.value) + that.stepValue;
                 that.broadcastChange();
             };
             var decButton = document.createElement('button');
@@ -128,7 +134,7 @@ define(['component', 'pikaday'],
                 event.preventDefault();
             }
             decButton.onmousedown = function (event) {
-                that.element.value = Number(that.element.value) - 1;
+                that.element.value = Number(that.element.value) - that.stepValue;
                 that.broadcastChange()
             }
             spinnerWrapper.appendChild(incButton);
