@@ -16,7 +16,7 @@ define(['component', 'pikaday'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
             this.wrapper = this.createWrapper();
-            this.stepValue = 1;
+            this.stepValue = null;
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
@@ -46,7 +46,11 @@ define(['component', 'pikaday'],
                     val = 'text';
                     break;
                 case 'number':
-                    this.configureNumericInput();
+                    this.configureNumericInput('integer');
+                    break;
+                case 'double':
+                    this.configureNumericInput('double');
+                    val = 'number';
                     break;
             }
 
@@ -79,6 +83,19 @@ define(['component', 'pikaday'],
             this.element.step = this.stepValue;
         }
 
+        aInputSingleLineEdit.prototype.setDefaultStep = function (numberformat) {
+            if (this.stepValue !== null) {
+                return;
+            }
+
+            if (numberformat === 'double') {
+                this.step(0.1);
+            } else {
+                this.step(1);
+            }
+
+        }
+
         aInputSingleLineEdit.prototype.configureDateInput = function (val) {
             var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
 
@@ -103,7 +120,9 @@ define(['component', 'pikaday'],
                 });
         }
 
-        aInputSingleLineEdit.prototype.configureNumericInput = function () {
+        aInputSingleLineEdit.prototype.configureNumericInput = function (numberformat) {
+            this.setDefaultStep(numberformat);
+
             // create a wrapper to surround the input element and spinner buttons
             var inputWrapper = document.createElement('div');
             inputWrapper.className = 'm-input-button-wrapper';
