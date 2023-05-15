@@ -69,15 +69,19 @@ define(['o-question'],
                             // this.isHidden = true;
                             break;
                         case 'data-readonly':
-                            this.setReadOnly();
+                            this.setReadOnly(attr.value);
                             break;
                     }
                 }
             }
         }
 
-        oQuestionContainer.prototype.setReadOnly = function () {
+        oQuestionContainer.prototype.setReadOnly = function (state) {
             // this.isReadOnly = true;
+            if (state !== 'true') {
+                return;
+            }
+
             var inputelements = this.element.querySelectorAll('input, textarea, select');
 
             for (var i = 0; i < inputelements.length; i++) {
