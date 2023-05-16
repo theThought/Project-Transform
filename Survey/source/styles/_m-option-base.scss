@@ -1,20 +1,23 @@
 @use 'globals';
 
-input.a-button-option + .m-option-base {
-    display: inline-block;
-}
-
 .m-option-base {
+    display: inline-block;
     box-sizing: border-box;
     position: relative;
     margin-bottom: .5em;
+}
+
+.m-option-base[data-position="below"],
+.m-option-base.below {
+    display: block;
 }
 
 .filter-hidden {
     display: none;
 }
 
-input + script + .m-option-base {
+input + script ~ .m-option-base,
+span.m-input-singlelineedit + script ~ .m-option-base {
     margin-top: .5em;
 }
 

@@ -16,6 +16,10 @@ $default-text-width: globals.$default-input-width;
     box-sizing: content-box;
 }
 
+.balance .a-input-singlelineedit {
+    margin-right: 1em;
+}
+
 /* m-input-singlelineedit
  * the molecule gets added by JavaScript when the a-input-singlelineedit
  * includes a pre or post label and therefore requires an additional wrapper

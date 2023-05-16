@@ -77,7 +77,6 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.setReadOnly = function (state) {
-            // this.isReadOnly = true;
             if (state !== 'true') {
                 return;
             }

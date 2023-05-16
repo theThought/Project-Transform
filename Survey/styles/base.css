@@ -717,6 +717,10 @@ textarea:focus-within {
           box-sizing: content-box;
 }
 
+.balance .a-input-singlelineedit {
+  margin-right: 1em;
+}
+
 /* m-input-singlelineedit
  * the molecule gets added by JavaScript when the a-input-singlelineedit
  * includes a pre or post label and therefore requires an additional wrapper
@@ -1185,22 +1189,25 @@ div[class^=a-list-placeholder-] {
   visibility: visible;
 }
 
-input.a-button-option + .m-option-base {
-  display: inline-block;
-}
-
 .m-option-base {
+  display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
   margin-bottom: 0.5em;
 }
 
+.m-option-base[data-position=below],
+.m-option-base.below {
+  display: block;
+}
+
 .filter-hidden {
   display: none;
 }
 
-input + script + .m-option-base {
+input + script ~ .m-option-base,
+span.m-input-singlelineedit + script ~ .m-option-base {
   margin-top: 0.5em;
 }
 
