@@ -34,42 +34,34 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="r1dsyvsdd3wu4ibyzg3rq251iqaqaaaa"/><input type="hidden" name="I.SavePoint" value="CustomPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="r1dsyvsdd3wu4ibyzg3rq251iqaqaaaa"/><input type="hidden" name="I.SavePoint" value="WriteToLocalStorage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
 						<!-- progress text -->
 					</div>
 					<div class="overall-progress-bar">
-						<table style="height: 100%; width: 100%"><tr><td style="width: 4%; background-color: #D0DAE6"/><td class="mrProgressText">4%</td></tr></table><!-- progress bar -->
+						<table style="height: 100%; width: 100%"><tr><td class="mrProgressText">0%</td></tr></table><!-- progress bar -->
 					</div>
 				</div>
 			</div>
-			<div class="surroundcontent">
-				<div class="o-question-container">
-					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QCustomPage_QHeight');</script><script type="text/javascript">app.RegisterProperties("_QHeight",{"type":"number","labels":{"post":"cm"}});</script><div class="m-question-cover"><!-- cover --></div>
+			<div class="surroundcontent">Writing to Local Storage<div class="o-question-container">
+					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QWriteToLocalStorage_QWriteTestInfo');</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
-							<div class="o-question-information-content">
-								<label for="_Q0">How Tall are you?</label>
-							</div>
+							<div class="o-question-information-content">Writing some data to local storage</div>
 							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
-						</div>
-						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QHeight" data-readonly="false">
-							<script>app.registerComponent('oQuestionSinglelineedit','_Q0','_QCustomPage_QHeight');</script>
-							<input data-questionid="_Q0" data-questiongroup="_QCustomPage_QHeight" data-position="below" type="text" step="any" name="_QCustomPage_QHeight" id="_Q0" disabled="disabled" autocomplete="off" data-readonly="false" style="width:5em;" maxlength="16" value="221.227278001606" class="a-input-singlelineedit below"/>
-							<script>app.registerComponent('aInputSinglelineedit','_Q0','_QCustomPage_QHeight');</script>
 						</div>
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QCustomPage_QIncome');</script><script type="text/javascript">app.RegisterProperties("_QIncome",{"type":"number","labels":{"pre":"£"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QWriteToLocalStorage_QWriteFirstName');</script><script type="text/javascript">app.RegisterProperties("_QWriteFirstName",{"write":{"destination":"LocalStorage","name":"firstname"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -77,31 +69,21 @@
 						</div>
 						<div class="o-question-information">
 							<div class="o-question-information-content">
-								<label for="_Q1">How much was your income last year?</label>
+								<label for="_Q1">First Name:</label>
 							</div>
 							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QIncome" data-readonly="true">
-							<script>app.registerComponent('oQuestionSinglelineedit','_Q1','_QCustomPage_QIncome');</script>
-							<input data-questionid="_Q1" data-questiongroup="_QCustomPage_QIncome" data-position="below" type="text" step="any" name="_QCustomPage_QIncome" id="_Q1" disabled="disabled" autocomplete="off" data-readonly="true" style="width:7em;" maxlength="16" value="" class="a-input-singlelineedit below"/>
-							<script>app.registerComponent('aInputSinglelineedit','_Q1','_QCustomPage_QIncome');</script>
-							<div data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_QCustomPage_QIncome" data-position="below" class="m-option-base below">
-								<script>app.registerComponent('mOptionBase','_Q1_X0','_QCustomPage_QIncome');</script>
-								<input class="hiddencontrol" type="checkbox" name="_QCustomPage_QIncome_Xnoincome" id="_Q1_X0" disabled="disabled" style="" value="noincome" checked=""/>
-								<label for="_Q1_X0">
-									<span class="a-icon-multistate" data-icontype="multiple">
-										<!--This is a comment!-->
-									</span>
-									<span class="a-label-option">I had no income last year</span>
-								</label>
-							</div>
+						<div class="o-question-response o-question-readwriteedit" data-questiongroup="_QWriteToLocalStorage_QWriteFirstName" data-readonly="false">
+							<script>app.registerComponent('oQuestionReadwriteedit','_Q1','_QWriteToLocalStorage_QWriteFirstName');</script>
+							<input data-questionid="_Q1" data-questiongroup="_QWriteToLocalStorage_QWriteFirstName" data-position="below" type="text" step="any" name="_QWriteToLocalStorage_QWriteFirstName" id="_Q1" disabled="disabled" autocomplete="off" data-readonly="false" style="" maxlength="100" value="Kevin" class="a-input-readwriteedit below"/>
+							<script>app.registerComponent('aInputReadwriteedit','_Q1','_QWriteToLocalStorage_QWriteFirstName');</script>
 						</div>
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QCustomPage_QAge');</script><script type="text/javascript">app.RegisterProperties("_QAge",{"type":"number","labels":{"pre":"I was", "post":"years old on my last birthday"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QWriteToLocalStorage_QWriteSurname');</script><script type="text/javascript">app.RegisterProperties("_QWriteSurname",{"write":{"destination":"LocalStorage","name":"surname"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
@@ -109,38 +91,16 @@
 						</div>
 						<div class="o-question-information">
 							<div class="o-question-information-content">
-								<label for="_Q2">How old are you?</label>
+								<label for="_Q2">Surname:</label>
 							</div>
 							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QAge" data-readonly="false">
-							<script>app.registerComponent('oQuestionSinglelineedit','_Q2','_QCustomPage_QAge');</script>
-							<input data-questionid="_Q2" data-questiongroup="_QCustomPage_QAge" data-position="below" type="text" name="_QCustomPage_QAge" id="_Q2" disabled="disabled" autocomplete="off" data-readonly="false" style="width:5em;" maxlength="3" value="51" class="a-input-singlelineedit below"/>
-							<script>app.registerComponent('aInputSinglelineedit','_Q2','_QCustomPage_QAge');</script>
-						</div>
-					</div>
-				</div>
-				<div class="o-question-container">
-					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QCustomPage_QTextwithlabels');</script><script type="text/javascript">app.RegisterProperties("_QTextWithLabels",{"type":"text","labels":{"pre":"%lt%i%gt%pre-label%lt%/i%gt%","post":"%lt%i%gt%postlabel%lt%/i%gt%"}});</script><div class="m-question-cover"><!-- cover --></div>
-					<div class="o-question-error">
-					</div>
-					<div class="o-question-core">
-						<div class="o-question-warning">
-						</div>
-						<div class="o-question-information">
-							<div class="o-question-information-content">
-								<label for="_Q3">This is a text question with pre and post labels</label>
-							</div>
-							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
-						</div>
-						<div class="o-question-instruction">
-						</div>
-						<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QCustomPage_QTextwithlabels" data-readonly="false">
-							<script>app.registerComponent('oQuestionSinglelineedit','_Q3','_QCustomPage_QTextwithlabels');</script>
-							<input data-questionid="_Q3" data-questiongroup="_QCustomPage_QTextwithlabels" data-position="below" type="text" step="any" name="_QCustomPage_QTextwithlabels" id="_Q3" disabled="disabled" autocomplete="off" data-readonly="false" style="width:18em;" maxlength="20" value="Textwithl" class="a-input-singlelineedit below"/>
-							<script>app.registerComponent('aInputSinglelineedit','_Q3','_QCustomPage_QTextwithlabels');</script>
+						<div class="o-question-response o-question-readwriteedit" data-questiongroup="_QWriteToLocalStorage_QWriteSurname" data-readonly="false">
+							<script>app.registerComponent('oQuestionReadwriteedit','_Q2','_QWriteToLocalStorage_QWriteSurname');</script>
+							<input data-questionid="_Q2" data-questiongroup="_QWriteToLocalStorage_QWriteSurname" data-position="below" type="text" step="any" name="_QWriteToLocalStorage_QWriteSurname" id="_Q2" disabled="disabled" autocomplete="off" data-readonly="false" style="" maxlength="100" value="Gray" class="a-input-readwriteedit below"/>
+							<script>app.registerComponent('aInputReadwriteedit','_Q2','_QWriteToLocalStorage_QWriteSurname');</script>
 						</div>
 					</div>
 				</div>
