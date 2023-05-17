@@ -53,7 +53,10 @@ div[data-readonly="true"] input[type=radio] + label > .a-icon-multistate {
     background-position-x: -288px;
 }
 
-input[type=checkbox]:disabled:checked + label > .a-icon-multistate {
+input[type=checkbox]:disabled:checked + label > .a-icon-multistate,
+input[type=radio]:disabled:checked + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=checkbox]:checked + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=radio]:checked + label > .a-icon-multistate {
     background-position: -428px;
 }
 

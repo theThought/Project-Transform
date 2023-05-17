@@ -97,25 +97,17 @@ input[readonly]:focus-visible {
     outline: none;
 }
 
-.a-input-singlelineedit:read-only:focus {
-    border: none;
-}
-
-.a-input-singlelineedit[readonly]:focus {
-    border: none;
-}
-
 .m-input-singlelineedit:last-of-type,
 .a-input-singlelineedit:last-of-type {
     margin-bottom: 0;
 }
 
-.a-input-singlelineedit:hover:not(:read-only),
-.a-input-singlelineedit:focus:not(:read-only) {
+.a-input-singlelineedit:not([readonly]):hover,
+.a-input-singlelineedit:not([readonly]):focus {
     color: globals.$borders-hover;
 }
 
-.a-input-singlelineedit:focus {
+.a-input-singlelineedit:not([readonly]):focus {
     outline: none;
     border: 1px solid globals.$theme-primary;
 }

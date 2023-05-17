@@ -301,7 +301,9 @@ div[data-readonly="true"] .m-option-base .a-label-option {
         color: globals.$theme-secondary;
     }
 
-    input:disabled + label > .a-label-option {
+    input:disabled + label > .a-label-option,
+    &[data-readonly="true"] label .a-label-option,
+    &[data-readonly="true"] input:checked + label > .a-label-option {
         color: globals.$disabled-text;
     }
 

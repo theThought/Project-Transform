@@ -657,7 +657,10 @@ div[data-readonly=true] input[type=radio] + label > .a-icon-multistate {
   background-position-x: -288px;
 }
 
-input[type=checkbox]:disabled:checked + label > .a-icon-multistate {
+input[type=checkbox]:disabled:checked + label > .a-icon-multistate,
+input[type=radio]:disabled:checked + label > .a-icon-multistate,
+div[data-readonly=true] input[type=checkbox]:checked + label > .a-icon-multistate,
+div[data-readonly=true] input[type=radio]:checked + label > .a-icon-multistate {
   background-position: -428px;
 }
 
@@ -794,33 +797,17 @@ input[readonly]:focus-visible {
   outline: none;
 }
 
-.a-input-singlelineedit:-moz-read-only:focus {
-  border: none;
-}
-
-.a-input-singlelineedit:read-only:focus {
-  border: none;
-}
-
-.a-input-singlelineedit[readonly]:focus {
-  border: none;
-}
-
 .m-input-singlelineedit:last-of-type,
 .a-input-singlelineedit:last-of-type {
   margin-bottom: 0;
 }
 
-.a-input-singlelineedit:hover:not(:-moz-read-only), .a-input-singlelineedit:focus:not(:-moz-read-only) {
+.a-input-singlelineedit:not([readonly]):hover,
+.a-input-singlelineedit:not([readonly]):focus {
   color: #57699C;
 }
 
-.a-input-singlelineedit:hover:not(:read-only),
-.a-input-singlelineedit:focus:not(:read-only) {
-  color: #57699C;
-}
-
-.a-input-singlelineedit:focus {
+.a-input-singlelineedit:not([readonly]):focus {
   outline: none;
   border: 1px solid #455B97;
 }
@@ -1113,7 +1100,7 @@ div[data-readonly=true] .m-option-base .a-label-option {
 .m-option-base input:checked + label > .a-label-option {
   color: #449B9B;
 }
-.m-option-base input:disabled + label > .a-label-option {
+.m-option-base input:disabled + label > .a-label-option, .m-option-base[data-readonly=true] label .a-label-option, .m-option-base[data-readonly=true] input:checked + label > .a-label-option {
   color: #9CADCB;
 }
 .m-option-base .a-label-option {

@@ -15,7 +15,6 @@ define(['component'],
             this.element = document.querySelector('div[data-questionid="' + this.id + '"]');
             this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
             this.textInput = this.element.querySelector('input[type=text]');
-            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.label = this.element.querySelector('.a-label-option');
         }
 
@@ -23,7 +22,11 @@ define(['component'],
         mOptionBase.prototype.constructor = mOptionBase;
 
         mOptionBase.prototype.init = function () {
+            this.isReadOnly = (this.checkbox.getAttribute('data-readonly') === 'true' || this.element.getAttribute('data-readonly') === 'true') || false;
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
+
             this.configureProperties();
+            this.configureReadonly();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.requestInitialSize();
@@ -38,6 +41,7 @@ define(['component'],
             document.addEventListener(this.group + "_endResize", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
+            document.addEventListener("readonly", this, false);
         }
 
         mOptionBase.prototype.configureLocalEventListeners = function () {
@@ -47,7 +51,7 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-            if (this.checkbox.readOnly || this.checkbox.disabled) {
+            if (this.isReadOnly) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 return;
@@ -66,6 +70,10 @@ define(['component'],
                 case "restoreEntries":
                     this.restoreEntries(event);
                     break;
+                case "readonly":
+                    this.isReadOnly = true;
+                    this.configureReadonly();
+                    break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
                     break;
@@ -82,6 +90,14 @@ define(['component'],
                     this.onEndResize(event);
                     break;
             }
+        }
+
+        mOptionBase.prototype.configureReadonly = function() {
+            if (!this.isReadOnly) {
+                return;
+            }
+
+            this.element.setAttribute('data-readonly', 'true');
         }
 
         mOptionBase.prototype.clearEntries = function (event) {
