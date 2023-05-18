@@ -34,32 +34,35 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="muvr5ok64uzedixkr4qg2bdlfyaqaaaa"/><input type="hidden" name="I.SavePoint" value="DroplistPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="msrsmts2p5mudbrb3o32ydzpneaqaaaa"/><input type="hidden" name="I.SavePoint" value="DroplistPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
 						<!-- progress text -->
 					</div>
 					<div class="overall-progress-bar">
-						<table style="height: 100%; width: 100%"><tr><td style="width: 8%; background-color: #D0DAE6"/><td class="mrProgressText">8%</td></tr></table><!-- progress bar -->
+						<table style="height: 100%; width: 100%"><tr><td style="width: 5%; background-color: #D0DAE6"/><td class="mrProgressText">5%</td></tr></table><!-- progress bar -->
 					</div>
 				</div>
 			</div>
 			<div class="surroundcontent">
 				<div class="o-question-container">
-					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QDroplistPage_QDrugOrdinal');</script><script type="text/javascript">app.RegisterProperties('_QDrugOrdinal',{"displayicon":false,"onesize":{"state":true},"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":""});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QDroplistPage_QDrugOrdinal');</script><script type="text/javascript">app.RegisterProperties("_QDrugOrdinal",{"displayicon":false,"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":"select an option"});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Given a choice where would you prioritise this drug?</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Given a choice where would you &amp; your patient prioritise this drug?</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDrugOrdinal">
+						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDrugOrdinal" data-readonly="false">
 							<script>app.registerComponent('oQuestionList','_Q0_C','_QDroplistPage_QDrugOrdinal');</script>
 							<div>
-								<input class="a-input-list-dropdown" type="text" style="width:4em;"/>
+								<input class="a-input-list-dropdown" type="text" style="width:6em;"/>
 								<script>app.registerComponent('aInputListDropdown','_Q0_C','_QDroplistPage_QDrugOrdinal');</script>
 								<button class="a-button-list-dropdown" type="button">
 									<!--dropdown image goes here-->
@@ -116,19 +119,22 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QDroplistPage_QDrugComboSingle');</script><script type="text/javascript">app.RegisterProperties('_QDrugComboSingle',{"displayicon":true,"onesize":{"state":false},"jumptofirstletter":false,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":""});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QDroplistPage_QDrugComboSingle');</script><script type="text/javascript">app.RegisterProperties("_QDrugComboSingle",{"displayicon":true,"jumptofirstletter":false,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":"select an option"});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Which of the following drugs did you use most</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Which of the following drugs &amp; anti-biotics did you use most</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDrugComboSingle">
+						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDrugComboSingle" data-readonly="false">
 							<script>app.registerComponent('oQuestionList','_Q1_C','_QDroplistPage_QDrugComboSingle');</script>
 							<div>
-								<input class="a-input-list-dropdown" type="text"/>
+								<input class="a-input-list-dropdown" type="text" style="width:20em;"/>
 								<script>app.registerComponent('aInputListDropdown','_Q1_C','_QDroplistPage_QDrugComboSingle');</script>
 								<button class="a-button-list-dropdown" type="button">
 									<!--dropdown image goes here-->
@@ -147,12 +153,12 @@
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
-										<span class="a-label-option">5-FU</span>
+										<span class="a-label-option">5 &amp; FU</span>
 									</label>
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S1" data-questiongroup="_QDroplistPage_QDrugComboSingle">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S1','_QDroplistPage_QDrugComboSingle');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDrugComboSingle_C" id="_Q1_C0_S1" value="__3__0004__0004" checked=""/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDrugComboSingle_C" id="_Q1_C0_S1" value="__3__0004__0004"/>
 									<label for="_Q1_C0_S1">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -442,7 +448,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q1_C0_S30" data-questiongroup="_QDroplistPage_QDrugComboSingle">
 									<script>app.registerComponent('mOptionBase','_Q1_C0_S30','_QDroplistPage_QDrugComboSingle');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDrugComboSingle_C" id="_Q1_C0_S30" value="__1__0301__0301"/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDrugComboSingle_C" id="_Q1_C0_S30" value="__1__0301__0301" checked=""/>
 									<label for="_Q1_C0_S30">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -565,19 +571,22 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QDroplistPage_QDropPapers');</script><script type="text/javascript">app.RegisterProperties('_QDropPapers',{"displayicon":true,"onesize":{"state":false},"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":""});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QDroplistPage_QDropPapers');</script><script type="text/javascript">app.RegisterProperties("_QDropPapers",{"displayicon":true,"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":""});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Which of the following daily newspapers is your favourite</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Which of the following daily newspapers is your favourite</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDropPapers">
+						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDropPapers" data-readonly="false">
 							<script>app.registerComponent('oQuestionList','_Q2_C','_QDroplistPage_QDropPapers');</script>
 							<div>
-								<input class="a-input-list-dropdown" type="text"/>
+								<input class="a-input-list-dropdown" type="text" style="width:12em;"/>
 								<script>app.registerComponent('aInputListDropdown','_Q2_C','_QDroplistPage_QDropPapers');</script>
 								<button class="a-button-list-dropdown" type="button">
 									<!--dropdown image goes here-->
@@ -596,12 +605,12 @@
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
 										</span>
-										<span class="a-label-option">Daily Express</span>
+										<span class="a-label-option">Daily Express &amp; Scottish Express</span>
 									</label>
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C0_S1" data-questiongroup="_QDroplistPage_QDropPapers">
 									<script>app.registerComponent('mOptionBase','_Q2_C0_S1','_QDroplistPage_QDropPapers');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropPapers_C" id="_Q2_C0_S1" value="star"/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropPapers_C" id="_Q2_C0_S1" value="Star"/>
 									<label for="_Q2_C0_S1">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -611,7 +620,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C0_S2" data-questiongroup="_QDroplistPage_QDropPapers">
 									<script>app.registerComponent('mOptionBase','_Q2_C0_S2','_QDroplistPage_QDropPapers');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropPapers_C" id="_Q2_C0_S2" value="Guardian" checked=""/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropPapers_C" id="_Q2_C0_S2" value="Guardian"/>
 									<label for="_Q2_C0_S2">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -621,7 +630,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q2_C0_S3" data-questiongroup="_QDroplistPage_QDropPapers">
 									<script>app.registerComponent('mOptionBase','_Q2_C0_S3','_QDroplistPage_QDropPapers');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropPapers_C" id="_Q2_C0_S3" value="I"/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropPapers_C" id="_Q2_C0_S3" value="I" checked=""/>
 									<label for="_Q2_C0_S3">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -764,19 +773,22 @@
 					</div>
 				</div>
 				<div class="o-question-container">
-					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QDroplistPage_QDropNewProducts');</script><script type="text/javascript">app.RegisterProperties('_QDropNewProducts',{"displayicon":true,"onesize":{"state":true, "max-width":"25em"},"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":""});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QDroplistPage_QDropNewProducts');</script><script type="text/javascript">app.RegisterProperties("_QDropNewProducts",{"displayicon":true,"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":""});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
-						<div class="o-question-information">Which of these products best fits your needs</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Which of these products best fits your needs</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDropNewProducts">
+						<div class="o-question-response o-question-list" data-questiongroup="_QDroplistPage_QDropNewProducts" data-readonly="false">
 							<script>app.registerComponent('oQuestionList','_Q3_C','_QDroplistPage_QDropNewProducts');</script>
 							<div>
-								<input class="a-input-list-dropdown" type="text"/>
+								<input class="a-input-list-dropdown" type="text" style="width:10em;"/>
 								<script>app.registerComponent('aInputListDropdown','_Q3_C','_QDroplistPage_QDropNewProducts');</script>
 								<button class="a-button-list-dropdown" type="button">
 									<!--dropdown image goes here-->
@@ -790,7 +802,7 @@
 								<script>app.registerComponent('mListOptionList','_Q3_C','_QDroplistPage_QDropNewProducts');</script>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C0_S0" data-questiongroup="_QDroplistPage_QDropNewProducts">
 									<script>app.registerComponent('mOptionBase','_Q3_C0_S0','_QDroplistPage_QDropNewProducts');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropNewProducts_C" id="_Q3_C0_S0" value="first" checked=""/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropNewProducts_C" id="_Q3_C0_S0" value="first"/>
 									<label for="_Q3_C0_S0">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
@@ -800,7 +812,7 @@
 								</div>
 								<div class="m-option-base" data-exclusive="true" data-questionid="_Q3_C0_S1" data-questiongroup="_QDroplistPage_QDropNewProducts">
 									<script>app.registerComponent('mOptionBase','_Q3_C0_S1','_QDroplistPage_QDropNewProducts');</script>
-									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropNewProducts_C" id="_Q3_C0_S1" value="reluctant"/>
+									<input class="hiddencontrol" type="radio" name="_QDroplistPage_QDropNewProducts_C" id="_Q3_C0_S1" value="reluctant" checked=""/>
 									<label for="_Q3_C0_S1">
 										<span class="a-icon-multistate" data-icontype="single">
 											<!--This is a comment!-->
