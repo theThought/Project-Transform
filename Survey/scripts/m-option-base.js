@@ -121,7 +121,7 @@ define(['component'],
             }
 
             if (this.textInput !== null) {
-                this.textInput.value = this.initialValue;
+                //this.textInput.value = this.initialValue;
             }
         }
 
@@ -172,6 +172,10 @@ define(['component'],
             }
 
             if (this.element.contains(event.target)) {
+                // prevent radio buttons from de-selecting on subsequent clicks
+                if (this.checkbox.checked && this.checkbox.type === 'radio') {
+                    return;
+                }
                 this.checkbox.checked = !this.checkbox.checked;
                 this.onChange(event);
             }
