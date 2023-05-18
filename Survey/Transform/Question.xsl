@@ -843,7 +843,7 @@
             <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="data-readonly">
                <xsl:text>true</xsl:text>
             </xsl:attribute>
@@ -864,9 +864,6 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-        <xsl:attribute name="data-readonly">
-            <xsl:value-of select='$tReadOnly' />
-         </xsl:attribute>
           <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle" />
@@ -1003,7 +1000,7 @@
                   </xsl:if>
                   <!--- CSS Class -->
                   <!--- Show Only -->
-                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
                      <xsl:attribute name="data-readonly">
                         <xsl:text>true</xsl:text>
                      </xsl:attribute>
@@ -1085,7 +1082,7 @@
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
-                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
                      <xsl:attribute name="data-readonly">
                         <xsl:text>true</xsl:text>
                      </xsl:attribute>
@@ -1506,7 +1503,7 @@
             <xsl:attribute name="class">mrListBox</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="data-readonly">
                <xsl:text>true</xsl:text>
             </xsl:attribute>
@@ -1615,7 +1612,7 @@
                   <xsl:attribute name="sLabelClass">aButtonImage</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
                   <xsl:attribute name="data-readonly">
                      <xsl:text>true</xsl:text>
                   </xsl:attribute>
@@ -1694,7 +1691,7 @@
                   <xsl:attribute name="class">a-button-option</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
                   <xsl:attribute name="data-readonly">
                      <xsl:text>true</xsl:text>
                   </xsl:attribute>
@@ -1801,7 +1798,7 @@
             <xsl:attribute name="class">mrEdit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="data-readonly">
                <xsl:text>true</xsl:text>
             </xsl:attribute>
@@ -1821,10 +1818,6 @@
                <xsl:attribute name="autocomplete">off</xsl:attribute>
             </xsl:otherwise>
          </xsl:choose>
-         <!--- Read Only -->
-         <xsl:attribute name="data-readonly">
-            <xsl:value-of select='$tReadOnly' />
-         </xsl:attribute>
          <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle" />
@@ -2203,7 +2196,7 @@
          <!--- CSS Class -->
 
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="data-readonly">
                <xsl:text>true</xsl:text>
             </xsl:attribute>
@@ -2223,11 +2216,6 @@
                <xsl:attribute name="autocomplete">off</xsl:attribute>
             </xsl:otherwise>
          </xsl:choose>
-         <!--- Read Only -->
-        <xsl:attribute name="data-readonly">
-            <xsl:value-of select='$tReadOnly' />
-         </xsl:attribute>
-          <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle">
                <xsl:with-param name="IgnoreWidth">
