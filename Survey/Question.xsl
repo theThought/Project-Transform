@@ -1251,10 +1251,10 @@
             <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text>below</xsl:text>
+                  <xsl:text> below </xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text>side</xsl:text>
+                  <xsl:text> side </xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
@@ -1383,13 +1383,13 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
-            <xsl:text>m-option-base</xsl:text>
+            <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text> below</xsl:text>
+                  <xsl:text> below </xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text>side</xsl:text>
+                  <xsl:text> side </xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
@@ -2271,12 +2271,13 @@
          <xsl:attribute name="class">
             <xsl:text>a-input-</xsl:text>
             <xsl:value-of select="$qCustomType" />
+            <xsl:text> </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text> below</xsl:text>
+                  <xsl:text> below </xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text> side</xsl:text>
+                  <xsl:text> side </xsl:text>
                </xsl:when>
             </xsl:choose>
             <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
