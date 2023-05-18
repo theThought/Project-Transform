@@ -775,7 +775,8 @@ textarea:focus-within {
 
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit {
-  border: transparent !important;
+  /*border: transparent !important;*/
+  border-color: #9CADCB !important;
   background: transparent;
   cursor: default;
 }

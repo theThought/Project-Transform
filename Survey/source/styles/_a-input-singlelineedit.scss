@@ -78,7 +78,8 @@ $default-text-width: globals.$default-input-width;
 
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit {
-    border: transparent !important;
+    /*border: transparent !important;*/
+    border-color: globals.$disabled-text !important;
     background: transparent;
     cursor: default;
 }
