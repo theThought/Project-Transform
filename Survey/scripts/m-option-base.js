@@ -172,6 +172,9 @@ define(['component'],
             }
 
             if (this.element.contains(event.target)) {
+                if (this.checkbox.checked && this.checkbox.type === 'radio') {
+                    return;
+                }
                 this.checkbox.checked = !this.checkbox.checked;
                 this.onChange(event);
             }
