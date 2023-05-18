@@ -843,7 +843,7 @@
             <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="disabled">
                <xsl:text>disabled</xsl:text>
             </xsl:attribute>
@@ -1003,7 +1003,7 @@
                   </xsl:if>
                   <!--- CSS Class -->
                   <!--- Show Only -->
-                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
                      <xsl:attribute name="disabled">
                         <xsl:text>disabled</xsl:text>
                      </xsl:attribute>
@@ -1085,7 +1085,7 @@
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
-                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
                      <xsl:attribute name="disabled">
                         <xsl:text>disabled</xsl:text>
                      </xsl:attribute>
@@ -1506,7 +1506,7 @@
             <xsl:attribute name="class">mrListBox</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="disabled">
                <xsl:text>disabled</xsl:text>
             </xsl:attribute>
@@ -1615,7 +1615,7 @@
                   <xsl:attribute name="sLabelClass">aButtonImage</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
                   <xsl:attribute name="disabled">
                      <xsl:text>disabled</xsl:text>
                   </xsl:attribute>
@@ -1694,7 +1694,7 @@
                   <xsl:attribute name="class">a-button-option</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
                   <xsl:attribute name="disabled">
                      <xsl:text>disabled</xsl:text>
                   </xsl:attribute>
@@ -1801,7 +1801,7 @@
             <xsl:attribute name="class">mrEdit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="disabled">
                <xsl:text>disabled</xsl:text>
             </xsl:attribute>
@@ -2203,7 +2203,7 @@
          <!--- CSS Class -->
 
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
             <xsl:attribute name="disabled">
                <xsl:text>disabled</xsl:text>
             </xsl:attribute>
