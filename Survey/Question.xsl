@@ -843,9 +843,9 @@
             <xsl:attribute name="class">a-input-multilineedit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
-            <xsl:attribute name="disabled">
-               <xsl:text>disabled</xsl:text>
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="data-readonly">
+               <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
@@ -1003,9 +1003,9 @@
                   </xsl:if>
                   <!--- CSS Class -->
                   <!--- Show Only -->
-                  <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
-                     <xsl:attribute name="disabled">
-                        <xsl:text>disabled</xsl:text>
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="data-readonly">
+                        <xsl:text>true</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
                   <!--- Button Category -->
@@ -1085,9 +1085,9 @@
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
-                  <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
-                     <xsl:attribute name="disabled">
-                        <xsl:text>disabled</xsl:text>
+                  <xsl:if test="$bShowOnly != false() or $tReadOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="data-readonly">
+                        <xsl:text>true</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:attribute name="value">
@@ -1184,8 +1184,8 @@
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
                   <xsl:if test="$bShowOnly != false() or ../Style/Control/@ReadOnly != 'false'">
-                     <xsl:attribute name="disabled">
-                        <xsl:text>disabled</xsl:text>
+                     <xsl:attribute name="data-readonly">
+                        <xsl:text>true</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:attribute name="data-value">
@@ -1251,10 +1251,10 @@
             <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text> below </xsl:text>
+                  <xsl:text>below</xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text> side </xsl:text>
+                  <xsl:text>side</xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
@@ -1297,8 +1297,8 @@
             <!--- CSS Class -->
             <!--- Show Only -->
             <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
-               <xsl:attribute name="disabled">
-                  <xsl:text>disabled</xsl:text>
+               <xsl:attribute name="data-readonly">
+                  <xsl:text>true</xsl:text>
                </xsl:attribute>
             </xsl:if>
             <!--- Accelerator access key -->
@@ -1383,13 +1383,13 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
-            <xsl:text>m-option-base </xsl:text>
+            <xsl:text>m-option-base</xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text> below </xsl:text>
+                  <xsl:text> below</xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text> side </xsl:text>
+                  <xsl:text>side</xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
@@ -1432,8 +1432,8 @@
             <!--- CSS Class -->
             <!--- Show Only -->
             <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or Style/Control/@ReadOnly != 'false'">
-               <xsl:attribute name="disabled">
-                  <xsl:text>disabled</xsl:text>
+               <xsl:attribute name="data-readonly">
+                  <xsl:text>true</xsl:text>
                </xsl:attribute>
             </xsl:if>
             <!--- Accelerator access key -->
@@ -1506,9 +1506,9 @@
             <xsl:attribute name="class">mrListBox</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
-            <xsl:attribute name="disabled">
-               <xsl:text>disabled</xsl:text>
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="data-readonly">
+               <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
@@ -1615,9 +1615,9 @@
                   <xsl:attribute name="sLabelClass">aButtonImage</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
-                  <xsl:attribute name="disabled">
-                     <xsl:text>disabled</xsl:text>
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+                  <xsl:attribute name="data-readonly">
+                     <xsl:text>true</xsl:text>
                   </xsl:attribute>
                </xsl:if>
                <!--- Accelerator access key -->
@@ -1694,9 +1694,9 @@
                   <xsl:attribute name="class">a-button-option</xsl:attribute>
                </xsl:if>
                <!--- Show Only -->
-               <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
-                  <xsl:attribute name="disabled">
-                     <xsl:text>disabled</xsl:text>
+               <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+                  <xsl:attribute name="data-readonly">
+                     <xsl:text>true</xsl:text>
                   </xsl:attribute>
                </xsl:if>
                <!--- Accelerator access key -->
@@ -1801,9 +1801,9 @@
             <xsl:attribute name="class">mrEdit</xsl:attribute>
          </xsl:if>
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
-            <xsl:attribute name="disabled">
-               <xsl:text>disabled</xsl:text>
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="data-readonly">
+               <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
@@ -2203,9 +2203,9 @@
          <!--- CSS Class -->
 
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
-            <xsl:attribute name="disabled">
-               <xsl:text>disabled</xsl:text>
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != false()">
+            <xsl:attribute name="data-readonly">
+               <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
          <!--- Accelerator access key -->
@@ -2271,13 +2271,12 @@
          <xsl:attribute name="class">
             <xsl:text>a-input-</xsl:text>
             <xsl:value-of select="$qCustomType" />
-            <xsl:text> </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
-                  <xsl:text> below </xsl:text>
+                  <xsl:text> below</xsl:text>
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
-                  <xsl:text> side </xsl:text>
+                  <xsl:text> side</xsl:text>
                </xsl:when>
             </xsl:choose>
             <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
