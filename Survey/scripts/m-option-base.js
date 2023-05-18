@@ -121,7 +121,7 @@ define(['component'],
             }
 
             if (this.textInput !== null) {
-                this.textInput.value = this.initialValue;
+                //this.textInput.value = this.initialValue;
             }
         }
 
