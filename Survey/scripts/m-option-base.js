@@ -172,6 +172,7 @@ define(['component'],
             }
 
             if (this.element.contains(event.target)) {
+                // prevent radio buttons from de-selecting on subsequent clicks
                 if (this.checkbox.checked && this.checkbox.type === 'radio') {
                     return;
                 }
