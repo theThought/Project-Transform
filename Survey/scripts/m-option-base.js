@@ -120,8 +120,9 @@ define(['component'],
                 return;
             }
 
-            if (this.textInput !== null) {
-                //this.textInput.value = this.initialValue;
+            if (this.initialValue) {
+                this.checkbox.checked = true;
+                this.broadcastChange();
             }
         }
 

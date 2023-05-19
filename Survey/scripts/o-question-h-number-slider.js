@@ -48,9 +48,6 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case 'broadcastChange':
-                    this.receiveBroadcast(event);
-                    break;
                 case 'clearEntries':
                     this.clearEntries(event);
                     break;
@@ -90,7 +87,8 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.restoreEntries = function (event) {
-            if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
+            if (event.detail.questionName !== this.questionName
+                || !this.restoreValues || this.initialValue === null) {
                 return;
             }
 
@@ -98,6 +96,7 @@ define(['o-question'],
             this.value = this.initialValue;
             this.updateValue();
             this.organism.classList.add('has-value');
+            this.organism.classList.add('active');
             this.setInitialFloodToValue();
             this.broadcastChange();
         }

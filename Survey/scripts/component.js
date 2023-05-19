@@ -62,6 +62,10 @@ define(
                 this.initialValue = this.element.value;
             }
 
+            if (typeof this.checkbox != "undefined") {
+                this.initialValue = (this.checkbox.checked);
+            }
+
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             document.dispatchEvent(completeEvent);
 
