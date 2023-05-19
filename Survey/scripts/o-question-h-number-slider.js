@@ -90,7 +90,7 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.restoreEntries = function (event) {
-            if (event.details.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
+            if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
                 return;
             }
 
