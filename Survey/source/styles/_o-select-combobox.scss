@@ -1,17 +1,21 @@
 @use 'globals';
+$default-text-width: globals.$default-input-width;
 
 .o-select-combobox {
     input[type=text] {
-        border: none;
+        padding: 10px 16px;
         border-radius: globals.$border-radius;
-        background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
-        color: globals.$white;
+        border: 1px solid globals.$borders;
+        color: globals.$input-text;
         min-width: 3em;
         width: globals.$default-input-width;
+        height: 19px;
+        background-color: globals.$background;
         box-sizing: content-box;
-        line-height: 40px;
-        padding: 0 44px 0 16px;
-        height: 40px;
+    }
+
+    input:focus {
+        border-color: globals.$theme-primary;
     }
 
     input:focus-visible {
@@ -24,10 +28,6 @@
 
     input::-webkit-calendar-picker-indicator {
         display: none !important;
-    }
-
-    input.list-visible {
-        background-image: url("../images/white-chevron-up.png");
     }
 
     input::placeholder {
@@ -47,7 +47,7 @@
         overflow-y: auto;
         z-index: 10;
         min-width: 3em;
-        width: calc(197px + 44px + 16px); // allows for padding of input element
+        width: calc($default-text-width + 17px + 17px); // allows for padding of input element
         box-sizing: border-box;
     }
 
