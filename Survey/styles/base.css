@@ -1714,17 +1714,19 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-select-combobox input[type=text] {
-  border: none;
+  padding: 10px 16px;
   border-radius: 10px;
-  background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
-  color: #FFFFFF;
+  border: 1px solid #8797C8;
+  color: #757575;
   min-width: 3em;
   width: 197px;
+  height: 19px;
+  background-color: #FAFAFA;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  line-height: 40px;
-  padding: 0 44px 0 16px;
-  height: 40px;
+}
+.o-select-combobox input:focus {
+  border-color: #455B97;
 }
 .o-select-combobox input:focus-visible {
   outline: none;
@@ -1734,9 +1736,6 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox input::-webkit-calendar-picker-indicator {
   display: none !important;
-}
-.o-select-combobox input.list-visible {
-  background-image: url("../images/white-chevron-up.png");
 }
 .o-select-combobox input::-webkit-input-placeholder {
   color: #CCCCCC;
@@ -1766,7 +1765,7 @@ input[type=range]:focus::-ms-fill-lower {
   overflow-y: auto;
   z-index: 10;
   min-width: 3em;
-  width: 257px;
+  width: 231px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
