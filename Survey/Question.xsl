@@ -30,11 +30,32 @@
       <xsl:param name="SubQuestion" select="false()" />
       <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
-            <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+            <xsl:variable name="qGroupName">
+               <xsl:choose>
+                  <xsl:when test="count(Table)>0">
+                     <xsl:variable name="elementID" select="//Control[1]/@ElementID" />
+                     <xsl:call-template name="CalculateGridID">
+                        <xsl:with-param name="input" select="$elementID" />
+                     </xsl:call-template>
+                  </xsl:when>
+                  <xsl:otherwise>
+                     <xsl:value-of select="//Control[1]/@ElementID" />
+                  </xsl:otherwise>
+               </xsl:choose>
+            </xsl:variable>
+            <xsl:value-of select="$qGroupName" />
             <xsl:variable name="qFullName">
-               <xsl:call-template name="CalculateQuestionName">
-                  <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
-               </xsl:call-template>
+               <xsl:choose>
+                  <xsl:when test="count(Table)>0">
+                     <xsl:variable name="elementID" select="//Control[1]/@QuestionName" />
+                     <xsl:call-template name="CalculateGridID">
+                        <xsl:with-param name="input" select="$elementID" />
+                     </xsl:call-template>
+                  </xsl:when>
+                  <xsl:otherwise>
+                     <xsl:value-of select="//Control[1]/@ElementID" />
+                  </xsl:otherwise>
+               </xsl:choose>
             </xsl:variable>
             <xsl:variable name="qCustomType">
                <xsl:call-template name="TranslateZIndexToName">
@@ -54,7 +75,7 @@
                   <xsl:when test="name() = 'Error'">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
-                     </xsl:call-template>              
+                     </xsl:call-template>
                   </xsl:when>
                   <xsl:when test="name() = 'Label'">
                      <xsl:apply-templates select=".">
@@ -152,10 +173,10 @@
                <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
-        <xsl:attribute name="data-readonly">
+         <xsl:attribute name="data-readonly">
             <xsl:value-of select='$tReadOnly' />
          </xsl:attribute>
-          <xsl:call-template name="appComponentScript">
+         <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
                <xsl:call-template name="CamelCaseWord">
@@ -864,10 +885,10 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-        <xsl:attribute name="data-readonly">
+         <xsl:attribute name="data-readonly">
             <xsl:value-of select='$tReadOnly' />
          </xsl:attribute>
-          <!--- Set Control Style -->
+         <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle" />
          </xsl:attribute>
@@ -903,7 +924,7 @@
          <xsl:with-param name="FullName" select="$qFullName" />
       </xsl:call-template>
    </xsl:template>
-    <xsl:template name="DropDownControl">
+   <xsl:template name="DropDownControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
@@ -2137,7 +2158,7 @@
    </xsl:template>
 
    <!--- General Functions -->
-   
+
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -2224,10 +2245,10 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-        <xsl:attribute name="data-readonly">
+         <xsl:attribute name="data-readonly">
             <xsl:value-of select='$tReadOnly' />
          </xsl:attribute>
-          <!--- Set Control Style -->
+         <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle">
                <xsl:with-param name="IgnoreWidth">
@@ -2412,6 +2433,27 @@
             <xsl:value-of select='@Name' />
          </xsl:if>
       </xsl:for-each>
+   </xsl:template>
+
+   <!-- Calculate Grid ID from ElementID of first control in the grid -->
+   <xsl:template name="CalculateGridID">
+      <xsl:param name="input" />
+
+      <!-- Find the position of the second underscore -->
+      <xsl:variable name="underscorePos1">
+         <xsl:value-of select="string-length(substring-before($input, '_')) + 1" />
+      </xsl:variable>
+
+      <xsl:variable name="underscorePos2">
+         <xsl:value-of select="string-length(substring-before(substring-after($input, '_'), '_')) + $underscorePos1 + 1" />
+      </xsl:variable>
+
+      <xsl:variable name="underscorePos3">
+         <xsl:value-of select="string-length(substring-before(substring-after(substring-after($input, '_'), '_'), '_')) + $underscorePos2 + 1" />
+      </xsl:variable>
+
+      <!-- Output the text to the left of the second underscore -->
+      <xsl:value-of select="substring($input, 1, $underscorePos3 - 1)" />
    </xsl:template>
 
 </xsl:stylesheet>
