@@ -20,6 +20,7 @@ define(['component'],
             this.keypressed = null;
             this.list = null;
             this.currentlistposition = -1;
+            this.isExact = false;
             this.filtermethod = 'contains';
             this.noitemsplaceholder = 'no items to display';
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
@@ -90,6 +91,12 @@ define(['component'],
             this.element.type = 'hidden';
             this.hiddenelement = this.element;
             this.element = this.wrapper.insertBefore(newelement, this.droplist);
+        }
+
+        oSelectComboBox.prototype.exact = function (prop) {
+            if (prop === true) {
+                this.isExact = true;
+            }
         }
 
         oSelectComboBox.prototype.buildList = function () {
