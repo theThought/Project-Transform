@@ -138,21 +138,30 @@ define(['component'],
             }
         }
 
-        oSelectComboBox.prototype.filterListStarts = function (inputString) {
-            if (inputString.length < this.mincharacters) {
+        oSelectComboBox.prototype.filterListStarts = function (inputstring) {
+            var exactmatch = false;
+
+            if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
-                inputString = '';
+                inputstring = '';
             } else {
                 this.droplist.classList.remove('charrestriction');
             }
 
-            inputString = inputString.toLowerCase();
+            inputstring = inputstring.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-                if (itemlabel.indexOf(inputString) === 0) {
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.hiddenelement.value = this.list[i].getAttribute('data-value');
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) === 0) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
                     this.list[i].classList.add('filter-hidden');
@@ -166,10 +175,22 @@ define(['component'],
             } else {
                 this.togglePlaceholderVisibility(false);
             }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+
+                if (this.hiddenelement.value.length) {
+                    this.hiddenelement.value = '';
+                    this.broadcastChange();
+                }
+            }
+
         }
 
-        oSelectComboBox.prototype.filterListContains = function (inputString) {
-            if (inputString.length < this.mincharacters) {
+        oSelectComboBox.prototype.filterListContains = function (inputstring) {
+            var exactmatch = false;
+
+            if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
                 return;
@@ -177,12 +198,19 @@ define(['component'],
                 this.droplist.classList.remove('charrestriction');
             }
 
-            inputString = inputString.toLowerCase();
+            inputstring = inputstring.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-                if (itemlabel.indexOf(inputString) !== -1) {
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.hiddenelement.value = this.list[i].getAttribute('data-value');
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) !== -1) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
                     this.list[i].classList.add('filter-hidden');
@@ -196,6 +224,16 @@ define(['component'],
             } else {
                 this.togglePlaceholderVisibility(false);
             }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+
+                if (this.hiddenelement.value.length) {
+                    this.hiddenelement.value = '';
+                    this.broadcastChange();
+                }
+            }
+
         }
 
         oSelectComboBox.prototype.togglePlaceholderVisibility = function (visibility) {
@@ -291,7 +329,7 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.navigateDown = function () {
-            if (this.currentlistposition === this.buildVisibleList().length-1) {
+            if (this.currentlistposition === this.buildVisibleList().length - 1) {
                 return;
             }
 
@@ -304,8 +342,8 @@ define(['component'],
         oSelectComboBox.prototype.updateScrollPosition = function (position) {
             this.droplist.scrollTop = 0;//set to top
             var currentitem = this.buildVisibleList()[position];
-            var scrollposition = currentitem.offsetTop-this.droplist.clientHeight;
-            this.droplist.scrollTop = scrollposition+100;
+            var scrollposition = currentitem.offsetTop - this.droplist.clientHeight;
+            this.droplist.scrollTop = scrollposition + 100;
         }
 
         oSelectComboBox.prototype.updateSelectedEntry = function (position) {
