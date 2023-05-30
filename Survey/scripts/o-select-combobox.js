@@ -74,7 +74,7 @@ define(['component'],
                     this.onKeydown(event);
                     break;
                 case 'keyup':
-                    this.onKeyup(event);
+                    this.onKeyup();
                     this.onChange(event);
                     break;
                 case 'focusout':
@@ -97,8 +97,7 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.buildVisibleList = function () {
-            var list = this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
-            return list;
+            return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
         }
 
         oSelectComboBox.prototype.configureInitialFilter = function () {
@@ -132,21 +131,21 @@ define(['component'],
             }
         }
 
-        oSelectComboBox.prototype.filterListStarts = function (string) {
-            if (string.length < this.mincharacters) {
+        oSelectComboBox.prototype.filterListStarts = function (inputString) {
+            if (inputString.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
-                string = '';
+                inputString = '';
             } else {
                 this.droplist.classList.remove('charrestriction');
             }
 
-            string = string.toLowerCase();
+            inputString = inputString.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-                if (itemlabel.indexOf(string) === 0) {
+                if (itemlabel.indexOf(inputString) === 0) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
                     this.list[i].classList.add('filter-hidden');
@@ -162,8 +161,8 @@ define(['component'],
             }
         }
 
-        oSelectComboBox.prototype.filterListContains = function (string) {
-            if (string.length < this.mincharacters) {
+        oSelectComboBox.prototype.filterListContains = function (inputString) {
+            if (inputString.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
                 return;
@@ -171,12 +170,12 @@ define(['component'],
                 this.droplist.classList.remove('charrestriction');
             }
 
-            string = string.toLowerCase();
+            inputString = inputString.toLowerCase();
             var visibleitems = this.list.length;
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-                if (itemlabel.indexOf(string) !== -1) {
+                if (itemlabel.indexOf(inputString) !== -1) {
                     this.list[i].classList.remove('filter-hidden');
                 } else {
                     this.list[i].classList.add('filter-hidden');
@@ -252,7 +251,7 @@ define(['component'],
             }
         }
 
-        oSelectComboBox.prototype.onKeyup = function (event) {
+        oSelectComboBox.prototype.onKeyup = function () {
             switch (this.keypressed) {
                 case 38: // up arrow
                     this.navigateUp();
