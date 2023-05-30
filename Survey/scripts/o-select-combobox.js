@@ -157,7 +157,8 @@ define(['component'],
 
                 if (itemlabel === inputstring && this.isExact) {
                     exactmatch = true;
-                    this.hiddenelement.value = this.list[i].getAttribute('data-value');
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
                     this.broadcastChange();
                 }
 
@@ -206,7 +207,8 @@ define(['component'],
 
                 if (itemlabel === inputstring && this.isExact) {
                     exactmatch = true;
-                    this.hiddenelement.value = this.list[i].getAttribute('data-value');
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
                     this.broadcastChange();
                 }
 
@@ -406,13 +408,16 @@ define(['component'],
             }
 
             this.clearOptions();
-
-            event.target.classList.add('selected');
-            event.target.setAttribute('data-selected', 'selected');
-            this.element.value = this.sanitiseText(selectedOption.innerText);
-            this.hiddenelement.value = selectedOption.getAttribute('data-value');
+            this.setSelectedOption(selectedOption)
             this.hideList();
             this.onChange(event);
+        }
+
+        oSelectComboBox.prototype.setSelectedOption = function (selectedOption) {
+            selectedOption.classList.add('selected');
+            selectedOption.setAttribute('data-selected', 'selected');
+            this.element.value = this.sanitiseText(selectedOption.innerText);
+            this.hiddenelement.value = selectedOption.getAttribute('data-value');
         }
 
         oSelectComboBox.prototype.clearOptions = function () {
