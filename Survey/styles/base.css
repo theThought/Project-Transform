@@ -527,6 +527,7 @@ button.a-button-list-dropdown {
   padding: 0 1em 0 0;
   height: 100%;
   width: 100%;
+  max-width: 100%;
   border: none;
   z-index: 1;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
@@ -1148,7 +1149,6 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
   overflow-y: overlay; /* this specifically addresses an issue with Chrome where the scrollbar adds width to the list */
   text-align: left;
   min-width: 3em;
-  width: 197px;
 }
 
 div.empty .a-list-placeholder-empty {
@@ -1209,6 +1209,7 @@ span.m-input-singlelineedit + script ~ .m-option-base {
 }
 
 .m-list-optionlist .m-option-base {
+  display: block;
   margin-bottom: 0;
   width: 100% !important;
 }
@@ -1656,6 +1657,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-combolist > div:first-of-type {
   position: relative;
   display: inline-block;
+  max-width: 100%;
   border-radius: 10px;
 }
 .o-question-list > div:first-of-type:hover button,
@@ -1672,7 +1674,7 @@ input[type=range]:focus::-ms-fill-lower {
   margin-bottom: 0;
   background-color: #FAFAFA;
   min-width: 3em;
-  width: 197px;
+  max-width: 100%;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   line-height: 40px;

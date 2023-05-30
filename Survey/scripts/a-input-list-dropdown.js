@@ -34,6 +34,7 @@ define(['component'],
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.getValue();
+            this.setWidth();
             this.disableButtonTabIndex();
             this.configurationComplete();
         }
@@ -105,6 +106,16 @@ define(['component'],
                     this.onEndResize(event);
                     break;
             }
+        }
+
+        aInputListDropdown.prototype.setWidth = function () {
+            if (this.manualWidth) {
+                return;
+            }
+
+            this.element.style.width = this.droplist.offsetWidth + 'px';
+            this.button.style.width = this.droplist.offsetWidth + 'px';
+            this.element.style.boxSizing = 'border-box';
         }
 
         aInputListDropdown.prototype.checkManualWidth = function () {

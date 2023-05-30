@@ -108,6 +108,7 @@ button.a-button-list-dropdown {
     padding: 0 1em 0 0;
     height: 100%;
     width: 100%;
+    max-width: 100%;
     border: none;
     z-index: 1;
     background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;

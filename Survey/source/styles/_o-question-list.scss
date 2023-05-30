@@ -10,9 +10,8 @@
     & > div:first-of-type {
         position: relative;
         display: inline-block;
+        max-width: 100%;
         border-radius: globals.$border-radius;
-
-
 
         &:hover {
             button {
@@ -31,7 +30,7 @@
         margin-bottom: 0;
         background-color: globals.$background;
         min-width: 3em;
-        width: 197px;
+        max-width: 100%;
         box-sizing: content-box;
         line-height: 40px;
         padding: 0 44px 0 16px;
