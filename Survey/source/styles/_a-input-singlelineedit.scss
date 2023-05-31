@@ -110,7 +110,8 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
     outline: none;
-    border: 1px solid globals.$theme-primary;
+    border-top: 1px solid globals.$theme-primary;
+    border-bottom: 1px solid globals.$theme-primary;
 }
 
 /* inputs when a child of a checkbox (other specifier) */

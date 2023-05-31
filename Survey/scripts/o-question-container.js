@@ -36,6 +36,8 @@ define(['o-question'],
         oQuestionContainer.prototype.configureIncomingEventListeners = function () {
             document.addEventListener("configComplete", this, false);
             document.addEventListener("broadcastChange", this, false);
+            document.addEventListener("focusin", this, false);
+            document.addEventListener("focusout", this, false);
         }
 
         oQuestionContainer.prototype.handleEvent = function (event) {
@@ -46,9 +48,27 @@ define(['o-question'],
                     this.processOptionVisibilityRulesFromExternalTrigger(event);
                     this.processFilter(event);
                     break;
+                case 'focusin':
+                    this.onFocusIn(event);
+                    break;
+                case 'focusout':
+                    this.onFocusOut(event);
+                    break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
+            }
+        }
+
+        oQuestionContainer.prototype.onFocusIn = function (event) {
+            if (this.element.contains(event.target) || event.target === this.element) {
+                this.element.classList.add('focused');
+            }
+        }
+
+        oQuestionContainer.prototype.onFocusOut = function (event) {
+            if (this.element.contains(event.target) || event.target === this.element) {
+                this.element.classList.remove('focused');
             }
         }
 

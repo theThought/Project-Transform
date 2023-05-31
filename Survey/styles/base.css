@@ -811,7 +811,8 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
   outline: none;
-  border: 1px solid #455B97;
+  border-top: 1px solid #455B97;
+  border-bottom: 1px solid #455B97;
 }
 
 /* inputs when a child of a checkbox (other specifier) */
@@ -1922,16 +1923,16 @@ input[type=range]:focus::-ms-fill-lower {
   position: relative;
 }
 
+.focus-question .o-question-container.focused {
+  background-color: white;
+}
+
 .o-question-container[data-position=side] {
   display: inline-block;
 }
 
 .o-question-container:not(.no-separator) {
   border-bottom: 1px solid #D0DAE6;
-}
-
-.o-question-container:last-child {
-  padding-bottom: 0;
 }
 
 .surroundcontent > div:last-child {
@@ -2055,7 +2056,6 @@ body > form {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: content;
-  margin-bottom: 1em;
   min-height: 66vh;
 }
 

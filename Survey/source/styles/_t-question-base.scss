@@ -5,16 +5,16 @@
     position: relative;
 }
 
+.focus-question .o-question-container.focused {
+    background-color: white;
+}
+
 .o-question-container[data-position='side'] {
     display: inline-block;
 }
 
 .o-question-container:not(.no-separator) {
     border-bottom: 1px solid globals.$borders-light;
-}
-
-.o-question-container:last-child {
-    padding-bottom: 0;
 }
 
 .surroundcontent > div:last-child {

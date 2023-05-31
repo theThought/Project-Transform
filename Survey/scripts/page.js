@@ -38,6 +38,16 @@ define(
 
         }
 
+        page.prototype.focus = function (prop) {
+            if (prop.control !== 'undefined') {
+                this.element.classList.add('focus-control');
+            }
+
+            if (prop.question !== undefined) {
+                this.element.classList.add('focus-question');
+            }
+        }
+
         return page;
 
     });
