@@ -71,6 +71,9 @@ define(['o-question'],
                         case 'data-readonly':
                             this.setReadOnly(attr.value);
                             break;
+                        case 'data-position':
+                            this.setPosition(attr.value);
+                            break;
                     }
                 }
             }
@@ -89,6 +92,10 @@ define(['o-question'],
                 inputelements[i].readOnly = true;
                 inputelements[i].setAttribute('data-readonly', 'true');
             }
+        }
+
+        oQuestionContainer.prototype.setPosition = function (position) {
+            this.element.setAttribute('data-position', position);
         }
 
         oQuestionContainer.prototype.onConfigurationComplete = function (event) {

@@ -1922,6 +1922,10 @@ input[type=range]:focus::-ms-fill-lower {
   position: relative;
 }
 
+.o-question-container[data-position=side] {
+  display: inline-block;
+}
+
 .o-question-container:not(.no-separator) {
   border-bottom: 1px solid #D0DAE6;
 }

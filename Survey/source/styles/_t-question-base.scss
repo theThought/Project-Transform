@@ -5,6 +5,10 @@
     position: relative;
 }
 
+.o-question-container[data-position='side'] {
+    display: inline-block;
+}
+
 .o-question-container:not(.no-separator) {
     border-bottom: 1px solid globals.$borders-light;
 }
