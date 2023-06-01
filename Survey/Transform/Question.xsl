@@ -155,6 +155,16 @@
         <xsl:attribute name="data-readonly">
             <xsl:value-of select='$tReadOnly' />
          </xsl:attribute>
+         <xsl:attribute name="data-position">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
           <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
