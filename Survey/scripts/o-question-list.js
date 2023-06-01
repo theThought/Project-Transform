@@ -207,7 +207,7 @@ define(['o-question'],
                 detail: this
             });
 
-            document.dispatchEvent(enableExclusive);
+            this.element.dispatchEvent(enableExclusive);
         }
 
         oQuestionList.prototype.displayicon = function (prop) {

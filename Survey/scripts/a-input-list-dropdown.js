@@ -227,7 +227,7 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.onFocusIn = function (event) {
-            event.stopImmediatePropagation();
+            //event.stopImmediatePropagation();
             this.setFocus();
         }
 
@@ -312,7 +312,7 @@ define(['component'],
                 bubbles: true,
                 detail: this
             });
-            document.dispatchEvent(closeDropdowns);
+            this.element.dispatchEvent(closeDropdowns);
         }
 
         aInputListDropdown.prototype.onCloseDropdowns = function (event) {
@@ -396,7 +396,7 @@ define(['component'],
             }
 
             var keyEvent = new CustomEvent(this.group + '_jumpToLetter', {bubbles: true, detail: this});
-            document.dispatchEvent(keyEvent);
+            this.element.dispatchEvent(keyEvent);
         }
 
         aInputListDropdown.prototype.processFilterList = function () {
@@ -405,7 +405,7 @@ define(['component'],
             }
 
             var keyEvent = new CustomEvent(this.group + '_filterList', {bubbles: true, detail: this});
-            document.dispatchEvent(keyEvent);
+            this.element.dispatchEvent(keyEvent);
         }
 
         return aInputListDropdown;

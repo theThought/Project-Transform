@@ -67,14 +67,14 @@ define(
             }
 
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
-            document.dispatchEvent(completeEvent);
+            this.element.dispatchEvent(completeEvent);
 
             this.broadcastChange();
         }
 
         component.prototype.broadcastChange = function () {
             var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
-            document.dispatchEvent(broadcastChange);
+            this.element.dispatchEvent(broadcastChange);
         }
 
         component.prototype.clearEntries = function (event) {
@@ -111,7 +111,7 @@ define(
                 bubbles: true,
                 detail: this
             });
-            document.dispatchEvent(requestSize);
+            this.element.dispatchEvent(requestSize);
         }
 
         component.prototype.onBeginResize = function (event) {
