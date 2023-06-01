@@ -269,7 +269,7 @@ define(['component'],
                 bubbles: true,
                 detail: this
             });
-            document.dispatchEvent(beginresize);
+            this.element.dispatchEvent(beginresize);
 
             for (var i = 0; i < children.length; i++) {
                 var element = children[i];
@@ -294,7 +294,7 @@ define(['component'],
                 bubbles: true,
                 detail: this
             });
-            document.dispatchEvent(endresize);
+            this.element.dispatchEvent(endresize);
         }
 
         return mListOptionList;

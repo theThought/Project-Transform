@@ -140,14 +140,14 @@ define(['component'],
                         bubbles: true,
                         detail: this
                     });
-                    document.dispatchEvent(enableExclusive);
+                    this.element.dispatchEvent(enableExclusive);
 
                 } else {
                     var dismissExclusive = new CustomEvent(this.group + '_dismissExclusive', {
                         bubbles: true,
                         detail: this
                     });
-                    document.dispatchEvent(dismissExclusive);
+                    this.element.dispatchEvent(dismissExclusive);
                 }
 
                 if (this.textInput !== null) {
@@ -165,6 +165,12 @@ define(['component'],
 
             event.preventDefault();
             event.stopImmediatePropagation();
+
+            var focusin = new CustomEvent('focusin', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(focusin);
 
             if (event.target === this.textInput) {
                 this.checkbox.checked = true;

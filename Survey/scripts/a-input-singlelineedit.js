@@ -242,7 +242,7 @@ define(['component', 'pikaday'],
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
-                document.dispatchEvent(clickedEvent);
+                this.element.dispatchEvent(clickedEvent);
 
                 if (this.element.placeholder.length
                     && this.element.placeholder !== this.defaultPlaceholder) {

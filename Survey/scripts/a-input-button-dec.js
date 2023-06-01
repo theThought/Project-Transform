@@ -50,7 +50,7 @@ define(['component'],
                     bubbles: true,
                     detail: this
                 });
-                document.dispatchEvent(decrementValueEvent);
+                this.element.dispatchEvent(decrementValueEvent);
             }
         }
 

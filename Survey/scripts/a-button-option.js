@@ -91,14 +91,14 @@ define(['component'],
                         bubbles: true,
                         detail: this
                     });
-                    document.dispatchEvent(enableExclusive);
+                    this.element.dispatchEvent(enableExclusive);
 
                 } else {
                     var dismissExclusive = new CustomEvent(this.group + '_dismissExclusive', {
                         bubbles: true,
                         detail: this
                     });
-                    document.dispatchEvent(dismissExclusive);
+                    this.element.dispatchEvent(dismissExclusive);
                 }
 
             }

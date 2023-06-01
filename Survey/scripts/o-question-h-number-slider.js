@@ -163,7 +163,7 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.updateValue = function () {
             var updateEvent = new CustomEvent(this.group + '_updateValue', {bubbles: true, detail: this});
-            document.dispatchEvent(updateEvent);
+            this.element.dispatchEvent(updateEvent);
             this.broadcastChange();
         }
 
@@ -251,7 +251,7 @@ define(['o-question'],
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
-                document.dispatchEvent(clickedEvent);
+                this.element.dispatchEvent(clickedEvent);
 
                 this.element.disabled = false;
                 this.organism.classList.remove('inactive');
@@ -262,7 +262,7 @@ define(['o-question'],
                         bubbles: true,
                         detail: this
                     });
-                    document.dispatchEvent(enableExclusive);
+                    this.element.dispatchEvent(enableExclusive);
                 }
 
                 this.updateFloodFill();

@@ -37,7 +37,6 @@ define(['o-question'],
             document.addEventListener("configComplete", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener("focusin", this, false);
-            document.addEventListener("focusout", this, false);
         }
 
         oQuestionContainer.prototype.handleEvent = function (event) {
@@ -51,9 +50,6 @@ define(['o-question'],
                 case 'focusin':
                     this.onFocusIn(event);
                     break;
-                case 'focusout':
-                    this.onFocusOut(event);
-                    break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
@@ -63,11 +59,7 @@ define(['o-question'],
         oQuestionContainer.prototype.onFocusIn = function (event) {
             if (this.element.contains(event.target) || event.target === this.element) {
                 this.element.classList.add('focused');
-            }
-        }
-
-        oQuestionContainer.prototype.onFocusOut = function (event) {
-            if (this.element.contains(event.target) || event.target === this.element) {
+            } else {
                 this.element.classList.remove('focused');
             }
         }
@@ -106,7 +98,7 @@ define(['o-question'],
 
             var inputelements = this.element.querySelectorAll('input, textarea, select');
             var isReadonly = new CustomEvent('readonly', {bubbles: true, detail: this});
-            document.dispatchEvent(isReadonly);
+            this.element.dispatchEvent(isReadonly);
 
             for (var i = 0; i < inputelements.length; i++) {
                 inputelements[i].readOnly = true;
@@ -233,7 +225,7 @@ define(['o-question'],
 
         oQuestionContainer.prototype.resetValues = function () {
             var restoreEntries = new CustomEvent('restoreEntries', {bubbles: true, detail: this});
-            document.dispatchEvent(restoreEntries);
+            this.element.dispatchEvent(restoreEntries);
         }
 
         oQuestionContainer.prototype.makeUnavailable = function () {
@@ -244,7 +236,7 @@ define(['o-question'],
             this.available = false;
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
-            document.dispatchEvent(clearEntries);
+            this.element.dispatchEvent(clearEntries);
             this.element.classList.add('unavailable');
         }
 
