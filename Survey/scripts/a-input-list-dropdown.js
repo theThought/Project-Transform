@@ -56,7 +56,6 @@ define(['component'],
             this.wrapper.addEventListener("keydown", this, false);
             this.wrapper.addEventListener("keyup", this, false);
             this.wrapper.addEventListener("mousedown", this, false);
-            this.element.addEventListener("focusin", this, false);
             this.element.addEventListener("focusout", this, false);
         }
 
@@ -85,9 +84,6 @@ define(['component'],
                     break;
                 case "mousedown":
                     this.onMousedown(event);
-                    break;
-                case "focusin":
-                    this.onFocusIn(event);
                     break;
                 case "focusout":
                     this.onFocusOut(event);
@@ -224,11 +220,6 @@ define(['component'],
                 event.stopImmediatePropagation();
                 this.broadcastChange();
             }
-        }
-
-        aInputListDropdown.prototype.onFocusIn = function (event) {
-            //event.stopImmediatePropagation();
-            this.setFocus();
         }
 
         aInputListDropdown.prototype.onFocusOut = function (event) {
