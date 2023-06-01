@@ -217,7 +217,7 @@ define(['component'],
 
         aInputListDropdown.prototype.onChange = function (event) {
             if (event.target === this.element) {
-                event.stopImmediatePropagation();
+                event.stopPropagation();
                 this.broadcastChange();
             }
         }
@@ -236,7 +236,7 @@ define(['component'],
             }
 
             if (!this.wrapper.contains(event.relatedTarget)) {
-                event.stopImmediatePropagation();
+                event.stopPropagation();
                 this.removeFocus();
             }
         }
@@ -270,7 +270,7 @@ define(['component'],
 
             if (this.wrapper.contains(event.target) || event.target === this.droplist
                 || (this.editable && this.droplist.contains(event.target))) {
-                event.stopImmediatePropagation();
+                event.stopPropagation();
                 return;
             }
 
