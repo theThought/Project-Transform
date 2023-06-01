@@ -259,6 +259,12 @@ define(['component'],
         aInputListDropdown.prototype.onMousedown = function (event) {
             event.stopPropagation();
 
+            var focusin = new CustomEvent('focusin', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(focusin);
+
             if (this.editable && this.focused) {
                 return;
             }
