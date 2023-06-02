@@ -56,7 +56,6 @@ define(['component'],
             this.wrapper.addEventListener("keydown", this, false);
             this.wrapper.addEventListener("keyup", this, false);
             this.wrapper.addEventListener("mousedown", this, false);
-            this.element.addEventListener("focusin", this, false);
             this.element.addEventListener("focusout", this, false);
         }
 
@@ -85,9 +84,6 @@ define(['component'],
                     break;
                 case "mousedown":
                     this.onMousedown(event);
-                    break;
-                case "focusin":
-                    this.onFocusIn(event);
                     break;
                 case "focusout":
                     this.onFocusOut(event);
@@ -221,14 +217,9 @@ define(['component'],
 
         aInputListDropdown.prototype.onChange = function (event) {
             if (event.target === this.element) {
-                event.stopImmediatePropagation();
+                event.stopPropagation();
                 this.broadcastChange();
             }
-        }
-
-        aInputListDropdown.prototype.onFocusIn = function (event) {
-            //event.stopImmediatePropagation();
-            this.setFocus();
         }
 
         aInputListDropdown.prototype.onFocusOut = function (event) {
@@ -245,7 +236,7 @@ define(['component'],
             }
 
             if (!this.wrapper.contains(event.relatedTarget)) {
-                event.stopImmediatePropagation();
+                event.stopPropagation();
                 this.removeFocus();
             }
         }
@@ -258,6 +249,12 @@ define(['component'],
 
         aInputListDropdown.prototype.onMousedown = function (event) {
             event.stopPropagation();
+
+            var focusin = new CustomEvent('focusin', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(focusin);
 
             if (this.editable && this.focused) {
                 return;
@@ -273,7 +270,7 @@ define(['component'],
 
             if (this.wrapper.contains(event.target) || event.target === this.droplist
                 || (this.editable && this.droplist.contains(event.target))) {
-                event.stopImmediatePropagation();
+                event.stopPropagation();
                 return;
             }
 

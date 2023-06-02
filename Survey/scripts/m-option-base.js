@@ -164,7 +164,7 @@ define(['component'],
         mOptionBase.prototype.onClick = function (event) {
 
             event.preventDefault();
-            event.stopImmediatePropagation();
+            event.stopPropagation();
 
             var focusin = new CustomEvent('focusin', {
                 bubbles: true,
