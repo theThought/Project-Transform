@@ -8,6 +8,10 @@
         }
     }
 
+    &[data-position="side"] {
+        display: inline-block;
+    }
+
     // normally we want the final item to have no explicit bottom margin
     // this is different in balance, as the final item is likely to be
     // on the same row as another item and it also effects size calculations

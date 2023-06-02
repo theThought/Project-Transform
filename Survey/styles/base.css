@@ -1390,6 +1390,9 @@ select::-ms-expand {
 .o-question-response[data-hidden=true] * {
   display: none;
 }
+.o-question-response[data-position=side] {
+  display: inline-block;
+}
 .o-question-response:not(.balance) > *:not(script):last-child {
   margin-bottom: 0;
 }
