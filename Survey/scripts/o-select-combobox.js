@@ -20,7 +20,7 @@ define(['component'],
             this.keypressed = null;
             this.list = null;
             this.currentlistposition = -1;
-            this.isExact = false;
+            this.isExact = true;
             this.filtermethod = 'contains';
             this.noitemsplaceholder = 'no items to display';
             this.notenoughcharactersplaceholder = 'begin typing to display the list';
@@ -94,8 +94,8 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.exact = function (prop) {
-            if (prop === true) {
-                this.isExact = true;
+            if (prop === false) {
+                this.isExact = false;
             }
         }
 
