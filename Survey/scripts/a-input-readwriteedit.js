@@ -1,5 +1,5 @@
-define(['component'],
-    function (component) {
+define(['component', 'ua-parser.min'],
+    function (component, uaparser) {
 
         /**
          * Atom: Hidden item for gathering/storing data
@@ -15,6 +15,8 @@ define(['component'],
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.storagedestination = '';
             this.storagename = '';
+            this.parser = uaparser();
+
         }
 
         aInputReadWriteEdit.prototype = Object.create(component.prototype);
@@ -119,87 +121,19 @@ define(['component'],
         }
 
         aInputReadWriteEdit.prototype.detectBrowser = function () {
-            // Opera 8.0+
-            var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-
-            // Firefox 1.0+
-            var isFirefox = typeof InstallTrigger !== 'undefined';
-
-            // Safari 3.0+ "[object HTMLElementConstructor]"
-            var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
-                return p.toString() === "[object SafariRemoteNotification]";
-            })(!window['safari'] || (typeof safari !== 'undefined' || window['safari'].pushNotification));
-
-            var isSafariMobile = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-            // Internet Explorer 6-11
-            var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-            // Edge 20+
-            var isEdge = !isIE && !!window.StyleMedia;
-
-            // Chrome 1 - 79
-            var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-
-            // Edge (based on chromium) detection
-            var isEdgeChromium = (navigator.userAgent.indexOf("Edg") !== -1);
-
-            var browser = 'Unrecognised';
-
-            if (isOpera) {
-                browser = 'Opera';
-            }
-            if (isFirefox) {
-                browser = 'Firefox';
-            }
-            if (isChrome) {
-                browser = 'Chrome';
-            }
-            if (isSafari || isSafariMobile) {
-                browser = 'Safari';
-            }
-            if (isIE) {
-                browser = 'IE';
-            }
-            if (isEdge) {
-                browser = 'Edge';
-            }
-            if (isEdgeChromium) {
-                browser = 'Edge Chromium';
-            }
-
-            return browser;
+            return this.parser.browser.name;
         }
 
         aInputReadWriteEdit.prototype.detectBrowserVersion = function () {
-            return '';
+            return this.parser.browser.version;
         }
 
         aInputReadWriteEdit.prototype.detectOS = function () {
-            var userAgent = window.navigator.userAgent;
-            var platform = window.navigator.platform;
-            var macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
-            var windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
-            var iosPlatforms = ['iPhone', 'iPad', 'iPod'];
-            var os = null;
-
-            if (macosPlatforms.indexOf(platform) !== -1) {
-                os = 'Mac OS';
-            } else if (iosPlatforms.indexOf(platform) !== -1) {
-                os = 'iOS';
-            } else if (windowsPlatforms.indexOf(platform) !== -1) {
-                os = 'Windows';
-            } else if (/Android/.test(userAgent)) {
-                os = 'Android';
-            } else if (/Linux/.test(platform)) {
-                os = 'Linux';
-            }
-
-            return os;
+            return this.parser.os.name;
         }
 
         aInputReadWriteEdit.prototype.detectOSVersion = function () {
-            return '';
+            return this.parser.os.version;
         }
 
         aInputReadWriteEdit.prototype.detectDisplay = function () {
