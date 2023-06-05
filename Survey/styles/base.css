@@ -721,7 +721,8 @@ textarea:focus-within {
           box-sizing: content-box;
 }
 
-.balance .a-input-singlelineedit {
+.balance .a-input-singlelineedit,
+.balance .m-input-singlelineedit {
   margin-right: 1em;
 }
 
@@ -742,6 +743,7 @@ textarea:focus-within {
 }
 .m-input-singlelineedit .a-input-singlelineedit {
   margin-bottom: 0;
+  margin-right: 0;
 }
 
 /* numerical single-line inputs
