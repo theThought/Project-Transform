@@ -99,13 +99,20 @@ define(['component'],
                     break;
                 case this.group + "_beginResize":
                 case this.group + "_endResize":
+                    this.setWidth();
                     this.onEndResize(event);
                     break;
             }
         }
 
         aInputListDropdown.prototype.setWidth = function () {
+            // respect manual width if set
             if (this.manualWidth) {
+                return;
+            }
+
+            // do not try to get the width of invisible elements
+            if (this.droplist.offsetWidth === 0) {
                 return;
             }
 
