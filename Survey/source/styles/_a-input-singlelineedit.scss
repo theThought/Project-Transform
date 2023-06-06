@@ -1,4 +1,5 @@
 @use 'globals';
+
 $default-text-width: globals.$default-input-width;
 
 /* a-input-singlelineedit
@@ -16,7 +17,8 @@ $default-text-width: globals.$default-input-width;
     box-sizing: content-box;
 }
 
-.balance .a-input-singlelineedit {
+.balance .a-input-singlelineedit,
+.balance .m-input-singlelineedit {
     margin-right: 1em;
 }
 
@@ -40,6 +42,7 @@ $default-text-width: globals.$default-input-width;
 
     .a-input-singlelineedit {
         margin-bottom: 0;
+        margin-right: 0;
     }
 }
 
