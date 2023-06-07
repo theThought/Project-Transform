@@ -71,4 +71,8 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
     input:focus-visible + label {
         outline: none;
     }
+
+    .a-icon-multistate {
+        left: -2px;
+    }
 }

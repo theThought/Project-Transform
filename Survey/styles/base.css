@@ -673,6 +673,9 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
 .m-list-optionlist input:focus-visible + label {
   outline: none;
 }
+.m-list-optionlist .a-icon-multistate {
+  left: -2px;
+}
 
 textarea {
   width: 100%;
@@ -846,6 +849,7 @@ input[readonly]:focus-visible {
 }
 
 .m-list-optionlist label {
+  position: relative;
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -1117,9 +1121,6 @@ div[data-readonly=true] .m-option-base .a-label-option {
 }
 
 .m-list-optionlist .a-label-option {
-  padding-bottom: 0.5em;
-}
-.m-list-optionlist .m-option-base:last-child .a-label-option {
   padding-bottom: 0;
 }
 
@@ -1132,8 +1133,8 @@ div[data-readonly=true] .m-option-base .a-label-option {
 }
 
 div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
-  padding-left: 8px;
-  width: calc(100% - 8px);
+  padding-left: 0;
+  width: 100%;
 }
 
 .m-list-optionlist {
@@ -1143,7 +1144,7 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
   margin-top: 4px;
   border: 1px solid #455B97;
   border-radius: 10px;
-  padding: 0.5em 3em 0.5em 0.5em;
+  padding: 0 0 0.5em 0;
   background-color: white;
   z-index: 999;
   max-height: 227px;
@@ -1215,6 +1216,10 @@ span.m-input-singlelineedit + script ~ .m-option-base {
   display: block;
   margin-bottom: 0;
   width: 100% !important;
+  padding: 12px 16px 4px 16px;
+}
+.m-list-optionlist .m-option-base ~ .m-option-base {
+  padding-top: 4px;
 }
 
 .charrestriction .m-option-base {

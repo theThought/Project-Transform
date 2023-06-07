@@ -116,8 +116,15 @@ define(['component'],
                 return;
             }
 
-            this.element.style.width = this.droplist.offsetWidth + 'px';
-            this.button.style.width = this.droplist.offsetWidth + 'px';
+            // we must set the size in order for the browser to recalculate the width of the component
+            this.element.size = Math.max(this.defaultPlaceholder.length, 1);
+            var inputwidth = this.element.offsetWidth;
+            var droplistwidth = this.droplist.offsetWidth;
+            var errormargin = 4;
+
+            this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
+            this.button.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
+            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
             this.element.style.boxSizing = 'border-box';
         }
 
