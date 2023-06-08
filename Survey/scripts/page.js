@@ -10,7 +10,7 @@ define(
         }
 
         page.prototype.configureProperties = function (propertiesName) {
-            propertiesName = (typeof propertiesName === 'undefined') ? app.extractQuestionName(this.group) : propertiesName;
+            propertiesName = (typeof propertiesName === 'undefined') ? this.group : propertiesName;
 
             this.properties = app.getProperties(propertiesName);
             this.properties.registered = true;

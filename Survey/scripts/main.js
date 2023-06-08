@@ -18,7 +18,7 @@ require(['domready'], function (domReady) {
             }
 
             if (initEmpy >= initLimit) {
-                clearInterval(initInterval);
+                clearInterval(initTimer);
             }
 
             while (i--) {

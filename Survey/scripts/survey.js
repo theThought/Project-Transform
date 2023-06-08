@@ -34,7 +34,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         case 'ainputreadwriteedit':
             requirejs(['a-input-readwriteedit'], function (aInputReadWriteEdit) {
                 console.log('Registering input');
-                app.preinitcomponents.push(new aInputReadWriteEdit (id, group));
+                app.preinitcomponents.push(new aInputReadWriteEdit(id, group));
             });
             break;
         case 'moptionbase':
@@ -136,26 +136,35 @@ Survey.prototype.checkProperties = function () {
 }
 
 Survey.prototype.RegisterProperties = function (id, props) {
-    id = this.extractQuestionName(id);
+    id = id.toLowerCase();
+    if (id.indexOf('_q') === 0) {
+        id = id.substring(2);
+    }
     var newprops = this.sanitiseProperties(props);
     var currprops = app.properties[id] ? app.properties[id] : {};
     app.properties[id] = Object.assign(currprops, newprops);
 }
 
 Survey.prototype.getProperties = function (id) {
-    id = this.extractQuestionName(id);
+    // perform a loop becoming less specific until properties
+    // are returned, or we run out of things to search for
+    id = id.toLowerCase();
 
-    if (typeof app.properties[id] == "undefined") {
-        return {};
+    if (app.properties[id] !== undefined) {
+        return app.properties[id];
     }
 
-    // The parse() and stringify() used below are to ensure that a copy
-    // of the component properties gets returned and NOT a reference to
-    // the original version. This prevents multiple components that might
-    // access the same properties from modifying each other.
-    //return JSON.parse(JSON.stringify(app.properties[id]));
+    while (id.length > 0) {
+        if (typeof app.properties[id] !== 'undefined') {
+            return app.properties[id];
+        }
+        if (id.indexOf('_q') === -1) {
+            return {};
+        }
+        id = id.substring(id.indexOf('_q') + 2);
+    }
 
-    return app.properties[id];
+    return {};
 }
 
 Survey.prototype.extractQuestionName = function (id) {

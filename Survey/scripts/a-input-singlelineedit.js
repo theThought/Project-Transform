@@ -24,9 +24,19 @@ define(['component', 'pikaday'],
 
         aInputSingleLineEdit.prototype.init = function () {
             this.configureProperties();
-            this.setReadOnly();
             this.configureIncomingEventListeners();
+            this.configureInitialVisibility();
+            this.processVisibilityRules();
+            this.setReadOnly();
             this.configurationComplete();
+        }
+
+        aInputSingleLineEdit.prototype.makeAvailable = function () {
+            this.element.style.display = 'block';
+        }
+
+        aInputSingleLineEdit.prototype.makeUnavailable = function () {
+            this.element.style.display = 'none';
         }
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
@@ -202,6 +212,7 @@ define(['component', 'pikaday'],
             document.addEventListener("focusin", this, false);
             document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
+            document.addEventListener("broadcastChange", this, false);
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
@@ -224,6 +235,9 @@ define(['component', 'pikaday'],
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();
+                    break;
+                case 'broadcastChange':
+                    this.processVisibilityRulesFromExternalTrigger(event);
                     break;
             }
         }
