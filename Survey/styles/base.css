@@ -1260,7 +1260,7 @@ span.m-input-singlelineedit + script ~ .m-option-base {
   background-image: none;
 }
 
-.unavailable.collapse {
+.o-question-container.unavailable.collapse {
   display: none;
 }
 

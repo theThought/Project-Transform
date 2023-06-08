@@ -32,11 +32,11 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.makeAvailable = function () {
-            this.element.style.display = 'block';
+            this.element.style.visibility = 'visible';
         }
 
         aInputSingleLineEdit.prototype.makeUnavailable = function () {
-            this.element.style.display = 'none';
+            this.element.style.visibility = 'hidden';
         }
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
