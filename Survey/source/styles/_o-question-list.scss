@@ -53,13 +53,14 @@
     .a-input-list-dropdown.readonly {
         color: white;
         background: transparent;
-
-        &.readonly {
-            cursor: default;
-        }
+        cursor: default;
 
         &:focus-visible {
             outline: none;
+        }
+
+        &::selection {
+            background: transparent;
         }
     }
 }

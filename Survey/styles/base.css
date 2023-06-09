@@ -1716,14 +1716,18 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-combolist .a-input-list-dropdown.readonly {
   color: white;
   background: transparent;
-}
-.o-question-list .a-input-list-dropdown.readonly.readonly,
-.o-question-combolist .a-input-list-dropdown.readonly.readonly {
   cursor: default;
 }
 .o-question-list .a-input-list-dropdown.readonly:focus-visible,
 .o-question-combolist .a-input-list-dropdown.readonly:focus-visible {
   outline: none;
+}
+.o-question-list .a-input-list-dropdown.readonly::-moz-selection, .o-question-combolist .a-input-list-dropdown.readonly::-moz-selection {
+  background: transparent;
+}
+.o-question-list .a-input-list-dropdown.readonly::selection,
+.o-question-combolist .a-input-list-dropdown.readonly::selection {
+  background: transparent;
 }
 
 .o-select-combobox input[type=text] {
