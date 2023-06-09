@@ -1988,7 +1988,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .sidebyside .o-question-response + .o-question-response {
-  margin-left: 0.5em;
+  margin-left: 1em;
 }
 
 * {
