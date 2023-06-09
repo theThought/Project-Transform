@@ -9,7 +9,7 @@
     background-color: white;
 }
 
-.o-question-container[data-position='side'] {
+.o-question-container:not(.sidebyside)[data-position='side'] {
     display: inline-block;
 }
 
@@ -23,8 +23,6 @@
 
 .sidebyside .o-question-core {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .o-question-information {
@@ -46,4 +44,10 @@
 
 .sidebyside .o-question-response {
     flex: 1;
+    flex-grow: 0;
+    flex-basis: auto;
+}
+
+.sidebyside .o-question-response + .o-question-response {
+    margin-left: 1em;
 }

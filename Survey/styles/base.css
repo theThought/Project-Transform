@@ -1716,14 +1716,18 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-combolist .a-input-list-dropdown.readonly {
   color: white;
   background: transparent;
-}
-.o-question-list .a-input-list-dropdown.readonly.readonly,
-.o-question-combolist .a-input-list-dropdown.readonly.readonly {
   cursor: default;
 }
 .o-question-list .a-input-list-dropdown.readonly:focus-visible,
 .o-question-combolist .a-input-list-dropdown.readonly:focus-visible {
   outline: none;
+}
+.o-question-list .a-input-list-dropdown.readonly::-moz-selection, .o-question-combolist .a-input-list-dropdown.readonly::-moz-selection {
+  background: transparent;
+}
+.o-question-list .a-input-list-dropdown.readonly::selection,
+.o-question-combolist .a-input-list-dropdown.readonly::selection {
+  background: transparent;
 }
 
 .o-select-combobox input[type=text] {
@@ -1937,7 +1941,7 @@ input[type=range]:focus::-ms-fill-lower {
   background-color: white;
 }
 
-.o-question-container[data-position=side] {
+.o-question-container:not(.sidebyside)[data-position=side] {
   display: inline-block;
 }
 
@@ -1953,11 +1957,6 @@ input[type=range]:focus::-ms-fill-lower {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .o-question-information {
@@ -1985,6 +1984,15 @@ input[type=range]:focus::-ms-fill-lower {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+}
+
+.sidebyside .o-question-response + .o-question-response {
+  margin-left: 1em;
 }
 
 * {
