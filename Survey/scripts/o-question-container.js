@@ -105,6 +105,28 @@ define(['o-question'],
 
         oQuestionContainer.prototype.setPosition = function (position) {
             this.element.setAttribute('data-position', position);
+
+            if (position === 'side') {
+                this.relocateResponseBlock();
+            }
+        }
+
+        oQuestionContainer.prototype.relocateResponseBlock = function () {
+            var responseBlock = this.element.querySelector('.o-question-response');
+            var previousResponseContainer = this.element.previousElementSibling;
+
+            if (previousResponseContainer === null) {
+                return;
+            }
+
+            var previousResponseBlock = previousResponseContainer.querySelector('.o-question-core');
+
+            if (previousResponseBlock === null) {
+                return;
+            }
+
+            previousResponseBlock.append(responseBlock);
+            this.element.style.display = 'none';
         }
 
         oQuestionContainer.prototype.onConfigurationComplete = function (event) {
