@@ -2110,6 +2110,9 @@
                      </xsl:otherwise>
                   </xsl:choose>
                </xsl:when>
+               <xsl:when test="name() = 'Error'">
+                   <xsl:comment>old error message</xsl:comment>
+               </xsl:when>
                <xsl:otherwise>
                   <xsl:apply-templates select="." />
                </xsl:otherwise>
@@ -2124,11 +2127,16 @@
          </xsl:attribute>
          <xsl:for-each select="Cell">
             <xsl:element name="td">
-               <xsl:if test="Question/Error">
+               <xsl:if test="Question/Error or Error">
                   <xsl:attribute name="class">
                      <xsl:text>m-structure-cell-error</xsl:text>
                   </xsl:attribute>
                   <xsl:for-each select="Question/Error">
+                     <xsl:call-template name="Error">
+                        <xsl:with-param name="SubQuestion" select="true()" />
+                     </xsl:call-template>
+                  </xsl:for-each>
+                  <xsl:for-each select="Error">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
                      </xsl:call-template>
@@ -2386,7 +2394,7 @@
    </xsl:template>
 
    <xsl:template name="CountErrors">
-      <xsl:value-of select="count(./Cell[Question/Error])"/>
+      <xsl:value-of select="count(./Cell[Question/Error])+count(./Cell[Error])"/>
    </xsl:template>
 
    <xsl:template name="CalculateQuestionName">
