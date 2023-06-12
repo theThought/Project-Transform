@@ -56,6 +56,7 @@ define(['component'],
             this.wrapper.addEventListener("keydown", this, false);
             this.wrapper.addEventListener("keyup", this, false);
             this.wrapper.addEventListener("mousedown", this, false);
+            this.element.addEventListener("focus", this, false);
             this.element.addEventListener("focusout", this, false);
         }
 
@@ -84,6 +85,9 @@ define(['component'],
                     break;
                 case "mousedown":
                     this.onMousedown(event);
+                    break;
+                case "focus":
+                    this.setFocus();
                     break;
                 case "focusout":
                     this.onFocusOut(event);
