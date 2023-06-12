@@ -125,7 +125,7 @@ define(['o-question'],
                 return;
             }
 
-            previousResponseBlock.append(responseBlock);
+            previousResponseBlock.appendChild(responseBlock);
             this.element.style.display = 'none';
         }
 
