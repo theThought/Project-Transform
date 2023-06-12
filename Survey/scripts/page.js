@@ -39,11 +39,11 @@ define(
         }
 
         page.prototype.focus = function (prop) {
-            if (prop.control !== 'undefined') {
+            if (prop.control !== 'undefined' && prop.control) {
                 this.element.classList.add('focus-control');
             }
 
-            if (prop.question !== undefined) {
+            if (prop.question !== 'undefined' && prop.question) {
                 this.element.classList.add('focus-question');
             }
         }
