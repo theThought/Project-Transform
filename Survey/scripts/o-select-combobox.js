@@ -52,10 +52,14 @@ define(['component'],
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
             this.element.addEventListener('focusout', this, false);
+            this.element.addEventListener('cut', this, false);
         }
 
         oSelectComboBox.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'cut':
+                    this.onCut(event);
+                    break;
                 case 'clearEntries':
                     this.clearOptions();
                     this.clearEntries(event);
@@ -267,6 +271,10 @@ define(['component'],
                 event.stopImmediatePropagation();
                 this.hideList();
             }
+        }
+
+        oSelectComboBox.prototype.onCut = function (event) {
+            this.selectOption(event);
         }
 
         oSelectComboBox.prototype.getKeyPressed = function (event) {
