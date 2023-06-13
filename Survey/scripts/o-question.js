@@ -233,7 +233,6 @@ define(['component'],
             }
 
             if (option === null) {
-                this.debug('Could not find the option ' + itemValue + ' to display.', 2);
                 return;
             }
 
