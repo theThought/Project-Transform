@@ -216,8 +216,11 @@ define(['component'],
 
             if (hideMethod === 'filter') {
                 option.classList.add('hidden-filter');
+                option.querySelector('input').disabled = true;
             } else {
                 option.classList.add('hidden-rule');
+                option.tabIndex = -1;
+                option.querySelector('input').disabled = true;
             }
 
             this.sendResizeNotifier(optiongroup);
@@ -244,8 +247,10 @@ define(['component'],
 
             if (hideMethod === 'filter') {
                 option.classList.remove('hidden-filter');
+                option.querySelector('input').disabled = false;
             } else {
                 option.classList.remove('hidden-rule');
+                option.querySelector('input').disabled = false;
             }
 
             this.sendResizeNotifier(optiongroup);
