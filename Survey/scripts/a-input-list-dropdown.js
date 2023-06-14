@@ -36,6 +36,7 @@ define(['component'],
             this.getValue();
             this.setWidth();
             this.disableButtonTabIndex();
+            this.setDroplistSizeAndPosition();
             this.configurationComplete();
         }
 
@@ -101,11 +102,6 @@ define(['component'],
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
                     break;
-                case this.group + "_beginResize":
-                case this.group + "_endResize":
-                    this.setWidth();
-                    this.onEndResize(event);
-                    break;
             }
         }
 
@@ -142,6 +138,14 @@ define(['component'],
 
         aInputListDropdown.prototype.disableButtonTabIndex = function () {
             this.button.tabIndex = -1;
+        }
+
+        aInputListDropdown.prototype.setDroplistSizeAndPosition = function () {
+            var event = new CustomEvent(this.group + '_droplistSize', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(event);
         }
 
         aInputListDropdown.prototype.getValue = function () {

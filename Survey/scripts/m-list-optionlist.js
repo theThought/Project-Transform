@@ -34,6 +34,7 @@ define(['component'],
             this.addEmptyPlaceholder();
             this.addCharRestrictionPlaceholder();
             this.setWidth();
+            this.setPosition();
             this.list = this.buildList();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -46,6 +47,7 @@ define(['component'],
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
+            document.addEventListener(this.group + "_droplistSize", this, false);
         }
 
         mListOptionList.prototype.configureLocalEventListeners = function () {
@@ -55,15 +57,15 @@ define(['component'],
 
         mListOptionList.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case 'resize':
-                case this.group + '_requestSize':
+                case "resize":
+                case this.group + "_requestSize":
                     this.onResize();
                     break;
-                case 'keydown':
+                case "keydown":
                     this.getKeyPressed(event);
                     this.onKeydown(event);
                     break;
-                case 'keyup':
+                case "keyup":
                     this.onKeyup(event);
                     break;
                 case "clearEntries":
@@ -71,6 +73,10 @@ define(['component'],
                     break;
                 case "restoreEntries":
                     this.restoreEntries(event);
+                    break;
+                case this.group + "_droplistSize":
+                    this.setWidth();
+                    this.setPosition();
                     break;
             }
         }
@@ -213,11 +219,18 @@ define(['component'],
         }
 
         mListOptionList.prototype.setWidth = function () {
-            // determine whether a manual width has been set
             if (this.inputelement.style.width.length > 0) {
-                this.element.classList.add('manual-width');
-                this.element.style.width = 'calc(' + this.inputelement.style.width + ' + 44px + 16px)';
+                if (this.inputelement.style.width.indexOf('em') !== -1) {
+                    this.element.style.width = 'calc(' + this.inputelement.style.width + ' + 44px + 16px)';
+                } else {
+                    this.element.style.width = this.inputelement.style.width;
+                }
             }
+        }
+
+        mListOptionList.prototype.setPosition = function () {
+            var inputposition = this.inputelement.parentNode.offsetLeft;
+            this.element.style.left = inputposition + 'px';
         }
 
         mListOptionList.prototype.listsize = function (prop) {
