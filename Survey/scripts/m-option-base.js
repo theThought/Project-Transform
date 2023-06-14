@@ -188,6 +188,7 @@ define(['component'],
 
         mOptionBase.prototype.onClick = function (event) {
 
+            this.checkbox.focus();
             event.preventDefault();
             event.stopPropagation();
 
