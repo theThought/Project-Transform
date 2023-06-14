@@ -16,6 +16,7 @@ define(['component'],
             this.checkbox = this.element.querySelector('input[type=checkbox],input[type=radio]');
             this.textInput = this.element.querySelector('input[type=text]');
             this.label = this.element.querySelector('.a-label-option');
+            this.keypressed = null;
         }
 
         mOptionBase.prototype = Object.create(component.prototype);
@@ -48,6 +49,7 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             this.element.addEventListener("click", this, false);
             this.element.addEventListener("change", this, false);
+            this.element.addEventListener("keydown", this, false);
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
@@ -89,6 +91,28 @@ define(['component'],
                 case this.group + "_endResize":
                     this.onEndResize(event);
                     break;
+                case "keydown":
+                    this.getKeyPressed(event);
+                    this.onKeydown(event);
+                    break;
+            }
+        }
+
+        mOptionBase.prototype.getKeyPressed = function (event) {
+            if (event.keyCode) {
+                this.keypressed = event.keyCode;
+            } else if (event.which) {
+                this.keypressed = event.which;
+            } else if (event.key) {
+                this.keypressed = event.key;
+            } else {
+                this.keypressed = event.code;
+            }
+        }
+
+        mOptionBase.prototype.onKeydown = function (event) {
+            if (this.keypressed === 32 && !this.checkbox.disabled) {
+                this.checkbox.checked = true;
             }
         }
 
@@ -154,6 +178,7 @@ define(['component'],
                     if (this.checkbox.checked) {
                         this.textInput.focus();
                     } else {
+                        this.checkbox.checked = true;
                         this.textInput.placeholder = this.textInput.value;
                         this.textInput.value = '';
                     }
