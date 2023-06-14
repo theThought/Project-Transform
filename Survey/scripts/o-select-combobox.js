@@ -185,11 +185,10 @@ define(['component'],
                 this.clearOptions();
 
                 if (this.hiddenelement.value.length) {
-                    this.hiddenelement.value = '';
+                    this.setHiddenValue('');
                     this.broadcastChange();
                 }
             }
-
         }
 
         oSelectComboBox.prototype.filterListContains = function (inputstring) {
@@ -235,11 +234,10 @@ define(['component'],
                 this.clearOptions();
 
                 if (this.hiddenelement.value.length) {
-                    this.hiddenelement.value = '';
+                    this.setHiddenValue('');
                     this.broadcastChange();
                 }
             }
-
         }
 
         oSelectComboBox.prototype.togglePlaceholderVisibility = function (visibility) {
@@ -425,7 +423,7 @@ define(['component'],
             selectedOption.classList.add('selected');
             selectedOption.setAttribute('data-selected', 'selected');
             this.element.value = this.sanitiseText(selectedOption.innerText);
-            this.hiddenelement.value = selectedOption.getAttribute('data-value');
+            this.setHiddenValue(selectedOption.getAttribute('data-value'));
         }
 
         oSelectComboBox.prototype.clearOptions = function () {
@@ -434,7 +432,12 @@ define(['component'],
                 item.classList.remove('selected');
                 item.removeAttribute('data-selected');
             }
+            this.setHiddenValue('');
             this.broadcastChange();
+        }
+
+        oSelectComboBox.prototype.setHiddenValue = function (valuestring) {
+            this.hiddenelement.value = valuestring;
         }
 
         oSelectComboBox.prototype.restoreOptions = function () {
