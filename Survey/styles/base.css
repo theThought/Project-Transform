@@ -928,6 +928,12 @@ th .a-label-option {
   color: #DA2911;
 }
 
+.m-structure-row-error .a-label-error {
+  display: inline-block;
+  font-size: 14px;
+  margin: 16px 8px 0 8px;
+}
+
 .o-question-instruction {
   color: #0063DE;
 }
