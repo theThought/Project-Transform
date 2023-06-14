@@ -17,7 +17,6 @@ define(['o-question'],
             this.maxwidth = '';
             this.isOnesize = false;
             this.list = null;
-            this.listtype = null;
             this.mincharacters = 0;
             this.element = document.querySelector('div[class*=o-question-list][data-questiongroup="' + this.group + '"]');
             this.inputelement = this.element.querySelector('input.a-input-list-dropdown');
@@ -32,7 +31,6 @@ define(['o-question'],
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureOnesize();
-            this.configureInitialFilter();
             this.configurationComplete();
         }
 
@@ -47,25 +45,6 @@ define(['o-question'],
                 case this.group + "_jumpToLetter":
                     this.jumpToLetter(event);
                     break;
-                case this.group + "_filterList":
-                    this.filterList(event);
-                    break;
-            }
-        }
-
-        oQuestionList.prototype.configureInitialFilter = function () {
-            if (this.listtype !== 'combobox') {
-                return;
-            }
-
-            if (this.inputelement.value.length) {
-                this.filterListStarts(this.inputelement.value);
-                return;
-            }
-
-            if (this.mincharacters > 0) {
-                this.element.classList.add('charrestriction');
-                this.filterListStarts('');
             }
         }
 
@@ -112,92 +91,6 @@ define(['o-question'],
                     itemlabel.click();
                     return;
                 }
-            }
-        }
-
-        oQuestionList.prototype.filterList = function (event) {
-            if (event.detail.questionName !== this.questionName) {
-                return;
-            }
-
-            switch (event.detail.filtermethod) {
-                case 'starts':
-                    this.filterListStarts(event.detail.element.value);
-                    break;
-                case 'contains':
-                    this.filterListContains(event.detail.element.value);
-                    break;
-            }
-        }
-
-        oQuestionList.prototype.filterListContains = function (string) {
-
-            if (string.length < this.mincharacters) {
-                this.element.classList.add('charrestriction');
-                return;
-            }
-
-            string = string.toLowerCase();
-            var visibleitems = this.list.length;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
-                if (itemlabel.indexOf(string.toLowerCase()) !== -1) {
-                    this.list[i].classList.remove('filter-hidden');
-                } else {
-                    this.list[i].classList.add('filter-hidden');
-                    visibleitems--;
-                }
-            }
-
-            if (visibleitems === 0) {
-                //this.clearEntries();
-                this.togglePlaceholderVisibility(true);
-            } else {
-                this.togglePlaceholderVisibility(false);
-            }
-        }
-
-        oQuestionList.prototype.filterListStarts = function (string) {
-
-            if (string.length < this.mincharacters) {
-                //this.clearEntries();
-                this.element.classList.add('charrestriction');
-                string = '';
-            } else {
-                this.element.classList.remove('charrestriction');
-            }
-
-            if (string.length === 0) {
-                //this.clearEntries();
-            }
-
-            string = string.toLowerCase();
-            var visibleitems = this.list.length;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.list[i].querySelector('.a-label-option').innerHTML.toLowerCase();
-                if (itemlabel.indexOf(string) === 0) {
-                    this.list[i].classList.remove('filter-hidden');
-                } else {
-                    this.list[i].classList.add('filter-hidden');
-                    visibleitems--;
-                }
-            }
-
-            if (visibleitems === 0) {
-                //this.clearEntries();
-                this.togglePlaceholderVisibility(true);
-            } else {
-                this.togglePlaceholderVisibility(false);
-            }
-        }
-
-        oQuestionList.prototype.togglePlaceholderVisibility = function (visibility) {
-            if (visibility) {
-                this.element.classList.add('empty');
-            } else {
-                this.element.classList.remove('empty');
             }
         }
 
