@@ -890,8 +890,13 @@ th .a-label-option {
   display: inline-block;
 }
 
+.m-structure-row-error .a-label-total {
+  display: none;
+}
+
 .a-label-total {
   display: inline-block;
+  padding: 10px 6px;
   border: 1px solid transparent;
   height: 19px;
   text-align: right;
