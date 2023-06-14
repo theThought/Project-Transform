@@ -13,7 +13,7 @@
   background: #FFFFFF;
   border: 1px solid #D0DAE6;
   border-bottom-color: #8797C8;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 /*
@@ -268,7 +268,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .overall-progress-bar {
   height: 24px;
   border: 1px solid #D0DAE6;
-  border-radius: 10px;
+  border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 1px;
@@ -288,7 +288,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 }
 .overall-progress-bar td:first-child:not(.mrProgressText) {
   background-color: #D0DAE6;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .overall-progress-bar .mrProgressText {
   display: block;
@@ -430,7 +430,7 @@ button[class^=a-button] {
   -webkit-appearance: none;
   margin: 0 0 12px 0;
   border: 1px solid #455B97;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 4px 1em;
   background-color: #455B97;
   color: #FFFFFF;
@@ -683,7 +683,7 @@ textarea {
   border: 1px solid #8797C8;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 0.5em;
   min-height: 100px;
   color: #757575;
@@ -713,7 +713,7 @@ textarea:focus-within {
  */
 .a-input-singlelineedit {
   padding: 10px 16px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 1px solid #8797C8;
   color: #757575;
   margin: 0 0 0.5em 0;
@@ -838,7 +838,7 @@ input[readonly]:focus-visible {
 .a-label-prelabel + .a-input-singlelineedit,
 .a-label-prelabel + div > .a-input-singlelineedit {
   border-left: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 *[class*=-label-] {
@@ -946,7 +946,7 @@ th .a-label-option {
 .o-question-success *[class*=-label-] {
   display: inline-block;
   padding: 1em 1em 1em 2.5em;
-  border-radius: 10px;
+  border-radius: 4px;
   color: #FFFFFF;
   margin-bottom: 1em;
   background: no-repeat 1em;
@@ -1013,7 +1013,7 @@ th .a-label-option {
 .m-input-singlelineedit .a-label-postlabel {
   display: inline-block;
   border: 1px solid #8797C8;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 4px 4px 0;
   position: relative;
   left: -0.5em;
   background-color: #FAFAFA;
@@ -1027,7 +1027,7 @@ th .a-label-option {
 .m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
   border: 1px solid #8797C8;
-  border-radius: 10px 0 0 10px;
+  border-radius: 4px 0 0 4px;
   background-color: #FAFAFA;
   padding: 10px 16px;
   color: #A0ABCC;
@@ -1154,7 +1154,7 @@ div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
           box-sizing: border-box;
   margin-top: 4px;
   border: 1px solid #455B97;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 0 0 0.5em 0;
   background-color: white;
   z-index: 999;
@@ -1303,7 +1303,7 @@ span.m-input-singlelineedit + script ~ .m-option-base {
   padding: 0 44px 0 16px;
   width: 197px;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
   color: white;
   z-index: 10;
@@ -1680,7 +1680,7 @@ input[type=range]:focus::-ms-fill-lower {
   position: relative;
   display: inline-block;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .o-question-list > div:first-of-type:hover button,
 .o-question-combolist > div:first-of-type:hover button {
@@ -1691,7 +1691,7 @@ input[type=range]:focus::-ms-fill-lower {
   position: relative;
   z-index: 2;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   color: #757575;
   margin-bottom: 0;
   background-color: #FAFAFA;
@@ -1743,7 +1743,7 @@ input[type=range]:focus::-ms-fill-lower {
 
 .o-select-combobox input[type=text] {
   padding: 10px 16px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 1px solid #8797C8;
   color: #757575;
   min-width: 3em;
@@ -1785,7 +1785,7 @@ input[type=range]:focus::-ms-fill-lower {
   margin: 4px 0;
   padding: 0 0 8px 0;
   border: 1px solid #455B97;
-  border-radius: 10px;
+  border-radius: 4px;
   background-color: #FFFFFF;
   display: none;
   position: absolute;
@@ -1850,8 +1850,8 @@ input[type=range]:focus::-ms-fill-lower {
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
   background-color: #D6DDEB;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 .o-structure-table.shade-altcolumns td:nth-child(even),
 .o-structure-table.shade-altcolumns th:nth-child(even) {
@@ -1859,18 +1859,18 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-structure-table.shade-altcolumns tr:first-child td,
 .o-structure-table.shade-altcolumns tr:first-child th {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .o-structure-table.shade-altcolumns tr:last-child td {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .o-structure-table.shade-headerrow th[scope=col],
 .o-structure-table.shade-headerrow td[scope=col] {
   background-color: #D6DDEB;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .o-structure-table.shade-altrows tr:nth-child(even) td,
 .o-structure-table.shade-altrows tr:nth-child(even) th {
@@ -1878,12 +1878,12 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-structure-table.shade-altrows tr:nth-child(even) td:first-child,
 .o-structure-table.shade-altrows tr:nth-child(even) th:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 .o-structure-table.shade-altrows tr:nth-child(even) td:last-child {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .o-structure-table th,
 .o-structure-table .grid-row-total-title,
