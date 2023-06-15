@@ -156,7 +156,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 .has-value .flood-to-value::-moz-range-progress {
-    background-color: globals.$borders-light !important;
+    background-color: globals.$theme-secondary !important;
     height: 16px;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
@@ -182,7 +182,7 @@ input[type=range]::-ms-fill-lower {
 }
 
 .has-value .flood-to-value::-ms-fill-lower {
-    background-color: globals.$borders-light !important;
+    background-color: globals.$theme-secondary !important;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
 }
@@ -219,7 +219,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .has-value .flood-to-value:focus::-ms-fill-lower {
-    background: globals.$borders-light !important;
+    background: globals.$theme-secondary !important;
 }
 
 @supports (-ms-ime-align:auto) {
