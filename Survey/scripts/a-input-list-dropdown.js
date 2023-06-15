@@ -23,13 +23,13 @@ define(['component'],
             this.filtermethod = 'contains';
             this.lastselectedvalue = '';
             this.defaultPlaceholder = 'Select';
-            this.manualWidth = this.checkManualWidth();
         }
 
         aInputListDropdown.prototype = Object.create(component.prototype);
         aInputListDropdown.prototype.constructor = aInputListDropdown;
 
         aInputListDropdown.prototype.init = function () {
+            this.manualWidth = this.checkManualWidth();
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -46,8 +46,6 @@ define(['component'],
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener("broadcastChange", this, false);
-            document.addEventListener(this.group + "_beginResize", this, false);
-            document.addEventListener(this.group + "_endResize", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("click", this, false);
         }
@@ -120,7 +118,7 @@ define(['component'],
             this.element.size = Math.max(this.defaultPlaceholder.length, 1);
             var inputwidth = this.element.offsetWidth;
             var droplistwidth = this.droplist.offsetWidth;
-            var errormargin = 4;
+            var errormargin = 4; // element.size is font-specific and needs a little safety margin
 
             this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
             this.button.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
@@ -149,16 +147,12 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.getValue = function () {
-            var options = this.droplist.querySelectorAll('input[type=checkbox], input[type=radio]');
+            var selectedOption = this.droplist.querySelector('input:checked');
 
-            for (var i = 0; i < options.length; i++) {
-                var element = options[i];
-                if (element.checked) {
-                    // the label for the selected item is expected to be the immediately adjacent element
-                    var labelElement = element.nextElementSibling;
-                    this.lastselectedvalue = labelElement.getElementsByClassName('a-label-option')[0].innerHTML;
-                    this.element.value = this.lastselectedvalue;
-                }
+            if (selectedOption !== null) {
+                var labelElement = selectedOption.nextElementSibling;
+                this.lastselectedvalue = labelElement.getElementsByClassName('a-label-option')[0].innerHTML;
+                this.element.value = this.lastselectedvalue;
             }
         }
 
@@ -175,40 +169,6 @@ define(['component'],
             this.removeFocus();
         }
 
-        aInputListDropdown.prototype.onEndResize = function (event) {
-
-            // temporarily retire this method while investigating if this should be supported
-            if (true) {
-                return;
-            }
-
-            if (event.detail.group !== this.group) {
-                return;
-            }
-
-            if (this.manualWidth) {
-                return;
-            }
-
-            // TODO: this assumes that the style will always be in pixels
-            // make sure this is always comparing like with like
-            var manualwidth = this.element.style.width.replace(/\D/g, '');
-
-            // TODO: resolve zero-width resize issue
-            // this is a temporary measure while track down why I'm receiving zero-width resize requests
-            if (event.detail.widest === 0) {
-                return;
-            }
-
-            if (event.detail.widest <= manualwidth) {
-                return;
-            }
-
-            var buttonwidth = 0;
-            this.element.style.width = (event.detail.widest + buttonwidth) + 'px';
-
-        }
-
         aInputListDropdown.prototype.placeholder = function (prop) {
             this.defaultPlaceholder = prop;
             this.element.placeholder = this.defaultPlaceholder;
@@ -222,17 +182,20 @@ define(['component'],
 
             if (prop === 'combobox') {
                 this.editable = true;
+                this.debug('Unsupported old-style of combobox was used', 2);
             }
         }
 
         aInputListDropdown.prototype.receiveBroadcast = function (event) {
-            if (event.detail.group === this.group) {
-                if (typeof event.detail.checkbox !== "undefined") {
+            if (event.detail.group !== this.group) {
+                return;
+            }
 
-                    if (event.detail.checkbox.checked) {
-                        this.element.value = event.detail.label.textContent;
-                        this.lastselectedvalue = event.detail.label.textContent;
-                    }
+            if (typeof event.detail.checkbox !== "undefined") {
+
+                if (event.detail.checkbox.checked) {
+                    this.element.value = event.detail.label.textContent;
+                    this.lastselectedvalue = event.detail.label.textContent;
                 }
             }
         }
@@ -294,10 +257,6 @@ define(['component'],
                 || (this.editable && this.droplist.contains(event.target))) {
                 event.stopPropagation();
                 return;
-            }
-
-            if (this.editable) {
-                this.restoreSelection();
             }
 
             this.removeFocus();
@@ -390,8 +349,6 @@ define(['component'],
             switch (this.keypressed) {
                 case 13: // enter key
                     return;
-                default:
-                    this.processFilterList();
             }
 
             this.showList();
@@ -415,15 +372,6 @@ define(['component'],
             }
 
             var keyEvent = new CustomEvent(this.group + '_jumpToLetter', {bubbles: true, detail: this});
-            this.element.dispatchEvent(keyEvent);
-        }
-
-        aInputListDropdown.prototype.processFilterList = function () {
-            if (!this.editable) {
-                return;
-            }
-
-            var keyEvent = new CustomEvent(this.group + '_filterList', {bubbles: true, detail: this});
             this.element.dispatchEvent(keyEvent);
         }
 

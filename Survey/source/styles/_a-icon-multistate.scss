@@ -61,7 +61,7 @@ div[data-readonly="true"] input[type=radio]:checked + label > .a-icon-multistate
 }
 
 // option lists will not show icons by default
-div.o-question-list:not(.display-icons) .m-list-optionlist .a-icon-multistate {
+.m-list-optionlist:not(.display-icons) .a-icon-multistate {
     display: none;
 }
 

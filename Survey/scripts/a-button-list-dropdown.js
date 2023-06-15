@@ -29,12 +29,6 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
         }
 
-        aButtonListDropdown.prototype.type = function (prop) {
-            if (prop === 'combobox') {
-                this.element.style.display = 'none';
-            }
-        }
-
         aButtonListDropdown.prototype.handleEvent = function (event) {
             switch (event.type) {
 

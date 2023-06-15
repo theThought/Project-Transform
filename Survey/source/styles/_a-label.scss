@@ -346,7 +346,7 @@ div[data-readonly="true"] .m-option-base .a-label-option {
     width: calc(100% - 1.5em);
 }
 
-div.o-question-list:not(.display-icons) .m-list-optionlist .a-label-option {
+.m-list-optionlist:not(.display-icons) .a-label-option {
     padding-left: 0;
     width: 100%;
 }

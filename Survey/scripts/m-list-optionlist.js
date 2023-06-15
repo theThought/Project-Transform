@@ -32,6 +32,9 @@ define(['component'],
             this.setWidth();
             this.setPosition();
             this.list = this.buildList();
+            this.indexList();
+            this.setCurrentListPosition();
+            this.updateScrollPosition(this.getCurrentListPosition());
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configureOnesize();
@@ -44,6 +47,7 @@ define(['component'],
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
             document.addEventListener(this.group + "_droplistSize", this, false);
+            document.addEventListener(this.group + "_jumpToLetter", this, false);
         }
 
         mListOptionList.prototype.configureLocalEventListeners = function () {
@@ -74,6 +78,43 @@ define(['component'],
                     this.setWidth();
                     this.setPosition();
                     break;
+                case this.group + "_jumpToLetter":
+                    this.jumpToLetter(event);
+                    break;
+            }
+        }
+
+        mListOptionList.prototype.jumpToLetter = function (event) {
+            if (event.detail.questionName !== this.questionName) {
+                return;
+            }
+
+            var char = String.fromCharCode(event.detail.keypressed).toLowerCase();
+            var curchar = this.inputelement.value.substring(0,1).toLowerCase();
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.list[i].querySelector('.a-label-option');
+                var firstletter = itemlabel.innerHTML.substring(0, 1).toLowerCase();
+
+                if (firstletter === char) {
+                    var input = itemlabel.parentNode.parentNode.querySelector('input');
+
+                    if (input.checked) {
+                        continue;
+                    } else if (firstletter === curchar && this.list[i].getAttribute('data-list-position') < this.getCurrentListPosition()) {
+                        continue;
+                    } else {
+                        this.setCurrentListPosition(this.list[i].getAttribute('data-list-position'));
+                        itemlabel.parentNode.parentNode.querySelector('input').checked = true;
+                        return;
+                    }
+                }
+            }
+        }
+
+        mListOptionList.prototype.displayicon = function (prop) {
+            if (prop === true) {
+                this.element.classList.add('display-icons');
             }
         }
 
@@ -82,7 +123,7 @@ define(['component'],
                 return;
             }
 
-            this.currentlistposition = -1;
+            this.setCurrentListPosition(-1);
         }
 
         mListOptionList.prototype.restoreEntries = function (event) {
@@ -90,11 +131,39 @@ define(['component'],
                 return;
             }
 
-            this.currentlistposition = -1;
+            this.setCurrentListPosition();
         }
 
         mListOptionList.prototype.buildList = function () {
             return this.element.querySelectorAll('.m-option-base');
+        }
+
+        mListOptionList.prototype.indexList = function () {
+            for (var i = 0; i < this.list.length; i++) {
+                this.list[i].setAttribute('data-list-position', i);
+                this.list[i].querySelector('input').tabIndex = -1;
+            }
+        }
+
+        mListOptionList.prototype.setCurrentListPosition = function (position) {
+            if (typeof position !== 'undefined') {
+                this.currentlistposition = parseInt(position);
+                return;
+            }
+
+            for (var i = 0; i < this.list.length; i++) {
+                var curelement = this.list[i];
+                var element = curelement.querySelector('input:checked');
+
+                if (element !== null) {
+                    this.currentlistposition = i;
+                    return;
+                }
+            }
+        }
+
+        mListOptionList.prototype.getCurrentListPosition = function () {
+            return parseInt(this.currentlistposition);
         }
 
         mListOptionList.prototype.hideList = function () {
@@ -116,58 +185,62 @@ define(['component'],
 
         mListOptionList.prototype.onKeydown = function (event) {
             switch (this.keypressed) {
-                case 38: // up arrow
-                case 40: // down arrow
-                    event.preventDefault(); // prevent caret from moving
-                    break;
                 case 13: // enter key
                     event.stopImmediatePropagation();
                     event.preventDefault();
                     this.hideList();
                     break;
-            }
-        }
-
-        mListOptionList.prototype.onKeyup = function () {
-            switch (this.keypressed) {
                 case 38: // up arrow
                     this.navigateUp();
                     break;
                 case 40: // down arrow
                     this.navigateDown();
                     break;
-                case 13: // enter key
-                    return;
+            }
+        }
+
+        mListOptionList.prototype.onKeyup = function () {
+            switch (this.keypressed) {
+                case 13:
+                case 38:
+                case 40:
+                    break;
+                default:
+                    this.updateSelectedEntry(this.getCurrentListPosition());
+                    this.updateScrollPosition(this.getCurrentListPosition());
             }
         }
 
         mListOptionList.prototype.navigateUp = function () {
-            if (this.currentlistposition < 1) {
+            if (this.getCurrentListPosition() < 1) {
                 return;
             }
 
-            this.currentlistposition--;
+            this.setCurrentListPosition(this.getCurrentListPosition()-1);
 
-            if (this.currentlistposition === -1) {
+            if (this.getCurrentListPosition() === -1) {
                 return;
             }
 
-            this.updateSelectedEntry(this.currentlistposition);
-            this.updateScrollPosition(this.currentlistposition);
+            this.updateSelectedEntry(this.getCurrentListPosition());
+            this.updateScrollPosition(this.getCurrentListPosition());
         }
 
         mListOptionList.prototype.navigateDown = function () {
-            if (this.currentlistposition === this.list.length - 1) {
+            if (this.getCurrentListPosition() === this.list.length - 1) {
                 return;
             }
 
-            this.currentlistposition++;
-
-            this.updateSelectedEntry(this.currentlistposition);
-            this.updateScrollPosition(this.currentlistposition);
+            this.setCurrentListPosition(this.getCurrentListPosition()+1);
+            this.updateSelectedEntry(this.getCurrentListPosition());
+            this.updateScrollPosition(this.getCurrentListPosition());
         }
 
         mListOptionList.prototype.updateScrollPosition = function (position) {
+            if (position === -1) {
+                return;
+            }
+
             this.element.scrollTop = 0; //set to top
             var currentitem = this.list[position];
             var scrollposition = currentitem.offsetTop - this.element.clientHeight;
