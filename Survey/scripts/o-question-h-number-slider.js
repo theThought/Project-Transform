@@ -146,7 +146,12 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.showMarks = function () {
             var marksElement = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-style-slidermarks');
-            var step = this.properties.ticklabels ? this.properties.ticklabels * 10 : 10;
+
+            var min = this.element.min ? parseInt(this.element.min) : 0;
+            var max = this.element.max ? parseInt(this.element.max) : 100;
+
+            var step = 100/(max-min);
+            //var step = this.properties.ticklabels ? this.properties.ticklabels * 10 : 100;
 
             marksElement.style.background = 'repeating-linear-gradient(90deg, ' +
                 '#8797C8 0, ' +
