@@ -149,9 +149,7 @@ define(['o-question'],
 
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
-
-            var step = 100/(max-min);
-            //var step = this.properties.ticklabels ? this.properties.ticklabels * 10 : 100;
+            var step = (this.properties.step) ? parseInt(this.properties.step) + parseFloat(this.properties.step / 40) : 100/Math.abs(min - max);
 
             marksElement.style.background = 'repeating-linear-gradient(90deg, ' +
                 '#8797C8 0, ' +
@@ -191,15 +189,16 @@ define(['o-question'],
             for (var i = min; i <= max; i = i + step) {
                 labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
             }
-
-            // sets the step increment of the range control to the ticklabel interval
-            // this.element.step = props;
         }
 
         oQuestionHNumberSlider.prototype.floodtovalue = function (val) {
             if (val === true) {
                 this.element.classList.add('flood-to-value');
             }
+        }
+
+        oQuestionHNumberSlider.prototype.step = function (prop) {
+            this.element.step = prop;
         }
 
         oQuestionHNumberSlider.prototype.labels = function (props) {
