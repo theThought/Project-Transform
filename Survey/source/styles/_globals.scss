@@ -6,47 +6,47 @@ $theme-secondary-hover: #317474;
 $primary-font: 'Karla', sans-serif;
 $secondary-font: "Merriweather", serif;
 
-$background: #FAFAFA;
-$background-dark: #F2F8FE;
+$white: #FAFAFA;
+$lightest: #F2F8FE;
+$light1: #ECEFF5;
+$light2: #D6DDEB;
+$light3: #8797C8;
+$dark1: #A0ABCC;
+$dark2: #324371;
+$darkest: #212C4C;
 
-$icons-light: #ECEFF5;
-$icons-mid: #D6DDEB;
-$icons-dark: #57699C;
+$background: $white;
+$background-dark: $lightest;
 
-$borders-light: #D0DAE6;
-$borders: #8797C8;
-$borders-hover: #57699C;
-$labels: #324371;
-$titles: #212C4C;
+$icons-light: $light1;
+$icons-mid: $light2;
+$icons-dark: $dark1;
 
-$information-text: #0063DE;
-$information-bg: #C2DBFC;
+$borders: $light3;
+$borders-light: $light3;
+$borders-hover: $theme-primary;
+$labels: $dark2;
+$titles: $darkest;
 
-$success-text: #007675;
-$success-bg: #469B9B;
+$information: #C2DBFC;
+$success: #469B9B;
+$warning: #E8BE5D;
+$error: #DA2911;
 
-$warning-text: #91690B;
-$warning-bg: #E8BE5D;
+$other1: #7A3996;
+$other2: #DEC7E8;
 
-$error-text: #DA2911;
-$error-bg: #DA2911;
-
-$other-1: #7A3996;
-$other-2: #DEC7E8;
-
-$white: #FFFFFF;
-$placeholder: #CCCCCC;
-$input-text: #757575;
-$pre-post-text: #A0ABCC;
-$disabled-text: #9CADCB;
-$disabled-text-2: #B2B7BF;
+$placeholder: $other1;
+$input-text: $theme-secondary;
+$pre-post-text: $theme-primary-hover;
+$disabled-text: $theme-secondary;
+$disabled-background: $light1;
 
 $border-radius: 4px;
 
 $min-device-width: 375px;
 $min-page-margin: 16px;
 $min-display-width: $min-device-width - ($min-page-margin*2);
-
 $max-display-width: 1660px;
 
 $default-input-width: 197px;

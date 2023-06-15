@@ -94,7 +94,7 @@ th .a-label-option {
 
 // callout and warning labels
 .a-label-error {
-    color: globals.$error-text;
+    color: globals.$error;
 }
 
 // label within table
@@ -106,7 +106,7 @@ th .a-label-option {
 
 
 .o-question-instruction {
-    color: globals.$information-text;
+    color: globals.$information;
 
     p {
         margin: .5em 0;
@@ -129,17 +129,17 @@ th .a-label-option {
 
 .o-question-error *[class*=-label-] {
     background-image: url("/Survey/images/error.png");
-    background-color: globals.$error-bg;
+    background-color: globals.$error;
 }
 
 .o-question-warning *[class*=-label-] {
     background-image: url("/Survey/images/warning.png");
-    background-color: globals.$warning-bg;
+    background-color: globals.$warning;
 }
 
 .o-question-success *[class*=-label-] {
     background-image: url("/Survey/images/success.png");
-    background-color: globals.$success-bg;
+    background-color: globals.$success;
 }
 
 .focused {

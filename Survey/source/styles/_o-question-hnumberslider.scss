@@ -108,7 +108,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .active input[type=range]::-webkit-slider-thumb {
-    border-color: globals.$other-1;
+    border-color: globals.$other1;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -141,7 +141,7 @@ input[type=range]::-moz-range-track {
 }
 
 .active input[type=range]::-moz-range-thumb {
-    border-color: globals.$other-1;
+    border-color: globals.$other1;
 }
 
 input[type=range]::-moz-range-thumb {
@@ -194,7 +194,7 @@ input[type=range]::-ms-fill-upper {
 }
 
 .active input[type=range]::-ms-thumb {
-    border-color: globals.$other-1;
+    border-color: globals.$other1;
 }
 
 input[type=range]::-ms-thumb {
