@@ -44,8 +44,11 @@
 
 .sidebyside .o-question-response {
     flex: 1;
-    flex-grow: 0;
     flex-basis: auto;
+}
+
+.sidebyside .o-question-response[data-position="side"] {
+    flex-grow: 0;
 }
 
 .sidebyside .o-question-response + .o-question-response {
