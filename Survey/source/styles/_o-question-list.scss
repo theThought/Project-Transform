@@ -28,7 +28,7 @@
         border-radius: globals.$border-radius;
         color: globals.$input-text;
         margin-bottom: 0;
-        background-color: globals.$background;
+        background-color: globals.$input-background;
         min-width: 3em;
         max-width: 100%;
         box-sizing: content-box;
@@ -39,11 +39,11 @@
 
     .a-input-list-dropdown:hover:not(:read-only),
     .a-input-list-dropdown:focus:not(:read-only) {
-        color: globals.$borders-hover;
+        color: globals.$borders-active;
     }
 
     .a-input-list-dropdown:focus:not(:read-only) {
-        border-color: globals.$borders-hover;
+        border-color: globals.$borders-active;
     }
 
     .a-input-list-dropdown:focus-visible {

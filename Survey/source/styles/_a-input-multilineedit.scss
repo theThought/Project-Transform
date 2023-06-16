@@ -2,7 +2,7 @@
 
 textarea {
     width: 100%;
-    background: globals.$background;
+    background: globals.$input-background;
     border: 1px solid globals.$borders;
     box-sizing: border-box;
     border-radius: globals.$border-radius;
@@ -16,7 +16,7 @@ textarea:active,
 textarea:focus,
 textarea:hover {
     outline: none;
-    //color: globals.$borders-hover;
+    //color: globals.$borders-active;
 }
 
 textarea:focus  {
@@ -27,5 +27,5 @@ textarea:focus-visible,
 textarea:focus-within  {
     outline: none;
     border-color: globals.$theme-primary;
-    //color: globals.$borders-hover;
+    //color: globals.$borders-active;
 }

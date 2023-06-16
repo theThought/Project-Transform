@@ -11,7 +11,7 @@
   position: relative;
   color: #449B9B;
   background: #FAFAFA;
-  border: 1px solid #8797C8;
+  border: 1px solid #B4BDDB;
   border-bottom-color: #8797C8;
   border-radius: 4px;
 }
@@ -267,7 +267,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .overall-progress-bar {
   height: 24px;
-  border: 1px solid #8797C8;
+  border: 1px solid #B4BDDB;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -287,7 +287,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   position: relative;
 }
 .overall-progress-bar td:first-child:not(.mrProgressText) {
-  background-color: #8797C8;
+  background-color: #B4BDDB;
   border-radius: 4px;
 }
 .overall-progress-bar .mrProgressText {
@@ -679,7 +679,7 @@ div[data-readonly=true] input[type=radio]:checked + label > .a-icon-multistate {
 
 textarea {
   width: 100%;
-  background: #FAFAFA;
+  background: #FFFFFF;
   border: 1px solid #8797C8;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -717,7 +717,7 @@ textarea:focus-within {
   margin: 0 0 0.5em 0;
   width: 197px;
   height: 19px;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
 }
@@ -781,7 +781,7 @@ textarea:focus-within {
 .read-only .a-input-singlelineedit,
 .a-input-singlelineedit.read-only {
   /*border: transparent !important;*/
-  border-color: #8797C8 !important;
+  border-color: #B4BDDB !important;
   background: #ECEFF5;
   cursor: default;
 }
@@ -1010,7 +1010,7 @@ th .a-label-option {
   border-radius: 0 4px 4px 0;
   position: relative;
   left: -0.5em;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   padding: 10px 16px;
   color: #324371;
   white-space: nowrap;
@@ -1022,7 +1022,7 @@ th .a-label-option {
   display: inline-block;
   border: 1px solid #8797C8;
   border-radius: 4px 0 0 4px;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   padding: 10px 16px;
   color: #324371;
   white-space: nowrap;
@@ -1688,7 +1688,7 @@ input[type=range]:focus::-ms-fill-lower {
   border-radius: 4px;
   color: #449B9B;
   margin-bottom: 0;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   min-width: 3em;
   max-width: 100%;
   -webkit-box-sizing: content-box;
@@ -1743,7 +1743,7 @@ input[type=range]:focus::-ms-fill-lower {
   min-width: 3em;
   width: 197px;
   height: 19px;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
 }
@@ -1951,7 +1951,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-question-container:not(.no-separator) {
-  border-bottom: 1px solid #8797C8;
+  border-bottom: 1px solid #B4BDDB;
 }
 
 .surroundcontent > div:last-child {

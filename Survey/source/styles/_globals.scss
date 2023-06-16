@@ -1,32 +1,20 @@
+$primary-font: 'Karla', sans-serif;
+$secondary-font: "Merriweather", serif;
+
 $theme-primary: #455B97;
 $theme-primary-hover: #324371;
 $theme-secondary: #449B9B;
 $theme-secondary-hover: #317474;
 
-$primary-font: 'Karla', sans-serif;
-$secondary-font: "Merriweather", serif;
-
 $white: #FAFAFA;
 $lightest: #F2F8FE;
 $light1: #ECEFF5;
 $light2: #D6DDEB;
-$light3: #8797C8;
+$light3: #B4BDDB;
+$light4: #8797C8;
 $dark1: #A0ABCC;
 $dark2: #324371;
 $darkest: #212C4C;
-
-$background: $white;
-$background-dark: $lightest;
-
-$icons-light: $light1;
-$icons-mid: $light2;
-$icons-dark: $dark1;
-
-$borders: $light3;
-$borders-light: $light3;
-$borders-hover: $theme-primary;
-$labels: $dark2;
-$titles: $darkest;
 
 $information: #C2DBFC;
 $success: #469B9B;
@@ -36,8 +24,21 @@ $error: #DA2911;
 $other1: #7A3996;
 $other2: #DEC7E8;
 
+$background: $white;
+
+$icons-light: $light1;
+$icons-mid: $light2;
+$icons-dark: $dark1;
+
+$borders: $light4;
+$borders-active: $theme-primary;
+$borders-light: $light3;
+$labels: $dark2;
+$titles: $darkest;
+
 $placeholder: $other1;
 $input-text: $theme-secondary;
+$input-background: #FFFFFF;
 $pre-post-text: $theme-primary-hover;
 $disabled-text: $theme-secondary;
 $disabled-background: $light1;

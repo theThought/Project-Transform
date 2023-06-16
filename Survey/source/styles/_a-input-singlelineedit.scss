@@ -13,7 +13,7 @@ $default-text-width: globals.$default-input-width;
     margin: 0 0 .5em 0;
     width: $default-text-width;
     height: 19px;
-    background-color: globals.$background;
+    background-color: globals.$input-background;
     box-sizing: content-box;
 }
 
@@ -109,7 +109,7 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):hover,
 .a-input-singlelineedit:not([readonly]):focus {
-    //color: globals.$borders-hover;
+    //color: globals.$borders-active;
 }
 
 .a-input-singlelineedit:not([readonly]):focus {
