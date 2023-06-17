@@ -46,10 +46,14 @@ define(['component', 'pikaday'],
 
         aInputSingleLineEdit.prototype.configureLocalEventListeners = function  () {
             this.element.addEventListener("click", this, false);
+            this.element.addEventListener("keydown", this, false);
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case "keydown":
+                    this.onKeydown(event);
+                    break;
                 case "click":
                     this.onClick(event);
                     break;
@@ -248,6 +252,10 @@ define(['component', 'pikaday'],
 
                 this.wrapper.appendChild(postElement);
             }
+        }
+
+        aInputSingleLineEdit.prototype.onKeydown = function (event) {
+            event.stopPropagation();
         }
 
         aInputSingleLineEdit.prototype.onClick = function (event) {
