@@ -25,10 +25,57 @@ define(['component', 'pikaday'],
         aInputSingleLineEdit.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.setReadOnly();
             this.configurationComplete();
+        }
+
+        aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
+            // for each event listener there must be a corresponding event handler
+            document.addEventListener("change", this, false);
+            document.addEventListener("keyup", this, false);
+            document.addEventListener("clearEntries", this, false);
+            document.addEventListener("restoreEntries", this, false);
+            document.addEventListener("focusin", this, false);
+            document.addEventListener("focusout", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
+            document.addEventListener("broadcastChange", this, false);
+        }
+
+        aInputSingleLineEdit.prototype.configureLocalEventListeners = function  () {
+            this.element.addEventListener("click", this, false);
+        }
+
+        aInputSingleLineEdit.prototype.handleEvent = function (event) {
+            switch (event.type) {
+                case "click":
+                    this.onClick(event);
+                    break;
+                case "keyup":
+                case "change":
+                    this.onChange(event);
+                    break;
+                case "clearEntries":
+                    this.clearEntries(event);
+                    break;
+                case "restoreEntries":
+                    this.restoreEntries(event);
+                    break;
+                case "focusin":
+                    this.onFocusIn(event);
+                    break;
+                case "focusout":
+                    this.onFocusOut(event);
+                    break;
+                case this.group + "_enableExclusive":
+                    this.onEnableExclusive();
+                    break;
+                case 'broadcastChange':
+                    this.processVisibilityRulesFromExternalTrigger(event);
+                    break;
+            }
         }
 
         aInputSingleLineEdit.prototype.makeAvailable = function () {
@@ -203,43 +250,8 @@ define(['component', 'pikaday'],
             }
         }
 
-        aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
-            // for each event listener there must be a corresponding event handler
-            document.addEventListener("change", this, false);
-            document.addEventListener("keyup", this, false);
-            document.addEventListener("clearEntries", this, false);
-            document.addEventListener("restoreEntries", this, false);
-            document.addEventListener("focusin", this, false);
-            document.addEventListener("focusout", this, false);
-            document.addEventListener(this.group + "_enableExclusive", this, false);
-            document.addEventListener("broadcastChange", this, false);
-        }
-
-        aInputSingleLineEdit.prototype.handleEvent = function (event) {
-            switch (event.type) {
-                case "keyup":
-                case "change":
-                    this.onChange(event);
-                    break;
-                case "clearEntries":
-                    this.clearEntries(event);
-                    break;
-                case "restoreEntries":
-                    this.restoreEntries(event);
-                    break;
-                case "focusin":
-                    this.onFocusIn(event);
-                    break;
-                case "focusout":
-                    this.onFocusOut(event);
-                    break;
-                case this.group + "_enableExclusive":
-                    this.onEnableExclusive();
-                    break;
-                case 'broadcastChange':
-                    this.processVisibilityRulesFromExternalTrigger(event);
-                    break;
-            }
+        aInputSingleLineEdit.prototype.onClick = function (event) {
+            event.stopPropagation();
         }
 
         aInputSingleLineEdit.prototype.onChange = function (event) {

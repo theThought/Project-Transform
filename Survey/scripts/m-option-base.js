@@ -178,7 +178,6 @@ define(['component'],
                     if (this.checkbox.checked) {
                         this.textInput.focus();
                     } else {
-                        this.checkbox.checked = true;
                         this.textInput.placeholder = this.textInput.value;
                         this.textInput.value = '';
                     }
@@ -245,6 +244,11 @@ define(['component'],
                     this.checkbox.checked = false;
                     this.broadcastChange();
                 }
+            }
+
+            if (event.detail.element === this.textInput) {
+                this.checkbox.checked = true;
+                this.broadcastChange();
             }
         }
 
