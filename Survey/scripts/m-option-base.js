@@ -112,11 +112,17 @@ define(['component'],
 
         mOptionBase.prototype.onKeydown = function (event) {
             if (this.keypressed === 32 && !this.checkbox.disabled) {
-                this.checkbox.checked = true;
+                if (this.checkbox.type === 'radio') {
+                    this.checkbox.checked = true;
+                } else {
+                    this.checkbox.checked = !this.checkbox.checked;
+                }
+
+                this.broadcastChange();
             }
         }
 
-        mOptionBase.prototype.configureReadonly = function() {
+        mOptionBase.prototype.configureReadonly = function () {
             if (!this.isReadOnly) {
                 return;
             }
