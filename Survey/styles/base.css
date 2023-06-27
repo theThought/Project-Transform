@@ -918,6 +918,15 @@ th .a-label-option {
   margin-bottom: 0;
 }
 
+.focused .grid-row-total .a-label-prelabel,
+.focused .grid-row-total .a-label-postlabel,
+.focused .grid-column-total .a-label-prelabel,
+.focused .grid-column-total .a-label-postlabel,
+.focused .grid-grandtotal .a-label-prelabel,
+.focused .grid-grandtotal .a-label-postlabel {
+  border: none !important;
+}
+
 .a-label-error {
   color: #DA2911;
 }
@@ -1913,13 +1922,14 @@ input[type=range]:focus::-ms-fill-lower {
   border-left: 1px solid #212C4C;
   vertical-align: top;
 }
-.o-structure-table .grid-row-total {
-  /* This should be unnecessary now that child elements correctly size */
-  /* padding-top: 1.2em; */
-}
 .o-structure-table .grid-row-total,
 .o-structure-table .grid-grandtotal {
   text-align: right;
+}
+.o-structure-table .grid-row-total,
+.o-structure-table .grid-column-total,
+.o-structure-table .grid-grandtotal {
+  white-space: nowrap;
 }
 .o-structure-table .grid-grandtotal {
   padding-top: 0.5em;

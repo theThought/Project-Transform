@@ -428,6 +428,10 @@ define(['component'],
                     totalcell.className = 'm-structure-cell grid-row-total';
                     totalcell.classList.add('align-' + figurealign);
 
+                    if (this.grid.rows[i].classList.contains('m-structure-row-error')) {
+                        continue;
+                    }
+
                     if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
                         continue;
                     }
