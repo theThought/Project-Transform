@@ -12,6 +12,9 @@
          <xsl:when test='Questions/Question[1]/Style/Control/@ReadOnly'>
             <xsl:value-of select='true()' />
          </xsl:when>
+         <xsl:when test="$bShowOnly='true()'">
+            <xsl:value-of select='true()' />
+         </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select='false()' />
          </xsl:otherwise>
