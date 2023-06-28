@@ -35,6 +35,29 @@
         line-height: 40px;
         padding: 0 44px 0 16px;
         height: 40px;
+
+        &::-moz-placeholder {
+            color: globals.$white;
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            color: globals.$white;
+            opacity: 1;
+        }
+
+        &::placeholder {
+            color: globals.$white;
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            color: globals.$white;
+        }
+
+        &::-ms-input-placeholder {
+            color: globals.$white;
+        }
     }
 
     .a-input-list-dropdown:hover:not(:read-only),
@@ -51,7 +74,7 @@
     }
 
     .a-input-list-dropdown.readonly {
-        color: white;
+        color: globals.$white;
         background: transparent;
         cursor: default;
 
