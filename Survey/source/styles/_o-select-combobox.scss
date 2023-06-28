@@ -108,3 +108,9 @@ $default-text-width: globals.$default-input-width;
     }
 
 }
+
+.focus-control {
+    .o-select-combobox ul {
+        box-shadow: globals.$drop-shadow;
+    }
+}

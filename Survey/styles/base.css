@@ -1894,6 +1894,11 @@ input[type=range]:focus::-ms-fill-lower {
   display: none;
 }
 
+.focus-control .o-select-combobox ul {
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+}
+
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
