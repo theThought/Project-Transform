@@ -708,6 +708,11 @@ textarea:focus-within {
   border-color: #455B97;
 }
 
+.focus-control textarea:focus {
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+}
+
 /* a-input-singlelineedit
  * essential styling for the fundamental HTML input element
  */
@@ -1410,7 +1415,6 @@ select::-ms-expand {
 }
 
 .o-question-response {
-  overflow-x: auto;
   overflow-y: visible;
 }
 .o-question-response[data-hidden=true] * {
@@ -2163,6 +2167,11 @@ body > form {
 
 input:disabled {
   opacity: 1;
+}
+
+.focus-control input:focus {
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
 }
 
 /* Standardises the placeholder colour - these rules cannot be combined */
