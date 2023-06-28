@@ -160,6 +160,23 @@ define(['o-question'],
 
         }
 
+        oQuestionHNumberSlider.prototype.ticklabels = function () {
+            // add a class to the parent which adds additional space for the thumb
+            this.organism.classList.add('has-tick-labels');
+
+            var labelsElement = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-label-ticklabels');
+
+            var min = this.element.min ? parseInt(this.element.min) : 0;
+            var max = this.element.max ? parseInt(this.element.max) : 100;
+            var step = isNaN(parseInt(this.properties.ticklabels)) ? 10 : parseInt(this.properties.ticklabels);
+
+            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
+
+            for (var i = min; i <= max; i = i + step) {
+                labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
+            }
+        }
+
         oQuestionHNumberSlider.prototype.showValue = function () {
             this.organism.classList.add('has-thumb-value');
         }
@@ -172,23 +189,6 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.showTerminators = function () {
             this.organism.classList.add('has-terminators');
-        }
-
-        oQuestionHNumberSlider.prototype.ticklabels = function () {
-            // add a class to the parent which adds additional space for the thumb
-            this.organism.classList.add('has-tick-labels');
-
-            var labelsElement = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-label-ticklabels');
-
-            var min = this.element.min ? parseInt(this.element.min) : 0;
-            var max = this.element.max ? parseInt(this.element.max) : 100;
-
-            var step = isNaN(parseInt(this.properties.ticklabels)) ? 10 : parseInt(this.properties.ticklabels);
-            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
-
-            for (var i = min; i <= max; i = i + step) {
-                labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
-            }
         }
 
         oQuestionHNumberSlider.prototype.floodtovalue = function (val) {
@@ -221,29 +221,6 @@ define(['o-question'],
 
                 this.organism.classList.add('has-post-label');
                 this.organism.appendChild(postElement);
-            }
-        }
-
-        oQuestionHNumberSlider.prototype.old_labels = function (props) {
-
-            if (props['pre']) {
-                var preElement = document.createElement('span');
-                preElement.className = 'a-label-prelabel';
-                var preContent = document.createTextNode(props['pre']);
-                preElement.appendChild(preContent);
-
-                this.organism.classList.add('has-pre-label');
-                this.wrapper.insertBefore(preElement, this.element);
-            }
-
-            if (props['post']) {
-                var postElement = document.createElement('span');
-                postElement.className = 'a-label-postlabel';
-                var postContent = document.createTextNode(props['post']);
-                postElement.appendChild(postContent);
-
-                this.organism.classList.add('has-post-label');
-                this.wrapper.insertBefore(postElement, this.element.nextSibling);
             }
         }
 
