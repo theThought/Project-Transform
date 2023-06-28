@@ -13,16 +13,20 @@ define(['component', 'pikaday'],
             component.call(this, id, group);
 
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
+            this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
             this.wrapper = this.createWrapper();
             this.stepValue = null;
+            this.isReadOnly = false;
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
         aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
 
         aInputSingleLineEdit.prototype.init = function () {
+            this.isReadOnly = (this.container.getAttribute('data-readonly') === 'true' || this.element.readOnly) || false;
+
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -71,7 +75,7 @@ define(['component', 'pikaday'],
                     this.onFocusIn(event);
                     break;
                 case "focusout":
-                    this.onFocusOut(event);
+                    this.onFocusOut();
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();
@@ -91,10 +95,11 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
-            if (!this.element.readOnly) {
+            if (!this.isReadOnly) {
                 return;
             }
 
+            this.element.readOnly = true;
             this.wrapper.classList.add('read-only');
         }
 
@@ -289,7 +294,7 @@ define(['component', 'pikaday'],
 
         }
 
-        aInputSingleLineEdit.prototype.onFocusOut = function (event) {
+        aInputSingleLineEdit.prototype.onFocusOut = function () {
             this.wrapper.classList.remove('focused');
         }
 

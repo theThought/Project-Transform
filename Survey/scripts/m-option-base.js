@@ -17,6 +17,8 @@ define(['component'],
             this.textInput = this.element.querySelector('input[type=text]');
             this.label = this.element.querySelector('.a-label-option');
             this.keypressed = null;
+            this.isReadOnly = false;
+            this.isExclusive = false;
         }
 
         mOptionBase.prototype = Object.create(component.prototype);
