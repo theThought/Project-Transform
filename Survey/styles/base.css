@@ -1176,6 +1176,11 @@ div[data-readonly=true] .m-option-base .a-label-option {
   min-width: 3em;
 }
 
+.focus-control .m-list-optionlist {
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+}
+
 div.empty .a-list-placeholder-empty {
   padding: 0 8px;
   display: block;

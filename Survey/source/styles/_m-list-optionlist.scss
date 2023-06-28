@@ -17,6 +17,12 @@
     min-width: 3em;
 }
 
+.focus-control {
+    .m-list-optionlist {
+        box-shadow: globals.$drop-shadow;
+    }
+}
+
 div.empty {
     .a-list-placeholder-empty {
         padding: 0 8px;
