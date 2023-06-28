@@ -79,6 +79,7 @@ $separator-colour: globals.$titles;
     tr.empty-header-row {
         display: none;
     }
+
     /* may remove the following styles if display: none above is the appropriate solution */
     tr.empty-header-row th,
     tr.empty-header-row td {
@@ -106,14 +107,15 @@ $separator-colour: globals.$titles;
         vertical-align: top;
     }
 
-    .grid-row-total {
-        /* This should be unnecessary now that child elements correctly size */
-        /* padding-top: 1.2em; */
-    }
-
     .grid-row-total,
     .grid-grandtotal {
         text-align: right;
+    }
+
+    .grid-row-total,
+    .grid-column-total,
+    .grid-grandtotal {
+        white-space: nowrap;
     }
 
     .grid-grandtotal {

@@ -608,9 +608,9 @@ button.a-button-list-dropdown {
 
 .a-icon-multistate {
   display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-position-x: -144px;
+  width: 18px;
+  height: 18px;
+  background-position-y: -28px;
 }
 
 .m-option-base .a-icon-multistate {
@@ -631,15 +631,17 @@ button.a-button-list-dropdown {
 
 input[type=checkbox] + label > .a-icon-multistate {
   background-image: url("../images/checkbox-3.png");
+  background-position-x: -42px;
 }
 
 input[type=radio] + label > .a-icon-multistate {
   background-image: url("../images/radiobutton-3.png");
+  background-position-x: -42px;
 }
 
 input[type=checkbox]:checked + label > .a-icon-multistate,
 input[type=radio]:checked + label > .a-icon-multistate {
-  background-position-x: 0;
+  background-position-x: -14px;
 }
 
 input[type=checkbox]:focus + label,
@@ -655,14 +657,14 @@ input[type=checkbox]:disabled + label > .a-icon-multistate,
 input[type=radio]:disabled + label > .a-icon-multistate,
 div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate,
 div[data-readonly=true] input[type=radio] + label > .a-icon-multistate {
-  background-position-x: -288px;
+  background-position-x: -98px;
 }
 
 input[type=checkbox]:disabled:checked + label > .a-icon-multistate,
 input[type=radio]:disabled:checked + label > .a-icon-multistate,
 div[data-readonly=true] input[type=checkbox]:checked + label > .a-icon-multistate,
 div[data-readonly=true] input[type=radio]:checked + label > .a-icon-multistate {
-  background-position: -428px;
+  background-position-x: -70px;
 }
 
 .m-list-optionlist:not(.display-icons) .a-icon-multistate {
@@ -916,6 +918,15 @@ th .a-label-option {
 .a-label-total-column,
 .a-label-total-grand {
   margin-bottom: 0;
+}
+
+.focused .grid-row-total .a-label-prelabel,
+.focused .grid-row-total .a-label-postlabel,
+.focused .grid-column-total .a-label-prelabel,
+.focused .grid-column-total .a-label-postlabel,
+.focused .grid-grandtotal .a-label-prelabel,
+.focused .grid-grandtotal .a-label-postlabel {
+  border: none !important;
 }
 
 .a-label-error {
@@ -1913,13 +1924,14 @@ input[type=range]:focus::-ms-fill-lower {
   border-left: 1px solid #212C4C;
   vertical-align: top;
 }
-.o-structure-table .grid-row-total {
-  /* This should be unnecessary now that child elements correctly size */
-  /* padding-top: 1.2em; */
-}
 .o-structure-table .grid-row-total,
 .o-structure-table .grid-grandtotal {
   text-align: right;
+}
+.o-structure-table .grid-row-total,
+.o-structure-table .grid-column-total,
+.o-structure-table .grid-grandtotal {
+  white-space: nowrap;
 }
 .o-structure-table .grid-grandtotal {
   padding-top: 0.5em;

@@ -92,6 +92,17 @@ th .a-label-option {
     margin-bottom: 0;
 }
 
+.focused {
+    .grid-row-total,
+    .grid-column-total,
+    .grid-grandtotal {
+        .a-label-prelabel,
+        .a-label-postlabel {
+            border: none !important;
+        }
+    }
+}
+
 // callout and warning labels
 .a-label-error {
     color: globals.$error;
