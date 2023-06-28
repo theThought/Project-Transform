@@ -4,7 +4,7 @@ $default-text-width: globals.$default-input-width;
 .o-select-combobox {
     input[type=text] {
         padding: 10px 16px;
-        border-radius: globals.$border-radius;
+        border-radius: globals.$text-border-radius;
         border: 1px solid globals.$borders;
         color: globals.$input-text;
         min-width: 3em;
@@ -39,7 +39,7 @@ $default-text-width: globals.$default-input-width;
         margin: 4px 0;
         padding: 0 0 8px 0;
         border: 1px solid globals.$theme-primary;
-        border-radius: globals.$border-radius;
+        border-radius: globals.$text-border-radius;
         background-color: globals.$white;
         display: none;
         position: absolute;
