@@ -655,6 +655,22 @@ input[type=radio]:checked + label > .a-icon-multistate {
           box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
 }
 
+.m-list-optionlist input[type=checkbox]:focus + label,
+.m-list-optionlist input[type=radio]:focus + label,
+.m-list-optionlist input[type=radio]:focus-visible + label,
+.m-list-optionlist input[type=radio]:focus-within + label,
+.m-list-optionlist input[type=checkbox]:focus-visible + label,
+.m-list-optionlist input[type=checkbox]:focus-within + label,
+.m-select-combobox-unorderedlist input[type=checkbox]:focus + label,
+.m-select-combobox-unorderedlist input[type=radio]:focus + label,
+.m-select-combobox-unorderedlist input[type=radio]:focus-visible + label,
+.m-select-combobox-unorderedlist input[type=radio]:focus-within + label,
+.m-select-combobox-unorderedlist input[type=checkbox]:focus-visible + label,
+.m-select-combobox-unorderedlist input[type=checkbox]:focus-within + label {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 input[type=checkbox]:disabled + label > .a-icon-multistate,
 input[type=radio]:disabled + label > .a-icon-multistate,
 div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate,

@@ -51,6 +51,18 @@ input[type=radio]:checked + label > .a-icon-multistate {
     }
 }
 
+.m-list-optionlist,
+.m-select-combobox-unorderedlist {
+    input[type=checkbox]:focus + label,
+    input[type=radio]:focus + label,
+    input[type=radio]:focus-visible + label,
+    input[type=radio]:focus-within + label,
+    input[type=checkbox]:focus-visible + label,
+    input[type=checkbox]:focus-within + label {
+        box-shadow: none;
+    }
+}
+
 input[type=checkbox]:disabled + label > .a-icon-multistate,
 input[type=radio]:disabled + label > .a-icon-multistate,
 div[data-readonly="true"] input[type=checkbox] + label > .a-icon-multistate,
