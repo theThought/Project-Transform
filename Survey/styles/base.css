@@ -847,6 +847,7 @@ input[readonly]:focus-visible {
   border: 0;
   border-radius: 0;
   border-bottom: 1px solid;
+  border-top: none !important;
   width: 151px;
   height: auto;
 }
