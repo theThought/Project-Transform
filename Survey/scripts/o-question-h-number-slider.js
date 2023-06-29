@@ -110,11 +110,13 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.value + '%, #fff ' + this.value + '%, white 100%)');
+            var percentagefill = (this.element.value/this.element.max)*100;
+            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
-            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + this.element.value + '%, #fff ' + this.element.value + '%, white 100%)');
+            var percentagefill = (this.element.value/this.element.max)*100;
+            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
