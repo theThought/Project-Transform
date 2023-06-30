@@ -1588,6 +1588,10 @@ input[type=range]::-webkit-slider-runnable-track {
   border-color: #7A3996;
 }
 
+.active input[type=range]::-webkit-slider-thumb:hover {
+  border-color: #5B2771;
+}
+
 input[type=range]::-webkit-slider-thumb {
   margin-top: -11px;
   width: 40px;
@@ -1620,6 +1624,10 @@ input[type=range]::-moz-range-track {
 
 .active input[type=range]::-moz-range-thumb {
   border-color: #7A3996;
+}
+
+.active input[type=range]::-moz-range-thumb:hover {
+  border-color: #5B2771;
 }
 
 input[type=range]::-moz-range-thumb {
@@ -1673,6 +1681,10 @@ input[type=range]::-ms-fill-upper {
 
 .active input[type=range]::-ms-thumb {
   border-color: #7A3996;
+}
+
+.active input[type=range]::-ms-thumb:hover {
+  border-color: #5B2771;
 }
 
 input[type=range]::-ms-thumb {
