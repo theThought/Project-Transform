@@ -18,6 +18,7 @@ define(['o-question'],
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
+            this.floodtovaluecolor = '#449B9B'; // references SCSS var globals.$theme-secondary
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
@@ -110,13 +111,17 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var percentagefill = (this.element.value/this.element.max)*100;
-            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
+            var percentagefill = (this.element.value / this.element.max) * 100;
+            this.element.style.setProperty('--track-background-fill',
+                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
+                + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
-            var percentagefill = (this.element.value/this.element.max)*100;
-            this.element.style.setProperty('--track-background-fill', 'linear-gradient(to right, #D0DAE6 0%, #D0DAE6 ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
+            var percentagefill = (this.element.value / this.element.max) * 100;
+            this.element.style.setProperty('--track-background-fill',
+                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
+                + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
@@ -151,7 +156,7 @@ define(['o-question'],
 
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
-            var step = (this.properties.step) ? parseInt(this.properties.step) + parseFloat(this.properties.step / 40) : 100/Math.abs(min - max);
+            var step = (this.properties.step) ? parseInt(this.properties.step) + parseFloat(this.properties.step / 40) : 100 / Math.abs(min - max);
 
             marksElement.style.background = 'repeating-linear-gradient(90deg, ' +
                 '#8797C8 0, ' +
