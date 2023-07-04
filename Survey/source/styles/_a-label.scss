@@ -338,6 +338,11 @@ div[data-readonly="true"] .m-option-base .a-label-option {
         padding-left: 1.5em;
     }
 
+    label {
+        display: inline-block;
+        padding: 2px 0;
+    }
+
     label + .a-label-option {
         padding-left: 0;
     }

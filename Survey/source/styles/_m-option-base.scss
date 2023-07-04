@@ -4,7 +4,7 @@
     display: inline-block;
     box-sizing: border-box;
     position: relative;
-    margin-bottom: .5em;
+    margin-bottom: 4px;
     margin-right: 1em;
 }
 
@@ -29,7 +29,7 @@ span.m-input-singlelineedit + script ~ .m-option-base {
 }
 
 .balance.one-size .m-option-base:nth-last-of-type(1) {
-    margin-bottom: .5em;
+    margin-bottom: 4px;
 }
 
 .m-list-optionlist {
