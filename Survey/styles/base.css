@@ -758,7 +758,6 @@ textarea:focus-within {
  */
 .m-input-singlelineedit {
   margin-bottom: 0.5em;
-  overflow: hidden;
 }
 .m-input-singlelineedit.position-below {
   display: block;
