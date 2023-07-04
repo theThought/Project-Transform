@@ -835,7 +835,6 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
   outline: none;
-  border-top: 1px solid #455B97;
   border-bottom: 1px solid #455B97;
 }
 
@@ -847,7 +846,7 @@ input[readonly]:focus-visible {
   border: 0;
   border-radius: 0;
   border-bottom: 1px solid;
-  border-top: none !important;
+  border-top: none;
   width: 151px;
   height: auto;
 }
