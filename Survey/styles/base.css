@@ -11,7 +11,7 @@
   position: relative;
   color: #449B9B;
   background: #FAFAFA;
-  border: 1px solid #B4BDDB;
+  border: 1px solid #D6DDEB;
   border-bottom-color: #8797C8;
   border-radius: 4px;
 }
@@ -267,7 +267,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .overall-progress-bar {
   height: 24px;
-  border: 1px solid #B4BDDB;
+  border: 1px solid #D6DDEB;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -287,7 +287,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   position: relative;
 }
 .overall-progress-bar td:first-child:not(.mrProgressText) {
-  background-color: #B4BDDB;
+  background-color: #D6DDEB;
   border-radius: 4px;
 }
 .overall-progress-bar .mrProgressText {
@@ -804,7 +804,7 @@ textarea:focus-within {
 .read-only .a-input-singlelineedit,
 .a-input-singlelineedit.read-only {
   /*border: transparent !important;*/
-  border-color: #B4BDDB !important;
+  border-color: #D6DDEB !important;
   background: #ECEFF5;
   cursor: default;
 }
@@ -2038,14 +2038,14 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-question-container {
-  padding: 1em 0;
+  padding: 1em;
   position: relative;
 }
 
 .focus-question .o-question-container.focused {
   background-color: white;
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+  -webkit-box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
 }
 
 .o-question-container:not(.sidebyside)[data-position=side] {
@@ -2053,7 +2053,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-question-container:not(.no-separator) {
-  border-bottom: 1px solid #B4BDDB;
+  border-bottom: 1px solid #D6DDEB;
 }
 
 .surroundcontent > div:last-child {
