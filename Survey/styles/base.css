@@ -765,7 +765,7 @@ textarea:focus-within {
           box-shadow: none !important;
 }
 .m-input-singlelineedit.position-below {
-  display: block;
+  display: table;
 }
 .m-input-singlelineedit.position-below .a-input-singlelineedit {
   margin-left: 0;

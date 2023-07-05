@@ -36,7 +36,7 @@ $default-text-width: globals.$default-input-width;
     }
 
     &.position-below {
-        display: block;
+        display: table;
 
         .a-input-singlelineedit {
             margin-left: 0;
