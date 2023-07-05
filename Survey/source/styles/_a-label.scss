@@ -102,6 +102,12 @@ th .a-label-option {
     }
 }
 
+.focus-control {
+    .m-input-singlelineedit.focused {
+        box-shadow: globals.$drop-shadow;
+    }
+}
+
 // callout and warning labels
 .a-label-error {
     color: globals.$error;
@@ -193,7 +199,6 @@ th .a-label-option {
         padding: 10px 16px;
         white-space: nowrap;
         box-sizing: content-box;
-        height: 19px;
     }
 
     .a-label-prelabel {
@@ -228,7 +233,6 @@ th .a-label-option {
         color: globals.$pre-post-text;
         white-space: nowrap;
         box-sizing: content-box;
-        height: 19px;
     }
 
     .a-label-prelabel {

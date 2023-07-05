@@ -12,7 +12,6 @@ $default-text-width: globals.$default-input-width;
     color: globals.$input-text;
     margin: 0 0 .5em 0;
     width: $default-text-width;
-    height: 19px;
     background-color: globals.$input-background;
     box-sizing: content-box;
 }
@@ -28,6 +27,13 @@ $default-text-width: globals.$default-input-width;
  * overflow: hidden added to fix issue with display in IE10
  */
 .m-input-singlelineedit {
+
+    display: inline-block;
+
+    /* prevent double drop shadow when input is within a molecule container */
+    &.focused .a-input-singlelineedit {
+        box-shadow: none !important;
+    }
 
     &.position-below {
         display: block;

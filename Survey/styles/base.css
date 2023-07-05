@@ -740,7 +740,6 @@ textarea:focus-within {
   color: #449B9B;
   margin: 0 0 0.5em 0;
   width: 197px;
-  height: 19px;
   background-color: #FFFFFF;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
@@ -757,7 +756,13 @@ textarea:focus-within {
  * overflow: hidden added to fix issue with display in IE10
  */
 .m-input-singlelineedit {
+  display: inline-block;
+  /* prevent double drop shadow when input is within a molecule container */
   margin-bottom: 0.5em;
+}
+.m-input-singlelineedit.focused .a-input-singlelineedit {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 .m-input-singlelineedit.position-below {
   display: block;
@@ -950,6 +955,11 @@ th .a-label-option {
   border: none !important;
 }
 
+.focus-control .m-input-singlelineedit.focused {
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+}
+
 .a-label-error {
   color: #DA2911;
 }
@@ -1027,7 +1037,6 @@ th .a-label-option {
   white-space: nowrap;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  height: 19px;
 }
 .m-structure-cell .a-label-prelabel {
   display: inline-block;
@@ -1056,7 +1065,6 @@ th .a-label-option {
   white-space: nowrap;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  height: 19px;
 }
 .m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
