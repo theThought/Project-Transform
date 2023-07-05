@@ -808,9 +808,7 @@ textarea:focus-within {
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit,
 .a-input-singlelineedit.read-only {
-  /*border: transparent !important;*/
   border-color: #D6DDEB !important;
-  background: #ECEFF5;
   cursor: default;
 }
 
@@ -1077,7 +1075,8 @@ th .a-label-option {
 }
 .m-input-singlelineedit.read-only .a-label-prelabel,
 .m-input-singlelineedit.read-only .a-label-postlabel {
-  border: transparent !important;
+  color: #B4BDDB;
+  border-color: #D6DDEB !important;
 }
 
 .o-question-hnumberslider-control .a-label-outer-prelabel {
