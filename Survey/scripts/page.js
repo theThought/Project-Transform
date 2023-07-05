@@ -60,7 +60,7 @@ define(
             }
 
             // only allow focus in text input fields
-            var firstelement = firstquestion.querySelector('.o-question-singlelineedit input[type=text].a-input-singlelineedit, textarea');
+            var firstelement = firstquestion.querySelector('.o-question-singlelineedit input.a-input-singlelineedit, textarea');
 
             if (firstelement === null) {
                 return;
