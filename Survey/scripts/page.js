@@ -5,8 +5,11 @@ define(
             this.id = id;
             this.group = group;
             this.element = document.querySelector('body>form');
+        }
 
+        page.prototype.init = function () {
             this.configureProperties();
+            this.focusFirstInput();
         }
 
         page.prototype.configureProperties = function (propertiesName) {
@@ -46,6 +49,24 @@ define(
             if (prop.question !== 'undefined' && prop.question) {
                 this.element.classList.add('focus-question');
             }
+        }
+
+        page.prototype.focusFirstInput = function () {
+            // only select inputs from the first question
+            var firstquestion = this.element.querySelector('div.o-question-container');
+
+            if (firstquestion === null) {
+                return;
+            }
+
+            // only allow focus in text input fields
+            var firstelement = firstquestion.querySelector('.o-question-singlelineedit input[type=text].a-input-singlelineedit, textarea');
+
+            if (firstelement === null) {
+                return;
+            }
+
+            firstelement.focus();
         }
 
         return page;
