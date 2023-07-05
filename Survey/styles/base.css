@@ -961,7 +961,7 @@ th .a-label-option {
 }
 
 .o-question-instruction {
-  color: #C2DBFC;
+  color: #324371;
 }
 .o-question-instruction p {
   margin: 0.5em 0;
@@ -1034,6 +1034,14 @@ th .a-label-option {
   border: 1px transparent;
   padding: 10px 16px;
   white-space: nowrap;
+}
+.m-structure-cell .m-option-base label {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.m-structure-cell .m-option-base .a-label-option {
+  padding-left: 0.2em;
 }
 
 .m-input-singlelineedit .a-label-postlabel {
@@ -1133,12 +1141,6 @@ th .a-label-option {
   display: block;
 }
 
-.m-structure-cell .m-option-base label {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-
 div[data-readonly=true] .m-option-base .a-label-option {
   color: #8797C8 !important;
 }
@@ -1163,13 +1165,6 @@ div[data-readonly=true] .m-option-base .a-label-option {
 
 .m-list-optionlist .a-label-option {
   padding-bottom: 0;
-}
-
-.m-structure-cell .m-option-base .a-label-option {
-  padding-left: 0.2em;
-}
-
-.m-list-optionlist .a-label-option {
   width: calc(100% - 1.5em);
 }
 

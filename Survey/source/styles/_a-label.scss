@@ -9,7 +9,6 @@
 }
 
 .m-list-optionlist {
-
     label {
         position: relative;
         display: inline-block;
@@ -115,9 +114,8 @@ th .a-label-option {
     margin: 16px 8px 0 8px;
 }
 
-
 .o-question-instruction {
-    color: globals.$information;
+    color: globals.$theme-primary-hover;
 
     p {
         margin: .5em 0;
@@ -203,6 +201,18 @@ th .a-label-option {
         border: 1px transparent;
         padding: 10px 16px;
         white-space: nowrap;
+    }
+
+    .m-option-base {
+        label {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .a-label-option {
+            padding-left: .2em;
+        }
     }
 }
 
@@ -310,14 +320,6 @@ th .a-label-option {
 
 }
 
-.m-structure-cell .m-option-base {
-    label {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-    }
-}
-
 div[data-readonly="true"] .m-option-base .a-label-option {
     color: globals.$borders !important;
 }
@@ -351,15 +353,8 @@ div[data-readonly="true"] .m-option-base .a-label-option {
 .m-list-optionlist {
     .a-label-option {
         padding-bottom: 0;
+        width: calc(100% - 1.5em);
     }
-}
-
-.m-structure-cell .m-option-base .a-label-option {
-    padding-left: .2em;
-}
-
-.m-list-optionlist .a-label-option {
-    width: calc(100% - 1.5em);
 }
 
 .m-list-optionlist:not(.display-icons) .a-label-option {
