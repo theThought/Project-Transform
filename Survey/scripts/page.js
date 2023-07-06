@@ -4,11 +4,15 @@ define(
         function page(id, group) {
             this.id = id;
             this.group = group;
+            this.focusquestion = true;
+            this.focuscontrol = true;
             this.element = document.querySelector('body>form');
         }
 
         page.prototype.init = function () {
             this.configureProperties();
+            this.setQuestionFocusStyle();
+            this.setControlFocusStyle();
             this.focusFirstInput();
         }
 
@@ -42,13 +46,29 @@ define(
         }
 
         page.prototype.focus = function (prop) {
-            if (prop.control !== 'undefined' && prop.control) {
-                this.element.classList.add('focus-control');
+            if (prop.control !== 'undefined' && !prop.control) {
+                this.focuscontrol = false;
             }
 
-            if (prop.question !== 'undefined' && prop.question) {
-                this.element.classList.add('focus-question');
+            if (prop.question !== 'undefined' && !prop.question) {
+                this.focusquestion = false;
             }
+        }
+
+        page.prototype.setQuestionFocusStyle = function () {
+            if (!this.focusquestion) {
+                return;
+            }
+
+            this.element.classList.add('focus-question');
+        }
+
+        page.prototype.setControlFocusStyle = function () {
+            if (!this.focuscontrol) {
+                return;
+            }
+
+            this.element.classList.add('focus-control');
         }
 
         page.prototype.focusFirstInput = function () {
