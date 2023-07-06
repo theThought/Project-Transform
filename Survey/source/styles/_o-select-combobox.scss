@@ -16,6 +16,8 @@ $default-text-width: globals.$default-input-width;
 
     input:focus {
         border-color: globals.$theme-primary;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     input:focus-visible {
@@ -36,11 +38,12 @@ $default-text-width: globals.$default-input-width;
 
     ul {
         list-style-type: none;
-        margin: 4px 0;
+        margin: -2px 0 4px 0;
         padding: 0 0 8px 0;
         border: 1px solid globals.$theme-primary;
-        border-radius: globals.$text-border-radius;
-        background-color: globals.$white;
+        border-bottom-left-radius: globals.$text-border-radius;
+        border-bottom-right-radius: globals.$text-border-radius;
+        background-color: globals.$input-background;
         display: none;
         position: absolute;
         max-height: 300px;
@@ -111,6 +114,6 @@ $default-text-width: globals.$default-input-width;
 
 .focus-control {
     .o-select-combobox ul {
-        box-shadow: globals.$drop-shadow;
+        box-shadow:  0 11px 11px -9px rgba(0, 0, 0, 0.25);
     }
 }

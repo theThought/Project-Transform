@@ -1845,6 +1845,8 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox input:focus {
   border-color: #455B97;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .o-select-combobox input:focus-visible {
   outline: none;
@@ -1872,11 +1874,12 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-select-combobox ul {
   list-style-type: none;
-  margin: 4px 0;
+  margin: -2px 0 4px 0;
   padding: 0 0 8px 0;
   border: 1px solid #455B97;
-  border-radius: 2px;
-  background-color: #FAFAFA;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #FFFFFF;
   display: none;
   position: absolute;
   max-height: 300px;
@@ -1929,8 +1932,8 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .focus-control .o-select-combobox ul {
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
 /* MOTE: the separator color used within tables is defined
