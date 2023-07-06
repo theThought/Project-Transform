@@ -13,6 +13,7 @@ define(
             this.configureProperties();
             this.setQuestionFocusStyle();
             this.setControlFocusStyle();
+            this.focusFirstQuestion();
             this.focusFirstInput();
         }
 
@@ -69,6 +70,20 @@ define(
             }
 
             this.element.classList.add('focus-control');
+        }
+
+        page.prototype.focusFirstQuestion = function () {
+            if (!this.focusquestion) {
+                return;
+            }
+
+            var firstquestion = this.element.querySelector('div.o-question-container');
+
+            if (firstquestion === null) {
+                return;
+            }
+
+            firstquestion.classList.add('focused');
         }
 
         page.prototype.focusFirstInput = function () {
