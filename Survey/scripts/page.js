@@ -60,7 +60,11 @@ define(
             }
 
             // only allow focus in text input fields
-            var firstelement = firstquestion.querySelector('.o-question-singlelineedit input.a-input-singlelineedit, textarea');
+            var firstelement = firstquestion.querySelector(
+                '.o-question-singlelineedit input.a-input-singlelineedit, ' +
+                'textarea, ' +
+                'input[type=checkbox], ' +
+                'input[type=radio]');
 
             if (firstelement === null) {
                 return;
