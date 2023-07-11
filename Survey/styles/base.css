@@ -367,6 +367,10 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+#nav-controls input {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
 
 #prevstop {
   display: -webkit-box;
