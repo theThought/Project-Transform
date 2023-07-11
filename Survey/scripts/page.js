@@ -77,13 +77,23 @@ define(
                 return;
             }
 
-            var firstquestion = this.element.querySelector('div.o-question-container');
+            var questions = this.element.querySelectorAll('div.o-question-container');
 
-            if (firstquestion === null) {
+            if (questions.length === 0) {
                 return;
             }
 
-            firstquestion.classList.add('focused');
+            for (var i = 0; i < questions.length; i++) {
+                var inputelement = questions[i].querySelector('input, textarea');
+
+                if (inputelement === null) {
+                    continue;
+                }
+
+                questions[i].classList.add('focused');
+                return;
+            }
+
         }
 
         page.prototype.focusFirstInput = function () {
