@@ -490,6 +490,7 @@ define(['component'],
                     totalcell.scope = 'row';
                     totalcell.className = 'm-structure-cell grid-column-total-title';
                     totalcell.classList.add('align-' + captionalign);
+                    totalcell.style.width = captionwidth;
                     totalcell.innerHTML = captiontitle;
                 } else {
                     if (this.hasrowtotals && i === (columncount - 1)) {
