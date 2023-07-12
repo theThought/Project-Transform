@@ -176,7 +176,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 }
 
 .is-today .pika-button {
-  color: #C2DBFC;
+  color: #edf5ff;
   font-weight: bold;
 }
 
@@ -973,10 +973,31 @@ th .a-label-option {
 }
 
 .o-question-instruction {
-  color: #324371;
+  display: none;
 }
-.o-question-instruction p {
-  margin: 0.5em 0;
+
+.o-question-instruction.has-content {
+  display: inline-block;
+  position: relative;
+  margin-top: 4px;
+  border-radius: 4px;
+  padding: 8px 8px 8px 36px;
+  background-color: #edf5ff;
+  color: #57699C;
+}
+.o-question-instruction.has-content::before {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  content: "i";
+  background-color: #57699C;
+  color: #edf5ff;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .o-question-error *[class*=-label-],

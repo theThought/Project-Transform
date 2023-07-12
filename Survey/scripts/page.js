@@ -32,18 +32,19 @@ define(
         }
 
         page.prototype.sidebyside = function (width) {
-            var questioninformation = this.element.getElementsByClassName('o-question-information');
-            var questioninstruction = this.element.getElementsByClassName('o-question-errorandinstruction');
+            var question = this.element.getElementsByClassName('o-question-container');
 
-            for (var i = 0; i < questioninformation.length; i++) {
-                questioninformation[i].style.flexBasis = width + '%';
-                questioninformation[i].style.msFlex = '0 0 ' + width + '%';
+            for (var i = 0; i < question.length; i++) {
+                var questioninformation = question[i].getElementsByClassName('o-question-information')[0];
+                questioninformation.style.flexBasis = width + '%';
+                questioninformation.style.msFlex = '0 0 ' + width + '%';
+
+                var questioninstruction = question[i].getElementsByClassName('o-question-instruction')[0];
+                if (questioninstruction.innerText.trim().length) {
+                    questioninstruction.classList.add('has-content');
+                    questioninformation.append(questioninstruction);
+                }
             }
-
-            for (var j = 0; j < questioninstruction.length; j++) {
-                questioninstruction[j].style.maxWidth = width + '%';
-            }
-
         }
 
         page.prototype.focus = function (prop) {

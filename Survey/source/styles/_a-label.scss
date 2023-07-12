@@ -121,10 +121,31 @@ th .a-label-option {
 }
 
 .o-question-instruction {
-    color: globals.$theme-primary-hover;
+    display: none;
+}
 
-    p {
-        margin: .5em 0;
+.o-question-instruction.has-content {
+    display: inline-block;
+    position: relative;
+    margin-top: 4px;
+    border-radius: globals.$border-radius;
+    padding: 8px 8px 8px 36px;
+    background-color: globals.$information;
+    color: globals.$dark1;
+
+    &::before {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        width: 20px;
+        height: 20px;
+        content: 'i';
+        background-color: globals.$dark1;
+        color: globals.$information;
+        border-radius: 100%;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
     }
 }
 
