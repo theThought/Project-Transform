@@ -40,6 +40,7 @@ define(['component'],
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_textFocus", this, false);
+            document.addEventListener(this.group + "_textInput", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
             document.addEventListener("clearEntries", this, false);
@@ -86,6 +87,9 @@ define(['component'],
                     break;
                 case this.group + "_textFocus":
                     this.onTextFocus(event);
+                    break;
+                case this.group + "_textInput":
+                    this.onTextInput(event);
                     break;
                 case this.group + "_beginResize":
                     this.onBeginResize(event);
@@ -206,7 +210,7 @@ define(['component'],
             this.element.dispatchEvent(focusin);
 
             if (event.target === this.textInput) {
-                this.checkbox.checked = true;
+                //this.checkbox.checked = true;
                 //this.onChange(event);
                 return;
             }
@@ -245,8 +249,7 @@ define(['component'],
             }
         }
 
-        mOptionBase.prototype.onTextFocus = function (event) {
-
+        mOptionBase.prototype.onTextInput = function (event) {
             if (this.isExclusive && event.detail.element !== this.textInput) {
                 if (this.checkbox.checked) {
                     this.checkbox.checked = false;
@@ -255,6 +258,25 @@ define(['component'],
             }
 
             if (event.detail.element === this.textInput) {
+                this.checkbox.checked = true;
+                this.broadcastChange();
+            }
+        }
+
+        mOptionBase.prototype.onTextFocus = function (event) {
+
+            // this section deals with textboxes which are in the same group as
+            // checkboxes and may need to react correspondingly (e.g. exclusive)
+            if (this.isExclusive && event.detail.element !== this.textInput) {
+                if (event.detail.element.value.length && this.checkbox.checked) {
+                    this.checkbox.checked = false;
+                    this.broadcastChange();
+                }
+            }
+
+            // this section deals with other specifier textboxes, where the textbox
+            // 'belongs' to the checkbox
+            if (event.detail.element === this.textInput && this.textInput.value.length) {
                 this.checkbox.checked = true;
                 this.broadcastChange();
             }

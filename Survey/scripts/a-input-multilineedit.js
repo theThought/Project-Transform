@@ -23,15 +23,20 @@ define(['component'],
         aInputMultilineEdit.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
             this.configurationComplete();
         }
 
         aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("focusin", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
+        }
+
+        aInputMultilineEdit.prototype.configureLocalEventListeners = function () {
+            this.element.addEventListener("focusin", this, false);
+            this.element.addEventListener("input", this, false);
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
@@ -51,22 +56,21 @@ define(['component'],
             }
         }
 
+        aInputMultilineEdit.prototype.onInput = function (event) {
+            var inputEvent = new CustomEvent(this.group + '_textInput', {bubbles: true, detail: this});
+            this.element.dispatchEvent(inputEvent);
+        }
+
         aInputMultilineEdit.prototype.onFocusIn = function (event) {
-
-            if (event.target === this.element) {
-
-                // handle self-generated events
-                var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
-                this.element.dispatchEvent(clickedEvent);
-
-                if (this.element.placeholder.length
-                    && this.element.placeholder !== this.defaultPlaceholder) {
-                    this.element.value = this.element.placeholder;
-                    this.element.placeholder = this.defaultPlaceholder;
-                }
-
+            // handle self-generated events
+            if (this.element.placeholder.length
+                && this.element.placeholder !== this.defaultPlaceholder) {
+                this.element.value = this.element.placeholder;
+                this.element.placeholder = this.defaultPlaceholder;
             }
 
+            var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+            this.element.dispatchEvent(clickedEvent);
         }
 
         aInputMultilineEdit.prototype.onEnableExclusive = function () {

@@ -38,18 +38,19 @@ define(['component', 'pikaday'],
 
         aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("change", this, false);
-            document.addEventListener("keyup", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
-            document.addEventListener("focusin", this, false);
-            document.addEventListener("focusout", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
         }
 
-        aInputSingleLineEdit.prototype.configureLocalEventListeners = function  () {
+        aInputSingleLineEdit.prototype.configureLocalEventListeners = function () {
+            this.element.addEventListener("keyup", this, false);
+            this.element.addEventListener("change", this, false);
+            this.element.addEventListener("input", this, false);
             this.element.addEventListener("click", this, false);
+            this.element.addEventListener("focusin", this, false);
+            this.element.addEventListener("focusout", this, false);
             this.element.addEventListener("keydown", this, false);
         }
 
@@ -64,6 +65,9 @@ define(['component', 'pikaday'],
                 case "keyup":
                 case "change":
                     this.onChange(event);
+                    break;
+                case "input":
+                    this.onInput(event);
                     break;
                 case "clearEntries":
                     this.clearEntries(event);
@@ -268,30 +272,27 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.onChange = function (event) {
-            if (event.target === this.element) {
-                this.broadcastChange();
-            }
+            this.broadcastChange();
+        }
+
+        aInputSingleLineEdit.prototype.onInput = function (event) {
+            var inputEvent = new CustomEvent(this.group + '_textInput', {bubbles: true, detail: this});
+            this.element.dispatchEvent(inputEvent);
         }
 
         aInputSingleLineEdit.prototype.onFocusIn = function (event) {
+            this.wrapper.classList.add('focused');
 
-            if (event.target === this.element) {
-
-                this.wrapper.classList.add('focused');
-
-                // handle self-generated events
-                var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
-                this.element.dispatchEvent(clickedEvent);
-
-                if (this.element.placeholder.length
-                    && this.element.placeholder !== this.defaultPlaceholder) {
-                    this.element.value = this.element.placeholder;
-                    this.element.placeholder = this.defaultPlaceholder;
-                    this.broadcastChange();
-                }
-
+            // handle self-generated events
+            if (this.element.placeholder.length
+                && this.element.placeholder !== this.defaultPlaceholder) {
+                this.element.value = this.element.placeholder;
+                this.element.placeholder = this.defaultPlaceholder;
+                this.broadcastChange();
             }
 
+            var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+            this.element.dispatchEvent(clickedEvent);
         }
 
         aInputSingleLineEdit.prototype.onFocusOut = function () {
