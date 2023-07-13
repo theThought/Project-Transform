@@ -991,13 +991,8 @@ th .a-label-option {
   top: 8px;
   width: 20px;
   height: 20px;
-  content: "i";
-  background-color: #57699C;
-  color: #edf5ff;
-  border-radius: 100%;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
+  content: "";
+  background-image: url("../images/instruction.png");
 }
 
 .o-question-error *[class*=-label-],
