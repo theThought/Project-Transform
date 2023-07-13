@@ -42,7 +42,7 @@ define(
                 var questioninstruction = question[i].getElementsByClassName('o-question-instruction')[0];
                 if (questioninstruction.innerText.trim().length) {
                     questioninstruction.classList.add('has-content');
-                    questioninformation.append(questioninstruction);
+                    questioninformation.appendChild(questioninstruction);
                 }
             }
         }
