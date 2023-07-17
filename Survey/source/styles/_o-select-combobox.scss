@@ -1,7 +1,8 @@
 @use 'globals';
+
 $default-text-width: globals.$default-input-width;
 
-.o-select-combobox {
+.o-select-combobox.list-combobox {
     input[type=text] {
         padding: 10px 16px;
         border-radius: globals.$text-border-radius;
@@ -12,6 +13,11 @@ $default-text-width: globals.$default-input-width;
         height: 19px;
         background-color: globals.$input-background;
         box-sizing: content-box;
+
+        &.list-visible {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
 
     input:focus {
@@ -35,26 +41,57 @@ $default-text-width: globals.$default-input-width;
     input::placeholder {
         color: globals.$placeholder;
     }
+}
 
-    ul {
-        list-style-type: none;
-        margin: -2px 0 4px 0;
-        padding: 0 0 8px 0;
+.o-select-combobox.list-droplist {
+
+    input[type=text] {
+        padding: 10px 16px;
+        border-radius: globals.$border-radius;
         border: 1px solid globals.$theme-primary;
-        border-bottom-left-radius: globals.$text-border-radius;
-        border-bottom-right-radius: globals.$text-border-radius;
-        background-color: globals.$input-background;
-        display: none;
-        position: absolute;
-        max-height: 300px;
-        overflow-y: auto;
-        z-index: 10;
+        color: globals.$white;
         min-width: 3em;
-        width: calc($default-text-width + 17px + 17px); // allows for padding of input element
-        box-sizing: border-box;
+        width: globals.$default-input-width;
+        height: 19px;
+        background-color: globals.$theme-primary;
+        box-sizing: content-box;
+        cursor: default;
+        background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
+
+        &.list-visible {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background-image: url("../images/white-chevron-up.png");
+        }
+
+        &:not([data-readonly=true]):hover {
+            background-color: globals.$theme-primary-hover;
+        }
     }
 
-    ul.charrestriction {
+    input::placeholder {
+        color: globals.$white;
+    }
+}
+
+.o-select-combobox ul {
+    list-style-type: none;
+    margin: -1px 0 4px 0;
+    padding: 0 0 8px 0;
+    border: 1px solid globals.$theme-primary;
+    border-bottom-left-radius: globals.$text-border-radius;
+    border-bottom-right-radius: globals.$text-border-radius;
+    background-color: globals.$input-background;
+    display: none;
+    position: absolute;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    min-width: 3em;
+    width: calc($default-text-width + 17px + 17px); // allows for padding of input element
+    box-sizing: border-box;
+
+    &.charrestriction {
         li:not(.a-list-placeholder-restriction) {
             display: none;
         }
@@ -65,7 +102,7 @@ $default-text-width: globals.$default-input-width;
         }
     }
 
-    ul.empty {
+    &.empty {
         li.a-list-placeholder-empty {
             display: block;
             padding: 12px 16px 4px 16px;
@@ -80,7 +117,7 @@ $default-text-width: globals.$default-input-width;
         display: none;
     }
 
-    ul.visible {
+    &.visible {
         display: block;
     }
 
@@ -109,11 +146,10 @@ $default-text-width: globals.$default-input-width;
     li.filter-hidden {
         display: none;
     }
-
 }
 
 .focus-control {
     .o-select-combobox ul {
-        box-shadow:  0 11px 11px -9px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
     }
 }

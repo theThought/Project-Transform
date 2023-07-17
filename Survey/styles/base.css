@@ -1851,7 +1851,7 @@ input[type=range]:focus::-ms-fill-lower {
   background: transparent;
 }
 
-.o-select-combobox input[type=text] {
+.o-select-combobox.list-combobox input[type=text] {
   padding: 10px 16px;
   border-radius: 2px;
   border: 1px solid #8797C8;
@@ -1863,38 +1863,81 @@ input[type=range]:focus::-ms-fill-lower {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
 }
-.o-select-combobox input:focus {
+.o-select-combobox.list-combobox input[type=text].list-visible {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.o-select-combobox.list-combobox input:focus {
   border-color: #455B97;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.o-select-combobox input:focus-visible {
+.o-select-combobox.list-combobox input:focus-visible {
   outline: none;
 }
-.o-select-combobox input::-ms-clear {
+.o-select-combobox.list-combobox input::-ms-clear {
   display: none !important;
 }
-.o-select-combobox input::-webkit-calendar-picker-indicator {
+.o-select-combobox.list-combobox input::-webkit-calendar-picker-indicator {
   display: none !important;
 }
-.o-select-combobox input::-webkit-input-placeholder {
+.o-select-combobox.list-combobox input::-webkit-input-placeholder {
   color: #6B5B72;
 }
-.o-select-combobox input::-moz-placeholder {
+.o-select-combobox.list-combobox input::-moz-placeholder {
   color: #6B5B72;
 }
-.o-select-combobox input:-ms-input-placeholder {
+.o-select-combobox.list-combobox input:-ms-input-placeholder {
   color: #6B5B72;
 }
-.o-select-combobox input::-ms-input-placeholder {
+.o-select-combobox.list-combobox input::-ms-input-placeholder {
   color: #6B5B72;
 }
-.o-select-combobox input::placeholder {
+.o-select-combobox.list-combobox input::placeholder {
   color: #6B5B72;
 }
+
+.o-select-combobox.list-droplist input[type=text] {
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 1px solid #455B97;
+  color: #FAFAFA;
+  min-width: 3em;
+  width: 197px;
+  height: 19px;
+  background-color: #455B97;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  cursor: default;
+  background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
+}
+.o-select-combobox.list-droplist input[type=text].list-visible {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-image: url("../images/white-chevron-up.png");
+}
+.o-select-combobox.list-droplist input[type=text]:not([data-readonly=true]):hover {
+  background-color: #324371;
+}
+.o-select-combobox.list-droplist input::-webkit-input-placeholder {
+  color: #FAFAFA;
+}
+.o-select-combobox.list-droplist input::-moz-placeholder {
+  color: #FAFAFA;
+}
+.o-select-combobox.list-droplist input:-ms-input-placeholder {
+  color: #FAFAFA;
+}
+.o-select-combobox.list-droplist input::-ms-input-placeholder {
+  color: #FAFAFA;
+}
+.o-select-combobox.list-droplist input::placeholder {
+  color: #FAFAFA;
+}
+
 .o-select-combobox ul {
   list-style-type: none;
-  margin: -2px 0 4px 0;
+  margin: -1px 0 4px 0;
   padding: 0 0 8px 0;
   border: 1px solid #455B97;
   border-bottom-left-radius: 2px;
@@ -1921,33 +1964,33 @@ input[type=range]:focus::-ms-fill-lower {
   display: block;
   padding: 12px 16px 4px 16px;
 }
-.o-select-combobox li.a-list-placeholder-empty {
+.o-select-combobox ul li.a-list-placeholder-empty {
   display: none;
 }
-.o-select-combobox li.a-list-placeholder-restriction {
+.o-select-combobox ul li.a-list-placeholder-restriction {
   display: none;
 }
 .o-select-combobox ul.visible {
   display: block;
 }
-.o-select-combobox li {
+.o-select-combobox ul li {
   padding: 4px 16px;
   cursor: default;
   text-align: left;
 }
-.o-select-combobox li:not(.filter-hidden) {
+.o-select-combobox ul li:not(.filter-hidden) {
   padding-top: 12px;
 }
-.o-select-combobox li:not(.filter-hidden) ~ li {
+.o-select-combobox ul li:not(.filter-hidden) ~ li {
   padding-top: 4px;
 }
-.o-select-combobox li:hover {
+.o-select-combobox ul li:hover {
   color: #324371;
 }
-.o-select-combobox li.selected {
+.o-select-combobox ul li.selected {
   color: #449B9B;
 }
-.o-select-combobox li.filter-hidden {
+.o-select-combobox ul li.filter-hidden {
   display: none;
 }
 

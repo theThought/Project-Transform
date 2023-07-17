@@ -22,8 +22,9 @@ define(['component'],
             this.currentlistposition = -1;
             this.isExact = true;
             this.filtermethod = 'contains';
-            this.noitemsplaceholder = 'no items to display';
-            this.notenoughcharactersplaceholder = 'begin typing to display the list';
+            this.listtype = 'combobox';
+            this.defaultplaceholder = 'Select';
+            this.manualWidth = false;
         }
 
         oSelectComboBox.prototype = Object.create(component.prototype);
@@ -31,9 +32,12 @@ define(['component'],
 
         oSelectComboBox.prototype.init = function () {
             this.list = this.buildList();
+            this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
             this.configureProperties();
             this.setWidth();
+            this.setWrapperType();
+            this.setInputType();
             this.configureInitialFilter();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -53,6 +57,46 @@ define(['component'],
             this.element.addEventListener('change', this, false);
             this.element.addEventListener('focusout', this, false);
             this.element.addEventListener('cut', this, false);
+        }
+
+        oSelectComboBox.prototype.type = function (prop) {
+            this.listtype = prop;
+        }
+
+        oSelectComboBox.prototype.checkManualWidth = function () {
+            return this.element.style.width.length > 0;
+        }
+
+        oSelectComboBox.prototype.setWidth = function () {
+            // respect manual width if set
+            if (this.manualWidth) {
+                this.droplist.classList.add('manual-width');
+                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 44px + 16px)';
+                return;
+            }
+
+            // we must set the size in order for the browser to recalculate the width of the component
+            this.element.size = Math.max(this.defaultplaceholder.length, 1);
+            var inputwidth = this.element.offsetWidth;
+            var droplistwidth = this.droplist.offsetWidth;
+            var errormargin = 4; // element.size is font-specific and needs a little safety margin
+
+            this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
+            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
+        }
+
+        oSelectComboBox.prototype.setWrapperType = function () {
+            if (this.listtype === 'combobox') {
+                this.wrapper.classList.add('list-combobox');
+            } else {
+                this.wrapper.classList.add('list-droplist');
+            }
+        }
+
+        oSelectComboBox.prototype.setInputType = function () {
+            if (this.listtype === 'droplist') {
+                this.element.readOnly = true;
+            }
         }
 
         oSelectComboBox.prototype.handleEvent = function (event) {
@@ -112,6 +156,10 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.configureInitialFilter = function () {
+            if (this.listtype !== 'combobox') {
+                return;
+            }
+
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 if (item.getAttribute('data-selected')) {
@@ -465,20 +513,13 @@ define(['component'],
             this.currentlistposition = -1;
         }
 
-        oSelectComboBox.prototype.setWidth = function () {
-            // set the width of the drop list to the width of the input
-            if (this.element.style.width.length > 0) {
-                this.droplist.classList.add('manual-width');
-                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 44px + 16px)';
-            }
-        }
-
         oSelectComboBox.prototype.filtertype = function (prop) {
             this.filtermethod = prop;
         }
 
         oSelectComboBox.prototype.placeholder = function (prop) {
-            this.element.placeholder = prop;
+            this.defaultplaceholder = prop;
+            this.element.placeholder = this.defaultplaceholder;
         }
 
         oSelectComboBox.prototype.noitemsinlist = function (prop) {
