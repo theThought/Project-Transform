@@ -7,7 +7,7 @@ $default-text-width: globals.$default-input-width;
         padding: 10px 16px;
         border-radius: globals.$text-border-radius;
         border: 1px solid globals.$borders;
-        color: globals.$input-text;
+        color: globals.$theme-primary;
         min-width: 3em;
         width: globals.$default-input-width;
         height: 19px;
@@ -17,6 +17,10 @@ $default-text-width: globals.$default-input-width;
         &.list-visible {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+        }
+
+        &.exact {
+            color: globals.$input-text
         }
     }
 
@@ -89,7 +93,6 @@ $default-text-width: globals.$default-input-width;
     z-index: 10;
     min-width: 3em;
     width: calc($default-text-width + 17px + 17px); // allows for padding of input element
-    box-sizing: border-box;
 
     &.charrestriction {
         li:not(.a-list-placeholder-restriction) {

@@ -118,11 +118,12 @@ define(['component'],
             this.element.size = Math.max(this.defaultPlaceholder.length, 1);
             var inputwidth = this.element.offsetWidth;
             var droplistwidth = this.droplist.offsetWidth;
+            var padding = 32; // the droplist does not have padding included
             var errormargin = 4; // element.size is font-specific and needs a little safety margin
 
             this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
             this.button.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
-            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
+            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + padding + 'px';
             this.element.style.boxSizing = 'border-box';
         }
 

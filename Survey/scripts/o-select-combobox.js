@@ -471,6 +471,7 @@ define(['component'],
             selectedOption.classList.add('selected');
             selectedOption.setAttribute('data-selected', 'selected');
             this.element.value = this.sanitiseText(selectedOption.innerText);
+            this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
         }
 
@@ -481,6 +482,7 @@ define(['component'],
                 item.removeAttribute('data-selected');
             }
             this.setHiddenValue('');
+            this.element.classList.remove('exact');
             this.broadcastChange();
         }
 

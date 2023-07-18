@@ -1855,7 +1855,7 @@ input[type=range]:focus::-ms-fill-lower {
   padding: 10px 16px;
   border-radius: 2px;
   border: 1px solid #8797C8;
-  color: #449B9B;
+  color: #455B97;
   min-width: 3em;
   width: 197px;
   height: 19px;
@@ -1866,6 +1866,9 @@ input[type=range]:focus::-ms-fill-lower {
 .o-select-combobox.list-combobox input[type=text].list-visible {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+.o-select-combobox.list-combobox input[type=text].exact {
+  color: #449B9B;
 }
 .o-select-combobox.list-combobox input:focus {
   border-color: #455B97;
@@ -1950,8 +1953,6 @@ input[type=range]:focus::-ms-fill-lower {
   z-index: 10;
   min-width: 3em;
   width: 231px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 .o-select-combobox ul.charrestriction li:not(.a-list-placeholder-restriction) {
   display: none;
