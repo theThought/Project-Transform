@@ -606,17 +606,16 @@ define(['component'],
                 var itemlabel = this.sanitiseText(curitem.innerText.toLowerCase());
                 var firstletter = itemlabel.substring(0, 1).toLowerCase();
 
-                curitem.classList.remove('selected');
-
                 if (firstletter === char) {
                     if (curitem.classList.contains('selected')) {
                         continue;
                     } else if (firstletter === curchar && curitem.getAttribute('data-list-position') < this.getCurrentListPosition()) {
                         continue;
                     } else {
+                        this.updateScrollPosition(i);
                         this.updateSelectedEntry(i);
                         this.setSelectedOption(curitem);
-                        this.setCurrentListPosition(this.list[i].getAttribute('data-list-position'));
+                        this.setCurrentListPosition(i);
                         return;
                     }
                 }
