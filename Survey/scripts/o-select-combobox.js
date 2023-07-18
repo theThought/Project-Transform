@@ -24,6 +24,7 @@ define(['component'],
             this.filtermethod = 'contains';
             this.listtype = 'combobox';
             this.defaultplaceholder = 'Select';
+            this.isjumpingtoletter = false;
             this.manualWidth = false;
         }
 
@@ -32,6 +33,9 @@ define(['component'],
 
         oSelectComboBox.prototype.init = function () {
             this.list = this.buildList();
+            this.indexList();
+            this.setCurrentListPosition();
+            this.updateScrollPosition(this.getCurrentListPosition());
             this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
             this.configureProperties();
@@ -57,46 +61,6 @@ define(['component'],
             this.element.addEventListener('change', this, false);
             this.element.addEventListener('focusout', this, false);
             this.element.addEventListener('cut', this, false);
-        }
-
-        oSelectComboBox.prototype.type = function (prop) {
-            this.listtype = prop;
-        }
-
-        oSelectComboBox.prototype.checkManualWidth = function () {
-            return this.element.style.width.length > 0;
-        }
-
-        oSelectComboBox.prototype.setWidth = function () {
-            // respect manual width if set
-            if (this.manualWidth) {
-                this.droplist.classList.add('manual-width');
-                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 44px + 16px)';
-                return;
-            }
-
-            // we must set the size in order for the browser to recalculate the width of the component
-            this.element.size = Math.max(this.defaultplaceholder.length, 1);
-            var inputwidth = this.element.offsetWidth;
-            var droplistwidth = this.droplist.offsetWidth;
-            var errormargin = 4; // element.size is font-specific and needs a little safety margin
-
-            this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
-            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
-        }
-
-        oSelectComboBox.prototype.setWrapperType = function () {
-            if (this.listtype === 'combobox') {
-                this.wrapper.classList.add('list-combobox');
-            } else {
-                this.wrapper.classList.add('list-droplist');
-            }
-        }
-
-        oSelectComboBox.prototype.setInputType = function () {
-            if (this.listtype === 'droplist') {
-                this.element.readOnly = true;
-            }
         }
 
         oSelectComboBox.prototype.handleEvent = function (event) {
@@ -132,6 +96,47 @@ define(['component'],
             }
         }
 
+        oSelectComboBox.prototype.type = function (prop) {
+            this.listtype = prop;
+        }
+
+        oSelectComboBox.prototype.checkManualWidth = function () {
+            return this.element.style.width.length > 0;
+        }
+
+        oSelectComboBox.prototype.setWidth = function () {
+            // respect manual width if set
+            if (this.manualWidth) {
+                this.droplist.classList.add('manual-width');
+                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 44px + 16px)';
+                return;
+            }
+
+            // we must set the size in order for the browser to recalculate the width of the component
+            this.element.size = Math.max(this.defaultplaceholder.length, 1);
+            var inputwidth = this.element.offsetWidth;
+            var droplistwidth = this.droplist.offsetWidth;
+            var padding = 32; // the droplist does not have padding included
+            var errormargin = 4; // element.size is font-specific and needs a little safety margin
+
+            this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
+            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + padding + 'px';
+        }
+
+        oSelectComboBox.prototype.setWrapperType = function () {
+            if (this.listtype === 'droplist') {
+                this.wrapper.classList.add('list-droplist');
+            } else {
+                this.wrapper.classList.add('list-combobox');
+            }
+        }
+
+        oSelectComboBox.prototype.setInputType = function () {
+            if (this.listtype === 'droplist') {
+                this.element.readOnly = true;
+            }
+        }
+
         oSelectComboBox.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
             newelement.id = '';
@@ -151,12 +156,17 @@ define(['component'],
             return this.droplist.querySelectorAll('li');
         }
 
+        oSelectComboBox.prototype.indexList = function () {
+            for (var i = 0; i < this.list.length; i++) {
+                this.list[i].setAttribute('data-list-position', i);
+            }
+        }
         oSelectComboBox.prototype.buildVisibleList = function () {
             return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
         }
 
         oSelectComboBox.prototype.configureInitialFilter = function () {
-            if (this.listtype !== 'combobox') {
+            if (this.listtype === 'droplist') {
                 return;
             }
 
@@ -178,7 +188,7 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.filterList = function () {
-            this.resetCurrentListPosition();
+            this.setCurrentListPosition();
 
             switch (this.filtermethod) {
                 case 'starts':
@@ -363,6 +373,10 @@ define(['component'],
                 case 13: // enter key
                     return;
                 default:
+                    if (this.listtype === 'droplist') {
+                        this.jumpToLetter();
+                        break;
+                    }
                     this.filterList();
             }
 
@@ -398,6 +412,9 @@ define(['component'],
         oSelectComboBox.prototype.updateScrollPosition = function (position) {
             this.droplist.scrollTop = 0;//set to top
             var currentitem = this.buildVisibleList()[position];
+            if (typeof currentitem === "undefined") {
+                return;
+            }
             var scrollposition = currentitem.offsetTop - this.droplist.clientHeight;
             this.droplist.scrollTop = scrollposition + 100;
         }
@@ -500,19 +517,42 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.hideList = function () {
-            this.resetCurrentListPosition();
+            this.setCurrentListPosition();
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
         }
 
         oSelectComboBox.prototype.toggleList = function () {
-            this.resetCurrentListPosition();
+            this.setCurrentListPosition();
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
         }
 
         oSelectComboBox.prototype.resetCurrentListPosition = function () {
             this.currentlistposition = -1;
+        }
+
+        oSelectComboBox.prototype.setCurrentListPosition = function (position) {
+            if (typeof position !== 'undefined') {
+                this.currentlistposition = parseInt(position);
+                return;
+            }
+
+            this.currentlistposition = -1;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var curelement = this.list[i];
+                var element = curelement.querySelector('input:checked');
+
+                if (element !== null) {
+                    this.currentlistposition = i;
+                    return;
+                }
+            }
+        }
+
+        oSelectComboBox.prototype.getCurrentListPosition = function () {
+            return parseInt(this.currentlistposition);
         }
 
         oSelectComboBox.prototype.filtertype = function (prop) {
@@ -522,6 +562,12 @@ define(['component'],
         oSelectComboBox.prototype.placeholder = function (prop) {
             this.defaultplaceholder = prop;
             this.element.placeholder = this.defaultplaceholder;
+        }
+
+        oSelectComboBox.prototype.jumptofirstletter = function (prop) {
+            if (prop === true) {
+                this.isjumpingtoletter = true;
+            }
         }
 
         oSelectComboBox.prototype.noitemsinlist = function (prop) {
@@ -545,6 +591,36 @@ define(['component'],
 
         oSelectComboBox.prototype.mincharactersforlist = function (prop) {
             this.mincharacters = prop;
+        }
+
+        oSelectComboBox.prototype.jumpToLetter = function (event) {
+            if (!this.isjumpingtoletter) {
+                return;
+            }
+
+            var char = String.fromCharCode(this.keypressed).toLowerCase();
+            var curchar = this.element.value.substring(0,1).toLowerCase();
+
+            for (var i = 0; i < this.list.length; i++) {
+                var curitem = this.list[i];
+                var itemlabel = this.sanitiseText(curitem.innerText.toLowerCase());
+                var firstletter = itemlabel.substring(0, 1).toLowerCase();
+
+                curitem.classList.remove('selected');
+
+                if (firstletter === char) {
+                    if (curitem.classList.contains('selected')) {
+                        continue;
+                    } else if (firstletter === curchar && curitem.getAttribute('data-list-position') < this.getCurrentListPosition()) {
+                        continue;
+                    } else {
+                        this.updateSelectedEntry(i);
+                        this.setSelectedOption(curitem);
+                        this.setCurrentListPosition(this.list[i].getAttribute('data-list-position'));
+                        return;
+                    }
+                }
+            }
         }
 
         return oSelectComboBox;
