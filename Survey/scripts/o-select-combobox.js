@@ -28,7 +28,7 @@ define(['component'],
             this.isjumpingtoletter = false;
             this.manualWidth = false;
             this.keytimer = null;
-            this.keytimerlimit = 1000; // time in milliseconds at which the buffer is cleared
+            this.keytimerlimit = 500; // time in milliseconds at which the buffer is cleared
         }
 
         oSelectComboBox.prototype = Object.create(component.prototype);
@@ -363,6 +363,8 @@ define(['component'],
                     event.preventDefault();
                     this.selectOption(event);
                     break;
+                default:
+                    this.keybuffer += String.fromCharCode(this.keypressed).toLowerCase();
             }
         }
 
@@ -379,10 +381,11 @@ define(['component'],
                 case 13: // enter key
                     return;
                 default:
-                    this.keybuffer+=String.fromCharCode(this.keypressed).toLowerCase();
                     clearInterval(this.keytimer);
                     var that = this;
-                    this.keytimer = setTimeout(function() {that.clearkeybuffer()}, this.keytimerlimit);
+                    this.keytimer = setTimeout(function () {
+                        that.clearkeybuffer()
+                    }, this.keytimerlimit);
                     if (this.listtype === 'droplist') {
                         this.jumpToLetter();
                         break;
@@ -395,7 +398,7 @@ define(['component'],
 
         oSelectComboBox.prototype.clearkeybuffer = function () {
             this.keybuffer = '';
-            this.resetCurrentListPosition();
+            //this.resetCurrentListPosition();
         }
 
         oSelectComboBox.prototype.navigateUp = function () {
@@ -484,7 +487,7 @@ define(['component'],
             }
 
             if (event.type === 'keydown') {
-                selectedOption = this.buildVisibleList()[this.currentlistposition];
+                selectedOption = this.list[this.currentlistposition];
             }
 
             // ignore clicks on the drop-list background or scrollbar
@@ -544,13 +547,13 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.hideList = function () {
-            this.setCurrentListPosition();
+            //this.setCurrentListPosition();
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
         }
 
         oSelectComboBox.prototype.toggleList = function () {
-            this.setCurrentListPosition();
+            //this.setCurrentListPosition();
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
         }
@@ -565,16 +568,11 @@ define(['component'],
                 return;
             }
 
-            this.currentlistposition = -1;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var curelement = this.list[i];
-                var element = curelement.querySelector('input:checked');
-
-                if (element !== null) {
-                    this.currentlistposition = i;
-                    return;
-                }
+            var selecteditem = this.droplist.querySelector('[data-selected="selected"]');
+            if (selecteditem === null) {
+                this.currentlistposition = -1;
+            } else {
+                this.currentlistposition = selecteditem.getAttribute('data-list-position');
             }
         }
 
@@ -625,19 +623,15 @@ define(['component'],
                 return;
             }
 
-            var char = this.keybuffer;
-            this.debug(char);
-            var curchar = this.element.value.substring(0,1).toLowerCase();
+            var searchstring = this.keybuffer;
+            var list = this.buildVisibleList();
+            this.debug(searchstring);
 
-            for (var i = 0; i < this.list.length; i++) {
-                var curitem = this.list[i];
+            for (var i = 0; i < list.length; i++) {
+                var curitem = list[i];
                 var itemlabel = this.sanitiseText(curitem.innerText.toLowerCase());
-                var firstletter = itemlabel.substring(0, 1).toLowerCase();
-
-                if (itemlabel.indexOf(char) === 0) {
-                    if (curitem.classList.contains('selected')) {
-                        continue;
-                    } else if (curitem.getAttribute('data-list-position') < this.getCurrentListPosition()) {
+                if (itemlabel.indexOf(searchstring) === 0) {
+                    if (curitem.classList.contains('selected') && searchstring.length === 1) {
                         continue;
                     } else {
                         this.updateScrollPosition(i);
