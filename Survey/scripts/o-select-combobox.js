@@ -18,6 +18,7 @@ define(['component'],
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
+            this.keybuffer = '';
             this.list = null;
             this.currentlistposition = -1;
             this.isExact = true;
@@ -26,6 +27,8 @@ define(['component'],
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = false;
             this.manualWidth = false;
+            this.keytimer = null;
+            this.keytimerlimit = 1000; // time in milliseconds at which the buffer is cleared
         }
 
         oSelectComboBox.prototype = Object.create(component.prototype);
@@ -348,6 +351,7 @@ define(['component'],
         oSelectComboBox.prototype.onKeydown = function (event) {
             switch (this.keypressed) {
                 case 9: // tab key
+                    this.clearkeybuffer();
                     this.hideList();
                     break;
                 case 38: // up arrow
@@ -365,14 +369,20 @@ define(['component'],
         oSelectComboBox.prototype.onKeyup = function () {
             switch (this.keypressed) {
                 case 38: // up arrow
+                    this.clearkeybuffer();
                     this.navigateUp();
                     break;
                 case 40: // down arrow
+                    this.clearkeybuffer();
                     this.navigateDown();
                     break;
                 case 13: // enter key
                     return;
                 default:
+                    this.keybuffer+=String.fromCharCode(this.keypressed).toLowerCase();
+                    clearInterval(this.keytimer);
+                    var that = this;
+                    this.keytimer = setTimeout(function() {that.clearkeybuffer()}, this.keytimerlimit);
                     if (this.listtype === 'droplist') {
                         this.jumpToLetter();
                         break;
@@ -381,6 +391,11 @@ define(['component'],
             }
 
             this.showList();
+        }
+
+        oSelectComboBox.prototype.clearkeybuffer = function () {
+            this.keybuffer = '';
+            this.resetCurrentListPosition();
         }
 
         oSelectComboBox.prototype.navigateUp = function () {
@@ -394,6 +409,10 @@ define(['component'],
                 return;
             }
 
+            if (this.listtype === 'droplist') {
+                this.setSelectedOption(this.list[this.currentlistposition]);
+            }
+
             this.updateSelectedEntry(this.currentlistposition);
             this.updateScrollPosition(this.currentlistposition);
         }
@@ -404,6 +423,10 @@ define(['component'],
             }
 
             this.currentlistposition++;
+
+            if (this.listtype === 'droplist') {
+                this.setSelectedOption(this.list[this.currentlistposition]);
+            }
 
             this.updateSelectedEntry(this.currentlistposition);
             this.updateScrollPosition(this.currentlistposition);
@@ -430,8 +453,6 @@ define(['component'],
                     currentvisiblelist[i].classList.remove('selected');
                     currentvisiblelist[i].removeAttribute('data-selected');
                 }
-
-                this.broadcastChange();
             }
         }
 
@@ -455,7 +476,12 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.selectOption = function (event) {
+            this.keypressed = '';
             var selectedOption = event.target;
+
+            if (!this.element.classList.contains('list-visible')) {
+                return;
+            }
 
             if (event.type === 'keydown') {
                 selectedOption = this.buildVisibleList()[this.currentlistposition];
@@ -490,6 +516,7 @@ define(['component'],
             this.element.value = this.sanitiseText(selectedOption.innerText);
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
+            this.broadcastChange();
         }
 
         oSelectComboBox.prototype.clearOptions = function () {
@@ -598,7 +625,8 @@ define(['component'],
                 return;
             }
 
-            var char = String.fromCharCode(this.keypressed).toLowerCase();
+            var char = this.keybuffer;
+            this.debug(char);
             var curchar = this.element.value.substring(0,1).toLowerCase();
 
             for (var i = 0; i < this.list.length; i++) {
@@ -606,10 +634,10 @@ define(['component'],
                 var itemlabel = this.sanitiseText(curitem.innerText.toLowerCase());
                 var firstletter = itemlabel.substring(0, 1).toLowerCase();
 
-                if (firstletter === char) {
+                if (itemlabel.indexOf(char) === 0) {
                     if (curitem.classList.contains('selected')) {
                         continue;
-                    } else if (firstletter === curchar && curitem.getAttribute('data-list-position') < this.getCurrentListPosition()) {
+                    } else if (curitem.getAttribute('data-list-position') < this.getCurrentListPosition()) {
                         continue;
                     } else {
                         this.updateScrollPosition(i);
