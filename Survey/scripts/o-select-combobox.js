@@ -454,6 +454,7 @@ define(['component'],
                 if (position === i) {
                     currentvisiblelist[i].classList.add('selected');
                     currentvisiblelist[i].setAttribute('data-selected', 'selected');
+                    this.currentlistposition = currentvisiblelist[i].getAttribute('data-list-position');
                 } else {
                     currentvisiblelist[i].classList.remove('selected');
                     currentvisiblelist[i].removeAttribute('data-selected');
