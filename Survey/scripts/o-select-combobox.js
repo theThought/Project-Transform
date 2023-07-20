@@ -519,6 +519,7 @@ define(['component'],
             this.element.value = this.sanitiseText(selectedOption.innerText);
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
+            this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
             this.broadcastChange();
         }
 
