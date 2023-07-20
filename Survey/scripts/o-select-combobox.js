@@ -479,7 +479,7 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.selectOption = function (event) {
-            this.keypressed = '';
+            this.keybuffer = '';
             var selectedOption = event.target;
 
             if (!this.element.classList.contains('list-visible')) {
