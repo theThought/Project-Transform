@@ -418,6 +418,7 @@ define(['component'],
                     this.navigateDown();
                     break;
                 case 9: // tab key
+                case null:
                     break
                 case 13: // enter key
                     return;
