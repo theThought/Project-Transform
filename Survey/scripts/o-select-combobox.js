@@ -103,6 +103,12 @@ define(['component'],
             this.listtype = prop;
         }
 
+        oSelectComboBox.prototype.exact = function (prop) {
+            if (prop === false) {
+                this.isExact = false;
+            }
+        }
+
         oSelectComboBox.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }
@@ -147,12 +153,6 @@ define(['component'],
             this.element.type = 'hidden';
             this.hiddenelement = this.element;
             this.element = this.wrapper.insertBefore(newelement, this.droplist);
-        }
-
-        oSelectComboBox.prototype.exact = function (prop) {
-            if (prop === false) {
-                this.isExact = false;
-            }
         }
 
         oSelectComboBox.prototype.buildList = function () {
@@ -378,6 +378,8 @@ define(['component'],
                     this.clearkeybuffer();
                     this.navigateDown();
                     break;
+                case 9: // tab key
+                    break
                 case 13: // enter key
                     return;
                 default:
