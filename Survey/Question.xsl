@@ -342,35 +342,20 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'DropList'">
-            <xsl:choose>
-               <xsl:when test="$qCustomType='list'">
-                  <xsl:call-template name="DropDownControl">
-                     <xsl:with-param name="qGroup" select="$qGroup" />
-                     <xsl:with-param name="qFullName" select="$qFullName" />
-                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                     <xsl:with-param name="qCustomType" select="$qCustomType" />
-                  </xsl:call-template>
-               </xsl:when>
-               <xsl:when test="$qCustomType='droplist'">
-                  <xsl:call-template name="DropListControl">
-                     <xsl:with-param name="qGroup" select="$qGroup" />
-                     <xsl:with-param name="qFullName" select="$qFullName" />
-                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                     <xsl:with-param name="qCustomType" select="$qCustomType" />
-                  </xsl:call-template>
-               </xsl:when>
-               <xsl:when test="$qCustomType='combobox'">
-                  <xsl:call-template name="ComboBoxControl">
-                     <xsl:with-param name="qGroup" select="$qGroup" />
-                     <xsl:with-param name="qFullName" select="$qFullName" />
-                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-                     <xsl:with-param name="qCustomType" select="$qCustomType" />
-                  </xsl:call-template>
-               </xsl:when>
-            </xsl:choose>
+            <xsl:call-template name="DropDownControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'ComboList'">
-            <xsl:call-template name="ComboListControl" />
+            <xsl:call-template name="ComboBoxControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'RadioButton'">
             <xsl:call-template name="RadioButtonControl">
@@ -1152,13 +1137,13 @@
       <xsl:param name="qCustomType" />
       <xsl:element name="div">
          <xsl:attribute name="class">
-            <xsl:text>o-select-combobox</xsl:text>
+            <xsl:text>o-combobox</xsl:text>
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
          <xsl:element name="script">
-            <xsl:text>app.registerComponent('oSelectCombobox','</xsl:text>
+            <xsl:text>app.registerComponent('oCombobox','</xsl:text>
             <xsl:value-of select="$qGroup" />
             <xsl:text>','</xsl:text>
             <xsl:value-of select="$qFullName" />
@@ -1179,7 +1164,7 @@
          </xsl:call-template>
 
          <xsl:element name="ul">
-            <xsl:attribute name="class">m-select-combobox-unorderedlist</xsl:attribute>
+            <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
                <xsl:value-of select="$qFullName" />
                <xsl:text>_list</xsl:text>
@@ -1196,7 +1181,7 @@
             </xsl:if>
             <xsl:for-each select="Category">
                <xsl:element name="li">
-                  <xsl:attribute name="class">a-select-combobox-option</xsl:attribute>
+                  <xsl:attribute name="class">a-option-list</xsl:attribute>
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$data-questionid" />
                      <xsl:value-of select="@CategoryID" />
@@ -1233,11 +1218,6 @@
             </xsl:for-each>
          </xsl:element>
       </xsl:element>
-   </xsl:template>
-
-   <xsl:template name="ComboListControl">
-      <br />
-      <B>ComboList NOT IMPLEMENTED</B>
    </xsl:template>
    <xsl:template name="RadioButtonControl">
       <xsl:param name="qGroup" />
