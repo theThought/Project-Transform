@@ -360,6 +360,7 @@
                   </xsl:call-template>
                </xsl:when>
             </xsl:choose>
+        </xsl:when>
          <xsl:when test="@Type = 'RadioButton'">
             <xsl:call-template name="RadioButtonControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
@@ -375,12 +376,6 @@
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'ListBox'">
-            <xsl:call-template name="ListBoxControl" />
-         </xsl:when>
-         <xsl:when test="@Type = 'ListControl'">
-            <xsl:call-template name="ListControlControl" />
          </xsl:when>
          <xsl:when test="@Type = 'Button'">
             <xsl:call-template name="ButtonControl">
