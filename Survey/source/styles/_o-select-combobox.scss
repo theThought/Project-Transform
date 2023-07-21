@@ -2,14 +2,13 @@
 
 $default-text-width: globals.$default-input-width;
 
-.o-select-combobox.list-combobox {
+.o-combobox {
     input[type=text] {
         padding: 10px 16px;
         border-radius: globals.$text-border-radius;
         border: 1px solid globals.$borders;
         color: globals.$theme-primary;
         min-width: 3em;
-        width: globals.$default-input-width;
         height: 19px;
         background-color: globals.$input-background;
         box-sizing: content-box;
@@ -47,15 +46,13 @@ $default-text-width: globals.$default-input-width;
     }
 }
 
-.o-select-combobox.list-droplist {
-
+.o-dropdown {
     input[type=text] {
         padding: 10px 16px;
         border-radius: globals.$border-radius;
         border: 1px solid globals.$theme-primary;
         color: globals.$white;
         min-width: 3em;
-        width: globals.$default-input-width;
         height: 19px;
         background-color: globals.$theme-primary;
         box-sizing: content-box;
@@ -78,7 +75,8 @@ $default-text-width: globals.$default-input-width;
     }
 }
 
-.o-select-combobox ul {
+.o-combobox ul,
+.o-dropdown ul {
     list-style-type: none;
     margin: -1px 0 4px 0;
     padding: 0 0 8px 0;
@@ -152,7 +150,8 @@ $default-text-width: globals.$default-input-width;
 }
 
 .focus-control {
-    .o-select-combobox ul {
+    .o-combobox ul,
+    .o-dropdown ul {
         box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
     }
 }

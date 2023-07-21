@@ -68,6 +68,16 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oSelectCombobox(id, group));
             });
             break;
+        case 'ocombobox':
+            requirejs(['o-combobox'], function (oCombobox) {
+                app.preinitcomponents.push(new oCombobox(id, group));
+            });
+            break;
+        case 'odropdown':
+            requirejs(['o-dropdown'], function (oDropdown) {
+                app.preinitcomponents.push(new oDropdown(id, group));
+            });
+            break;
         case 'ainputmultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
                 app.preinitcomponents.push(new aInputMultilineEdit(id, group));
