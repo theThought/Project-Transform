@@ -342,21 +342,24 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="@Type = 'DropList'">
-            <xsl:call-template name="DropDownControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
-         <xsl:when test="@Type = 'ComboList'">
-            <xsl:call-template name="ComboBoxControl">
-               <xsl:with-param name="qGroup" select="$qGroup" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-               <xsl:with-param name="qCustomType" select="$qCustomType" />
-            </xsl:call-template>
-         </xsl:when>
+            <xsl:choose>
+               <xsl:when test="$qCustomType='dropdown'">
+                  <xsl:call-template name="DropDownControl">
+                     <xsl:with-param name="qGroup" select="$qGroup" />
+                     <xsl:with-param name="qFullName" select="$qFullName" />
+                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                     <xsl:with-param name="qCustomType" select="$qCustomType" />
+                  </xsl:call-template>
+               </xsl:when>
+               <xsl:when test="$qCustomType='combobox'">
+                  <xsl:call-template name="ComboBoxControl">
+                     <xsl:with-param name="qGroup" select="$qGroup" />
+                     <xsl:with-param name="qFullName" select="$qFullName" />
+                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                     <xsl:with-param name="qCustomType" select="$qCustomType" />
+                  </xsl:call-template>
+               </xsl:when>
+            </xsl:choose>
          <xsl:when test="@Type = 'RadioButton'">
             <xsl:call-template name="RadioButtonControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
@@ -2311,15 +2314,9 @@
             <xsl:value-of select="'hnumberslider'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
-            <xsl:value-of select="'list'" />
+            <xsl:value-of select="'dropdown'" />
          </xsl:when>
-         <xsl:when test="$theID = '-61'">
-            <xsl:value-of select="'combolist'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-65'">
-            <xsl:value-of select="'droplist'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-68'">
+         <xsl:when test="$theID = '-70'">
             <xsl:value-of select="'combobox'" />
          </xsl:when>
          <xsl:otherwise>
