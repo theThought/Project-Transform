@@ -168,13 +168,15 @@ define(
 
         component.prototype.configureInitialVisibility = function () {
             // if there are no visibility rules defined for this question lift the cover immediately
-            if (typeof this.properties.visible === "undefined") {
+            if (typeof this.properties.visible === "undefined"
+            && typeof this.properties.invisible === "undefined") {
                 this.makeAvailable();
                 return;
             }
 
             // the collapse property removes the space required by the question if it is hidden
-            if (this.properties.visible.collapse === true) {
+            if ((typeof this.properties.visible !== "undefined" && this.properties.visible.collapse === true) ||
+                (typeof this.properties.invisible !== "undefined" && this.properties.invisible.collapse === true)) {
                 this.collapse = true;
                 this.element.classList.add('collapse');
             }
