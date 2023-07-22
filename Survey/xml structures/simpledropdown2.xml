@@ -1,0 +1,264 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-60">
+            <Control Type="DropList"></Control>
+        </Style>
+        <Control Type="DropList" QuestionName="_QDrugComboSingle_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-60">
+                <Control Type="DropList"></Control>
+            </Style>
+            <Category Name="__3__0002__0002" CategoryID="0_S0">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>5 &amp;amp; FU</Text>
+                </Label>
+            </Category>
+            <Category Name="__3__0004__0004" CategoryID="0_S1">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>6-Mercaptopurine</Text>
+                </Label>
+            </Category>
+            <Category Name="__3__0006__0006" CategoryID="0_S2">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>6-Thioguanine</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__6775__6775" CategoryID="0_S3">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Abarelix</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7645__7645" CategoryID="0_S4">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Abecma</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7511__7511" CategoryID="0_S5">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Abemaciclib</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7316__7316" CategoryID="0_S6">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Abiraterone</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__6939__6939" CategoryID="0_S7">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Abraxane</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__9999__9906" CategoryID="0_S8">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>ABVD</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__9999__9912" CategoryID="0_S9">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>AC</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7512__7512" CategoryID="0_S10">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Acalabrutinib</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__0014__6246" CategoryID="0_S11">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Aclacinon</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__0014__0014" CategoryID="0_S12">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Aclarubicin</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7324__7324" CategoryID="0_S13">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Adcetris</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7302__7302" CategoryID="0_S14">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Ado-trastuzumab</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__0233__6200" CategoryID="0_S15">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Adriacin</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__0233__0023" CategoryID="0_S16">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Adriamycin</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7320__7320" CategoryID="0_S17">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Afatinib</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7007__7309" CategoryID="0_S18">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Afinitor</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7203__7203" CategoryID="0_S19">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Aflibercept</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7612__7612" CategoryID="0_S20">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>AiRuiKa</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7629__7629" CategoryID="0_S21">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Akalux</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7469__7469" CategoryID="0_S22">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alecensa</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7469__7469" CategoryID="0_S23">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alectinib</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__6862__6862" CategoryID="0_S24">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alemtuzumab</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__1076__5445" CategoryID="0_S25">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alimta</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7509__7509" CategoryID="0_S26">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Aliqopa</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__0386__0027" CategoryID="0_S27">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alkeran</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7642__7642" CategoryID="0_S28">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Almonertinib</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7576__7576" CategoryID="0_S29">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alpelisib</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__0301__0301" CategoryID="0_S30">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Altretamine</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7501__7501" CategoryID="0_S31">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Alunbrig</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7642__7642" CategoryID="0_S32">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>AMEILE</Text>
+                </Label>
+            </Category>
+            <Category Name="__2__7039__7039" CategoryID="0_S33">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Amnolake</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__6490__6490" CategoryID="0_S34">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Amrubicin (hydrochloride)</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__0042__0042" CategoryID="0_S35">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Amsacrine</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__1139__1139" CategoryID="0_S36">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Anagrelide Hydrochloride</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__5008__5008" CategoryID="0_S37">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Anastrozole</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7596__7596" CategoryID="0_S38">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Anlotinib Hydrocloride</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__0824__0824" CategoryID="0_S39">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Antithymocyte Immunoglobulin</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7527__7527" CategoryID="0_S40">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Apalutamide</Text>
+                </Label>
+            </Category>
+            <Category Name="__1__7490__7490" CategoryID="0_S41">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Apatinib</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>
