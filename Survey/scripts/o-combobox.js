@@ -155,7 +155,7 @@ define(['component'],
             // respect manual width if set
             if (this.manualWidth) {
                 this.droplist.classList.add('manual-width');
-                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 44px + 16px)';
+                this.droplist.style.width = 'calc(' + this.element.style.width + ' + 16px + 16px)';
                 return;
             }
 
