@@ -161,8 +161,11 @@ define(['component'],
 
             // we must set the size in order for the browser to recalculate the width of the component
             this.element.size = Math.max(this.defaultplaceholder.length, 1);
-            var inputwidth = this.element.offsetWidth;
-            var droplistwidth = this.droplist.offsetWidth;
+            var inputdims = getComputedStyle(this.element);
+            var inputwidth = parseFloat(inputdims.width);
+            if (isNaN(inputwidth)) inputwidth = 0;
+            var droplistdims = getComputedStyle(this.droplist);
+            var droplistwidth = parseFloat(droplistdims.width);
             var padding = 32; // the droplist does not have padding included
             var errormargin = 4; // element.size is font-specific and needs a little safety margin
 
