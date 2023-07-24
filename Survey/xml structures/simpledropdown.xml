@@ -1,130 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html lang="en-US">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta http-equiv="Content-Language" content="en-US"/><meta http-equiv="Expires" content="-1"/><meta http-equiv="Pragma" content="no-cache"/><meta name="Robots" content="noindex, nofollow"/><meta name="Generator" content="Interviewer Server HTML Player 1.0.23..312"/><meta name="Template" content="page (simple).htm"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-		<link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/base.css"/>
-		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js"><!-- Require Script --></script>
-		<script type="text/javascript">
-		require.config({
-			baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts'
-		});
-	</script>
-		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
-		<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
-		<script type="text/javascript">
-		require(['main'], function() {});
-	</script>
-		<title>Ipsos Healthcare Research</title>
-		<link rel="apple-touch-icon" sizes="57x57" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-57x57.png"/>
-		<link rel="apple-touch-icon" sizes="60x60" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-60x60.png"/>
-		<link rel="apple-touch-icon" sizes="72x72" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-72x72.png"/>
-		<link rel="apple-touch-icon" sizes="76x76" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-76x76.png"/>
-		<link rel="apple-touch-icon" sizes="114x114" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-114x114.png"/>
-		<link rel="apple-touch-icon" sizes="120x120" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-120x120.png"/>
-		<link rel="apple-touch-icon" sizes="144x144" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-144x144.png"/>
-		<link rel="apple-touch-icon" sizes="152x152" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-152x152.png"/>
-		<link rel="apple-touch-icon" sizes="180x180" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/apple-icon-180x180.png"/>
-		<link rel="icon" type="image/png" sizes="192x192" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/android-icon-192x192.png"/>
-		<link rel="icon" type="image/png" sizes="16x16" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-16x16.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-32x32.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/favicon-32x32.png"/>
-		<!-- <link rel="manifest" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/manifest.json" /> -->
-		<meta name="msapplication-TileColor" content="#ffffff"/>
-		<meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png"/>
-		<meta name="theme-color" content="#ffffff"/>
-	</head>
-	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="zirsujthtktubewl5zg6swey5maqaaaa"/><input type="hidden" name="I.SavePoint" value="DrugComboSingle"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25,"focus":{"question":true,"control":true}})</script><div class="header">
-				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
-				<div class="overall-progress">
-					<div class="overall-progress-text">
-						<!-- progress text -->
-					</div>
-					<div class="overall-progress-bar">
-						<table style="height: 100%; width: 100%"><tr><td style="width: 1%; background-color: #D0DAE6"/><td class="mrProgressText">1%</td></tr></table><!-- progress bar -->
-					</div>
-				</div>
-			</div>
-			<div class="surroundcontent">
-				<div class="o-question-container">
-					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QDrugComboSingle');</script><script type="text/javascript">app.RegisterProperties("_QDrugComboSingle",{"displayicon":false,"listsize":10,"showanswers":false,"placeholder":"select an option"});</script><div class="m-question-cover"><!-- cover --></div>
-					<div class="o-question-error">
-					</div>
-					<div class="o-question-core">
-						<div class="o-question-warning">
-						</div>
-						<div class="o-question-information">
-							<div class="o-question-information-content">Which of the following drugs &amp; anti-biotics did you use most</div>
-							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
-						</div>
-						<div class="o-question-instruction">
-						</div>
-						<div class="o-question-response o-question-dropdown" data-questiongroup="_QDrugComboSingle" data-readonly="false" data-position="below">
-							<script>app.registerComponent('oQuestionDropdown','_Q0_C','_QDrugComboSingle');</script>
-							<div class="o-dropdown" data-questiongroup="_QDrugComboSingle">
-								<script>app.registerComponent('oDropdown','_Q0_C','_QDrugComboSingle');</script>
-								<input data-questionid="_Q0_C" data-questiongroup="_QDrugComboSingle" data-position="below" type="text" name="_QDrugComboSingle_C" id="_Q0_C" autocomplete="off" style="" value="" class="a-input-dropdown below"/>
-								<ul class="m-list" id="_QDrugComboSingle_list" data-questiongroup="_QDrugComboSingle">
-									<li class="a-option-list" data-questionid="_Q0_C0_S0" data-questiongroup="_QDrugComboSingle" data-value="__3__0002__0002" id="_Q0_C0_S0">5 &amp;amp; FU</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S1" data-questiongroup="_QDrugComboSingle" data-value="__3__0004__0004" id="_Q0_C0_S1">6-Mercaptopurine</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S2" data-questiongroup="_QDrugComboSingle" data-value="__3__0006__0006" id="_Q0_C0_S2">6-Thioguanine</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S3" data-questiongroup="_QDrugComboSingle" data-value="__1__6775__6775" id="_Q0_C0_S3">Abarelix</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S4" data-questiongroup="_QDrugComboSingle" data-value="__2__7645__7645" id="_Q0_C0_S4">Abecma</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S5" data-questiongroup="_QDrugComboSingle" data-value="__1__7511__7511" id="_Q0_C0_S5">Abemaciclib</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S6" data-questiongroup="_QDrugComboSingle" data-value="__1__7316__7316" id="_Q0_C0_S6">Abiraterone</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S7" data-questiongroup="_QDrugComboSingle" data-value="__2__6939__6939" id="_Q0_C0_S7">Abraxane</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S8" data-questiongroup="_QDrugComboSingle" data-value="__1__9999__9906" id="_Q0_C0_S8">ABVD</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S9" data-questiongroup="_QDrugComboSingle" data-value="__1__9999__9912" id="_Q0_C0_S9">AC</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S10" data-questiongroup="_QDrugComboSingle" data-value="__1__7512__7512" id="_Q0_C0_S10">Acalabrutinib</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S11" data-questiongroup="_QDrugComboSingle" data-value="__2__0014__6246" id="_Q0_C0_S11">Aclacinon</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S12" data-questiongroup="_QDrugComboSingle" data-value="__1__0014__0014" id="_Q0_C0_S12">Aclarubicin</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S13" data-questiongroup="_QDrugComboSingle" data-value="__2__7324__7324" id="_Q0_C0_S13">Adcetris</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S14" data-questiongroup="_QDrugComboSingle" data-value="__1__7302__7302" id="_Q0_C0_S14">Ado-trastuzumab</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S15" data-questiongroup="_QDrugComboSingle" data-value="__2__0233__6200" id="_Q0_C0_S15">Adriacin</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S16" data-questiongroup="_QDrugComboSingle" data-value="__2__0233__0023" id="_Q0_C0_S16">Adriamycin</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S17" data-questiongroup="_QDrugComboSingle" data-value="__1__7320__7320" id="_Q0_C0_S17">Afatinib</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S18" data-questiongroup="_QDrugComboSingle" data-value="__2__7007__7309" id="_Q0_C0_S18">Afinitor</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S19" data-questiongroup="_QDrugComboSingle" data-value="__1__7203__7203" id="_Q0_C0_S19">Aflibercept</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S20" data-questiongroup="_QDrugComboSingle" data-value="__2__7612__7612" id="_Q0_C0_S20">AiRuiKa</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S21" data-questiongroup="_QDrugComboSingle" data-value="__2__7629__7629" id="_Q0_C0_S21">Akalux</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S22" data-questiongroup="_QDrugComboSingle" data-value="__2__7469__7469" id="_Q0_C0_S22">Alecensa</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S23" data-questiongroup="_QDrugComboSingle" data-value="__1__7469__7469" id="_Q0_C0_S23">Alectinib</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S24" data-questiongroup="_QDrugComboSingle" data-value="__1__6862__6862" id="_Q0_C0_S24">Alemtuzumab</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S25" data-questiongroup="_QDrugComboSingle" data-value="__2__1076__5445" id="_Q0_C0_S25">Alimta</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S26" data-questiongroup="_QDrugComboSingle" data-value="__2__7509__7509" id="_Q0_C0_S26">Aliqopa</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S27" data-questiongroup="_QDrugComboSingle" data-value="__2__0386__0027" id="_Q0_C0_S27">Alkeran</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S28" data-questiongroup="_QDrugComboSingle" data-value="__1__7642__7642" id="_Q0_C0_S28">Almonertinib</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S29" data-questiongroup="_QDrugComboSingle" data-value="__1__7576__7576" id="_Q0_C0_S29">Alpelisib</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S30" data-questiongroup="_QDrugComboSingle" data-value="__1__0301__0301" id="_Q0_C0_S30">Altretamine</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S31" data-questiongroup="_QDrugComboSingle" data-value="__2__7501__7501" id="_Q0_C0_S31">Alunbrig</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S32" data-questiongroup="_QDrugComboSingle" data-value="__2__7642__7642" id="_Q0_C0_S32">AMEILE</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S33" data-questiongroup="_QDrugComboSingle" data-value="__2__7039__7039" id="_Q0_C0_S33">Amnolake</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S34" data-questiongroup="_QDrugComboSingle" data-value="__1__6490__6490" id="_Q0_C0_S34">Amrubicin (hydrochloride)</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S35" data-questiongroup="_QDrugComboSingle" data-value="__1__0042__0042" id="_Q0_C0_S35">Amsacrine</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S36" data-questiongroup="_QDrugComboSingle" data-value="__1__1139__1139" id="_Q0_C0_S36">Anagrelide Hydrochloride</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S37" data-questiongroup="_QDrugComboSingle" data-value="__1__5008__5008" id="_Q0_C0_S37">Anastrozole</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S38" data-questiongroup="_QDrugComboSingle" data-value="__1__7596__7596" id="_Q0_C0_S38">Anlotinib Hydrocloride</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S39" data-questiongroup="_QDrugComboSingle" data-value="__1__0824__0824" id="_Q0_C0_S39">Antithymocyte Immunoglobulin</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S40" data-questiongroup="_QDrugComboSingle" data-value="__1__7527__7527" id="_Q0_C0_S40">Apalutamide</li>
-									<li class="a-option-list" data-questionid="_Q0_C0_S41" data-questiongroup="_QDrugComboSingle" data-value="__1__7490__7490" id="_Q0_C0_S41">Apatinib</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer">
-				<div id="nav-controls" class="btn-container nav-center">
-					<div id="nextonly">
-						<input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
-					</div>
-					<div id="prevstop">
-						<input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
-						<input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
-					</div>
-				</div>
-				<div class="page-links"><script>app.RegisterProperties('_Progress',{"currentsection":1,"sections":[{"title":"Section Selection","pages":{"total":1,"current":1}},{"title":"Original Questions","pages":{"total":6,"current":0}},{"title":"Custom Property Questions","pages":{"total":7,"current":0}},{"title":"droplists","pages":{"total":4,"current":0}},{"title":"Complex Grids","pages":{"total":4,"current":0}},{"title":"Choices","pages":{"total":8,"current":0}},{"title":"Visibility Rules","pages":{"total":1,"current":0}},{"title":"Basic Grids","pages":{"total":3,"current":0}},{"title":"Grids with Totals","pages":{"total":4,"current":0}},{"title":"Dropdowns","pages":{"total":2,"current":0}}]})</script><a href="mailto:contactus@healthcare.ipsos.com" window="new">Contact Us</a></div>
-				<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
-			</div>
-		</form></body>
-</html>
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-60" Width="6em">
+            <Control Type="DropList"></Control>
+        </Style>
+        <Control Type="DropList" QuestionName="_QDrugOrdinal_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-60" Width="6em">
+                <Control Type="DropList"></Control>
+            </Style>
+            <Category Name="first" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>1st</Text>
+                </Label>
+            </Category>
+            <Category Name="second" CategoryID="1">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>2nd</Text>
+                </Label>
+            </Category>
+            <Category Name="third" CategoryID="2">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>3rd</Text>
+                </Label>
+            </Category>
+            <Category Name="fourth" CategoryID="3">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>4th</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>
