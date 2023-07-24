@@ -2196,7 +2196,7 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
-            <xsl:value-of select="'true'" />
+            <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-70'">
             <xsl:value-of select="'false'" />
