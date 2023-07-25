@@ -2111,7 +2111,7 @@
          <!--- Default text -->
          <xsl:attribute name="value">
             <xsl:choose>
-               <xsl:when test="$qCustomType='combobox'">
+               <xsl:when test="$qCustomType='combobox' or $qCustomType='dropdown'">
                   <xsl:call-template name='CheckedToString' />
                </xsl:when>
                <xsl:otherwise>
