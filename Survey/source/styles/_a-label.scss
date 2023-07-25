@@ -142,6 +142,10 @@ th .a-label-option {
         content: '';
         background-image: url("/Survey/images/instruction.png");
     }
+
+    p {
+        margin: 0;
+    }
 }
 
 .o-question-error,
