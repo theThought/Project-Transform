@@ -146,6 +146,12 @@ th .a-label-option {
     p {
         margin: 0;
     }
+
+    ul {
+        margin-bottom: 8px;
+        list-style-position: inside;
+        padding-left: 0;
+    }
 }
 
 .o-question-error,

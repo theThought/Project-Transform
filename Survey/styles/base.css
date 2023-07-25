@@ -997,6 +997,11 @@ th .a-label-option {
 .o-question-instruction.has-content p {
   margin: 0;
 }
+.o-question-instruction.has-content ul {
+  margin-bottom: 8px;
+  list-style-position: inside;
+  padding-left: 0;
+}
 
 .o-question-error *[class*=-label-],
 .o-question-warning *[class*=-label-],
