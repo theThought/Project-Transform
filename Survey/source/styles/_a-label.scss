@@ -148,9 +148,17 @@ th .a-label-option {
     }
 
     ul {
-        margin-bottom: 8px;
         list-style-position: inside;
+        margin: 0;
         padding-left: 0;
+    }
+
+    p+ul {
+        margin-top: 8px;
+    }
+
+    ul+p {
+        margin-top: 8px;
     }
 }
 

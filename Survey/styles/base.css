@@ -998,9 +998,15 @@ th .a-label-option {
   margin: 0;
 }
 .o-question-instruction.has-content ul {
-  margin-bottom: 8px;
   list-style-position: inside;
+  margin: 0;
   padding-left: 0;
+}
+.o-question-instruction.has-content p + ul {
+  margin-top: 8px;
+}
+.o-question-instruction.has-content ul + p {
+  margin-top: 8px;
 }
 
 .o-question-error *[class*=-label-],
