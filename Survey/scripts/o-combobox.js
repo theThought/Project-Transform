@@ -41,6 +41,7 @@ define(['component'],
             this.updateScrollPosition(this.getCurrentListPosition());
             this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
+            this.restoreSelection();
             this.configureProperties();
             this.setWidth();
             this.setWrapperType();
@@ -171,6 +172,16 @@ define(['component'],
 
             this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
             this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + padding + 'px';
+        }
+
+        oCombobox.prototype.restoreSelection = function () {
+            var currentselection = this.droplist.querySelector('[data-value="' + this.element.value + '"]');
+
+            if (currentselection === null) {
+                return;
+            }
+
+            this.setSelectedOption(currentselection);
         }
 
         oCombobox.prototype.setWrapperType = function () {
@@ -462,6 +473,7 @@ define(['component'],
 
             if (this.listtype === 'droplist') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
+                this.broadcastChange();
             }
 
             this.updateSelectedEntry(this.currentlistposition);
@@ -485,6 +497,7 @@ define(['component'],
 
             if (this.listtype === 'droplist') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
+                this.broadcastChange();
             }
 
             this.updateSelectedEntry(this.currentlistposition);
@@ -568,7 +581,8 @@ define(['component'],
             }
 
             this.clearOptions();
-            this.setSelectedOption(selectedOption)
+            this.setSelectedOption(selectedOption);
+            this.broadcastChange();
             this.hideList();
             this.onChange(event);
         }
@@ -580,7 +594,6 @@ define(['component'],
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
             this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
-            this.broadcastChange();
         }
 
         oCombobox.prototype.clearOptions = function () {
@@ -657,6 +670,7 @@ define(['component'],
                         this.updateScrollPosition(i);
                         this.updateSelectedEntry(i);
                         this.setSelectedOption(curitem);
+                        this.broadcastChange();
                         this.setCurrentListPosition(curitem.getAttribute('data-list-position'));
                         return;
                     }
