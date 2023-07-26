@@ -182,7 +182,7 @@ define(['component'],
 
             if (typeof this.properties.options.visible !== "undefined") {
                 for (var j = 0; j < this.properties.options.visible.length; j++) {
-                    if (this.properties.options.visible[i].parsedRule === "undefined") {
+                    if (this.properties.options.visible[j].parsedRule === "undefined") {
                         continue;
                     }
 
