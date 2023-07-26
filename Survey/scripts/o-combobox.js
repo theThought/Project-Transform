@@ -561,6 +561,10 @@ define(['component'],
                 return;
             }
 
+            if (typeof selectedOption === 'undefined') {
+                return;
+            }
+
             // hide the list if a restricted option is selected
             if (selectedOption.classList.contains('a-list-placeholder-restriction')) {
                 this.hideList();
