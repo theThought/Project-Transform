@@ -344,10 +344,10 @@ define(['component'],
             }
         }
 
-        oCombobox.prototype.sanitiseText = function (string) {
-            string = string.replace(/[\r\n\t]/mg, ' ');
-            string = string.replace(/\s\s+/mg, ' ');
-            return string.trim();
+        oCombobox.prototype.sanitiseText = function (textstring) {
+            textstring = textstring.replace(/[\r\n\t]/mg, ' ');
+            textstring = textstring.replace(/\s\s+/mg, ' ');
+            return textstring.trim();
         }
 
         oCombobox.prototype.onChange = function (event) {

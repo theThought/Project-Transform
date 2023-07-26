@@ -218,10 +218,10 @@ define(['component'],
             return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
         }
 
-        oDropdown.prototype.sanitiseText = function (string) {
-            string = string.replace(/[\r\n\t]/mg, ' ');
-            string = string.replace(/\s\s+/mg, ' ');
-            return string.trim();
+        oDropdown.prototype.sanitiseText = function (textstring) {
+            textstring = textstring.replace(/[\r\n\t]/mg, ' ');
+            textstring = textstring.replace(/\s\s+/mg, ' ');
+            return textstring.trim();
         }
 
         oDropdown.prototype.onChange = function (event) {
