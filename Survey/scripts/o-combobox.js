@@ -45,7 +45,6 @@ define(['component'],
             this.configureProperties();
             this.setWidth();
             this.setWrapperType();
-            this.setInputType();
             this.configureInitialFilter();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -57,12 +56,15 @@ define(['component'],
             document.addEventListener('mousedown', this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
         oCombobox.prototype.configureLocalEventListeners = function () {
+            this.element.addEventListener('input', this, false);
             this.element.addEventListener('keydown', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
+            this.element.addEventListener('focusin', this, false);
             this.element.addEventListener('focusout', this, false);
             this.element.addEventListener('cut', this, false);
         }
@@ -83,6 +85,9 @@ define(['component'],
                 case 'change':
                     this.onChange(event);
                     break;
+                case this.group + '_enableExclusive':
+                    this.onEnableExclusive(event);
+                    break;
                 case 'mousedown':
                     this.onClick(event);
                     break;
@@ -93,6 +98,10 @@ define(['component'],
                 case 'keyup':
                     this.onKeyup();
                     this.onChange(event);
+                    break;
+                case 'focusin':
+                case 'input':
+                    this.onFocusIn();
                     break;
                 case 'focusout':
                     this.onFocusOut(event);
@@ -144,10 +153,6 @@ define(['component'],
             this.element.placeholder = this.defaultplaceholder;
         }
 
-        oCombobox.prototype.type = function (prop) {
-            this.listtype = prop;
-        }
-
         oCombobox.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }
@@ -185,17 +190,7 @@ define(['component'],
         }
 
         oCombobox.prototype.setWrapperType = function () {
-            if (this.listtype === 'droplist') {
-                this.wrapper.classList.add('list-droplist');
-            } else {
                 this.wrapper.classList.add('list-combobox');
-            }
-        }
-
-        oCombobox.prototype.setInputType = function () {
-            if (this.listtype === 'droplist') {
-                this.element.readOnly = true;
-            }
         }
 
         oCombobox.prototype.cloneInputElement = function () {
@@ -222,9 +217,6 @@ define(['component'],
         }
 
         oCombobox.prototype.configureInitialFilter = function () {
-            if (this.listtype === 'droplist') {
-                return;
-            }
 
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
@@ -297,11 +289,6 @@ define(['component'],
 
             if (this.isExact && !exactmatch) {
                 this.clearOptions();
-
-                if (this.hiddenelement.value.length) {
-                    this.setHiddenValue('');
-                    this.broadcastChange();
-                }
             }
         }
 
@@ -346,11 +333,6 @@ define(['component'],
 
             if (this.isExact && !exactmatch) {
                 this.clearOptions();
-
-                if (this.hiddenelement.value.length) {
-                    this.setHiddenValue('');
-                    this.broadcastChange();
-                }
             }
         }
 
@@ -371,6 +353,11 @@ define(['component'],
         oCombobox.prototype.onChange = function (event) {
             event.stopImmediatePropagation();
             this.broadcastChange();
+        }
+
+        oCombobox.prototype.onFocusIn = function () {
+            var focusEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+            this.element.dispatchEvent(focusEvent);
         }
 
         oCombobox.prototype.onFocusOut = function (event) {
@@ -442,11 +429,8 @@ define(['component'],
                     this.keytimer = setTimeout(function () {
                         that.clearKeyBuffer()
                     }, this.keytimerlimit);
-                    if (this.listtype === 'droplist') {
-                        this.jumpToLetter();
-                        break;
-                    }
                     this.filterList();
+                    break;
             }
 
             this.showList();
@@ -471,7 +455,7 @@ define(['component'],
                 this.currentlistposition--;
             }
 
-            if (this.listtype === 'droplist') {
+            if (this.listtype === 'dropdown') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
                 this.broadcastChange();
             }
@@ -495,7 +479,7 @@ define(['component'],
                 this.currentlistposition++;
             }
 
-            if (this.listtype === 'droplist') {
+            if (this.listtype === 'dropdown') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
                 this.broadcastChange();
             }
@@ -551,6 +535,15 @@ define(['component'],
             this.hideList();
         }
 
+        oCombobox.prototype.onEnableExclusive = function (event) {
+            if (this.element !== event.detail.element) {
+                    this.clearOptions();
+                    this.clearKeyBuffer();
+                    this.element.value = '';
+                    this.filterList();
+            }
+        }
+
         oCombobox.prototype.selectOption = function (event) {
             this.keybuffer = '';
             var selectedOption = event.target;
@@ -582,8 +575,8 @@ define(['component'],
 
             this.clearOptions();
             this.setSelectedOption(selectedOption);
-            this.broadcastChange();
             this.hideList();
+            this.onFocusIn();
             this.onChange(event);
         }
 
@@ -602,6 +595,7 @@ define(['component'],
                 item.classList.remove('selected');
                 item.removeAttribute('data-selected');
             }
+
             this.setHiddenValue('');
             this.element.classList.remove('exact');
             this.broadcastChange();
@@ -649,33 +643,6 @@ define(['component'],
 
         oCombobox.prototype.getCurrentListPosition = function () {
             return parseInt(this.currentlistposition);
-        }
-
-        oCombobox.prototype.jumpToLetter = function (event) {
-            if (!this.isjumpingtoletter) {
-                return;
-            }
-
-            var searchstring = this.keybuffer;
-            var list = this.buildVisibleList();
-            this.debug(searchstring);
-
-            for (var i = 0; i < list.length; i++) {
-                var curitem = list[i];
-                var itemlabel = this.sanitiseText(curitem.innerText.toLowerCase());
-                if (itemlabel.indexOf(searchstring) === 0) {
-                    if (curitem.classList.contains('selected') && searchstring.length === 1) {
-                        continue;
-                    } else {
-                        this.updateScrollPosition(i);
-                        this.updateSelectedEntry(i);
-                        this.setSelectedOption(curitem);
-                        this.broadcastChange();
-                        this.setCurrentListPosition(curitem.getAttribute('data-list-position'));
-                        return;
-                    }
-                }
-            }
         }
 
         return oCombobox;

@@ -46,7 +46,6 @@ define(['component'],
             this.setWidth();
             this.setWrapperType();
             this.setInputType();
-            this.configureInitialFilter();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
@@ -57,12 +56,14 @@ define(['component'],
             document.addEventListener('mousedown', this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
+            document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
         oDropdown.prototype.configureLocalEventListeners = function () {
             this.element.addEventListener('keydown', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
+            this.element.addEventListener('focusin', this, false);
             this.element.addEventListener('focusout', this, false);
             this.element.addEventListener('cut', this, false);
         }
@@ -83,6 +84,9 @@ define(['component'],
                 case 'change':
                     this.onChange(event);
                     break;
+                case this.group + '_enableExclusive':
+                    this.onEnableExclusive(event);
+                    break;
                 case 'mousedown':
                     this.onClick(event);
                     break;
@@ -93,6 +97,9 @@ define(['component'],
                 case 'keyup':
                     this.onKeyup();
                     this.onChange(event);
+                    break;
+                case "focusin":
+                    this.onFocusIn();
                     break;
                 case 'focusout':
                     this.onFocusOut(event);
@@ -144,10 +151,6 @@ define(['component'],
             this.element.placeholder = this.defaultplaceholder;
         }
 
-        oDropdown.prototype.type = function (prop) {
-            this.listtype = prop;
-        }
-
         oDropdown.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }
@@ -185,17 +188,11 @@ define(['component'],
         }
 
         oDropdown.prototype.setWrapperType = function () {
-            if (this.listtype === 'dropdown') {
                 this.wrapper.classList.add('list-droplist');
-            } else {
-                this.wrapper.classList.add('list-dropdown');
-            }
         }
 
         oDropdown.prototype.setInputType = function () {
-            if (this.listtype === 'dropdown') {
                 this.element.readOnly = true;
-            }
         }
 
         oDropdown.prototype.cloneInputElement = function () {
@@ -221,147 +218,6 @@ define(['component'],
             return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
         }
 
-        oDropdown.prototype.configureInitialFilter = function () {
-            if (this.listtype === 'dropdown') {
-                return;
-            }
-
-            for (var i = 0; i < this.list.length; i++) {
-                var item = this.list[i];
-                if (item.getAttribute('data-selected')) {
-                    this.element.value = this.sanitiseText(item.innerText);
-                    item.setAttribute('data-selected', 'selected');
-                    item.classList.add('selected');
-                    this.filterList();
-                }
-            }
-
-            if (!this.element.value.length && this.mincharacters > 0) {
-                this.droplist.classList.add('charrestriction');
-                this.filterListStarts('');
-            }
-
-        }
-
-        oDropdown.prototype.filterList = function () {
-            this.setCurrentListPosition();
-
-            switch (this.filtermethod) {
-                case 'starts':
-                    this.filterListStarts(this.element.value);
-                    break;
-                case 'contains':
-                    this.filterListContains(this.element.value);
-                    break;
-            }
-        }
-
-        oDropdown.prototype.filterListStarts = function (inputstring) {
-            var exactmatch = false;
-
-            if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
-                this.droplist.classList.add('charrestriction');
-                inputstring = '';
-            } else {
-                this.droplist.classList.remove('charrestriction');
-            }
-
-            inputstring = inputstring.toLowerCase();
-            var visibleitems = this.list.length;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-
-                if (itemlabel === inputstring && this.isExact) {
-                    exactmatch = true;
-                    this.clearOptions();
-                    this.setSelectedOption(this.list[i]);
-                    this.broadcastChange();
-                }
-
-                if (itemlabel.indexOf(inputstring) === 0) {
-                    this.list[i].classList.remove('filter-hidden');
-                } else {
-                    this.list[i].classList.add('filter-hidden');
-                    visibleitems--;
-                }
-            }
-
-            if (visibleitems === 0) {
-                this.clearOptions();
-                this.togglePlaceholderVisibility(true);
-            } else {
-                this.togglePlaceholderVisibility(false);
-            }
-
-            if (this.isExact && !exactmatch) {
-                this.clearOptions();
-
-                if (this.hiddenelement.value.length) {
-                    this.setHiddenValue('');
-                    this.broadcastChange();
-                }
-            }
-        }
-
-        oDropdown.prototype.filterListContains = function (inputstring) {
-            var exactmatch = false;
-
-            if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
-                this.droplist.classList.add('charrestriction');
-                return;
-            } else {
-                this.droplist.classList.remove('charrestriction');
-            }
-
-            inputstring = inputstring.toLowerCase();
-            var visibleitems = this.list.length;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-
-                if (itemlabel === inputstring && this.isExact) {
-                    exactmatch = true;
-                    this.clearOptions();
-                    this.setSelectedOption(this.list[i]);
-                    this.broadcastChange();
-                }
-
-                if (itemlabel.indexOf(inputstring) !== -1) {
-                    this.list[i].classList.remove('filter-hidden');
-                } else {
-                    this.list[i].classList.add('filter-hidden');
-                    visibleitems--;
-                }
-            }
-
-            if (visibleitems === 0) {
-                this.clearOptions();
-                this.togglePlaceholderVisibility(true);
-            } else {
-                this.togglePlaceholderVisibility(false);
-            }
-
-            if (this.isExact && !exactmatch) {
-                this.clearOptions();
-
-                if (this.hiddenelement.value.length) {
-                    this.setHiddenValue('');
-                    this.broadcastChange();
-                }
-            }
-        }
-
-        oDropdown.prototype.togglePlaceholderVisibility = function (visibility) {
-            if (visibility) {
-                this.droplist.classList.add('empty');
-            } else {
-                this.droplist.classList.remove('empty');
-            }
-        }
-
         oDropdown.prototype.sanitiseText = function (string) {
             string = string.replace(/[\r\n\t]/mg, ' ');
             string = string.replace(/\s\s+/mg, ' ');
@@ -371,6 +227,11 @@ define(['component'],
         oDropdown.prototype.onChange = function (event) {
             event.stopImmediatePropagation();
             this.broadcastChange();
+        }
+
+        oDropdown.prototype.onFocusIn = function () {
+            var focusEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+            this.element.dispatchEvent(focusEvent);
         }
 
         oDropdown.prototype.onFocusOut = function (event) {
@@ -442,11 +303,8 @@ define(['component'],
                     this.keytimer = setTimeout(function () {
                         that.clearKeyBuffer()
                     }, this.keytimerlimit);
-                    if (this.listtype === 'dropdown') {
                         this.jumpToLetter();
                         break;
-                    }
-                    this.filterList();
             }
 
             this.showList();
@@ -473,6 +331,7 @@ define(['component'],
 
             if (this.listtype === 'dropdown') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
+                this.onFocusIn();
                 this.broadcastChange();
             }
 
@@ -497,6 +356,7 @@ define(['component'],
 
             if (this.listtype === 'dropdown') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
+                this.onFocusIn();
                 this.broadcastChange();
             }
 
@@ -551,6 +411,14 @@ define(['component'],
             this.hideList();
         }
 
+        oDropdown.prototype.onEnableExclusive = function (event) {
+            if (this.element !== event.detail.element) {
+                    this.clearOptions();
+                    this.clearKeyBuffer();
+                    this.element.value = '';
+            }
+        }
+
         oDropdown.prototype.selectOption = function (event) {
             this.keybuffer = '';
             var selectedOption = event.target;
@@ -582,7 +450,7 @@ define(['component'],
 
             this.clearOptions();
             this.setSelectedOption(selectedOption);
-            this.broadcastChange();
+            this.onFocusIn();
             this.hideList();
             this.onChange(event);
         }
@@ -602,6 +470,7 @@ define(['component'],
                 item.classList.remove('selected');
                 item.removeAttribute('data-selected');
             }
+
             this.setHiddenValue('');
             this.element.classList.remove('exact');
             this.broadcastChange();
@@ -670,6 +539,7 @@ define(['component'],
                         this.updateScrollPosition(i);
                         this.updateSelectedEntry(i);
                         this.setSelectedOption(curitem);
+                        this.onFocusIn();
                         this.broadcastChange();
                         this.setCurrentListPosition(curitem.getAttribute('data-list-position'));
                         return;
