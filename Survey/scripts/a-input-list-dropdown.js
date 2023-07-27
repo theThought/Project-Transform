@@ -171,7 +171,7 @@ define(['component'],
         }
 
         aInputListDropdown.prototype.placeholder = function (prop) {
-            this.defaultPlaceholder = prop;
+            this.defaultplaceholder = this.decodeHTML(prop);
             this.element.placeholder = this.defaultPlaceholder;
         }
 

@@ -148,6 +148,12 @@ define(
 
         }
 
+        component.prototype.decodeHTML = function (html) {
+            var textarea = document.createElement("textarea");
+            textarea.innerHTML = html;
+            return textarea.value;
+        }
+
         component.prototype.onEndResize = function (event) {
 
             // preserve the original element width, if set
@@ -169,7 +175,7 @@ define(
         component.prototype.configureInitialVisibility = function () {
             // if there are no visibility rules defined for this question lift the cover immediately
             if (typeof this.properties.visible === "undefined"
-            && typeof this.properties.invisible === "undefined") {
+                && typeof this.properties.invisible === "undefined") {
                 this.makeAvailable();
                 return;
             }

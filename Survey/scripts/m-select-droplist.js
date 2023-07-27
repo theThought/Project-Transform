@@ -62,7 +62,7 @@ define(['component'],
         }
 
         mSelectDroplist.prototype.placeholder = function (prop) {
-            this.defaultPlaceholder = prop;
+            this.defaultplaceholder = this.decodeHTML(prop);
             var el = new Option(prop, '');
             this.element.insertBefore(el, this.element.firstChild);
 

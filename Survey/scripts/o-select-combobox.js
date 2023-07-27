@@ -139,7 +139,7 @@ define(['component'],
         }
 
         oSelectComboBox.prototype.placeholder = function (prop) {
-            this.defaultplaceholder = prop;
+            this.defaultplaceholder = this.decodeHTML(prop);
             this.element.placeholder = this.defaultplaceholder;
         }
 
