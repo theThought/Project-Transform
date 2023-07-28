@@ -50,6 +50,9 @@ define(
                 var questioninstruction = questioninstructions[i];
                 if (questioninstruction.innerText.trim().length) {
                     questioninstruction.classList.add('has-content');
+
+                    // in side-by-side layouts it is necessary to move the instruction to prevent
+                    // it from occupying horizontal space adjacent to the question information
                     if (sidebyside) {
                         questioninstruction.previousElementSibling.appendChild(questioninstruction);
                     }
