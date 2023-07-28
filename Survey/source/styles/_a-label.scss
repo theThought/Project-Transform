@@ -132,6 +132,7 @@ th .a-label-option {
     padding: 8px 8px 8px 36px;
     background-color: globals.$information;
     color: globals.$dark1;
+    margin-bottom: .5em;
 
     &::before {
         position: absolute;
@@ -160,6 +161,10 @@ th .a-label-option {
     ul+p {
         margin-top: 8px;
     }
+}
+
+.sidebyside .o-question-instruction.has-content {
+    margin-bottom: 0;
 }
 
 .o-question-error,

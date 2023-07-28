@@ -984,6 +984,7 @@ th .a-label-option {
   padding: 8px 8px 8px 36px;
   background-color: #edf5ff;
   color: #57699C;
+  margin-bottom: 0.5em;
 }
 .o-question-instruction.has-content::before {
   position: absolute;
@@ -1007,6 +1008,10 @@ th .a-label-option {
 }
 .o-question-instruction.has-content ul + p {
   margin-top: 8px;
+}
+
+.sidebyside .o-question-instruction.has-content {
+  margin-bottom: 0;
 }
 
 .o-question-error *[class*=-label-],

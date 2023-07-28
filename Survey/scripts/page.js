@@ -11,6 +11,7 @@ define(
 
         page.prototype.init = function () {
             this.configureProperties();
+            this.styleInstructions();
             this.setQuestionFocusStyle();
             this.setControlFocusStyle();
             this.focusFirstQuestion();
@@ -38,13 +39,23 @@ define(
                 var questioninformation = question[i].getElementsByClassName('o-question-information')[0];
                 questioninformation.style.flexBasis = width + '%';
                 questioninformation.style.msFlex = '0 0 ' + width + '%';
+            }
+        }
 
-                var questioninstruction = question[i].getElementsByClassName('o-question-instruction')[0];
+        page.prototype.styleInstructions = function () {
+            var questioninstructions = document.getElementsByClassName('o-question-instruction');
+            var sidebyside = (typeof this.properties.sidebyside !== "undefined");
+
+            for (var i = 0; i < questioninstructions.length; i++) {
+                var questioninstruction = questioninstructions[i];
                 if (questioninstruction.innerText.trim().length) {
                     questioninstruction.classList.add('has-content');
-                    questioninformation.appendChild(questioninstruction);
+                    if (sidebyside) {
+                        questioninstruction.previousElementSibling.appendChild(questioninstruction);
+                    }
                 }
             }
+
         }
 
         page.prototype.focus = function (prop) {
