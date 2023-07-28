@@ -236,15 +236,11 @@ define(['component'],
             if (itemValue === null) {
                 option = this.element.querySelector(".hidden-filter");
             } else {
-                option = this.element.querySelector("[value='" + itemValue + "']");
+                option = this.element.querySelector("[value='" + itemValue + "'], [data-value='" + itemValue + "']");
             }
 
             if (option === null) {
                 return;
-            }
-
-            if (itemValue !== null) {
-                option = option.parentNode;
             }
 
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
