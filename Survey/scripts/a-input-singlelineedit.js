@@ -91,11 +91,11 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.makeAvailable = function () {
-            this.element.style.visibility = 'visible';
+            this.wrapper.style.visibility = 'visible';
         }
 
         aInputSingleLineEdit.prototype.makeUnavailable = function () {
-            this.element.style.visibility = 'hidden';
+            this.wrapper.style.visibility = 'hidden';
         }
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
