@@ -45,6 +45,8 @@ define(['component'],
             this.configureProperties();
             this.setWidth();
             this.setWrapperType();
+            this.configureInitialVisibility();
+            this.processVisibilityRules();
             this.setInputType();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -57,6 +59,7 @@ define(['component'],
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
+            document.addEventListener("broadcastChange", this, false);
         }
 
         oDropdown.prototype.configureLocalEventListeners = function () {
@@ -103,6 +106,9 @@ define(['component'],
                     break;
                 case 'focusout':
                     this.onFocusOut(event);
+                    break;
+                case 'broadcastChange':
+                    this.processVisibilityRulesFromExternalTrigger(event);
                     break;
             }
         }

@@ -2056,6 +2056,10 @@ body > form {
   height: 1px;
 }
 
+.unavailable {
+  visibility: hidden;
+}
+
 .nowrap {
   white-space: nowrap;
 }

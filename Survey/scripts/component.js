@@ -94,6 +94,14 @@ define(
             }
         }
 
+        component.prototype.resettonull = function (val) {
+            // the default for 'reset to null' is true; meaning values should be cleared when an item is reset
+            // if reset to null is false, any initial values that were set for a question are restored
+            if (val === false) {
+                this.restoreValues = true;
+            }
+        }
+
         component.prototype.restoreEntries = function (event) {
             if (event.detail.questionName !== this.questionName) {
                 return;
@@ -102,12 +110,6 @@ define(
             if (this.restoreValues && this.element.value !== this.initialValue) {
                 this.element.value = this.initialValue;
                 this.broadcastChange();
-            }
-        }
-
-        component.prototype.resettonull = function (val) {
-            if (val === false) {
-                this.restoreValues = true;
             }
         }
 
@@ -214,10 +216,11 @@ define(
 
             if (typeof this.properties.visible !== "undefined") {
                 this.processVisibleRules();
-                return;
             }
 
-            this.processInvisibleRules();
+            if (typeof this.properties.invisible !== "undefined") {
+                this.processInvisibleRules();
+            }
         }
 
         component.prototype.processVisibleRules = function () {
@@ -290,7 +293,7 @@ define(
         }
 
         component.prototype.makeAvailable = function () {
-            if (this.container === null || this.available) {
+            if (this.available) {
                 return;
             }
 
@@ -307,10 +310,10 @@ define(
             }
 
             this.available = false;
+            this.element.classList.add('unavailable');
             this.cover();
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
             this.element.dispatchEvent(clearEntries);
-            this.element.classList.add('unavailable');
         }
 
         component.prototype.resetValues = function () {
