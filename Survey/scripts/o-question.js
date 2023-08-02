@@ -199,7 +199,7 @@ define(['component'],
         }
 
         oQuestion.prototype.hideOption = function (itemValue, hideMethod) {
-            var option = this.element.querySelector("[value='" + itemValue + "'], [data-value='" + itemValue + "']");
+            var option = this.element.querySelector(".hiddencontrol[value='" + itemValue + "'], [data-value='" + itemValue + "']");
 
             if (option === null) {
                 this.debug('Could not find the option ' + itemValue + ' to hide.', 2);
