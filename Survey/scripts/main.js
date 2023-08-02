@@ -5,7 +5,7 @@ require(['domready'], function (domReady) {
         var initEmpy = 0;
         var initLimit = 10;
 
-        var initTimer = setInterval(componentsReady, 300);
+        var initTimer = setInterval(componentsReady, initInterval);
 
         function componentsReady () {
             initRuns++;
@@ -28,9 +28,9 @@ require(['domready'], function (domReady) {
                 }
                 app.components.push(app.preinitcomponents.splice(i, 1));
             }
-        }
 
-        // check whether there are any unused properties that might indicate a problem
-        app.checkProperties();
+            // check whether there are any unused properties that might indicate a problem
+            app.checkProperties();
+        }
     })
 });
