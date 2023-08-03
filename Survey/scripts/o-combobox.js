@@ -196,7 +196,7 @@ define(['component'],
         }
 
         oCombobox.prototype.setWrapperType = function () {
-                this.wrapper.classList.add('list-combobox');
+            this.wrapper.classList.add('list-combobox');
         }
 
         oCombobox.prototype.cloneInputElement = function () {
@@ -543,10 +543,10 @@ define(['component'],
 
         oCombobox.prototype.onEnableExclusive = function (event) {
             if (this.element !== event.detail.element) {
-                    this.clearOptions();
-                    this.clearKeyBuffer();
-                    this.element.value = '';
-                    this.filterList();
+                this.clearOptions();
+                this.clearKeyBuffer();
+                this.element.value = '';
+                this.filterList();
             }
         }
 

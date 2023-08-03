@@ -194,11 +194,11 @@ define(['component'],
         }
 
         oDropdown.prototype.setWrapperType = function () {
-                this.wrapper.classList.add('list-droplist');
+            this.wrapper.classList.add('list-droplist');
         }
 
         oDropdown.prototype.setInputType = function () {
-                this.element.readOnly = true;
+            this.element.readOnly = true;
         }
 
         oDropdown.prototype.cloneInputElement = function () {
@@ -309,8 +309,8 @@ define(['component'],
                     this.keytimer = setTimeout(function () {
                         that.clearKeyBuffer()
                     }, this.keytimerlimit);
-                        this.jumpToLetter();
-                        break;
+                    this.jumpToLetter();
+                    break;
             }
 
             this.showList();
@@ -419,9 +419,9 @@ define(['component'],
 
         oDropdown.prototype.onEnableExclusive = function (event) {
             if (this.element !== event.detail.element) {
-                    this.clearOptions();
-                    this.clearKeyBuffer();
-                    this.element.value = '';
+                this.clearOptions();
+                this.clearKeyBuffer();
+                this.element.value = '';
             }
         }
 
@@ -531,25 +531,47 @@ define(['component'],
                 return;
             }
 
+            if (!this.keybuffer.length) {
+                return;
+            }
+
             var searchstring = this.keybuffer;
             var list = this.buildVisibleList();
-            this.debug(searchstring);
+            var currentfirstletter = this.element.value.substring(0, 1).toLowerCase();
+            var listpasses = 0;
 
             for (var i = 0; i < list.length; i++) {
-                var curitem = list[i];
-                var itemlabel = this.sanitiseText(curitem.innerText.toLowerCase());
-                if (itemlabel.indexOf(searchstring) === 0) {
-                    if (curitem.classList.contains('selected') && searchstring.length === 1) {
+                var currentitem = list[i];
+                var currentitemposition = currentitem.getAttribute('data-list-position');
+                var currentitemlabel = this.sanitiseText(currentitem.innerText.toLowerCase());
+
+                if (currentitemlabel.indexOf(searchstring) === 0) {
+                    if ((listpasses === 0 && currentfirstletter === searchstring.substring(0, 1) && currentitemposition < this.currentlistposition) ||
+                        (currentitem.classList.contains('selected') && searchstring.length === 1)) {
+                        // this is required if we've reached the end of the list and landed on an active item
+                        // as the last element -- we will need to loop back for another pass at this point
+                        if (listpasses === 0 && i === list.length - 1) {
+                            listpasses = 1;
+                            i = 0;
+                        }
                         continue;
+
                     } else {
                         this.updateScrollPosition(i);
                         this.updateSelectedEntry(i);
-                        this.setSelectedOption(curitem);
+                        this.setSelectedOption(currentitem);
                         this.onFocusIn();
                         this.broadcastChange();
-                        this.setCurrentListPosition(curitem.getAttribute('data-list-position'));
+                        this.setCurrentListPosition(currentitem.getAttribute('data-list-position'));
                         return;
                     }
+                }
+
+                // this is required to reiterate the list for a second time in case we started part way
+                // through with an existing selection
+                if (listpasses === 0 && i === list.length - 1) {
+                    listpasses = 1;
+                    i = 0;
                 }
             }
         }
