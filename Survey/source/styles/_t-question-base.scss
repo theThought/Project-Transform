@@ -3,6 +3,7 @@
 .o-question-container {
     padding: 1em;
     position: relative;
+    overflow-x: auto;
 }
 
 .focus-question .o-question-container.focused {
