@@ -762,10 +762,6 @@ th .a-label-option {
   margin-top: 8px;
 }
 
-.sidebyside .o-question-instruction.has-content {
-  margin-bottom: 0;
-}
-
 .o-question-error *[class*=-label-],
 .o-question-warning *[class*=-label-],
 .o-question-success *[class*=-label-] {

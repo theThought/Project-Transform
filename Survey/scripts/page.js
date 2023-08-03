@@ -54,7 +54,9 @@ define(
                     // in side-by-side layouts it is necessary to move the instruction to prevent
                     // it from occupying horizontal space adjacent to the question information
                     if (sidebyside) {
-                        questioninstruction.previousElementSibling.appendChild(questioninstruction);
+                        var questioncontainer = questioninstruction.closest('.o-question-container');
+                        var questionresponse = questioncontainer.querySelector('.o-question-response');
+                        questionresponse.insertAdjacentElement('afterbegin', questioninstruction);
                     }
                 }
             }
