@@ -1901,6 +1901,15 @@ input[type=range]:focus::-ms-fill-lower {
           box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
 }
 
+@media screen and (max-width: 1023px) {
+  .o-question-container {
+    padding: 1em 0;
+  }
+  .focus-question .o-question-container.focused {
+    -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+            box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+  }
+}
 .o-question-container:not(.sidebyside)[data-position=side] {
   display: inline-block;
 }
