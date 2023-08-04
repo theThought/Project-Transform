@@ -11,10 +11,6 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .o-question-container {
-        padding: 1em 0;
-    }
-
     .focus-question .o-question-container.focused {
         box-shadow: globals.$drop-shadow;
     }

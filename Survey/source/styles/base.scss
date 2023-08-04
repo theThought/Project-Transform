@@ -72,19 +72,6 @@ body > form {
     border-bottom: 1px solid globals.$borders;
 }
 
-@media screen and (max-width: 1023px) {
-    body {
-        margin: 0 1em;
-    }
-    .header {
-        height: 75px;
-        padding-bottom: .8em;
-    }
-    body > form {
-        grid-template-rows: 75px auto 110px;
-    }
-}
-
 .surroundcontent {
     grid-area: content;
     min-height: 66vh;
@@ -110,6 +97,26 @@ body > form {
 
 .nowrap {
     white-space: nowrap;
+}
+
+// screen size overrides - must follow the original declaration to work
+@media screen and (max-width: 1023px) {
+    body {
+        margin: 0;
+    }
+
+    .header {
+        height: 75px;
+        padding: 0 1em .8em 1em;
+    }
+
+    .footer {
+        padding: 1em;
+    }
+
+    body > form {
+        grid-template-rows: 75px auto 110px;
+    }
 }
 
 // iOS disabled inputs normally become translucent - we want to define our own styles
