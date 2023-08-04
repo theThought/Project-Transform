@@ -32,6 +32,8 @@ define(['component'],
             this.configureReadonly();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
+            this.configureInitialVisibility();
+            this.processVisibilityRules();
             this.requestInitialSize();
             this.configurationComplete();
         }
@@ -46,6 +48,7 @@ define(['component'],
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener("readonly", this, false);
+            document.addEventListener("broadcastChange", this, false);
         }
 
         mOptionBase.prototype.configureLocalEventListeners = function () {
@@ -100,6 +103,9 @@ define(['component'],
                 case "keydown":
                     this.getKeyPressed(event);
                     this.onKeydown(event);
+                    break;
+                case 'broadcastChange':
+                    this.processVisibilityRulesFromExternalTrigger(event);
                     break;
             }
         }
@@ -223,7 +229,6 @@ define(['component'],
                 this.checkbox.checked = !this.checkbox.checked;
                 this.onChange(event);
             }
-
         }
 
         mOptionBase.prototype.onEnableExclusive = function (event) {
