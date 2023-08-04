@@ -62,7 +62,7 @@ define(
             }
         }
 
-        component.prototype.configurationComplete = function () {
+        component.prototype.getInitialValue = function () {
             if (typeof this.element.value !== 'undefined') {
                 this.initialValue = this.element.value;
             }
@@ -70,7 +70,9 @@ define(
             if (typeof this.checkbox != "undefined") {
                 this.initialValue = (this.checkbox.checked);
             }
+        }
 
+        component.prototype.configurationComplete = function () {
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             this.element.dispatchEvent(completeEvent);
 
@@ -94,14 +96,6 @@ define(
             }
         }
 
-        component.prototype.resettonull = function (val) {
-            // the default for 'reset to null' is true; meaning values should be cleared when an item is reset
-            // if reset to null is false, any initial values that were set for a question are restored
-            if (val === false) {
-                this.restoreValues = true;
-            }
-        }
-
         component.prototype.restoreEntries = function (event) {
             if (event.detail.questionName !== this.questionName) {
                 return;
@@ -110,6 +104,14 @@ define(
             if (this.restoreValues && this.element.value !== this.initialValue) {
                 this.element.value = this.initialValue;
                 this.broadcastChange();
+            }
+        }
+
+        component.prototype.resettonull = function (val) {
+            // the default for 'reset to null' is true; meaning values should be cleared when an item is reset
+            // if reset to null is false, any initial values that were set for a question are restored
+            if (val === false) {
+                this.restoreValues = true;
             }
         }
 

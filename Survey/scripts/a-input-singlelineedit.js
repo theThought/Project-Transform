@@ -28,6 +28,7 @@ define(['component', 'pikaday'],
             this.isReadOnly = (this.container.getAttribute('data-readonly') === 'true' || this.element.readOnly) || false;
 
             this.configureProperties();
+            this.getInitialValue();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configureInitialVisibility();
@@ -91,11 +92,17 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.makeAvailable = function () {
+            // call the parent (super) method
+            component.prototype.makeAvailable.call(this);
+
             this.element.classList.remove('unavailable');
             this.wrapper.classList.remove('unavailable');
         }
 
         aInputSingleLineEdit.prototype.makeUnavailable = function () {
+            // call the parent (super) method
+            component.prototype.makeUnavailable.call(this);
+
             this.element.classList.add('unavailable');
             this.wrapper.classList.add('unavailable');
         }
@@ -110,7 +117,6 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.type = function (val) {
-
             switch (val) {
                 case 'month':
                 case 'date':
@@ -165,7 +171,6 @@ define(['component', 'pikaday'],
             } else {
                 this.step(1);
             }
-
         }
 
         aInputSingleLineEdit.prototype.configureDateInput = function (val) {
@@ -244,8 +249,6 @@ define(['component', 'pikaday'],
                 var preContentText = props['pre'];
                 preContentText = preContentText.replace(/%lt%/g, '<');
                 preContentText = preContentText.replace(/%gt%/g, '>');
-                //var preContent = document.createTextNode(preContentText);
-                //preElement.appendChild(preContent);
                 preElement.innerHTML = preContentText;
 
                 this.wrapper.insertBefore(preElement, this.wrapper.childNodes[0]);
@@ -257,8 +260,6 @@ define(['component', 'pikaday'],
                 var postContentText = props['post'];
                 postContentText = postContentText.replace(/%lt%/g, '<');
                 postContentText = postContentText.replace(/%gt%/g, '>');
-                //var postContent = document.createTextNode(props['post']);
-                //postElement.appendChild(postContent);
                 postElement.innerHTML = postContentText;
 
                 this.wrapper.appendChild(postElement);
