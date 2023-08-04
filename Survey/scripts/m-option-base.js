@@ -29,6 +29,7 @@ define(['component'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             this.configureProperties();
+            this.getInitialValue();
             this.configureReadonly();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
@@ -162,7 +163,7 @@ define(['component'],
                 return;
             }
 
-            if (this.initialValue) {
+            if (this.restoreValues && this.initialValue) {
                 this.checkbox.checked = true;
                 this.broadcastChange();
             }
