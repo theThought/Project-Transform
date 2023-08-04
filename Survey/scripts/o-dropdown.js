@@ -43,6 +43,7 @@ define(['component'],
             this.cloneInputElement();
             this.restoreSelection();
             this.configureProperties();
+            this.getInitialValue();
             this.setWidth();
             this.setWrapperType();
             this.configureInitialVisibility();
