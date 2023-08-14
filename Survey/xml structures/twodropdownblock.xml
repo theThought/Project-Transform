@@ -1,0 +1,126 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-60">
+            <Control Type="DropList"></Control>
+        </Style>
+        <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Month</Text>
+        </Label>
+        <Control Type="DropList" QuestionName="_QInvisibilityTwoTest_QMonthYearBlock_QMonth_C" ElementID="_Q0_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-60">
+                <Control Type="DropList"></Control>
+            </Style>
+            <Category Name="Jan" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Jan</Text>
+                </Label>
+            </Category>
+            <Category Name="Feb" CategoryID="1" Checked="true">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Feb</Text>
+                </Label>
+            </Category>
+            <Category Name="Mar" CategoryID="2">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Mar</Text>
+                </Label>
+            </Category>
+            <Category Name="Apr" CategoryID="3">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Apr</Text>
+                </Label>
+            </Category>
+            <Category Name="May" CategoryID="4">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>May</Text>
+                </Label>
+            </Category>
+            <Category Name="Jun" CategoryID="5">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Jun</Text>
+                </Label>
+            </Category>
+            <Category Name="Jul" CategoryID="6">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Jul</Text>
+                </Label>
+            </Category>
+            <Category Name="Aug" CategoryID="7">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Aug</Text>
+                </Label>
+            </Category>
+            <Category Name="Sep" CategoryID="8">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Sep</Text>
+                </Label>
+            </Category>
+            <Category Name="Oct" CategoryID="9">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Oct</Text>
+                </Label>
+            </Category>
+            <Category Name="Nov" CategoryID="10">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Nov</Text>
+                </Label>
+            </Category>
+            <Category Name="Dec" CategoryID="11">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>Dec</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-60">
+            <Control Type="DropList"></Control>
+        </Style>
+        <Label>
+            <Style ElementAlign="NewLine"></Style>
+            <Text>Year</Text>
+        </Label>
+        <Control Type="DropList" QuestionName="_QInvisibilityTwoTest_QMonthYearBlock_Qyear_C" ElementID="_Q0_Q1_C">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-60">
+                <Control Type="DropList"></Control>
+            </Style>
+            <Category Name="year2020" CategoryID="0" Checked="true">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>2020</Text>
+                </Label>
+            </Category>
+            <Category Name="year2021" CategoryID="1">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>2021</Text>
+                </Label>
+            </Category>
+            <Category Name="year2022" CategoryID="2">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>2022</Text>
+                </Label>
+            </Category>
+            <Category Name="year2023" CategoryID="3">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>2023</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>
