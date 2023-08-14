@@ -7,7 +7,7 @@
    <xsl:param name="bShowOnly" select="false()" />
    <xsl:param name="bAutoComplete" select="false()" />
 
-   <xsl:template match="*">
+   <xsl:template match="/">
    <xsl:if test="name() != ''">
     <xsl:element name="{name()}">
         <xsl:for-each select="./@*">

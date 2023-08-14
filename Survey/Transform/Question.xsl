@@ -21,11 +21,20 @@
       </xsl:choose>
    </xsl:variable>
    <!--- Basic Structure -->
-   <xsl:template match="Questions">
-      <xsl:for-each select="Question">
-         <Question>
-            <xsl:call-template name="Question" />
-         </Question>
+  <xsl:template match="Questions">
+      <xsl:for-each select="*">
+         <xsl:choose>
+            <xsl:when test="name()='Question'">
+               <Question>
+                  <xsl:call-template name="Question" />
+               </Question>
+            </xsl:when>
+            <xsl:otherwise>
+               <Other>
+                  <xsl:value-of select="name()" />
+               </Other>
+            </xsl:otherwise>
+         </xsl:choose>
       </xsl:for-each>
    </xsl:template>
    <xsl:template name="Question">
@@ -57,7 +66,7 @@
                   <xsl:when test="name() = 'Error'">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
-                     </xsl:call-template>              
+                     </xsl:call-template>
                   </xsl:when>
                   <xsl:when test="name() = 'Label'">
                      <xsl:apply-templates select=".">
@@ -75,6 +84,10 @@
                         </xsl:with-param>
                      </xsl:call-template>
                   </xsl:when>
+                  <xsl:otherwise>
+                     <xsl:text>toplevel: </xsl:text>
+                     <xsl:value-of select="name()" />
+                  </xsl:otherwise>
                </xsl:choose>
             </xsl:for-each>
          </xsl:otherwise>
@@ -155,7 +168,7 @@
                <xsl:text>true</xsl:text>
             </xsl:attribute>
          </xsl:if>
-        <xsl:attribute name="data-readonly">
+         <xsl:attribute name="data-readonly">
             <xsl:value-of select='$tReadOnly' />
          </xsl:attribute>
          <xsl:attribute name="data-position">
@@ -168,7 +181,7 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-          <xsl:call-template name="appComponentScript">
+         <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
                <xsl:call-template name="CamelCaseWord">
@@ -348,7 +361,7 @@
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
-        </xsl:when>
+         </xsl:when>
          <xsl:when test="@Type = 'RadioButton'">
             <xsl:call-template name="RadioButtonControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
@@ -856,7 +869,7 @@
             </xsl:otherwise>
          </xsl:choose>
          <!--- Read Only -->
-          <!--- Set Control Style -->
+         <!--- Set Control Style -->
          <xsl:attribute name="style">
             <xsl:call-template name="ControlStyle" />
          </xsl:attribute>
@@ -893,7 +906,7 @@
       </xsl:call-template>
    </xsl:template>
    <xsl:template name="DropdownControl">
-   <xsl:param name="qGroup" />
+      <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
@@ -982,7 +995,7 @@
       </xsl:element>
    </xsl:template>
    <xsl:template name="ComboListControl">
-   <xsl:param name="qGroup" />
+      <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
@@ -1956,7 +1969,7 @@
                   </xsl:choose>
                </xsl:when>
                <xsl:when test="name() = 'Error'">
-                   <xsl:comment>old error message</xsl:comment>
+                  <xsl:comment>old error message</xsl:comment>
                </xsl:when>
                <xsl:otherwise>
                   <xsl:apply-templates select="." />
@@ -1993,7 +2006,7 @@
    </xsl:template>
 
    <!--- General Functions -->
-   
+
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
