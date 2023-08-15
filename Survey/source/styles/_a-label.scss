@@ -127,12 +127,11 @@ th .a-label-option {
 .o-question-instruction.has-content {
     display: inline-block;
     position: relative;
-    margin-top: 4px;
+    margin-bottom: .5em;
     border-radius: globals.$border-radius;
-    padding: 8px 8px 8px 36px;
+    padding: 8px 16px 8px 32px;
     background-color: globals.$information;
     color: globals.$dark1;
-    margin-bottom: .5em;
 
     &::before {
         position: absolute;
@@ -168,28 +167,50 @@ th .a-label-option {
 .o-question-success {
     *[class*=-label-] {
         display: inline-block;
-        padding: 1em 1em 1em 2.5em;
+        position: relative;
+        margin-bottom: .5em;
         border-radius: globals.$border-radius;
+        padding: 8px 16px 8px 32px;
         color: globals.$white;
-        margin-bottom: 1em;
-        background: no-repeat 1em;
-        background-size: 17px;
+        max-width: 340px;
+
+        &::before {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            background-size: 20px;
+            content: '';
+        }
     }
 }
 
 .o-question-error *[class*=-label-] {
-    background-image: url("/Survey/images/error.png");
+
     background-color: globals.$error;
+
+    &::before {
+        background-image: url("/Survey/images/error.png");
+    }
 }
 
 .o-question-warning *[class*=-label-] {
-    background-image: url("/Survey/images/warning.png");
+
     background-color: globals.$warning;
+
+    &::before {
+        background-image: url("/Survey/images/warning.png");
+    }
 }
 
 .o-question-success *[class*=-label-] {
-    background-image: url("/Survey/images/success.png");
+
     background-color: globals.$success;
+
+    &::before {
+        background-image: url("/Survey/images/success.png");
+    }
 }
 
 .focused {
