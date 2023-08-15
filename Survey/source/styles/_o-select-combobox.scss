@@ -84,13 +84,12 @@ $default-text-width: globals.$default-input-width;
     border-bottom-left-radius: globals.$text-border-radius;
     border-bottom-right-radius: globals.$text-border-radius;
     background-color: globals.$input-background;
-    display: none;
     position: absolute;
     max-height: 300px;
     overflow-y: auto;
     z-index: 10;
     min-width: 3em;
-    width: calc($default-text-width + 17px + 17px); // allows for padding of input element
+    left: -9999px;
 
     &.charrestriction {
         li:not(.a-list-placeholder-restriction) {
@@ -119,6 +118,7 @@ $default-text-width: globals.$default-input-width;
     }
 
     &.visible {
+        left: unset;
         display: block;
     }
 

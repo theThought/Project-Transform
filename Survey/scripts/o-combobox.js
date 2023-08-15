@@ -155,6 +155,12 @@ define(['component'],
             this.element.placeholder = this.defaultplaceholder;
         }
 
+        oCombobox.prototype.makeAvailable = function () {
+            component.prototype.makeAvailable.call(this);
+            this.setWidth();
+            this.manualWidth = true;
+        }
+
         oCombobox.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }

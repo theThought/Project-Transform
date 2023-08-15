@@ -1712,13 +1712,12 @@ input[type=range]:focus::-ms-fill-lower {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-color: #FFFFFF;
-  display: none;
   position: absolute;
   max-height: 300px;
   overflow-y: auto;
   z-index: 10;
   min-width: 3em;
-  width: 231px;
+  left: -9999px;
 }
 .o-combobox ul.charrestriction li:not(.a-list-placeholder-restriction),
 .o-dropdown ul.charrestriction li:not(.a-list-placeholder-restriction) {
@@ -1744,6 +1743,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-combobox ul.visible,
 .o-dropdown ul.visible {
+  left: unset;
   display: block;
 }
 .o-combobox ul li,

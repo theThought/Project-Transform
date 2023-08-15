@@ -153,6 +153,12 @@ define(['component'],
             this.element.placeholder = this.defaultplaceholder;
         }
 
+        oDropdown.prototype.makeAvailable = function () {
+            component.prototype.makeAvailable.call(this);
+            this.setWidth();
+            this.manualWidth = true;
+        }
+
         oDropdown.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }
