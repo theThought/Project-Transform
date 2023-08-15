@@ -160,7 +160,7 @@ define(['component'],
                 return;
             }
 
-            this.debug('Processing option invisibility rules for ' + this.questionName, 3);
+            this.debug('Processing option visibility rules for ' + this.questionName, 3);
             this.getQuestionValues();
 
             if (typeof this.properties.options.invisible !== "undefined") {

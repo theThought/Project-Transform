@@ -84,11 +84,7 @@ define(
             this.element.dispatchEvent(broadcastChange);
         }
 
-        component.prototype.clearEntries = function (event) {
-            if (event.detail.questionName !== this.questionName) {
-                return;
-            }
-
+        component.prototype.clearEntries = function () {
             // this is responsible for clearing text areas
             if (this.element.value !== "") {
                 this.element.value = "";
@@ -314,8 +310,7 @@ define(
             this.available = false;
             this.element.classList.add('unavailable');
             this.cover();
-            var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
-            this.element.dispatchEvent(clearEntries);
+            this.clearEntries();
         }
 
         component.prototype.resetValues = function () {

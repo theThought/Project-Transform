@@ -57,7 +57,6 @@ define(['component'],
         oDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('mousedown', this, false);
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -76,10 +75,6 @@ define(['component'],
             switch (event.type) {
                 case 'cut':
                     this.onCut(event);
-                    break;
-                case 'clearEntries':
-                    this.clearOptions();
-                    this.clearEntries(event);
                     break;
                 case 'restoreEntries':
                     this.restoreOptions();
@@ -420,7 +415,7 @@ define(['component'],
 
         oDropdown.prototype.onEnableExclusive = function (event) {
             if (this.element !== event.detail.element) {
-                this.clearOptions();
+                this.clearEntries();
                 this.clearKeyBuffer();
                 this.element.value = '';
             }
@@ -455,7 +450,7 @@ define(['component'],
                 return;
             }
 
-            this.clearOptions();
+            this.clearEntries();
             this.setSelectedOption(selectedOption);
             this.onFocusIn();
             this.hideList();
@@ -471,7 +466,10 @@ define(['component'],
             this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
         }
 
-        oDropdown.prototype.clearOptions = function () {
+        oDropdown.prototype.clearEntries = function () {
+            // call the parent (super) method
+            component.prototype.clearEntries.call(this);
+
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');

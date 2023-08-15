@@ -46,7 +46,6 @@ define(['component'],
             document.addEventListener(this.group + "_textInput", this, false);
             document.addEventListener(this.group + "_beginResize", this, false);
             document.addEventListener(this.group + "_endResize", this, false);
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener("readonly", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -72,9 +71,6 @@ define(['component'],
                     break;
                 case "change":
                     this.onChange(event);
-                    break;
-                case "clearEntries":
-                    this.clearEntries(event);
                     break;
                 case "restoreEntries":
                     this.restoreEntries(event);
@@ -143,11 +139,7 @@ define(['component'],
             this.element.setAttribute('data-readonly', 'true');
         }
 
-        mOptionBase.prototype.clearEntries = function (event) {
-            if (event.detail.questionName !== this.questionName) {
-                return;
-            }
-
+        mOptionBase.prototype.clearEntries = function () {
             if (this.checkbox.checked) {
                 this.checkbox.checked = false;
                 this.broadcastChange();
