@@ -43,7 +43,6 @@ define(['component'],
 
         mListOptionList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_requestSize", this, false);
             document.addEventListener(this.group + "_droplistSize", this, false);
@@ -67,9 +66,6 @@ define(['component'],
                     break;
                 case "keyup":
                     this.onKeyup(event);
-                    break;
-                case "clearEntries":
-                    this.clearEntries(event);
                     break;
                 case "restoreEntries":
                     this.restoreEntries(event);
@@ -118,10 +114,9 @@ define(['component'],
             }
         }
 
-        mListOptionList.prototype.clearEntries = function (event) {
-            if (event.detail.questionName !== this.questionName) {
-                return;
-            }
+        mListOptionList.prototype.clearEntries = function () {
+            // call the parent (super) method
+            component.prototype.clearEntries.call(this);
 
             this.setCurrentListPosition(-1);
         }

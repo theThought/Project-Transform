@@ -29,8 +29,8 @@ define(['component'],
 
         aInputMultilineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
+            document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
         }
 
@@ -44,14 +44,14 @@ define(['component'],
                 case "focusin":
                     this.onFocusIn(event);
                     break;
-                case "clearEntries":
-                    this.clearEntries(event);
-                    break;
                 case "restoreEntries":
                     this.restoreEntries(event);
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive();
+                    break;
+                case "broadcastChange":
+                    this.processVisibilityRulesFromExternalTrigger(event);
                     break;
             }
         }

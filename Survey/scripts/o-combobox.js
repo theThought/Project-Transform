@@ -57,7 +57,6 @@ define(['component'],
         oCombobox.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('mousedown', this, false);
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -77,10 +76,6 @@ define(['component'],
             switch (event.type) {
                 case 'cut':
                     this.onCut(event);
-                    break;
-                case 'clearEntries':
-                    this.clearOptions();
-                    this.clearEntries(event);
                     break;
                 case 'restoreEntries':
                     this.restoreOptions();
@@ -158,6 +153,12 @@ define(['component'],
         oCombobox.prototype.placeholder = function (prop) {
             this.defaultplaceholder = this.decodeHTML(prop);
             this.element.placeholder = this.defaultplaceholder;
+        }
+
+        oCombobox.prototype.makeAvailable = function () {
+            component.prototype.makeAvailable.call(this);
+            this.setWidth();
+            this.manualWidth = true;
         }
 
         oCombobox.prototype.checkManualWidth = function () {
@@ -584,7 +585,7 @@ define(['component'],
                 return;
             }
 
-            this.clearOptions();
+            this.clearEntries();
             this.setSelectedOption(selectedOption);
             this.hideList();
             this.onFocusIn();
@@ -598,6 +599,12 @@ define(['component'],
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
             this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
+        }
+
+        oCombobox.prototype.clearEntries = function () {
+            // call the parent (super) method
+            component.prototype.clearEntries.call(this);
+            this.clearOptions();
         }
 
         oCombobox.prototype.clearOptions = function () {

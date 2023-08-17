@@ -1,0 +1,33 @@
+@use 'globals';
+
+.bold {
+    font-weight: 700;
+}
+
+.ltBold {
+    font-weight: 600;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.plusfour {
+    font-size: calc(100% + 4px);
+}
+
+.sub {
+    vertical-align: sub;
+}
+
+.super {
+    vertical-align: super;
+}

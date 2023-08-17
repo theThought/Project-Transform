@@ -54,7 +54,6 @@ define(['component'],
         oSelectComboBox.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('mousedown', this, false);
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
         }
 
@@ -70,10 +69,6 @@ define(['component'],
             switch (event.type) {
                 case 'cut':
                     this.onCut(event);
-                    break;
-                case 'clearEntries':
-                    this.clearOptions();
-                    this.clearEntries(event);
                     break;
                 case 'restoreEntries':
                     this.restoreOptions();
@@ -246,7 +241,7 @@ define(['component'],
             var exactmatch = false;
 
             if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
+                this.clearEntries();
                 this.droplist.classList.add('charrestriction');
                 inputstring = '';
             } else {
@@ -261,7 +256,7 @@ define(['component'],
 
                 if (itemlabel === inputstring && this.isExact) {
                     exactmatch = true;
-                    this.clearOptions();
+                    this.clearEntries();
                     this.setSelectedOption(this.list[i]);
                     this.broadcastChange();
                 }
@@ -275,14 +270,14 @@ define(['component'],
             }
 
             if (visibleitems === 0) {
-                this.clearOptions();
+                this.clearEntries();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
             }
 
             if (this.isExact && !exactmatch) {
-                this.clearOptions();
+                this.clearEntries();
 
                 if (this.hiddenelement.value.length) {
                     this.setHiddenValue('');
@@ -295,7 +290,7 @@ define(['component'],
             var exactmatch = false;
 
             if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
+                this.clearEntries();
                 this.droplist.classList.add('charrestriction');
                 return;
             } else {
@@ -310,7 +305,7 @@ define(['component'],
 
                 if (itemlabel === inputstring && this.isExact) {
                     exactmatch = true;
-                    this.clearOptions();
+                    this.clearEntries();
                     this.setSelectedOption(this.list[i]);
                     this.broadcastChange();
                 }
@@ -324,14 +319,14 @@ define(['component'],
             }
 
             if (visibleitems === 0) {
-                this.clearOptions();
+                this.clearEntries();
                 this.togglePlaceholderVisibility(true);
             } else {
                 this.togglePlaceholderVisibility(false);
             }
 
             if (this.isExact && !exactmatch) {
-                this.clearOptions();
+                this.clearEntries();
 
                 if (this.hiddenelement.value.length) {
                     this.setHiddenValue('');
@@ -564,7 +559,7 @@ define(['component'],
                 return;
             }
 
-            this.clearOptions();
+            this.clearEntries();
             this.setSelectedOption(selectedOption)
             this.hideList();
             this.onChange(event);
@@ -580,12 +575,16 @@ define(['component'],
             this.broadcastChange();
         }
 
-        oSelectComboBox.prototype.clearOptions = function () {
+        oSelectComboBox.prototype.clearEntries = function () {
+            // call the parent (super) method
+            component.prototype.clearEntries.call(this);
+
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');
                 item.removeAttribute('data-selected');
             }
+
             this.setHiddenValue('');
             this.element.classList.remove('exact');
             this.broadcastChange();

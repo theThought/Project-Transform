@@ -38,9 +38,9 @@ define(['o-question'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
-            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener("click", this, false);
+            document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener(this.group + "_dismissExclusive", this, false);
             document.addEventListener(this.group + "_incrementValue", this, false);
@@ -49,9 +49,6 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case 'clearEntries':
-                    this.clearEntries(event);
-                    break;
                 case 'restoreEntries':
                     this.restoreEntries(event);
                     break;
@@ -72,19 +69,20 @@ define(['o-question'],
                 case this.group + "_decrementValue":
                     this.decrementValue();
                     break;
+                case 'broadcastChange':
+                    this.processVisibilityRulesFromExternalTrigger(event);
+                    break;
             }
         }
 
-        oQuestionHNumberSlider.prototype.clearEntries = function (event) {
-            if (event.detail.questionName === this.questionName) {
-                this.element.value = "";
-                this.value = 0;
-                this.updateValue();
-                this.organism.classList.remove('has-value');
-                this.organism.classList.remove('active');
-                this.setInitialFloodToValue();
-                this.broadcastChange();
-            }
+        oQuestionHNumberSlider.prototype.clearEntries = function () {
+            this.element.value = "";
+            this.value = 0;
+            this.updateValue();
+            this.organism.classList.remove('has-value');
+            this.organism.classList.remove('active');
+            this.setInitialFloodToValue();
+            this.broadcastChange();
         }
 
         oQuestionHNumberSlider.prototype.restoreEntries = function (event) {
