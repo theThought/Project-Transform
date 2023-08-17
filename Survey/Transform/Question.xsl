@@ -84,6 +84,12 @@
                         </xsl:with-param>
                      </xsl:call-template>
                   </xsl:when>
+                  <xsl:when test="name() = 'Question'">
+                     <xsl:comment>Question</xsl:comment>
+                  </xsl:when>
+                  <xsl:when test="name() = 'Style'">
+                     <xsl:comment>Style</xsl:comment>
+                  </xsl:when>
                   <xsl:otherwise>
                      <xsl:text>toplevel: </xsl:text>
                      <xsl:value-of select="name()" />
@@ -419,11 +425,18 @@
       <xsl:param name="labelType" />
       <xsl:variable name="labelsubclass">
          <xsl:choose>
-            <xsl:when test="./Style/@ElementAlign='Right'">
+            <xsl:when test="name(..)='Category'">
                <xsl:text>option</xsl:text>
             </xsl:when>
             <xsl:otherwise>
-               <xsl:text>question</xsl:text>
+               <xsl:choose>
+                  <xsl:when test="name(../../Control[1])='Control'">
+                     <xsl:text>option</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>question</xsl:text>
+                  </xsl:otherwise>
+               </xsl:choose>
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
