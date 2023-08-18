@@ -118,7 +118,7 @@ $default-text-width: globals.$default-input-width;
     }
 
     &.visible {
-        left: unset;
+        left: auto;
         display: block;
     }
 

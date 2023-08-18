@@ -1791,7 +1791,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-combobox ul.visible,
 .o-dropdown ul.visible {
-  left: unset;
+  left: auto;
   display: block;
 }
 .o-combobox ul li,
