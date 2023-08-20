@@ -57,6 +57,7 @@ define(['component'],
         oDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('mousedown', this, false);
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -75,6 +76,9 @@ define(['component'],
             switch (event.type) {
                 case 'cut':
                     this.onCut(event);
+                    break;
+                case 'clearEntries':
+                    this.clearEntriesFromExternal(event);
                     break;
                 case 'restoreEntries':
                     this.restoreOptions();

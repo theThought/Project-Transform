@@ -39,6 +39,7 @@ define(['component', 'pikaday'],
 
         aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -68,6 +69,9 @@ define(['component', 'pikaday'],
                     break;
                 case "input":
                     this.onInput(event);
+                    break;
+                case "clearEntries":
+                    this.clearEntriesFromExternal(event);
                     break;
                 case "restoreEntries":
                     this.restoreEntries(event);

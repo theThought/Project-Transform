@@ -38,6 +38,7 @@ define(['o-question'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener("input", this, false);
             document.addEventListener("change", this, false);
+            document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener("click", this, false);
             document.addEventListener("broadcastChange", this, false);
@@ -49,6 +50,9 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'clearEntries':
+                    this.clearEntriesFromExternal(event);
+                    break;
                 case 'restoreEntries':
                     this.restoreEntries(event);
                     break;

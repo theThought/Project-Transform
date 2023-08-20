@@ -92,6 +92,17 @@ define(
             }
         }
 
+        component.prototype.clearChildren = function () {
+            var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
+            this.element.dispatchEvent(clearEntries);
+        }
+
+        component.prototype.clearEntriesFromExternal = function (event) {
+            if (event.detail.element.contains(this.element)) {
+                this.clearEntries();
+            }
+        }
+
         component.prototype.restoreEntries = function (event) {
             if (event.detail.questionName !== this.questionName) {
                 return;
@@ -311,6 +322,7 @@ define(
             this.element.classList.add('unavailable');
             this.cover();
             this.clearEntries();
+            this.clearChildren();
         }
 
         component.prototype.resetValues = function () {
