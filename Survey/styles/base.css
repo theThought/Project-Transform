@@ -776,7 +776,7 @@ th .a-label-option {
   width: 20px;
   height: 20px;
   content: "";
-  background-image: url("../images/instruction.png");
+  background-image: url("../images/info-colour.png");
 }
 .o-question-instruction.has-content p {
   margin: 0;
@@ -820,21 +820,21 @@ th .a-label-option {
   background-color: #DA2911;
 }
 .o-question-error *[class*=-label-]::before {
-  background-image: url("../images/error.png");
+  background-image: url("../images/error-colour.png");
 }
 
 .o-question-warning *[class*=-label-] {
   background-color: #E8BE5D;
 }
 .o-question-warning *[class*=-label-]::before {
-  background-image: url("../images/warning.png");
+  background-image: url("../images/warning-colour.png");
 }
 
 .o-question-success *[class*=-label-] {
   background-color: #469B9B;
 }
 .o-question-success *[class*=-label-]::before {
-  background-image: url("../images/success.png");
+  background-image: url("../images/success-colour.png");
 }
 
 .focused * {
