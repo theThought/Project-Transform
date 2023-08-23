@@ -81,8 +81,8 @@ define(['component'],
                     this.clearEntriesFromExternal(event);
                     break;
                 case 'restoreEntries':
-                    this.restoreOptions();
                     this.restoreEntries(event);
+                    this.restoreSelection();
                     break;
                 case 'change':
                     this.onChange(event);
@@ -201,6 +201,12 @@ define(['component'],
 
         oDropdown.prototype.setWrapperType = function () {
             this.wrapper.classList.add('list-droplist');
+        }
+
+        oDropdown.prototype.getInitialValue = function () {
+            if (typeof this.hiddenelement.value !== 'undefined') {
+                this.initialValue = this.hiddenelement.value;
+            }
         }
 
         oDropdown.prototype.setInputType = function () {
@@ -495,23 +501,17 @@ define(['component'],
             this.hiddenelement.value = valuestring;
         }
 
-        oDropdown.prototype.restoreOptions = function () {
-
-        }
-
         oDropdown.prototype.showList = function () {
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
         }
 
         oDropdown.prototype.hideList = function () {
-            //this.setCurrentListPosition();
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
         }
 
         oDropdown.prototype.toggleList = function () {
-            //this.setCurrentListPosition();
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
         }
