@@ -615,6 +615,7 @@ define(['component'],
             // call the parent (super) method
             component.prototype.clearEntries.call(this);
             this.clearOptions();
+            this.filterList();
         }
 
         oCombobox.prototype.clearOptions = function () {
