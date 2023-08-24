@@ -833,7 +833,7 @@ th .a-label-option {
   background-color: #DA2911;
 }
 .o-question-error *[class*=-label-]::before {
-  background-image: url("../images/error-colour.png");
+  background-image: url("../images/error-white.png");
 }
 
 .o-question-warning *[class*=-label-] {
