@@ -108,18 +108,6 @@ th .a-label-option {
     }
 }
 
-// callout and warning labels
-.a-label-error {
-    color: globals.$error;
-}
-
-// label within table
-.m-structure-row-error .a-label-error {
-    display: inline-block;
-    font-size: 14px;
-    margin: 16px 8px 0 8px;
-}
-
 .o-question-instruction {
     display: none;
 }
@@ -130,7 +118,7 @@ th .a-label-option {
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
     padding: 8px 16px 8px 32px;
-    background-color: globals.$information;
+    background-color: rgba(globals.$information, .3);
     color: globals.$dark1;
 
     &::before {
@@ -141,6 +129,11 @@ th .a-label-option {
         height: 20px;
         content: '';
         background-image: url("/Survey/images/info-colour.png");
+        background-repeat: no-repeat;
+    }
+
+    * {
+        font-size: 14px;
     }
 
     p {
@@ -162,6 +155,18 @@ th .a-label-option {
     }
 }
 
+// callout and warning labels
+.a-label-error {
+    color: globals.$error;
+}
+
+// label within table
+.m-structure-row-error .a-label-error {
+    display: inline-block;
+    margin: 16px 8px 0 8px;
+    font-size: 14px;
+}
+
 .o-question-error,
 .o-question-warning,
 .o-question-success {
@@ -171,8 +176,8 @@ th .a-label-option {
         margin-bottom: .5em;
         border-radius: globals.$border-radius;
         padding: 8px 16px 8px 32px;
-        color: globals.$white;
         max-width: 340px;
+        font-size: 14px;
 
         &::before {
             position: absolute;
@@ -182,22 +187,25 @@ th .a-label-option {
             height: 20px;
             background-size: 20px;
             content: '';
+            background-repeat: no-repeat;
         }
     }
 }
 
 .o-question-error *[class*=-label-] {
 
-    background-color: globals.$error;
+    color: globals.$error;
+    background-color: rgba(globals.$error, .15);
 
     &::before {
-        background-image: url("/Survey/images/error-white.png");
+        background-image: url("/Survey/images/error-colour.png");
     }
 }
 
 .o-question-warning *[class*=-label-] {
 
-    background-color: globals.$warning;
+    color: #886D0C;
+    background-color: rgba(globals.$warning, .15);
 
     &::before {
         background-image: url("/Survey/images/warning-colour.png");
@@ -206,7 +214,8 @@ th .a-label-option {
 
 .o-question-success *[class*=-label-] {
 
-    background-color: globals.$success;
+    color: globals.$success;
+    background-color: rgba(globals.$success, .15);
 
     &::before {
         background-image: url("/Survey/images/success-colour.png");

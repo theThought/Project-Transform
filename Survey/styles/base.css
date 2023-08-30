@@ -759,16 +759,6 @@ th .a-label-option {
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
 }
 
-.a-label-error {
-  color: #DA2911;
-}
-
-.m-structure-row-error .a-label-error {
-  display: inline-block;
-  font-size: 14px;
-  margin: 16px 8px 0 8px;
-}
-
 .o-question-instruction {
   display: none;
 }
@@ -779,7 +769,7 @@ th .a-label-option {
   margin-bottom: 0.5em;
   border-radius: 4px;
   padding: 8px 16px 8px 32px;
-  background-color: #edf5ff;
+  background-color: rgba(194, 219, 252, 0.3);
   color: #57699C;
 }
 .o-question-instruction.has-content::before {
@@ -790,6 +780,10 @@ th .a-label-option {
   height: 20px;
   content: "";
   background-image: url("../images/info-colour.png");
+  background-repeat: no-repeat;
+}
+.o-question-instruction.has-content * {
+  font-size: 14px;
 }
 .o-question-instruction.has-content p {
   margin: 0;
@@ -806,6 +800,16 @@ th .a-label-option {
   margin-top: 8px;
 }
 
+.a-label-error {
+  color: #DA2911;
+}
+
+.m-structure-row-error .a-label-error {
+  display: inline-block;
+  margin: 16px 8px 0 8px;
+  font-size: 14px;
+}
+
 .o-question-error *[class*=-label-],
 .o-question-warning *[class*=-label-],
 .o-question-success *[class*=-label-] {
@@ -814,8 +818,8 @@ th .a-label-option {
   margin-bottom: 0.5em;
   border-radius: 4px;
   padding: 8px 16px 8px 32px;
-  color: #FAFAFA;
   max-width: 340px;
+  font-size: 14px;
 }
 .o-question-error *[class*=-label-]::before,
 .o-question-warning *[class*=-label-]::before,
@@ -827,24 +831,28 @@ th .a-label-option {
   height: 20px;
   background-size: 20px;
   content: "";
+  background-repeat: no-repeat;
 }
 
 .o-question-error *[class*=-label-] {
-  background-color: #DA2911;
+  color: #DA2911;
+  background-color: rgba(218, 41, 17, 0.15);
 }
 .o-question-error *[class*=-label-]::before {
-  background-image: url("../images/error-white.png");
+  background-image: url("../images/error-colour.png");
 }
 
 .o-question-warning *[class*=-label-] {
-  background-color: #E8BE5D;
+  color: #886D0C;
+  background-color: rgba(232, 190, 93, 0.15);
 }
 .o-question-warning *[class*=-label-]::before {
   background-image: url("../images/warning-colour.png");
 }
 
 .o-question-success *[class*=-label-] {
-  background-color: #469B9B;
+  color: #317474;
+  background-color: rgba(49, 116, 116, 0.15);
 }
 .o-question-success *[class*=-label-]::before {
   background-image: url("../images/success-colour.png");
