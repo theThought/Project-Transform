@@ -118,8 +118,8 @@ th .a-label-option {
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
     padding: 8px 16px 8px 32px;
-    background-color: rgba(globals.$information, .3);
-    color: globals.$dark1;
+    background-color: rgba(globals.$information, .15);
+    color: globals.$information;
 
     &::before {
         position: absolute;
@@ -204,7 +204,7 @@ th .a-label-option {
 
 .o-question-warning *[class*=-label-] {
 
-    color: #886D0C;
+    color: globals.$warning;
     background-color: rgba(globals.$warning, .15);
 
     &::before {

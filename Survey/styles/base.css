@@ -769,8 +769,8 @@ th .a-label-option {
   margin-bottom: 0.5em;
   border-radius: 4px;
   padding: 8px 16px 8px 32px;
-  background-color: rgba(194, 219, 252, 0.3);
-  color: #57699C;
+  background-color: rgba(75, 121, 182, 0.15);
+  color: #4B79B6;
 }
 .o-question-instruction.has-content::before {
   position: absolute;
@@ -843,16 +843,16 @@ th .a-label-option {
 }
 
 .o-question-warning *[class*=-label-] {
-  color: #886D0C;
-  background-color: rgba(232, 190, 93, 0.15);
+  color: #D4AA49;
+  background-color: rgba(212, 170, 73, 0.15);
 }
 .o-question-warning *[class*=-label-]::before {
   background-image: url("../images/warning-colour.png");
 }
 
 .o-question-success *[class*=-label-] {
-  color: #317474;
-  background-color: rgba(49, 116, 116, 0.15);
+  color: #469B9B;
+  background-color: rgba(70, 155, 155, 0.15);
 }
 .o-question-success *[class*=-label-]::before {
   background-image: url("../images/success-colour.png");

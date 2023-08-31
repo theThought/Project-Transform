@@ -132,7 +132,7 @@ button.a-button-list-dropdown {
             border-radius: 0;
             min-width: 0;
             min-height: 0;
-            background: globals.$icons-light;
+            background: globals.$light1;
             color: globals.$placeholder;
             font-size: 12px;
             line-height: 1;
@@ -148,7 +148,7 @@ button.a-button-list-dropdown {
 
             &:hover,
             &:focus {
-                background: globals.$icons-mid !important;
+                background: globals.$light2 !important;
             }
         }
     }
