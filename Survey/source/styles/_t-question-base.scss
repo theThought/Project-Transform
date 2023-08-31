@@ -53,6 +53,7 @@
 .sidebyside .o-question-response {
     flex: 1;
     flex-basis: auto;
+    overflow-x: auto;
 }
 
 .sidebyside .o-question-response[data-position="side"] {
