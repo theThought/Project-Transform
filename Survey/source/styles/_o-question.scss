@@ -35,11 +35,8 @@
         width: 100%;
     }
 
-    // removing to examine horizontal scroll issue on Android mobile
-    // padding: 1px;
-    // overflow-x appears to be causing issues with vertical box-shadow
-    // overflow-x: auto;
     overflow-y: visible;
+    overflow-x: auto;
 }
 
 .o-question-core {

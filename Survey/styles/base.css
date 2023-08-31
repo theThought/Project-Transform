@@ -1299,6 +1299,7 @@ select::-ms-expand {
 
 .o-question-response {
   overflow-y: visible;
+  overflow-x: auto;
 }
 .o-question-response[data-hidden=true] * {
   display: none;
@@ -2017,7 +2018,6 @@ input[type=range]:focus::-ms-fill-lower {
           flex: 1;
   -ms-flex-preferred-size: auto;
       flex-basis: auto;
-  overflow-x: auto;
 }
 
 .sidebyside .o-question-response[data-position=side] {
