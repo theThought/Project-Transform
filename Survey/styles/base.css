@@ -1698,6 +1698,7 @@ input[type=range]:focus::-ms-fill-lower {
   background-color: #FFFFFF;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+  text-overflow: ellipsis;
 }
 .o-combobox input[type=text].list-visible {
   border-bottom-left-radius: 0;
@@ -1743,11 +1744,14 @@ input[type=range]:focus::-ms-fill-lower {
   color: #FAFAFA;
   min-width: 3em;
   height: 19px;
-  background-color: #455B97;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   cursor: default;
   background: url("../images/white-chevron-down.png") right 12px center no-repeat #455B97;
+  text-overflow: ellipsis;
+}
+.o-dropdown input[type=text].manual-width {
+  padding-right: 48px;
 }
 .o-dropdown input[type=text].list-visible {
   border-bottom-left-radius: 0;

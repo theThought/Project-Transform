@@ -12,6 +12,7 @@ $default-text-width: globals.$default-input-width;
         height: 19px;
         background-color: globals.$input-background;
         box-sizing: content-box;
+        text-overflow: ellipsis;
 
         &.list-visible {
             border-bottom-left-radius: 0;
@@ -54,10 +55,14 @@ $default-text-width: globals.$default-input-width;
         color: globals.$white;
         min-width: 3em;
         height: 19px;
-        background-color: globals.$theme-primary;
         box-sizing: content-box;
         cursor: default;
         background: url("../images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
+        text-overflow: ellipsis;
+
+        &.manual-width {
+            padding-right: 48px;
+        }
 
         &.list-visible {
             border-bottom-left-radius: 0;

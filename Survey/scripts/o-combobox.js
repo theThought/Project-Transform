@@ -170,8 +170,9 @@ define(['component'],
         }
 
         oCombobox.prototype.setWidth = function () {
-            // respect manual width if set
+            // respect manual width if set - 16px + 16px accounts for element padding
             if (this.manualWidth) {
+                this.element.classList.add('manual-width');
                 this.droplist.classList.add('manual-width');
                 this.droplist.style.width = 'calc(' + this.element.style.width + ' + 16px + 16px)';
                 return;
