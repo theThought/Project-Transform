@@ -128,7 +128,7 @@ th .a-label-option {
         width: 20px;
         height: 20px;
         content: '';
-        background-image: url("/Survey/images/info-colour.png");
+        background-image: url("/Survey/images/icon-information.png");
         background-repeat: no-repeat;
     }
 
@@ -198,7 +198,7 @@ th .a-label-option {
     background-color: rgba(globals.$error, .15);
 
     &::before {
-        background-image: url("/Survey/images/error-colour.png");
+        background-image: url("/Survey/images/icon-error.png");
     }
 }
 
@@ -208,7 +208,7 @@ th .a-label-option {
     background-color: rgba(globals.$warning, .15);
 
     &::before {
-        background-image: url("/Survey/images/warning-colour.png");
+        background-image: url("/Survey/images/icon-warning.png");
     }
 }
 
@@ -218,7 +218,7 @@ th .a-label-option {
     background-color: rgba(globals.$success, .15);
 
     &::before {
-        background-image: url("/Survey/images/success-colour.png");
+        background-image: url("/Survey/images/icon-success.png");
     }
 }
 
