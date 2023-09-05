@@ -306,7 +306,6 @@ define(['component'],
         }
 
         oDropdown.prototype.onKeyup = function () {
-            console.log(this.keybuffer);
             switch (this.keypressed) {
                 case 27: // escape key
                     this.clearKeyBuffer();
@@ -326,6 +325,14 @@ define(['component'],
                 case 13: // enter key
                     return;
                 default:
+                    if (this.filtermethod === 'none') {
+                        clearInterval(this.keytimer);
+                        var that = this;
+                        this.keytimer = setTimeout(function () {
+                            that.clearKeyBuffer()
+                        }, this.keytimerlimit);
+                    }
+
                     this.filterList();
                     this.jumpToLetter();
                     break;
@@ -653,6 +660,7 @@ define(['component'],
 
             if (!this.keybuffer.length) {
                 this.element.value = '';
+                this.clearFilter();
                 this.clearOptions();
                 return;
             }
