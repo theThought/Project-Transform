@@ -22,7 +22,7 @@ define(['component'],
             this.list = null;
             this.currentlistposition = -1;
             this.isExact = true;
-            this.filtermethod = 'contains';
+            this.filtermethod = 'none';
             this.listtype = 'dropdown';
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = true;
@@ -64,6 +64,7 @@ define(['component'],
         }
 
         oDropdown.prototype.configureLocalEventListeners = function () {
+            this.element.addEventListener('input', this, false);
             this.element.addEventListener('keydown', this, false);
             this.element.addEventListener('keyup', this, false);
             this.element.addEventListener('change', this, false);
@@ -102,6 +103,7 @@ define(['component'],
                     this.onChange(event);
                     break;
                 case "focusin":
+                case "input":
                     this.onFocusIn();
                     break;
                 case 'focusout':
@@ -178,8 +180,8 @@ define(['component'],
 
             // we must set the size in order for the browser to recalculate the width of the component
             this.element.size = Math.max(this.defaultplaceholder.length, 1);
-            var dims = getComputedStyle(this.element);
-            var inputwidth = parseFloat(dims.width);
+            var inputdims = getComputedStyle(this.element);
+            var inputwidth = parseFloat(inputdims.width);
             if (isNaN(inputwidth)) inputwidth = 0;
             var droplistdims = getComputedStyle(this.droplist);
             var droplistwidth = parseFloat(droplistdims.width);
@@ -227,14 +229,14 @@ define(['component'],
             return this.droplist.querySelectorAll('li');
         }
 
+        oDropdown.prototype.buildVisibleList = function () {
+            return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
+        }
+
         oDropdown.prototype.indexList = function () {
             for (var i = 0; i < this.list.length; i++) {
                 this.list[i].setAttribute('data-list-position', i);
             }
-        }
-
-        oDropdown.prototype.buildVisibleList = function () {
-            return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
         }
 
         oDropdown.prototype.sanitiseText = function (textstring) {
@@ -254,7 +256,6 @@ define(['component'],
         }
 
         oDropdown.prototype.onFocusOut = function (event) {
-
             if (event.relatedTarget === null) {
                 return;
             }
@@ -283,6 +284,9 @@ define(['component'],
 
         oDropdown.prototype.onKeydown = function (event) {
             switch (this.keypressed) {
+                case 8: // backspace key
+                    this.keybuffer = this.keybuffer.slice(0, -1);
+                    break;
                 case 9: // tab key
                     this.clearKeyBuffer();
                     this.hideList();
@@ -302,7 +306,12 @@ define(['component'],
         }
 
         oDropdown.prototype.onKeyup = function () {
+            console.log(this.keybuffer);
             switch (this.keypressed) {
+                case 27: // escape key
+                    this.clearKeyBuffer();
+                    this.clearFilter();
+                    break;
                 case 38: // up arrow
                     this.clearKeyBuffer();
                     this.navigateUp();
@@ -317,11 +326,7 @@ define(['component'],
                 case 13: // enter key
                     return;
                 default:
-                    clearInterval(this.keytimer);
-                    var that = this;
-                    this.keytimer = setTimeout(function () {
-                        that.clearKeyBuffer()
-                    }, this.keytimerlimit);
+                    this.filterList();
                     this.jumpToLetter();
                     break;
             }
@@ -345,7 +350,12 @@ define(['component'],
             if (this.currentlistposition === -1) {
                 this.currentlistposition = firstpos;
             } else {
-                this.currentlistposition--;
+                for (var i=0; i<=list.length; i++) {
+                    if (list[i].getAttribute('data-selected')) {
+                        this.currentlistposition=list[i-1].getAttribute('data-list-position');
+                        break;
+                    }
+                }
             }
 
             if (this.listtype === 'dropdown') {
@@ -370,7 +380,12 @@ define(['component'],
             if (this.currentlistposition === -1) {
                 this.currentlistposition = parseInt(list[0].getAttribute('data-list-position'));
             } else {
-                this.currentlistposition++;
+                for (var i=0; i<=list.length; i++) {
+                    if (list[i].getAttribute('data-selected')) {
+                        this.currentlistposition=list[i+1].getAttribute('data-list-position');
+                        break;
+                    }
+                }
             }
 
             if (this.listtype === 'dropdown') {
@@ -439,7 +454,7 @@ define(['component'],
         }
 
         oDropdown.prototype.selectOption = function (event) {
-            this.keybuffer = '';
+            this.clearKeyBuffer();
             var selectedOption = event.target;
 
             if (!this.element.classList.contains('list-visible')) {
@@ -452,6 +467,10 @@ define(['component'],
 
             // ignore clicks on the drop-list background or scrollbar
             if (event.target === this.droplist) {
+                return;
+            }
+
+            if (typeof selectedOption === 'undefined') {
                 return;
             }
 
@@ -469,8 +488,8 @@ define(['component'],
 
             this.clearEntries();
             this.setSelectedOption(selectedOption);
-            this.onFocusIn();
             this.hideList();
+            this.onFocusIn();
             this.onChange(event);
         }
 
@@ -486,7 +505,10 @@ define(['component'],
         oDropdown.prototype.clearEntries = function () {
             // call the parent (super) method
             component.prototype.clearEntries.call(this);
+            this.clearOptions();
+        }
 
+        oDropdown.prototype.clearOptions = function () {
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');
@@ -510,11 +532,15 @@ define(['component'],
         oDropdown.prototype.hideList = function () {
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
+            this.clearKeyBuffer();
+            this.clearFilter();
         }
 
         oDropdown.prototype.toggleList = function () {
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
+            this.clearKeyBuffer();
+            this.clearFilter();
         }
 
         oDropdown.prototype.setCurrentListPosition = function (position) {
@@ -534,6 +560,113 @@ define(['component'],
 
         oDropdown.prototype.getCurrentListPosition = function () {
             return parseInt(this.currentlistposition);
+        }
+
+        oDropdown.prototype.clearFilter = function () {
+            for (var i = 0; i < this.list.length; i++) {
+                this.list[i].classList.remove('filter-hidden');
+            }
+        }
+
+        oDropdown.prototype.filterListStarts = function (inputstring) {
+            var exactmatch = false;
+
+            inputstring = inputstring.toLowerCase();
+            var visibleitems = this.list.length;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) === 0) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.clearOptions();
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+            }
+        }
+
+        oDropdown.prototype.filterListContains = function (inputstring) {
+            var exactmatch = false;
+
+            inputstring = inputstring.toLowerCase();
+            var visibleitems = this.list.length;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) !== -1) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.clearOptions();
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+            }
+        }
+
+        oDropdown.prototype.togglePlaceholderVisibility = function (visibility) {
+            if (visibility) {
+                this.droplist.classList.add('empty');
+            } else {
+                this.droplist.classList.remove('empty');
+            }
+        }
+
+        oDropdown.prototype.filterList = function () {
+            this.setCurrentListPosition();
+
+            if (!this.keybuffer.length) {
+                this.element.value = '';
+                this.clearOptions();
+                return;
+            }
+
+            switch (this.filtermethod) {
+                case 'none':
+                    break;
+                case 'starts':
+                    this.filterListStarts(this.keybuffer);
+                    break;
+                case 'contains':
+                    this.filterListContains(this.keybuffer);
+                    break;
+            }
         }
 
         oDropdown.prototype.jumpToLetter = function (event) {

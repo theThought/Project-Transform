@@ -225,141 +225,13 @@ define(['component'],
             return this.droplist.querySelectorAll('li');
         }
 
-        oCombobox.prototype.indexList = function () {
-            for (var i = 0; i < this.list.length; i++) {
-                this.list[i].setAttribute('data-list-position', i);
-            }
-        }
-
         oCombobox.prototype.buildVisibleList = function () {
             return this.droplist.querySelectorAll('li:not(.filter-hidden):not([class^="a-list-placeholder-"])');
         }
 
-        oCombobox.prototype.configureInitialFilter = function () {
-
+        oCombobox.prototype.indexList = function () {
             for (var i = 0; i < this.list.length; i++) {
-                var item = this.list[i];
-                if (item.getAttribute('data-selected')) {
-                    this.element.value = this.sanitiseText(item.innerText);
-                    item.setAttribute('data-selected', 'selected');
-                    item.classList.add('selected');
-                    this.filterList();
-                }
-            }
-
-            if (!this.element.value.length && this.mincharacters > 0) {
-                this.droplist.classList.add('charrestriction');
-                this.filterListStarts('');
-            }
-
-        }
-
-        oCombobox.prototype.filterList = function () {
-            this.setCurrentListPosition();
-
-            switch (this.filtermethod) {
-                case 'starts':
-                    this.filterListStarts(this.element.value);
-                    break;
-                case 'contains':
-                    this.filterListContains(this.element.value);
-                    break;
-            }
-        }
-
-        oCombobox.prototype.filterListStarts = function (inputstring) {
-            var exactmatch = false;
-
-            if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
-                this.droplist.classList.add('charrestriction');
-                inputstring = '';
-            } else {
-                this.droplist.classList.remove('charrestriction');
-            }
-
-            inputstring = inputstring.toLowerCase();
-            var visibleitems = this.list.length;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-
-                if (itemlabel === inputstring && this.isExact) {
-                    exactmatch = true;
-                    this.clearOptions();
-                    this.setSelectedOption(this.list[i]);
-                    this.broadcastChange();
-                }
-
-                if (itemlabel.indexOf(inputstring) === 0) {
-                    this.list[i].classList.remove('filter-hidden');
-                } else {
-                    this.list[i].classList.add('filter-hidden');
-                    visibleitems--;
-                }
-            }
-
-            if (visibleitems === 0) {
-                this.clearOptions();
-                this.togglePlaceholderVisibility(true);
-            } else {
-                this.togglePlaceholderVisibility(false);
-            }
-
-            if (this.isExact && !exactmatch) {
-                this.clearOptions();
-            }
-        }
-
-        oCombobox.prototype.filterListContains = function (inputstring) {
-            var exactmatch = false;
-
-            if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
-                this.droplist.classList.add('charrestriction');
-                return;
-            } else {
-                this.droplist.classList.remove('charrestriction');
-            }
-
-            inputstring = inputstring.toLowerCase();
-            var visibleitems = this.list.length;
-
-            for (var i = 0; i < this.list.length; i++) {
-                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
-
-                if (itemlabel === inputstring && this.isExact) {
-                    exactmatch = true;
-                    this.clearOptions();
-                    this.setSelectedOption(this.list[i]);
-                    this.broadcastChange();
-                }
-
-                if (itemlabel.indexOf(inputstring) !== -1) {
-                    this.list[i].classList.remove('filter-hidden');
-                } else {
-                    this.list[i].classList.add('filter-hidden');
-                    visibleitems--;
-                }
-            }
-
-            if (visibleitems === 0) {
-                this.clearOptions();
-                this.togglePlaceholderVisibility(true);
-            } else {
-                this.togglePlaceholderVisibility(false);
-            }
-
-            if (this.isExact && !exactmatch) {
-                this.clearOptions();
-            }
-        }
-
-        oCombobox.prototype.togglePlaceholderVisibility = function (visibility) {
-            if (visibility) {
-                this.droplist.classList.add('empty');
-            } else {
-                this.droplist.classList.remove('empty');
+                this.list[i].setAttribute('data-list-position', i);
             }
         }
 
@@ -380,7 +252,6 @@ define(['component'],
         }
 
         oCombobox.prototype.onFocusOut = function (event) {
-
             if (event.relatedTarget === null) {
                 return;
             }
@@ -667,6 +538,132 @@ define(['component'],
 
         oCombobox.prototype.getCurrentListPosition = function () {
             return parseInt(this.currentlistposition);
+        }
+
+        oCombobox.prototype.configureInitialFilter = function () {
+            for (var i = 0; i < this.list.length; i++) {
+                var item = this.list[i];
+                if (item.getAttribute('data-selected')) {
+                    this.element.value = this.sanitiseText(item.innerText);
+                    item.setAttribute('data-selected', 'selected');
+                    item.classList.add('selected');
+                    this.filterList();
+                }
+            }
+
+            if (!this.element.value.length && this.mincharacters > 0) {
+                this.droplist.classList.add('charrestriction');
+                this.filterListStarts('');
+            }
+        }
+
+        oCombobox.prototype.filterList = function () {
+            this.setCurrentListPosition();
+
+            switch (this.filtermethod) {
+                case 'starts':
+                    this.filterListStarts(this.element.value);
+                    break;
+                case 'contains':
+                    this.filterListContains(this.element.value);
+                    break;
+            }
+        }
+
+        oCombobox.prototype.filterListStarts = function (inputstring) {
+            var exactmatch = false;
+
+            if (inputstring.length < this.mincharacters) {
+                this.clearOptions();
+                this.droplist.classList.add('charrestriction');
+                inputstring = '';
+            } else {
+                this.droplist.classList.remove('charrestriction');
+            }
+
+            inputstring = inputstring.toLowerCase();
+            var visibleitems = this.list.length;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) === 0) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.clearOptions();
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+            }
+        }
+
+        oCombobox.prototype.filterListContains = function (inputstring) {
+            var exactmatch = false;
+
+            if (inputstring.length < this.mincharacters) {
+                this.clearOptions();
+                this.droplist.classList.add('charrestriction');
+                return;
+            } else {
+                this.droplist.classList.remove('charrestriction');
+            }
+
+            inputstring = inputstring.toLowerCase();
+            var visibleitems = this.list.length;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) !== -1) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.clearOptions();
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+            }
+        }
+
+        oCombobox.prototype.togglePlaceholderVisibility = function (visibility) {
+            if (visibility) {
+                this.droplist.classList.add('empty');
+            } else {
+                this.droplist.classList.remove('empty');
+            }
         }
 
         return oCombobox;
