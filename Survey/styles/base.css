@@ -818,7 +818,6 @@ th .a-label-option {
   margin-bottom: 0.5em;
   border-radius: 4px;
   padding: 8px 16px 8px 32px;
-  max-width: 340px;
   font-size: 14px;
 }
 .o-question-error *[class*=-label-]::before,
