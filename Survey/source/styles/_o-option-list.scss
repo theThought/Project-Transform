@@ -10,7 +10,7 @@
 
 /* Sublist heading */
 .o-option-sublist .a-label-heading-sublist {
-    font-family: 'Merriweather', serif;
+    font-family: globals.$secondary-font;
     margin-bottom: .5em;
     color: globals.$titles;
 }
