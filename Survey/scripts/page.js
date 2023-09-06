@@ -56,6 +56,13 @@ define(
                     if (sidebyside) {
                         var questioncontainer = questioninstruction.closest('.o-question-container');
                         var questionresponse = questioncontainer.querySelector('.o-question-response');
+
+                        // in certain circumstances (information only questions) there may not be a question response
+                        // area - in these cases the instruction should be left in its original position
+                        if (questionresponse === null) {
+                            continue;
+                        }
+
                         questionresponse.insertAdjacentElement('afterbegin', questioninstruction);
                     }
                 }
