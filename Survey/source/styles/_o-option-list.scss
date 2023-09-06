@@ -8,13 +8,6 @@
     display: none !important;
 }
 
-/* Sublist heading */
-.o-option-sublist .a-label-heading-sublist {
-    font-family: globals.$secondary-font;
-    margin-bottom: .5em;
-    color: globals.$titles;
-}
-
 .balance {
     .o-option-sublist:first-of-type {
         margin-top: 0;

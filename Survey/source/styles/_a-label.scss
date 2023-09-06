@@ -53,6 +53,12 @@
     display: inline-block;
 }
 
+.a-label-heading-sublist {
+    font-family: globals.$secondary-font;
+    color: globals.$titles;
+    margin-bottom: .5em;
+}
+
 // Do not display totals in error rows
 .m-structure-row-error .a-label-total {
     display: none;

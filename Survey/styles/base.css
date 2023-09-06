@@ -707,6 +707,12 @@ input[readonly]:focus-visible {
   display: inline-block;
 }
 
+.a-label-heading-sublist {
+  font-family: "Merriweather", serif;
+  color: #212C4C;
+  margin-bottom: 0.5em;
+}
+
 .m-structure-row-error .a-label-total {
   display: none;
 }
@@ -1242,13 +1248,6 @@ select::-ms-expand {
 
 .hidden-rule {
   display: none !important;
-}
-
-/* Sublist heading */
-.o-option-sublist .a-label-heading-sublist {
-  font-family: "Merriweather", serif;
-  margin-bottom: 0.5em;
-  color: #212C4C;
 }
 
 .balance {
