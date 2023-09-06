@@ -65,11 +65,13 @@ $separator-colour: globals.$titles;
         }
     }
 
-    th,
+    th {
+        font-weight: normal;
+    }
+
     .grid-row-total-title,
     .grid-column-total-title {
         font-family: globals.$secondary-font;
-        font-weight: normal;
         color: globals.$titles;
     }
 
