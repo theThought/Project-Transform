@@ -31,6 +31,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new aInputSinglelineEdit(id, group));
             });
             break;
+        case 'ainputmultilineedit':
+            requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
+                app.preinitcomponents.push(new aInputMultilineEdit(id, group));
+            });
+            break;
         case 'ainputreadwriteedit':
             requirejs(['a-input-readwriteedit'], function (aInputReadWriteEdit) {
                 console.log('Registering input');
@@ -48,26 +53,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new aButtonOption(id, group));
             });
             break;
-        case 'abuttonlistdropdown':
-            requirejs(['a-button-list-dropdown'], function (aButtonListDropdown) {
-                app.preinitcomponents.push(new aButtonListDropdown(id, group));
-            });
-            break;
-        case 'ainputlistdropdown':
-            requirejs(['a-input-list-dropdown'], function (aInputListDropdown) {
-                app.preinitcomponents.push(new aInputListDropdown(id, group));
-            });
-            break;
-        case 'mselectdroplist':
-            requirejs(['m-select-droplist'], function (mSelectDroplist) {
-                app.preinitcomponents.push(new mSelectDroplist(id, group));
-            });
-            break;
-        case 'oselectcombobox':
-            requirejs(['o-select-combobox'], function (oSelectCombobox) {
-                app.preinitcomponents.push(new oSelectCombobox(id, group));
-            });
-            break;
         case 'ocombobox':
             requirejs(['o-combobox'], function (oCombobox) {
                 app.preinitcomponents.push(new oCombobox(id, group));
@@ -76,11 +61,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         case 'odropdown':
             requirejs(['o-dropdown'], function (oDropdown) {
                 app.preinitcomponents.push(new oDropdown(id, group));
-            });
-            break;
-        case 'ainputmultilineedit':
-            requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
-                app.preinitcomponents.push(new aInputMultilineEdit(id, group));
             });
             break;
         case 'oquestiongrid':
@@ -124,11 +104,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         case 'alabelthumbvalue':
             requirejs(['a-label-thumbvalue'], function (aLabelThumbValue) {
                 app.preinitcomponents.push(new aLabelThumbValue(id, group));
-            });
-            break;
-        case 'mlistoptionlist':
-            requirejs(['m-list-optionlist'], function (mListOptionList) {
-                app.preinitcomponents.push(new mListOptionList(id, group));
             });
             break;
         default:
