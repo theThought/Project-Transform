@@ -30,6 +30,7 @@ define(['component'],
 
             this.configureCellEvents();
             this.configureTHStyles();
+            this.configureRowStyles();
             this.configureIncomingEventListeners();
             this.configureProperties(gridid);
             this.configurationComplete();
@@ -56,7 +57,6 @@ define(['component'],
                 var emptyheadercount = 0;
 
                 for (var j = 0, col; col = row.cells[j]; j++) {
-
                     var celltext = '';
 
                     // it is necessary to examine the content of the cell and all child nodes
@@ -75,10 +75,33 @@ define(['component'],
                 }
 
                 if (emptyheadercount === cellcount) {
-                    this.debug('Completely empty header row found.');
                     this.grid.rows[i].classList.add('empty-header-row');
                 }
 
+            }
+        }
+
+        oQuestionGrid.prototype.configureRowStyles = function () {
+            var tablerowlist = this.grid.querySelectorAll('tr.m-structure-row, tr.m-structure-row-error');
+            var stripedrowiterator = 0;
+
+            for (var i = 0; i < tablerowlist.length; i++) {
+                // do not consider error rows when determining which rows should be striped
+                if (tablerowlist[i].classList.contains('m-structure-row-error')) {
+                    continue;
+                }
+
+                stripedrowiterator++;
+
+                if (stripedrowiterator % 2 !== 0) {
+                    tablerowlist[i].classList.add('striped');
+
+                    // stripe the preceding error row, if there is one
+                    if (typeof tablerowlist[i-1] !== 'undefined' &&
+                        tablerowlist[i-1].classList.contains('m-structure-row-error')) {
+                        tablerowlist[i-1].classList.add('striped');
+                    }
+                }
             }
         }
 

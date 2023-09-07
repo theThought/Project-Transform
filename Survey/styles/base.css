@@ -1881,18 +1881,29 @@ input[type=range]:focus::-ms-fill-lower {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-.o-structure-table.shade-altrows tr:nth-child(even) td,
-.o-structure-table.shade-altrows tr:nth-child(even) th {
+.o-structure-table.shade-altrows tr.striped td,
+.o-structure-table.shade-altrows tr.striped th {
   background-color: #D6DDEB;
 }
-.o-structure-table.shade-altrows tr:nth-child(even) td:first-child,
-.o-structure-table.shade-altrows tr:nth-child(even) th:first-child {
+.o-structure-table.shade-altrows tr.striped td:first-child,
+.o-structure-table.shade-altrows tr.striped th:first-child {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-.o-structure-table.shade-altrows tr:nth-child(even) td:last-child {
+.o-structure-table.shade-altrows tr.striped td:last-child {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
+}
+.o-structure-table.shade-altrows tr.striped + tr.striped td:first-child,
+.o-structure-table.shade-altrows tr.striped + tr.striped th:first-child {
+  border-top-left-radius: 0;
+}
+.o-structure-table.shade-altrows tr.striped + tr.striped td:last-child {
+  border-top-right-radius: 0;
+}
+.o-structure-table.shade-altrows tr.m-structure-row-error.striped th, .o-structure-table.shade-altrows tr.m-structure-row-error.striped td {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .o-structure-table th {
   font-weight: normal;
