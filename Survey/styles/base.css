@@ -2024,6 +2024,18 @@ body > form {
   white-space: nowrap;
 }
 
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
 @media screen and (max-width: 1023px) {
   body {
     margin: 0;

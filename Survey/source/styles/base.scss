@@ -96,6 +96,18 @@ body > form {
     white-space: nowrap;
 }
 
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
 // screen size overrides - must follow the original declaration to work
 @media screen and (max-width: 1023px) {
     body {
