@@ -34,507 +34,734 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="av5cfyhniove2bpbxhowoaiegiaqaaaa"/><input type="hidden" name="I.SavePoint" value="grid5_rowtotal_diffpostlabel_percol"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25,"focus":{"question":true,"control":true}})</script><div class="header">
+		<form name="mrForm" id="mrForm" action="http://localhost:5080" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Transform"/><input type="hidden" name="I.Session" value="fbcqbn1dry4ehg3ptfdgdz1k1uaqaaaa"/><input type="hidden" name="I.SavePoint" value="TotalsPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><script>app.RegisterProperties('Page',{"sidebyside":25,"focus":{"question":true,"control":true}})</script><div class="header">
 				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
 						<!-- progress text -->
 					</div>
 					<div class="overall-progress-bar">
-						<table style="height: 100%; width: 100%"><tr><td class="mrProgressText">0%</td></tr></table><!-- progress bar -->
+						<table style="height: 100%; width: 100%"><tr><td style="width: 3%; background-color: #D0DAE6"/><td class="mrProgressText">3%</td></tr></table><!-- progress bar -->
 					</div>
 				</div>
 			</div>
 			<div class="surroundcontent">
 				<div class="o-question-container">
-					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qgrid5__rowtotal__diffpostlabel__percol');</script><script type="text/javascript">app.RegisterProperties("_Qgrid5__rowtotal__diffpostlabel__percol",{"cellshading":{"rowheader":true, "columnheader":true, "altrows":true}, "totals":{"columns":{"visible":false, "exceptions":[1]}, "rows":{"visible":true, "caption":"Total", "labels":{"post":"%"}}}});</script><script type="text/javascript">app.RegisterProperties("_Qtot",{"type":"number", labels:{"post":"pts"}});</script><script type="text/javascript">app.RegisterProperties("_Qslice1",{"type":"number", labels:{"post":"%"}});</script><script type="text/javascript">app.RegisterProperties("_Qslice2",{"type":"number", labels:{"post":"%"}});</script><script type="text/javascript">app.RegisterProperties("_Qslice3",{"type":"number", labels:{"post":"%"}});</script><script type="text/javascript">app.RegisterProperties("_Qslice4",{"type":"number", labels:{"post":"%"}});</script><script type="text/javascript">app.RegisterProperties("_Qslice5",{"type":"number", labels:{"post":"%"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QTotalsPage_QConstantSum');</script><script type="text/javascript">app.RegisterProperties("_Qconstantsum",{"caption":{"content":"%lt%b%gt%%%lt%/b%gt% of Patents%lt%br /%gt% Seen %lt%span class="test"%gt%each%lt%/span%gt% day","width":"7em","align":"center"},"totals":{"columns":{"visible":true,"align":"centre", "width":"4em","caption":{"content":"Total","align":"centre"},"labels":{"post":"%"}}}});</script><script type="text/javascript">app.RegisterProperties("_QPercentageSeen",{"type":"decimal", labels:{"post":"%"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-error">
-						<div class="a-label-error">Question 'Stage Ia' (1): Answer '200' is not in range '0 .. 100'.</div>
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-warning">
+							<b>Percentages</b>
+							<span class="test">allocated must total</span><br/>to 100%</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">What percentage of patients did you see each day</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
+						<div class="o-question-instruction">
+						</div>
+						<div class="o-question-response o-question-information" data-questiongroup="_QTotalsPage_QConstantSum_QMon_QPercentageSeen" data-readonly="false" data-position="below">
+							<script>app.registerComponent('oQuestionInformation','_Q0_Q0_Q0','_QTotalsPage_QConstantSum_QMon_QPercentageSeen');</script>
+							<table class="o-structure-table" name="What percentage of patients did you see each day">
+								<script>app.registerComponent('oQuestionGrid','_Q0_Q0_Q0','_QTotalsPage_QConstantSum_QMon_QPercentageSeen');</script>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Monday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QConstantSum_QMon_QPercentageSeen" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QConstantSum_QMon_QPercentageSeen');</script>
+											<input data-questionid="_Q0_Q0_Q0" data-questiongroup="_QTotalsPage_QConstantSum_QMon_QPercentageSeen" data-position="below" type="text" step="any" name="_QTotalsPage_QConstantSum_QMon_QPercentageSeen" id="_Q0_Q0_Q0" autocomplete="off" style="width:4em;" maxlength="16" value="51.1953552942723" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q0','_QTotalsPage_QConstantSum_QMon_QPercentageSeen');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Tuesday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QConstantSum_QTue_QPercentageSeen" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q0','_QTotalsPage_QConstantSum_QTue_QPercentageSeen');</script>
+											<input data-questionid="_Q0_Q1_Q0" data-questiongroup="_QTotalsPage_QConstantSum_QTue_QPercentageSeen" data-position="below" type="text" step="any" name="_QTotalsPage_QConstantSum_QTue_QPercentageSeen" id="_Q0_Q1_Q0" autocomplete="off" style="width:4em;" maxlength="16" value="35.4205071339384" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q0','_QTotalsPage_QConstantSum_QTue_QPercentageSeen');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Wednesday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QConstantSum_QWed_QPercentageSeen" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q0','_QTotalsPage_QConstantSum_QWed_QPercentageSeen');</script>
+											<input data-questionid="_Q0_Q2_Q0" data-questiongroup="_QTotalsPage_QConstantSum_QWed_QPercentageSeen" data-position="below" type="text" step="any" name="_QTotalsPage_QConstantSum_QWed_QPercentageSeen" id="_Q0_Q2_Q0" autocomplete="off" style="width:4em;" maxlength="16" value="56.7291813688353" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q0','_QTotalsPage_QConstantSum_QWed_QPercentageSeen');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Thursday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QConstantSum_QThu_QPercentageSeen" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q0','_QTotalsPage_QConstantSum_QThu_QPercentageSeen');</script>
+											<input data-questionid="_Q0_Q3_Q0" data-questiongroup="_QTotalsPage_QConstantSum_QThu_QPercentageSeen" data-position="below" type="text" step="any" name="_QTotalsPage_QConstantSum_QThu_QPercentageSeen" id="_Q0_Q3_Q0" autocomplete="off" style="width:4em;" maxlength="16" value="94.4178095562384" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q0','_QTotalsPage_QConstantSum_QThu_QPercentageSeen');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Friday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QConstantSum_QFri_QPercentageSeen" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q0','_QTotalsPage_QConstantSum_QFri_QPercentageSeen');</script>
+											<input data-questionid="_Q0_Q4_Q0" data-questiongroup="_QTotalsPage_QConstantSum_QFri_QPercentageSeen" data-position="below" type="text" step="any" name="_QTotalsPage_QConstantSum_QFri_QPercentageSeen" id="_Q0_Q4_Q0" autocomplete="off" style="width:4em;" maxlength="16" value="74.2201249618083" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q0','_QTotalsPage_QConstantSum_QFri_QPercentageSeen');</script>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QTotalsPage_QRowTotals');</script><script type="text/javascript">app.RegisterProperties("_Qrowtotals",{"caption":"Team Members","cellshading":{"columnheader":true,"altrows":true},"totals":{"rows":{"visible":true,"exceptions":[],"caption":{"content":"Total Hours"}},"columns":{"visible":false}}});</script><script type="text/javascript">app.RegisterProperties("_QHoursMon",{"type":"number","showspinner":true});</script><script type="text/javascript">app.RegisterProperties("_QHoursTue",{"type":"number","showspinner":true});</script><script type="text/javascript">app.RegisterProperties("_QHoursWed",{"type":"number","showspinner":true});</script><script type="text/javascript">app.RegisterProperties("_QHoursThu",{"type":"number","showspinner":true});</script><script type="text/javascript">app.RegisterProperties("_QHoursFri",{"type":"number","showspinner":true});</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-error">
 					</div>
 					<div class="o-question-core">
 						<div class="o-question-warning">
 						</div>
 						<div class="o-question-information">
-							<div class="o-question-information-content">Row Total excluding first column. Different post label for 1st column (readonly) and remaining columns</div>
+							<div class="o-question-information-content">Indicate the number of hours worked this week, by your team</div>
 							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 						</div>
 						<div class="o-question-instruction">
 						</div>
-						<div class="o-question-response o-question-table" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot" data-readonly="false" data-position="below">
-							<script>app.registerComponent('oQuestion','_Q0_Q0_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot');</script>
-							<table class="o-structure-table" name="Row Total excluding first column. Different post label for 1st column (readonly) and remaining columns">
-								<script>app.registerComponent('oQuestionGrid','_Q0_Q0_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot');</script>
+						<div class="o-question-response o-question-information" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" data-readonly="false" data-position="below">
+							<script>app.registerComponent('oQuestionInformation','_Q1_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
+							<table class="o-structure-table" name="Indicate the number of hours worked this week, by your team">
+								<script>app.registerComponent('oQuestionGrid','_Q1_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
 								<tr class="m-structure-row-heading" data-iterationname="">
 									<th class="m-structure-cell" scope="col" style=""></th>
-									<th class="m-structure-cell" scope="col" align="Center" style="">
-										<span class="a-label-question">Total TNBC</span>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Monday</span>
 									</th>
 									<th class="m-structure-cell" scope="col" style="">
-										<span class="a-label-question">Neo-Adjuvant</span>
+										<span class="a-label-question">Tuesday</span>
 									</th>
-									<th class="m-structure-cell" scope="col" align="Center" style="">
-										<span class="a-label-question">Adjuvant</span>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Wednesday</span>
 									</th>
-									<th class="m-structure-cell" scope="col" align="Center" style="">
-										<span class="a-label-question">Early Drug Treatment</span>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Thursday</span>
 									</th>
-									<th class="m-structure-cell" scope="col" align="Center" style="">
-										<span class="a-label-question">Metastatic</span>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Friday</span>
 									</th>
-									<th class="m-structure-cell" scope="col" align="Center" style="">
-										<span class="a-label-question">No Drug Tx</span>
-									</th>
-								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage Ia</span>
+										<span class="a-label-question">Jake</span>
 									</th>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot');</script>
-											<input data-questionid="_Q0_Q0_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot" id="_Q0_Q0_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qtot');</script>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="min-width:10em;max-width:10em;">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
+											<input data-questionid="_Q1_Q0_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursMon" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursMon" id="_Q1_Q0_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="7" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q0','_QTotalsPage_QRowTotals_QJake_QHoursMon');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice1');</script>
-											<input data-questionid="_Q0_Q0_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice1" id="_Q0_Q0_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursTue" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q1','_QTotalsPage_QRowTotals_QJake_QHoursTue');</script>
+											<input data-questionid="_Q1_Q0_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursTue" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursTue" id="_Q1_Q0_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="2" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q1','_QTotalsPage_QRowTotals_QJake_QHoursTue');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice2');</script>
-											<input data-questionid="_Q0_Q0_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice2" id="_Q0_Q0_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursWed" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q2','_QTotalsPage_QRowTotals_QJake_QHoursWed');</script>
+											<input data-questionid="_Q1_Q0_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursWed" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursWed" id="_Q1_Q0_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="5" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q2','_QTotalsPage_QRowTotals_QJake_QHoursWed');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice3');</script>
-											<input data-questionid="_Q0_Q0_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice3" id="_Q0_Q0_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice3');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursThu" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q3','_QTotalsPage_QRowTotals_QJake_QHoursThu');</script>
+											<input data-questionid="_Q1_Q0_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursThu" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursThu" id="_Q1_Q0_Q3" autocomplete="off" style="width:4em;" maxlength="2" value="3" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q3','_QTotalsPage_QRowTotals_QJake_QHoursThu');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice4" data-hidden="true" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice4');</script>
-											<input data-questionid="_Q0_Q0_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice4" id="_Q0_Q0_Q4" autocomplete="off" style="width:2em;visibility: hidden;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice4');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q0_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice5');</script>
-											<input data-questionid="_Q0_Q0_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice5" id="_Q0_Q0_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ia_Qslice5');</script>
-										</div>
-									</td>
-								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr class="m-structure-row" data-iterationname="">
-									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage Ib</span>
-									</th>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qtot');</script>
-											<input data-questionid="_Q0_Q1_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qtot" id="_Q0_Q1_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qtot');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice1');</script>
-											<input data-questionid="_Q0_Q1_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice1" id="_Q0_Q1_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice1');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice2');</script>
-											<input data-questionid="_Q0_Q1_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice2" id="_Q0_Q1_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice2');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice3');</script>
-											<input data-questionid="_Q0_Q1_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice3" id="_Q0_Q1_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice3');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice4" data-hidden="true" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice4');</script>
-											<input data-questionid="_Q0_Q1_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice4" id="_Q0_Q1_Q4" autocomplete="off" style="width:2em;visibility: hidden;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice4');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q1_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice5');</script>
-											<input data-questionid="_Q0_Q1_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice5" id="_Q0_Q1_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__ib_Qslice5');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursFri" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q0_Q4','_QTotalsPage_QRowTotals_QJake_QHoursFri');</script>
+											<input data-questionid="_Q1_Q0_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJake_QHoursFri" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJake_QHoursFri" id="_Q1_Q0_Q4" autocomplete="off" style="width:4em;" maxlength="2" value="1" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q0_Q4','_QTotalsPage_QRowTotals_QJake_QHoursFri');</script>
 										</div>
 									</td>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage IIa</span>
+										<span class="a-label-question">Mary</span>
 									</th>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qtot');</script>
-											<input data-questionid="_Q0_Q2_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qtot" id="_Q0_Q2_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qtot');</script>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="min-width:10em;max-width:10em;">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursMon" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q1_Q0','_QTotalsPage_QRowTotals_QMary_QHoursMon');</script>
+											<input data-questionid="_Q1_Q1_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursMon" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursMon" id="_Q1_Q1_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q0','_QTotalsPage_QRowTotals_QMary_QHoursMon');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice1');</script>
-											<input data-questionid="_Q0_Q2_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice1" id="_Q0_Q2_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursTue" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q1_Q1','_QTotalsPage_QRowTotals_QMary_QHoursTue');</script>
+											<input data-questionid="_Q1_Q1_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursTue" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursTue" id="_Q1_Q1_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="10" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q1','_QTotalsPage_QRowTotals_QMary_QHoursTue');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice2');</script>
-											<input data-questionid="_Q0_Q2_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice2" id="_Q0_Q2_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursWed" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q1_Q2','_QTotalsPage_QRowTotals_QMary_QHoursWed');</script>
+											<input data-questionid="_Q1_Q1_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursWed" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursWed" id="_Q1_Q1_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="9" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q2','_QTotalsPage_QRowTotals_QMary_QHoursWed');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice3');</script>
-											<input data-questionid="_Q0_Q2_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice3" id="_Q0_Q2_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice3');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursThu" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q1_Q3','_QTotalsPage_QRowTotals_QMary_QHoursThu');</script>
+											<input data-questionid="_Q1_Q1_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursThu" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursThu" id="_Q1_Q1_Q3" autocomplete="off" style="width:4em;" maxlength="2" value="4" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q3','_QTotalsPage_QRowTotals_QMary_QHoursThu');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice4" data-hidden="true" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice4');</script>
-											<input data-questionid="_Q0_Q2_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice4" id="_Q0_Q2_Q4" autocomplete="off" style="width:2em;visibility: hidden;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice4');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursFri" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q1_Q4','_QTotalsPage_QRowTotals_QMary_QHoursFri');</script>
+											<input data-questionid="_Q1_Q1_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QMary_QHoursFri" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QMary_QHoursFri" id="_Q1_Q1_Q4" autocomplete="off" style="width:4em;" maxlength="2" value="2" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q1_Q4','_QTotalsPage_QRowTotals_QMary_QHoursFri');</script>
 										</div>
 									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q2_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice5');</script>
-											<input data-questionid="_Q0_Q2_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice5" id="_Q0_Q2_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iia_Qslice5');</script>
-										</div>
-									</td>
-								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage IIb</span>
+										<span class="a-label-question">Sally</span>
 									</th>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qtot');</script>
-											<input data-questionid="_Q0_Q3_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qtot" id="_Q0_Q3_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qtot');</script>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="min-width:10em;max-width:10em;">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursMon" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q2_Q0','_QTotalsPage_QRowTotals_QSally_QHoursMon');</script>
+											<input data-questionid="_Q1_Q2_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursMon" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursMon" id="_Q1_Q2_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="1" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q0','_QTotalsPage_QRowTotals_QSally_QHoursMon');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice1');</script>
-											<input data-questionid="_Q0_Q3_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice1" id="_Q0_Q3_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursTue" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q2_Q1','_QTotalsPage_QRowTotals_QSally_QHoursTue');</script>
+											<input data-questionid="_Q1_Q2_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursTue" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursTue" id="_Q1_Q2_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="10" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q1','_QTotalsPage_QRowTotals_QSally_QHoursTue');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice2');</script>
-											<input data-questionid="_Q0_Q3_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice2" id="_Q0_Q3_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursWed" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q2_Q2','_QTotalsPage_QRowTotals_QSally_QHoursWed');</script>
+											<input data-questionid="_Q1_Q2_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursWed" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursWed" id="_Q1_Q2_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="2" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q2','_QTotalsPage_QRowTotals_QSally_QHoursWed');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice3');</script>
-											<input data-questionid="_Q0_Q3_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice3" id="_Q0_Q3_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice3');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursThu" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q2_Q3','_QTotalsPage_QRowTotals_QSally_QHoursThu');</script>
+											<input data-questionid="_Q1_Q2_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursThu" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursThu" id="_Q1_Q2_Q3" autocomplete="off" style="width:4em;" maxlength="2" value="4" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q3','_QTotalsPage_QRowTotals_QSally_QHoursThu');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice4" data-hidden="true" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice4');</script>
-											<input data-questionid="_Q0_Q3_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice4" id="_Q0_Q3_Q4" autocomplete="off" style="width:2em;visibility: hidden;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice4');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursFri" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q2_Q4','_QTotalsPage_QRowTotals_QSally_QHoursFri');</script>
+											<input data-questionid="_Q1_Q2_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QSally_QHoursFri" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QSally_QHoursFri" id="_Q1_Q2_Q4" autocomplete="off" style="width:4em;" maxlength="2" value="6" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q2_Q4','_QTotalsPage_QRowTotals_QSally_QHoursFri');</script>
 										</div>
 									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q3_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice5');</script>
-											<input data-questionid="_Q0_Q3_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice5" id="_Q0_Q3_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q3_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iib_Qslice5');</script>
-										</div>
-									</td>
-								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage IIIa</span>
+										<span class="a-label-question">Jane</span>
 									</th>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qtot');</script>
-											<input data-questionid="_Q0_Q4_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qtot" id="_Q0_Q4_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qtot');</script>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="min-width:10em;max-width:10em;">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursMon" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q3_Q0','_QTotalsPage_QRowTotals_QJane_QHoursMon');</script>
+											<input data-questionid="_Q1_Q3_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursMon" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursMon" id="_Q1_Q3_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="1" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q0','_QTotalsPage_QRowTotals_QJane_QHoursMon');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice1');</script>
-											<input data-questionid="_Q0_Q4_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice1" id="_Q0_Q4_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursTue" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q3_Q1','_QTotalsPage_QRowTotals_QJane_QHoursTue');</script>
+											<input data-questionid="_Q1_Q3_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursTue" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursTue" id="_Q1_Q3_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="10" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q1','_QTotalsPage_QRowTotals_QJane_QHoursTue');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice2');</script>
-											<input data-questionid="_Q0_Q4_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice2" id="_Q0_Q4_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursWed" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q3_Q2','_QTotalsPage_QRowTotals_QJane_QHoursWed');</script>
+											<input data-questionid="_Q1_Q3_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursWed" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursWed" id="_Q1_Q3_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="5" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q2','_QTotalsPage_QRowTotals_QJane_QHoursWed');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice3');</script>
-											<input data-questionid="_Q0_Q4_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice3" id="_Q0_Q4_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice3');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursThu" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q3_Q3','_QTotalsPage_QRowTotals_QJane_QHoursThu');</script>
+											<input data-questionid="_Q1_Q3_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursThu" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursThu" id="_Q1_Q3_Q3" autocomplete="off" style="width:4em;" maxlength="2" value="3" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q3','_QTotalsPage_QRowTotals_QJane_QHoursThu');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice4" data-hidden="true" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice4');</script>
-											<input data-questionid="_Q0_Q4_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice4" id="_Q0_Q4_Q4" autocomplete="off" style="width:2em;visibility: hidden;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice4');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursFri" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q3_Q4','_QTotalsPage_QRowTotals_QJane_QHoursFri');</script>
+											<input data-questionid="_Q1_Q3_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QJane_QHoursFri" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QJane_QHoursFri" id="_Q1_Q3_Q4" autocomplete="off" style="width:4em;" maxlength="2" value="6" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q3_Q4','_QTotalsPage_QRowTotals_QJane_QHoursFri');</script>
 										</div>
 									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q4_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice5');</script>
-											<input data-questionid="_Q0_Q4_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice5" id="_Q0_Q4_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiia_Qslice5');</script>
-										</div>
-									</td>
-								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage IIIb</span>
+										<span class="a-label-question">Fred</span>
 									</th>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q5_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qtot');</script>
-											<input data-questionid="_Q0_Q5_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qtot" id="_Q0_Q5_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qtot');</script>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="min-width:10em;max-width:10em;">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursMon" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q4_Q0','_QTotalsPage_QRowTotals_QFred_QHoursMon');</script>
+											<input data-questionid="_Q1_Q4_Q0" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursMon" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursMon" id="_Q1_Q4_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="6" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q0','_QTotalsPage_QRowTotals_QFred_QHoursMon');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q5_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice1');</script>
-											<input data-questionid="_Q0_Q5_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice1" id="_Q0_Q5_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursTue" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q4_Q1','_QTotalsPage_QRowTotals_QFred_QHoursTue');</script>
+											<input data-questionid="_Q1_Q4_Q1" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursTue" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursTue" id="_Q1_Q4_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="0" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q1','_QTotalsPage_QRowTotals_QFred_QHoursTue');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q5_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice2');</script>
-											<input data-questionid="_Q0_Q5_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice2" id="_Q0_Q5_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursWed" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q4_Q2','_QTotalsPage_QRowTotals_QFred_QHoursWed');</script>
+											<input data-questionid="_Q1_Q4_Q2" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursWed" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursWed" id="_Q1_Q4_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q2','_QTotalsPage_QRowTotals_QFred_QHoursWed');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q5_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice3');</script>
-											<input data-questionid="_Q0_Q5_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice3" id="_Q0_Q5_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice3');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursThu" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q4_Q3','_QTotalsPage_QRowTotals_QFred_QHoursThu');</script>
+											<input data-questionid="_Q1_Q4_Q3" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursThu" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursThu" id="_Q1_Q4_Q3" autocomplete="off" style="width:4em;" maxlength="2" value="7" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q3','_QTotalsPage_QRowTotals_QFred_QHoursThu');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice4" data-hidden="true" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q5_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice4');</script>
-											<input data-questionid="_Q0_Q5_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice4" id="_Q0_Q5_Q4" autocomplete="off" style="width:2em;visibility: hidden;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice4');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q5_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice5');</script>
-											<input data-questionid="_Q0_Q5_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice5" id="_Q0_Q5_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiib_Qslice5');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursFri" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q1_Q4_Q4','_QTotalsPage_QRowTotals_QFred_QHoursFri');</script>
+											<input data-questionid="_Q1_Q4_Q4" data-questiongroup="_QTotalsPage_QRowTotals_QFred_QHoursFri" data-position="below" type="text" name="_QTotalsPage_QRowTotals_QFred_QHoursFri" id="_Q1_Q4_Q4" autocomplete="off" style="width:4em;" maxlength="2" value="2" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q1_Q4_Q4','_QTotalsPage_QRowTotals_QFred_QHoursFri');</script>
 										</div>
 									</td>
 								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QTotalsPage_Qcolumntotals');</script><script type="text/javascript">app.RegisterProperties("_Qcolumntotals",{"cellshading":{"columnheader":true,"altcolumns":true},"totals":{"rows":{"visible":false,"exceptions":[]},"columns":{"visible":true,"width":"5em","caption":{"content":"Total%lt%br/%gt%Hours"}}}});</script><script type="text/javascript">app.RegisterProperties("_QProjectA",{"type":"number"});</script><script type="text/javascript">app.RegisterProperties("_QProjectB",{"type":"number"});</script><script type="text/javascript">app.RegisterProperties("_QProjectC",{"type":"number"});</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-error">
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-warning">
+						</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Indicate the number of hours worked by the team on each project</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
+						<div class="o-question-instruction">
+						</div>
+						<div class="o-question-response o-question-information" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" data-readonly="false" data-position="below">
+							<script>app.registerComponent('oQuestionInformation','_Q2_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
+							<table class="o-structure-table" name="Indicate the number of hours worked by the team on each project">
+								<script>app.registerComponent('oQuestionGrid','_Q2_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
+								<tr class="m-structure-row-heading" data-iterationname="">
+									<th class="m-structure-cell" scope="col" style=""></th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Project Jupiter</span>
+									</th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Project Neptune</span>
+									</th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Project Saturn</span>
+									</th>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage IIIc</span>
+										<span class="a-label-question">Monday</span>
 									</th>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q6_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qtot');</script>
-											<input data-questionid="_Q0_Q6_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qtot" id="_Q0_Q6_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qtot');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
+											<input data-questionid="_Q2_Q0_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectA" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QMon_QProjectA" id="_Q2_Q0_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="32" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q0','_QTotalsPage_Qcolumntotals_QMon_QProjectA');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q6_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice1');</script>
-											<input data-questionid="_Q0_Q6_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice1" id="_Q0_Q6_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectB" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectB');</script>
+											<input data-questionid="_Q2_Q0_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectB" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QMon_QProjectB" id="_Q2_Q0_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="48" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q1','_QTotalsPage_Qcolumntotals_QMon_QProjectB');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q6_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice2');</script>
-											<input data-questionid="_Q0_Q6_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice2" id="_Q0_Q6_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectC" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q0_Q2','_QTotalsPage_Qcolumntotals_QMon_QProjectC');</script>
+											<input data-questionid="_Q2_Q0_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QMon_QProjectC" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QMon_QProjectC" id="_Q2_Q0_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="46" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q0_Q2','_QTotalsPage_Qcolumntotals_QMon_QProjectC');</script>
 										</div>
 									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q6_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice3');</script>
-											<input data-questionid="_Q0_Q6_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice3" id="_Q0_Q6_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice3');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice4" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q6_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice4');</script>
-											<input data-questionid="_Q0_Q6_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice4" id="_Q0_Q6_Q4" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice4');</script>
-										</div>
-									</td>
-									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q6_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice5');</script>
-											<input data-questionid="_Q0_Q6_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice5" id="_Q0_Q6_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iiic_Qslice5');</script>
-										</div>
-									</td>
-								</tr>
-								<tr class="m-structure-row-error">
-									<td></td>
-									<td></td>
-									<td class="m-structure-cell-error">
-										<span class="a-label-error">Answer '200' is not in range '0 .. 100'.</span>
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
 								</tr>
 								<tr class="m-structure-row" data-iterationname="">
 									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-										<span class="a-label-option">Stage IV</span>
+										<span class="a-label-question">Tuesday</span>
 									</th>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qtot" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q7_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qtot');</script>
-											<input data-questionid="_Q0_Q7_Q0" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qtot" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qtot" id="_Q0_Q7_Q0" autocomplete="off" style="width:2em;" maxlength="3" value="20" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q7_Q0','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qtot');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QTue_QProjectA" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q1_Q0','_QTotalsPage_Qcolumntotals_QTue_QProjectA');</script>
+											<input data-questionid="_Q2_Q1_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QTue_QProjectA" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QTue_QProjectA" id="_Q2_Q1_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="23" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q0','_QTotalsPage_Qcolumntotals_QTue_QProjectA');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice1" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q7_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice1');</script>
-											<input data-questionid="_Q0_Q7_Q1" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice1" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice1" id="_Q0_Q7_Q1" autocomplete="off" style="width:2em;" maxlength="3" value="200" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q7_Q1','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice1');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QTue_QProjectB" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q1_Q1','_QTotalsPage_Qcolumntotals_QTue_QProjectB');</script>
+											<input data-questionid="_Q2_Q1_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QTue_QProjectB" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QTue_QProjectB" id="_Q2_Q1_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="42" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q1','_QTotalsPage_Qcolumntotals_QTue_QProjectB');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice2" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q7_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice2');</script>
-											<input data-questionid="_Q0_Q7_Q2" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice2" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice2" id="_Q0_Q7_Q2" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q7_Q2','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice2');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QTue_QProjectC" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q1_Q2','_QTotalsPage_Qcolumntotals_QTue_QProjectC');</script>
+											<input data-questionid="_Q2_Q1_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QTue_QProjectC" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QTue_QProjectC" id="_Q2_Q1_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="6" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q1_Q2','_QTotalsPage_Qcolumntotals_QTue_QProjectC');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Wednesday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QWed_QProjectA" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q2_Q0','_QTotalsPage_Qcolumntotals_QWed_QProjectA');</script>
+											<input data-questionid="_Q2_Q2_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QWed_QProjectA" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QWed_QProjectA" id="_Q2_Q2_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="48" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q0','_QTotalsPage_Qcolumntotals_QWed_QProjectA');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice3" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q7_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice3');</script>
-											<input data-questionid="_Q0_Q7_Q3" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice3" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice3" id="_Q0_Q7_Q3" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q7_Q3','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice3');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QWed_QProjectB" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q2_Q1','_QTotalsPage_Qcolumntotals_QWed_QProjectB');</script>
+											<input data-questionid="_Q2_Q2_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QWed_QProjectB" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QWed_QProjectB" id="_Q2_Q2_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="37" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q1','_QTotalsPage_Qcolumntotals_QWed_QProjectB');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice4" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q7_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice4');</script>
-											<input data-questionid="_Q0_Q7_Q4" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice4" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice4" id="_Q0_Q7_Q4" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q7_Q4','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice4');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QWed_QProjectC" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q2_Q2','_QTotalsPage_Qcolumntotals_QWed_QProjectC');</script>
+											<input data-questionid="_Q2_Q2_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QWed_QProjectC" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QWed_QProjectC" id="_Q2_Q2_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="42" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q2_Q2','_QTotalsPage_Qcolumntotals_QWed_QProjectC');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Thursday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QThu_QProjectA" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q3_Q0','_QTotalsPage_Qcolumntotals_QThu_QProjectA');</script>
+											<input data-questionid="_Q2_Q3_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QThu_QProjectA" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QThu_QProjectA" id="_Q2_Q3_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="38" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q0','_QTotalsPage_Qcolumntotals_QThu_QProjectA');</script>
 										</div>
 									</td>
 									<td class="m-structure-cell" valign="Middle" align="Center" style="">
-										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice5" data-readonly="false" data-position="below">
-											<script>app.registerComponent('oQuestionSinglelineedit','_Q0_Q7_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice5');</script>
-											<input data-questionid="_Q0_Q7_Q5" data-questiongroup="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice5" data-position="below" type="text" name="_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice5" id="_Q0_Q7_Q5" autocomplete="off" style="width:2em;" maxlength="3" value="" class="a-input-singlelineedit below"/>
-											<script>app.registerComponent('aInputSinglelineedit','_Q0_Q7_Q5','_Qgrid5__rowtotal__diffpostlabel__percol_Qstage__iv_Qslice5');</script>
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QThu_QProjectB" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q3_Q1','_QTotalsPage_Qcolumntotals_QThu_QProjectB');</script>
+											<input data-questionid="_Q2_Q3_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QThu_QProjectB" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QThu_QProjectB" id="_Q2_Q3_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="42" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q1','_QTotalsPage_Qcolumntotals_QThu_QProjectB');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QThu_QProjectC" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q3_Q2','_QTotalsPage_Qcolumntotals_QThu_QProjectC');</script>
+											<input data-questionid="_Q2_Q3_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QThu_QProjectC" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QThu_QProjectC" id="_Q2_Q3_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="1" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q3_Q2','_QTotalsPage_Qcolumntotals_QThu_QProjectC');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Friday</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QFri_QProjectA" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q4_Q0','_QTotalsPage_Qcolumntotals_QFri_QProjectA');</script>
+											<input data-questionid="_Q2_Q4_Q0" data-questiongroup="_QTotalsPage_Qcolumntotals_QFri_QProjectA" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QFri_QProjectA" id="_Q2_Q4_Q0" autocomplete="off" style="width:4em;" maxlength="2" value="5" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q0','_QTotalsPage_Qcolumntotals_QFri_QProjectA');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QFri_QProjectB" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q4_Q1','_QTotalsPage_Qcolumntotals_QFri_QProjectB');</script>
+											<input data-questionid="_Q2_Q4_Q1" data-questiongroup="_QTotalsPage_Qcolumntotals_QFri_QProjectB" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QFri_QProjectB" id="_Q2_Q4_Q1" autocomplete="off" style="width:4em;" maxlength="2" value="50" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q1','_QTotalsPage_Qcolumntotals_QFri_QProjectB');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_Qcolumntotals_QFri_QProjectC" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q2_Q4_Q2','_QTotalsPage_Qcolumntotals_QFri_QProjectC');</script>
+											<input data-questionid="_Q2_Q4_Q2" data-questiongroup="_QTotalsPage_Qcolumntotals_QFri_QProjectC" data-position="below" type="text" name="_QTotalsPage_Qcolumntotals_QFri_QProjectC" id="_Q2_Q4_Q2" autocomplete="off" style="width:4em;" maxlength="2" value="45" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q2_Q4_Q2','_QTotalsPage_Qcolumntotals_QFri_QProjectC');</script>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QTotalsPage_QGrandtotals');</script><script type="text/javascript">app.RegisterProperties("_Qgrandtotals",{"cellshading":{"rowheader":true,"altrows":true,"columnheader":true,"altcolumns":true},"caption":"Fruit Consumed","totals":{"rows":{"visible":true,"caption":{"content":"Total"}},"columns":{"visible":true,"width":"5em","caption":{"content":"Total"}}}});</script><script type="text/javascript">app.RegisterProperties("_QBanana",{"type":"number"});</script><script type="text/javascript">app.RegisterProperties("_QApple",{"type":"number"});</script><script type="text/javascript">app.RegisterProperties("_QOrange",{"type":"number"});</script><script type="text/javascript">app.RegisterProperties("_QKiwi",{"type":"number"});</script><script type="text/javascript">app.RegisterProperties("_QSatsuma",{"type":"number"});</script><div class="m-question-cover"><!-- cover --></div>
+					<div class="o-question-error">
+					</div>
+					<div class="o-question-core">
+						<div class="o-question-warning">
+						</div>
+						<div class="o-question-information">
+							<div class="o-question-information-content">Record the amount of fruit consumed by the family</div>
+							<div class="o-question-alternatives"><!-- alternative labels go here --></div>
+						</div>
+						<div class="o-question-instruction">
+						</div>
+						<div class="o-question-response o-question-information" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" data-readonly="false" data-position="below">
+							<script>app.registerComponent('oQuestionInformation','_Q3_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
+							<table class="o-structure-table" name="Record the amount of fruit consumed by the family">
+								<script>app.registerComponent('oQuestionGrid','_Q3_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
+								<tr class="m-structure-row-heading" data-iterationname="">
+									<th class="m-structure-cell" scope="col" style=""></th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Banana</span>
+									</th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Apple</span>
+									</th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Orange</span>
+									</th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">kiwi fruit</span>
+									</th>
+									<th class="m-structure-cell" scope="col" style="">
+										<span class="a-label-question">Satsuma</span>
+									</th>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Jake</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
+											<input data-questionid="_Q3_Q0_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QBanana" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJake_QBanana" id="_Q3_Q0_Q0" autocomplete="off" style="width:5em;" maxlength="2" value="2" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q0_Q0','_QTotalsPage_QGrandtotals_QJake_QBanana');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QApple" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q0_Q1','_QTotalsPage_QGrandtotals_QJake_QApple');</script>
+											<input data-questionid="_Q3_Q0_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QApple" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJake_QApple" id="_Q3_Q0_Q1" autocomplete="off" style="width:5em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q0_Q1','_QTotalsPage_QGrandtotals_QJake_QApple');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QOrange" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q0_Q2','_QTotalsPage_QGrandtotals_QJake_QOrange');</script>
+											<input data-questionid="_Q3_Q0_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QOrange" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJake_QOrange" id="_Q3_Q0_Q2" autocomplete="off" style="width:5em;" maxlength="2" value="4" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q0_Q2','_QTotalsPage_QGrandtotals_QJake_QOrange');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_Qkiwi" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q0_Q3','_QTotalsPage_QGrandtotals_QJake_Qkiwi');</script>
+											<input data-questionid="_Q3_Q0_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_Qkiwi" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJake_Qkiwi" id="_Q3_Q0_Q3" autocomplete="off" style="width:5em;" maxlength="2" value="3" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q0_Q3','_QTotalsPage_QGrandtotals_QJake_Qkiwi');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QSatsuma" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q0_Q4','_QTotalsPage_QGrandtotals_QJake_QSatsuma');</script>
+											<input data-questionid="_Q3_Q0_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJake_QSatsuma" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJake_QSatsuma" id="_Q3_Q0_Q4" autocomplete="off" style="width:5em;" maxlength="2" value="7" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q0_Q4','_QTotalsPage_QGrandtotals_QJake_QSatsuma');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Mary</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QBanana" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q1_Q0','_QTotalsPage_QGrandtotals_QMary_QBanana');</script>
+											<input data-questionid="_Q3_Q1_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QBanana" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QMary_QBanana" id="_Q3_Q1_Q0" autocomplete="off" style="width:5em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q1_Q0','_QTotalsPage_QGrandtotals_QMary_QBanana');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QApple" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q1_Q1','_QTotalsPage_QGrandtotals_QMary_QApple');</script>
+											<input data-questionid="_Q3_Q1_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QApple" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QMary_QApple" id="_Q3_Q1_Q1" autocomplete="off" style="width:5em;" maxlength="2" value="9" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q1_Q1','_QTotalsPage_QGrandtotals_QMary_QApple');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QOrange" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q1_Q2','_QTotalsPage_QGrandtotals_QMary_QOrange');</script>
+											<input data-questionid="_Q3_Q1_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QOrange" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QMary_QOrange" id="_Q3_Q1_Q2" autocomplete="off" style="width:5em;" maxlength="2" value="3" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q1_Q2','_QTotalsPage_QGrandtotals_QMary_QOrange');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_Qkiwi" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q1_Q3','_QTotalsPage_QGrandtotals_QMary_Qkiwi');</script>
+											<input data-questionid="_Q3_Q1_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_Qkiwi" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QMary_Qkiwi" id="_Q3_Q1_Q3" autocomplete="off" style="width:5em;" maxlength="2" value="4" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q1_Q3','_QTotalsPage_QGrandtotals_QMary_Qkiwi');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QSatsuma" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q1_Q4','_QTotalsPage_QGrandtotals_QMary_QSatsuma');</script>
+											<input data-questionid="_Q3_Q1_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QMary_QSatsuma" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QMary_QSatsuma" id="_Q3_Q1_Q4" autocomplete="off" style="width:5em;" maxlength="2" value="3" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q1_Q4','_QTotalsPage_QGrandtotals_QMary_QSatsuma');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Sally</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QBanana" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q2_Q0','_QTotalsPage_QGrandtotals_QSally_QBanana');</script>
+											<input data-questionid="_Q3_Q2_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QBanana" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QSally_QBanana" id="_Q3_Q2_Q0" autocomplete="off" style="width:5em;" maxlength="2" value="10" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q2_Q0','_QTotalsPage_QGrandtotals_QSally_QBanana');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QApple" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q2_Q1','_QTotalsPage_QGrandtotals_QSally_QApple');</script>
+											<input data-questionid="_Q3_Q2_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QApple" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QSally_QApple" id="_Q3_Q2_Q1" autocomplete="off" style="width:5em;" maxlength="2" value="5" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q2_Q1','_QTotalsPage_QGrandtotals_QSally_QApple');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QOrange" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q2_Q2','_QTotalsPage_QGrandtotals_QSally_QOrange');</script>
+											<input data-questionid="_Q3_Q2_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QOrange" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QSally_QOrange" id="_Q3_Q2_Q2" autocomplete="off" style="width:5em;" maxlength="2" value="3" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q2_Q2','_QTotalsPage_QGrandtotals_QSally_QOrange');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_Qkiwi" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q2_Q3','_QTotalsPage_QGrandtotals_QSally_Qkiwi');</script>
+											<input data-questionid="_Q3_Q2_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_Qkiwi" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QSally_Qkiwi" id="_Q3_Q2_Q3" autocomplete="off" style="width:5em;" maxlength="2" value="10" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q2_Q3','_QTotalsPage_QGrandtotals_QSally_Qkiwi');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QSatsuma" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q2_Q4','_QTotalsPage_QGrandtotals_QSally_QSatsuma');</script>
+											<input data-questionid="_Q3_Q2_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QSally_QSatsuma" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QSally_QSatsuma" id="_Q3_Q2_Q4" autocomplete="off" style="width:5em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q2_Q4','_QTotalsPage_QGrandtotals_QSally_QSatsuma');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Jane</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QBanana" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q3_Q0','_QTotalsPage_QGrandtotals_QJane_QBanana');</script>
+											<input data-questionid="_Q3_Q3_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QBanana" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJane_QBanana" id="_Q3_Q3_Q0" autocomplete="off" style="width:5em;" maxlength="2" value="5" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q3_Q0','_QTotalsPage_QGrandtotals_QJane_QBanana');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QApple" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q3_Q1','_QTotalsPage_QGrandtotals_QJane_QApple');</script>
+											<input data-questionid="_Q3_Q3_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QApple" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJane_QApple" id="_Q3_Q3_Q1" autocomplete="off" style="width:5em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q3_Q1','_QTotalsPage_QGrandtotals_QJane_QApple');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QOrange" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q3_Q2','_QTotalsPage_QGrandtotals_QJane_QOrange');</script>
+											<input data-questionid="_Q3_Q3_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QOrange" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJane_QOrange" id="_Q3_Q3_Q2" autocomplete="off" style="width:5em;" maxlength="2" value="2" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q3_Q2','_QTotalsPage_QGrandtotals_QJane_QOrange');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_Qkiwi" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q3_Q3','_QTotalsPage_QGrandtotals_QJane_Qkiwi');</script>
+											<input data-questionid="_Q3_Q3_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_Qkiwi" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJane_Qkiwi" id="_Q3_Q3_Q3" autocomplete="off" style="width:5em;" maxlength="2" value="1" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q3_Q3','_QTotalsPage_QGrandtotals_QJane_Qkiwi');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QSatsuma" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q3_Q4','_QTotalsPage_QGrandtotals_QJane_QSatsuma');</script>
+											<input data-questionid="_Q3_Q3_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QJane_QSatsuma" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QJane_QSatsuma" id="_Q3_Q3_Q4" autocomplete="off" style="width:5em;" maxlength="2" value="0" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q3_Q4','_QTotalsPage_QGrandtotals_QJane_QSatsuma');</script>
+										</div>
+									</td>
+								</tr>
+								<tr class="m-structure-row" data-iterationname="">
+									<th class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+										<span class="a-label-question">Fred</span>
+									</th>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QBanana" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q4_Q0','_QTotalsPage_QGrandtotals_QFred_QBanana');</script>
+											<input data-questionid="_Q3_Q4_Q0" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QBanana" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QFred_QBanana" id="_Q3_Q4_Q0" autocomplete="off" style="width:5em;" maxlength="2" value="9" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q4_Q0','_QTotalsPage_QGrandtotals_QFred_QBanana');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QApple" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q4_Q1','_QTotalsPage_QGrandtotals_QFred_QApple');</script>
+											<input data-questionid="_Q3_Q4_Q1" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QApple" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QFred_QApple" id="_Q3_Q4_Q1" autocomplete="off" style="width:5em;" maxlength="2" value="7" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q4_Q1','_QTotalsPage_QGrandtotals_QFred_QApple');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QOrange" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q4_Q2','_QTotalsPage_QGrandtotals_QFred_QOrange');</script>
+											<input data-questionid="_Q3_Q4_Q2" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QOrange" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QFred_QOrange" id="_Q3_Q4_Q2" autocomplete="off" style="width:5em;" maxlength="2" value="7" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q4_Q2','_QTotalsPage_QGrandtotals_QFred_QOrange');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_Qkiwi" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q4_Q3','_QTotalsPage_QGrandtotals_QFred_Qkiwi');</script>
+											<input data-questionid="_Q3_Q4_Q3" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_Qkiwi" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QFred_Qkiwi" id="_Q3_Q4_Q3" autocomplete="off" style="width:5em;" maxlength="2" value="0" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q4_Q3','_QTotalsPage_QGrandtotals_QFred_Qkiwi');</script>
+										</div>
+									</td>
+									<td class="m-structure-cell" valign="Middle" align="Center" style="">
+										<div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QSatsuma" data-readonly="false" data-position="below">
+											<script>app.registerComponent('oQuestionSinglelineedit','_Q3_Q4_Q4','_QTotalsPage_QGrandtotals_QFred_QSatsuma');</script>
+											<input data-questionid="_Q3_Q4_Q4" data-questiongroup="_QTotalsPage_QGrandtotals_QFred_QSatsuma" data-position="below" type="text" name="_QTotalsPage_QGrandtotals_QFred_QSatsuma" id="_Q3_Q4_Q4" autocomplete="off" style="width:5em;" maxlength="2" value="8" class="a-input-singlelineedit below"/>
+											<script>app.registerComponent('aInputSinglelineedit','_Q3_Q4_Q4','_QTotalsPage_QGrandtotals_QFred_QSatsuma');</script>
 										</div>
 									</td>
 								</tr>
