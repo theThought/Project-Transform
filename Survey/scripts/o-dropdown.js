@@ -406,7 +406,7 @@ define(['component'],
         }
 
         oDropdown.prototype.updateScrollPosition = function (position) {
-            this.droplist.scrollTop = 0;//set to top
+            this.droplist.scrollTop = 0; //set to top
             var currentitem = this.buildVisibleList()[position];
 
             if (typeof currentitem === "undefined") {

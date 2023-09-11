@@ -165,6 +165,12 @@ define(
             return textarea.value;
         }
 
+        component.prototype.replaceHTMLPlaceholder = function (html) {
+            html = html.replace(/%gt%/g, '>');
+            html = html.replace(/%lt%/g, '<');
+            return html;
+        }
+
         component.prototype.onEndResize = function (event) {
 
             // preserve the original element width, if set

@@ -379,7 +379,7 @@ define(['component'],
         oQuestionGrid.prototype.addTableCaption = function (caption) {
             var captioncontentcontainer = document.createElement('span');
             captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = caption['content'];
+            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption['content']);
 
             var newcaption = this.grid.createCaption();
 
@@ -397,7 +397,7 @@ define(['component'],
         oQuestionGrid.prototype.addSingleRowCaption = function (caption) {
             var captioncontentcontainer = document.createElement('span');
             captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = caption['content'];
+            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption['content']);
 
             if (typeof caption['width'] !== 'undefined') {
                 captioncontentcontainer.style.width = caption['width'];
@@ -425,7 +425,7 @@ define(['component'],
         oQuestionGrid.prototype.addSingleColumnCaption = function (caption) {
             var captioncontentcontainer = document.createElement('span');
             captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = caption['content'];
+            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption['content']);
 
             if (typeof caption['width'] !== 'undefined') {
                 captioncontentcontainer.style.width = caption['width'];
@@ -546,7 +546,7 @@ define(['component'],
                     totalcell.className = 'm-structure-cell grid-column-total-title';
                     totalcell.classList.add('align-' + captionalign);
                     totalcell.style.width = captionwidth;
-                    totalcell.innerHTML = captiontitle;
+                    totalcell.innerHTML = this.replaceHTMLPlaceholder(captiontitle);
                 } else {
                     if (this.hasrowtotals && i === (columncount - 1)) {
                         // tables with column and row totals also have grand totals
@@ -580,7 +580,7 @@ define(['component'],
                                 + '</span>';
                         }
 
-                        totalcell.innerHTML = htmlString;
+                        totalcell.innerHTML = this.replaceHTMLPlaceholder(htmlString);
                     }
                 }
             }
