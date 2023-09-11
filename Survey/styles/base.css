@@ -2025,15 +2025,15 @@ body > form {
 }
 
 .align-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .align-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .align-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 @media screen and (max-width: 1023px) {

@@ -361,32 +361,52 @@ define(['component'],
                 props = {content: props};
             }
 
-            var captioncontentcontainer = document.createElement('span');
-            captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = props['content'];
-
-            if (typeof props['width'] !== 'undefined') {
-                captioncontentcontainer.style.width = props['width'];
-            }
-
             // handle tables with exactly 2 rows
             if (this.grid.rows.length === 2) {
-                this.addSingleRowCaption(captioncontentcontainer);
+                this.addSingleRowCaption(props);
                 return;
             }
 
             // handle tables with exactly 2 columns
             if (this.grid.rows[0].cells.length === 2) {
-                this.addSingleColumnCaption(captioncontentcontainer);
+                this.addSingleColumnCaption(props);
                 return;
             }
 
-            // default position for other captions
+            this.addTableCaption(props);
+        }
+
+        oQuestionGrid.prototype.addTableCaption = function (caption) {
+            var captioncontentcontainer = document.createElement('span');
+            captioncontentcontainer.classList.add('a-label-caption');
+            captioncontentcontainer.innerHTML = caption['content'];
+
             var newcaption = this.grid.createCaption();
+
+            if (typeof caption['width'] !== 'undefined') {
+                newcaption.style.width = caption['width'];
+            }
+
+            if (typeof caption['align'] !== 'undefined') {
+                newcaption.classList.add('align-' + caption['align']);
+            }
+
             newcaption.appendChild(captioncontentcontainer);
         }
 
         oQuestionGrid.prototype.addSingleRowCaption = function (caption) {
+            var captioncontentcontainer = document.createElement('span');
+            captioncontentcontainer.classList.add('a-label-caption');
+            captioncontentcontainer.innerHTML = caption['content'];
+
+            if (typeof caption['width'] !== 'undefined') {
+                captioncontentcontainer.style.width = caption['width'];
+            }
+
+            if (typeof caption['align'] !== 'undefined') {
+                captioncontentcontainer.classList.add('align-' + caption['align']);
+            }
+
             // insert a blank cell in the heading row
             var headerrow = this.grid.rows[0];
             var newth = document.createElement('th');
@@ -398,11 +418,23 @@ define(['component'],
             var captioncell = document.createElement('th');
             captioncell.scope = 'row';
             captioncell.className = 'm-structure-cell m-structure-column-caption';
-            captioncell.appendChild(caption);
+            captioncell.appendChild(captioncontentcontainer);
             captionrow.insertBefore(captioncell, captionrow.firstChild);
         }
 
         oQuestionGrid.prototype.addSingleColumnCaption = function (caption) {
+            var captioncontentcontainer = document.createElement('span');
+            captioncontentcontainer.classList.add('a-label-caption');
+            captioncontentcontainer.innerHTML = caption['content'];
+
+            if (typeof caption['width'] !== 'undefined') {
+                captioncontentcontainer.style.width = caption['width'];
+            }
+
+            if (typeof caption['align'] !== 'undefined') {
+                captioncontentcontainer.classList.add('align-' + caption['align']);
+            }
+
             // add a new row at the start of the table with an appropriate class
             var captionrow = this.grid.insertRow(0);
             captionrow.className = 'm-structure-row m-structure-caption-row';
@@ -413,7 +445,7 @@ define(['component'],
             captionrow.appendChild(newth);
             var captioncell = newth.cloneNode();
             captioncell.className = 'm-structure-cell m-structure-column-caption';
-            captioncell.appendChild(caption);
+            captioncell.appendChild(captioncontentcontainer);
             captionrow.appendChild(captioncell);
         }
 
