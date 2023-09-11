@@ -1801,7 +1801,6 @@ input[type=range]:focus::-ms-fill-lower {
 }
 .o-structure-table .grid-row-total-title,
 .o-structure-table .grid-column-total-title {
-  font-family: "Merriweather", serif;
   color: #212C4C;
 }
 .o-structure-table tr.empty-header-row {
