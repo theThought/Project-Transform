@@ -83,6 +83,7 @@ define(['component'],
                     break;
                 case 'restoreEntries':
                     this.restoreEntries(event);
+                    this.setWidth();
                     this.restoreSelection();
                     break;
                 case 'change':
