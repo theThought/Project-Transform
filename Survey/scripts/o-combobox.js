@@ -573,6 +573,7 @@ define(['component'],
 
         oCombobox.prototype.filterListStarts = function (inputstring) {
             var exactmatch = false;
+            this.wrapper.removeChild(this.droplist);
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
@@ -613,10 +614,13 @@ define(['component'],
             if (this.isExact && !exactmatch) {
                 this.clearOptions();
             }
+
+            this.wrapper.appendChild(this.droplist);
         }
 
         oCombobox.prototype.filterListContains = function (inputstring) {
             var exactmatch = false;
+            this.wrapper.removeChild(this.droplist);
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
@@ -657,6 +661,8 @@ define(['component'],
             if (this.isExact && !exactmatch) {
                 this.clearOptions();
             }
+
+            this.wrapper.appendChild(this.droplist);
         }
 
         oCombobox.prototype.togglePlaceholderVisibility = function (visibility) {
