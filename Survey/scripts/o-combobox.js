@@ -621,8 +621,6 @@ define(['component'],
 
         oCombobox.prototype.filterListContains = function (inputstring) {
             var exactmatch = false;
-            var droplistparentnode = this.droplist.parentNode;
-            droplistparentnode.removeChild(this.droplist);
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
@@ -634,6 +632,8 @@ define(['component'],
 
             inputstring = inputstring.toLowerCase();
             var visibleitems = this.list.length;
+            var droplistparentnode = this.droplist.parentNode;
+            droplistparentnode.removeChild(this.droplist);
 
             for (var i = 0; i < this.list.length; i++) {
                 var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
