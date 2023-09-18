@@ -578,7 +578,8 @@ define(['component'],
 
         oDropdown.prototype.filterListStarts = function (inputstring) {
             var exactmatch = false;
-            this.wrapper.removeChild(this.droplist);
+            var droplistparentnode = this.droplist.parentNode;
+            droplistparentnode.removeChild(this.droplist);
 
             inputstring = inputstring.toLowerCase();
             var visibleitems = this.list.length;
@@ -612,12 +613,13 @@ define(['component'],
                 this.clearOptions();
             }
 
-            this.wrapper.appendChild(this.droplist);
+            droplistparentnode.appendChild(this.droplist);
         }
 
         oDropdown.prototype.filterListContains = function (inputstring) {
             var exactmatch = false;
-            this.wrapper.removeChild(this.droplist);
+            var droplistparentnode = this.droplist.parentNode;
+            droplistparentnode.removeChild(this.droplist);
 
             inputstring = inputstring.toLowerCase();
             var visibleitems = this.list.length;
@@ -651,7 +653,7 @@ define(['component'],
                 this.clearOptions();
             }
 
-            this.wrapper.appendChild(this.droplist);
+            droplistparentnode.appendChild(this.droplist);
         }
 
         oDropdown.prototype.togglePlaceholderVisibility = function (visibility) {

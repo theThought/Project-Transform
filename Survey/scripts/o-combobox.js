@@ -573,7 +573,8 @@ define(['component'],
 
         oCombobox.prototype.filterListStarts = function (inputstring) {
             var exactmatch = false;
-            this.wrapper.removeChild(this.droplist);
+            var droplistparentnode = this.droplist.parentNode;
+            droplistparentnode.removeChild(this.droplist);
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
@@ -615,12 +616,13 @@ define(['component'],
                 this.clearOptions();
             }
 
-            this.wrapper.appendChild(this.droplist);
+           droplistparentnode.appendChild(this.droplist);
         }
 
         oCombobox.prototype.filterListContains = function (inputstring) {
             var exactmatch = false;
-            this.wrapper.removeChild(this.droplist);
+            var droplistparentnode = this.droplist.parentNode;
+            droplistparentnode.removeChild(this.droplist);
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
@@ -662,7 +664,7 @@ define(['component'],
                 this.clearOptions();
             }
 
-            this.wrapper.appendChild(this.droplist);
+            droplistparentnode.appendChild(this.droplist);
         }
 
         oCombobox.prototype.togglePlaceholderVisibility = function (visibility) {
