@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
 .site-logo {
   height: 75px;
   width: 75px;
@@ -47,6 +48,10 @@
   position: absolute;
   top: -1px;
   left: -42px;
+}
+
+html[dir=rtl] .mrProgressText {
+  left: 4px;
 }
 
 .overall-progress.complex {
@@ -105,6 +110,20 @@
   margin-right: 0;
 }
 
+html[dir=rtl] .overall-progress.complex div {
+  margin-right: 0;
+  margin-left: 0.5em;
+}
+html[dir=rtl] .overall-progress.complex div.a-progress-page.current-page {
+  margin: 0 0.25em 0 0.75em;
+}
+html[dir=rtl] .overall-progress.complex div.a-progress-page.current-page:last-child {
+  margin-left: 0.25em;
+}
+html[dir=rtl] .overall-progress.complex div:last-child {
+  margin-left: 0;
+}
+
 #nav-controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -132,6 +151,11 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
   margin-right: 1em;
+}
+
+html[dir=rtl] #prevstop {
+  margin-right: auto;
+  margin-left: 1em;
 }
 
 #nextonly {
@@ -172,6 +196,11 @@
   color: #212C4C;
   display: inline-block;
   margin-right: 1em;
+}
+
+html[dir=rtl] .page-links a {
+  margin-right: 0;
+  margin-left: 1em;
 }
 
 .bold {
@@ -303,8 +332,18 @@ button.a-button-postterminator {
   margin-left: 1em;
 }
 
+html[dir=rtl] button.a-button-postterminator {
+  margin-left: 0;
+  margin-right: 1em;
+}
+
 button.a-button-preterminator {
   margin-right: 1em;
+}
+
+html[dir=rtl] button.a-button-preterminator {
+  margin-right: 0;
+  margin-left: 1em;
 }
 
 .balance .a-button-option {
@@ -312,6 +351,11 @@ button.a-button-preterminator {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin-right: 1em;
+}
+
+html[dir=rtl] .balance .a-button-option {
+  margin-right: 0;
+  margin-left: 1em;
 }
 
 .focused > .a-button-list-dropdown {
@@ -350,6 +394,11 @@ button.a-button-preterminator {
 }
 .m-input-button-wrapper .m-button-spinner button:hover, .m-input-button-wrapper .m-button-spinner button:focus {
   background: #D6DDEB !important;
+}
+
+html[dir=rtl] .m-input-button-wrapper .m-button-spinner {
+  right: auto;
+  left: calc(0.5em + 4px);
 }
 
 .show-spinner .m-button-spinner {
@@ -391,6 +440,14 @@ button.a-button-preterminator {
   margin-right: 0;
 }
 
+html[dir=rtl] #nav-controls #prevstop input[type=submit] {
+  margin-right: 0;
+  margin-left: 1em;
+}
+html[dir=rtl] #nav-controls #prevstop input[type=submit]:last-child {
+  margin-left: 0;
+}
+
 .a-icon-multistate {
   display: inline-block;
   width: 18px;
@@ -404,8 +461,18 @@ button.a-button-preterminator {
   left: 0;
 }
 
+html[dir=rtl] .m-option-base .a-icon-multistate {
+  left: auto;
+  right: 0;
+}
+
 .a-icon-multistate[data-icontype=single] {
   left: 1px;
+}
+
+html[dir=rtl] .a-icon-multistate[data-icontype=single] {
+  left: auto;
+  right: 1px;
 }
 
 /* Grid layout */
@@ -481,6 +548,11 @@ div[data-readonly=true] input[type=radio]:checked + label > .a-icon-multistate {
   left: -2px;
 }
 
+html[dir=rtl] .m-list-optionlist .a-icon-multistate {
+  left: auto;
+  right: -2px;
+}
+
 textarea {
   width: 100%;
   background: #FFFFFF;
@@ -535,6 +607,12 @@ textarea:focus-within {
   margin-right: 1em;
 }
 
+html[dir=rtl] .balance .a-input-singlelineedit,
+html[dir=rtl] .balance .m-input-singlelineedit {
+  margin-right: auto;
+  margin-left: 1em;
+}
+
 /* m-input-singlelineedit
  * the molecule gets added by JavaScript when the a-input-singlelineedit
  * includes a pre or post label and therefore requires an additional wrapper
@@ -560,6 +638,13 @@ textarea:focus-within {
   margin-right: 0;
 }
 
+html[dir=rtl] .m-input-singlelineedit.position-below .a-input-singlelineedit {
+  margin-right: 0;
+}
+html[dir=rtl] .m-input-singlelineedit .a-input-singlelineedit {
+  margin-left: 0;
+}
+
 /* numerical single-line inputs
  * styles for the input element (that are built on top of the above defaults)
  * along with additional classes to manage the 'spinner' control that appears
@@ -573,6 +658,11 @@ textarea:focus-within {
 .show-spinner .a-input-singlelineedit[type=number] {
   padding-right: 28px;
   width: 181px;
+}
+
+html[dir=rtl] .show-spinner .a-input-singlelineedit[type=number] {
+  padding-right: 0;
+  padding-left: 28px;
 }
 
 /* remove the default spinner as we are using a custom implementation */
@@ -637,6 +727,11 @@ input[readonly]:focus-visible {
   height: auto;
 }
 
+html[dir=rtl] .m-option-base .a-input-singlelineedit {
+  margin-left: 0;
+  margin-right: 0.5em;
+}
+
 /* remove leading border if there is a pre-label which has to account for
  * for the possibility of the presence of a button wrapper around the input
  */
@@ -644,6 +739,12 @@ input[readonly]:focus-visible {
 .a-label-prelabel + div > .a-input-singlelineedit {
   border-left: none;
   border-radius: 0 2px 2px 0;
+}
+
+html[dir=rtl] .a-label-prelabel + .a-input-singlelineedit,
+.a-label-prelabel + div > .a-input-singlelineedit {
+  border-left: 1px solid;
+  border-right: none;
 }
 
 *[class*=-label-] {
@@ -667,6 +768,10 @@ input[readonly]:focus-visible {
   text-align: right;
 }
 
+html[dir=rtl] .overall-progress.complex .a-label-section-title {
+  text-align: inherit;
+}
+
 @media screen and (max-width: 1023px) {
   .overall-progress.complex .a-label-section-title {
     margin-bottom: 4px;
@@ -680,7 +785,6 @@ input[readonly]:focus-visible {
 }
 
 .a-label-iteration {
-  font-family: "Karla", sans-serif;
   color: #455B97;
 }
 
@@ -709,6 +813,10 @@ input[readonly]:focus-visible {
   text-align: right;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+}
+
+html[dir=rtl] .a-label-total {
+  text-align: inherit;
 }
 
 .a-label-total-grand,
@@ -791,6 +899,18 @@ input[readonly]:focus-visible {
   margin-top: 8px;
 }
 
+html[dir=rtl] .o-question-instruction.has-content div {
+  padding: 8px 32px 8px 16px;
+}
+html[dir=rtl] .o-question-instruction.has-content div::before {
+  left: auto;
+  right: 8px;
+}
+html[dir=rtl] .o-question-instruction.has-content div ul {
+  padding-left: inherit;
+  padding-right: 0;
+}
+
 .a-label-error {
   color: #DA2911;
 }
@@ -822,6 +942,18 @@ input[readonly]:focus-visible {
   background-size: 20px;
   content: "";
   background-repeat: no-repeat;
+}
+
+html[dir=rtl] .o-question-error *[class*=-label-],
+html[dir=rtl] .o-question-warning *[class*=-label-],
+html[dir=rtl] .o-question-success *[class*=-label-] {
+  padding: 8px 32px 8px 16px;
+}
+html[dir=rtl] .o-question-error *[class*=-label-]::before,
+html[dir=rtl] .o-question-warning *[class*=-label-]::before,
+html[dir=rtl] .o-question-success *[class*=-label-]::before {
+  left: auto;
+  right: 8px;
 }
 
 .o-question-error *[class*=-label-] {
@@ -858,6 +990,15 @@ input[readonly]:focus-visible {
 .focused .a-label-prelabel {
   border: 1px solid #455B97 !important;
   border-right-color: #8797C8 !important;
+}
+
+html[dir=rtl] .focused .a-label-postlabel {
+  border: 1px solid #455B97 !important;
+  border-right-color: #8797C8 !important;
+}
+html[dir=rtl] .focused .a-label-prelabel {
+  border: 1px solid #455B97 !important;
+  border-left-color: #8797C8 !important;
 }
 
 .o-question-information-content span:last-child .a-label-alternative-separator {
@@ -897,6 +1038,15 @@ input[readonly]:focus-visible {
   padding-left: 0.2em;
 }
 
+html[dir=rtl] .m-structure-cell .a-label-postlabel {
+  left: auto;
+  right: -0.5em;
+}
+html[dir=rtl] .m-structure-cell .m-option-base .a-label-option {
+  padding-left: 0;
+  padding-right: 0.2em;
+}
+
 .m-input-singlelineedit .a-label-postlabel {
   display: inline-block;
   border: 1px solid #8797C8;
@@ -923,6 +1073,11 @@ input[readonly]:focus-visible {
 .m-input-singlelineedit.read-only .a-label-postlabel {
   color: #B4BDDB;
   border-color: #D6DDEB !important;
+}
+
+html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
+  left: auto;
+  right: -0.5em;
 }
 
 .o-question-hnumberslider-control .a-label-outer-prelabel {
@@ -994,6 +1149,27 @@ input[readonly]:focus-visible {
   display: block;
 }
 
+html[dir=rtl] .o-question-hnumberslider-control .a-label-prelabel {
+  left: auto;
+  right: 0;
+}
+html[dir=rtl] .o-question-hnumberslider-control .a-label-postlabel {
+  right: auto;
+  left: 0;
+}
+html[dir=rtl] .o-question-hnumberslider-control .a-label-thumbvalue {
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+html[dir=rtl] .o-question-hnumberslider-control .m-style-slidermarks {
+  left: auto;
+  right: 6px;
+}
+html[dir=rtl] .o-question-hnumberslider-control .m-label-ticklabels {
+  left: auto;
+  right: 6px;
+}
+
 div[data-readonly=true] .m-option-base .a-label-option {
   color: #8797C8 !important;
 }
@@ -1016,6 +1192,14 @@ div[data-readonly=true] .m-option-base .a-label-option {
   padding-left: 0;
 }
 
+html[dir=rtl] .m-option-base .a-label-option {
+  padding-left: 0;
+  padding-right: 1.5em;
+}
+html[dir=rtl] .m-option-base label + .a-label-option {
+  padding-right: 0;
+}
+
 .m-list-optionlist .a-label-option {
   padding-bottom: 0;
   width: calc(100% - 1.5em);
@@ -1026,6 +1210,10 @@ div[data-readonly=true] .m-option-base .a-label-option {
   width: 100%;
 }
 
+html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
+  padding-right: 0;
+}
+
 .m-option-base {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -1033,6 +1221,11 @@ div[data-readonly=true] .m-option-base .a-label-option {
   position: relative;
   margin-bottom: 4px;
   margin-right: 1em;
+}
+
+html[dir=rtl] .m-option-base {
+  margin-right: 0;
+  margin-left: 1em;
 }
 
 .m-option-base[data-position=below],
@@ -1050,6 +1243,12 @@ span.m-input-singlelineedit + script ~ .m-option-base {
   margin-left: 1em;
 }
 
+html[dir=rtl] input + script ~ .m-option-base,
+span.m-input-singlelineedit + script ~ .m-option-base {
+  margin-left: 0;
+  margin-right: 1em;
+}
+
 .m-option-base:first-child,
 .m-option-base:nth-last-of-type(1) {
   margin-bottom: 0;
@@ -1064,6 +1263,11 @@ span.m-input-singlelineedit + script ~ .m-option-base {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin-right: 1em;
+}
+
+html[dir=rtl] .balance .m-option-base {
+  margin-right: 0;
+  margin-left: 1em;
 }
 
 .m-question-cover {
@@ -1322,6 +1526,11 @@ input[type=range] {
   border: none;
 }
 
+html[dir=rtl] input[type=range] {
+  left: auto;
+  right: 6px;
+}
+
 input[type=range]:focus {
   outline: none;
 }
@@ -1398,6 +1607,10 @@ input[type=range]::-moz-range-thumb {
   border-bottom-left-radius: 16px;
 }
 
+html[dir=rtl] .has-value .flood-to-value::-moz-range-progress {
+  border-radius: 0 16px 16px 0;
+}
+
 input[type=range]::-ms-tooltip {
   display: none;
 }
@@ -1423,10 +1636,18 @@ input[type=range]::-ms-fill-lower {
   border-bottom-left-radius: 16px;
 }
 
+html[dir=rtl] .has-value .flood-to-value::-ms-fill-lower {
+  border-radius: 0 16px 16px 0;
+}
+
 input[type=range]::-ms-fill-upper {
   background: transparent;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
+}
+
+html[dir=rtl] input[type=range]::-ms-fill-upper {
+  border-radius: 16px 0 0 16px;
 }
 
 .active input[type=range]::-ms-thumb {
@@ -1469,115 +1690,6 @@ input[type=range]:focus::-ms-fill-lower {
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
-.o-question-list.combobox > div:first-of-type,
-.o-question-combolist.combobox > div:first-of-type {
-  padding-right: 0;
-}
-.o-question-list > div:first-of-type,
-.o-question-combolist > div:first-of-type {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-  border-radius: 4px;
-}
-.o-question-list > div:first-of-type:hover button,
-.o-question-combolist > div:first-of-type:hover button {
-  background-color: #324371;
-}
-.o-question-list .a-input-list-dropdown,
-.o-question-combolist .a-input-list-dropdown {
-  position: relative;
-  z-index: 2;
-  border: none;
-  border-radius: 4px;
-  color: #449B9B;
-  margin-bottom: 0;
-  background-color: #FFFFFF;
-  min-width: 3em;
-  max-width: 100%;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  line-height: 40px;
-  padding: 0 44px 0 16px;
-  height: 40px;
-}
-.o-question-list .a-input-list-dropdown::-moz-placeholder,
-.o-question-combolist .a-input-list-dropdown::-moz-placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown:-ms-input-placeholder,
-.o-question-combolist .a-input-list-dropdown:-ms-input-placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown::-webkit-input-placeholder, .o-question-combolist .a-input-list-dropdown::-webkit-input-placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown::-moz-placeholder, .o-question-combolist .a-input-list-dropdown::-moz-placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown:-ms-input-placeholder, .o-question-combolist .a-input-list-dropdown:-ms-input-placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown::-ms-input-placeholder, .o-question-combolist .a-input-list-dropdown::-ms-input-placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown::placeholder,
-.o-question-combolist .a-input-list-dropdown::placeholder {
-  color: #FAFAFA;
-  opacity: 1;
-}
-.o-question-list .a-input-list-dropdown:-ms-input-placeholder,
-.o-question-combolist .a-input-list-dropdown:-ms-input-placeholder {
-  color: #FAFAFA;
-}
-.o-question-list .a-input-list-dropdown::-ms-input-placeholder,
-.o-question-combolist .a-input-list-dropdown::-ms-input-placeholder {
-  color: #FAFAFA;
-}
-.o-question-list .a-input-list-dropdown:hover:not(:-moz-read-only), .o-question-list .a-input-list-dropdown:focus:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:hover:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:focus:not(:-moz-read-only) {
-  color: #455B97;
-}
-.o-question-list .a-input-list-dropdown:hover:not(:read-only),
-.o-question-list .a-input-list-dropdown:focus:not(:read-only),
-.o-question-combolist .a-input-list-dropdown:hover:not(:read-only),
-.o-question-combolist .a-input-list-dropdown:focus:not(:read-only) {
-  color: #455B97;
-}
-.o-question-list .a-input-list-dropdown:focus:not(:-moz-read-only), .o-question-combolist .a-input-list-dropdown:focus:not(:-moz-read-only) {
-  border-color: #455B97;
-}
-.o-question-list .a-input-list-dropdown:focus:not(:read-only),
-.o-question-combolist .a-input-list-dropdown:focus:not(:read-only) {
-  border-color: #455B97;
-}
-.o-question-list .a-input-list-dropdown:focus-visible,
-.o-question-combolist .a-input-list-dropdown:focus-visible {
-  outline: none;
-}
-.o-question-list .a-input-list-dropdown.readonly,
-.o-question-combolist .a-input-list-dropdown.readonly {
-  color: #FAFAFA;
-  background: transparent;
-  cursor: default;
-}
-.o-question-list .a-input-list-dropdown.readonly:focus-visible,
-.o-question-combolist .a-input-list-dropdown.readonly:focus-visible {
-  outline: none;
-}
-.o-question-list .a-input-list-dropdown.readonly::-moz-selection, .o-question-combolist .a-input-list-dropdown.readonly::-moz-selection {
-  background: transparent;
-}
-.o-question-list .a-input-list-dropdown.readonly::selection,
-.o-question-combolist .a-input-list-dropdown.readonly::selection {
-  background: transparent;
-}
-
 .o-combobox input[type=text] {
   padding: 10px 16px;
   border-radius: 2px;
@@ -1667,6 +1779,14 @@ input[type=range]:focus::-ms-fill-lower {
   color: #FAFAFA;
 }
 
+html[dir=rtl] .o-dropdown input[type=text] {
+  background: url("../images/white-chevron-down.png") left 12px center no-repeat #455B97;
+}
+html[dir=rtl] .o-dropdown input[type=text].manual-width {
+  padding-right: 16px;
+  padding-left: 48px;
+}
+
 .o-combobox ul,
 .o-dropdown ul {
   list-style-type: none;
@@ -1735,6 +1855,11 @@ input[type=range]:focus::-ms-fill-lower {
 .o-combobox ul li.filter-hidden,
 .o-dropdown ul li.filter-hidden {
   display: none;
+}
+
+html[dir=rtl] .o-combobox ul li,
+html[dir=rtl] .o-dropdown ul li {
+  text-align: inherit;
 }
 
 .focus-control .o-combobox ul,
@@ -1850,14 +1975,36 @@ input[type=range]:focus::-ms-fill-lower {
   margin-bottom: 0.5em;
 }
 
-.grid-column-total span {
+html[dir=rtl] .o-structure-table .grid-row-total-title,
+html[dir=rtl] .o-structure-table .grid-row-total,
+html[dir=rtl] .o-structure-table .grid-grandtotal {
+  border-right: 1px solid #212C4C;
+}
+html[dir=rtl] .o-structure-table .grid-row-total,
+html[dir=rtl] .o-structure-table .grid-grandtotal {
+  text-align: inherit;
+}
+html[dir=rtl] .o-structure-table caption {
+  text-align: inherit;
+}
+
+html:not([dir]) .grid-column-total span {
   padding-right: 0;
+}
+
+html[dir=rtl] .grid-column-total span {
+  padding-left: 0;
 }
 
 /* additional padding to allow for the presence of a number
  * 'spinner' control in input cells above the total */
 .show-spinner .grid-column-total span {
   padding-right: 28px;
+}
+
+html[dir=rtl] .show-spinner .grid-column-total span {
+  padding-right: 0;
+  padding-left: 28px;
 }
 
 .o-question-container {
@@ -1906,6 +2053,11 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: border-box;
 }
 
+html[dir=rtl] .o-question-errorandinstruction {
+  padding-right: 0;
+  padding-left: 1em;
+}
+
 .sidebyside .o-question-information {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1915,6 +2067,13 @@ input[type=range]:focus::-ms-fill-lower {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 40%;
           flex: 0 0 40%;
+}
+
+html[dir=rtl] .sidebyside .o-question-information {
+  margin-right: 0;
+  margin-left: 1em;
+  padding-right: 0;
+  padding-left: 1em;
 }
 
 .sidebyside .o-question-response {
@@ -1933,6 +2092,11 @@ input[type=range]:focus::-ms-fill-lower {
 
 .sidebyside .o-question-response + .o-question-response {
   margin-left: 1em;
+}
+
+html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
+  margin-left: 0;
+  margin-right: 1em;
 }
 
 * {
@@ -1956,6 +2120,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+html[dir=rtl] body,
+html[dir=rtl] input,
+html[dir=rtl] textarea,
+html[dir=rtl] select {
+  font-family: "Rubik", serif;
 }
 
 body,
@@ -2018,6 +2189,10 @@ body > form {
   left: -9999px;
   width: 1px;
   height: 1px;
+}
+
+html[dir=rtl] .hiddencontrol {
+  left: 9999px;
 }
 
 .unavailable {

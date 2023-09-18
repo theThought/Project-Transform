@@ -42,6 +42,7 @@ define(['component'],
         }
 
         aLabelThumbValue.prototype.updateValue = function (eventDetail) {
+            var direction = (document.dir === 'rtl') ? 'rtl' : 'ltr';
             var value = eventDetail.element.value;
             this.element.innerHTML = value;
 
@@ -54,7 +55,11 @@ define(['component'],
             var positionOffset = Math.round(thumbWidth * position / 100) - (thumbWidth / 2);
             var positionPaddingOffset = Math.round(12 * position / 100) - 6;
 
-            this.element.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
+            if (direction === 'rtl') {
+                this.element.style.right = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
+            } else {
+                this.element.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
+            }
         }
 
         return aLabelThumbValue;

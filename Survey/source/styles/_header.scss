@@ -54,6 +54,12 @@
     }
 }
 
+html[dir="rtl"] {
+    .mrProgressText {
+        left: 4px;
+    }
+}
+
 .overall-progress.complex {
     width: auto;
     min-width: 0;
@@ -129,4 +135,27 @@
         margin-right: 0;
     }
 
+}
+
+html[dir="rtl"] {
+    .overall-progress.complex {
+
+        div {
+            margin-right: 0;
+            margin-left: .5em;
+        }
+
+        div.a-progress-page.current-page {
+            margin: 0 .25em 0 .75em;
+        }
+
+        div.a-progress-page.current-page:last-child {
+            margin-left: .25em;
+        }
+
+        div:last-child {
+            margin-left: 0;
+        }
+
+    }
 }

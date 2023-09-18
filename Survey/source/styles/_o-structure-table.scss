@@ -149,12 +149,41 @@ $separator-colour: globals.$titles;
 
 }
 
-.grid-column-total span {
+html[dir="rtl"] {
+    .o-structure-table {
+
+        .grid-row-total-title,
+        .grid-row-total,
+        .grid-grandtotal {
+            border-right: 1px solid $separator-colour;
+        }
+
+        .grid-row-total,
+        .grid-grandtotal {
+            text-align: inherit;
+        }
+
+        caption {
+            text-align: inherit;
+        }
+    }
+}
+
+html:not([dir]) .grid-column-total span {
     padding-right: 0;
+}
+
+html[dir="rtl"] .grid-column-total span {
+    padding-left: 0;
 }
 
 /* additional padding to allow for the presence of a number
  * 'spinner' control in input cells above the total */
 .show-spinner .grid-column-total span {
     padding-right: 28px;
+}
+
+html[dir="rtl"] .show-spinner .grid-column-total span {
+    padding-right: 0;
+    padding-left: 28px;
 }

@@ -8,6 +8,11 @@
     margin-right: 1em;
 }
 
+html[dir="rtl"] .m-option-base {
+    margin-right: 0;
+    margin-left: 1em;
+}
+
 .m-option-base[data-position="below"],
 .m-option-base.below {
     display: block;
@@ -23,6 +28,12 @@ span.m-input-singlelineedit + script ~ .m-option-base {
     margin-left: 1em;
 }
 
+html[dir="rtl"] input + script ~ .m-option-base,
+span.m-input-singlelineedit + script ~ .m-option-base {
+    margin-left: 0;
+    margin-right: 1em;
+}
+
 .m-option-base:first-child,
 .m-option-base:nth-last-of-type(1) {
     margin-bottom: 0;
@@ -36,5 +47,12 @@ span.m-input-singlelineedit + script ~ .m-option-base {
     .m-option-base {
         flex: 0 0 auto;
         margin-right: 1em;
+    }
+}
+
+html[dir="rtl"] .balance {
+    .m-option-base {
+        margin-right: 0;
+        margin-left: 1em;
     }
 }

@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import 'header';
 @import 'navigation';
 @import 'user-styles';
@@ -16,7 +17,6 @@
 @import 'o-option-list';
 @import 'o-question';
 @import 'o-question-hnumberslider';
-@import 'o-question-list';
 @import 'o-select-combobox';
 @import 'o-structure-table';
 @import 't-question-base';
@@ -37,6 +37,15 @@ body {
     margin: 0 2em;
     display: flex;
     flex-direction: column;
+}
+
+html[dir=rtl] {
+    body,
+    input,
+    textarea,
+    select {
+        font-family: globals.$rtl-font;
+    }
 }
 
 body,
@@ -86,6 +95,10 @@ body > form {
     left: -9999px;
     width: 1px;
     height: 1px;
+}
+
+html[dir="rtl"] .hiddencontrol {
+    left: 9999px;
 }
 
 .unavailable {

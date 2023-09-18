@@ -80,6 +80,18 @@ $default-text-width: globals.$default-input-width;
     }
 }
 
+html[dir="rtl"] .o-dropdown {
+    input[type=text] {
+        background: url("../images/white-chevron-down.png") left 12px center no-repeat globals.$theme-primary;
+
+        &.manual-width {
+            padding-right: 16px;
+            padding-left: 48px;
+        }
+
+    }
+}
+
 .o-combobox ul,
 .o-dropdown ul {
     list-style-type: none;
@@ -151,6 +163,17 @@ $default-text-width: globals.$default-input-width;
 
     li.filter-hidden {
         display: none;
+    }
+}
+
+html[dir="rtl"] {
+    .o-combobox ul,
+    .o-dropdown ul {
+
+        li {
+            text-align: inherit;
+        }
+
     }
 }
 

@@ -84,8 +84,18 @@ button.a-button-postterminator {
     margin-left: 1em;
 }
 
+html[dir="rtl"] button.a-button-postterminator {
+    margin-left: 0;
+    margin-right: 1em;
+}
+
 button.a-button-preterminator {
     margin-right: 1em;
+}
+
+html[dir="rtl"] button.a-button-preterminator {
+    margin-right: 0;
+    margin-left: 1em;
 }
 
 .balance {
@@ -93,6 +103,11 @@ button.a-button-preterminator {
         flex: 0 0 auto;
         margin-right: 1em;
     }
+}
+
+html[dir="rtl"] .balance .a-button-option {
+    margin-right: 0;
+    margin-left: 1em;
 }
 
 .focused > .a-button-list-dropdown {
@@ -136,6 +151,11 @@ button.a-button-preterminator {
             }
         }
     }
+}
+
+html[dir="rtl"] .m-input-button-wrapper .m-button-spinner {
+    right: auto;
+    left: calc(.5em + 4px);
 }
 
 .show-spinner .m-button-spinner {
@@ -185,5 +205,15 @@ button.a-button-preterminator {
     #prevstop input[type=submit]:last-child {
         margin-right: 0;
     }
+}
 
+html[dir="rtl"] #nav-controls {
+    #prevstop input[type=submit] {
+        margin-right: 0;
+        margin-left: 1em;
+    }
+
+    #prevstop input[type=submit]:last-child {
+        margin-left: 0;
+    }
 }

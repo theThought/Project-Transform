@@ -21,13 +21,20 @@ $default-text-width: globals.$default-input-width;
     margin-right: 1em;
 }
 
+html[dir="rtl"] {
+    .balance .a-input-singlelineedit,
+    .balance .m-input-singlelineedit {
+        margin-right: auto;
+        margin-left: 1em;
+    }
+}
+
 /* m-input-singlelineedit
  * the molecule gets added by JavaScript when the a-input-singlelineedit
  * includes a pre or post label and therefore requires an additional wrapper
  * overflow: hidden added to fix issue with display in IE10
  */
 .m-input-singlelineedit {
-
     display: inline-block;
 
     /* prevent double drop shadow when input is within a molecule container */
@@ -51,6 +58,19 @@ $default-text-width: globals.$default-input-width;
     }
 }
 
+html[dir="rtl"] .m-input-singlelineedit {
+    &.position-below {
+
+        .a-input-singlelineedit {
+            margin-right: 0;
+        }
+    }
+
+    .a-input-singlelineedit {
+        margin-left: 0;
+    }
+}
+
 /* numerical single-line inputs
  * styles for the input element (that are built on top of the above defaults)
  * along with additional classes to manage the 'spinner' control that appears
@@ -64,6 +84,11 @@ $default-text-width: globals.$default-input-width;
 .show-spinner .a-input-singlelineedit[type=number] {
     padding-right: 28px;
     width: calc($default-text-width - 16px);
+}
+
+html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
+    padding-right: 0;
+    padding-left: 28px;
 }
 
 /* remove the default spinner as we are using a custom implementation */
@@ -135,6 +160,13 @@ input[readonly]:focus-visible {
     }
 }
 
+html[dir="rtl"] .m-option-base {
+    .a-input-singlelineedit {
+        margin-left: 0;
+        margin-right: .5em;
+    }
+}
+
 /* remove leading border if there is a pre-label which has to account for
  * for the possibility of the presence of a button wrapper around the input
  */
@@ -142,4 +174,10 @@ input[readonly]:focus-visible {
 .a-label-prelabel + div > .a-input-singlelineedit {
     border-left: none;
     border-radius: 0 globals.$text-border-radius globals.$text-border-radius 0;
+}
+
+html[dir="rtl"] .a-label-prelabel + .a-input-singlelineedit,
+.a-label-prelabel + div > .a-input-singlelineedit {
+    border-left: 1px solid;
+    border-right: none;
 }
