@@ -742,7 +742,7 @@ html[dir=rtl] .m-option-base .a-input-singlelineedit {
 }
 
 html[dir=rtl] .a-label-prelabel + .a-input-singlelineedit,
-.a-label-prelabel + div > .a-input-singlelineedit {
+html[dir=rtl] .a-label-prelabel + div > .a-input-singlelineedit {
   border-left: 1px solid;
   border-right: none;
 }
