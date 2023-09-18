@@ -751,6 +751,14 @@ input[readonly]:focus-visible {
 
 .o-question-instruction.has-content {
   display: inline-block;
+  width: 100%;
+}
+.o-question-instruction.has-content * {
+  font-size: 14px;
+}
+
+.o-question-instruction.has-content div {
+  display: inline-block;
   position: relative;
   margin-bottom: 0.5em;
   border-radius: 4px;
@@ -758,7 +766,7 @@ input[readonly]:focus-visible {
   background-color: rgba(75, 121, 182, 0.15);
   color: #4B79B6;
 }
-.o-question-instruction.has-content::before {
+.o-question-instruction.has-content div::before {
   position: absolute;
   left: 8px;
   top: 8px;
@@ -768,21 +776,18 @@ input[readonly]:focus-visible {
   background-image: url("../images/icon-information.png");
   background-repeat: no-repeat;
 }
-.o-question-instruction.has-content * {
-  font-size: 14px;
-}
-.o-question-instruction.has-content p {
+.o-question-instruction.has-content div p {
   margin: 0;
 }
-.o-question-instruction.has-content ul {
+.o-question-instruction.has-content div ul {
   list-style-position: inside;
   margin: 0;
   padding-left: 0;
 }
-.o-question-instruction.has-content p + ul {
+.o-question-instruction.has-content div p + ul {
   margin-top: 8px;
 }
-.o-question-instruction.has-content ul + p {
+.o-question-instruction.has-content div ul + p {
   margin-top: 8px;
 }
 

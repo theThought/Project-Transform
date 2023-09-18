@@ -116,6 +116,15 @@
 
 .o-question-instruction.has-content {
     display: inline-block;
+    width: 100%;
+
+    * {
+        font-size: 14px;
+    }
+}
+
+.o-question-instruction.has-content div {
+    display: inline-block;
     position: relative;
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
@@ -132,10 +141,6 @@
         content: '';
         background-image: url("/Survey/images/icon-information.png");
         background-repeat: no-repeat;
-    }
-
-    * {
-        font-size: 14px;
     }
 
     p {

@@ -48,7 +48,12 @@ define(
 
             for (var i = 0; i < questioninstructions.length; i++) {
                 var questioninstruction = questioninstructions[i];
-                if (questioninstruction.innerText.trim().length) {
+                if (questioninstruction.innerHTML.trim().length) {
+                    // extract the content from the instruction and add it to a new container
+                    var questioninformationcontentcontainer = document.createElement('div');
+                    questioninformationcontentcontainer.innerHTML = questioninstructions[i].innerHTML;
+                    questioninstructions[i].innerHTML = '';
+                    questioninstructions[i].append(questioninformationcontentcontainer);
                     questioninstruction.classList.add('has-content');
 
                     // in side-by-side layouts it is necessary to move the instruction to prevent
