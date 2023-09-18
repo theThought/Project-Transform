@@ -53,7 +53,7 @@ define(
                     var questioninformationcontentcontainer = document.createElement('div');
                     questioninformationcontentcontainer.innerHTML = questioninstructions[i].innerHTML;
                     questioninstructions[i].innerHTML = '';
-                    questioninstructions[i].append(questioninformationcontentcontainer);
+                    questioninstructions[i].appendChild(questioninformationcontentcontainer);
                     questioninstruction.classList.add('has-content');
 
                     // in side-by-side layouts it is necessary to move the instruction to prevent
