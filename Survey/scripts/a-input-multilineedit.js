@@ -24,6 +24,7 @@ define(['component'],
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
+            this.setInitialContentClass();
             this.configurationComplete();
         }
 
@@ -45,6 +46,9 @@ define(['component'],
                 case "focusin":
                     this.onFocusIn(event);
                     break;
+                case "input":
+                    this.onInput();
+                    break;
                 case "clearEntries":
                     this.clearEntriesFromExternal(event);
                     break;
@@ -63,6 +67,7 @@ define(['component'],
         aInputMultilineEdit.prototype.onInput = function (event) {
             var inputEvent = new CustomEvent(this.group + '_textInput', {bubbles: true, detail: this});
             this.element.dispatchEvent(inputEvent);
+            this.manageContentClass();
         }
 
         aInputMultilineEdit.prototype.onFocusIn = function (event) {

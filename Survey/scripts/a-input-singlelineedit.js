@@ -33,6 +33,7 @@ define(['component', 'pikaday'],
             this.configureLocalEventListeners();
             this.configureInitialVisibility();
             this.processVisibilityRules();
+            this.setInitialContentClass();
             this.setReadOnly();
             this.configurationComplete();
         }
@@ -281,6 +282,7 @@ define(['component', 'pikaday'],
         aInputSingleLineEdit.prototype.onInput = function (event) {
             var inputEvent = new CustomEvent(this.group + '_textInput', {bubbles: true, detail: this});
             this.element.dispatchEvent(inputEvent);
+            this.manageContentClass();
         }
 
         aInputSingleLineEdit.prototype.onFocusIn = function (event) {

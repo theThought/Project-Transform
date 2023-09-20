@@ -72,10 +72,15 @@ define(
             }
         }
 
+        component.prototype.setInitialContentClass = function () {
+            if (typeof this.element.value !== 'undefined') {
+                this.manageContentClass();
+            }
+        }
+
         component.prototype.configurationComplete = function () {
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             this.element.dispatchEvent(completeEvent);
-
             this.broadcastChange();
         }
 
@@ -92,6 +97,22 @@ define(
             }
         }
 
+        component.prototype.manageContentClass = function () {
+            if (this.element.value.length) {
+                this.addContentClass();
+            } else {
+                this.clearContentClass();
+            }
+        }
+
+        component.prototype.addContentClass = function () {
+            this.element.classList.add('has-content');
+        }
+
+        component.prototype.clearContentClass = function () {
+            this.element.classList.remove('has-content');
+        }
+
         component.prototype.clearChildren = function () {
             var clearEntries = new CustomEvent('clearEntries', {bubbles: true, detail: this});
             this.element.dispatchEvent(clearEntries);
@@ -100,6 +121,7 @@ define(
         component.prototype.clearEntriesFromExternal = function (event) {
             if (event.detail.element.contains(this.element)) {
                 this.clearEntries();
+                this.manageContentClass();
             }
         }
 
@@ -110,6 +132,7 @@ define(
 
             if (this.restoreValues && this.element.value !== this.initialValue) {
                 this.element.value = this.initialValue;
+                this.manageContentClass();
                 this.broadcastChange();
             }
         }
