@@ -1,0 +1,31 @@
+@use 'globals';
+
+// sets first cell (technically, all cells) to a predetermined % of the table width
+// this is set to match the general question width in o-question-information
+.m-structure-cell,
+.m-structure-cellm-structure-cell-altrow {
+    padding: .5em;
+}
+
+.m-structure-cell-total {
+  padding-top: 1.2em;
+}
+
+// the default alignment in columns is centre
+.grid-column-total {
+    text-align: center;
+}
+
+.grid-row-total.align-center {
+    text-align: center;
+}
+
+.grid-column-total.align-left,
+.grid-row-total.align-left {
+    text-align: left;
+}
+
+.grid-column-total.align-right,
+.grid-row-total.align-right {
+    text-align: right;
+}

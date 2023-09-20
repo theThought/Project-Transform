@@ -1,0 +1,48 @@
+@use 'globals';
+
+.o-question-response {
+
+    &[data-hidden="true"] {
+        * {
+            display: none;
+        }
+    }
+
+    &[data-position="side"] {
+        display: inline-block;
+    }
+
+    // normally we want the final item to have no explicit bottom margin
+    // this is different in balance, as the final item is likely to be
+    // on the same row as another item and it also effects size calculations
+    &:not(.balance) > *:not(script):last-child {
+        margin-bottom: 0;
+    }
+
+    &.balance {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &.balance > .o-option-sublist {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 0 100%;
+    }
+
+    &.balance .a-label-heading-sublist {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    overflow-y: visible;
+    overflow-x: auto;
+}
+
+.o-question-core {
+    z-index: 2;
+}
+
+.o-question-alternatives {
+    display: none;
+}
