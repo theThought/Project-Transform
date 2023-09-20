@@ -17,7 +17,6 @@ html[dir="rtl"] .m-option-base .a-icon-multistate {
     left: auto;
     right: 0;
 }
-
 // specifically moves radio buttons 1px to the left to resolve image cropping on certain platforms
 .a-icon-multistate[data-icontype="single"] {
     left: 1px;

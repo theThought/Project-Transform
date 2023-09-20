@@ -23,7 +23,7 @@
 
 * {
     font-size: globals.$standard-font-size;
-    line-height: 19px;
+    line-height: globals.$standard-line-height;
 }
 
 html {
@@ -75,7 +75,7 @@ body > form {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border-bottom: 1px solid globals.$borders;
+    border-bottom: globals.$border-thickness solid globals.$borders;
 }
 
 .surroundcontent {
@@ -86,7 +86,7 @@ body > form {
 .footer {
     grid-area: footer;
     height: 110px;
-    border-top: 1px solid globals.$borders;
+    border-top: globals.$border-thickness solid globals.$borders;
     padding: 1em 0;
 }
 

@@ -19,7 +19,7 @@
 
 .overall-progress-bar {
     height: 24px;
-    border: 1px solid globals.$borders-light;
+    border: globals.$border-thickness solid globals.$borders-light;
     border-radius: globals.$border-radius;
     box-sizing: border-box;
     padding: 1px;
@@ -117,7 +117,7 @@ html[dir="rtl"] {
     }
 
     div.a-progress-page.current-page {
-        outline: 1px solid globals.$theme-primary-hover;
+        outline: globals.$border-thickness solid globals.$theme-primary-hover;
         outline-offset: 4px;
         margin: 0 .75em 0 .25em;
     }

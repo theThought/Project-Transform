@@ -10,7 +10,7 @@ button[class^=a-button] {
     min-height: 30px;
     -webkit-appearance: none;
     margin: 0 0 12px 0;
-    border: 1px solid globals.$theme-primary;
+    border: globals.$border-thickness solid globals.$theme-primary;
     border-radius: globals.$border-radius;
     padding: 4px 1em;
     background-color: globals.$theme-primary;

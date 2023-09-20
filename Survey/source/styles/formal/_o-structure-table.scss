@@ -106,23 +106,23 @@ $separator-colour: globals.$titles;
     }
 
     th[scope=col] {
-        border-bottom: 1px solid $separator-colour;
+        border-bottom: globals.$border-thickness solid $separator-colour;
     }
 
     .grid-column-total-title,
     .grid-column-total,
     .grid-grandtotal {
-        border-top: 1px solid $separator-colour;
+        border-top: globals.$border-thickness solid $separator-colour;
     }
 
     .grid-row-total-title {
-        border-bottom: 1px solid $separator-colour;
+        border-bottom: globals.$border-thickness solid $separator-colour;
     }
 
     .grid-row-total-title,
     .grid-row-total,
     .grid-grandtotal {
-        border-left: 1px solid $separator-colour;
+        border-left: globals.$border-thickness solid $separator-colour;
         vertical-align: top;
     }
 
@@ -155,7 +155,7 @@ html[dir="rtl"] {
         .grid-row-total-title,
         .grid-row-total,
         .grid-grandtotal {
-            border-right: 1px solid $separator-colour;
+            border-right: globals.$border-thickness solid $separator-colour;
         }
 
         .grid-row-total,

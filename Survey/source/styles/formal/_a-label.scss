@@ -70,7 +70,7 @@ html[dir="rtl"] .overall-progress.complex .a-label-section-title {
 .a-label-total {
     display: inline-block;
     padding: 10px 6px;
-    border: 1px solid transparent;
+    border: globals.$border-thickness solid transparent;
     height: 19px;
     text-align: right;
     box-sizing: content-box;
@@ -271,24 +271,24 @@ html[dir="rtl"] {
     }
 
     .a-label-postlabel {
-        border: 1px solid globals.$theme-primary !important;
+        border: globals.$border-thickness solid globals.$theme-primary !important;
         border-left-color: globals.$borders !important;
     }
 
     .a-label-prelabel {
-        border: 1px solid globals.$theme-primary !important;
+        border: globals.$border-thickness solid globals.$theme-primary !important;
         border-right-color: globals.$borders !important;
     }
 }
 
 html[dir="rtl"] .focused {
     .a-label-postlabel {
-        border: 1px solid globals.$theme-primary !important;
+        border: globals.$border-thickness solid globals.$theme-primary !important;
         border-right-color: globals.$borders !important;
     }
 
     .a-label-prelabel {
-        border: 1px solid globals.$theme-primary !important;
+        border: globals.$border-thickness solid globals.$theme-primary !important;
         border-left-color: globals.$borders !important;
     }
 }
@@ -313,7 +313,7 @@ html[dir="rtl"] .focused {
 
     .a-label-postlabel {
         display: inline-block;
-        border: 1px transparent;
+        border: globals.$border-thickness transparent;
         position: relative;
         left: -.5em;
         padding: 10px 16px;
@@ -323,7 +323,7 @@ html[dir="rtl"] .focused {
 
     .a-label-prelabel {
         display: inline-block;
-        border: 1px transparent;
+        border: globals.$border-thickness transparent;
         padding: 10px 16px;
         white-space: nowrap;
     }
@@ -360,7 +360,7 @@ html[dir="rtl"] {
 .m-input-singlelineedit {
     .a-label-postlabel {
         display: inline-block;
-        border: 1px solid globals.$borders;
+        border: globals.$border-thickness solid globals.$borders;
         border-radius: 0 globals.$text-border-radius globals.$text-border-radius 0;
         position: relative;
         left: -.5em;
@@ -373,7 +373,7 @@ html[dir="rtl"] {
 
     .a-label-prelabel {
         display: inline-block;
-        border: 1px solid globals.$borders;
+        border: globals.$border-thickness solid globals.$borders;
         border-radius: globals.$text-border-radius 0 0 globals.$text-border-radius;
         background-color: globals.$input-background;
         padding: 10px 16px;

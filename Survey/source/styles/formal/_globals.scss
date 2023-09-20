@@ -2,6 +2,7 @@ $primary-font: 'Karla', sans-serif;
 $secondary-font: "Merriweather", serif;
 $rtl-font: "Rubik", serif;
 $standard-font-size: 16px;
+$standard-line-height: 19px;
 
 $theme-primary: #455B97;
 $theme-primary-hover: #324371;
@@ -41,6 +42,7 @@ $pre-post-text: $theme-primary-hover;
 $disabled-text: $theme-secondary;
 $disabled-background: $light1;
 
+$border-thickness: 1px;
 $text-border-radius: 2px;
 $border-radius: 4px;
 $drop-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);

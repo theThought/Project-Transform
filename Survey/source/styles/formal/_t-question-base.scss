@@ -21,7 +21,7 @@
 }
 
 .o-question-container:not(.no-separator) {
-    border-bottom: 1px solid globals.$borders-light;
+    border-bottom: globals.$border-thickness solid globals.$borders-light;
 }
 
 .surroundcontent > div:last-child {

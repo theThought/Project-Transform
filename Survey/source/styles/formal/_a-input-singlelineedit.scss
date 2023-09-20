@@ -8,7 +8,7 @@ $default-text-width: globals.$default-input-width;
 .a-input-singlelineedit {
     padding: 10px 16px;
     border-radius: globals.$text-border-radius;
-    border: 1px solid globals.$borders;
+    border: globals.$border-thickness solid globals.$borders;
     color: globals.$input-text;
     margin: 0 0 .5em 0;
     width: $default-text-width;
@@ -142,7 +142,7 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
     outline: none;
-    border-bottom: 1px solid globals.$theme-primary;
+    border-bottom: globals.$border-thickness solid globals.$theme-primary;
 }
 
 /* inputs when a child of a checkbox (other specifier) */
@@ -153,7 +153,7 @@ input[readonly]:focus-visible {
         padding: 0;
         border: 0;
         border-radius: 0;
-        border-bottom: 1px solid;
+        border-bottom: globals.$border-thickness solid;
         border-top: none;
         width: 151px;
         height: auto;
@@ -178,6 +178,6 @@ html[dir="rtl"] .m-option-base {
 
 html[dir="rtl"] .a-label-prelabel + .a-input-singlelineedit,
 html[dir="rtl"] .a-label-prelabel + div > .a-input-singlelineedit {
-    border-left: 1px solid;
+    border-left: globals.$border-thickness solid;
     border-right: none;
 }

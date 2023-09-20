@@ -6,7 +6,7 @@ $default-text-width: globals.$default-input-width;
     input[type=text] {
         padding: 10px 16px;
         border-radius: globals.$text-border-radius;
-        border: 1px solid globals.$borders;
+        border: globals.$border-thickness solid globals.$borders;
         color: globals.$theme-primary;
         min-width: 3em;
         height: 19px;
@@ -51,7 +51,7 @@ $default-text-width: globals.$default-input-width;
     input[type=text] {
         padding: 10px 16px;
         border-radius: globals.$border-radius;
-        border: 1px solid globals.$theme-primary;
+        border: globals.$border-thickness solid globals.$theme-primary;
         color: globals.$white;
         min-width: 3em;
         height: 19px;
@@ -97,7 +97,7 @@ html[dir="rtl"] .o-dropdown {
     list-style-type: none;
     margin: -1px 0 4px 0;
     padding: 0 0 8px 0;
-    border: 1px solid globals.$theme-primary;
+    border: globals.$border-thickness solid globals.$theme-primary;
     border-bottom-left-radius: globals.$text-border-radius;
     border-bottom-right-radius: globals.$text-border-radius;
     background-color: globals.$input-background;
