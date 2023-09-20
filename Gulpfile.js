@@ -5,9 +5,10 @@ function buildStyles() {
         sourcemaps = require('gulp-sourcemaps'),
         replace = require('gulp-replace'),
         autoprefixer = require('autoprefixer'),
-        postcss = require('gulp-postcss');
+        postcss = require('gulp-postcss'),
+        flatten = require('gulp-flatten');
 
-    var sourcepath = 'Survey/source/styles/*.scss';
+    var sourcepath = 'Survey/source/styles/**/*.scss';
     var destpath = 'Survey/styles/';
 
     return gulp
@@ -17,9 +18,10 @@ function buildStyles() {
         .pipe(postcss([ autoprefixer({grid: 'autoplace'}) ]))
         .pipe(replace('/Survey/images/', '../images/'))
         .pipe(sourcemaps.write('.'))
+        .pipe(flatten())
         .pipe(gulp.dest(destpath))
 }
 
 exports.default = function() {
-    gulp.watch('Survey/source/styles/*.scss', {usePolling: true}, buildStyles);
+    gulp.watch('Survey/source/styles/**/*.scss', {usePolling: true}, buildStyles);
 };
