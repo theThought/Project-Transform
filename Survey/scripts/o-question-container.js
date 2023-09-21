@@ -94,8 +94,6 @@ define(['o-question'],
             }
 
             var inputelements = this.element.querySelectorAll('input, textarea, select');
-            var isReadonly = new CustomEvent('readonly', {bubbles: true, detail: this});
-            this.element.dispatchEvent(isReadonly);
 
             for (var i = 0; i < inputelements.length; i++) {
                 inputelements[i].readOnly = true;

@@ -48,7 +48,6 @@ define(['component'],
             document.addEventListener(this.group + "_endResize", this, false);
             document.addEventListener("clearEntries", this, false);
             document.addEventListener("restoreEntries", this, false);
-            document.addEventListener("readonly", this, false);
             document.addEventListener("broadcastChange", this, false);
         }
 
@@ -78,10 +77,6 @@ define(['component'],
                     break;
                 case "restoreEntries":
                     this.restoreEntries(event);
-                    break;
-                case "readonly":
-                    this.isReadOnly = true;
-                    this.configureReadonly();
                     break;
                 case this.group + "_enableExclusive":
                     this.onEnableExclusive(event);
