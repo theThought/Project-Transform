@@ -17,6 +17,7 @@ function buildStyles() {
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss([ autoprefixer({grid: 'autoplace'}) ]))
         .pipe(replace('/Survey/images/', '../images/'))
+        .pipe(replace('/Survey/fonts/', '../fonts/'))
         .pipe(sourcemaps.write('.'))
         .pipe(flatten())
         .pipe(gulp.dest(destpath))
