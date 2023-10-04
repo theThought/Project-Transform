@@ -1,5 +1,9 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Rubik:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand-v31-latin-regular.eot");
+  src: url("../fonts/quicksand-v31-latin-regular.woff"), url("../fonts/quicksand-v31-latin-regular.ttf") format("truetype");
+}
 .site-logo {
   height: 75px;
   width: 75px;
