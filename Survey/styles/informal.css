@@ -1674,6 +1674,10 @@ input[type=range]:focus::-ms-fill-lower {
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
+.o-question-response:not(.o-question-combobox) {
+  position: relative;
+}
+
 .o-combobox input[type=text] {
   padding: 10px 16px;
   border-radius: 3px;

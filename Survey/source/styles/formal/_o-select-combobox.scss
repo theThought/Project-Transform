@@ -2,6 +2,10 @@
 
 $default-text-width: globals.$default-input-width;
 
+.o-question-response:not(.o-question-combobox) {
+    position: relative;
+}
+
 .o-combobox {
     input[type=text] {
         padding: 10px 16px;
