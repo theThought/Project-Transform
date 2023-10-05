@@ -1702,7 +1702,7 @@ input[type=range]:focus::-ms-fill-lower {
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
-.o-question-response:not(.o-question-combobox) {
+.o-question-response:not(.o-question-combobox, .o-question-dropdown) {
   position: relative;
 }
 

@@ -2,7 +2,7 @@
 
 $default-text-width: globals.$default-input-width;
 
-.o-question-response:not(.o-question-combobox) {
+.o-question-response:not(.o-question-combobox, .o-question-dropdown) {
     position: relative;
 }
 
