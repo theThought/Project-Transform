@@ -1,6 +1,7 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Rubik:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
 @font-face {
-  font-family: "Quicksand";
+  font-family: "QuicksandLocal";
   src: url("../fonts/quicksand-v31-latin-regular.eot");
   src: url("../fonts/quicksand-v31-latin-regular.woff"), url("../fonts/quicksand-v31-latin-regular.ttf") format("truetype");
 }
@@ -771,14 +772,14 @@ html[dir=rtl] .overall-progress.complex .a-label-section-title {
 }
 
 .a-label-caption {
-  font-family: "Quicksand", serif;
+  font-family: "Quicksand", "QuicksandLocal", serif;
   font-weight: normal;
   color: #212C4C;
   display: inline-block;
 }
 
 .a-label-heading-sublist {
-  font-family: "Quicksand", serif;
+  font-family: "Quicksand", "QuicksandLocal", serif;
   color: #212C4C;
   margin-bottom: 0.5em;
 }
@@ -2114,14 +2115,14 @@ html[dir=rtl] body,
 html[dir=rtl] input,
 html[dir=rtl] textarea,
 html[dir=rtl] select {
-  font-family: "Quicksand", serif;
+  font-family: "Quicksand", "QuicksandLocal", serif;
 }
 
 body,
 input,
 textarea,
 select {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", "QuicksandLocal", sans-serif;
 }
 
 body > form {
