@@ -37,11 +37,11 @@ define(['component'],
         oCombobox.prototype.init = function () {
             this.list = this.buildList();
             this.indexList();
-            this.setCurrentListPosition();
-            this.updateScrollPosition(this.getCurrentListPosition());
             this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
             this.restoreSelection();
+            this.setCurrentListPosition();
+            this.updateScrollPosition(this.getCurrentListPosition());
             this.configureProperties();
             this.getInitialValue();
             this.setWidth();
@@ -332,22 +332,19 @@ define(['component'],
         }
 
         oCombobox.prototype.navigateUp = function () {
-            var list = this.buildVisibleList();
-            var firstitem = list[0];
-            var firstpos = parseInt(firstitem.getAttribute('data-list-position'));
-
-            if (this.currentlistposition === firstpos) {
+            if (this.currentlistposition === 0) {
                 return;
             }
 
             if (this.currentlistposition === -1) {
-                this.currentlistposition = firstpos;
+                this.currentlistposition = 0;
             } else {
                 this.currentlistposition--;
             }
 
             if (this.listtype === 'dropdown') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
+                this.onFocusIn();
                 this.broadcastChange();
             }
 
@@ -356,22 +353,21 @@ define(['component'],
         }
 
         oCombobox.prototype.navigateDown = function () {
-            var list = this.buildVisibleList();
-            var lastitem = list[list.length - 1];
-            var lastpos = parseInt(lastitem.getAttribute('data-list-position'));
+            var lastpos = this.list.length - 1;
 
             if (this.currentlistposition === lastpos) {
                 return;
             }
 
             if (this.currentlistposition === -1) {
-                this.currentlistposition = parseInt(list[0].getAttribute('data-list-position'));
+                this.currentlistposition = 0;
             } else {
                 this.currentlistposition++;
             }
 
             if (this.listtype === 'dropdown') {
                 this.setSelectedOption(this.list[this.currentlistposition]);
+                this.onFocusIn();
                 this.broadcastChange();
             }
 
@@ -395,11 +391,10 @@ define(['component'],
             var currentvisiblelist = this.buildVisibleList();
 
             for (var i = 0; i < currentvisiblelist.length; i++) {
-                var curitemposition = parseInt(currentvisiblelist[i].getAttribute('data-list-position'));
-                if (curitemposition === position) {
+                if (i === position) {
                     currentvisiblelist[i].classList.add('selected');
                     currentvisiblelist[i].setAttribute('data-selected', 'selected');
-                    this.currentlistposition = parseInt(currentvisiblelist[i].getAttribute('data-list-position'));
+                    this.currentlistposition = i;
                 } else {
                     currentvisiblelist[i].classList.remove('selected');
                     currentvisiblelist[i].removeAttribute('data-selected');
@@ -468,7 +463,7 @@ define(['component'],
                 return;
             }
 
-            this.clearEntries();
+            //this.clearEntries();
             this.setSelectedOption(selectedOption);
             this.hideList();
             this.onFocusIn();
@@ -481,7 +476,6 @@ define(['component'],
             this.element.value = this.sanitiseText(selectedOption.innerText);
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
-            this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
         }
 
         oCombobox.prototype.clearEntries = function () {
@@ -528,12 +522,18 @@ define(['component'],
                 return;
             }
 
-            var selecteditem = this.droplist.querySelector('[data-selected="selected"]');
+            var selectedpos = null;
 
-            if (selecteditem === null) {
+            for (var i = 0; i < this.list.length; i++) {
+                if (this.list[i].classList.contains('selected')) {
+                    selectedpos = i;
+                }
+            }
+
+            if (selectedpos === null) {
                 this.currentlistposition = -1;
             } else {
-                this.currentlistposition = parseInt(selecteditem.getAttribute('data-list-position'));
+                this.currentlistposition = selectedpos;
             }
         }
 
@@ -560,6 +560,7 @@ define(['component'],
 
         oCombobox.prototype.filterList = function () {
             this.setCurrentListPosition();
+            this.list = this.buildList();
 
             switch (this.filtermethod) {
                 case 'starts':
@@ -616,7 +617,8 @@ define(['component'],
                 this.clearOptions();
             }
 
-           droplistparentnode.appendChild(this.droplist);
+            droplistparentnode.appendChild(this.droplist);
+            this.list = this.buildVisibleList();
         }
 
         oCombobox.prototype.filterListContains = function (inputstring) {
@@ -665,6 +667,7 @@ define(['component'],
             }
 
             droplistparentnode.appendChild(this.droplist);
+            this.list = this.buildVisibleList();
         }
 
         oCombobox.prototype.togglePlaceholderVisibility = function (visibility) {

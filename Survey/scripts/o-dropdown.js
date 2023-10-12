@@ -37,11 +37,11 @@ define(['component'],
         oDropdown.prototype.init = function () {
             this.list = this.buildList();
             this.indexList();
-            this.setCurrentListPosition();
-            this.updateScrollPosition(this.getCurrentListPosition());
             this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
             this.restoreSelection();
+            this.setCurrentListPosition();
+            this.updateScrollPosition(this.getCurrentListPosition());
             this.configureProperties();
             this.getInitialValue();
             this.setWidth();
@@ -347,23 +347,14 @@ define(['component'],
         }
 
         oDropdown.prototype.navigateUp = function () {
-            var list = this.buildVisibleList();
-            var firstitem = list[0];
-            var firstpos = parseInt(firstitem.getAttribute('data-list-position'));
-
-            if (this.currentlistposition === firstpos) {
+            if (this.currentlistposition === 0) {
                 return;
             }
 
             if (this.currentlistposition === -1) {
-                this.currentlistposition = firstpos;
+                this.currentlistposition = 0;
             } else {
-                for (var i=0; i<=list.length; i++) {
-                    if (list[i].getAttribute('data-selected')) {
-                        this.currentlistposition=list[i-1].getAttribute('data-list-position');
-                        break;
-                    }
-                }
+                this.currentlistposition--;
             }
 
             if (this.listtype === 'dropdown') {
@@ -377,23 +368,16 @@ define(['component'],
         }
 
         oDropdown.prototype.navigateDown = function () {
-            var list = this.buildVisibleList();
-            var lastitem = list[list.length - 1];
-            var lastpos = parseInt(lastitem.getAttribute('data-list-position'));
+            var lastpos = this.list.length -1;
 
             if (this.currentlistposition === lastpos) {
                 return;
             }
 
             if (this.currentlistposition === -1) {
-                this.currentlistposition = parseInt(list[0].getAttribute('data-list-position'));
+                this.currentlistposition = 0;
             } else {
-                for (var i=0; i<=list.length; i++) {
-                    if (list[i].getAttribute('data-selected')) {
-                        this.currentlistposition=list[i+1].getAttribute('data-list-position');
-                        break;
-                    }
-                }
+                this.currentlistposition++;
             }
 
             if (this.listtype === 'dropdown') {
@@ -426,7 +410,7 @@ define(['component'],
                 if (curitemposition === position) {
                     currentvisiblelist[i].classList.add('selected');
                     currentvisiblelist[i].setAttribute('data-selected', 'selected');
-                    this.currentlistposition = parseInt(currentvisiblelist[i].getAttribute('data-list-position'));
+                    this.currentlistposition = i;
                 } else {
                     currentvisiblelist[i].classList.remove('selected');
                     currentvisiblelist[i].removeAttribute('data-selected');
@@ -507,7 +491,7 @@ define(['component'],
             this.element.value = this.sanitiseText(selectedOption.innerText);
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
-            this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
+            this.setCurrentListPosition(this.currentlistposition);
         }
 
         oDropdown.prototype.clearEntries = function () {
@@ -557,12 +541,18 @@ define(['component'],
                 return;
             }
 
-            var selecteditem = this.droplist.querySelector('[data-selected="selected"]');
+            var selectedpos = null;
 
-            if (selecteditem === null) {
+            for (var i = 0; i < this.list.length; i++) {
+                if (this.list[i].classList.contains('selected')) {
+                    selectedpos = i;
+                }
+            }
+
+            if (selectedpos === null) {
                 this.currentlistposition = -1;
             } else {
-                this.currentlistposition = parseInt(selecteditem.getAttribute('data-list-position'));
+                this.currentlistposition = selectedpos;
             }
         }
 
@@ -614,6 +604,7 @@ define(['component'],
             }
 
             droplistparentnode.appendChild(this.droplist);
+            this.list = this.buildVisibleList();
         }
 
         oDropdown.prototype.filterListContains = function (inputstring) {
@@ -654,6 +645,7 @@ define(['component'],
             }
 
             droplistparentnode.appendChild(this.droplist);
+            this.list = this.buildVisibleList();
         }
 
         oDropdown.prototype.togglePlaceholderVisibility = function (visibility) {
@@ -702,11 +694,10 @@ define(['component'],
 
             for (var i = 0; i < list.length; i++) {
                 var currentitem = list[i];
-                var currentitemposition = currentitem.getAttribute('data-list-position');
                 var currentitemlabel = this.sanitiseText(currentitem.innerText.toLowerCase());
 
                 if (currentitemlabel.indexOf(searchstring) === 0) {
-                    if ((listpasses === 0 && currentfirstletter === searchstring.substring(0, 1) && currentitemposition < this.currentlistposition) ||
+                    if ((listpasses === 0 && currentfirstletter === searchstring.substring(0, 1) && i < this.currentlistposition) ||
                         (currentitem.classList.contains('selected') && searchstring.length === 1)) {
                         // this is required if we've reached the end of the list and landed on an active item
                         // as the last element -- we will need to loop back for another pass at this point
@@ -722,7 +713,7 @@ define(['component'],
                         this.setSelectedOption(currentitem);
                         this.onFocusIn();
                         this.broadcastChange();
-                        this.setCurrentListPosition(currentitem.getAttribute('data-list-position'));
+                        this.setCurrentListPosition(i);
                         return;
                     }
                 }
