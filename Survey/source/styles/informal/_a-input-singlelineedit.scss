@@ -167,9 +167,8 @@ input[readonly]:focus-visible {
         margin-bottom: 0;
         padding: 0;
         border: 0;
-        border-radius: 0;
-        border-bottom: globals.$border-thickness solid;
-        border-top: none;
+        border-radius: globals.$text-border-radius;
+        border: globals.$border-thickness globals.$other1 solid;
         width: 151px;
         height: auto;
     }

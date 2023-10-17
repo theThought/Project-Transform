@@ -730,9 +730,8 @@ input[readonly]:focus-visible {
   margin-bottom: 0;
   padding: 0;
   border: 0;
-  border-radius: 0;
-  border-bottom: 2px solid;
-  border-top: none;
+  border-radius: 3px;
+  border: 2px #6A646F solid;
   width: 151px;
   height: auto;
 }
