@@ -1158,7 +1158,7 @@ html[dir=rtl] .o-question-hnumberslider-control .m-label-ticklabels {
 }
 
 div.m-option-base[data-readonly=true] label {
-  background: linear-gradient(90deg, #847E88 0, #847E88 38px, #ECEFF5 38px);
+  background: linear-gradient(90deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
 }
 div.m-option-base[data-readonly=true] .a-label-option {
   color: #847E88 !important;

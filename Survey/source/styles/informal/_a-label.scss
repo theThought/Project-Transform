@@ -489,7 +489,7 @@ html[dir="rtl"] .o-question-hnumberslider-control {
 
 div.m-option-base[data-readonly="true"] {
     label {
-        background: linear-gradient(90deg, #{globals.$disabled-text} 0, #{globals.$disabled-text} 38px, #{globals.$disabled-background} 38px);
+        background: linear-gradient(90deg, #{globals.$disabled-text} 0, #{globals.$disabled-text} 38px, #{globals.$disabled-background} 38px) no-repeat;
     }
 
     .a-label-option {
