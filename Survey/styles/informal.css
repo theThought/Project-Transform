@@ -1500,8 +1500,8 @@ html[dir=rtl] .balance .m-option-base {
   z-index: 3;
   width: 100%;
   height: 24px;
-  border: 2px solid #8797C8;
-  border-radius: 10px;
+  border: 2px solid #E8BE5D;
+  border-radius: 4px;
   top: 12px;
   background: white;
 }
@@ -1541,7 +1541,7 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
   background: transparent;
   border: 0;
-  border-radius: 24px;
+  border-radius: 4px;
   width: 100%;
   height: 16px;
 }
@@ -1579,7 +1579,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 input[type=range]::-moz-range-track {
   background: transparent;
   border: 0;
-  border-radius: 22px;
+  border-radius: 4px;
   width: 100%;
   height: 22px;
 }
@@ -1604,14 +1604,14 @@ input[type=range]::-moz-range-thumb {
 }
 
 .has-value .flood-to-value::-moz-range-progress {
-  background-color: #7A3996 !important;
+  background-color: rgba(212, 170, 73, 0.15) !important;
   height: 16px;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 html[dir=rtl] .has-value .flood-to-value::-moz-range-progress {
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 input[type=range]::-ms-tooltip {
@@ -1625,32 +1625,32 @@ input[type=range]::-ms-track {
   color: transparent;
   width: 100%;
   height: 16px;
-  border-radius: 16px;
+  border-radius: 4px;
 }
 
 input[type=range]::-ms-fill-lower {
   background: transparent;
-  border-radius: 16px;
+  border-radius: 4px;
 }
 
 .has-value .flood-to-value::-ms-fill-lower {
   background-color: #7A3996 !important;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 html[dir=rtl] .has-value .flood-to-value::-ms-fill-lower {
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 input[type=range]::-ms-fill-upper {
   background: transparent;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 html[dir=rtl] input[type=range]::-ms-fill-upper {
-  border-radius: 16px 0 0 16px;
+  border-radius: 4px 0 0 4px;
 }
 
 .active input[type=range]::-ms-thumb {
