@@ -47,6 +47,7 @@ input[type=checkbox]:checked + label > .a-icon-multistate {
 }
 
 input[type=radio]:checked + label > .a-icon-multistate {
+    background-image: url("/Survey/images/tick-informal.svg");
 }
 
 .focus-control {

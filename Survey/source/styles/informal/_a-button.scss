@@ -16,6 +16,8 @@ button[class^=a-button] {
     background-color: globals.$theme-primary;
     color: globals.$white;
     white-space: normal;
+    font-size: globals.$standard-font-size;
+    line-height: 24px;
 }
 
 input[type=button]:hover,
@@ -133,8 +135,8 @@ html[dir="rtl"] .balance .a-button-option {
             min-height: 0;
             background: globals.$light1;
             color: globals.$placeholder;
-            font-size: 12px;
-            line-height: 1;
+            font-size: globals.$label-font-size;
+            line-height: globals.$label-line-height;
             width: 12px;
 
             &.a-button-spinner-up {

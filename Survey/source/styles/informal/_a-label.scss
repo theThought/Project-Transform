@@ -126,7 +126,8 @@ html[dir="rtl"] .a-label-total {
     width: 100%;
 
     * {
-        font-size: 14px;
+        font-size: globals.$instruction-font-size;
+        font-weight: 400;
     }
 }
 
@@ -193,7 +194,7 @@ html[dir="rtl"] .o-question-instruction.has-content div {
 .m-structure-row-error .a-label-error {
     display: inline-block;
     margin: 16px 8px 0 8px;
-    font-size: 14px;
+    font-size: globals.$instruction-font-size;
 }
 
 .o-question-error,
@@ -205,7 +206,7 @@ html[dir="rtl"] .o-question-instruction.has-content div {
         margin-bottom: .5em;
         border-radius: globals.$border-radius;
         padding: 8px 16px 8px 32px;
-        font-size: 14px;
+        font-size: globals.$instruction-font-size;
 
         &::before {
             position: absolute;
@@ -517,7 +518,7 @@ div[data-readonly="true"] .m-option-base .a-label-option {
         transition: all 500ms;
         display: inline-block;
         position: relative;
-        border: 1px solid globals.$theme-primary;
+        border: 2px solid transparent;
         border-radius: globals.$border-radius;
         padding: 8px;
     }

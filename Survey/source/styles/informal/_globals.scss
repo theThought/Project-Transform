@@ -1,8 +1,20 @@
 $primary-font: "Quicksand", "QuicksandLocal", sans-serif;
 $secondary-font: "Quicksand", "QuicksandLocal", serif;
 $rtl-font: "Quicksand", "QuicksandLocal", serif;
-$standard-font-size: 16px;
-$standard-line-height: 22px;
+
+$standard-font-weight: 500;
+
+$standard-font-size: 20px;
+$instruction-font-size: 18px;
+$option-font-size: 18px;
+$label-font-size: 16px;
+$message-font-size: 14px;
+
+$standard-line-height: 24px;
+$instruction-line-height: 24px;
+$option-line-height: 22px;
+$label-line-height: 24px;
+$message-line-height: 19px;
 
 $theme-primary: #E8BE5D;
 $theme-primary-hover: #D4AA49;

@@ -6,6 +6,8 @@
     position: relative;
     margin-bottom: 4px;
     margin-right: 1em;
+    font-size: globals.$option-font-size;
+    line-height: globals.$option-line-height;
 }
 
 html[dir="rtl"] .m-option-base {

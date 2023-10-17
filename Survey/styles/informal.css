@@ -227,19 +227,19 @@ html[dir=rtl] .page-links a {
 }
 
 .minustwo {
-  font-size: calc(16px - 2pt);
+  font-size: calc(20px - 2pt);
 }
 
 .plustwo {
-  font-size: calc(16px + 2pt);
+  font-size: calc(20px + 2pt);
 }
 
 .minusfour {
-  font-size: calc(16px - 4pt);
+  font-size: calc(20px - 4pt);
 }
 
 .plusfour {
-  font-size: calc(16px + 4pt);
+  font-size: calc(20px + 4pt);
 }
 
 .sub {
@@ -268,6 +268,8 @@ button[class^=a-button] {
   background-color: #E8BE5D;
   color: #FAFAFA;
   white-space: normal;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 input[type=button]:hover,
@@ -385,8 +387,8 @@ html[dir=rtl] .balance .a-button-option {
   min-height: 0;
   background: #ECEFF5;
   color: #6A646F;
-  font-size: 12px;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 24px;
   width: 12px;
 }
 .m-input-button-wrapper .m-button-spinner button.a-button-spinner-up {
@@ -493,6 +495,10 @@ input[type=checkbox]:checked + label > .a-icon-multistate {
   background-image: url("../images/tick-informal.svg");
 }
 
+input[type=radio]:checked + label > .a-icon-multistate {
+  background-image: url("../images/tick-informal.svg");
+}
+
 .focus-control input[type=checkbox]:focus + label,
 .focus-control input[type=radio]:focus + label,
 .focus-control input[type=radio]:focus-visible + label,
@@ -547,6 +553,9 @@ textarea {
   min-height: 100px;
   color: #7A3996;
   overflow-y: auto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 textarea.has-content {
@@ -588,6 +597,8 @@ textarea:focus-within {
   background-color: #FFFFFF;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .a-input-singlelineedit.has-content {
@@ -845,7 +856,8 @@ html[dir=rtl] .a-label-total {
   width: 100%;
 }
 .o-question-instruction.has-content * {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .o-question-instruction.has-content div {
@@ -901,7 +913,7 @@ html[dir=rtl] .o-question-instruction.has-content div ul {
 .m-structure-row-error .a-label-error {
   display: inline-block;
   margin: 16px 8px 0 8px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .o-question-error *[class*=-label-],
@@ -912,7 +924,7 @@ html[dir=rtl] .o-question-instruction.has-content div ul {
   margin-bottom: 0.5em;
   border-radius: 4px;
   padding: 8px 16px 8px 32px;
-  font-size: 14px;
+  font-size: 18px;
 }
 .o-question-error *[class*=-label-]::before,
 .o-question-warning *[class*=-label-]::before,
@@ -1169,7 +1181,7 @@ div[data-readonly=true] .m-option-base .a-label-option {
   transition: all 500ms;
   display: inline-block;
   position: relative;
-  border: 1px solid #E8BE5D;
+  border: 2px solid transparent;
   border-radius: 4px;
   padding: 8px;
 }
@@ -1206,6 +1218,8 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   position: relative;
   margin-bottom: 4px;
   margin-right: 1em;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 html[dir=rtl] .m-option-base {
@@ -2088,9 +2102,10 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   margin-right: 1em;
 }
 
-* {
-  font-size: 16px;
-  line-height: 22px;
+body {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
 }
 
 html {
@@ -2227,6 +2242,15 @@ input:disabled {
 .focus-control input:focus {
   -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
+}
+
+*:focus,
+*:focus-visible,
+*:focus-within,
+*:focus + label,
+*:focus-visible + label,
+*:focus-within + label {
+  border-color: #E8BE5D;
 }
 
 /* Standardises the placeholder colour - these rules cannot be combined */

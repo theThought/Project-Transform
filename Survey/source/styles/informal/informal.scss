@@ -19,9 +19,10 @@
 @import 'o-structure-table';
 @import 't-question-base';
 
-* {
+body {
     font-size: globals.$standard-font-size;
-    line-height: globals.$standard-line-height
+    line-height: globals.$standard-line-height;
+    font-weight: globals.$standard-font-weight;
 }
 
 html {
@@ -149,6 +150,16 @@ input:disabled {
     input:focus {
         box-shadow: globals.$drop-shadow;
     }
+}
+
+// global focus border style
+*:focus,
+*:focus-visible,
+*:focus-within,
+*:focus + label,
+*:focus-visible + label,
+*:focus-within + label {
+    border-color: globals.$theme-primary;
 }
 
 /* Standardises the placeholder colour - these rules cannot be combined */
