@@ -487,8 +487,14 @@ html[dir="rtl"] .o-question-hnumberslider-control {
     }
 }
 
-div[data-readonly="true"] .m-option-base .a-label-option {
-    color: globals.$borders !important;
+div.m-option-base[data-readonly="true"] {
+    label {
+        background: linear-gradient(90deg, #{globals.$disabled-text} 0, #{globals.$disabled-text} 38px, #{globals.$disabled-background} 38px);
+    }
+
+    .a-label-option {
+        color: globals.$disabled-text !important;
+    }
 }
 
 .m-option-base {

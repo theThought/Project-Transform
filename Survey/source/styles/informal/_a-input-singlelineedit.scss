@@ -119,11 +119,12 @@ html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit,
 .a-input-singlelineedit.read-only {
-    border-color: globals.$borders-light !important;
+    border-color: globals.$disabled-text !important;
     border-style: dotted;
     cursor: default;
 
     &.has-content {
+        color: globals.$disabled-text;
         background-color: #e6e5e7
     }
 }

@@ -17,6 +17,8 @@ $default-text-width: globals.$default-input-width;
         background-color: globals.$input-background;
         box-sizing: content-box;
         text-overflow: ellipsis;
+        font-size: globals.$option-font-size;
+        line-height: globals.$option-line-height;
 
         &.list-visible {
             border-bottom-left-radius: 0;
@@ -63,6 +65,8 @@ $default-text-width: globals.$default-input-width;
         cursor: default;
         background: url("/Survey/images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
         text-overflow: ellipsis;
+        font-size: globals.$option-font-size;
+        line-height: globals.$option-line-height;
 
         &.manual-width {
             padding-right: 48px;
@@ -111,6 +115,7 @@ html[dir="rtl"] .o-dropdown {
     z-index: 10;
     min-width: 3em;
     left: -9999px;
+    font-weight: 400;
 
     &.charrestriction {
         li:not(.a-list-placeholder-restriction) {
@@ -163,6 +168,8 @@ html[dir="rtl"] .o-dropdown {
 
     li.selected {
         color: globals.$theme-secondary;
+        font-weight: globals.$standard-font-weight;
+        background: rgba(globals.$theme-primary, .2);
     }
 
     li.filter-hidden {
