@@ -158,14 +158,13 @@ define(['o-question'],
 
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
-            var step = (this.properties.step) ? parseInt(this.properties.step) + parseFloat(this.properties.step / 40) : 100 / Math.abs(min - max);
+            var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
 
-            marksElement.style.background = 'repeating-linear-gradient(90deg, ' +
-                '#8797C8 0, ' +
-                '#8797C8 1px, ' +
-                'transparent 0, ' +
-                'transparent calc(' + step + '% - 4px)) ' +
-                'calc(.5*40px) 0/100% no-repeat';
+            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
+
+            for (var i = min; i <= max; i = i + step) {
+                marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
+            }
 
         }
 

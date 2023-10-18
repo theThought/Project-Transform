@@ -1110,9 +1110,23 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   z-index: 3;
   width: calc(100% - 12px);
   left: 6px;
-  height: 16px;
-  top: 16px;
-  border-radius: 16px;
+  top: 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #DEC7E8;
+  font-size: 16px;
+}
+.o-question-hnumberslider-control .m-style-slidermarks > i {
+  text-align: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40px;
+          flex: 0 1 40px;
+  display: block;
+  font-style: normal;
 }
 .o-question-hnumberslider-control .m-label-ticklabels {
   position: relative;

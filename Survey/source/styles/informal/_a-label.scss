@@ -437,9 +437,18 @@ html[dir="rtl"] .m-input-singlelineedit {
         z-index: 3;
         width: calc(100% - 12px);
         left: 6px;
-        height: 16px;
-        top: 16px;
-        border-radius: 16px;
+        top: 11px;
+        display: flex;
+        justify-content: space-between;
+        color: globals.$other0;
+        font-size: 16px;
+
+        & > i {
+            text-align: center;
+            flex: 0 1 40px;
+            display: block;
+            font-style: normal;
+        }
     }
 
     .m-label-ticklabels {
