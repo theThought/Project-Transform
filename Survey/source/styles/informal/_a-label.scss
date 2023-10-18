@@ -364,6 +364,7 @@ html[dir="rtl"] {
         color: globals.$pre-post-text;
         white-space: nowrap;
         box-sizing: content-box;
+        font-size: globals.$label-font-size;
     }
 
     .a-label-prelabel {
@@ -373,6 +374,7 @@ html[dir="rtl"] {
         padding: 10px 8px;
         color: globals.$pre-post-text;
         white-space: nowrap;
+        font-size: globals.$label-font-size;
     }
 
     &.read-only {

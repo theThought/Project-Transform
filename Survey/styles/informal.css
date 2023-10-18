@@ -1048,6 +1048,7 @@ html[dir=rtl] .m-structure-cell .m-option-base .a-label-option {
   white-space: nowrap;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+  font-size: 16px;
 }
 .m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
@@ -1056,6 +1057,7 @@ html[dir=rtl] .m-structure-cell .m-option-base .a-label-option {
   padding: 10px 8px;
   color: #7A3996;
   white-space: nowrap;
+  font-size: 16px;
 }
 .m-input-singlelineedit.read-only .a-label-prelabel,
 .m-input-singlelineedit.read-only .a-label-postlabel {
