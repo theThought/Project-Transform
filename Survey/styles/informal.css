@@ -1819,6 +1819,7 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
   min-width: 3em;
   left: -9999px;
   font-weight: 400;
+  font-size: 18px;
 }
 .o-combobox ul.charrestriction li:not(.a-list-placeholder-restriction),
 .o-dropdown ul.charrestriction li:not(.a-list-placeholder-restriction) {
