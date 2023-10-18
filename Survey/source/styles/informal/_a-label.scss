@@ -526,7 +526,7 @@ div.m-option-base[data-readonly="true"] {
         transition: all 500ms;
         display: inline-block;
         position: relative;
-        border: 2px solid transparent;
+        border: 2px solid globals.$white;
         border-radius: globals.$border-radius;
         padding: 8px;
     }
@@ -534,6 +534,10 @@ div.m-option-base[data-readonly="true"] {
     label + .a-label-option {
         padding-left: 0;
     }
+}
+
+.focused .m-option-base label {
+    border-color: white;
 }
 
 html[dir="rtl"] .m-option-base {

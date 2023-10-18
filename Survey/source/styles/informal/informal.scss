@@ -159,7 +159,7 @@ input:disabled {
 *:focus + label,
 *:focus-visible + label,
 *:focus-within + label {
-    border-color: globals.$theme-primary;
+    border-color: globals.$theme-primary !important;
 }
 
 /* Standardises the placeholder colour - these rules cannot be combined */
