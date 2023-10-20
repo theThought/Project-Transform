@@ -138,7 +138,8 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var percentagefill = (this.element.value / this.element.max) * 100;
+            //var percentagefill = (this.element.value / this.element.max) * 100;
+            var percentagefill = this.element.value / (this.element.max - (0-this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
                 + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
