@@ -2145,6 +2145,11 @@
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
+
+         <xsl:attribute name="data-value">
+            <xsl:value-of select="@Value" />
+         </xsl:attribute>
+
          <xsl:attribute name="class">
             <xsl:text>a-input-</xsl:text>
             <xsl:value-of select="$qCustomType" />
