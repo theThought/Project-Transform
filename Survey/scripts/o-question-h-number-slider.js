@@ -141,14 +141,14 @@ define(['o-question'],
             var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
+                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
             var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
+                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
