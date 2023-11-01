@@ -138,15 +138,14 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            //var percentagefill = (this.element.value / this.element.max) * 100;
-            var percentagefill = this.element.value / (this.element.max - (0-this.element.min)) * 100;
+            var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
                 + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
-            var percentagefill = (this.element.value / this.element.max) * 100;
+            var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
                 + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
