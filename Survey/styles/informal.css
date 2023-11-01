@@ -2133,6 +2133,10 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   margin-right: 1em;
 }
 
+:root {
+  --track-background: rgba(212, 170, 73, 0.15);
+}
+
 body {
   font-size: 20px;
   line-height: 24px;

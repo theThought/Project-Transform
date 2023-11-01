@@ -2131,6 +2131,10 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   margin-right: 1em;
 }
 
+:root {
+  --track-background: globals.$theme-secondary;
+}
+
 * {
   font-size: 16px;
   line-height: 19px;

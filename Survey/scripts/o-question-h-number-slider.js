@@ -19,7 +19,7 @@ define(['o-question'],
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
-            this.floodtovaluecolor = '#449B9B'; // references SCSS var globals.$theme-secondary
+            this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background');
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
