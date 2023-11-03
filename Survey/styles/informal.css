@@ -1653,7 +1653,7 @@ input[type=range]::-ms-fill-lower {
 }
 
 .has-value .flood-to-value::-ms-fill-lower {
-  background-color: #7A3996 !important;
+  background-color: rgba(212, 170, 73, 0.15) !important;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -1702,7 +1702,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .has-value .flood-to-value:focus::-ms-fill-lower {
-  background: #7A3996 !important;
+  background: rgba(212, 170, 73, 0.15) !important;
 }
 
 @supports (-ms-ime-align: auto) {
@@ -2131,6 +2131,10 @@ html[dir=rtl] .sidebyside .o-question-information {
 html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   margin-left: 0;
   margin-right: 1em;
+}
+
+:root {
+  --track-background: rgba(212, 170, 73, 0.15);
 }
 
 body {

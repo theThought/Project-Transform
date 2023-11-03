@@ -198,7 +198,7 @@ input[type=range]::-ms-fill-lower {
 }
 
 .has-value .flood-to-value::-ms-fill-lower {
-    background-color: globals.$theme-secondary !important;
+    background-color: rgba(globals.$theme-primary-hover, .15)!important;
     border-top-left-radius: globals.$border-radius;
     border-bottom-left-radius: globals.$border-radius;
 }
@@ -247,7 +247,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .has-value .flood-to-value:focus::-ms-fill-lower {
-    background: globals.$theme-secondary !important;
+    background: rgba(globals.$theme-primary-hover, .15) !important;
 }
 
 @supports (-ms-ime-align:auto) {

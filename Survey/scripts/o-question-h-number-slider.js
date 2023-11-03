@@ -15,10 +15,11 @@ define(['o-question'],
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
             this.wrapper = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
             this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
+            this.hiddenelement = null;
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
-            this.floodtovaluecolor = '#449B9B'; // references SCSS var globals.$theme-secondary
+            this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background');
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
@@ -26,6 +27,8 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.init = function () {
             this.configureProperties();
+            this.cloneInputElement();
+            this.getInitialValue();
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
@@ -36,16 +39,16 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("input", this, false);
-            document.addEventListener("change", this, false);
-            document.addEventListener("clearEntries", this, false);
-            document.addEventListener("restoreEntries", this, false);
-            document.addEventListener("click", this, false);
-            document.addEventListener("broadcastChange", this, false);
-            document.addEventListener(this.group + "_enableExclusive", this, false);
-            document.addEventListener(this.group + "_dismissExclusive", this, false);
-            document.addEventListener(this.group + "_incrementValue", this, false);
-            document.addEventListener(this.group + "_decrementValue", this, false);
+            document.addEventListener('input', this, false);
+            document.addEventListener('change', this, false);
+            document.addEventListener('clearEntries', this, false);
+            document.addEventListener('restoreEntries', this, false);
+            document.addEventListener('click', this, false);
+            document.addEventListener('broadcastChange', this, false);
+            document.addEventListener(this.group + '_enableExclusive', this, false);
+            document.addEventListener(this.group + '_dismissExclusive', this, false);
+            document.addEventListener(this.group + '_incrementValue', this, false);
+            document.addEventListener(this.group + '_decrementValue', this, false);
         }
 
         oQuestionHNumberSlider.prototype.handleEvent = function (event) {
@@ -56,21 +59,21 @@ define(['o-question'],
                 case 'restoreEntries':
                     this.restoreEntries(event);
                     break;
-                case "click":
-                case "input":
-                case "change":
+                case 'click':
+                case 'input':
+                case 'change':
                     this.onInput(event);
                     break;
-                case this.group + "_enableExclusive":
+                case this.group + '_enableExclusive':
                     this.onEnableExclusive(event);
                     break;
-                case this.group + "_dismissExclusive":
+                case this.group + '_dismissExclusive':
                     this.onDismissExclusive(event);
                     break;
-                case this.group + "_incrementValue":
+                case this.group + '_incrementValue':
                     this.incrementValue();
                     break;
-                case this.group + "_decrementValue":
+                case this.group + '_decrementValue':
                     this.decrementValue();
                     break;
                 case 'broadcastChange':
@@ -79,8 +82,30 @@ define(['o-question'],
             }
         }
 
+        oQuestionHNumberSlider.prototype.cloneInputElement = function () {
+            var newelement = this.element.cloneNode();
+            newelement.id = '';
+            newelement.name = '';
+            this.element.type = 'hidden';
+            this.element.value = this.element.getAttribute('data-value');
+            this.hiddenelement = this.element;
+            this.element = this.wrapper.insertBefore(newelement, this.element);
+        }
+
+        oQuestionHNumberSlider.prototype.getInitialValue = function () {
+            if (typeof this.hiddenelement.value !== 'undefined'
+            && this.hiddenelement.value.length) {
+                this.initialValue = this.hiddenelement.getAttribute('value');
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.setHiddenValue = function (valuestring) {
+            this.hiddenelement.value = valuestring;
+        }
+
         oQuestionHNumberSlider.prototype.clearEntries = function () {
-            this.element.value = "";
+            this.element.value = '';
+            this.setHiddenValue('');
             this.value = 0;
             this.updateValue();
             this.organism.classList.remove('has-value');
@@ -113,17 +138,17 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var percentagefill = (this.element.value / this.element.max) * 100;
+            var percentagefill = (Math.abs(this.element.getAttribute('data-value') - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
+                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
-            var percentagefill = (this.element.value / this.element.max) * 100;
+            var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, #fff ' + percentagefill + '%, white 100%)');
+                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
@@ -237,6 +262,7 @@ define(['o-question'],
             if (event.target === this.element || event.target === this.clickablearea || event === true) {
 
                 this.organism.classList.add('has-value');
+                this.setHiddenValue(this.element.value);
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
@@ -286,6 +312,7 @@ define(['o-question'],
             this.organism.classList.remove('active');
             this.organism.classList.add('inactive');
             this.value = this.element.value;
+            this.setHiddenValue('');
             this.element.disabled = true;
         }
 
@@ -294,6 +321,7 @@ define(['o-question'],
             this.organism.classList.remove('inactive');
             this.element.disabled = false;
             this.element.value = this.value;
+            this.setHiddenValue(this.value);
         }
 
         return oQuestionHNumberSlider;
