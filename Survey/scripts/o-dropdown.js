@@ -495,12 +495,22 @@ define(['component'],
         }
 
         oDropdown.prototype.clearEntries = function () {
+            // do not clear items that are still initialising
+            if (this.isInitialising) {
+                return;
+            }
+
             // call the parent (super) method
             component.prototype.clearEntries.call(this);
             this.clearOptions();
         }
 
         oDropdown.prototype.clearOptions = function () {
+            // do not clear items that are still initialising
+            if (this.isInitialising) {
+                return;
+            }
+
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');

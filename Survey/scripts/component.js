@@ -11,6 +11,7 @@ define(
 
         function component(id, group) {
             this.id = id;
+            this.isInitialising = true;
             this.group = group;
             this.element = null;
             this.container = null;
@@ -82,6 +83,7 @@ define(
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             this.element.dispatchEvent(completeEvent);
             this.broadcastChange();
+            this.isInitialising = false;
         }
 
         component.prototype.broadcastChange = function () {
@@ -90,6 +92,11 @@ define(
         }
 
         component.prototype.clearEntries = function () {
+            // do not clear items that are still initialising
+            if (this.isInitialising) {
+                return;
+            }
+
             // this is responsible for clearing text areas
             if (this.element.value !== "") {
                 this.element.value = "";

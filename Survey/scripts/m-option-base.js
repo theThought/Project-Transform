@@ -139,6 +139,11 @@ define(['component'],
         }
 
         mOptionBase.prototype.clearEntries = function () {
+            // do not clear items that are still initialising
+            if (this.isInitialising) {
+                return;
+            }
+
             if (this.checkbox.checked) {
                 this.checkbox.checked = false;
                 this.broadcastChange();

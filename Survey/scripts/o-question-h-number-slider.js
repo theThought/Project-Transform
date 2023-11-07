@@ -104,6 +104,11 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.clearEntries = function () {
+            // do not clear items that are still initialising
+            if (this.isInitialising) {
+                return;
+            }
+
             this.element.value = '';
             this.setHiddenValue('');
             this.value = 0;

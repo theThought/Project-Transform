@@ -131,6 +131,7 @@ define(['o-question'],
             if (!this.ready && event.detail.group === this.group) {
                 this.ready = true;
                 this.element.classList.add('config-complete');
+                this.isInitialising = false;
             }
         }
 
