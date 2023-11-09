@@ -40,6 +40,6 @@ textarea:focus-within  {
 // global style for focused controls
 .focus-control {
     textarea:focus {
-        box-shadow: globals.$drop-shadow;
+        //box-shadow: globals.$drop-shadow;
     }
 }

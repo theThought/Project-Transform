@@ -152,7 +152,8 @@ input:disabled {
 // global style for focused controls
 .focus-control {
     input:focus {
-        box-shadow: globals.$drop-shadow;
+
+        //box-shadow: globals.$drop-shadow;
     }
 }
 

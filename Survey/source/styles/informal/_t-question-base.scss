@@ -7,12 +7,12 @@
 
 .focus-question .o-question-container.focused {
     background-color: white;
-    box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
+    //box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
 }
 
 @media screen and (max-width: 1023px) {
     .focus-question .o-question-container.focused {
-        box-shadow: globals.$drop-shadow;
+        //box-shadow: globals.$drop-shadow;
     }
 }
 
@@ -21,7 +21,8 @@
 }
 
 .o-question-container:not(.no-separator) {
-    border-bottom: globals.$border-thickness solid globals.$borders-light;
+    // the !important prevents the border colour from changing when a question within the container is focused
+    border-bottom: globals.$border-thickness solid globals.$borders-light !important;
 }
 
 .surroundcontent > div:last-child {

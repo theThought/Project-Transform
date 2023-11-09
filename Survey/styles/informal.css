@@ -499,16 +499,6 @@ input[type=radio]:checked + label > .a-icon-multistate {
   background-image: url("../images/tick-informal.svg");
 }
 
-.focus-control input[type=checkbox]:focus + label,
-.focus-control input[type=radio]:focus + label,
-.focus-control input[type=radio]:focus-visible + label,
-.focus-control input[type=radio]:focus-within + label,
-.focus-control input[type=checkbox]:focus-visible + label,
-.focus-control input[type=checkbox]:focus-within + label {
-  -webkit-box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
-          box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
-}
-
 .m-list-optionlist input[type=checkbox]:focus + label,
 .m-list-optionlist input[type=radio]:focus + label,
 .m-list-optionlist input[type=radio]:focus-visible + label,
@@ -577,11 +567,6 @@ textarea:focus-visible,
 textarea:focus-within {
   outline: none;
   border-color: #E8BE5D;
-}
-
-.focus-control textarea:focus {
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
 }
 
 /* a-input-singlelineedit
@@ -840,11 +825,6 @@ html[dir=rtl] .a-label-total {
 .focused .grid-grandtotal .a-label-prelabel,
 .focused .grid-grandtotal .a-label-postlabel {
   border: none !important;
-}
-
-.focus-control .m-input-singlelineedit.focused {
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
 }
 
 .o-question-instruction {
@@ -1295,7 +1275,7 @@ html[dir=rtl] .balance .m-option-base {
 .m-question-cover {
   -webkit-transition: opacity 1s 0ms, z-index 0ms 0ms;
   transition: opacity 1s 0ms, z-index 0ms 0ms;
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   position: absolute;
   left: 0;
   top: 0;
@@ -1888,12 +1868,6 @@ html[dir=rtl] .o-dropdown ul li {
   text-align: inherit;
 }
 
-.focus-control .o-combobox ul,
-.focus-control .o-dropdown ul {
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
-}
-
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
@@ -2040,22 +2014,14 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 
 .focus-question .o-question-container.focused {
   background-color: white;
-  -webkit-box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 0 11px 4px rgba(0, 0, 0, 0.25);
 }
 
-@media screen and (max-width: 1023px) {
-  .focus-question .o-question-container.focused {
-    -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-            box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-  }
-}
 .o-question-container:not(.sidebyside)[data-position=side] {
   display: inline-block;
 }
 
 .o-question-container:not(.no-separator) {
-  border-bottom: 2px solid #D6DDEB;
+  border-bottom: 2px solid #D6DDEB !important;
 }
 
 .surroundcontent > div:last-child {
@@ -2140,7 +2106,7 @@ html {
 }
 
 body {
-  background: #FAFAFA;
+  background: #FFFFFF;
   color: #212C4C;
   padding: 0;
   margin: 0 2em;
@@ -2264,11 +2230,6 @@ html[dir=rtl] .hiddencontrol {
 }
 input:disabled {
   opacity: 1;
-}
-
-.focus-control input:focus {
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25), 0 -11px 11px -9px rgba(49, 46, 46, 0.25);
 }
 
 *:focus,
