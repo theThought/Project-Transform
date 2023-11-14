@@ -15,6 +15,7 @@ define(['component'],
             this.element = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"]');
             this.droplist = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-combobox][data-questiongroup="' + this.group + '"]');
+            this.container = this.droplist.closest('div.o-question-core>.o-question-response');
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
@@ -71,6 +72,7 @@ define(['component'],
             this.element.addEventListener('focusin', this, false);
             this.element.addEventListener('focusout', this, false);
             this.element.addEventListener('cut', this, false);
+            this.container.addEventListener('scroll', this, false);
         }
 
         oCombobox.prototype.handleEvent = function (event) {
@@ -113,7 +115,14 @@ define(['component'],
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
                     break;
+                case 'scroll':
+                    this.updateDroplistPosition(event);
+                    break;
             }
+        }
+
+        oCombobox.prototype.updateDroplistPosition = function (event) {
+            this.droplist.style.marginLeft = 0 - this.container.scrollLeft + 'px';
         }
 
         oCombobox.prototype.exact = function (prop) {

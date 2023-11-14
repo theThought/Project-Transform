@@ -1180,7 +1180,7 @@ div.m-option-base[data-readonly=true] .a-label-option {
   transition: all 500ms;
   display: inline-block;
   position: relative;
-  border: 2px solid #FAFAFA;
+  border: 2px solid #FFFFFF;
   border-radius: 5px;
   padding: 8px;
 }
@@ -1393,6 +1393,10 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
+.o-question-response {
+  overflow-y: visible;
+  overflow-x: auto;
+}
 .o-question-response[data-hidden=true] * {
   display: none;
 }

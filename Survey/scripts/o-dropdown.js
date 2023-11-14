@@ -15,6 +15,7 @@ define(['component'],
             this.element = document.querySelector('input.a-input-dropdown[data-questionid="' + this.id + '"]');
             this.droplist = document.querySelector('input.a-input-dropdown[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-dropdown][data-questiongroup="' + this.group + '"]');
+            this.container = this.droplist.closest('div.o-question-core>.o-question-response');
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
@@ -71,6 +72,7 @@ define(['component'],
             this.element.addEventListener('focusin', this, false);
             this.element.addEventListener('focusout', this, false);
             this.element.addEventListener('cut', this, false);
+            this.container.addEventListener('scroll', this, false);
         }
 
         oDropdown.prototype.handleEvent = function (event) {
@@ -113,7 +115,14 @@ define(['component'],
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
                     break;
+                case 'scroll':
+                    this.updateDroplistPosition(event);
+                    break;
             }
+        }
+
+        oDropdown.prototype.updateDroplistPosition = function (event) {
+            this.droplist.style.marginLeft = 0 - this.container.scrollLeft + 'px';
         }
 
         oDropdown.prototype.exact = function (prop) {
@@ -368,7 +377,7 @@ define(['component'],
         }
 
         oDropdown.prototype.navigateDown = function () {
-            var lastpos = this.list.length -1;
+            var lastpos = this.list.length - 1;
 
             if (this.currentlistposition === lastpos) {
                 return;

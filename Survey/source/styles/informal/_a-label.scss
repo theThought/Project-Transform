@@ -535,7 +535,7 @@ div.m-option-base[data-readonly="true"] {
         transition: all 500ms;
         display: inline-block;
         position: relative;
-        border: 2px solid globals.$white;
+        border: 2px solid globals.$background;
         border-radius: globals.$border-radius;
         padding: 8px;
     }
