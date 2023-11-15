@@ -31,23 +31,23 @@ html[dir="rtl"] .a-icon-multistate[data-icontype="single"] {
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
-    background-image: url("/Survey/images/checkbox-informal.svg");
+    background-image: url("/Survey/images/informal-checkbox.svg");
     background-repeat: no-repeat;
     background-size: 22px;
 }
 
 input[type=radio] + label > .a-icon-multistate {
-    background-image: url("/Survey/images/radio-informal.svg");
+    background-image: url("/Survey/images/informal-radio.svg");
     background-repeat: no-repeat;
     background-size: 22px;
 }
 
 input[type=checkbox]:checked + label > .a-icon-multistate {
-    background-image: url("/Survey/images/tick-informal.svg");
+    background-image: url("/Survey/images/informal-tick.svg");
 }
 
 input[type=radio]:checked + label > .a-icon-multistate {
-    background-image: url("/Survey/images/tick-informal.svg");
+    background-image: url("/Survey/images/informal-tick.svg");
 }
 
 .focus-control {
