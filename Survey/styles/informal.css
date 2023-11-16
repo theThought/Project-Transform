@@ -49,8 +49,8 @@
 .overall-progress-bar .mrProgressText {
   display: block;
   position: absolute;
-  top: -1px;
-  left: -42px;
+  top: -3px;
+  left: -50px;
 }
 
 html[dir=rtl] .mrProgressText {
@@ -461,16 +461,15 @@ html[dir=rtl] #nav-controls #prevstop input[type=submit]:last-child {
 
 .m-option-base .a-icon-multistate {
   position: absolute;
+  z-index: 2;
 }
 
 html[dir=rtl] .m-option-base .a-icon-multistate {
-  left: auto;
-  right: 0;
+  right: 8px;
 }
 
 html[dir=rtl] .a-icon-multistate[data-icontype=single] {
-  left: auto;
-  right: 1px;
+  right: 8px;
 }
 
 /* Grid layout */
@@ -1163,14 +1162,16 @@ div.m-option-base[data-readonly=true] .a-label-option {
   color: #847E88 !important;
 }
 
-html[dir=rtl] .m-option-base label {
+html[dir=rtl] .m-option-base label::after {
   background: linear-gradient(270deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
-  background-size: 0;
   background-repeat: no-repeat;
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
 }
 
-.m-option-base input:checked + label {
-  background-size: 100%;
+.m-option-base input:checked + label::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 .m-option-base input:checked + label > .a-label-option {
   color: #7A3996;
@@ -1179,20 +1180,34 @@ html[dir=rtl] .m-option-base label {
   color: #847E88;
 }
 .m-option-base .a-label-option {
+  position: relative;
   display: inline-block;
   padding-left: 38px;
+  z-index: 2;
 }
 .m-option-base label {
-  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
-  background-size: 0;
-  background-repeat: no-repeat;
-  -webkit-transition: all 500ms;
-  transition: all 500ms;
   display: inline-block;
   position: relative;
   border: 2px solid #FFFFFF;
-  border-radius: 5px;
+  border-radius: calc(5px + 2px);
   padding: 8px;
+}
+.m-option-base label::after {
+  content: "";
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  border-radius: 5px;
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
 }
 .m-option-base label + .a-label-option {
   padding-left: 0;
@@ -1204,7 +1219,7 @@ html[dir=rtl] .m-option-base label {
 
 html[dir=rtl] .m-option-base .a-label-option {
   padding-left: 0;
-  padding-right: 1.5em;
+  padding-right: 38px;
 }
 html[dir=rtl] .m-option-base label + .a-label-option {
   padding-right: 0;
