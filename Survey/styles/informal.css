@@ -1151,11 +1151,11 @@ html[dir=rtl] .o-question-hnumberslider-control .m-label-ticklabels {
   right: 6px;
 }
 
-html[dir=rtl] div.m-option-base[data-readonly=true] label {
+html[dir=rtl] div.m-option-base[data-readonly=true] label::after {
   background: linear-gradient(270deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
 }
 
-div.m-option-base[data-readonly=true] label {
+div.m-option-base[data-readonly=true] label::after {
   background: linear-gradient(90deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
 }
 div.m-option-base[data-readonly=true] .a-label-option {
