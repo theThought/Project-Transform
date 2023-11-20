@@ -98,12 +98,17 @@ define(['component'],
                     break;
                 case "keydown":
                     this.getKeyPressed(event);
-                    this.onKeydown(event);
+                    this.onKeydown();
                     break;
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
                     break;
             }
+        }
+
+        mOptionBase.prototype.getInitialValue = function () {
+            component.prototype.getInitialValue.call(this);
+            this.changeState(this.checkbox.checked);
         }
 
         mOptionBase.prototype.getKeyPressed = function (event) {
@@ -118,10 +123,10 @@ define(['component'],
             }
         }
 
-        mOptionBase.prototype.onKeydown = function (event) {
+        mOptionBase.prototype.onKeydown = function () {
             if (this.keypressed === 32 && !this.checkbox.disabled) {
                 if (this.checkbox.type === 'radio') {
-                    this.checkbox.checked = true;
+                    this.changeState(true);
                 } else {
                     this.checkbox.checked = !this.checkbox.checked;
                 }
@@ -145,7 +150,7 @@ define(['component'],
             }
 
             if (this.checkbox.checked) {
-                this.checkbox.checked = false;
+                this.changeState(false);
                 this.broadcastChange();
             }
 
@@ -160,7 +165,7 @@ define(['component'],
             }
 
             if (this.restoreValues && this.initialValue) {
-                this.checkbox.checked = true;
+                this.changeState(true);
                 this.broadcastChange();
             }
         }
@@ -213,8 +218,6 @@ define(['component'],
             this.element.dispatchEvent(focusin);
 
             if (event.target === this.textInput) {
-                //this.checkbox.checked = true;
-                //this.onChange(event);
                 return;
             }
 
@@ -223,7 +226,7 @@ define(['component'],
                 if (this.checkbox.checked && this.checkbox.type === 'radio') {
                     return;
                 }
-                this.checkbox.checked = !this.checkbox.checked;
+                this.changeState(!this.checkbox.checked);
                 this.onChange(event);
             }
         }
@@ -233,7 +236,7 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element) {
                 if (this.checkbox.checked) {
-                    this.checkbox.checked = false;
+                    this.changeState(false);
                 }
                 this.broadcastChange();
             }
@@ -245,7 +248,7 @@ define(['component'],
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
                 if (this.checkbox.checked) {
-                    this.checkbox.checked = false;
+                    this.changeState(false);
                     this.broadcastChange();
                 }
             }
@@ -254,13 +257,13 @@ define(['component'],
         mOptionBase.prototype.onTextInput = function (event) {
             if (this.isExclusive && event.detail.element !== this.textInput) {
                 if (this.checkbox.checked) {
-                    this.checkbox.checked = false;
+                    this.changeState(false);
                     this.broadcastChange();
                 }
             }
 
             if (event.detail.element === this.textInput) {
-                this.checkbox.checked = true;
+                this.changeState(true);
                 this.broadcastChange();
             }
         }
@@ -271,7 +274,7 @@ define(['component'],
             // checkboxes and may need to react correspondingly (e.g. exclusive)
             if (this.isExclusive && event.detail.element !== this.textInput) {
                 if (event.detail.element.value.length && this.checkbox.checked) {
-                    this.checkbox.checked = false;
+                    this.changeState(false);
                     this.broadcastChange();
                 }
             }
@@ -279,8 +282,18 @@ define(['component'],
             // this section deals with other specifier textboxes, where the textbox
             // 'belongs' to the checkbox
             if (event.detail.element === this.textInput && this.textInput.value.length) {
-                this.checkbox.checked = true;
+                this.changeState(true);
                 this.broadcastChange();
+            }
+        }
+
+        mOptionBase.prototype.changeState = function (check) {
+            if (check) {
+                this.checkbox.checked = true;
+                this.element.setAttribute('data-checked', 'true');
+            } else {
+                this.checkbox.checked = false;
+                this.element.setAttribute('data-checked', 'false')
             }
         }
 
