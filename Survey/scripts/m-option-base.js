@@ -127,8 +127,13 @@ define(['component'],
             if (this.keypressed === 32 && !this.checkbox.disabled) {
                 if (this.checkbox.type === 'radio') {
                     this.changeState(true);
+                    var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
+                        bubbles: true,
+                        detail: this
+                    });
+                    this.element.dispatchEvent(enableExclusive);
                 } else {
-                    this.checkbox.checked = !this.checkbox.checked;
+                    this.changeState(!this.checkbox.checked);
                 }
 
                 this.broadcastChange();
@@ -235,9 +240,7 @@ define(['component'],
 
             // handle external events
             if (this.element !== event.detail.element) {
-                if (this.checkbox.checked) {
-                    this.changeState(false);
-                }
+                this.changeState(false);
                 this.broadcastChange();
             }
 
