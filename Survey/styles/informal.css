@@ -492,6 +492,7 @@ input[type=radio] + label > .a-icon-multistate {
 
 input[type=checkbox]:checked + label > .a-icon-multistate {
   background-image: url("../images/informal-tick.svg");
+  background-position: 0 -1px;
 }
 
 input[type=radio]:checked + label > .a-icon-multistate {
@@ -1151,24 +1152,6 @@ html[dir=rtl] .o-question-hnumberslider-control .m-label-ticklabels {
   right: 6px;
 }
 
-html[dir=rtl] div.m-option-base[data-readonly=true] label::after {
-  background: linear-gradient(270deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
-}
-
-div.m-option-base[data-readonly=true] label::after {
-  background: linear-gradient(90deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
-}
-div.m-option-base[data-readonly=true] .a-label-option {
-  color: #847E88 !important;
-}
-
-html[dir=rtl] .m-option-base label::after {
-  background: linear-gradient(270deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
-  background-repeat: no-repeat;
-  -webkit-transform-origin: 100% 50%;
-          transform-origin: 100% 50%;
-}
-
 .m-option-base input:checked + label::after {
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -1257,6 +1240,24 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   -webkit-transform-origin: 0 50%;
           transform-origin: 0 50%;
   border: 2px transparent;
+}
+
+.m-option-base[data-readonly=true]::after {
+  background: linear-gradient(90deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
+}
+.m-option-base[data-readonly=true] .a-label-option {
+  color: #847E88 !important;
+}
+
+html[dir=rtl] .m-option-base::after {
+  background: linear-gradient(270deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
+  background-repeat: no-repeat;
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+}
+
+html[dir=rtl] .m-option-base[data-readonly=true]::after {
+  background: linear-gradient(270deg, #847E88 0, #847E88 38px, #ECEFF5 38px) no-repeat;
 }
 
 html[dir=rtl] .m-option-base {

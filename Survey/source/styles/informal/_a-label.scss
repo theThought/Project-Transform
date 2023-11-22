@@ -498,35 +498,6 @@ html[dir="rtl"] .o-question-hnumberslider-control {
     }
 }
 
-html[dir="rtl"] div.m-option-base[data-readonly="true"] {
-    label::after {
-        background: linear-gradient(270deg, #{globals.$disabled-text} 0, #{globals.$disabled-text} 38px, #{globals.$disabled-background} 38px) no-repeat;
-    }
-}
-
-div.m-option-base[data-readonly="true"] {
-    label::after {
-        background: linear-gradient(90deg, #{globals.$disabled-text} 0, #{globals.$disabled-text} 38px, #{globals.$disabled-background} 38px) no-repeat;
-    }
-
-    .a-label-option {
-        color: globals.$disabled-text !important;
-    }
-}
-
-div.m-option-base:focus > label, div.m-option-base:focus-visible > label, div.m-option-base:focus-within > label {
-    // may require a border colour override
-    //  border-color: blue !important;
-}
-
-html[dir="rtl"] .m-option-base {
-    label::after {
-        background: linear-gradient(270deg, #{globals.$theme-primary} 0, #{globals.$theme-primary} 38px, #{globals.$input-background-has-content} 38px);
-        background-repeat: no-repeat;
-        transform-origin: 100% 50%;
-    }
-}
-
 .m-option-base {
 
     input:checked + label::after {

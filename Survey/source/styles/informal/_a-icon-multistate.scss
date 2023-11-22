@@ -43,6 +43,7 @@ input[type=radio] + label > .a-icon-multistate {
 
 input[type=checkbox]:checked + label > .a-icon-multistate {
     background-image: url("/Survey/images/informal-tick.svg");
+    background-position: 0 -1px;
 }
 
 input[type=radio]:checked + label > .a-icon-multistate {
