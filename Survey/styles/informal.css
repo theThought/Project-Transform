@@ -2135,13 +2135,7 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
 }
 
 :root {
-  --track-background: rgba(212, 170, 73, 0.15);
-}
-
-body {
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 500;
+  --track-background-fill: rgba(212, 170, 73, 0.15);
 }
 
 html {
@@ -2160,6 +2154,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
 }
 
 html[dir=rtl] body,

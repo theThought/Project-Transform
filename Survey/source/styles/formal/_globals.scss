@@ -1,8 +1,6 @@
 $primary-font: "Karla", "KarlaLocal", sans-serif;
 $secondary-font: "Merriweather", "MerriweatherLocal", serif;
 $rtl-font: "Rubik", "RubikLocal", serif;
-$standard-font-size: 16px;
-$standard-line-height: 19px;
 
 $theme-primary: #455B97;
 $theme-primary-hover: #324371;
@@ -41,6 +39,11 @@ $input-background: #FFFFFF;
 $pre-post-text: $theme-primary-hover;
 $disabled-text: $theme-secondary;
 $disabled-background: $light1;
+
+$standard-font-size: 16px;
+$standard-font-weight: 400;
+
+$standard-line-height: 19px;
 
 $border-thickness: 1px;
 $text-border-radius: 2px;

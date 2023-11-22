@@ -20,7 +20,7 @@
 @import 't-question-base';
 
 :root {
-    --track-background: globals.$theme-secondary;
+    --track-background-fill: #{globals.$theme-secondary};
 }
 
 * {
@@ -39,6 +39,9 @@ body {
     margin: 0 2em;
     display: flex;
     flex-direction: column;
+    font-size: globals.$standard-font-size;
+    line-height: globals.$standard-line-height;
+    font-weight: globals.$standard-font-weight;
 }
 
 html[dir=rtl] {
