@@ -319,7 +319,7 @@ button.a-button-postterminator {
   position: relative;
   border: none;
   background: transparent !important;
-  top: 0.5em;
+  top: 7px;
   width: 2em;
   min-width: 2em;
   padding: 0 0.5em;
@@ -1048,14 +1048,10 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   left: auto;
 }
 
-.o-question-hnumberslider-control .a-label-outer-prelabel {
-  position: relative;
-  top: 0.9em;
-  color: #E8BE5D;
-}
+.o-question-hnumberslider-control .a-label-outer-prelabel,
 .o-question-hnumberslider-control .a-label-outer-postlabel {
   position: relative;
-  top: 0.9em;
+  top: 12px;
   color: #E8BE5D;
 }
 .o-question-hnumberslider-control .a-label-prelabel {

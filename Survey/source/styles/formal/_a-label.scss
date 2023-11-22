@@ -398,12 +398,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 .o-question-hnumberslider-control {
-    .a-label-outer-prelabel {
-        position: relative;
-        top: .9em;
-        color: globals.$theme-primary;
-    }
-
+    .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
         top: .9em;

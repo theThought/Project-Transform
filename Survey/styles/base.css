@@ -1095,11 +1095,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   right: -0.5em;
 }
 
-.o-question-hnumberslider-control .a-label-outer-prelabel {
-  position: relative;
-  top: 0.9em;
-  color: #455B97;
-}
+.o-question-hnumberslider-control .a-label-outer-prelabel,
 .o-question-hnumberslider-control .a-label-outer-postlabel {
   position: relative;
   top: 0.9em;
