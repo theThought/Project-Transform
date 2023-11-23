@@ -31,6 +31,7 @@ define(['component'],
             this.configureProperties();
             this.getInitialValue();
             this.configureReadonly();
+            this.relocateTextInput();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configureInitialVisibility();
@@ -100,10 +101,20 @@ define(['component'],
                     this.getKeyPressed(event);
                     this.onKeydown();
                     break;
-                case 'broadcastChange':
+                case "broadcastChange":
                     this.processVisibilityRulesFromExternalTrigger(event);
                     break;
             }
+        }
+
+        mOptionBase.prototype.relocateTextInput = function () {
+            if (this.textInput === null) {
+                return;
+            }
+
+            var textDestination = this.element.querySelector('label');
+            var textWrapper = this.element.querySelector('.m-input-singlelineedit');
+            textDestination.appendChild(textWrapper);
         }
 
         mOptionBase.prototype.getInitialValue = function () {

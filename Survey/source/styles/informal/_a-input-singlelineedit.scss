@@ -163,6 +163,8 @@ input[readonly]:focus-visible {
 /* inputs when a child of a checkbox (other specifier) */
 .m-option-base {
     .a-input-singlelineedit {
+        position: relative;
+        z-index: 1;
         margin-left: .5em;
         margin-bottom: 0;
         padding: 0;
