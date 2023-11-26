@@ -1415,10 +1415,6 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
-.o-question-response {
-  overflow-y: visible;
-  overflow-x: auto;
-}
 .o-question-response[data-hidden=true] * {
   display: none;
 }
