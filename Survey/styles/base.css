@@ -1470,6 +1470,10 @@ html[dir=rtl] .balance .m-option-base {
   margin-bottom: 0.5em;
   min-width: 343px;
 }
+.o-question-hnumberslider-control:focus .a-style-sliderborder, .o-question-hnumberslider-control:focus-visible .a-style-sliderborder, .o-question-hnumberslider-control:focus-within .a-style-sliderborder {
+  -webkit-box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
+          box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
+}
 .o-question-hnumberslider-control.has-value input[type=range]::-webkit-slider-thumb {
   visibility: visible;
 }
@@ -1544,6 +1548,8 @@ input[type=range] {
   background-color: transparent;
   -webkit-appearance: none;
   border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 html[dir=rtl] input[type=range] {
