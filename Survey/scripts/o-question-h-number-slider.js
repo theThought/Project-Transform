@@ -19,7 +19,7 @@ define(['o-question'],
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
-            this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background');
+            this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
         }
 
         oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
@@ -143,7 +143,8 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var percentagefill = (Math.abs(this.element.getAttribute('data-value') - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
+            var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
+            //var percentagefill = (Math.abs(this.element.getAttribute('data-value') - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
                 + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
@@ -313,7 +314,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionHNumberSlider.prototype.onEnableExclusive = function (event) {
+        oQuestionHNumberSlider.prototype.onEnableExclusive = function () {
             this.organism.classList.remove('active');
             this.organism.classList.add('inactive');
             this.value = this.element.value;
@@ -321,7 +322,7 @@ define(['o-question'],
             this.element.disabled = true;
         }
 
-        oQuestionHNumberSlider.prototype.onDismissExclusive = function (event) {
+        oQuestionHNumberSlider.prototype.onDismissExclusive = function () {
             this.organism.classList.add('active');
             this.organism.classList.remove('inactive');
             this.element.disabled = false;
