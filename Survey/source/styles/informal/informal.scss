@@ -19,10 +19,6 @@
 @import 'o-structure-table';
 @import 't-question-base';
 
-:root {
-    --track-background-fill: #{rgba(globals.$theme-primary-hover, .15)};
-}
-
 html {
     height: 95vh;
 }

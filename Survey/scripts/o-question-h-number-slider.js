@@ -241,7 +241,6 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.labels = function (props) {
-
             if (props['pre']) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-outer-prelabel';
@@ -261,6 +260,33 @@ define(['o-question'],
                 this.organism.classList.add('has-post-label');
                 this.organism.appendChild(postElement);
             }
+        }
+
+        oQuestionHNumberSlider.prototype.thumb = function (props) {
+            if (props['image']) {
+                this.setThumbImage(props['image']);
+            }
+
+            if (props['width']) {
+                this.setThumbWidth(props['width']);
+            }
+
+            if (props['height']) {
+                this.setThumbHeight(props['height']);
+            }
+        }
+
+        oQuestionHNumberSlider.prototype.setThumbImage = function (prop) {
+            this.element.style.setProperty('--track-thumb-border', 'none');
+            this.element.style.setProperty('--track-thumb-image', 'url(../images/' + prop + ')');
+        }
+
+        oQuestionHNumberSlider.prototype.setThumbWidth = function (prop) {
+            this.element.style.setProperty('--track-thumb-width', prop + 'px');
+        }
+
+        oQuestionHNumberSlider.prototype.setThumbHeight = function (prop) {
+            this.element.style.setProperty('--track-thumb-height', prop + 'px');
         }
 
         oQuestionHNumberSlider.prototype.onInput = function (event) {

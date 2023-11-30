@@ -19,10 +19,6 @@
 @import 'o-structure-table';
 @import 't-question-base';
 
-:root {
-    --track-background-fill: #{globals.$theme-secondary};
-}
-
 * {
     font-size: globals.$standard-font-size;
     line-height: globals.$standard-line-height;

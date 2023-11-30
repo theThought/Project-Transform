@@ -1,5 +1,13 @@
 @use 'globals';
 
+:root {
+    --track-background-fill: #{globals.$theme-secondary};
+    --track-thumb-image: none;
+    --track-thumb-width: 24px;
+    --track-thumb-height: 24px;
+    --track-thumb-border: 8px solid #{globals.$borders};
+}
+
 // question response-level container
 .o-question-hnumberslider {
     overflow: visible;
@@ -130,13 +138,16 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
     margin-top: -11px;
     width: 40px;
     height: 40px;
-    background: transparent;
-    border: 8px solid globals.$borders;
+    border: var(--track-thumb-border);
     border-radius: 50px;
-    -webkit-appearance: none;
+    background-color: transparent;
+    background-image: var(--track-thumb-image);
+    background-size: cover;
+    background-position: center;
     box-shadow: none;
     z-index: 4;
     visibility: hidden;
@@ -167,11 +178,14 @@ input[type=range]::-moz-range-track {
 }
 
 input[type=range]::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: 8px solid globals.$borders;
+    width: var(--track-thumb-width);
+    height: var(--track-thumb-height);
+    border: var(--track-thumb-border);
     border-radius: 50px;
+    background-color: transparent;
+    background-image: var(--track-thumb-image);
+    background-size: cover;
+    background-position: center;
     box-shadow: none;
     z-index: 4;
     visibility: hidden;
@@ -236,11 +250,14 @@ html[dir="rtl"] input[type=range]::-ms-fill-upper {
 }
 
 input[type=range]::-ms-thumb {
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: 8px solid globals.$borders;
+    width: var(--track-thumb-width);
+    height: var(--track-thumb-height);
+    border: var(--track-thumb-border);
     border-radius: 50px;
+    background-color: transparent;
+    background-image: var(--track-thumb-image);
+    background-size: cover;
+    background-position: center;
     margin-top: 0px;
     box-shadow: none;
     z-index: 4;
