@@ -1457,10 +1457,9 @@ html[dir=rtl] .balance .m-option-base {
 
 :root {
   --track-background-fill: #449B9B;
-  --track-thumb-image: none;
-  --track-thumb-width: 24px;
-  --track-thumb-height: 24px;
-  --track-thumb-border: 8px solid #8797C8;
+  --track-thumb-image: url("../images/formal-range-thumb.svg");
+  --track-thumb-width: 32px;
+  --track-thumb-height: 32px;
 }
 
 .o-question-hnumberslider {
@@ -1590,8 +1589,7 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -11px;
   width: 40px;
   height: 40px;
-  border: var(--track-thumb-border);
-  border-radius: 50px;
+  border: none;
   background-color: transparent;
   background-image: var(--track-thumb-image);
   background-size: cover;
@@ -1629,8 +1627,7 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
   width: var(--track-thumb-width);
   height: var(--track-thumb-height);
-  border: var(--track-thumb-border);
-  border-radius: 50px;
+  border: none;
   background-color: transparent;
   background-image: var(--track-thumb-image);
   background-size: cover;
@@ -1701,8 +1698,7 @@ html[dir=rtl] input[type=range]::-ms-fill-upper {
 input[type=range]::-ms-thumb {
   width: var(--track-thumb-width);
   height: var(--track-thumb-height);
-  border: var(--track-thumb-border);
-  border-radius: 50px;
+  border: none;
   background-color: transparent;
   background-image: var(--track-thumb-image);
   background-size: cover;

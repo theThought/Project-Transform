@@ -5,7 +5,6 @@
     --track-thumb-image: url("/Survey/images/informal-range-thumb.svg");
     --track-thumb-width: 40px;
     --track-thumb-height: 45px;
-    --track-thumb-border: none;
 }
 
 // question response-level container
@@ -132,7 +131,7 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -15px;
     width: var(--track-thumb-width);
     height: var(--track-thumb-height);
-    border: var(--track-thumb-border);
+    border: none;
     background-image: var(--track-thumb-image);
     background-size: cover;
     background-position: center;
@@ -168,7 +167,7 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
     width: var(--track-thumb-width);
     height: var(--track-thumb-height);
-    border: var(--track-thumb-border);
+    border: none;
     background-color: transparent;
     background-image: var(--track-thumb-image);
     background-size: cover;
@@ -239,7 +238,7 @@ html[dir="rtl"] input[type=range]::-ms-fill-upper {
 input[type=range]::-ms-thumb {
     width: var(--track-thumb-width);
     height: var(--track-thumb-height);
-    border: var(--track-thumb-border);
+    border: none;
     background-image: var(--track-thumb-image);
     background-color: transparent;
     background-size: cover;
