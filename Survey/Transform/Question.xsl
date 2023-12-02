@@ -21,7 +21,7 @@
       </xsl:choose>
    </xsl:variable>
    <!--- Basic Structure -->
-  <xsl:template match="Questions">
+   <xsl:template match="Questions">
       <xsl:for-each select="*">
          <xsl:choose>
             <xsl:when test="name()='Question'">
@@ -434,7 +434,7 @@
                      <xsl:text>option</xsl:text>
                   </xsl:when>
                   <xsl:otherwise>
-                    <xsl:text>question</xsl:text>
+                     <xsl:text>question</xsl:text>
                   </xsl:otherwise>
                </xsl:choose>
             </xsl:otherwise>
