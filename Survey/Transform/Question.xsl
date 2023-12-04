@@ -2043,7 +2043,9 @@
       <xsl:param name="qGroupName" />
       <xsl:param name="qFullName" />      
       <xsl:element name="div">
-      <xsl:attribute name="class" select="o.progressive.valuetable" />
+      <xsl:attribute name="class"> 
+         <xsl:text>o.progressive.valuetable</xsl:text>
+      </xsl:attribute>
          <xsl:for-each select="./Row">
                <xsl:call-template name="ProgressiveDataRow">
                   <xsl:with-param name="qGroupName" select="$qGroupName" />
@@ -2058,7 +2060,7 @@
       <xsl:param name="qFullName" />      
       <xsl:element name="div">
          <xsl:attribute name="class">
-            <xsl:text>o.progressive.navigation</xsl:text>
+            <xsl:text>m.progressive.navigation</xsl:text>
          </xsl:attribute>
          <xsl:for-each select="./Row">
                <xsl:call-template name="ProgressiveNavigationRow">
