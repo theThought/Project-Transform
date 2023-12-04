@@ -143,15 +143,22 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
-            //var percentagefill = (Math.abs(this.element.getAttribute('data-value') - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
+            var min = this.element.min ? parseInt(this.element.min) : 0;
+            var max = this.element.max ? parseInt(this.element.max) : 100;
+            var val = this.element.value ? parseInt(this.element.value) : 50;
+
+            var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
                 + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
-            var percentagefill = (Math.abs(this.element.value - this.element.min) / Math.abs(this.element.max - this.element.min)) * 100;
+            var min = this.element.min ? parseInt(this.element.min) : 0;
+            var max = this.element.max ? parseInt(this.element.max) : 100;
+            var val = this.element.value ? parseInt(this.element.value) : 50;
+
+            var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
                 + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');

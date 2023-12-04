@@ -1576,14 +1576,6 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 16px;
 }
 
-.active input[type=range]::-webkit-slider-thumb {
-  border-color: #7A3996;
-}
-
-.active input[type=range]::-webkit-slider-thumb:hover {
-  border-color: #5B2771;
-}
-
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -11px;
@@ -1616,19 +1608,11 @@ input[type=range]::-moz-range-track {
   height: 22px;
 }
 
-.active input[type=range]::-moz-range-thumb {
-  border-color: #7A3996;
-}
-
-.active input[type=range]::-moz-range-thumb:hover {
-  border-color: #5B2771;
-}
-
 input[type=range]::-moz-range-thumb {
   width: var(--track-thumb-width);
   height: var(--track-thumb-height);
   border: none;
-  background-color: transparent;
+  background: linear-gradient(to right, var(--track-background-fill) 0, var(--track-background-fill) 50%, white 50%);
   background-image: var(--track-thumb-image);
   background-size: cover;
   background-position: center;
@@ -1685,14 +1669,6 @@ input[type=range]::-ms-fill-upper {
 
 html[dir=rtl] input[type=range]::-ms-fill-upper {
   border-radius: 16px 0 0 16px;
-}
-
-.active input[type=range]::-ms-thumb {
-  border-color: #7A3996;
-}
-
-.active input[type=range]::-ms-thumb:hover {
-  border-color: #5B2771;
 }
 
 input[type=range]::-ms-thumb {

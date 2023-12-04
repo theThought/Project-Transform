@@ -129,11 +129,9 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .active input[type=range]::-webkit-slider-thumb {
-    border-color: globals.$other1;
 }
 
 .active input[type=range]::-webkit-slider-thumb:hover {
-    border-color: globals.$other0;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -168,18 +166,16 @@ input[type=range]::-moz-range-track {
 }
 
 .active input[type=range]::-moz-range-thumb {
-    border-color: globals.$other1;
 }
 
 .active input[type=range]::-moz-range-thumb:hover {
-    border-color: globals.$other0;
 }
 
 input[type=range]::-moz-range-thumb {
     width: var(--track-thumb-width);
     height: var(--track-thumb-height);
     border: none;
-    background-color: transparent;
+    background: linear-gradient(to right, var(--track-background-fill) 0, var(--track-background-fill) 50%, white 50%);
     background-image: var(--track-thumb-image);
     background-size: cover;
     background-position: center;
@@ -239,11 +235,9 @@ html[dir="rtl"] input[type=range]::-ms-fill-upper {
 }
 
 .active input[type=range]::-ms-thumb {
-    border-color: globals.$other1;
 }
 
 .active input[type=range]::-ms-thumb:hover {
-    border-color: globals.$other0;
 }
 
 input[type=range]::-ms-thumb {
