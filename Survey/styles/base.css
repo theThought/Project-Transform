@@ -1578,9 +1578,8 @@ input[type=range]::-webkit-slider-runnable-track {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  margin-top: -11px;
-  width: 40px;
-  height: 40px;
+  width: var(--track-thumb-width);
+  height: var(--track-thumb-height);
   border: none;
   background-color: transparent;
   background-image: var(--track-thumb-image);
@@ -1588,6 +1587,37 @@ input[type=range]::-webkit-slider-thumb {
   background-position: center;
   -webkit-box-shadow: none;
           box-shadow: none;
+  margin-top: -11px;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: var(--track-thumb-width);
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: none;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]::-ms-thumb {
+  width: 40px;
+  width: var(--track-thumb-width);
+  height: 40px;
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: url("../images/formal-range-thumb.svg");
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: none;
+  margin-top: 0px;
   z-index: 4;
   visibility: hidden;
 }
@@ -1606,19 +1636,6 @@ input[type=range]::-moz-range-track {
   border-radius: 22px;
   width: 100%;
   height: 22px;
-}
-
-input[type=range]::-moz-range-thumb {
-  width: var(--track-thumb-width);
-  height: var(--track-thumb-height);
-  border: none;
-  background: linear-gradient(to right, var(--track-background-fill) 0, var(--track-background-fill) 50%, white 50%);
-  background-image: var(--track-thumb-image);
-  background-size: cover;
-  background-position: center;
-  box-shadow: none;
-  z-index: 4;
-  visibility: hidden;
 }
 
 .has-value .flood-to-value::-moz-range-progress {
@@ -1669,21 +1686,6 @@ input[type=range]::-ms-fill-upper {
 
 html[dir=rtl] input[type=range]::-ms-fill-upper {
   border-radius: 16px 0 0 16px;
-}
-
-input[type=range]::-ms-thumb {
-  width: var(--track-thumb-width);
-  height: var(--track-thumb-height);
-  border: none;
-  background-color: transparent;
-  background-image: var(--track-thumb-image);
-  background-size: cover;
-  background-position: center;
-  margin-top: 0px;
-  box-shadow: none;
-  z-index: 4;
-  visibility: hidden;
-  /* Needed to keep the Edge thumb centred */
 }
 
 input[type=range]:focus {
