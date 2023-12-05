@@ -96,6 +96,7 @@ define(['o-question'],
             if (typeof this.hiddenelement.value !== 'undefined'
             && this.hiddenelement.value.length) {
                 this.initialValue = this.hiddenelement.getAttribute('value');
+                this.element.value = this.hiddenelement.getAttribute('value');
             }
         }
 
@@ -143,9 +144,9 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var min = this.element.min ? parseInt(this.element.min) : 0;
-            var max = this.element.max ? parseInt(this.element.max) : 100;
-            var val = this.element.value ? parseInt(this.element.value) : 50;
+            var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
+            var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
+            var val = Number(this.hiddenelement.value);
 
             var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             this.element.style.setProperty('--track-background-fill',
@@ -154,9 +155,9 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
-            var min = this.element.min ? parseInt(this.element.min) : 0;
-            var max = this.element.max ? parseInt(this.element.max) : 100;
-            var val = this.element.value ? parseInt(this.element.value) : 50;
+            var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
+            var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
+            var val = Number(this.hiddenelement.value);
 
             var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             this.element.style.setProperty('--track-background-fill',
