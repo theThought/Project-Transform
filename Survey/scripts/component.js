@@ -79,6 +79,13 @@ define(
             }
         }
 
+        component.prototype.checkCollision = function (firstElement, secondElement) {
+            var firstElementBottom = firstElement.getBoundingClientRect().bottom;
+            var secondElementTop = secondElement.getBoundingClientRect().top;
+
+            return firstElementBottom > secondElementTop;
+        }
+
         component.prototype.configurationComplete = function () {
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             this.element.dispatchEvent(completeEvent);

@@ -50,6 +50,7 @@ define(['component'],
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.configureInitialFilter();
+            this.setDropListDirection();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
@@ -533,6 +534,14 @@ define(['component'],
         oCombobox.prototype.toggleList = function () {
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
+        }
+
+        oCombobox.prototype.setDropListDirection = function () {
+            if (this.checkCollision(this.droplist, document.getElementsByClassName('footer')[0])) {
+                this.wrapper.classList.add('direction-up');
+            } else {
+                this.wrapper.classList.add('direction-down');
+            }
         }
 
         oCombobox.prototype.setCurrentListPosition = function (position) {

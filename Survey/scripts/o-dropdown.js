@@ -50,6 +50,7 @@ define(['component'],
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.setInputType();
+            this.setDropListDirection();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
@@ -552,6 +553,14 @@ define(['component'],
             this.droplist.classList.toggle('visible');
             this.clearKeyBuffer();
             this.clearFilter();
+        }
+
+        oDropdown.prototype.setDropListDirection = function () {
+            if (this.checkCollision(this.droplist, document.getElementsByClassName('footer')[0])) {
+                this.wrapper.classList.add('direction-up');
+            } else {
+                this.wrapper.classList.add('direction-down');
+            }
         }
 
         oDropdown.prototype.setCurrentListPosition = function (position) {

@@ -1719,10 +1719,6 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: content-box;
   text-overflow: ellipsis;
 }
-.o-combobox input[type=text].list-visible {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
 .o-combobox input[type=text].exact {
   color: #449B9B;
 }
@@ -1756,6 +1752,16 @@ input[type=range]:focus::-ms-fill-lower {
   color: #6B5B72;
 }
 
+.o-combobox input.list-visible {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.o-combobox.direction-up input.list-visible {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .o-dropdown input[type=text] {
   padding: 10px 16px;
   border-radius: 4px;
@@ -1773,8 +1779,6 @@ input[type=range]:focus::-ms-fill-lower {
   padding-right: 48px;
 }
 .o-dropdown input[type=text].list-visible {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   background-image: url("../images/white-chevron-up.png");
 }
 .o-dropdown input[type=text]:not([data-readonly=true]):hover {
@@ -1796,6 +1800,16 @@ input[type=range]:focus::-ms-fill-lower {
   color: #FAFAFA;
 }
 
+.o-dropdown.direction-down input.list-visible {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.o-dropdown.direction-up input.list-visible {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 html[dir=rtl] .o-dropdown input[type=text] {
   background: url("../images/white-chevron-down.png") left 12px center no-repeat #455B97;
 }
@@ -1810,8 +1824,6 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
   margin: -1px 0 4px 0;
   padding: 0 0 8px 0;
   border: 1px solid #455B97;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
   background-color: #FFFFFF;
   position: absolute;
   max-height: 300px;
@@ -1872,6 +1884,19 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
 .o-combobox ul li.filter-hidden,
 .o-dropdown ul li.filter-hidden {
   display: none;
+}
+
+.o-combobox.direction-down ul,
+.o-dropdown.direction-down ul {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.o-combobox.direction-up ul,
+.o-dropdown.direction-up ul {
+  bottom: 68px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 html[dir=rtl] .o-combobox ul li,

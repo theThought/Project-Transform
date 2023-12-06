@@ -18,11 +18,6 @@ $default-text-width: globals.$default-input-width;
         box-sizing: content-box;
         text-overflow: ellipsis;
 
-        &.list-visible {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
         &.exact {
             color: globals.$input-text
         }
@@ -51,6 +46,16 @@ $default-text-width: globals.$default-input-width;
     }
 }
 
+.o-combobox input.list-visible {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-combobox.direction-up input.list-visible {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
 .o-dropdown {
     input[type=text] {
         padding: 10px 16px;
@@ -69,8 +74,6 @@ $default-text-width: globals.$default-input-width;
         }
 
         &.list-visible {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
             background-image: url("/Survey/images/white-chevron-up.png");
         }
 
@@ -82,6 +85,16 @@ $default-text-width: globals.$default-input-width;
     input::placeholder {
         color: globals.$white;
     }
+}
+
+.o-dropdown.direction-down input.list-visible {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-dropdown.direction-up input.list-visible {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 html[dir="rtl"] .o-dropdown {
@@ -102,8 +115,6 @@ html[dir="rtl"] .o-dropdown {
     margin: -1px 0 4px 0;
     padding: 0 0 8px 0;
     border: globals.$border-thickness solid globals.$theme-primary;
-    border-bottom-left-radius: globals.$text-border-radius;
-    border-bottom-right-radius: globals.$text-border-radius;
     background-color: globals.$input-background;
     position: absolute;
     max-height: 300px;
@@ -168,6 +179,20 @@ html[dir="rtl"] .o-dropdown {
     li.filter-hidden {
         display: none;
     }
+}
+
+.o-combobox.direction-down ul,
+.o-dropdown.direction-down ul
+{
+    border-bottom-left-radius: globals.$text-border-radius;
+    border-bottom-right-radius: globals.$text-border-radius;
+}
+
+.o-combobox.direction-up ul,
+.o-dropdown.direction-up ul {
+    bottom: 68px;
+    border-top-left-radius: globals.$text-border-radius;
+    border-top-right-radius: globals.$text-border-radius;
 }
 
 html[dir="rtl"] {
