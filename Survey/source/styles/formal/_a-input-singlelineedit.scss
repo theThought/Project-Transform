@@ -16,6 +16,10 @@ $default-text-width: globals.$default-input-width;
     box-sizing: content-box;
 }
 
+.a-label-prelabel + .m-input-button-wrapper input:focus {
+    border-left: none;
+}
+
 .balance .a-input-singlelineedit,
 .balance .m-input-singlelineedit {
     margin-right: 1em;
@@ -142,7 +146,7 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
     outline: none;
-    border-bottom: globals.$border-thickness solid globals.$theme-primary;
+    border: globals.$border-thickness solid globals.$theme-primary;
 }
 
 /* inputs when a child of a checkbox (other specifier) */
@@ -157,6 +161,11 @@ input[readonly]:focus-visible {
         border-top: none;
         width: 151px;
         height: auto;
+
+        &:focus {
+            border: none;
+            border-bottom: globals.$border-thickness solid globals.$theme-primary;
+        }
     }
 }
 

@@ -617,6 +617,10 @@ textarea:focus-within {
           box-sizing: content-box;
 }
 
+.a-label-prelabel + .m-input-button-wrapper input:focus {
+  border-left: none;
+}
+
 .balance .a-input-singlelineedit,
 .balance .m-input-singlelineedit {
   margin-right: 1em;
@@ -726,7 +730,7 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
   outline: none;
-  border-bottom: 1px solid #455B97;
+  border: 1px solid #455B97;
 }
 
 /* inputs when a child of a checkbox (other specifier) */
@@ -740,6 +744,10 @@ input[readonly]:focus-visible {
   border-top: none;
   width: 151px;
   height: auto;
+}
+.m-option-base .a-input-singlelineedit:focus {
+  border: none;
+  border-bottom: 1px solid #455B97;
 }
 
 html[dir=rtl] .m-option-base .a-input-singlelineedit {
