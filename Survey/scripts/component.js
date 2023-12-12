@@ -144,6 +144,10 @@ define(
                 return;
             }
 
+            if (this.available) {
+                return;
+            }
+
             if (this.restoreValues && this.element.value !== this.initialValue) {
                 this.element.value = this.initialValue;
                 this.manageContentClass();
@@ -349,11 +353,11 @@ define(
                 return;
             }
 
-            this.available = true;
             this.element.classList.remove('unavailable');
             this.requestInitialSize();
             this.resetValues();
             this.liftCover();
+            this.available = true;
         }
 
         component.prototype.makeUnavailable = function () {
@@ -361,14 +365,18 @@ define(
                 return;
             }
 
-            this.available = false;
             this.element.classList.add('unavailable');
             this.cover();
             this.clearEntries();
             this.clearChildren();
+            this.available = false;
         }
 
         component.prototype.resetValues = function () {
+            if (this.available) {
+                return;
+            }
+
             var restoreEntries = new CustomEvent('restoreEntries', {bubbles: true, detail: this});
             this.element.dispatchEvent(restoreEntries);
         }
