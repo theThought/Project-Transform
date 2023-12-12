@@ -146,7 +146,7 @@ html[dir="rtl"] .a-label-total {
         width: 20px;
         height: 20px;
         content: '';
-        background-image: url("/Survey/images/icon-information.png");
+        background-image: url("/Survey/images/formal/icon-information.png");
         background-repeat: no-repeat;
     }
 
@@ -241,7 +241,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$error, .15);
 
     &::before {
-        background-image: url("/Survey/images/icon-error.png");
+        background-image: url("/Survey/images/formal/icon-error.png");
     }
 }
 
@@ -251,7 +251,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$warning, .15);
 
     &::before {
-        background-image: url("/Survey/images/icon-warning.png");
+        background-image: url("/Survey/images/formal/icon-warning.png");
     }
 }
 
@@ -261,7 +261,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$success, .15);
 
     &::before {
-        background-image: url("/Survey/images/icon-success.png");
+        background-image: url("/Survey/images/formal/icon-success.png");
     }
 }
 

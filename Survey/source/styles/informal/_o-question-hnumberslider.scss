@@ -2,7 +2,7 @@
 
 :root {
     --track-background-fill: #{rgba(globals.$theme-primary-hover, .15)};
-    --track-thumb-image: url("/Survey/images/informal-range-thumb.svg");
+    --track-thumb-image: url("/Survey/images/informal/informal-range-thumb.svg");
     --track-thumb-width: 40px;
     --track-thumb-height: 45px;
 }
@@ -153,7 +153,7 @@ input[type=range]::-ms-thumb {
     height: var(--track-thumb-height);
     border: none;
     background-color: transparent;
-    background-image: url("/Survey/images/informal-range-thumb.svg");
+    background-image: url("/Survey/images/informal/informal-range-thumb.svg");
     background-image: var(--track-thumb-image);
     background-size: cover;
     background-position: center;

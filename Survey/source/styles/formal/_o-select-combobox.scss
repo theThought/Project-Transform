@@ -66,7 +66,7 @@ $default-text-width: globals.$default-input-width;
         height: 19px;
         box-sizing: content-box;
         cursor: default;
-        background: url("/Survey/images/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
+        background: url("/Survey/images/formal/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
         text-overflow: ellipsis;
 
         &.manual-width {
@@ -74,7 +74,7 @@ $default-text-width: globals.$default-input-width;
         }
 
         &.list-visible {
-            background-image: url("/Survey/images/white-chevron-up.png");
+            background-image: url("/Survey/images/formal/white-chevron-up.png");
         }
 
         &:not([data-readonly=true]):hover {
@@ -99,7 +99,7 @@ $default-text-width: globals.$default-input-width;
 
 html[dir="rtl"] .o-dropdown {
     input[type=text] {
-        background: url("/Survey/images/white-chevron-down.png") left 12px center no-repeat globals.$theme-primary;
+        background: url("/Survey/images/formal/white-chevron-down.png") left 12px center no-repeat globals.$theme-primary;
 
         &.manual-width {
             padding-right: 16px;
