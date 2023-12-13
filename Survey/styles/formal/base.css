@@ -1330,7 +1330,8 @@ html[dir=rtl] .balance .m-option-base {
 }
 
 .o-question-container.unavailable.collapse {
-  display: none;
+  position: absolute;
+  left: -9999px;
 }
 
 .unavailable .m-question-cover::after {

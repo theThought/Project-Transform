@@ -28,7 +28,8 @@
 }
 
 .o-question-container.unavailable.collapse {
-    display: none;
+    position: absolute;
+    left: -9999px;
 }
 
 .unavailable .m-question-cover {
