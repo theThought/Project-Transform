@@ -86,6 +86,20 @@ define(
             return firstElementBottom > secondElementTop;
         }
 
+        component.prototype.checkViewportBounds = function (element) {
+            var bounding = element.getBoundingClientRect();
+            var overflow = {};
+
+            overflow.top = bounding.top < 0;
+            overflow.left = bounding.left < 0;
+            overflow.bottom = bounding.bottom > (window.innerHeight || document.documentElement.clientHeight);
+            overflow.right = bounding.right > (window.innerWidth || document.documentElement.clientWidth);
+            overflow.any = overflow.top || overflow.left || overflow.bottom || overflow.right;
+
+            return overflow;
+        };
+
+
         component.prototype.configurationComplete = function () {
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             this.element.dispatchEvent(completeEvent);

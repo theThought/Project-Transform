@@ -50,7 +50,6 @@ define(['component'],
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.configureInitialFilter();
-            this.setDropListDirection();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
@@ -122,7 +121,7 @@ define(['component'],
             }
         }
 
-        oCombobox.prototype.updateDroplistPosition = function (event) {
+        oCombobox.prototype.updateDroplistPosition = function () {
             this.droplist.style.marginLeft = 0 - this.container.scrollLeft + 'px';
         }
 
@@ -522,6 +521,7 @@ define(['component'],
         }
 
         oCombobox.prototype.showList = function () {
+            this.setDropListDirection();
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
         }
@@ -532,14 +532,21 @@ define(['component'],
         }
 
         oCombobox.prototype.toggleList = function () {
+            this.setDropListDirection();
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
         }
 
         oCombobox.prototype.setDropListDirection = function () {
-            if (this.checkCollision(this.droplist, document.getElementsByClassName('footer')[0])) {
+            var footer = document.getElementsByClassName('footer')[0];
+            var viewportBounds = this.checkViewportBounds(this.droplist);
+            var footerCollision = this.checkCollision(this.droplist, footer);
+
+            if (viewportBounds.bottom || footerCollision) {
+                this.wrapper.classList.remove('direction-down');
                 this.wrapper.classList.add('direction-up');
             } else {
+                this.wrapper.classList.remove('direction-up');
                 this.wrapper.classList.add('direction-down');
             }
         }

@@ -50,7 +50,6 @@ define(['component'],
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.setInputType();
-            this.setDropListDirection();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
@@ -122,7 +121,7 @@ define(['component'],
             }
         }
 
-        oDropdown.prototype.updateDroplistPosition = function (event) {
+        oDropdown.prototype.updateDroplistPosition = function () {
             this.droplist.style.marginLeft = 0 - this.container.scrollLeft + 'px';
         }
 
@@ -537,6 +536,7 @@ define(['component'],
         }
 
         oDropdown.prototype.showList = function () {
+            this.setDropListDirection();
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
         }
@@ -549,6 +549,7 @@ define(['component'],
         }
 
         oDropdown.prototype.toggleList = function () {
+            this.setDropListDirection();
             this.element.classList.toggle('list-visible');
             this.droplist.classList.toggle('visible');
             this.clearKeyBuffer();
@@ -556,9 +557,15 @@ define(['component'],
         }
 
         oDropdown.prototype.setDropListDirection = function () {
-            if (this.checkCollision(this.droplist, document.getElementsByClassName('footer')[0])) {
+            var footer = document.getElementsByClassName('footer')[0];
+            var viewportBounds = this.checkViewportBounds(this.droplist);
+            var footerCollision = this.checkCollision(this.droplist, footer);
+
+            if (viewportBounds.bottom || footerCollision) {
+                this.wrapper.classList.remove('direction-down');
                 this.wrapper.classList.add('direction-up');
             } else {
+                this.wrapper.classList.remove('direction-up');
                 this.wrapper.classList.add('direction-down');
             }
         }
@@ -706,7 +713,7 @@ define(['component'],
             }
         }
 
-        oDropdown.prototype.jumpToLetter = function (event) {
+        oDropdown.prototype.jumpToLetter = function () {
             if (!this.isjumpingtoletter) {
                 return;
             }
