@@ -363,7 +363,7 @@ html[dir="rtl"] {
         border: globals.$border-thickness solid globals.$borders;
         border-radius: 0 globals.$text-border-radius globals.$text-border-radius 0;
         position: relative;
-        left: -.5em;
+        left: -1px;
         background-color: globals.$input-background;
         padding: 10px 16px;
         color: globals.$pre-post-text;

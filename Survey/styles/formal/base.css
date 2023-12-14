@@ -1075,7 +1075,7 @@ html[dir=rtl] .m-structure-cell .m-option-base .a-label-option {
   border: 1px solid #8797C8;
   border-radius: 0 2px 2px 0;
   position: relative;
-  left: -0.5em;
+  left: -1px;
   background-color: #FFFFFF;
   padding: 10px 16px;
   color: #324371;
