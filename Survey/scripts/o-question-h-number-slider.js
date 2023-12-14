@@ -286,7 +286,7 @@ define(['o-question'],
 
         oQuestionHNumberSlider.prototype.setThumbImage = function (prop) {
             this.element.style.setProperty('--track-thumb-border', 'none');
-            this.element.style.setProperty('--track-thumb-image', 'url(../images/' + prop + ')');
+            this.element.style.setProperty('--track-thumb-image', 'url(' + prop + ')');
         }
 
         oQuestionHNumberSlider.prototype.setThumbWidth = function (prop) {
