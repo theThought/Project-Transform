@@ -479,24 +479,29 @@ html[dir=rtl] .a-icon-multistate[data-icontype=single] {
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
-  background-image: url("../../images/informal/informal-checkbox.svg");
+  background-image: url("../../images/informal/checkbox.svg");
   background-repeat: no-repeat;
   background-size: 22px;
+}
+
+div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate {
+  background-image: url("../../images/informal/checkbox-disabled.svg");
 }
 
 input[type=radio] + label > .a-icon-multistate {
-  background-image: url("../../images/informal/informal-radio.svg");
+  background-image: url("../../images/informal/radio.svg");
   background-repeat: no-repeat;
   background-size: 22px;
 }
 
+div[data-readonly=true] input[type=checkbox]:checked + label > .a-icon-multistate,
 input[type=checkbox]:checked + label > .a-icon-multistate {
-  background-image: url("../../images/informal/informal-tick.svg");
+  background-image: url("../../images/informal/tick.svg");
   background-position: 0 -1px;
 }
 
 input[type=radio]:checked + label > .a-icon-multistate {
-  background-image: url("../../images/informal/informal-tick.svg");
+  background-image: url("../../images/informal/tick.svg");
 }
 
 .m-list-optionlist input[type=checkbox]:focus + label,
