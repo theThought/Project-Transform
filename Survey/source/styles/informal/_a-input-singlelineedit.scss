@@ -8,7 +8,7 @@ $default-text-width: globals.$default-input-width;
 .a-input-singlelineedit {
     padding: 8px;
     border-radius: globals.$text-border-radius;
-    border: 2px solid globals.$other1;
+    border: globals.$border-thickness solid globals.$other1;
     color: globals.$input-text;
     margin: 0 0 .5em 0;
     width: $default-text-width;
