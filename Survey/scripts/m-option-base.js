@@ -60,7 +60,9 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-            if (this.isReadOnly) {
+            var eventsToPassWhenReadonly =[this.group + '_beginResize', this.group + '_endResize'];
+
+            if (this.isReadOnly && eventsToPassWhenReadonly.indexOf(event.type) === -1) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 return;
