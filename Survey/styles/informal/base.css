@@ -1917,7 +1917,7 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
 
 .o-combobox.direction-up ul,
 .o-dropdown.direction-up ul {
-  bottom: 77px;
+  bottom: 99px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }

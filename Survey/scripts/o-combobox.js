@@ -538,6 +538,10 @@ define(['component'],
         }
 
         oCombobox.prototype.setDropListDirection = function () {
+            // reset to default direction before performing checks
+            this.wrapper.classList.remove('direction-up');
+            this.wrapper.classList.add('direction-down');
+
             var footer = document.getElementsByClassName('footer')[0];
             var viewportBounds = this.checkViewportBounds(this.droplist);
             var footerCollision = this.checkCollision(this.droplist, footer);
@@ -545,9 +549,6 @@ define(['component'],
             if (viewportBounds.bottom || footerCollision) {
                 this.wrapper.classList.remove('direction-down');
                 this.wrapper.classList.add('direction-up');
-            } else {
-                this.wrapper.classList.remove('direction-up');
-                this.wrapper.classList.add('direction-down');
             }
         }
 
