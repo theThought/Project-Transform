@@ -21,7 +21,7 @@
       </xsl:choose>
    </xsl:variable>
    <!--- Basic Structure -->
-   <xsl:template match="Questions">
+  <xsl:template match="Questions">
       <xsl:for-each select="*">
          <xsl:choose>
             <xsl:when test="name()='Question'">
@@ -271,40 +271,21 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="name() = 'Table'">
-            <xsl:variable name="qCustomType">
-               <xsl:call-template name="TranslateZIndexToName">
-                  <xsl:with-param name="theID" select="../Style/@ZIndex" />
-               </xsl:call-template>
-            </xsl:variable>
-            <xsl:choose>
-               <xsl:when test="$qCustomType='Progressive'">
-                  <xsl:call-template name="ProgressiveDataTable">
-                     <xsl:with-param name="qGroup" select="$qGroupName" />
-                     <xsl:with-param name="qFullName" select="$qFullName" />
+            <xsl:apply-templates select=".">
+               <xsl:with-param name="qGroup" select="$qGroupName" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom">
+                  <xsl:call-template name="TranslateZIndexToIsCustom">
+                     <xsl:with-param name="theID" select="../Style/@ZIndex" />
                   </xsl:call-template>
-                  <xsl:call-template name="ProgressiveNavigation">
-                     <xsl:with-param name="qGroup" select="$qGroupName" />
-                     <xsl:with-param name="qFullName" select="$qFullName" />
+               </xsl:with-param>
+               <xsl:with-param name="qCustomType">
+                  <xsl:call-template name="TranslateZIndexToName">
+                     <xsl:with-param name="theID" select="../Style/@ZIndex" />
                   </xsl:call-template>
-               </xsl:when>
-               <xsl:otherwise>
-                  <xsl:apply-templates select=".">
-                     <xsl:with-param name="qGroup" select="$qGroupName" />
-                     <xsl:with-param name="qFullName" select="$qFullName" />
-                     <xsl:with-param name="qIsCustom">
-                        <xsl:call-template name="TranslateZIndexToIsCustom">
-                           <xsl:with-param name="theID" select="../Style/@ZIndex" />
-                        </xsl:call-template>
-                     </xsl:with-param>
-                     <xsl:with-param name="qCustomType">
-                        <xsl:call-template name="TranslateZIndexToName">
-                           <xsl:with-param name="theID" select="../Style/@ZIndex" />
-                        </xsl:call-template>
-                     </xsl:with-param>
-                     <xsl:with-param name="Orientation" select="../Style/@Orientation" />
-                  </xsl:apply-templates>
-               </xsl:otherwise>
-            </xsl:choose>
+               </xsl:with-param>
+               <xsl:with-param name="Orientation" select="../Style/@Orientation" />
+            </xsl:apply-templates>
          </xsl:when>
          <xsl:when test="name() = 'Questions'">
             <xsl:apply-templates />
@@ -453,7 +434,7 @@
                      <xsl:text>option</xsl:text>
                   </xsl:when>
                   <xsl:otherwise>
-                     <xsl:text>question</xsl:text>
+                    <xsl:text>question</xsl:text>
                   </xsl:otherwise>
                </xsl:choose>
             </xsl:otherwise>
@@ -2037,128 +2018,7 @@
       </xsl:element>
    </xsl:template>
 
-
-   <!--- Progressive Functions -->
-   <xsl:template name="ProgressiveDataTable">
-      <xsl:param name="qGroupName" />
-      <xsl:param name="qFullName" />      
-      <xsl:element name="div">
-      <xsl:attribute name="class"> 
-         <xsl:text>o.progressive.valuetable</xsl:text>
-      </xsl:attribute>
-         <xsl:for-each select="./Row">
-               <xsl:call-template name="ProgressiveDataRow">
-                  <xsl:with-param name="qGroupName" select="$qGroupName" />
-                  <xsl:with-param name="qFullName" select="$qFullName" />
-               </xsl:call-template>
-         </xsl:for-each>
-      </xsl:element>
-   </xsl:template>
-
-   <xsl:template name="ProgressiveNavigation">
-      <xsl:param name="qGroupName" />
-      <xsl:param name="qFullName" />      
-      <xsl:element name="div">
-         <xsl:attribute name="class">
-            <xsl:text>m.progressive.navigation</xsl:text>
-         </xsl:attribute>
-         <xsl:for-each select="./Row">
-               <xsl:call-template name="ProgressiveNavigationRow">
-                  <xsl:with-param name="qGroupName" select="$qGroupName" />
-                  <xsl:with-param name="qFullName" select="$qFullName" />
-               </xsl:call-template>
-         </xsl:for-each>
-      </xsl:element>
-   </xsl:template>
-
-   <xsl:template name="ProgressiveDataRow">
-      <xsl:param name="qGroupName" />
-      <xsl:param name="qFullName" />      
-      <xsl:element name="tr">
-         <xsl:for-each select="./Cell">
-            <xsl:call-template name="ProgressiveDataCell">
-               <xsl:with-param name="qGroupName" select="$qGroupName" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-            </xsl:call-template>
-         </xsl:for-each>
-      </xsl:element>
-   </xsl:template>
-
-   <xsl:template name="ProgressiveDataCell">
-      <xsl:param name="qGroupName" />
-      <xsl:param name="qFullName" />      
-      <xsl:element name="td">
-         <xsl:if test='Control'>
-            <xsl:call-template name="MakeBasicInputControl">
-               <xsl:with-param name="qGroupName" select="$qGroupName" />
-               <xsl:with-param name="qFullName" select="$qFullName" />
-            </xsl:call-template>
-         </xsl:if>
-      </xsl:element>
-   </xsl:template>
-
-   <xsl:template name="ProgressiveNavigationRow">
-      <xsl:param name="qGroupName" />
-      <xsl:param name="qFullName" />
-      <xsl:if test="Cell[1]/@Class='mrGridCategoryText'">
-         <xsl:element name="div">
-            <xsl:attribute name="class">
-               <xsl:text>a.label.progressive.navigation</xsl:text>
-            </xsl:attribute>
-            <xsl:value-of select="normalize-space(Cell[1]/Label/Text)" />
-         </xsl:element>
-      </xsl:if>
-   </xsl:template>
-
    <!--- General Functions -->
-
-   <xsl:template name="MakeBasicInputControl">
-      <xsl:param name="qGroupName" />
-      <xsl:param name="qFullName" />
-      <!--- Edit box -->
-      <xsl:element name="input">
-         <xsl:attribute name="data-questionid">
-            <xsl:value-of select="Control/@ElementID" />
-         </xsl:attribute>
-         <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qFullName" />
-         </xsl:attribute>
-         <!--- Input name -->
-         <xsl:attribute name="name">
-            <xsl:value-of select="@QuestionName" />
-            <xsl:if test="Control/@Type='RadioButton' or Control/@Type='CheckBox'">
-               <xsl:value-of select="Control/Category[1]/@Name" />
-            </xsl:if>
-         </xsl:attribute>
-         <!--- ID -->
-         <xsl:attribute name="id">
-            <xsl:if test="Control/@ElementID">
-               <xsl:value-of select="Control/@ElementID" />
-            </xsl:if>
-            <xsl:if test="Control/@Type='RadioButton' or Control/@Type='CheckBox'">
-               <xsl:value-of select="Control/Category[1]/@CategoryID" />
-            </xsl:if>
-         </xsl:attribute>
-         <!--- Max length -->
-         <xsl:if test="Control/@Length">
-            <xsl:attribute name="maxlength">
-               <xsl:value-of select="Control/@Length" />
-            </xsl:attribute>
-         </xsl:if>
-         <!--- Type -->
-         <xsl:attribute name="type">
-            <xsl:value-of select="Control/@Type" />
-         </xsl:attribute>
-         <!--- Default text -->
-         <xsl:attribute name="value">
-            <xsl:value-of select="Control/@Value" />
-         </xsl:attribute>
-
-         <xsl:attribute name="data-value">
-            <xsl:value-of select="Control/@Value" />
-         </xsl:attribute>
-      </xsl:element>
-   </xsl:template>
 
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
@@ -2337,9 +2197,6 @@
          <xsl:when test="$theID = '-70'">
             <xsl:value-of select="'combobox'" />
          </xsl:when>
-         <xsl:when test="$theID = '-1100'">
-            <xsl:value-of select="'Progressive'" />
-         </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select="theID" />
          </xsl:otherwise>
@@ -2373,9 +2230,6 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-70'">
-            <xsl:value-of select="'false'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-1100ß'">
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:otherwise>
