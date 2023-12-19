@@ -511,9 +511,12 @@ define(['component'],
                 item.removeAttribute('data-selected');
             }
 
-            this.setHiddenValue('');
             this.element.classList.remove('exact');
-            this.broadcastChange();
+
+            if (this.hiddenelement.value) {
+                this.setHiddenValue('');
+                this.broadcastChange();
+            }
         }
 
         oCombobox.prototype.setHiddenValue = function (valuestring) {

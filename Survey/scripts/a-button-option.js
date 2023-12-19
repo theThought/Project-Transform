@@ -108,6 +108,11 @@ define(['component'],
 
             // handle external events
             if (this.element !== event.detail.element) {
+
+                if (this.element.getAttribute('data-checked') === 'false') {
+                    return;
+                }
+
                 this.element.setAttribute('data-checked', 'false');
                 this.hiddenelement.value = '';
                 this.broadcastChange();
@@ -119,6 +124,11 @@ define(['component'],
 
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
+
+                if (this.element.getAttribute('data-checked') === 'false') {
+                    return;
+                }
+
                 this.element.setAttribute('data-checked', 'false');
                 this.hiddenelement.value = '';
                 this.broadcastChange();

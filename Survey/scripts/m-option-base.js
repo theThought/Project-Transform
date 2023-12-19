@@ -182,7 +182,7 @@ define(['component'],
                 return;
             }
 
-            if (this.restoreValues && this.initialValue) {
+            if (this.restoreValues && this.initialValue && !this.checkbox.checked) {
                 this.changeState(true);
                 this.broadcastChange();
             }
@@ -253,8 +253,10 @@ define(['component'],
 
             // handle external events
             if (this.element !== event.detail.element) {
-                this.changeState(false);
-                this.broadcastChange();
+                if (!this.checkbox.checked) {
+                    this.changeState(false);
+                    this.broadcastChange();
+                }
             }
 
         }

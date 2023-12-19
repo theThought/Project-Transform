@@ -219,7 +219,7 @@ define(['component', 'pikaday'],
             incButton.onclick = function (event) {
                 event.preventDefault();
             }
-            incButton.onmousedown = function (event) {
+            incButton.onmousedown = function () {
                 that.element.value = Number(that.element.value) + that.stepValue;
                 that.broadcastChange();
             };
@@ -230,7 +230,7 @@ define(['component', 'pikaday'],
             decButton.onclick = function (event) {
                 event.preventDefault();
             }
-            decButton.onmousedown = function (event) {
+            decButton.onmousedown = function () {
                 that.element.value = Number(that.element.value) - that.stepValue;
                 that.broadcastChange()
             }
@@ -275,17 +275,17 @@ define(['component', 'pikaday'],
             event.stopPropagation();
         }
 
-        aInputSingleLineEdit.prototype.onChange = function (event) {
+        aInputSingleLineEdit.prototype.onChange = function () {
             this.broadcastChange();
         }
 
-        aInputSingleLineEdit.prototype.onInput = function (event) {
+        aInputSingleLineEdit.prototype.onInput = function () {
             var inputEvent = new CustomEvent(this.group + '_textInput', {bubbles: true, detail: this});
             this.element.dispatchEvent(inputEvent);
             this.manageContentClass();
         }
 
-        aInputSingleLineEdit.prototype.onFocusIn = function (event) {
+        aInputSingleLineEdit.prototype.onFocusIn = function () {
             this.wrapper.classList.add('focused');
 
             // handle self-generated events
@@ -305,13 +305,11 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.onEnableExclusive = function () {
-
             if (this.element.value) {
                 this.element.placeholder = this.element.value;
                 this.element.value = '';
                 this.broadcastChange();
             }
-
         }
 
         return aInputSingleLineEdit;

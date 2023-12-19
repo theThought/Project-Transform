@@ -126,6 +126,10 @@ define(
         }
 
         component.prototype.manageContentClass = function () {
+            if (typeof this.element.value === 'undefined') {
+                return;
+            }
+
             if (this.element.value.length) {
                 this.addContentClass();
             } else {
