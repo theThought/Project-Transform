@@ -64,7 +64,6 @@ define(['component'],
 
             if (this.isReadOnly && eventsToPassWhenReadonly.indexOf(event.type) === -1) {
                 event.preventDefault();
-                event.stopImmediatePropagation();
                 return;
             }
 
@@ -250,22 +249,19 @@ define(['component'],
         }
 
         mOptionBase.prototype.onEnableExclusive = function (event) {
-
             // handle external events
             if (this.element !== event.detail.element) {
-                if (!this.checkbox.checked) {
+                if (this.element.getAttribute('data-checked') === 'true') {
                     this.changeState(false);
                     this.broadcastChange();
                 }
             }
-
         }
 
         mOptionBase.prototype.onDismissExclusive = function (event) {
-
             // handle external events
             if (this.element !== event.detail.element && this.isExclusive) {
-                if (this.checkbox.checked) {
+                if (this.element.getAttribute('data-checked') === 'true') {
                     this.changeState(false);
                     this.broadcastChange();
                 }
