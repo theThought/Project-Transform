@@ -1040,7 +1040,6 @@ html[dir=rtl] .focused .a-label-prelabel {
   display: inline-block;
   border: 1px transparent;
   position: relative;
-  left: -0.5em;
   padding: 10px 16px;
   white-space: nowrap;
   -webkit-box-sizing: content-box;

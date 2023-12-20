@@ -2,8 +2,8 @@
 
 .a-icon-multistate {
     display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: globals.$option-line-height;
+    height: globals.$option-line-height;
 }
 
 .m-option-base .a-icon-multistate {
@@ -12,7 +12,7 @@
 }
 
 html[dir="rtl"] .m-option-base .a-icon-multistate {
-    right: 8px;
+    right: globals.$default-padding;
 }
 
 // specifically moves radio buttons 1px to the left to resolve image cropping on certain platforms
@@ -20,7 +20,7 @@ html[dir="rtl"] .m-option-base .a-icon-multistate {
 }
 
 html[dir="rtl"] .a-icon-multistate[data-icontype="single"] {
-    right: 8px;
+    right: globals.$default-padding;
 }
 
 /* Grid layout */
@@ -32,7 +32,7 @@ html[dir="rtl"] .a-icon-multistate[data-icontype="single"] {
 input[type=checkbox] + label > .a-icon-multistate {
     background-image: url("/Survey/images/informal/checkbox.svg");
     background-repeat: no-repeat;
-    background-size: 22px;
+    background-size: globals.$option-line-height;
 }
 
 div[data-readonly="true"] input[type=checkbox] + label > .a-icon-multistate {
@@ -42,7 +42,7 @@ div[data-readonly="true"] input[type=checkbox] + label > .a-icon-multistate {
 input[type=radio] + label > .a-icon-multistate {
     background-image: url("/Survey/images/informal/radio.svg");
     background-repeat: no-repeat;
-    background-size: 22px;
+    background-size: globals.$option-line-height;
 }
 
 div[data-readonly="true"] input[type=checkbox]:checked + label > .a-icon-multistate,

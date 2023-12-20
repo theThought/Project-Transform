@@ -23,7 +23,7 @@
 
 .overall-progress-bar {
   height: 24px;
-  border: 2px solid #D6DDEB;
+  border: 1px solid #D6DDEB;
   border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -98,7 +98,7 @@ html[dir=rtl] .mrProgressText {
   background: #D4AA49;
 }
 .overall-progress.complex div.a-progress-page.current-page {
-  outline: 2px solid #D4AA49;
+  outline: 1px solid #D4AA49;
   outline-offset: 4px;
   margin: 0 0.75em 0 0.25em;
 }
@@ -262,7 +262,7 @@ button[class^=a-button] {
   min-height: 30px;
   -webkit-appearance: none;
   margin: 0 0 12px 0;
-  border: 2px solid #E8BE5D;
+  border: 1px solid #E8BE5D;
   border-radius: 5px;
   padding: 4px 1em;
   background-color: #E8BE5D;
@@ -455,8 +455,8 @@ html[dir=rtl] #nav-controls #prevstop input[type=submit]:last-child {
 
 .a-icon-multistate {
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .m-option-base .a-icon-multistate {
@@ -481,7 +481,7 @@ html[dir=rtl] .a-icon-multistate[data-icontype=single] {
 input[type=checkbox] + label > .a-icon-multistate {
   background-image: url("../../images/informal/checkbox.svg");
   background-repeat: no-repeat;
-  background-size: 22px;
+  background-size: 24px;
 }
 
 div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate {
@@ -491,7 +491,7 @@ div[data-readonly=true] input[type=checkbox] + label > .a-icon-multistate {
 input[type=radio] + label > .a-icon-multistate {
   background-image: url("../../images/informal/radio.svg");
   background-repeat: no-repeat;
-  background-size: 22px;
+  background-size: 24px;
 }
 
 div[data-readonly=true] input[type=checkbox]:checked + label > .a-icon-multistate,
@@ -540,7 +540,7 @@ html[dir=rtl] .m-list-optionlist .a-icon-multistate {
 textarea {
   width: 100%;
   background: #FFFFFF;
-  border: 2px solid #6A646F;
+  border: 1px solid #6A646F;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 3px;
@@ -580,7 +580,7 @@ textarea:focus-within {
 .a-input-singlelineedit {
   padding: 8px;
   border-radius: 3px;
-  border: 2px solid #6A646F;
+  border: 1px solid #6A646F;
   color: #7A3996;
   margin: 0 0 0.5em 0;
   width: 197px;
@@ -711,19 +711,17 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
   outline: none;
-  border: 2px solid #E8BE5D;
+  border: 1px solid #E8BE5D;
 }
 
 /* inputs when a child of a checkbox (other specifier) */
 .m-option-base .a-input-singlelineedit {
   position: relative;
   z-index: 1;
-  margin-left: 0.5em;
-  margin-bottom: 0;
-  padding: 0;
+  margin: -9px 0 -9px 4px;
   border: 0;
   border-radius: 3px;
-  border: 2px #6A646F solid;
+  border: 1px #6A646F solid;
   width: 151px;
   height: auto;
 }
@@ -794,7 +792,7 @@ html[dir=rtl] .overall-progress.complex .a-label-section-title {
 .a-label-total {
   display: inline-block;
   padding: 10px 6px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   height: 19px;
   text-align: right;
   -webkit-box-sizing: content-box;
@@ -966,17 +964,17 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   outline: none;
 }
 .focused .a-label-postlabel {
-  border: 2px solid transparent !important;
+  border: 1px solid transparent !important;
 }
 .focused .a-label-prelabel {
-  border: 2px solid transparent !important;
+  border: 1px solid transparent !important;
 }
 
 html[dir=rtl] .focused .a-label-postlabel {
-  border: 2px solid transparent !important;
+  border: 1px solid transparent !important;
 }
 html[dir=rtl] .focused .a-label-prelabel {
-  border: 2px solid transparent !important;
+  border: 1px solid transparent !important;
 }
 
 .o-question-information-content span:last-child .a-label-alternative-separator {
@@ -993,9 +991,8 @@ html[dir=rtl] .focused .a-label-prelabel {
 }
 .m-structure-cell .a-label-postlabel {
   display: inline-block;
-  border: 2px transparent;
+  border: 1px transparent;
   position: relative;
-  left: -0.5em;
   padding: 10px 16px;
   white-space: nowrap;
   -webkit-box-sizing: content-box;
@@ -1003,7 +1000,7 @@ html[dir=rtl] .focused .a-label-prelabel {
 }
 .m-structure-cell .a-label-prelabel {
   display: inline-block;
-  border: 2px transparent;
+  border: 1px transparent;
   padding: 10px 16px;
   white-space: nowrap;
 }
@@ -1027,7 +1024,7 @@ html[dir=rtl] .m-structure-cell .m-option-base .a-label-option {
 
 .m-input-singlelineedit .a-label-postlabel {
   display: inline-block;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 0 3px 3px 0;
   position: relative;
   padding: 10px 8px;
@@ -1039,7 +1036,7 @@ html[dir=rtl] .m-structure-cell .m-option-base .a-label-option {
 }
 .m-input-singlelineedit .a-label-prelabel {
   display: inline-block;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 3px 0 0 3px;
   padding: 10px 8px;
   color: #7A3996;
@@ -1176,7 +1173,7 @@ html[dir=rtl] .o-question-hnumberslider-control .m-label-ticklabels {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
-  border: 2px solid #FFFFFF;
+  border: 1px solid #FFFFFF;
   border-radius: calc(5px + 2px);
   padding: 8px;
   width: 100%;
@@ -1220,7 +1217,7 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   margin-bottom: 4px;
   margin-right: 1em;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 24px;
 }
 .m-option-base[data-checked=true]::after {
   -webkit-transform: scale(1);
@@ -1232,17 +1229,17 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
           transform: scale(0, 1);
   position: absolute;
   display: block;
-  left: 2px;
-  top: 2px;
-  width: calc(100% - (2px * 2));
-  height: calc(100% - (2px * 2));
+  left: 1px;
+  top: 1px;
+  width: calc(100% - (1px * 2));
+  height: calc(100% - (1px * 2));
   background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
   border-radius: 5px;
   -webkit-transform-origin: 0 50%;
           transform-origin: 0 50%;
-  border: 2px transparent;
+  border: 1px transparent;
 }
 
 .m-option-base[data-readonly=true]::after {
@@ -1545,7 +1542,7 @@ html[dir=rtl] .balance .m-option-base {
   z-index: 3;
   width: 100%;
   height: 24px;
-  border: 2px solid #E8BE5D;
+  border: 1px solid #E8BE5D;
   border-radius: 5px;
   top: 12px;
   background: white;
@@ -1725,7 +1722,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-combobox input[type=text] {
   padding: 10px 16px;
   border-radius: 3px;
-  border: 2px solid #8797C8;
+  border: 1px solid #8797C8;
   color: #E8BE5D;
   min-width: 3em;
   height: 19px;
@@ -1734,7 +1731,7 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: content-box;
   text-overflow: ellipsis;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 24px;
 }
 .o-combobox input[type=text].exact {
   color: #7A3996;
@@ -1782,7 +1779,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-dropdown input[type=text] {
   padding: 10px 16px;
   border-radius: 5px;
-  border: 2px solid #E8BE5D;
+  border: 1px solid #E8BE5D;
   color: #FAFAFA;
   min-width: 3em;
   height: 19px;
@@ -1792,7 +1789,7 @@ input[type=range]:focus::-ms-fill-lower {
   background: url("../../images/informal/white-chevron-down.png") right 12px center no-repeat #E8BE5D;
   text-overflow: ellipsis;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 24px;
 }
 .o-dropdown input[type=text].manual-width {
   padding-right: 48px;
@@ -1842,7 +1839,7 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
   list-style-type: none;
   margin: -1px 0 4px 0;
   padding: 0 0 8px 0;
-  border: 2px solid #E8BE5D;
+  border: 1px solid #E8BE5D;
   background-color: #FFFFFF;
   position: absolute;
   max-height: 300px;
@@ -2000,20 +1997,20 @@ html[dir=rtl] .o-dropdown ul li {
   border: 0 !important;
 }
 .o-structure-table th[scope=col] {
-  border-bottom: 2px solid #212C4C;
+  border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-column-total-title,
 .o-structure-table .grid-column-total,
 .o-structure-table .grid-grandtotal {
-  border-top: 2px solid #212C4C;
+  border-top: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title {
-  border-bottom: 2px solid #212C4C;
+  border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title,
 .o-structure-table .grid-row-total,
 .o-structure-table .grid-grandtotal {
-  border-left: 2px solid #212C4C;
+  border-left: 1px solid #212C4C;
   vertical-align: top;
 }
 .o-structure-table .grid-row-total,
@@ -2037,7 +2034,7 @@ html[dir=rtl] .o-dropdown ul li {
 html[dir=rtl] .o-structure-table .grid-row-total-title,
 html[dir=rtl] .o-structure-table .grid-row-total,
 html[dir=rtl] .o-structure-table .grid-grandtotal {
-  border-right: 2px solid #212C4C;
+  border-right: 1px solid #212C4C;
 }
 html[dir=rtl] .o-structure-table .grid-row-total,
 html[dir=rtl] .o-structure-table .grid-grandtotal {
@@ -2080,7 +2077,7 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 }
 
 .o-question-container:not(.no-separator) {
-  border-bottom: 2px solid #D6DDEB !important;
+  border-bottom: 1px solid #D6DDEB !important;
 }
 
 .surroundcontent > div:last-child {
@@ -2214,7 +2211,7 @@ body > form {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  border-bottom: 2px solid #8797C8;
+  border-bottom: 1px solid #8797C8;
 }
 
 .surroundcontent {
@@ -2229,7 +2226,7 @@ body > form {
   -ms-grid-column: 2;
   grid-area: footer;
   height: 110px;
-  border-top: 2px solid #8797C8;
+  border-top: 1px solid #8797C8;
   padding: 1em 0;
 }
 

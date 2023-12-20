@@ -6,7 +6,7 @@ $default-text-width: globals.$default-input-width;
  * essential styling for the fundamental HTML input element
  */
 .a-input-singlelineedit {
-    padding: 8px;
+    padding: globals.$default-padding;
     border-radius: globals.$text-border-radius;
     border: globals.$border-thickness solid globals.$other1;
     color: globals.$input-text;
@@ -157,7 +157,7 @@ input[readonly]:focus-visible {
 
 .a-input-singlelineedit:not([readonly]):focus {
     outline: none;
-    border: 2px solid globals.$theme-primary;
+    border: globals.$border-thickness solid globals.$theme-primary;
 }
 
 /* inputs when a child of a checkbox (other specifier) */
@@ -165,9 +165,7 @@ input[readonly]:focus-visible {
     .a-input-singlelineedit {
         position: relative;
         z-index: 1;
-        margin-left: .5em;
-        margin-bottom: 0;
-        padding: 0;
+        margin: -9px 0 -9px 4px;
         border: 0;
         border-radius: globals.$text-border-radius;
         border: globals.$border-thickness globals.$other1 solid;

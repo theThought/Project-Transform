@@ -136,14 +136,14 @@ html[dir="rtl"] .a-label-total {
     position: relative;
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
-    padding: 8px 16px 8px 32px;
+    padding: globals.$default-padding 16px globals.$default-padding 32px;
     background-color: rgba(globals.$information, .15);
     color: globals.$information;
 
     &::before {
         position: absolute;
-        left: 8px;
-        top: 8px;
+        left: globals.$default-padding;
+        top: globals.$default-padding;
         width: 20px;
         height: 20px;
         content: '';
@@ -171,11 +171,11 @@ html[dir="rtl"] .a-label-total {
 }
 
 html[dir="rtl"] .o-question-instruction.has-content div {
-    padding: 8px 32px 8px 16px;
+    padding: globals.$default-padding 32px globals.$default-padding 16px;
 
     &::before {
         left: auto;
-        right: 8px;
+        right: globals.$default-padding;
     }
 
     ul {
@@ -205,13 +205,13 @@ html[dir="rtl"] .o-question-instruction.has-content div {
         position: relative;
         margin-bottom: .5em;
         border-radius: globals.$border-radius;
-        padding: 8px 16px 8px 32px;
+        padding: globals.$default-padding 16px globals.$default-padding 32px;
         font-size: globals.$instruction-font-size;
 
         &::before {
             position: absolute;
-            left: 8px;
-            top: 8px;
+            left: globals.$default-padding;
+            top: globals.$default-padding;
             width: 20px;
             height: 20px;
             background-size: 20px;
@@ -226,11 +226,11 @@ html[dir="rtl"] {
     .o-question-warning,
     .o-question-success {
         *[class*=-label-] {
-            padding: 8px 32px 8px 16px;
+            padding: globals.$default-padding 32px globals.$default-padding 16px;
 
             &::before {
                 left: auto;
-                right: 8px;
+                right: globals.$default-padding;
             }
         }
     }
@@ -312,7 +312,6 @@ html[dir="rtl"] .focused {
         display: inline-block;
         border: globals.$border-thickness transparent;
         position: relative;
-        left: -.5em;
         padding: 10px 16px;
         white-space: nowrap;
         box-sizing: content-box;
@@ -520,9 +519,9 @@ html[dir="rtl"] .o-question-hnumberslider-control {
         display: inline-block;
         box-sizing: border-box;
         position: relative;
-        border: 2px solid globals.$background;
+        border: globals.$border-thickness solid globals.$background;
         border-radius: calc(#{globals.$border-radius} + 2px);
-        padding: 8px;
+        padding: globals.$default-padding;
         width: 100%;
         height: 100%;
     }

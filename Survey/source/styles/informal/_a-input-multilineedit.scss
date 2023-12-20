@@ -6,7 +6,7 @@ textarea {
     border: globals.$border-thickness solid globals.$other1;
     box-sizing: border-box;
     border-radius: globals.$text-border-radius;
-    padding: 8px;
+    padding: globals.$default-padding;
     min-height: 100px;
     color: globals.$input-text;
     overflow-y: auto;
