@@ -1231,8 +1231,8 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   display: block;
   left: 1px;
   top: 1px;
-  width: calc(100% - (1px * 2));
-  height: calc(100% - (1px * 2));
+  width: calc(100% - 1px * 2);
+  height: calc(100% - 1px * 2);
   background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
@@ -1475,7 +1475,7 @@ html[dir=rtl] .balance .m-option-base {
 
 :root {
   --track-background-fill: rgba(212, 170, 73, 0.15);
-  --track-thumb-image: url("../../images/informal/range-thumb-default.svg");
+  --track-thumb-image: url("../../images/informal/range-thumb-transparent.svg");
   --track-thumb-width: 40px;
   --track-thumb-height: 45px;
 }
@@ -1624,7 +1624,7 @@ input[type=range]::-ms-thumb {
   height: var(--track-thumb-height);
   border: none;
   background-color: transparent;
-  background-image: url("../../images/informal/range-thumb-default.svg");
+  background-image: url("../../images/informal/range-thumb-transparent.svg");
   background-image: var(--track-thumb-image);
   background-size: cover;
   background-position: center;
