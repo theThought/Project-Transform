@@ -1,0 +1,326 @@
+{
+  "kit": {
+    "template": {
+      "components": [],
+      "events": [],
+      "listeners": []
+    }
+  },
+  "templates": [
+    {
+      "t-slider-horiztonal": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-slider-horizontal",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-slider-vertical": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-slider-vertical",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-choice": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-choice-list",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-input-singlelineedit": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-input-singlelineedit",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-input-multilineedit": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-input-multilineedit",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-combobox": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-input-multilineedit",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-dropdown": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-input-multilineedit",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ],
+  "organisms": [
+    {
+      "o-slider-horizontal": {
+        "components": [
+          "a-label-prepost",
+          "a-icon-singlestate",
+          "a-icon-multi-state",
+          "m-track",
+          "m-thumb"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-slider-vertical": {
+        "components": [
+          "a-label-prepost",
+          "a-icon-singlestate",
+          "a-icon-multi-state",
+          "m-track",
+          "m-thumb"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-choice-list": {
+        "components": [
+          "a-label-heading",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-input-singlelineedit": {
+        "components": [
+          "a-label-prepost",
+          "a-singlelineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-input-multilineedit": {
+        "components": [
+          "a-label-prepost",
+          "a-multilineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ],
+  "molecules": [
+    {
+      "m-message-error": {
+        "components": [
+          "a-icon-singlestate",
+          "a-label-message"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-message-information": {
+        "components": [
+          "a-icon-singlestate",
+          "a-label-message"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-option": {
+        "components": [
+          "a-icon-multi-state",
+          "a-label-option",
+          "a-input-singlelineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-track": {
+        "components": [
+          "a-icon-singlestate",
+          "m-track-mark"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-track-mark": {
+        "components": [
+          "a-separator-datamark",
+          "a-label-datapoint"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-thumb": {
+        "components": [
+          "a-icon-animate",
+          "a-label-datavalue"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-structure-row": {
+        "components": [
+          "m-structure-cell"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ],
+  "atoms": [
+    {
+      "template": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-question": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-instruction": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-option": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-prepost": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-datavalue": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-datapoint": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-icon-singlestate": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-icon-multistate": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-icon-animate": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-datamark": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-button-navigation": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-button-navigation-progressive": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-structure-cell": {
+        "components": [],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ]
+}
