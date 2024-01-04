@@ -104,6 +104,32 @@
         "events": [],
         "listeners": []
       }
+    },
+    {
+      "t-progressive-vertical": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-progressive-vertical"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-progressive-horizontal": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-progressive-horizontal"
+        ],
+        "events": [],
+        "listeners": []
+      }
     }
   ],
   "organisms": [
@@ -179,6 +205,39 @@
           "a-input-dropdown",
           "m-list"
         ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-progressive-vertical": {
+        "components": [
+          "m-progressive-valuetable",
+          "m-progressive-navigation-static",
+          "o-progressive-navigation-vertical",
+          "m-separator-progressive",
+          "a-progressive-response"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-progressive-horizontal": {
+        "components": [
+          "m-progressive-valuetable",
+          "m-progressive-navigation-static",
+          "o-progressive-navigation-horizontal",
+          "m-separator-progressive",
+          "a-progressive-response"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-progressive-navigation-migrating": {
+        "components": [],
         "events": [],
         "listeners": []
       }
@@ -263,6 +322,61 @@
         "events": [],
         "listeners": []
       }
+    },    {
+      "m-progressive-valuetable": {
+        "components": [],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-progressive-navigation-static": {
+        "components": ["a-progressive-response"],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressive-vertical": {
+        "components": [
+          "a-separator-vertical",
+          "m-separator-progressbar-vertical"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressbar-vertical": {
+        "components": [
+          "a-separator-progress-complete",
+          "a-separator-progress-incomplete",
+          "a-separator-progress-current"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressive-horizontal": {
+        "components": [
+          "a-separator-horizontal",
+          "m-separator-progressbar-horizontal"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressbar-horizontal": {
+        "components": [
+          "a-separator-progress-complete",
+          "a-separator-progress-incomplete",
+          "a-separator-progress-current"
+        ],
+        "events": [],
+        "listeners": []
+      }
     }
   ],
   "atoms": [
@@ -309,6 +423,12 @@
       }
     },
     {
+      "a-label-progressive-navigation": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
       "a-icon-singlestate": {
         "events": [],
         "listeners": []
@@ -333,6 +453,36 @@
       }
     },
     {
+      "a-separator-horizontal": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-vertical": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-progress-complete": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-progress-incomplete": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-progress-current": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
       "a-button-navigation": {
         "events": [],
         "listeners": []
@@ -346,14 +496,18 @@
     },
     {
       "a-structure-cell": {
-        "components": [],
         "events": [],
         "listeners": []
       }
     },
     {
       "a-option-list": {
-        "components": [],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-progressive-response": {
         "events": [],
         "listeners": []
       }
