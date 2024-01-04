@@ -157,16 +157,12 @@ define(
             }
         }
 
-        component.prototype.restoreEntries = function (event) {
-            if (event.detail.questionName !== this.questionName) {
+        component.prototype.restoreEntries = function () {
+            if (!this.restoreValues) {
                 return;
             }
 
-            if (this.available) {
-                return;
-            }
-
-            if (this.restoreValues && this.element.value !== this.initialValue) {
+            if (this.element.value !== this.initialValue) {
                 this.element.value = this.initialValue;
                 this.manageContentClass();
                 this.broadcastChange();
