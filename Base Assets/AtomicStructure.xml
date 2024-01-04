@@ -84,7 +84,7 @@
           "m-message-error",
           "m-message-information",
           "a-label-instruction",
-          "o-input-multilineedit",
+          "o-combobox",
           "m-option"
         ],
         "events": [],
@@ -98,7 +98,7 @@
           "m-message-error",
           "m-message-information",
           "a-label-instruction",
-          "o-input-multilineedit",
+          "o-dropdown",
           "m-option"
         ],
         "events": [],
@@ -158,6 +158,26 @@
         "components": [
           "a-label-prepost",
           "a-multilineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-combobox": {
+        "components": [
+          "a-input-combobox",
+          "m-list"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-dropdown": {
+        "components": [
+          "a-input-dropdown",
+          "m-list"
         ],
         "events": [],
         "listeners": []
@@ -230,6 +250,15 @@
       "m-structure-row": {
         "components": [
           "m-structure-cell"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-List": {
+        "components": [
+          "a-option-list"
         ],
         "events": [],
         "listeners": []
@@ -317,6 +346,13 @@
     },
     {
       "a-structure-cell": {
+        "components": [],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-option-list": {
         "components": [],
         "events": [],
         "listeners": []
