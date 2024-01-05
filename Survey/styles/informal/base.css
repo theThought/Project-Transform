@@ -1429,10 +1429,6 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
-.o-question-response {
-  overflow-y: visible;
-  overflow-x: auto;
-}
 .o-question-response[data-hidden=true] * {
   display: none;
 }
@@ -1719,6 +1715,10 @@ input[type=range]:focus::-ms-fill-lower {
     margin: 0;
   }
 }
+.o-combobox, .o-dropdown {
+  position: relative;
+}
+
 .o-combobox input[type=text] {
   padding: 10px 16px;
   border-radius: 3px;
@@ -1777,7 +1777,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-dropdown input[type=text] {
-  padding: 10px 16px;
+  padding: 10px 48px 10px 16px;
   border-radius: 5px;
   border: 1px solid #E8BE5D;
   color: #FAFAFA;
@@ -1790,9 +1790,6 @@ input[type=range]:focus::-ms-fill-lower {
   text-overflow: ellipsis;
   font-size: 18px;
   line-height: 24px;
-}
-.o-dropdown input[type=text].manual-width {
-  padding-right: 48px;
 }
 .o-dropdown input[type=text].list-visible {
   background-image: url("../../images/informal/white-chevron-up.png");
@@ -1828,10 +1825,7 @@ input[type=range]:focus::-ms-fill-lower {
 
 html[dir=rtl] .o-dropdown input[type=text] {
   background: url("../../images/informal/white-chevron-down.png") left 12px center no-repeat #E8BE5D;
-}
-html[dir=rtl] .o-dropdown input[type=text].manual-width {
-  padding-right: 16px;
-  padding-left: 48px;
+  padding: 10px 16px 10px 48px;
 }
 
 .o-combobox ul,
@@ -1914,7 +1908,7 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
 
 .o-combobox.direction-up ul,
 .o-dropdown.direction-up ul {
-  bottom: 99px;
+  bottom: 36px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }

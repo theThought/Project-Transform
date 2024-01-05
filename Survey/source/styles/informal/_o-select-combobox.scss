@@ -2,8 +2,8 @@
 
 $default-text-width: globals.$default-input-width;
 
-.o-question-response:not(.o-question-combobox, .o-question-dropdown) {
-    //position: relative;
+.o-combobox, .o-dropdown {
+    position: relative;
 }
 
 .o-combobox {
@@ -60,7 +60,7 @@ $default-text-width: globals.$default-input-width;
 
 .o-dropdown {
     input[type=text] {
-        padding: 10px 16px;
+        padding: 10px 48px 10px 16px;
         border-radius: globals.$border-radius;
         border: globals.$border-thickness solid globals.$theme-primary;
         color: globals.$white;
@@ -72,10 +72,6 @@ $default-text-width: globals.$default-input-width;
         text-overflow: ellipsis;
         font-size: globals.$option-font-size;
         line-height: globals.$option-line-height;
-
-        &.manual-width {
-            padding-right: 48px;
-        }
 
         &.list-visible {
             background-image: url("/Survey/images/informal/white-chevron-up.png");
@@ -104,12 +100,7 @@ $default-text-width: globals.$default-input-width;
 html[dir="rtl"] .o-dropdown {
     input[type=text] {
         background: url("/Survey/images/informal/white-chevron-down.png") left 12px center no-repeat globals.$theme-primary;
-
-        &.manual-width {
-            padding-right: 16px;
-            padding-left: 48px;
-        }
-
+        padding: 10px 16px 10px 48px;
     }
 }
 
@@ -190,15 +181,14 @@ html[dir="rtl"] .o-dropdown {
 }
 
 .o-combobox.direction-down ul,
-.o-dropdown.direction-down ul
-{
+.o-dropdown.direction-down ul {
     border-bottom-left-radius: globals.$text-border-radius;
     border-bottom-right-radius: globals.$text-border-radius;
 }
 
 .o-combobox.direction-up ul,
 .o-dropdown.direction-up ul {
-    bottom: 99px;
+    bottom: 36px;
     border-top-left-radius: globals.$text-border-radius;
     border-top-right-radius: globals.$text-border-radius;
 }

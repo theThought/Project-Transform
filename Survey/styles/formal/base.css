@@ -1715,6 +1715,10 @@ input[type=range]:focus::-ms-fill-lower {
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
+.o-combobox, .o-dropdown {
+  position: relative;
+}
+
 .o-combobox input[type=text] {
   padding: 10px 16px;
   border-radius: 2px;
@@ -1771,7 +1775,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-dropdown input[type=text] {
-  padding: 10px 16px;
+  padding: 10px 48px 10px 16px;
   border-radius: 4px;
   border: 1px solid #455B97;
   color: #FAFAFA;
@@ -1782,9 +1786,6 @@ input[type=range]:focus::-ms-fill-lower {
   cursor: default;
   background: url("../../images/formal/white-chevron-down.png") right 12px center no-repeat #455B97;
   text-overflow: ellipsis;
-}
-.o-dropdown input[type=text].manual-width {
-  padding-right: 48px;
 }
 .o-dropdown input[type=text].list-visible {
   background-image: url("../../images/formal/white-chevron-up.png");
@@ -1820,10 +1821,7 @@ input[type=range]:focus::-ms-fill-lower {
 
 html[dir=rtl] .o-dropdown input[type=text] {
   background: url("../../images/formal/white-chevron-down.png") left 12px center no-repeat #455B97;
-}
-html[dir=rtl] .o-dropdown input[type=text].manual-width {
-  padding-right: 16px;
-  padding-left: 48px;
+  padding: 10px 16px 10px 48px;
 }
 
 .o-combobox ul,
@@ -1902,7 +1900,7 @@ html[dir=rtl] .o-dropdown input[type=text].manual-width {
 
 .o-combobox.direction-up ul,
 .o-dropdown.direction-up ul {
-  bottom: 68px;
+  bottom: 36px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }

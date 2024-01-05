@@ -195,11 +195,13 @@ define(['component'],
             if (isNaN(inputwidth)) inputwidth = 0;
             var droplistdims = getComputedStyle(this.droplist);
             var droplistwidth = parseFloat(droplistdims.width);
-            var padding = 32; // the droplist does not have padding included
+            var padding = 64; // the droplist does not have padding included
             var errormargin = 4; // element.size is font-specific and needs a little safety margin
 
             this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
             this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + padding + 'px';
+
+            this.manualWidth = true;
         }
 
         oDropdown.prototype.restoreSelection = function () {

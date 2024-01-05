@@ -200,6 +200,8 @@ define(['component'],
 
             this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin + 'px';
             this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin + padding + 'px';
+
+            this.manualWidth = true;
         }
 
         oCombobox.prototype.restoreSelection = function () {
