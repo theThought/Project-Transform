@@ -56,7 +56,7 @@
           "m-message-error",
           "m-message-information",
           "a-label-instruction",
-          "o-input-singlelineedit",
+          "m-input-singlelineedit",
           "m-option"
         ],
         "events": [],
@@ -70,7 +70,7 @@
           "m-message-error",
           "m-message-information",
           "a-label-instruction",
-          "o-input-multilineedit",
+          "m-input-multilineedit",
           "m-option"
         ],
         "events": [],
@@ -170,26 +170,6 @@
       }
     },
     {
-      "o-input-singlelineedit": {
-        "components": [
-          "a-label-prepost",
-          "a-singlelineedit"
-        ],
-        "events": [],
-        "listeners": []
-      }
-    },
-    {
-      "o-input-multilineedit": {
-        "components": [
-          "a-label-prepost",
-          "a-multilineedit"
-        ],
-        "events": [],
-        "listeners": []
-      }
-    },
-    {
       "o-combobox": {
         "components": [
           "a-input-combobox",
@@ -244,6 +224,26 @@
     }
   ],
   "molecules": [
+    {
+      "m-input-singlelineedit": {
+        "components": [
+          "a-label-prepost",
+          "a-singlelineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-input-multilineedit": {
+        "components": [
+          "a-label-prepost",
+          "a-multilineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
     {
       "m-message-error": {
         "components": [
@@ -322,7 +322,8 @@
         "events": [],
         "listeners": []
       }
-    },    {
+    },
+    {
       "m-progressive-valuetable": {
         "components": [],
         "events": [],
@@ -331,7 +332,9 @@
     },
     {
       "m-progressive-navigation-static": {
-        "components": ["a-progressive-response"],
+        "components": [
+          "a-progressive-response"
+        ],
         "events": [],
         "listeners": []
       }
