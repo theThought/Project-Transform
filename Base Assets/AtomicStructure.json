@@ -1,0 +1,519 @@
+{
+  "kit": {
+    "template": {
+      "components": [],
+      "events": [],
+      "listeners": []
+    }
+  },
+  "templates": [
+    {
+      "t-slider-horiztonal": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-slider-horizontal",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-slider-vertical": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-slider-vertical",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-choice": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-choice-list",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-input-singlelineedit": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "m-input-singlelineedit",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-input-multilineedit": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "m-input-multilineedit",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-combobox": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-combobox",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-dropdown": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-dropdown",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-progressive-vertical": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-progressive-vertical"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "t-progressive-horizontal": {
+        "components": [
+          "a-label-question",
+          "m-message-error",
+          "m-message-information",
+          "a-label-instruction",
+          "o-progressive-horizontal"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ],
+  "organisms": [
+    {
+      "o-slider-horizontal": {
+        "components": [
+          "a-label-prepost",
+          "a-icon-singlestate",
+          "a-icon-multi-state",
+          "m-track",
+          "m-thumb"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-slider-vertical": {
+        "components": [
+          "a-label-prepost",
+          "a-icon-singlestate",
+          "a-icon-multi-state",
+          "m-track",
+          "m-thumb"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-choice-list": {
+        "components": [
+          "a-label-heading",
+          "m-option"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-combobox": {
+        "components": [
+          "a-input-combobox",
+          "m-list"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-dropdown": {
+        "components": [
+          "a-input-dropdown",
+          "m-list"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-progressive-vertical": {
+        "components": [
+          "m-progressive-valuetable",
+          "m-progressive-navigation-static",
+          "o-progressive-navigation-vertical",
+          "m-separator-progressive",
+          "a-progressive-response"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-progressive-horizontal": {
+        "components": [
+          "m-progressive-valuetable",
+          "m-progressive-navigation-static",
+          "o-progressive-navigation-horizontal",
+          "m-separator-progressive",
+          "a-progressive-response"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "o-progressive-navigation-migrating": {
+        "components": [],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ],
+  "molecules": [
+    {
+      "m-input-singlelineedit": {
+        "components": [
+          "a-label-prepost",
+          "a-singlelineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-input-multilineedit": {
+        "components": [
+          "a-label-prepost",
+          "a-multilineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-message-error": {
+        "components": [
+          "a-icon-singlestate",
+          "a-label-message"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-message-information": {
+        "components": [
+          "a-icon-singlestate",
+          "a-label-message"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-option": {
+        "components": [
+          "a-icon-multi-state",
+          "a-label-option",
+          "a-input-singlelineedit"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-track": {
+        "components": [
+          "a-icon-singlestate",
+          "m-track-mark"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-track-mark": {
+        "components": [
+          "a-separator-datamark",
+          "a-label-datapoint"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-thumb": {
+        "components": [
+          "a-icon-animate",
+          "a-label-datavalue"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-structure-row": {
+        "components": [
+          "m-structure-cell"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-List": {
+        "components": [
+          "a-option-list"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-progressive-valuetable": {
+        "components": [],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-progressive-navigation-static": {
+        "components": [
+          "a-progressive-response"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressive-vertical": {
+        "components": [
+          "a-separator-vertical",
+          "m-separator-progressbar-vertical"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressbar-vertical": {
+        "components": [
+          "a-separator-progress-complete",
+          "a-separator-progress-incomplete",
+          "a-separator-progress-current"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressive-horizontal": {
+        "components": [
+          "a-separator-horizontal",
+          "m-separator-progressbar-horizontal"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "m-separator-progressbar-horizontal": {
+        "components": [
+          "a-separator-progress-complete",
+          "a-separator-progress-incomplete",
+          "a-separator-progress-current"
+        ],
+        "events": [],
+        "listeners": []
+      }
+    }
+  ],
+  "atoms": [
+    {
+      "template": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-question": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-instruction": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-option": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-prepost": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-datavalue": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-datapoint": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-label-progressive-navigation": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-icon-singlestate": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-icon-multistate": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-icon-animate": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-datamark": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-horizontal": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-vertical": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-progress-complete": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-progress-incomplete": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-separator-progress-current": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-button-navigation": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-button-navigation-progressive": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-structure-cell": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-option-list": {
+        "events": [],
+        "listeners": []
+      }
+    },
+    {
+      "a-progressive-response": {
+        "events": [],
+        "listeners": []
+      }
+    }
+  ]
+}
