@@ -91,6 +91,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionHNumberSlider(id, group));
             });
             break;
+        case 'oquestionvnumberslider':
+            requirejs(['o-question-v-number-slider'], function (oQuestionVNumberSlider) {
+                app.preinitcomponents.push(new oQuestionVNumberSlider(id, group));
+            });
+            break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.preinitcomponents.push(new aInputButtonDec(id, group));

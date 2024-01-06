@@ -1,50 +1,64 @@
-define(['component'],
+define(['component'], 
     function (component) {
 
-        /**
-         * Atom: Value label for slider
-         *
-         * @constructor
-         * @param {String} id - element id
-         * @param {String} group - question group
-         */
+    function aLabelThumbValue(id, group) {
+        component.call(this, id, group);
 
-        function aLabelThumbValue(id, group) {
-            component.call(this, id, group);
+        // For horizontal slider
+        this.horizontalElement = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
+        this.horizontalSlider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
 
-            this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
-            this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
+        // For vertical slider
+        this.verticalElement = document.querySelector('div.o-question-vnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
+        this.verticalSlider = document.querySelector('div.o-question-vnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
+    }
+
+    aLabelThumbValue.prototype = Object.create(component.prototype);
+    aLabelThumbValue.prototype.constructor = aLabelThumbValue;
+
+    aLabelThumbValue.prototype.init = function () {
+        this.configureProperties();
+        this.configureIncomingEventListeners();
+
+        // Check if the horizontal slider exists before initializing
+        if (this.horizontalSlider) {
+            this.updateValue({ element: this.horizontalSlider });
         }
 
-        aLabelThumbValue.prototype = Object.create(component.prototype);
-        aLabelThumbValue.prototype.constructor = aLabelThumbValue;
+        this.configurationComplete();
+    };
 
-        aLabelThumbValue.prototype.init = function () {
-            this.configureProperties();
-            this.configureIncomingEventListeners();
+    aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
+        // for each event listener there must be a corresponding event handler
+        document.addEventListener(this.group + "_updateValue", this, false);
+    };
 
-            // initialise the value - cannot be called as we don't know the thumbvalue element is ready
-            this.updateValue({element: this.slider});
-            this.configurationComplete();
+    aLabelThumbValue.prototype.handleEvent = function (event) {
+        switch (event.type) {
+            case this.group + "_updateValue":
+                this.updateValue(event.detail);
+                break;
+        }
+    };
+
+    aLabelThumbValue.prototype.updateValue = function (eventDetail) {
+        if (!eventDetail || !eventDetail.element) {
+            // If eventDetail or eventDetail.element is null or undefined, do nothing
+            return;
         }
 
-        aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
-            // for each event listener there must be a corresponding event handler
-            document.addEventListener(this.group + "_updateValue", this, false);
+        var direction = (document.dir === 'rtl') ? 'rtl' : 'ltr';
+        var value = eventDetail.element.value;
+        var elementToUpdate;
+
+        if (eventDetail.element === this.horizontalSlider) {
+            elementToUpdate = this.horizontalElement;
+        } else if (eventDetail.element === this.verticalSlider) {
+            elementToUpdate = this.verticalElement;
         }
 
-        aLabelThumbValue.prototype.handleEvent = function (event) {
-            switch (event.type) {
-                case this.group + "_updateValue":
-                    this.updateValue(event.detail);
-                    break;
-            }
-        }
-
-        aLabelThumbValue.prototype.updateValue = function (eventDetail) {
-            var direction = (document.dir === 'rtl') ? 'rtl' : 'ltr';
-            var value = eventDetail.element.value;
-            this.element.innerHTML = value;
+        if (elementToUpdate) {
+            elementToUpdate.innerHTML = value;
 
             var min = eventDetail.element.min ? eventDetail.element.min : 0;
             var max = eventDetail.element.max ? eventDetail.element.max : 100;
@@ -56,12 +70,13 @@ define(['component'],
             var positionPaddingOffset = Math.round(12 * position / 100) - 6;
 
             if (direction === 'rtl') {
-                this.element.style.right = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
+                elementToUpdate.style.right = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
             } else {
-                this.element.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
+                elementToUpdate.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
             }
         }
+    };
 
-        return aLabelThumbValue;
+    return aLabelThumbValue;
 
-    });
+});
