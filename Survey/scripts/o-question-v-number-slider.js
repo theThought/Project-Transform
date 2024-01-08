@@ -13,13 +13,13 @@ define(['o-question'],
             oQuestion.call(this, id, group);
 
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
-            this.wrapper = document.querySelector('div.o-question-vnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
+            this.wrapper = document.querySelector('div.o-question-vnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-vertical');
             this.organism = document.querySelector('div.o-question-vnumberslider[data-questiongroup="' + this.group + '"] div.o-question-vnumberslider-control');
             this.hiddenelement = null;
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
-            this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
+            this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');        
         }
 
         oQuestionvnumberslider.prototype = Object.create(oQuestion.prototype);
@@ -90,6 +90,7 @@ define(['o-question'],
             this.element.value = this.element.getAttribute('data-value');
             this.hiddenelement = this.element;
             this.element = this.wrapper.insertBefore(newelement, this.element);
+            console.log(this.element);
         }
 
         oQuestionvnumberslider.prototype.getInitialValue = function () {

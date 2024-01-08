@@ -12,7 +12,8 @@
     overflow: visible;
 }
 
-.o-question-hnumberslider-control {
+.o-question-hnumberslider-control,
+.o-question-vnumberslider-control {
     position: relative;
     display: flex;
     align-items: flex-start;

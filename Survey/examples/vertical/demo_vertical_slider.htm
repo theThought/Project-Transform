@@ -78,7 +78,8 @@
                 "values": {
                     "min": 0,
                     "max": 10
-                }, "show": {"marks": true}, "ticklabels": 1
+                }, "show": {"marks": true}, "ticklabels": 1,
+				"floodtovalue": true
             });</script>
 			<div class="m-question-cover"><!-- cover --></div>
 			<div class="o-question-error"></div>
@@ -87,9 +88,8 @@
 				<div class="o-question-information">
 					<label for="_Q17" class="a-label-question" style="">How many of the last 10 visits did you miss?</label>
 				</div>
-				<div class="o-question-instruction">
-					<p>Instructions?</p>
-				</div>
+				<div class="o-question-instruction"></div>
+
 				<div class="o-question-response o-question-vnumberslider"
 				     data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
 					<script>app.registerComponent('oQuestionvnumberslider', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
@@ -100,8 +100,8 @@
 						</button>
 						<script>app.registerComponent('aButtonPreTerminator', '_Q17_Preterm', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 						<!-- <div style="" class="m-numberslider-horizontal"> -->
-						<!-- <div style="" class="m-numberslider-vertical"> -->
-						<div style="" class="m-numberslider-horizontal">
+						<div style="" class="m-numberslider-vertical">
+						<!-- <div style="" class="m-numberslider-horizontal"> -->
 							<div class="a-style-sliderborder">
 								<!--vnumberslider slider border-->
 							</div>
@@ -116,7 +116,7 @@
 							<input data-questionid="_Q17"
 							       data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
 							       name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"
-							       class="a-input-vnumberslider" autocomplete="off" style="" maxlength="2" value="1"/>
+							       class="a-input-vnumberslider" autocomplete="off" style="" maxlength="2" value="0"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels"
 							     class="m-label-ticklabels">
 								<!--vnumberslider tick labels-->

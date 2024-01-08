@@ -396,7 +396,8 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-.o-question-hnumberslider-control {
+.o-question-hnumberslider-control,
+.o-question-vnumberslider-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -470,7 +471,8 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 }
 
-html[dir="rtl"] .o-question-hnumberslider-control {
+html[dir="rtl"] .o-question-hnumberslider-control, 
+html[dir="rtl"] .o-question-vnumberslider-control {
 
     .a-label-prelabel {
         left: auto;
