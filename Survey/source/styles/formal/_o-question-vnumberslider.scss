@@ -12,6 +12,9 @@
     overflow: visible;
 }
 
+.o-question-container.cover-off.config-complete {
+    height: calc(64vh - 10px);
+}
 
 .o-question-vnumberslider-control{
     position: relative;
@@ -19,9 +22,11 @@
     display: flex;
     align-items: flex-start;
     margin-bottom: .5em;
-    min-width: globals.$min-display-width;
+    min-width: calc(56vh - 10px);
+    max-width: calc(56vh - 10px);
+    margin-top: calc(26vh - 10px);
+    // min-width: globals.$min-display-width;
     
-
     &:focus,
     &:focus-visible,
     &:focus-within {
@@ -103,10 +108,11 @@
     
 }
 
-input[type=range] {
+.o-question-vnumberslider input[type=range] {
     position: relative;
     z-index: 3;
-    width: calc(100% - 12px);
+    // width: calc(100% - 12px);
+    width: calc(56vh - 10px);
     left: 6px;
     height: 48px;
     margin: 0;
