@@ -176,12 +176,12 @@ define(['component'],
             }
         }
 
-        mOptionBase.prototype.restoreEntries = function (event) {
-            if (event.detail.questionName !== this.questionName) {
+        mOptionBase.prototype.restoreEntries = function () {
+            if (!this.restoreValues) {
                 return;
             }
 
-            if (this.restoreValues && this.initialValue && !this.checkbox.checked) {
+            if (this.initialValue && !this.checkbox.checked) {
                 this.changeState(true);
                 this.broadcastChange();
             }
