@@ -1103,37 +1103,33 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 }
 
 .o-question-hnumberslider-control .a-label-outer-prelabel,
-.o-question-hnumberslider-control .a-label-outer-postlabel {
+.o-question-hnumberslider-control .a-label-outer-postlabel,
+.o-question-vnumberslider-control .a-label-outer-prelabel,
+.o-question-vnumberslider-control .a-label-outer-postlabel {
   position: relative;
   top: 0.9em;
   color: #455B97;
 }
-.o-question-hnumberslider-control .a-label-prelabel {
+.o-question-hnumberslider-control .a-label-prelabel,
+.o-question-vnumberslider-control .a-label-prelabel {
   position: absolute;
   left: 0;
   bottom: -0.8em;
   color: #455B97;
 }
-.o-question-hnumberslider-control .a-label-postlabel {
+.o-question-hnumberslider-control .a-label-postlabel,
+.o-question-vnumberslider-control .a-label-postlabel {
   position: absolute;
   right: 0;
   bottom: -0.8em;
   color: #455B97;
 }
-.o-question-hnumberslider-control .a-label-thumbvalue {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  color: #212C4C;
-  position: absolute;
-  top: -1.1em;
-  visibility: hidden;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.o-question-hnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue {
+.o-question-hnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue,
+.o-question-vnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;
 }
-.o-question-hnumberslider-control .m-style-slidermarks {
+.o-question-hnumberslider-control .m-style-slidermarks,
+.o-question-vnumberslider-control .m-style-slidermarks {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
@@ -1149,7 +1145,8 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           justify-content: space-between;
   color: #8797C8;
 }
-.o-question-hnumberslider-control .m-style-slidermarks > i {
+.o-question-hnumberslider-control .m-style-slidermarks > i,
+.o-question-vnumberslider-control .m-style-slidermarks > i {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1157,7 +1154,8 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   display: block;
   font-style: normal;
 }
-.o-question-hnumberslider-control .m-label-ticklabels {
+.o-question-hnumberslider-control .m-label-ticklabels,
+.o-question-vnumberslider-control .m-label-ticklabels {
   position: relative;
   top: -0.5em;
   left: 6px;
@@ -1172,7 +1170,8 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           justify-content: space-between;
   color: #8797C8;
 }
-.o-question-hnumberslider-control .m-label-ticklabels > span {
+.o-question-hnumberslider-control .m-label-ticklabels > span,
+.o-question-vnumberslider-control .m-label-ticklabels > span {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1197,16 +1196,6 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   right: 0;
   bottom: -0.8em;
   color: #455B97;
-}
-.o-question-vnumberslider-control .a-label-thumbvalue {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  color: #212C4C;
-  position: absolute;
-  top: -1.1em;
-  visibility: hidden;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 .o-question-vnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;
@@ -1336,6 +1325,13 @@ html[dir=rtl] .m-option-base label + .a-label-option {
 
 html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   padding-right: 0;
+}
+
+.a-label-thumbvalue {
+  top: -60px;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .m-option-base {
@@ -1852,7 +1848,7 @@ input[type=range]:focus::-ms-fill-lower {
   visibility: visible;
 }
 .o-question-vnumberslider-control.has-thumb-value {
-  padding-top: 1em;
+  padding-top: 0em;
 }
 .o-question-vnumberslider-control.has-pre-label, .o-question-vnumberslider-control.has-post-label {
   padding-bottom: 0.8em;

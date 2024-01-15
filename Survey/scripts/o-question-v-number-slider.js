@@ -90,7 +90,6 @@ define(['o-question'],
             this.element.value = this.element.getAttribute('data-value');
             this.hiddenelement = this.element;
             this.element = this.wrapper.insertBefore(newelement, this.element);
-            console.log(this.element);
         }
 
         oQuestionvnumberslider.prototype.getInitialValue = function () {

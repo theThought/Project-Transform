@@ -10,8 +10,11 @@
 	<meta name="Template" content="page.htm"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-	<link rel="stylesheet" type="text/css" href="../../styles/formal/base.css" title="Formal style"/>
 	<link rel="alternative stylesheet" type="text/css" href="../../styles/informal/base.css" title="Informal style"/>
+	<link rel="stylesheet" type="text/css" href="../../styles/formal/base.css" title="Formal style"/>
+	
+	
+	
 	<script type="text/javascript" src="../../scripts/require.js"><!-- Require Script --></script>
 	<script type="text/javascript">
         require.config({
@@ -75,7 +78,7 @@
 		<div class="o-question-container">
 			<script data-questionid="_Q17">app.registerComponent('oQuestionContainer', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 			<script type="text/javascript">app.RegisterProperties('_QHowManyMissedMarksLabels', {
-                "values": {
+                  "values": {
                     "min": 0,
                     "max": 10
                 }, "show": {"marks": true}, "ticklabels": 1,
@@ -108,21 +111,21 @@
 							<div class="m-style-slidermarks">
 								<!--vnumberslider tick marks-->
 							</div>
-							<div class="a-label-thumbvalue" data-questionid="_Q17_Val"
+							<div class="a-label-thumbvalue" data-questionid="_Q17_Val" 
 							     data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
-								<script>app.registerComponent('aLabelThumbValue', '_Q17_Thumbvalue', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
+								<script>app.registerComponent('aLabelThumbValueVertical', '_Q17_Thumbvalue', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 								<!--vnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q17"
 							       data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
 							       name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"
-							       class="a-input-vnumberslider" autocomplete="off" style="" maxlength="2" value="0"/>
+							       class="a-input-vnumberslider" autocomplete="off" style="" maxlength="2" value="4"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels"
 							     class="m-label-ticklabels">
 								<!--vnumberslider tick labels-->
 							</div>
 						</div>
-						<script>app.registerComponent('aInputvnumberslider', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
+						<script>app.registerComponent('aInputVnumberslider', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 						<button type="Button" class="a-button-postterminator" data-questionid="_Q17_Postterm"
 						        data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
 							<!--vnumberslider post terminator-->
@@ -132,74 +135,6 @@
 				</div>
 			</div>
 		</div>
-
-
-	
-
-	
-
-		<div class="o-question-container">
-			<script data-questionid="_Q22">app.registerComponent('oQuestionContainer', '_Q22', '_QSideBySidePage_Qmodifications');</script>
-			<script type="text/javascript">app.RegisterProperties('_Qmodifications', {
-                "values": {"min": -5, "max": 5},
-                "show": {"marks": true, "value": false, "terminators": true},
-                "ticklabels": 1,
-                "floodtovalue": false
-            });</script>
-			<div class="m-question-cover"><!-- cover --></div>
-			<div class="o-question-error"></div>
-			<div class="o-question-core">
-				<div class="o-question-warning"></div>
-				<div class="o-question-information">
-					<label for="_Q22" class="a-label-question" style="">Indicate the speed modification</label>
-				</div>
-				<div class="o-question-instruction">
-				</div>
-				<div class="o-question-response o-question-vnumberslider"
-				     data-questiongroup="_QSideBySidePage_Qmodifications">
-					<script>app.registerComponent('oQuestionvnumberslider', '_Q22', '_QSideBySidePage_Qmodifications');</script>
-					<div class="o-question-vnumberslider-control">
-						<button type="Button" class="a-button-preterminator" data-questionid="_Q22_Preterm"
-						        data-questiongroup="_QSideBySidePage_Qmodifications">
-							<!--vnumberslider pre terminator-->
-						</button>
-						<script>app.registerComponent('aButtonPreTerminator', '_Q22_Preterm', '_QSideBySidePage_Qmodifications');</script>
-						<div style="" class="m-numberslider-vertical">
-							<div class="a-style-sliderborder">
-								<!--vnumberslider slider border-->
-							</div>
-							<div class="m-style-slidermarks">
-								<!--vnumberslider tick marks-->
-							</div>
-							<div class="a-label-thumbvalue" data-questionid="_Q22_Val"
-							     data-questiongroup="_QSideBySidePage_Qmodifications">
-								<script>app.registerComponent('aLabelThumbValue', '_Q22_Thumbvalue', '_QSideBySidePage_Qmodifications');</script>
-								<!--vnumberslider thumb value-->
-							</div>
-							<input data-questionid="_Q22" data-questiongroup="_QSideBySidePage_Qmodifications"
-							       type="range" name="_QSideBySidePage_Qmodifications" id="_Q22"
-							       class="a-input-vnumberslider" autocomplete="off" style="" maxlength="2" value="-4"/>
-							<div data-questiongroup="_QSideBySidePage_Qmodifications" class="m-label-ticklabels">
-								<!--vnumberslider tick labels-->
-							</div>
-						</div>
-						<script>app.registerComponent('aInputvnumberslider', '_Q22', '_QSideBySidePage_Qmodifications');</script>
-						<button type="Button" class="a-button-postterminator" data-questionid="_Q22_Postterm"
-						        data-questiongroup="_QSideBySidePage_Qmodifications">
-							<!--vnumberslider post terminator-->
-						</button>
-					</div>
-					<script>app.registerComponent('aButtonPostTerminator', '_Q22_Postterm', '_QSideBySidePage_Qmodifications');</script>
-				</div>
-			</div>
-		</div>
-
-
-		
-
-
-
-
 	</div>
 
 	
