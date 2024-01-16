@@ -60,7 +60,7 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-            var eventsToPassWhenReadonly =[this.group + '_beginResize', this.group + '_endResize'];
+            var eventsToPassWhenReadonly = [this.group + '_beginResize', this.group + '_endResize'];
 
             if (this.isReadOnly && eventsToPassWhenReadonly.indexOf(event.type) === -1) {
                 event.preventDefault();
@@ -215,7 +215,9 @@ define(['component'],
                     if (this.checkbox.checked) {
                         this.textInput.focus();
                     } else {
-                        this.textInput.placeholder = this.textInput.value;
+                        if (this.textInput.value.length) {
+                            this.textInput.placeholder = this.textInput.value;
+                        }
                         this.textInput.value = '';
                     }
                 }
