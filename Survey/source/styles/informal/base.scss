@@ -164,24 +164,29 @@ input:disabled {
 ::-moz-placeholder {
     color: globals.$placeholder;
     opacity: 1;
+    font-size: 12px;
 }
 
 :-ms-input-placeholder {
     color: globals.$placeholder;
     opacity: 1;
+    font-size: 12px;
 }
 
 ::placeholder {
     color: globals.$placeholder;
     opacity: 1;
+    font-size: 12px;
 }
 
 :-ms-input-placeholder {
     color: globals.$placeholder;
+    font-size: 12px;
 }
 
 ::-ms-input-placeholder {
     color: globals.$placeholder;
+    font-size: 12px;
 }
 
 sup {

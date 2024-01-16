@@ -25,7 +25,8 @@ $warning: #D4AA49;
 $error: #DA2911;
 
 $other0: #DEC7E8;
-$other1: #6A646F;
+$other1: #4A444E;
+$other2: #6A646F;
 
 $background: #FFFFFF;
 
@@ -38,7 +39,7 @@ $titles: $darkest;
 $placeholder: $other1;
 $input-text: $theme-secondary;
 $input-background: #FFFFFF;
-$input-background-has-content: #FAF2DF;
+$input-background-has-content: rgba($theme-primary, 0.2);
 $pre-post-text: $theme-secondary;
 $disabled-text: #847E88;
 $disabled-background: $light1;

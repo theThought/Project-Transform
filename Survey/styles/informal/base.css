@@ -386,7 +386,7 @@ html[dir=rtl] .balance .a-button-option {
   min-width: 0;
   min-height: 0;
   background: #ECEFF5;
-  color: #6A646F;
+  color: #4A444E;
   font-size: 16px;
   line-height: 24px;
   width: 12px;
@@ -540,7 +540,7 @@ html[dir=rtl] .m-list-optionlist .a-icon-multistate {
 textarea {
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid #6A646F;
+  border: 1px solid #4A444E;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 3px;
@@ -555,7 +555,7 @@ textarea {
 
 textarea.has-content {
   border-color: transparent;
-  background-color: #FAF2DF;
+  background-color: rgba(232, 190, 93, 0.2);
 }
 
 textarea:active,
@@ -580,7 +580,7 @@ textarea:focus-within {
 .a-input-singlelineedit {
   padding: 8px;
   border-radius: 3px;
-  border: 1px solid #6A646F;
+  border: 1px solid #4A444E;
   color: #7A3996;
   margin: 0 0 0.5em 0;
   width: 197px;
@@ -593,7 +593,7 @@ textarea:focus-within {
 
 .a-input-singlelineedit.has-content {
   border-color: transparent;
-  background-color: #FAF2DF;
+  background-color: rgba(232, 190, 93, 0.2);
 }
 
 .balance .a-input-singlelineedit,
@@ -678,7 +678,6 @@ html[dir=rtl] .show-spinner .a-input-singlelineedit[type=number] {
 .read-only .a-input-singlelineedit,
 .a-input-singlelineedit.read-only {
   border-color: #847E88 !important;
-  border-style: dotted;
   cursor: default;
 }
 .read-only .a-input-singlelineedit.has-content,
@@ -717,13 +716,22 @@ input[readonly]:focus-visible {
 /* inputs when a child of a checkbox (other specifier) */
 .m-option-base .a-input-singlelineedit {
   position: relative;
+  left: 8px;
   z-index: 1;
-  margin: -9px 0 -9px 4px;
-  border: 0;
-  border-radius: 3px;
-  border: 1px #6A646F solid;
+  margin: -8px 0 -8px 4px;
+  border-radius: 3px 5px 5px 3px;
+  border-width: 1px;
+  border-color: #4A444E;
   width: 151px;
   height: auto;
+}
+.m-option-base .a-input-singlelineedit.has-content {
+  border-color: transparent;
+}
+.m-option-base[data-readonly=true] .a-input-singlelineedit,
+.m-option-base .read-only .a-input-singlelineedit,
+.m-option-base .a-input-singlelineedit.read-only {
+  border-color: transparent !important;
 }
 
 html[dir=rtl] .m-option-base .a-input-singlelineedit {
@@ -1233,7 +1241,7 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   top: 1px;
   width: calc(100% - 1px * 2);
   height: calc(100% - 1px * 2);
-  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
+  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, rgba(232, 190, 93, 0.2) 38px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
   border-radius: 5px;
@@ -1250,7 +1258,7 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
 }
 
 html[dir=rtl] .m-option-base::after {
-  background: linear-gradient(270deg, #E8BE5D 0, #E8BE5D 38px, #FAF2DF 38px);
+  background: linear-gradient(270deg, #E8BE5D 0, #E8BE5D 38px, rgba(232, 190, 93, 0.2) 38px);
   background-repeat: no-repeat;
   -webkit-transform-origin: 100% 50%;
           transform-origin: 100% 50%;
@@ -1751,19 +1759,19 @@ input[type=range]:focus::-ms-fill-lower {
   display: none !important;
 }
 .o-combobox input::-webkit-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
 }
 .o-combobox input::-moz-placeholder {
-  color: #6A646F;
+  color: #4A444E;
 }
 .o-combobox input:-ms-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
 }
 .o-combobox input::-ms-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
 }
 .o-combobox input::placeholder {
-  color: #6A646F;
+  color: #4A444E;
 }
 
 .o-combobox input.list-visible {
@@ -2286,36 +2294,43 @@ input:disabled {
 
 /* Standardises the placeholder colour - these rules cannot be combined */
 ::-moz-placeholder {
-  color: #6A646F;
+  color: #4A444E;
   opacity: 1;
+  font-size: 12px;
 }
 
 :-ms-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
   opacity: 1;
+  font-size: 12px;
 }
 
 ::-webkit-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
   opacity: 1;
+  font-size: 12px;
 }
 
 ::-ms-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
   opacity: 1;
+  font-size: 12px;
 }
 
 ::placeholder {
-  color: #6A646F;
+  color: #4A444E;
   opacity: 1;
+  font-size: 12px;
 }
 
 :-ms-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
+  font-size: 12px;
 }
 
 ::-ms-input-placeholder {
-  color: #6A646F;
+  color: #4A444E;
+  font-size: 12px;
 }
 
 sup {
