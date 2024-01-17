@@ -16,6 +16,8 @@ define(['component'],
             this.grid = this.element.getElementsByClassName('o-structure-table')[0];
             this.hasrowtotals = false;
             this.rowtotals = [];
+            this.excludeRowReadOnly = true;
+            this.excludeColumnReadOnly = true;
             this.columntotals = [];
             this.hasgrandtotal = false;
         }
@@ -183,12 +185,14 @@ define(['component'],
 
         oQuestionGrid.prototype.totals = function (props) {
             if (typeof props['rows'] == "object" && props['rows']['visible']) {
+                this.excludeRowReadOnly = (typeof props['rows']['excludereadonly'] === 'undefined' || props['rows']['excludereadonly']);
                 this.configureRowTotals(props['rows']);
                 this.getTableInputElements('row');
                 this.recalculateRowTotals();
             }
 
             if (typeof props['columns'] == "object" && props['columns']['visible']) {
+                this.excludeColumnReadOnly = (typeof props['columns']['excludereadonly'] === 'undefined' || props['columns']['excludereadonly']);
                 this.configureColumnTotals(props['columns']);
                 this.getTableInputElements('column');
                 this.recalculateColumnTotals();
@@ -295,7 +299,7 @@ define(['component'],
                         continue;
                     }
 
-                    if (this.rowtotals[inputitems].readonly) {
+                    if (this.excludeRowReadOnly && this.rowtotals[inputitems].readonly) {
                         continue;
                     }
 
@@ -339,7 +343,7 @@ define(['component'],
                         continue;
                     }
 
-                    if (this.columntotals[j].readonly) {
+                    if (this.excludeColumnReadOnly && this.columntotals[j].readonly) {
                         continue;
                     }
 
