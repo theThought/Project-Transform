@@ -497,7 +497,7 @@ html[dir=rtl] .a-icon-multistate[data-icontype=single] {
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
-  background-image: url("../../images/formal/checkbox-3.png");
+  background-image: url("../../images/formal/checkboxes.png");
   background-position-x: -42px;
 }
 

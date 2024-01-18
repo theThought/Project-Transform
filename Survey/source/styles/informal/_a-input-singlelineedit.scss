@@ -108,7 +108,6 @@ html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
         opacity: 0;
         margin: 0;
     }
-
 }
 
 /* remove the clear entry button from IE as it breaks right-aligned text */
@@ -167,7 +166,7 @@ input[readonly]:focus-visible {
         margin: -8px 0 -8px 4px;
         border-radius: globals.$text-border-radius globals.$border-radius globals.$border-radius globals.$text-border-radius;
         border-width: globals.$border-thickness;
-        border-color: globals.$other1;
+        border-color: globals.$other1; // this property is kept separate to allow for overrides
         width: 151px;
         height: auto;
 
