@@ -2151,6 +2151,7 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
 
 html {
   height: 95vh;
+  width: auto;
 }
 
 body {
