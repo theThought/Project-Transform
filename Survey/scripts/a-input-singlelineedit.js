@@ -293,6 +293,7 @@ define(['component', 'pikaday'],
                 && this.element.placeholder !== this.defaultPlaceholder) {
                 this.element.value = this.element.placeholder;
                 this.element.placeholder = this.defaultPlaceholder;
+                this.manageContentClass();
                 this.broadcastChange();
             }
 

@@ -173,6 +173,7 @@ define(['component'],
 
             if (this.textInput !== null) {
                 this.textInput.value = "";
+                this.textInput.classList.remove('has-content');
             }
         }
 
@@ -219,6 +220,7 @@ define(['component'],
                             this.textInput.placeholder = this.textInput.value;
                         }
                         this.textInput.value = '';
+                        this.textInput.classList.remove('has-content');
                     }
                 }
             }
