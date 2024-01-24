@@ -309,19 +309,19 @@ input[type=reset]:disabled {
 button[data-checked=true],
 input[type=button][data-checked=true],
 input[type=submit][data-checked=true] {
-  background-image: url("../../images/formal/blue_checkmark.png");
+  background-image: url("../../images/formal/checkmark-blue.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 button[data-checked=true]:active,
 input[type=button][data-checked=true]:active,
 input[type=submit][data-checked=true]:active {
-  background-image: url("../../images/formal/blue_checkmark.png");
+  background-image: url("../../images/formal/checkmark-blue.png");
 }
 button[data-checked=true]:disabled,
 input[type=button][data-checked=true]:disabled,
 input[type=submit][data-checked=true]:disabled {
-  background-image: url("../../images/formal/blue_checkmark.png");
+  background-image: url("../../images/formal/checkmark-blue.png");
 }
 
 button.a-button-preterminator,
@@ -502,7 +502,7 @@ input[type=checkbox] + label > .a-icon-multistate {
 }
 
 input[type=radio] + label > .a-icon-multistate {
-  background-image: url("../../images/formal/radiobutton-3.png");
+  background-image: url("../../images/formal/radiobuttons.png");
   background-position-x: -42px;
 }
 

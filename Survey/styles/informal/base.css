@@ -299,19 +299,19 @@ input[type=reset]:disabled {
 button[data-checked=true],
 input[type=button][data-checked=true],
 input[type=submit][data-checked=true] {
-  background-image: url("../../images/informal/blue_checkmark.png");
+  background-image: url("../../images/informal/checkmark-blue.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 button[data-checked=true]:active,
 input[type=button][data-checked=true]:active,
 input[type=submit][data-checked=true]:active {
-  background-image: url("../../images/informal/blue_checkmark.png");
+  background-image: url("../../images/informal/checkmark-blue.png");
 }
 button[data-checked=true]:disabled,
 input[type=button][data-checked=true]:disabled,
 input[type=submit][data-checked=true]:disabled {
-  background-image: url("../../images/informal/blue_checkmark.png");
+  background-image: url("../../images/informal/checkmark-blue.png");
 }
 
 button.a-button-preterminator,
