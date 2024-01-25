@@ -917,7 +917,7 @@ html[dir=rtl] .o-question-instruction.has-content div ul {
   position: relative;
   margin-bottom: 0.5em;
   border-radius: 5px;
-  padding: 8px 16px 8px 32px;
+  padding: 8px 16px 8px 42px;
   font-size: 14px;
   line-height: 20px;
 }
