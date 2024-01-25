@@ -25,7 +25,7 @@ define(['component', 'pikaday'],
         aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
 
         aInputSingleLineEdit.prototype.init = function () {
-            this.isReadOnly = (this.container.getAttribute('data-readonly') === 'true' || this.element.readOnly) || false;
+            this.isReadOnly = (this.element.closest('[data-readonly="true"]') !== null || this.element.readOnly) || false;
 
             this.configureProperties();
             this.getInitialValue();
