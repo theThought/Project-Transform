@@ -323,28 +323,23 @@ define(['o-question'],
                 this.updateFloodFill();
                 this.updateValue();
             }
-
         }
 
         oQuestionvnumberslider.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.max);
-
             if (currentValue < maxValue) {
                 this.element.value++;
             }
-
             this.onInput(true);
         }
 
         oQuestionvnumberslider.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.min);
-
             if (currentValue > maxValue) {
                 this.element.value--;
             }
-
             this.onInput(true);
         }
 
@@ -363,7 +358,5 @@ define(['o-question'],
             this.element.value = this.value;
             this.setHiddenValue(this.value);
         }
-
         return oQuestionvnumberslider;
-
     });
