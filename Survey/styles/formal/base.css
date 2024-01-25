@@ -904,7 +904,7 @@ html[dir=rtl] .a-label-total {
   width: 20px;
   height: 20px;
   content: "";
-  background-image: url("../../images/formal/icon-information.png");
+  background-image: url("../../images/formal/icon-information.svg");
   background-repeat: no-repeat;
 }
 .o-question-instruction.has-content div p {
@@ -984,7 +984,7 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   background-color: rgba(218, 41, 17, 0.15);
 }
 .o-question-error *[class*=-label-]::before {
-  background-image: url("../../images/formal/icon-error.png");
+  background-image: url("../../images/formal/icon-error.svg");
 }
 
 .o-question-warning *[class*=-label-] {
@@ -992,7 +992,7 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   background-color: rgba(212, 170, 73, 0.15);
 }
 .o-question-warning *[class*=-label-]::before {
-  background-image: url("../../images/formal/icon-warning.png");
+  background-image: url("../../images/formal/icon-warning.svg");
 }
 
 .o-question-success *[class*=-label-] {
@@ -1000,7 +1000,7 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   background-color: rgba(70, 155, 155, 0.15);
 }
 .o-question-success *[class*=-label-]::before {
-  background-image: url("../../images/formal/icon-success.png");
+  background-image: url("../../images/formal/icon-success.svg");
 }
 
 .focused * {

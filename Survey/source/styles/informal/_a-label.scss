@@ -128,6 +128,7 @@ html[dir="rtl"] .a-label-total {
     * {
         font-size: globals.$instruction-font-size;
         font-weight: 400;
+        line-height: globals.$message-line-height;
     }
 }
 
@@ -136,7 +137,7 @@ html[dir="rtl"] .a-label-total {
     position: relative;
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
-    padding: globals.$default-padding 16px globals.$default-padding 32px;
+    padding: globals.$default-padding 16px globals.$default-padding 42px;
     background-color: rgba(globals.$information, .15);
     color: globals.$information;
 
@@ -147,7 +148,7 @@ html[dir="rtl"] .a-label-total {
         width: 20px;
         height: 20px;
         content: '';
-        background-image: url("/Survey/images/informal/icon-information.png");
+        background-image: url("/Survey/images/informal/icon-information.svg");
         background-repeat: no-repeat;
     }
 
@@ -207,6 +208,7 @@ html[dir="rtl"] .o-question-instruction.has-content div {
         border-radius: globals.$border-radius;
         padding: globals.$default-padding 16px globals.$default-padding 32px;
         font-size: globals.$instruction-font-size;
+        line-height: globals.$message-line-height;
 
         &::before {
             position: absolute;
@@ -242,7 +244,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$error, .15);
 
     &::before {
-        background-image: url("/Survey/images/informal/icon-error.png");
+        background-image: url("/Survey/images/informal/icon-error.svg");
     }
 }
 
@@ -252,7 +254,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$warning, .15);
 
     &::before {
-        background-image: url("/Survey/images/informal/icon-warning.png");
+        background-image: url("/Survey/images/informal/icon-warning.svg");
     }
 }
 
@@ -262,7 +264,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$success, .15);
 
     &::before {
-        background-image: url("/Survey/images/informal/icon-success.png");
+        background-image: url("/Survey/images/informal/icon-success.svg");
     }
 }
 

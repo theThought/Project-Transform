@@ -849,8 +849,9 @@ html[dir=rtl] .a-label-total {
   width: 100%;
 }
 .o-question-instruction.has-content * {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
+  line-height: 20px;
 }
 
 .o-question-instruction.has-content div {
@@ -858,7 +859,7 @@ html[dir=rtl] .a-label-total {
   position: relative;
   margin-bottom: 0.5em;
   border-radius: 5px;
-  padding: 8px 16px 8px 32px;
+  padding: 8px 16px 8px 42px;
   background-color: rgba(75, 121, 182, 0.15);
   color: #4B79B6;
 }
@@ -869,7 +870,7 @@ html[dir=rtl] .a-label-total {
   width: 20px;
   height: 20px;
   content: "";
-  background-image: url("../../images/informal/icon-information.png");
+  background-image: url("../../images/informal/icon-information.svg");
   background-repeat: no-repeat;
 }
 .o-question-instruction.has-content div p {
@@ -906,7 +907,7 @@ html[dir=rtl] .o-question-instruction.has-content div ul {
 .m-structure-row-error .a-label-error {
   display: inline-block;
   margin: 16px 8px 0 8px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .o-question-error *[class*=-label-],
@@ -917,7 +918,8 @@ html[dir=rtl] .o-question-instruction.has-content div ul {
   margin-bottom: 0.5em;
   border-radius: 5px;
   padding: 8px 16px 8px 32px;
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 20px;
 }
 .o-question-error *[class*=-label-]::before,
 .o-question-warning *[class*=-label-]::before,
@@ -949,7 +951,7 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   background-color: rgba(218, 41, 17, 0.15);
 }
 .o-question-error *[class*=-label-]::before {
-  background-image: url("../../images/informal/icon-error.png");
+  background-image: url("../../images/informal/icon-error.svg");
 }
 
 .o-question-warning *[class*=-label-] {
@@ -957,7 +959,7 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   background-color: rgba(212, 170, 73, 0.15);
 }
 .o-question-warning *[class*=-label-]::before {
-  background-image: url("../../images/informal/icon-warning.png");
+  background-image: url("../../images/informal/icon-warning.svg");
 }
 
 .o-question-success *[class*=-label-] {
@@ -965,7 +967,7 @@ html[dir=rtl] .o-question-success *[class*=-label-]::before {
   background-color: rgba(70, 155, 155, 0.15);
 }
 .o-question-success *[class*=-label-]::before {
-  background-image: url("../../images/informal/icon-success.png");
+  background-image: url("../../images/informal/icon-success.svg");
 }
 
 .focused * {
