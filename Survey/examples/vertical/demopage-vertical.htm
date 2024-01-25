@@ -10,8 +10,8 @@
 	<meta name="Template" content="page.htm"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-	<link rel="stylesheet" type="text/css" href="../../styles/formal/base.css" title="Formal style"/>
-	<link rel="alternative stylesheet" type="text/css" href="../../styles/informal/base.css" title="Informal style"/>
+	<link rel="stylesheet" type="text/css" href="../../styles/informal/base.css" title="Informal style"/>
+	<link rel="alternative stylesheet" type="text/css" href="../../styles/formal/base.css" title="Formal style"/>
 	<script type="text/javascript" src="../../scripts/require.js"><!-- Require Script --></script>
 	<script type="text/javascript">
         require.config({
@@ -48,7 +48,7 @@
 	<input type="hidden" name="I.Engine" value="Server"/>
 	<input type="hidden" name="I.Project" value="demonstration"/>
 	<input type="hidden" name="I.Session" value="ml5syrwieqqubapqwx6a4jpvquaqaaaa"/>
-	<input type="hidden" name="I.SavePoint" value="SideBySidePage"/>
+	<input type="hidden" name="I.SavePoint" value="Page"/>
 	<input type="hidden" name="I.Renderer" value="HTMLPlayer"/>
 	<script>app.RegisterProperties('Page', {"focus": {"control": true, "question": true}})</script>
 	<div class="header">
@@ -84,7 +84,7 @@
 					<script>app.registerComponent('oQuestionSinglelineedit', '_Q0', '_QSideBySidePage_QFirstName');</script>
 					<input data-questionid="_Q0" data-questiongroup="_QSideBySidePage_QFirstName" type="text"
 					       name="_QSideBySidePage_QFirstName" id="_Q0" class="a-input-singlelineedit" autocomplete="off"
-					       style="" maxlength="39" value="FirstName:  This is the genera"/>
+					       style="" maxlength="39" value="FirstName:  This is the genera" placeholder="Placeholder"/>
 					<script>app.registerComponent('aInputSinglelineedit', '_Q0', '_QSideBySidePage_QFirstName');</script>
 				</div>
 			</div>
@@ -101,7 +101,7 @@
 				</div>
 				<div class="o-question-instruction">
 					<p>Here is some instructions for the question. The instructions could, I suppose, be quite long and
-					might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
+						might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
 						problematic with horizontal pages.</p>
 					<ul>
 						<li>Issue 1</li>
@@ -113,7 +113,7 @@
 					<script>app.registerComponent('oQuestionMultilineedit', '_Q1', '_QSideBySidePage_QComments');</script>
 					<textarea data-questionid="_Q1" data-questiongroup="_QSideBySidePage_QComments"
 					          name="_QSideBySidePage_QComments" id="_Q1" class="a-input-multilineedit"
-					          autocomplete="off"
+					          autocomplete="off" placeholder="This is a placeholder for some multi-line text"
 					          style="" rows="5">Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text</textarea>
 					<script>app.registerComponent('aInputMultilineedit', '_Q1', '_QSideBySidePage_QComments');</script>
 				</div>
@@ -127,6 +127,13 @@
 				<div class="o-question-warning"></div>
 				<div class="o-question-information">Translaationlabels</div>
 				<div class="o-question-instruction">
+					<p>Here is some instructions for the question. The instructions could, I suppose, be quite long and
+						might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
+						problematic with horizontal pages.</p>
+					<ul>
+						<li>Issue 1</li>
+						<li>Issue 2</li>
+					</ul>
 				</div>
 				<div class="o-question-response o-question-" data-questiongroup="_QSideBySidePage_QTranslaationlabels">
 					<script>app.registerComponent('oQuestion', '_Q2_C', '_QSideBySidePage_QTranslaationlabels');</script>
@@ -443,6 +450,13 @@
 				<div class="o-question-warning"></div>
 				<div class="o-question-information">Which of the odd options works for you</div>
 				<div class="o-question-instruction">
+					<p>Here is some instructions for the question. The instructions could, I suppose, be quite long and
+						might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
+						problematic with horizontal pages.</p>
+					<ul>
+						<li>Issue 1</li>
+						<li>Issue 2</li>
+					</ul>
 				</div>
 				<div class="o-question-response o-question-choice" data-questiongroup="_QSideBySidePage_Qsizes">
 					<script>app.registerComponent('oQuestionChoice', '_Q10_C', '_QSideBySidePage_Qsizes');</script>
@@ -458,17 +472,18 @@
 							<span class="a-label-option">short</span>
 						</label>
 					</div>
-					<div class="m-option-base" data-exclusive="false" data-questionid="_Q10_C1"
-					     data-questiongroup="_QSideBySidePage_Qsizes">
+					<div class="m-option-base cover-off" data-exclusive="false" data-questionid="_Q10_C1"
+					     data-questiongroup="_QSideBySidePage_Qsizes" data-readonly="true">
 						<script>app.registerComponent('mOptionBase', '_Q10_C1', '_QSideBySidePage_Qsizes');</script>
 						<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_Qsizes_Cmedium" id="_Q10_C1"
-						       style="" value="medium" checked=""/>
+						       style="" value="medium" checked="checked">
 						<label for="_Q10_C1">
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-							<span class="a-label-option">this is a medium option</span>
-						</label>
+							<span class="a-label-option">option size</span>
+							<input data-questionid="_Q10_O1" data-questiongroup="_QSideBySidePage_QOtherSpecifyExample" type="text" placeholder="Placeholder" name="_QSideBySidePage_QOtherSpecifyExample_OOtherTV" id="_Q10_O1" class="a-input-singlelineedit cover-off" autocomplete="off" style="" maxlength="200" value="Matt"></label>
+						<script>app.registerComponent('aInputSinglelineedit', '_Q10_O1', '_QSideBySidePage_Qsizes');</script>
 					</div>
 					<div class="m-option-base" data-exclusive="false" data-questionid="_Q10_C2"
 					     data-questiongroup="_QSideBySidePage_Qsizes">
@@ -547,6 +562,13 @@
 				<div class="o-question-warning"></div>
 				<div class="o-question-information">Which of the odd options works for you</div>
 				<div class="o-question-instruction">
+					<p>Here is some instructions for the question. The instructions could, I suppose, be quite long and
+						might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
+						problematic with horizontal pages.</p>
+					<ul>
+						<li>Issue 1</li>
+						<li>Issue 2</li>
+					</ul>
 				</div>
 				<div class="o-question-response o-question-choice"
 				     data-questiongroup="_QSideBySidePage_Qsizesbalancedonesize">
@@ -564,18 +586,18 @@
 							<span class="a-label-option">short</span>
 						</label>
 					</div>
-					<div class="m-option-base" data-exclusive="false" data-questionid="_Q12_C1"
-					     data-questiongroup="_QSideBySidePage_Qsizesbalancedonesize">
-						<script>app.registerComponent('mOptionBase', '_Q12_C1', '_QSideBySidePage_Qsizesbalancedonesize');</script>
-						<input class="hiddencontrol" type="checkbox"
-						       name="_QSideBySidePage_Qsizesbalancedonesize_Cmedium" id="_Q12_C1" style=""
-						       value="medium"/>
-						<label for="_Q12_C1">
+					<div class="m-option-base cover-off" data-exclusive="false" data-questionid="_Q12_C1"
+					     data-questiongroup="_QSideBySidePage_Qsizes">
+						<script>app.registerComponent('mOptionBase', '_Q12_C1', '_QSideBySidePage_Qsizes');</script>
+						<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_Qsizes_Cmedium" id="_Q12_C1"
+						       style="" value="medium">
+						<label for="_Q12_C1">   
 									<span class="a-icon-multistate" data-icontype="multiple">
 										<!--This is a comment!-->
 									</span>
-							<span class="a-label-option">this is a medium option</span>
-						</label>
+							<span class="a-label-option">option size</span>
+							<input data-questionid="_Q12_O1" data-questiongroup="_QSideBySidePage_QOtherSpecifyExample" type="text" placeholder="Placeholder" name="_QSideBySidePage_QOtherSpecifyExample_OOtherTV" id="_Q12_O1" class="a-input-singlelineedit cover-off" autocomplete="off" style="" maxlength="200" value=""></label>
+						<script>app.registerComponent('aInputSinglelineedit', '_Q12_O1', '_QSideBySidePage_Qsizes');</script>
 					</div>
 					<div class="m-option-base" data-exclusive="false" data-questionid="_Q12_C2"
 					     data-questiongroup="_QSideBySidePage_Qsizesbalancedonesize">
@@ -595,10 +617,6 @@
 		</div>
 		<div class="o-question-container">
 			<script data-questionid="_Q13">app.registerComponent('oQuestionContainer', '_Q13', '_QSideBySidePage_QDrinks');</script>
-			<script type="text/javascript">app.RegisterProperties('_QDrinks', {
-                "balance": {"state": true},
-                "onesize": {"state": false}
-            });</script>
 			<div class="m-question-cover"><!-- cover --></div>
 			<div class="o-question-error"></div>
 			<div class="o-question-core">
@@ -613,8 +631,8 @@
 						<div class="a-label-heading-sublist" style="">
 							<span class="a-label-option">Coca Cola</span>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C0_S0"
-						     data-questiongroup="_QSideBySidePage_QDrinks">
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C0_S0"
+						     data-questiongroup="_QSideBySidePage_QDrinks" data-readonly="true">
 							<script>app.registerComponent('mOptionBase', '_Q13_C0_S0', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Cregular"
 							       id="_Q13_C0_S0" style="" value="regular" checked=""/>
@@ -625,7 +643,7 @@
 								<span class="a-label-option">Original</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C0_S1"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C0_S1"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C0_S1', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Cdiet"
@@ -637,7 +655,7 @@
 								<span class="a-label-option">Diet</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C0_S2"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C0_S2"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C0_S2', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Ccherry"
@@ -649,7 +667,7 @@
 								<span class="a-label-option">Cherry</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C0_S3"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C0_S3"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C0_S3', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Cnocaffine"
@@ -661,7 +679,7 @@
 								<span class="a-label-option">caffine free</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C0_S4"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C0_S4"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C0_S4', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Czerovanilla"
@@ -673,7 +691,7 @@
 								<span class="a-label-option">zero sugar vanilla</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C0_S5"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C0_S5"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C0_S5', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Czerocherry"
@@ -690,7 +708,7 @@
 						<div class="a-label-heading-sublist" style="">
 							<span class="a-label-option">Pepsi Cola</span>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C1_S0"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C1_S0"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C1_S0', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_COriginal"
@@ -702,7 +720,7 @@
 								<span class="a-label-option">Original</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C1_S1"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C1_S1"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C1_S1', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CMax"
@@ -714,7 +732,7 @@
 								<span class="a-label-option">Max</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C1_S2"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C1_S2"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C1_S2', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CMaxCherry"
@@ -726,7 +744,7 @@
 								<span class="a-label-option">Max (Cherry)</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C1_S3"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C1_S3"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C1_S3', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CMaxLime"
@@ -738,7 +756,7 @@
 								<span class="a-label-option">Max (Lime)</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C1_S4"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C1_S4"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C1_S4', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CRaspberry"
@@ -750,7 +768,7 @@
 								<span class="a-label-option">Raspberry</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C1_S5"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C1_S5"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C1_S5', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CFire"
@@ -763,7 +781,7 @@
 							</label>
 						</div>
 					</div>
-					<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C2"
+					<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C2"
 					     data-questiongroup="_QSideBySidePage_QDrinks">
 						<script>app.registerComponent('mOptionBase', '_Q13_C2', '_QSideBySidePage_QDrinks');</script>
 						<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Ccoffee"
@@ -775,7 +793,7 @@
 							<span class="a-label-option">coffee</span>
 						</label>
 					</div>
-					<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C3"
+					<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C3"
 					     data-questiongroup="_QSideBySidePage_QDrinks">
 						<script>app.registerComponent('mOptionBase', '_Q13_C3', '_QSideBySidePage_QDrinks');</script>
 						<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_COtherDrink"
@@ -791,7 +809,7 @@
 						<div class="a-label-heading-sublist" style="">
 							<span class="a-label-option">Others</span>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C4_S0"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C4_S0"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C4_S0', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CFantaOrange"
@@ -803,7 +821,7 @@
 								<span class="a-label-option">Fanta (Orange)</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C4_S1"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C4_S1"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C4_S1', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CDrPepper"
@@ -815,7 +833,7 @@
 								<span class="a-label-option">Dr Pepper</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C4_S2"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C4_S2"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C4_S2', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CRWhites"
@@ -827,7 +845,7 @@
 								<span class="a-label-option">R Whites Lemonade</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C4_S3"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C4_S3"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C4_S3', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CSprite"
@@ -839,7 +857,7 @@
 								<span class="a-label-option">Sprite</span>
 							</label>
 						</div>
-						<div class="m-option-base" data-exclusive="false" data-questionid="_Q13_C4_S4"
+						<div class="m-option-base" data-exclusive="false" data-position="below" data-questionid="_Q13_C4_S4"
 						     data-questiongroup="_QSideBySidePage_QDrinks">
 							<script>app.registerComponent('mOptionBase', '_Q13_C4_S4', '_QSideBySidePage_QDrinks');</script>
 							<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_CLilt"
@@ -852,7 +870,7 @@
 							</label>
 						</div>
 					</div>
-					<div class="m-option-base" data-exclusive="true" data-questionid="_Q13_C5"
+					<div class="m-option-base" data-exclusive="true" data-position="below" data-questionid="_Q13_C5"
 					     data-questiongroup="_QSideBySidePage_QDrinks">
 						<script>app.registerComponent('mOptionBase', '_Q13_C5', '_QSideBySidePage_QDrinks');</script>
 						<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Cnone" id="_Q13_C5"
@@ -864,7 +882,7 @@
 							<span class="a-label-option">none of the above</span>
 						</label>
 					</div>
-					<div class="m-option-base" data-exclusive="true" data-questionid="_Q13_C6"
+					<div class="m-option-base" data-exclusive="true" data-position="below" data-questionid="_Q13_C6"
 					     data-questiongroup="_QSideBySidePage_QDrinks">
 						<script>app.registerComponent('mOptionBase', '_Q13_C6', '_QSideBySidePage_QDrinks');</script>
 						<input class="hiddencontrol" type="checkbox" name="_QSideBySidePage_QDrinks_Crefuse"
@@ -1111,7 +1129,10 @@
 		</div>
 		<div class="o-question-container">
 			<script data-questionid="_Q14">app.registerComponent('oQuestionContainer', '_Q14', '_QSideBySidePage_QOtherSpecifyExample');</script>
-			<script type="text/javascript">app.RegisterProperties('_QOtherSpecifyExample', {"balance": {"state": true}});</script>
+			<script type="text/javascript">app.RegisterProperties('_QOtherSpecifyExample', {
+                "balance": {"state": false},
+                "onesize": {"state": true, "max-width": "16em"}
+            });</script>
 			<div class="m-question-cover"><!-- cover --></div>
 			<div class="o-question-error"></div>
 			<div class="o-question-core">
@@ -1160,7 +1181,7 @@
 						</label>
 					</div>
 					<div class="m-option-base" data-exclusive="false" data-questionid="_Q14_C3"
-					     data-questiongroup="_QSideBySidePage_QOtherSpecifyExample">
+					     data-questiongroup="_QSideBySidePage_QOtherSpecifyExample" data-readonly="true">
 						<script>app.registerComponent('mOptionBase', '_Q14_C3', '_QSideBySidePage_QOtherSpecifyExample');</script>
 						<input class="hiddencontrol" type="checkbox"
 						       name="_QSideBySidePage_QOtherSpecifyExample_CSatellite" id="_Q14_C3" style=""
@@ -1173,7 +1194,7 @@
 						</label>
 					</div>
 					<div class="m-option-base" data-exclusive="false" data-questionid="_Q14_C4"
-					     data-questiongroup="_QSideBySidePage_QOtherSpecifyExample">
+					     data-questiongroup="_QSideBySidePage_QOtherSpecifyExample" data-readonly="true">
 						<script>app.registerComponent('mOptionBase', '_Q14_C4', '_QSideBySidePage_QOtherSpecifyExample');</script>
 						<input class="hiddencontrol" type="checkbox"
 						       name="_QSideBySidePage_QOtherSpecifyExample_CiPlayer" id="_Q14_C4" style=""
@@ -1224,7 +1245,7 @@
 						</label>
 					</div>
 					<div class="m-option-base" data-exclusive="false" data-questionid="_Q14_C8"
-					     data-questiongroup="_QSideBySidePage_QOtherSpecifyExample">
+					     data-questiongroup="_QSideBySidePage_QOtherSpecifyExample" data-readonly="true">
 						<script>app.registerComponent('mOptionBase', '_Q14_C8', '_QSideBySidePage_QOtherSpecifyExample');</script>
 						<input class="hiddencontrol" type="checkbox"
 						       name="_QSideBySidePage_QOtherSpecifyExample_COtherTV" id="_Q14_C8" style=""
@@ -1295,7 +1316,7 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q15" data-questiongroup="_QSideBySidePage_QHowManyMissed"
-							       type="range" name="_QSideBySidePage_QHowManyMissed" id="_Q15"
+							       type="range" name="_QSideBySidePage_QHowManyMissed" id="_Q15" data-value="8"
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="8"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissed" class="m-label-ticklabels">
 								<!--hnumberslider tick labels-->
@@ -1351,7 +1372,7 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q16" data-questiongroup="_QSideBySidePage_QHowManyMissedLabels"
-							       type="range" name="_QSideBySidePage_QHowManyMissedLabels" id="_Q16"
+							       type="range" name="_QSideBySidePage_QHowManyMissedLabels" id="_Q16" data-value="1"
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="1"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedLabels" class="m-label-ticklabels">
 								<!--hnumberslider tick labels-->
@@ -1373,7 +1394,8 @@
                 "values": {
                     "min": 0,
                     "max": 10
-                }, "show": {"marks": true}, "ticklabels": 1
+                }, "show": {"marks": true}, "ticklabels": 1,
+                "floodtovalue": true
             });</script>
 			<div class="m-question-cover"><!-- cover --></div>
 			<div class="o-question-error"></div>
@@ -1408,7 +1430,7 @@
 							</div>
 							<input data-questionid="_Q17"
 							       data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
-							       name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"
+							       name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17" data-value="1"
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="1"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels"
 							     class="m-label-ticklabels">
@@ -1465,7 +1487,7 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q18" data-questiongroup="_QSideBySidePage_QHowManyMissedThumbValue"
-							       type="range" name="_QSideBySidePage_QHowManyMissedThumbValue" id="_Q18"
+							       type="range" name="_QSideBySidePage_QHowManyMissedThumbValue" id="_Q18" data-value="9"
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="9"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedThumbValue"
 							     class="m-label-ticklabels">
@@ -1522,7 +1544,7 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q19" data-questiongroup="_QSideBySidePage_QHowManyMissedThumbMarks"
-							       type="range" name="_QSideBySidePage_QHowManyMissedThumbMarks" id="_Q19"
+							       type="range" name="_QSideBySidePage_QHowManyMissedThumbMarks" id="_Q19" data-value="6"
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="6"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedThumbMarks"
 							     class="m-label-ticklabels">
@@ -1541,6 +1563,15 @@
 		</div>
 		<div class="o-question-container">
 			<script data-questionid="_Q20">app.registerComponent('oQuestionContainer', '_Q20', '_QSideBySidePage_QHowManyMissedThumbMarksLabels');</script>
+			<script type="text/javascript">app.RegisterProperties('_QHowManyMissedThumbMarksLabels', {
+                "values": {
+                    "min": 0,
+                    "max": 100
+                },
+                "show": {"marks": false, "value": true, "terminators": true},
+                "labels": {"pre": "0%", "post": "100%"},
+                "floodtovalue": true
+            });</script>
 			<div class="m-question-cover"><!-- cover --></div>
 			<div class="o-question-error"></div>
 			<div class="o-question-core">
@@ -1554,6 +1585,9 @@
 				<div class="o-question-response o-question-hnumberslider"
 				     data-questiongroup="_QSideBySidePage_QHowManyMissedThumbMarksLabels">
 					<script>app.registerComponent('oQuestionHnumberslider', '_Q20', '_QSideBySidePage_QHowManyMissedThumbMarksLabels');</script>
+					<script type="text/javascript">app.RegisterProperties('_QSideBySidePage_QHowManyMissedThumbMarksLabels', {
+                        "floodtovalue": true
+                    });</script>
 					<div class="o-question-hnumberslider-control">
 						<button type="Button" class="a-button-preterminator" data-questionid="_Q20_Preterm"
 						        data-questiongroup="_QSideBySidePage_QHowManyMissedThumbMarksLabels">
@@ -1574,7 +1608,7 @@
 							</div>
 							<input data-questionid="_Q20"
 							       data-questiongroup="_QSideBySidePage_QHowManyMissedThumbMarksLabels" type="range"
-							       name="_QSideBySidePage_QHowManyMissedThumbMarksLabels" id="_Q20"
+							       name="_QSideBySidePage_QHowManyMissedThumbMarksLabels" id="_Q20" data-value=""
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value=""/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedThumbMarksLabels"
 							     class="m-label-ticklabels">
@@ -1634,7 +1668,7 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q21" data-questiongroup="_QSideBySidePage_QPercentageTreatments"
-							       type="range" name="_QSideBySidePage_QPercentageTreatments" id="_Q21"
+							       type="range" name="_QSideBySidePage_QPercentageTreatments" id="_Q21" data-value=""
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value=""/>
 							<div data-questiongroup="_QSideBySidePage_QPercentageTreatments" class="m-label-ticklabels">
 								<!--hnumberslider tick labels-->
@@ -1669,7 +1703,12 @@
                 "values": {"min": -5, "max": 5},
                 "show": {"marks": true, "value": false, "terminators": true},
                 "ticklabels": 1,
-                "floodtovalue": false
+                "thumb": {
+                    "image": '../../images/informal/range-thumb-transparent.svg',
+                    "width": '40',
+                    "height": '45'
+                },
+                "floodtovalue": true
             });</script>
 			<div class="m-question-cover"><!-- cover --></div>
 			<div class="o-question-error"></div>
@@ -1702,8 +1741,8 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q22" data-questiongroup="_QSideBySidePage_Qmodifications"
-							       type="range" name="_QSideBySidePage_Qmodifications" id="_Q22"
-							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="2" value="-4"/>
+							       type="range" name="_QSideBySidePage_Qmodifications" id="_Q22" data-value="-4"
+							       class="a-input-hnumberslider" autocomplete="off" style="" value="-4"/>
 							<div data-questiongroup="_QSideBySidePage_Qmodifications" class="m-label-ticklabels">
 								<!--hnumberslider tick labels-->
 							</div>
@@ -1752,7 +1791,7 @@
 								<!--hnumberslider thumb value-->
 							</div>
 							<input data-questionid="_Q23" data-questiongroup="_QSideBySidePage_Qpercentright"
-							       type="range" name="_QSideBySidePage_Qpercentright" id="_Q23"
+							       type="range" name="_QSideBySidePage_Qpercentright" id="_Q23" data-value=""
 							       class="a-input-hnumberslider" autocomplete="off" style="" maxlength="3" value=""/>
 							<div data-questiongroup="_QSideBySidePage_Qpercentright" class="m-label-ticklabels">
 								<!--hnumberslider tick labels-->
