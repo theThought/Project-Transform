@@ -90,32 +90,47 @@
 			</div>
 		</div>
 		<div class="o-question-container">
-			<script data-questionid="_Q1">app.registerComponent('oQuestionContainer', '_Q1', '_QSideBySidePage_QComments');</script>
-			<div class="m-question-cover"><!-- cover --></div>
-			<div class="o-question-error"></div>
+			<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QComments');</script><div class="m-question-cover"><!-- cover --></div>
+			<div class="o-question-error">
+			</div>
 			<div class="o-question-core">
-				<div class="o-question-warning"></div>
+				<div class="o-question-warning">
+				</div>
 				<div class="o-question-information">
-					<label for="_Q1" class="a-label-question" style="">Please <span class="plusfour">enter any</span> comments. Comments provided should <span class="minustwo">be in-line</span> with
-						expectations of <span class="underline">being long</span> enough to allow for some testing etc. The 1<span class="sup minusfour caps">st</span> comment should come first. Here's some more. <span class="sub">Subtext</span>.</label>
+					<div class="o-question-information-content">
+						<label for="_Q1">Would you please describe the positive and negative aspects of the experience you had during your last visit</label>
+					</div>
+					<div class="o-question-alternatives"><!-- alternative labels go here --></div>
 				</div>
 				<div class="o-question-instruction">
 					<p>Here is some instructions for the question. The instructions could, I suppose, be quite long and
 						might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
 						problematic with horizontal pages.</p>
-					<ul>
-						<li>Issue 1</li>
-						<li>Issue 2</li>
-					</ul>
 				</div>
-				<div class="o-question-response o-question-multilineedit"
-				     data-questiongroup="_QSideBySidePage_QComments">
-					<script>app.registerComponent('oQuestionMultilineedit', '_Q1', '_QSideBySidePage_QComments');</script>
-					<textarea data-questionid="_Q1" data-questiongroup="_QSideBySidePage_QComments"
-					          name="_QSideBySidePage_QComments" id="_Q1" class="a-input-multilineedit"
-					          autocomplete="off" placeholder="This is a placeholder for some multi-line text"
-					          style="" rows="5">Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text response.  Comments:  This is the generated text</textarea>
-					<script>app.registerComponent('aInputMultilineedit', '_Q1', '_QSideBySidePage_QComments');</script>
+				<div class="o-question-response o-question-multilineedit" data-questiongroup="_QComments" data-readonly="false" data-position="below">
+					<script>app.registerComponent('oQuestionMultilineedit','_Q1','_QComments');</script>
+					<textarea data-questionid="_Q1" data-questiongroup="_QComments" name="_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off" placeholder="Placeholder for textarea" style=""></textarea>
+					<script>app.registerComponent('aInputMultilineedit','_Q1','_QComments');</script>
+					<div data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_QComments" data-position="below" class="m-option-base  below">
+						<script>app.registerComponent('mOptionBase','_Q1_X0','_QComments');</script>
+						<input class="hiddencontrol" type="checkbox" name="_QComments_Xnocomments" id="_Q1_X0" style="" value="nocomments"/>
+						<label for="_Q1_X0">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+							<span class="a-label-option">I don't have any positive or negative comments</span>
+						</label>
+					</div>
+					<div data-exclusive="true" data-questionid="_Q1_X1" data-questiongroup="_QComments" data-position="below" class="m-option-base  below">
+						<script>app.registerComponent('mOptionBase','_Q1_X1','_QComments');</script>
+						<input class="hiddencontrol" type="checkbox" name="_QComments_Xsecond" id="_Q1_X1" style="" value="second"/>
+						<label for="_Q1_X1">
+									<span class="a-icon-multistate" data-icontype="multiple">
+										<!--This is a comment!-->
+									</span>
+							<span class="a-label-option">I refuse to answer this question</span>
+						</label>
+					</div>
 				</div>
 			</div>
 		</div>
