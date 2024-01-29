@@ -117,7 +117,9 @@ html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
 
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit,
-.a-input-singlelineedit.read-only {
+.a-input-singlelineedit.read-only,
+.a-input-singlelineedit[readonly],
+.a-input-singlelineedit[data-readonly="true"] {
     border-color: globals.$disabled-text !important;
     cursor: default;
 

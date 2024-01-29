@@ -676,12 +676,16 @@ html[dir=rtl] .show-spinner .a-input-singlelineedit[type=number] {
 
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit,
-.a-input-singlelineedit.read-only {
+.a-input-singlelineedit.read-only,
+.a-input-singlelineedit[readonly],
+.a-input-singlelineedit[data-readonly=true] {
   border-color: #847E88 !important;
   cursor: default;
 }
 .read-only .a-input-singlelineedit.has-content,
-.a-input-singlelineedit.read-only.has-content {
+.a-input-singlelineedit.read-only.has-content,
+.a-input-singlelineedit[readonly].has-content,
+.a-input-singlelineedit[data-readonly=true].has-content {
   color: #847E88;
   background-color: #e6e5e7;
 }

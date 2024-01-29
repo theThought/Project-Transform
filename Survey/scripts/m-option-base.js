@@ -158,6 +158,11 @@ define(['component'],
             }
 
             this.element.setAttribute('data-readonly', 'true');
+
+            if (this.textInput !== null) {
+                this.textInput.setAttribute('data-readonly', 'true');
+                this.textInput.readOnly = true;
+            }
         }
 
         mOptionBase.prototype.clearEntries = function () {
