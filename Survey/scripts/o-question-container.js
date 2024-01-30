@@ -27,6 +27,7 @@ define(['o-question'],
             this.processVisibilityRules();
             this.processAlternativeVisibilityRules();
             this.processResponseContainerDataTags();
+            this.setWidth();
             this.configurationComplete();
         }
 
@@ -50,6 +51,14 @@ define(['o-question'],
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
+            }
+        }
+
+        oQuestionContainer.prototype.setWidth = function () {
+            if (this.element.scrollWidth > this.element.offsetWidth) {
+                // deduct 36px to allow for margins/padding at larger screen sizes
+                // add 14-18px scrollbar width for smaller screen sizes - impossible to calculate on macOS
+                this.element.style.minWidth = (this.element.scrollWidth) + 'px';
             }
         }
 
