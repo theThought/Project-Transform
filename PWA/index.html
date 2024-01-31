@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../Survey/styles/informal/base.css" title="Informal style"/>
+    <link rel="alternative stylesheet" type="text/css" href="../Survey/styles/formal/base.css" title="Formal style"/>
+    <script>
+      // Script for PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('serviceWorker.js')
+            .then(function (registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function (error) {
+                console.error('Service Worker registration failed:', error);
+            });
+      }
+    </script>
+    <script type="text/javascript" src="../Survey/scripts/require.js"><!-- Require Script --></script>
+    <script type="text/javascript">
+          require.config({
+              baseUrl: '../Survey/scripts'
+          });
+    </script>
+    <script type="text/javascript" src="../Survey/scripts/survey.js">//Survey Class</script>
+    <script type="text/javascript" src="../Survey/scripts/base.js">//Global Code</script>
+    <script type="text/javascript">
+          require(['main'], function () {
+          });
+    </script>
+    <title>Ipsos Healthcare Research PWA</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    
+
+    <form name="mrForm" id="mrForm" action="#" method="post">
+      <input type="hidden" name="I.Engine" value="Server"/>
+      <input type="hidden" name="I.Project" value="demonstration"/>
+      <input type="hidden" name="I.Session" value="ml5syrwieqqubapqwx6a4jpvquaqaaaa"/>
+      <input type="hidden" name="I.SavePoint" value="SideBySidePage"/>
+      <input type="hidden" name="I.Renderer" value="HTMLPlayer"/>
+      <script>app.RegisterProperties('Page', {"sidebyside": 25, "focus": {"control": true, "question": true}})</script>
+      <div class="header">
+        <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="./images/ipsos-pwa.png"/>
+      </div>
+      <div class="surroundcontent">Just one question.
+      
+ <!-- This is here for an example  -->
+        <div class="o-question-container sidebyside">
+          <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QComments');</script><div class="m-question-cover"><!-- cover --></div>
+          <div class="o-question-error">
+          </div>
+          <div class="o-question-core">
+            <div class="o-question-warning">
+            </div>
+            <div class="o-question-information">
+              <div class="o-question-information-content">
+                <label for="_Q1">Would you please describe the positive and negative aspects of the experience you had during your last visit</label>
+              </div>
+              <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-instruction">
+              <p>Here is some instructions for the question. The instructions could, I suppose, be quite long and
+                might end up running to multiple lines. This won't be an issue for vertical layouts but may prove
+                problematic with horizontal pages.</p>
+            </div>
+            <div class="o-question-response o-question-multilineedit" data-questiongroup="_QComments" data-readonly="false" data-position="below">
+              <script>app.registerComponent('oQuestionMultilineedit','_Q1','_QComments');</script>
+              <textarea data-questionid="_Q1" data-questiongroup="_QComments" name="_QComments" id="_Q1" class="a-input-multilineedit" autocomplete="off" placeholder="Placeholder for textarea" style=""></textarea>
+              <script>app.registerComponent('aInputMultilineedit','_Q1','_QComments');</script>
+              <div data-exclusive="true" data-questionid="_Q1_X0" data-questiongroup="_QComments" data-position="below" class="m-option-base  below">
+                <script>app.registerComponent('mOptionBase','_Q1_X0','_QComments');</script>
+                <input class="hiddencontrol" type="checkbox" name="_QComments_Xnocomments" id="_Q1_X0" style="" value="nocomments"/>
+                <label for="_Q1_X0">
+                      <span class="a-icon-multistate" data-icontype="multiple">
+                        <!--This is a comment!-->
+                      </span>
+                  <span class="a-label-option">I don't have any positive or negative comments</span>
+                </label>
+              </div>
+              <div data-exclusive="true" data-questionid="_Q1_X1" data-questiongroup="_QComments" data-position="below" class="m-option-base  below">
+                <script>app.registerComponent('mOptionBase','_Q1_X1','_QComments');</script>
+                <input class="hiddencontrol" type="checkbox" name="_QComments_Xsecond" id="_Q1_X1" style="" value="second"/>
+                <label for="_Q1_X1">
+                      <span class="a-icon-multistate" data-icontype="multiple">
+                        <!--This is a comment!-->
+                      </span>
+                  <span class="a-label-option">I refuse to answer this question</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+      </div>
+      <div class="footer">
+        <div id="nav-controls" class="btn-container nav-center">
+          <div id="nextonly">
+            <input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
+          </div>
+          <div id="prevstop">
+            <input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
+            <input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
+          </div>
+        </div>
+        <div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a>
+        </div>
+
+
+        <!-- <button onclick="showNotification()">Show Notification</button> -->
+        <button id="install-button" style="display: none;">Install the Ipsos App</button>
+
+      </div>
+    </form>
+
+    <script src="script.js"></script>
+    <script>
+      window.addEventListener('beforeinstallprompt', (event) => {
+          // Prevent Chrome 67 and earlier from automatically showing the prompt
+          event.preventDefault();          
+          deferredInstallPrompt = event;
+          showInstallPrompt();
+      });
+  
+      let deferredInstallPrompt;
+  
+      function showInstallPrompt() {
+
+          const installButton = document.getElementById('install-button');
+          installButton.style.display = 'block';
+  
+          
+          installButton.addEventListener('click', () => {
+          
+              deferredInstallPrompt.prompt();
+  
+              deferredInstallPrompt.userChoice.then((choiceResult) => {
+                  if (choiceResult.outcome === 'accepted') {
+                      console.log('User accepted the install prompt');
+                  } else {
+                      console.log('User dismissed the install prompt');
+                  }
+                  deferredInstallPrompt = null;
+              });
+  
+              installButton.style.display = 'none';
+          });
+      }
+  </script>
+  
+</body>
+</html>
