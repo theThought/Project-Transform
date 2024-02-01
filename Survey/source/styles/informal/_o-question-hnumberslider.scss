@@ -194,17 +194,17 @@ input[type=range]::-moz-range-track {
     border: 0;
     border-radius: globals.$border-radius;
     width: 100%;
-    height: 22px;
+    height: 16px;
 }
 
-.has-value .flood-to-value::-moz-range-progress {
-    background-color: rgba(globals.$theme-primary-hover, .15) !important;
+.has-value .flood-to-value::-moz-range-track {
+    background: var(--track-background-fill);
     height: 16px;
     border-top-left-radius: globals.$border-radius;
     border-bottom-left-radius: globals.$border-radius;
 }
 
-html[dir="rtl"] .has-value .flood-to-value::-moz-range-progress {
+html[dir="rtl"] .has-value .flood-to-value::-moz-range-track {
     border-radius: 0 globals.$border-radius globals.$border-radius 0;
 }
 

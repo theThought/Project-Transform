@@ -32,7 +32,7 @@ define(['o-question'],
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
-            this.setInitialFloodToValue();
+            this.updateFloodFill();
             this.configurationComplete();
             this.updateValue();
         }
@@ -116,7 +116,7 @@ define(['o-question'],
             this.updateValue();
             this.organism.classList.remove('has-value');
             this.organism.classList.remove('active');
-            this.setInitialFloodToValue();
+            this.updateFloodFill();
             this.broadcastChange();
         }
 
@@ -131,7 +131,7 @@ define(['o-question'],
             this.updateValue();
             this.organism.classList.add('has-value');
             this.organism.classList.add('active');
-            this.setInitialFloodToValue();
+            this.updateFloodFill();
             this.broadcastChange();
         }
 
@@ -143,26 +143,19 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.setInitialFloodToValue = function () {
-            var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
-            var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
-            var val = Number(this.hiddenelement.value);
-
-            var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
-            this.element.style.setProperty('--track-background-fill',
-                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
-        }
-
         oQuestionHNumberSlider.prototype.updateFloodFill = function () {
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
 
-            var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
+            var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
+            var paddingadjustmentinpixels = 22;
+            var adjustmentcalc = paddingadjustmentinpixels - (2*paddingadjustmentinpixels)*(percentage/100);
+            percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
+
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+                + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
