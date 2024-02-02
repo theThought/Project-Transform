@@ -1,0 +1,45 @@
+@use 'globals';
+
+textarea {
+    width: 100%;
+    background: globals.$input-background;
+    border: globals.$border-thickness solid globals.$other1;
+    box-sizing: border-box;
+    border-radius: globals.$text-border-radius;
+    padding: globals.$default-padding;
+    min-height: 100px;
+    color: globals.$input-text;
+    overflow-y: auto;
+    font-size: globals.$option-font-size;
+    font-weight: 400;
+    line-height: globals.$instruction-line-height;
+}
+
+textarea.has-content {
+    border-color: transparent;
+    background-color: globals.$input-background-has-content;
+}
+
+textarea:active,
+textarea:focus,
+textarea:hover {
+    outline: none;
+}
+
+textarea:focus  {
+    border-color: globals.$theme-primary;
+}
+
+textarea:focus-visible,
+textarea:focus-within  {
+    outline: none;
+    border-color: globals.$theme-primary;
+}
+
+
+// global style for focused controls
+.focus-control {
+    textarea:focus {
+        //box-shadow: globals.$drop-shadow;
+    }
+}

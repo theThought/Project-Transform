@@ -1,0 +1,23 @@
+button.submit {
+    display: none;
+  }
+  
+
+
+.question {
+  display: flex !important;
+  flex-direction: column;
+  padding: 40px 40px 0px 40px;
+}  
+.question * {
+  margin-top: 20px;
+}
+.question input{
+  padding: 10px 14px;
+}
+.question:last-child footer button.submit {
+  display: block;
+}
+.warning{
+  padding: 0px 40px 30px 40px ;
+}

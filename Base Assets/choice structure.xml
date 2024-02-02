@@ -1,0 +1,94 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-40"/>
+    <Table UseTablesLayout="0" Summary="xxx">
+      <Row Y="0">
+        <Cell X="0" Y="0">
+          <Control Type="Static" QuestionName="_QDrinks_C"
+ ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Coke" CategoryID="0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Coca Cola</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="1">
+        <Cell X="0" Y="1">
+          <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="regular" CategoryID="0_S0">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Original</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="2">
+        <Cell X="0" Y="2">
+          <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="diet" CategoryID="0_S1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Diet</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="3">
+        <Cell X="0" Y="3">
+          <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="cherry" CategoryID="0_S2">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Diet</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="7">
+        <Cell X="0" Y="7">
+          <Control Type="Static" QuestionName="_QDrinks_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" />
+            <Category Name="Pepsi" CategoryID="1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>Pepsi Cola</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+      <Row Y="8">
+        <Cell X="0" Y="8">
+          <Control Type="CheckButton" QuestionName="_QDrinks_C" ElementID="_Q0_C">
+            <Style ElementAlign="NewLine" Indent="1">
+              <Control Type="CheckButton" />
+            </Style>
+            <Category Name="Pepsi" CategoryID="1">
+              <Label>
+                <Style ElementAlign="Right" />
+                <Text>PepsiCola</Text>
+              </Label>
+            </Category>
+          </Control>
+        </Cell>
+      </Row>
+    </Table>
+  </Question>
+</Questions>

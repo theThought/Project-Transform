@@ -1,0 +1,322 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine"></Style>
+        <Table UseTablesLayout="-1" Summary="Here is a grid containing various hidden questions">
+            <Row Y="0">
+                <Cell X="1" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Input</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Input &amp;amp; labels</Text>
+                    </Label>
+                </Cell>
+                <Cell X="3" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>dropdown</Text>
+                    </Label>
+                </Cell>
+                <Cell X="4" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>combobox</Text>
+                    </Label>
+                </Cell>
+                <Cell X="5" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>slider</Text>
+                    </Label>
+                </Cell>
+                <Cell X="0" Y="0"></Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="0" Y="1" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>first</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="1">
+                    <Question>
+                        <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimplequestion" ElementID="_Q0_Q0_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion" Length="1024">
+                            <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimplequestionwithlabels" ElementID="_Q0_Q0_Q1" Value="13742191543.7131" Length="17">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="1">
+                    <Control Type="DropList" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimpledropdown_C" ElementID="_Q0_Q0_Q2_C">
+                        <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60" Width="9em">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="male" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>male</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="female" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>female</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="none" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>non-binary</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="1">
+                    <Control Type="DropList" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimplecombobox_C" ElementID="_Q0_Q0_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-68" Width="9em">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="male" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>male</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="female" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>female</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="none" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>non-binary</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-50" Width="17em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qfirstrow_Qasimpleslider" ElementID="_Q0_Q0_Q4" Value="3" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-50" Width="17em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="2">
+                <Cell X="0" Y="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>second</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="2">
+                    <Question>
+                        <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimplequestion" ElementID="_Q0_Q1_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  as" Length="1024">
+                            <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimplequestionwithlabels" ElementID="_Q0_Q1_Q1" Value="16639607339.6238" Length="17">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="2">
+                    <Control Type="DropList" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimpledropdown_C" ElementID="_Q0_Q1_Q2_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60" Width="9em">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="male" CategoryID="0" Checked="true">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>male</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="female" CategoryID="1">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>female</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="none" CategoryID="2">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>non-binary</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="2">
+                    <Control Type="DropList" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimplecombobox_C" ElementID="_Q0_Q1_Q3_C">
+                        <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-68" Width="9em">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="male" CategoryID="0">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>male</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="female" CategoryID="1">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>female</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="none" CategoryID="2">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>non-binary</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-50" Width="17em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qsecondrow_Qasimpleslider" ElementID="_Q0_Q1_Q4" Value="4" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-50" Width="17em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="3">
+                <Cell X="0" Y="3" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>third</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimplequestion" ElementID="_Q0_Q2_Q0" Value="asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This is the generated text response.  asimplequestion:  This" Length="1024">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="3">
+                    <Question>
+                        <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimplequestionwithlabels" ElementID="_Q0_Q2_Q1" Value="-11504802531.4061" Length="17">
+                            <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="5em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="3">
+                    <Control Type="DropList" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimpledropdown_C" ElementID="_Q0_Q2_Q2_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60" Width="9em">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="male" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>male</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="female" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>female</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="none" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>non-binary</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="3">
+                    <Control Type="DropList" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimplecombobox_C" ElementID="_Q0_Q2_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-68" Width="9em">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="male" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>male</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="female" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>female</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="none" CategoryID="2" Checked="true">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>non-binary</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="3">
+                    <Question>
+                        <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-50" Width="17em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QHiddenQuestions_Qthirdrow_Qasimpleslider" ElementID="_Q0_Q2_Q4" Value="3" Length="1">
+                            <Style Hidden="true" Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-50" Width="17em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>

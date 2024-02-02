@@ -1,0 +1,49 @@
+@use 'globals';
+
+.m-question-cover {
+    transition: opacity 1s 0ms, z-index 0ms 0ms;
+    background-color: globals.$background;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    z-index: 999;
+    background-image: url("/Survey/images/informal/loading.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    &::after {
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        opacity: 0;
+        font-size: x-large;
+    }
+}
+
+.config-complete .m-question-cover {
+    background-image: none;
+}
+
+.o-question-container.unavailable.collapse {
+    position: absolute;
+    left: -9999px;
+}
+
+.unavailable .m-question-cover {
+    &::after {
+        opacity: 1;
+        color: globals.$disabled-text;
+        // placeholder symbol for unavailable questions
+        content: "\20E0";
+    }
+}
+
+.cover-off .m-question-cover {
+    transition: opacity 1s 0ms, z-index 0ms 1s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -999;
+}

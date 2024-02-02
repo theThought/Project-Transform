@@ -1,0 +1,205 @@
+@use 'globals';
+
+$default-text-width: globals.$default-input-width;
+
+.o-combobox, .o-dropdown {
+    position: relative;
+}
+
+.o-combobox {
+    input[type=text] {
+        padding: 10px 16px;
+        border-radius: globals.$text-border-radius;
+        border: globals.$border-thickness solid globals.$borders;
+        color: globals.$theme-primary;
+        min-width: 3em;
+        height: 19px;
+        background-color: globals.$input-background;
+        box-sizing: content-box;
+        text-overflow: ellipsis;
+
+        &.exact {
+            color: globals.$input-text
+        }
+    }
+
+    input:focus {
+        border-color: globals.$theme-primary;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+
+    input::-ms-clear {
+        display: none !important;
+    }
+
+    input::-webkit-calendar-picker-indicator {
+        display: none !important;
+    }
+
+    input::placeholder {
+        color: globals.$placeholder;
+    }
+}
+
+.o-combobox input.list-visible {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-combobox.direction-up input.list-visible {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.o-dropdown {
+    input[type=text] {
+        padding: 10px 48px 10px 16px;
+        border-radius: globals.$border-radius;
+        border: globals.$border-thickness solid globals.$theme-primary;
+        color: globals.$white;
+        min-width: 3em;
+        height: 19px;
+        box-sizing: content-box;
+        cursor: default;
+        background: url("/Survey/images/formal/white-chevron-down.png") right 12px center no-repeat globals.$theme-primary;
+        text-overflow: ellipsis;
+
+        &.list-visible {
+            background-image: url("/Survey/images/formal/white-chevron-up.png");
+        }
+
+        &:not([data-readonly=true]):hover {
+            background-color: globals.$theme-primary-hover;
+        }
+    }
+
+    input::placeholder {
+        color: globals.$white;
+    }
+}
+
+.o-dropdown.direction-down input.list-visible {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-dropdown.direction-up input.list-visible {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+html[dir="rtl"] .o-dropdown {
+    input[type=text] {
+        background: url("/Survey/images/formal/white-chevron-down.png") left 12px center no-repeat globals.$theme-primary;
+        padding: 10px 16px 10px 48px;
+    }
+}
+
+.o-combobox ul,
+.o-dropdown ul {
+    list-style-type: none;
+    margin: -1px 0 4px 0;
+    padding: 0 0 8px 0;
+    border: globals.$border-thickness solid globals.$theme-primary;
+    background-color: globals.$input-background;
+    position: absolute;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    min-width: 3em;
+    left: -9999px;
+
+    &.charrestriction {
+        li:not(.a-list-placeholder-restriction) {
+            display: none;
+        }
+
+        li.a-list-placeholder-restriction {
+            display: block;
+            padding: 12px 16px 4px 16px;
+        }
+    }
+
+    &.empty {
+        li.a-list-placeholder-empty {
+            display: block;
+            padding: 12px 16px 4px 16px;
+        }
+    }
+
+    li.a-list-placeholder-empty {
+        display: none;
+    }
+
+    li.a-list-placeholder-restriction {
+        display: none;
+    }
+
+    &.visible {
+        left: auto;
+        display: block;
+    }
+
+    li {
+        padding: 4px 16px;
+        cursor: default;
+        text-align: left;
+    }
+
+    li:not(.filter-hidden) {
+        padding-top: 12px;
+    }
+
+    li:not(.filter-hidden) ~ li {
+        padding-top: 4px;
+    }
+
+    li:hover {
+        color: globals.$theme-primary-hover;
+    }
+
+    li.selected {
+        color: globals.$theme-secondary;
+    }
+
+    li.filter-hidden {
+        display: none;
+    }
+}
+
+.o-combobox.direction-down ul,
+.o-dropdown.direction-down ul
+{
+    border-bottom-left-radius: globals.$text-border-radius;
+    border-bottom-right-radius: globals.$text-border-radius;
+}
+
+.o-combobox.direction-up ul,
+.o-dropdown.direction-up ul {
+    bottom: 36px;
+    border-top-left-radius: globals.$text-border-radius;
+    border-top-right-radius: globals.$text-border-radius;
+}
+
+html[dir="rtl"] {
+    .o-combobox ul,
+    .o-dropdown ul {
+
+        li {
+            text-align: inherit;
+        }
+
+    }
+}
+
+.focus-control {
+    .o-combobox ul,
+    .o-dropdown ul {
+        box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+    }
+}

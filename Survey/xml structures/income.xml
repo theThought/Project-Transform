@@ -1,0 +1,26 @@
+<Questions>
+  <Question>
+    <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="7em">
+      <Control Type="SingleLineEdit" />
+    </Style>
+    <Control Type="SingleLineEdit" QuestionName="_QIncome" ElementID="_Q0" Value="" Length="7">
+      <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="7em">
+        <Control Type="SingleLineEdit" />
+      </Style>
+    </Control>
+    <Control Type="CheckButton" QuestionName="_QIncome_X" ElementID="_q0_X">
+      <Style ElementAlign="NewLine" Indent="1">
+        <Control Type="CheckButton" />
+      </Style>
+      <Category Name="noincome" CategoryID="0">
+        <Label>
+          <Style ElementAlign="Right">
+            <Font IsBold="true" />
+          </Style>
+          <Text> I had no income last year</Text>
+        </Label>
+      </Category>
+
+    </Control>
+  </Question>
+</Questions>

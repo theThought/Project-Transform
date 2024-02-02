@@ -1,0 +1,160 @@
+<Page
+  SavePoint="Drinks"
+  Version="2:1"
+  Project="S2022097"
+  Language="en-US"
+  Context="Question"
+  LabelType="Label"
+  RoutingContext="Web"
+  LayoutTemplate="page.htm"
+  QuestionTemplate="question.htm"
+  SessionToken="osowrf3khequhfxooxwt3ovrjijqaaaa"
+  EstimatedPages="4"
+  Renderer="xmlplayer">
+  <Title><Style ElementAlign="Right"/>
+    <Text>Drinks</Text>
+  </Title>
+  <Question QuestionName="Drinks" QuestionFullName="Drinks" QuestionDataType="Categorical"><Style ElementAlign="NewLine" Indent="1"/>
+    <Label><Style ElementAlign="NewLine"/>
+      <Text>Which of the following drinks have you consumed in the last 7 days</Text>
+    </Label>
+    <Category Name="Coke" CategoryType="CategoryList"><Style ElementAlign="NewLine"/>
+      <Label><Style ElementAlign="Right"/>
+        <Text>Coca Cola</Text>
+      </Label>
+      <Category Name="regular">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Original</Text>
+        </Label>
+      </Category>
+      <Category Name="diet">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Diet</Text>
+        </Label>
+      </Category>
+      <Category Name="cherry">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Cherry</Text>
+        </Label>
+      </Category>
+      <Category Name="nocaffine">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>caffine free</Text>
+        </Label>
+      </Category>
+      <Category Name="zerovanilla">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>zero sugar vanilla</Text>
+        </Label>
+      </Category>
+      <Category Name="zerocherry">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>zero sugar cherry</Text>
+        </Label>
+      </Category>
+    </Category>
+    <Category Name="Pepsi" CategoryType="CategoryList"><Style ElementAlign="NewLine"/>
+      <Label><Style ElementAlign="Right"/>
+        <Text>Pepsi Cola</Text>
+      </Label>
+      <Category Name="Original">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Original</Text>
+        </Label>
+      </Category>
+      <Category Name="Max">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Max</Text>
+        </Label>
+      </Category>
+      <Category Name="MaxCherry">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Max (Cherry)</Text>
+        </Label>
+      </Category>
+      <Category Name="MaxLime">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Max (Lime)</Text>
+        </Label>
+      </Category>
+      <Category Name="Raspberry">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Raspberry</Text>
+        </Label>
+      </Category>
+      <Category Name="Fire">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Fire</Text>
+        </Label>
+      </Category>
+    </Category>
+    <Category Name="OtherDrinks" CategoryType="CategoryList"><Style ElementAlign="NewLine"/>
+      <Label><Style ElementAlign="Right"/>
+        <Text>Others</Text>
+      </Label>
+      <Category Name="FantaOrange">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Fanta (Orange)</Text>
+        </Label>
+      </Category>
+      <Category Name="DrPepper">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Dr Pepper</Text>
+        </Label>
+      </Category>
+      <Category Name="RWhites">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>R Whites Lemonade</Text>
+        </Label>
+      </Category>
+      <Category Name="Sprite">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Sprite</Text>
+        </Label>
+      </Category>
+      <Category Name="Lilt">
+        <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+        <Label><Style ElementAlign="Right"/>
+          <Text>Lilt</Text>
+        </Label>
+      </Category>
+    </Category>
+    <Category Name="none">
+      <Style ElementAlign="NewLine" Indent="1"><Control Type="CheckButton"/></Style>
+      <Label><Style ElementAlign="Right"/>
+        <Text>none of the above</Text>
+      </Label>
+    </Category><Validation MinValue="1" MaxValue="18"/>
+    <Response>
+      <Value></Value>
+    </Response>
+  </Question>
+  <Navigation Type="Next" IsDefault="true">
+    <Style ElementAlign="Right" Width="70px"><Control Type="Button"/></Style>
+    <Label><Style Align="Center" ElementAlign="NewLine"/>
+      <Text>Next</Text>
+    </Label>
+  </Navigation>
+  <Navigation Type="Stop">
+    <Style ElementAlign="Right" Width="70px"><Control Type="Button"/></Style>
+    <Label><Style Align="Center" ElementAlign="NewLine"/>
+      <Text>Stop</Text>
+    </Label>
+  </Navigation>
+</Page>

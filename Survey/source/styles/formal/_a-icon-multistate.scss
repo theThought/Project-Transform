@@ -1,0 +1,108 @@
+@use 'globals';
+
+.a-icon-multistate {
+    display: inline-block;
+    width: 18px;
+    height: 17px;
+    background-position-y: -28px;
+}
+
+.m-option-base .a-icon-multistate {
+    position: absolute;
+    top: 4px;
+    left: 0;
+}
+
+html[dir="rtl"] .m-option-base .a-icon-multistate {
+    left: auto;
+    right: 0;
+}
+// specifically moves radio buttons 1px to the left to resolve image cropping on certain platforms
+.a-icon-multistate[data-icontype="single"] {
+    left: 1px;
+}
+
+html[dir="rtl"] .a-icon-multistate[data-icontype="single"] {
+    left: auto;
+    right: 1px;
+}
+
+/* Grid layout */
+.m-structure-cell .m-option-base .a-icon-multistate {
+    position: relative;
+    top: .2em;
+}
+
+input[type=checkbox] + label > .a-icon-multistate {
+    background-image: url("/Survey/images/formal/checkboxes.png");
+    background-position-x: -42px;
+}
+
+input[type=radio] + label > .a-icon-multistate {
+    background-image: url("/Survey/images/formal/radiobuttons.png");
+    background-position-x: -42px;
+}
+
+input[type=checkbox]:checked + label > .a-icon-multistate,
+input[type=radio]:checked + label > .a-icon-multistate {
+    background-position-x: -14px;
+}
+
+.focus-control {
+    input[type=checkbox]:focus + label,
+    input[type=radio]:focus + label,
+    input[type=radio]:focus-visible + label,
+    input[type=radio]:focus-within + label,
+    input[type=checkbox]:focus-visible + label,
+    input[type=checkbox]:focus-within + label {
+        box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
+    }
+}
+
+.m-list-optionlist,
+.m-select-combobox-unorderedlist {
+    input[type=checkbox]:focus + label,
+    input[type=radio]:focus + label,
+    input[type=radio]:focus-visible + label,
+    input[type=radio]:focus-within + label,
+    input[type=checkbox]:focus-visible + label,
+    input[type=checkbox]:focus-within + label {
+        box-shadow: none;
+    }
+}
+
+input[type=checkbox]:disabled + label > .a-icon-multistate,
+input[type=radio]:disabled + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=checkbox] + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=radio] + label > .a-icon-multistate {
+    background-position-x: -98px;
+}
+
+input[type=checkbox]:disabled:checked + label > .a-icon-multistate,
+input[type=radio]:disabled:checked + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=checkbox]:checked + label > .a-icon-multistate,
+div[data-readonly="true"] input[type=radio]:checked + label > .a-icon-multistate {
+    background-position-x: -70px;
+}
+
+// option lists will not show icons by default
+.m-list-optionlist:not(.display-icons) .a-icon-multistate {
+    display: none;
+}
+
+// option lists should not display a focus outline
+.m-list-optionlist {
+    input:focus + label,
+    input:focus-visible + label {
+        outline: none;
+    }
+
+    .a-icon-multistate {
+        left: -2px;
+    }
+}
+
+html[dir="rtl"] .m-list-optionlist .a-icon-multistate {
+    left: auto;
+    right: -2px;
+}

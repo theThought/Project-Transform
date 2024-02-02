@@ -1,0 +1,67 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="10em">
+            <Control Type="Edit"></Control>
+        </Style>
+        <Control Type="Edit" QuestionName="_QQuestionWithLotsOfCodes" ElementID="_Q0" Value="test" Length="30">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="10em">
+                <Control Type="Edit"></Control>
+            </Style>
+        </Control>
+        <Control Type="RadioButton" QuestionName="_QQuestionWithLotsOfCodes_X" ElementID="_Q0_X">
+            <Style ElementAlign="Right" Indent="1">
+                <Control Type="RadioButton"></Control>
+            </Style>
+            <Category Name="code1" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>this is the first code</Text>
+                </Label>
+            </Category>
+        </Control>
+        <Control Type="RadioButton" QuestionName="_QQuestionWithLotsOfCodes_X" ElementID="_Q0_X">
+            <Style ElementAlign="Right" Indent="1">
+                <Control Type="RadioButton"></Control>
+            </Style>
+            <Category Name="code2" CategoryID="1">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>second code</Text>
+                </Label>
+            </Category>
+        </Control>
+        <Control Type="RadioButton" QuestionName="_QQuestionWithLotsOfCodes_X" ElementID="_Q0_X">
+            <Style ElementAlign="Right" Indent="1">
+                <Control Type="RadioButton"></Control>
+            </Style>
+            <Category Name="code3" CategoryID="2">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>3rd code</Text>
+                </Label>
+            </Category>
+        </Control>
+        <Control Type="RadioButton" QuestionName="_QQuestionWithLotsOfCodes_X" ElementID="_Q0_X">
+            <Style ElementAlign="Right" Indent="1">
+                <Control Type="RadioButton"></Control>
+            </Style>
+            <Category Name="code4" CategoryID="3">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>The really long code with lots of text</Text>
+                </Label>
+            </Category>
+        </Control>
+        <Control Type="RadioButton" QuestionName="_QQuestionWithLotsOfCodes_X" ElementID="_Q0_X">
+            <Style ElementAlign="Right" Indent="1">
+                <Control Type="RadioButton"></Control>
+            </Style>
+            <Category Name="code5" CategoryID="4">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>The last code</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>

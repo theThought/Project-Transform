@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="general-styles.css">
+    
+
+     <link rel="stylesheet" type="text/css" href="../Survey/styles/informal/base.css" title="Informal style"/>
+  
+    <!-- <link rel="alternative stylesheet" type="text/css" href="../Survey/styles/formal/base.css" title="Formal style"/> -->
+    
+
+
+
+    <script>
+      // Script for PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('serviceWorker.js')
+            .then(function (registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function (error) {
+                console.error('Service Worker registration failed:', error);
+            });
+      }
+    </script>
+
+    <title>Ipsos Healthcare Research PWA</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  
+
+  <div class="header">
+    <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="./images/ipsos-pwa.png">
+    <div class="overall-progress">
+      <!-- Progress Section - should we want this in the header section -->
+    </div>
+  </div>
+
+  <!-- This is the section to get the dynamic form -->
+  <div id="question-container"></div>
+
+  <div class="footer">
+    <div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
+  </div>
+
+    <script src="script.js"></script>
+    <script>
+      window.addEventListener('beforeinstallprompt', (event) => {
+          // Prevent Chrome 67 and earlier from automatically showing the prompt
+          event.preventDefault();          
+          deferredInstallPrompt = event;
+          showInstallPrompt();
+      });
+  
+      let deferredInstallPrompt;
+  
+      function showInstallPrompt() {
+        //install the app on users devices
+          const installButton = document.getElementById('install-button');
+          installButton.style.display = 'block';
+          installButton.addEventListener('click', () => {
+          
+              deferredInstallPrompt.prompt();
+  
+              deferredInstallPrompt.userChoice.then((choiceResult) => {
+                  if (choiceResult.outcome === 'accepted') {
+                      console.log('User accepted the install prompt');
+                  } else {
+                      console.log('User dismissed the install prompt');
+                  }
+                  deferredInstallPrompt = null;
+              });
+  
+              installButton.style.display = 'none';
+          });
+      }
+  </script>
+  
+</body>
+</html>

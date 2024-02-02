@@ -1,0 +1,25 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="4em">
+            <Control Type="SingleLineEdit"></Control>
+        </Style>
+        <Control Type="SingleLineEdit" QuestionName="_Qhospital__DaysPage_Qhospital__daysBySide" ElementID="_Q0" Value="" Length="2">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="4em">
+                <Control Type="SingleLineEdit"></Control>
+            </Style>
+        </Control>
+        <Control Type="CheckButton" QuestionName="_Qhospital__DaysPage_Qhospital__daysBySide_X" ElementID="_Q0_X">
+            <Style ElementAlign="Right" Indent="1">
+                <Control Type="CheckButton"></Control>
+            </Style>
+            <Category Name="unknown" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right">
+                        <Font IsBold="true"></Font>
+                    </Style>
+                    <Text>Unknown</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>

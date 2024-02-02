@@ -1,0 +1,193 @@
+@use 'globals';
+
+@import 'fonts';
+@import 'header';
+@import 'navigation';
+@import 'user-styles';
+@import 'a-button';
+@import 'a-icon-multistate';
+@import 'a-input-multilineedit';
+@import 'a-input-singlelineedit';
+@import 'a-label';
+@import 'm-option-base';
+@import 'm-question-cover';
+@import 'm-structure-cell';
+@import 'o-option-list';
+@import 'o-question';
+@import 'o-question-hnumberslider';
+@import 'o-select-combobox';
+@import 'o-structure-table';
+@import 't-question-base';
+
+* {
+    font-size: globals.$standard-font-size;
+    line-height: globals.$standard-line-height;
+}
+
+html {
+    height: 95vh;
+}
+
+body {
+    background: globals.$background;
+    color: globals.$titles;
+    padding: 0;
+    margin: 0 2em;
+    display: flex;
+    flex-direction: column;
+    font-size: globals.$standard-font-size;
+    line-height: globals.$standard-line-height;
+    font-weight: globals.$standard-font-weight;
+}
+
+html[dir=rtl] {
+    body,
+    input,
+    textarea,
+    select {
+        font-family: globals.$rtl-font;
+    }
+}
+
+body,
+input,
+textarea,
+select {
+    font-family: globals.$primary-font;
+}
+
+body > form {
+    min-height: 95vh;
+    max-height: -webkit-fill-available;
+    display: grid;
+    grid-template-columns: 1fr minmax(globals.$min-display-width, globals.$max-display-width) 1fr;
+    grid-template-rows: 130px auto 110px;
+    grid-template-areas:
+    ". header ."
+    ". content ."
+    ". footer .";
+}
+
+.header {
+    grid-area: header;
+    box-sizing: border-box;
+    height: 130px;
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: globals.$border-thickness solid globals.$borders;
+}
+
+.surroundcontent {
+    grid-area: content;
+    min-height: 66vh;
+}
+
+.footer {
+    grid-area: footer;
+    height: 110px;
+    border-top: globals.$border-thickness solid globals.$borders;
+    padding: 1em 0;
+}
+
+.hiddencontrol {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}
+
+html[dir="rtl"] .hiddencontrol {
+    left: 9999px;
+}
+
+.unavailable {
+    visibility: hidden;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+// screen size overrides - must follow the original declaration to work
+@media screen and (max-width: 1023px) {
+    body {
+        margin: 0;
+    }
+
+    .header {
+        height: 75px;
+        padding: 0 1em .8em 1em;
+    }
+
+    .footer {
+        padding: 1em;
+    }
+
+    body > form {
+        grid-template-rows: 75px auto 110px;
+    }
+}
+
+// iOS disabled inputs normally become translucent - we want to define our own styles
+input:disabled {
+    opacity: 1;
+}
+
+// global style for focused controls
+.focus-control {
+    input:focus {
+        box-shadow: globals.$drop-shadow;
+    }
+}
+
+/* Standardises the placeholder colour - these rules cannot be combined */
+::-moz-placeholder {
+    color: globals.$placeholder;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: globals.$placeholder;
+    opacity: 1;
+}
+
+::placeholder {
+    color: globals.$placeholder;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: globals.$placeholder;
+}
+
+::-ms-input-placeholder {
+    color: globals.$placeholder;
+}
+
+sup {
+    vertical-align: top;
+    font-size: 0.6em;
+    position: relative;
+    top: -4px;
+}
+
+sub {
+    vertical-align: bottom;
+    font-size: 0.6em;
+    position: relative;
+    top: 4px;
+}
