@@ -1,0 +1,387 @@
+'==========================================================
+'Licensed Materials - Property of IBM
+'
+'IBM SPSS Products: Data Collection
+'
+'(C) Copyright IBM Corp. 2001, 2011
+'
+'US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP 
+'Schedule Contract with IBM Corp.
+'==========================================================
+
+' Interviewer Server 6.0.1
+' Last updated:  2011-02-18
+
+
+' *******************************************************************************
+' basic_sample.mrs
+' This is the standard script. The script demonstrates a scenario where
+' once a sample has completed an interview it will not be able to be used
+' again.
+' The script pends and completes quotas if a Quota named Expressions
+' exists.
+' *******************************************************************************
+
+' *******************************************************************************
+' IBM SPSS Data Collection constants
+#include "Constants.mrs"
+
+' *******************************************************************************
+' CLIENT SPECIFIC SECTION
+' Update these constants and functions as require
+'
+' Each of the functions in this file is described in comments that describe when
+' the function is called and the supplied parameters.
+' For more information, consult the DDL, in particular the Sample Management
+' topics under Professional | Interview Scripting.
+
+
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Place your specific constants here
+' Strings
+Const DISPLAY_ACTIVEPO = "A survey is active for your ID.  Please continue the original survey or return in {Timeout} minutes to restart."
+
+' Queues
+' Sample Fields
+' Return Codes / Call Outcomes
+' Other constants
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' Set PASS_QUOTA_IF_ANY_PASS to True if you want the respondent to continue if any
+' of the quota cells that he/she falls into are below quota.  Set to False if you
+' want the respondent to fail the quota check if any cell that he/she falls into
+' is over quota.
+Const PASS_QUOTA_IF_ANY_PASS = True
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' Pend all specifies if all quotas should be pended or just Expressions quotas.
+' If you are using the method where you setup interview script questions with the
+' same names as sample fields in order to create sample quotas then change to 
+' True to Pend at the top level.
+Const PEND_ALL = False
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+' *******************************************************************************
+' Description:  This function is called when a record is selected but then rejected. 
+' The function allows processing further processing of the record based on the 
+' reject reason before it is moved to the UNUSABLE queue.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' SampleRec - The sample record being rejected
+' Reason - String indicating the reason that the record was rejected
+Sub RejectRecord_ClientSpecific(LogStart, SampleRec, Reason)
+
+    Log.Log(LogStart + "RejectRecord_ClientSpecific:  Entered:  " + _
+            "SampleRec = " + CText(SampleRec.Fields[FIELD_ID]) + ", " + _
+            "Reason = " + Reason, _
+            logLevels.LOGLEVEL_TRACE)
+            
+    Select Case Reason          
+        Case "Quota"
+            ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            ' ToDo - Additional processing for records rejected because they are over quota
+            ' If you update the SampleRec use SampleRec.WriteRecord() to write the updates
+            ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+    End Select
+    
+    Log.Log(LogStart + "RejectRecord_ClientSpecific:  Exiting", logLevels.LOGLEVEL_TRACE)
+
+End Sub
+
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Set bChaining to True to enable chaining for web projects
+' If chaining is enabled a FIELD_PROJECT SampleField must be included and the 
+' proper project names specified as PROJECT1 and PROJECT2.  In addition, extra 
+' serial fields must be specified As FIELD_SERIAL1 and FIELD_SERIAL2.
+' These settings are used in AuthenticateSampleRec.
+Dim bChaining
+bChaining = False
+Const FIELD_PROJECT = "Project"
+Const PROJECT1 = "Project1Name"
+Const PROJECT2 = "Project2Name"
+Const FIELD_SERIAL1 = "Serial1"
+Const FIELD_SERIAL2 = "Serial2"
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+' *******************************************************************************
+' Authentication will first look for the sample record. If the record is
+' not found, authentication will fail. As long as the sample record is
+' found and passes quotas (if they exist), the sample is allowed to
+' participate the interview.
+Sub AuthenticateSampleRec(SampleResult, SampleFields)
+   Dim ActiveField
+   Dim bReject
+   Dim strQueue
+   Dim RunNumber
+   Dim LogStart, LogMsg
+   
+   On Error GoTo ErrorHandler
+
+   LogStart = CreateLogStart(SampleFields) + "AuthenticateSampleRec:  "
+   LogMsg = LogStart + "Entered"
+   Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+
+   ' Try to find a matching record in the Sample Management database.
+   Set SampleResult.SampleRec = Queues.AuthenticateSampleRec(SampleFields)
+
+   If (SampleResult.SampleRec = Null) Then
+      ' No sample record found
+
+      ' It is possible that this is a failover where 
+      ' it is expected that the record is active but a timing
+      ' condition has caused the record to be returned already
+      Set ActiveField = FindItem(SampleFields, FIELD_ACTIVE)
+      If Not (ActiveField Is Null) Then
+         ' Try again but without the ActiveField
+         LogMsg = LogStart + "Removing Active and trying again"
+         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         SampleFields.Remove(ActiveField)
+         Set SampleResult.SampleRec = Queues.AuthenticateSampleRec(SampleFields)
+      End If
+   End If
+
+   If (SampleResult.SampleRec = Null) Then
+      Set InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = DISPLAY_AUTH_FAILURE
+      LogMsg = LogStart + "Failed, sample not found" 
+      Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+
+      ' This keyword indicates that authentication has failed.
+      SampleResult.Code = RESULT_FAILURE
+   Else
+      bReject = False
+      ' Case of queue name must match what is in sample database
+      ' If queue is OVERQUOTA, then sample is rejected
+      ' If queue is ACTIVE, then sample is rejected, unless this is a restart
+      strQueue = UCase(SampleResult.SampleRec.Fields.Item(FIELD_QUEUE).Value)
+      If (strQueue = QUEUE_OVERQUOTA) Then
+         InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = DISPLAY_FAILED_QUOTA
+         LogMsg = LogStart + "Rejected, sample signaled out of survey before"
+         bReject = True
+      ElseIf (strQueue = QUEUE_ACTIVE) Then
+         If Not (Failover(LogStart)) Then
+            Dim iTimeout
+            iTimeout = GetIntValue(InterviewProperties, IVPROPS_TIMEOUT)
+            If (iTimeout = 0) Then
+               iTimeout = 10
+            Else
+               iTimeout = iTimeout / 60
+            End If
+            InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = _
+                     Replace(DISPLAY_ACTIVE, "{Timeout}", CText(iTimeout))
+            LogMsg = LogStart + "Rejected, sample in ACTIVE queue"
+            bReject = True
+         End If
+      End If
+      
+      If (bReject) Then
+         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         ' Release the reference to the SampleRec or it will stay Active
+         ' and be unable to be found again
+         Set SampleResult.SampleRec = Null
+         SampleResult.Code = RESULT_REJECT
+
+      Else
+         If (Not CheckQuotas(LogStart, SampleResult.SampleRec, "")) Then
+            InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = DISPLAY_FAILED_QUOTA
+
+            Set SampleResult.SampleRec = Null
+            SampleResult.Code = RESULT_REJECT
+    
+         Else
+            InitializeSerial(LogStart, SampleResult.SampleRec)
+
+            InitializeTest(LogStart, SampleResult.SampleRec)
+            
+            Queues.MoveSampleRec(QUEUE_ACTIVE, SampleResult.SampleRec)
+
+            LogMsg = LogStart + "Succeeded" 
+            Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+
+            SampleResult.Code = RESULT_SUCCESS
+         End If
+      End If 
+   End If
+   
+   Exit Sub
+   
+ErrorHandler:
+   ' Log the error and exit
+   Log.Log(LogStart + "Error executing script (line " + CText(Err.LineNumber) + "):  " + _
+            Err.Description + "  (0x" + CText(Format(Err.Number, "X")) + ")", logLevels.LOGLEVEL_ERROR)
+   Set SampleResult.SampleRec = Null
+   SampleResult.Code = RESULT_FAILURE
+   Exit Sub
+End Sub 
+
+
+
+' *******************************************************************************
+' Description:  This function is called by AuthenticateSampleRec if all standard
+' authentication checks fail.  Add script here to create a new sample record if
+' required.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' SampleFields - SampleFields passed in from the web browser for Authentication,
+'    typically includes an ID and a password
+Function AuthenticateSampleRec_ClientSpecific(LogStart, SampleFields)
+    Dim SampleRec
+    Dim LogMsg
+
+    Log.Log(LogStart + "AuthenticateSampleRec_ClientSpecific:  Entered", logLevels.LOGLEVEL_TRACE)
+    
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ' ToDo - Add your specific authentication checks here and return a record if found
+    Set SampleRec = Null
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    LogMsg = LogStart + "AuthenticateSampleRec_ClientSpecific:  Returning:  "
+    If IsNullObject(SampleRec) Then
+        LogMsg = LogMsg + "No records found"
+    Else
+        LogMsg = LogMsg + "Found a record"
+    End If
+    Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+    
+    Set AuthenticateSampleRec_ClientSpecific = SampleRec    
+End Function
+
+
+' *******************************************************************************
+' Description:  The functions ReturnSampleRec_DCCodes_ClientSpecific and 
+' ReturnSampleRec_ClientCodes_ClientSpecific are called by ReturnSampleRec to handle
+' IBM SPSS Data Collection return codes and client return codes respectively.
+' Update this function to change the default handling of Data Collection provided
+' return codes and update ReturnSampleRec_ClientCodes_ClientSpecific to handle
+' your additional return codes.
+' These functions are called by ReturnSampleRec after it has initialized 
+' SampleFields and finishing quotas if required.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' ReturnRec - Sample record being returned.  View and/or modify sample fields using
+'    ReturnRec.SampleFields
+' SampleRecReturnCode - Call outcome chosen by the interviewer as a number
+'
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Update this function to change how Data Collection defined return codes 
+' are handled
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function ReturnSampleRec_DCCodes_ClientSpecific(LogStart, ReturnRec, SampleRecReturnCode)
+    Dim bHandled
+    Dim TimedOut
+    
+    Log.Log(LogStart + "ReturnSampleRec_DCCodes_ClientSpecific:  Entered:  " + _
+            "SampleRecReturnCode.Name = " + SampleRecReturnCode.Name, _
+            logLevels.LOGLEVEL_TRACE)
+    
+    bHandled = True
+    
+    Select Case (SampleRecReturnCode.Code)
+      
+    ' Move to the COMPLETED queue
+    Case CODE_COMPLETED
+        Queues.MoveSampleRec(QUEUE_COMPLETED, ReturnRec)
+      
+      
+    ' Terminated with complete from interview script     
+    Case CODE_EARLYCOMPLETE
+        Queues.MoveSampleRec(QUEUE_COMPLETED, ReturnRec)
+
+    ' These interviews have been stopped using the Stop
+    ' button or timed out 
+    Case CODE_STOPPED ' Stopped or TimedOut
+      ' Check if the interview has been timed out
+      ' The TimedOut property should always exist in InterviewProperties  
+      TimedOut = 1
+      TimedOut = InterviewProperties.Item(IVPROPS_TIMEDOUT).Value
+      If (TimedOut = 1) Then
+         Queues.MoveSampleRec(QUEUE_TIMED_OUT, ReturnRec)
+      Else
+         Queues.MoveSampleRec(QUEUE_STOPPED, ReturnRec)
+      End If
+
+    ' Interview failure, move sample to interview failed queue
+    ' It can be restarted from there
+    Case CODE_FAILED
+        Queues.MoveSampleRec(QUEUE_FAILED, ReturnRec)
+
+
+    Case CODE_OVERQUOTA
+        Queues.MoveSampleRec(QUEUE_OVERQUOTA, ReturnRec)
+      
+   ' A different Code could be due to using signal in the interview script
+    Case Else
+        bHandled = False
+    End Select
+
+    Log.Log(LogStart + "ReturnSampleRec_DCCodes_ClientSpecific:  Returning " + CText(bHandled), logLevels.LOGLEVEL_TRACE)
+
+    ReturnSampleRec_DCCodes_ClientSpecific = bHandled
+End Function
+
+
+' *******************************************************************************
+' Description:  The functions ReturnSampleRec_DCCodes_ClientSpecific and 
+' ReturnSampleRec_ClientCodes_ClientSpecific are called by ReturnSampleRec to handle
+' IBM SPSS Data Collection return codes and client return codes respectively.
+' Update this function to add handling for return codes that are specific to your
+' site.
+' These functions are called by ReturnSampleRec after it has initialized 
+' SampleFields and finishing quotas if required.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' ReturnRec - Sample record being returned.  View and/or modify sample fields using
+'    ReturnRec.SampleFields
+' SampleRecReturnCode - Call outcome chosen by the interviewer as a number
+Function ReturnSampleRec_ClientCodes_ClientSpecific(LogStart, ReturnRec, SampleRecReturnCode)
+    Dim bHandled
+
+    Log.Log(LogStart + "ReturnSampleRec_ClientCodes_ClientSpecific:  Entered:  " + _
+            "SampleRecReturnCode.Name = " + SampleRecReturnCode.Name, _
+            logLevels.LOGLEVEL_TRACE)
+    
+    bHandled = True
+    
+'    Select Case (SampleRecReturnCode.Code)
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ' ToDo - Add client specific return codes here
+'    Case X
+'    Case Else
+        bHandled = False
+'    End Select
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    Log.Log(LogStart + "ReturnSampleRec_ClientCodes_ClientSpecific:  Returning " + CText(bHandled), logLevels.LOGLEVEL_TRACE)    
+
+    ReturnSampleRec_ClientCodes_ClientSpecific = bHandled
+End Function
+
+
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Add client specific functions here
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+' *******************************************************************************
+' IBM SPSS Data Collection functions
+' Do not remove
+#include "MainFunctions.mrs"
+#include "HelperFunctions.mrs"
