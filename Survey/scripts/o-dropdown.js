@@ -28,6 +28,7 @@ define(['component'],
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = true;
             this.manualWidth = false;
+            this.userspecifiedheight = 0;
             this.keytimer = null;
             this.keytimerlimit = 500; // time in milliseconds at which the buffer is cleared
         }
@@ -143,6 +144,7 @@ define(['component'],
 
         oDropdown.prototype.listsize = function (prop) {
             var height = (27 * prop);
+            this.userspecifiedheight = height;
             this.droplist.style.maxHeight = height + 'px';
         }
 
@@ -565,14 +567,26 @@ define(['component'],
             // reset to default direction before performing checks
             this.wrapper.classList.remove('direction-up');
             this.wrapper.classList.add('direction-down');
+            this.droplist.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
+            var paddingAllowance = 10;
 
             var footer = document.getElementsByClassName('footer')[0];
             var viewportBounds = this.checkViewportBounds(this.droplist);
             var footerCollision = this.checkCollision(this.droplist, footer);
 
-            if (viewportBounds.bottom || footerCollision) {
+            var distanceToTop = this.element.getBoundingClientRect().top;
+            var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
+
+            if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
                 this.wrapper.classList.remove('direction-down');
                 this.wrapper.classList.add('direction-up');
+
+                if (distanceToTop < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
+                    this.droplist.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+                }
+
+            } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
+                this.droplist.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
         }
 
