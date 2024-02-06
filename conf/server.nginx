@@ -1,0 +1,7 @@
+server_name     phpstack-737274-4290065.cloudwaysapps.com;
+
+location / {
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+    add_header 'Access-Control-Allow-Headers' 'Content-Type';
+}

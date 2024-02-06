@@ -1,0 +1,13 @@
+#BEGIN FORCED HTTPS ENABLED
+set $https_redirect 0;
+if ($real_scheme !~ "https") {
+    set $https_redirect 1;
+}
+if ($request_method = PURGE) {                                
+    set $https_redirect 0;
+}
+if ($https_redirect = 1) {                                  
+    rewrite ^(.*)$ https://$http_host$1 permanent;
+    break;
+}
+#END FORCED HTTPS ENABLED
