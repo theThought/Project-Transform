@@ -1291,7 +1291,6 @@ html[dir=rtl] .m-option-base {
 
 input + script ~ .m-option-base,
 span.m-input-singlelineedit + script ~ .m-option-base {
-  margin-top: 0.5em;
   margin-left: 1em;
 }
 
