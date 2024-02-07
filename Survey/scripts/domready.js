@@ -2,7 +2,6 @@
  * @license domReady 2.0.1 Copyright jQuery Foundation and other contributors.
  * Released under MIT license, http://github.com/requirejs/domReady/LICENSE
  */
-/*jslint */
 /*global require: false, define: false, requirejs: false,
   window: false, clearInterval: false, document: false,
   self: false, setInterval: false */

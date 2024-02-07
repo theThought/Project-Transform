@@ -64,16 +64,15 @@ define(['component'],
             }
         }
 
-        aInputMultilineEdit.prototype.onInput = function (event) {
+        aInputMultilineEdit.prototype.onInput = function () {
             var inputEvent = new CustomEvent(this.group + '_textInput', {bubbles: true, detail: this});
             this.element.dispatchEvent(inputEvent);
             this.manageContentClass();
         }
 
-        aInputMultilineEdit.prototype.onFocusIn = function (event) {
+        aInputMultilineEdit.prototype.onFocusIn = function () {
             // handle self-generated events
-            if (this.element.placeholder.length
-                && this.element.placeholder !== this.defaultPlaceholder) {
+            if (this.element.placeholder.length && this.element.placeholder !== this.defaultPlaceholder) {
                 this.element.value = this.element.placeholder;
                 this.element.placeholder = this.defaultPlaceholder;
             }

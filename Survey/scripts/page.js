@@ -25,8 +25,7 @@ define(
             this.properties.registered = true;
 
             for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
+                if (this.properties.hasOwnProperty(prop) && typeof this[prop] === 'function') {
                     this[prop](this.properties[prop]);
                 }
             }

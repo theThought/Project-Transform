@@ -177,15 +177,15 @@ define(['component', 'pikaday'],
         aInputSingleLineEdit.prototype.configureDateInput = function (val) {
             var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
 
-            datemin = [2000, 1, 1];
-            datemax = [3000, 12, 31];
+            var datemin = [2000, 1, 1];
+            var datemax = [3000, 12, 31];
 
             if (this.element.getAttribute('min') !== null) {
-                var datemin = this.element.getAttribute('min').split('-');
+                datemin = this.element.getAttribute('min').split('-');
             }
 
             if (this.element.getAttribute('max') !== null) {
-                var datemax = this.element.getAttribute('max').split('-');
+                datemax = this.element.getAttribute('max').split('-');
             }
 
             var picker = new datepicker(
@@ -244,10 +244,10 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.labels = function (props) {
-            if (props['pre']) {
+            if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-prelabel';
-                var preContentText = props['pre'];
+                var preContentText = props.pre;
                 preContentText = preContentText.replace(/%lt%/g, '<');
                 preContentText = preContentText.replace(/%gt%/g, '>');
                 preElement.innerHTML = preContentText;
@@ -255,10 +255,10 @@ define(['component', 'pikaday'],
                 this.wrapper.insertBefore(preElement, this.wrapper.childNodes[0]);
             }
 
-            if (props['post']) {
+            if (props.post) {
                 var postElement = document.createElement('span');
                 postElement.className = 'a-label-postlabel';
-                var postContentText = props['post'];
+                var postContentText = props.post;
                 postContentText = postContentText.replace(/%lt%/g, '<');
                 postContentText = postContentText.replace(/%gt%/g, '>');
                 postElement.innerHTML = postContentText;
@@ -289,8 +289,7 @@ define(['component', 'pikaday'],
             this.wrapper.classList.add('focused');
 
             // handle self-generated events
-            if (this.element.placeholder.length
-                && this.element.placeholder !== this.defaultPlaceholder) {
+            if (this.element.placeholder.length && this.element.placeholder !== this.defaultPlaceholder) {
                 this.element.value = this.element.placeholder;
                 this.element.placeholder = this.defaultPlaceholder;
                 this.manageContentClass();

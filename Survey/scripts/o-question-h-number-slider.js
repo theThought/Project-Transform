@@ -93,8 +93,7 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.getInitialValue = function () {
-            if (typeof this.hiddenelement.value !== 'undefined'
-            && this.hiddenelement.value.length) {
+            if (typeof this.hiddenelement.value !== 'undefined' && this.hiddenelement.value.length) {
                 this.initialValue = this.hiddenelement.getAttribute('value');
                 this.element.value = this.hiddenelement.getAttribute('value');
             }
@@ -121,8 +120,7 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.restoreEntries = function (event) {
-            if (event.detail.questionName !== this.questionName
-                || !this.restoreValues || this.initialValue === null) {
+            if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
                 return;
             }
 
@@ -154,8 +152,7 @@ define(['o-question'],
             var percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
 
             this.element.style.setProperty('--track-background-fill',
-                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
+                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
         }
 
         oQuestionHNumberSlider.prototype.createClickableArea = function () {
@@ -167,20 +164,20 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.values = function (props) {
-            this.element.min = props['min'];
-            this.element.max = props['max'];
+            this.element.min = props.min;
+            this.element.max = props.max;
         }
 
         oQuestionHNumberSlider.prototype.show = function (props) {
-            if (props['marks'] === true) {
+            if (props.marks === true) {
                 this.showMarks();
             }
 
-            if (props['value'] === true) {
+            if (props.value === true) {
                 this.showValue();
             }
 
-            if (props['terminators'] === true) {
+            if (props.terminators === true) {
                 this.showTerminators();
             }
         }
@@ -192,7 +189,9 @@ define(['o-question'],
             var max = this.element.max ? parseInt(this.element.max) : 100;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
 
-            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
+            if (step === 0) {
+                step = Math.floor(((max - min) / 100) * 10);
+            }
 
             for (var i = min; i <= max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
@@ -210,7 +209,9 @@ define(['o-question'],
             var max = this.element.max ? parseInt(this.element.max) : 100;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 10 : parseInt(this.properties.ticklabels);
 
-            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
+            if (step === 0) {
+                step = Math.floor(((max - min) / 100) * 10);
+            }
 
             for (var i = min; i <= max; i = i + step) {
                 labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
@@ -242,20 +243,20 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.labels = function (props) {
-            if (props['pre']) {
+            if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-outer-prelabel';
-                var preContent = document.createTextNode(props['pre']);
+                var preContent = document.createTextNode(props.pre);
                 preElement.appendChild(preContent);
 
                 this.organism.classList.add('has-pre-label');
                 this.organism.insertBefore(preElement, this.organism.firstChild);
             }
 
-            if (props['post']) {
+            if (props.post) {
                 var postElement = document.createElement('span');
                 postElement.className = 'a-label-outer-postlabel';
-                var postContent = document.createTextNode(props['post']);
+                var postContent = document.createTextNode(props.post);
                 postElement.appendChild(postContent);
 
                 this.organism.classList.add('has-post-label');
@@ -264,16 +265,16 @@ define(['o-question'],
         }
 
         oQuestionHNumberSlider.prototype.thumb = function (props) {
-            if (props['image']) {
-                this.setThumbImage(props['image']);
+            if (props.image) {
+                this.setThumbImage(props.image);
             }
 
-            if (props['width']) {
-                this.setThumbWidth(props['width']);
+            if (props.width) {
+                this.setThumbWidth(props.width);
             }
 
-            if (props['height']) {
-                this.setThumbHeight(props['height']);
+            if (props.height) {
+                this.setThumbHeight(props.height);
             }
         }
 

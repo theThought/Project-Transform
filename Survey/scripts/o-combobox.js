@@ -202,7 +202,9 @@ define(['component'],
             this.element.size = Math.max(this.defaultplaceholder.length, 1);
             var inputdims = getComputedStyle(this.element);
             var inputwidth = parseFloat(inputdims.width);
-            if (isNaN(inputwidth)) inputwidth = 0;
+            if (isNaN(inputwidth)) {
+                inputwidth = 0;
+            }
             var droplistdims = getComputedStyle(this.droplist);
             var droplistwidth = parseFloat(droplistdims.width);
             var padding = 32; // the droplist does not have padding included
