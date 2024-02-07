@@ -47,6 +47,7 @@ define(['component'],
             this.configureProperties();
             this.getInitialValue();
             this.setWidth();
+            this.setPosition();
             this.setWrapperType();
             this.configureInitialVisibility();
             this.processVisibilityRules();
@@ -175,6 +176,13 @@ define(['component'],
             component.prototype.makeAvailable.call(this);
             this.setWidth();
             this.manualWidth = true;
+        }
+
+        oDropdown.prototype.setPosition = function () {
+            // this function is required to prevent body overflow issues where a long droplist is
+            // positioned near the bottom of a page and the page height accommodates the droplist
+            // even though it is invisible and absolutely positioned and should not contribute
+            this.droplist.style.bottom = '0';
         }
 
         oDropdown.prototype.checkManualWidth = function () {
@@ -568,6 +576,7 @@ define(['component'],
             this.wrapper.classList.remove('direction-up');
             this.wrapper.classList.add('direction-down');
             this.droplist.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
+            this.droplist.style.removeProperty('bottom');
             var paddingAllowance = 10;
 
             var footer = document.getElementsByClassName('footer')[0];
