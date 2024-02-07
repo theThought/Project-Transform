@@ -1465,8 +1465,8 @@ html[dir=rtl] .balance .m-option-base {
 
 :root {
   --track-background-fill: #449B9B;
-  --track-thumb-image: url("../../images/formal/range-thumb-solid-pink.svg");
-  --track-thumb-image-selected: url("../../images/formal/range-thumb-solid-pink-selected.svg");
+  --track-thumb-image: url("../../images/formal/range-thumb-default.svg");
+  --track-thumb-image-selected: url("../../images/formal/range-thumb-default.svg");
   --track-thumb-width: 40px;
   --track-thumb-height: 40px;
 }
@@ -1621,7 +1621,7 @@ input[type=range]::-ms-thumb {
   height: var(--track-thumb-height);
   border: none;
   background-color: transparent;
-  background-image: url("../../images/formal/range-thumb-solid-pink.svg");
+  background-image: url("../../images/formal/range-thumb-default.svg");
   background-image: var(--track-thumb-image);
   background-size: cover;
   background-position: center;
