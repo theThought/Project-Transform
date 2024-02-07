@@ -31,25 +31,4 @@ self.addEventListener('activate', evt => {
     console.log('Service worker has been activated');
 });
 
-self.addEventListener('fetch', evt => {
-    evt.respondWith(
-        caches.match(evt.request).then(cacheRes => {
-            return cacheRes || fetch(evt.request).then(fetchRes => {
-                // Clone the response to add CORS headers
-                const clonedResponse = fetchRes.clone();
-                if (clonedResponse.ok) {
-                    const responseHeaders = new Headers(clonedResponse.headers);
-                    responseHeaders.append('Access-Control-Allow-Origin', '*');
-                    return new Response(clonedResponse.body, {
-                        status: clonedResponse.status,
-                        statusText: clonedResponse.statusText,
-                        headers: responseHeaders
-                    });
-                } else {
-                    // Return the original response if it's not OK
-                    return fetchRes;
-                }
-            });
-        })
-    );
-});
+

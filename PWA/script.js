@@ -88,25 +88,9 @@
 //       const warningDiv = document.createElement("div");
 //       warningDiv.className = "warning";
 //       warningDiv.textContent = message;
-  
-//       questionContainer.appendChild(warningDiv);
-  
-//       setTimeout(() => {
-//         questionContainer.removeChild(warningDiv);
-//       }, 3000);
-//     }
-  
-//     function handleSubmitButtonClick() {
-//       console.log("Submit clicked");
-//       console.log("Final responses:", responses);
-//       // What ajax should run now?
-//     }
-//   });
+
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('DOMContentLoaded event fired!');
-
-
-  // fetch('https://phpstack-737274-4290065.cloudwaysapps.com/project/ipsos/')
+  
   fetch('https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223226')
     .then(response => response.text())
     .then(html => {
