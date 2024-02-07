@@ -1,109 +1,58 @@
 // document.addEventListener("DOMContentLoaded", function () {
-//     const questionContainer = document.getElementById("question-container");
-//     const submitButton = document.getElementById("submit-btn");
-//     let currentQuestionIndex = 1;
-//     const responses = [];
+// //Loading the test frame from kevin
   
-//     renderQuestion(currentQuestionIndex);
-  
-//     function renderQuestion(questionId) {
-//       fetchQuestion(questionId)
-//         .then(data => {
-//           const question = data.question;
-//           if (question) {
-//             const questionDiv = createQuestionDiv(question);
-//             questionContainer.innerHTML = "";
-//             questionContainer.appendChild(questionDiv);
-//           } else {
-//             if (currentQuestionIndex === questions.length) {
-//               submitButton.style.display = "block";
-//               submitButton.addEventListener("click", handleSubmitButtonClick);
-//             }
-//           }
+//   fetch('https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223226')
+//     .then(response => response.text())
+//     .then(html => {
+//       const questionContainer = document.getElementById("question-container");
+//       questionContainer.innerHTML = html; 
+//     })
+//     .catch(error => {
+//       console.error('Error fetching external content:', error);
+//     });
+// });
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Example dynamic parameters
+//     const i_project = 'S20223226';
+//     const i_timeout = 60000; // 1 minute
+//     const i_test = 0; // Not a test respondent
+
+ 
+
+//     // Construct the URL with dynamic parameters
+//     const queryParams = new URLSearchParams({
+//         i_project,
+//         i_timeout,
+//         i_test
+//     });
+//     const url = `/proxy?${queryParams.toString()}`; 
+
+//     // Fetch content from the Express server
+//     fetch(url)
+//         .then(response => response.text())
+//         .then(html => {
+//             const questionContainer = document.getElementById("question-container");
+//             questionContainer.innerHTML = html;
 //         })
 //         .catch(error => {
-//           console.error("Error fetching question:", error);
+//             console.error('Error fetching external content:', error);
 //         });
-//     }
-  
-//     function fetchQuestion(questionId) {
-//       return fetch(`http://localhost:5001/api/questions/${questionId}`)
-//         .then(response => response.json())
-//         .catch(error => {
-//           throw error;
-//         });
-//     }
-  
-//     function createQuestionDiv(questionObj) {
-//       const questionDiv = document.createElement("div");
-//       questionDiv.className = "question";
-  
-//       const label = document.createElement("label");
-//       label.textContent = questionObj.label;
-//       questionDiv.appendChild(label);
-  
-//       const input = document.createElement("input");
-//       input.type = "text";
-//       input.id = "answer-input";
-//       questionDiv.appendChild(input);
-  
-//       const submit = document.createElement("div");
-//       submit.classList.add("submit");
-  
-//       if (questionObj.isFinal) {
-//         const submitButton = document.createElement("button");
-//         submitButton.className = "submit";
-//         submitButton.textContent = "Submit";
-//         submitButton.addEventListener("click", handleSubmitButtonClick);
-//         submit.appendChild(submitButton);
-//       } else {
-//         const nextButton = document.createElement("button");
-//         nextButton.className = "next ";
-//         nextButton.className = "a-button-next";
-//         nextButton.textContent = "Next";
-//         nextButton.addEventListener("click", () => handleNextButtonClick(questionObj.id));
-//         submit.appendChild(nextButton);
-//       }
-  
-//       questionDiv.appendChild(submit);
-  
-//       return questionDiv;
-//     }
-  
-//     function handleNextButtonClick(currentQuestionId) {
-//       const answerInput = document.getElementById("answer-input");
-//       const answer = answerInput.value.trim();
-  
-//       if (answer) {
-//         responses.push({ questionId: currentQuestionId, answer });
-//         console.log(`Question ${currentQuestionId}: ${answer}`);
-//         currentQuestionIndex++;
-//         renderQuestion(currentQuestionIndex);
-//       } else {
-//         displayWarning("Please answer the question before proceeding.");
-//       }
-//     }
-  
-//     function displayWarning(message) {
-//       const warningDiv = document.createElement("div");
-//       warningDiv.className = "warning";
-//       warningDiv.textContent = message;
+// });
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
+    fetch('https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223226')
+      .then(response => response.text())
+      .then(html => {
+        const surveyContainer = document.getElementById("survey-container");
+        surveyContainer.innerHTML = html; // Update the UI with the fetched survey content
+      })
+      .catch(error => {
+        console.error('Error fetching survey content:', error);
+      });
+  });
   
-  fetch('https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223226')
-    .then(response => response.text())
-    .then(html => {
-      const questionContainer = document.getElementById("question-container");
-      questionContainer.innerHTML = html; 
-    })
-    .catch(error => {
-      console.error('Error fetching external content:', error);
-    });
-});
-
-
-
-
-
-

@@ -1,40 +1,59 @@
+console.log('Server Running');
 const express = require('express');
-const app = express();
-const port = 5001;
+const fetch = require('node-fetch');
 
-// Enable CORS for all routes (for testing purposes)
+const app = express();
+const PORT = process.env.PORT || 3008;
+
+// Middleware to set CORS headers
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
-// Sample questions data
-const questions = [
-    { id: 1, label: "This is a test question", isFinal: false },
-    { id: 2, label: "How do you feel today?", isFinal: false },
-    { id: 3, label: "Did you smoke today?", isFinal: false },
-    { id: 4, label: "Did you exercise today?", isFinal: true }
-  ];
-  
-
-// API endpoint to get all questions
-app.get('/api/questions', (req, res) => {
-  res.json({ questions });
+//default
+app.get('/', async (req, res) => {
+  res.send('default - please use correct url params ')
 });
 
-// API endpoint to get a specific question by ID
-app.get('/api/questions/:id', (req, res) => {
-  const questionId = parseInt(req.params.id);
-  const question = questions.find(q => q.id === questionId);
+// Route to handle survey requests
+app.get('/survey', async (req, res) => {
+  console.log('/survey url');
+  
+  try {
+    // Get parameters from the request query
+    const { studyId, testMode, respondentId, serverId } = req.query;
 
-  if (question) {
-    res.json({ question });
-  } else {
-    res.status(404).json({ error: 'Question not found' });
+    // Get the ServerURL based on the serverId from configuration file
+    const serverConfig = {
+        server: 'https://online-stg.ipsosinteractive.com/',
+    };
+    const serverURL = serverConfig[serverId];
+
+    // Construct the URL for the survey
+    const queryParams = new URLSearchParams({
+        'ID': respondentId,
+        'i.project': studyId,
+        'i.test': testMode ? 1 : 0
+    });
+    const url = `${serverURL}?${queryParams.toString()}`;
+
+    // Fetch content from the constructed URL
+    const response = await fetch(url);
+    const html = await response.text();
+
+    // Send the fetched content as the response
+    res.send(html);
+  } catch (error) {
+    console.error('Error fetching external content:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}/api/questions/`);
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

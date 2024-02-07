@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="general-styles.css">
     
     <script>
-      // Script for PWA
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('serviceWorker.js')
             .then(function (registration) {
@@ -25,20 +24,8 @@
 </head>
 <body>
   
-
-  <!-- <div class="header">
-    <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="./images/ipsos-pwa.png">
-    <div class="overall-progress">  -->
-      <!-- Progress Section - should we want this in the header section -->
-    <!-- </div>
-  </div> -->
-
   <!-- This is the section to get the dynamic form -->
   <div id="question-container"></div>
-
-  <!-- <div class="footer">
-    <div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
-  </div> -->
 
     <script src="script.js"></script>
     <script>
