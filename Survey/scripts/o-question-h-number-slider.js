@@ -149,9 +149,9 @@ define(['o-question'],
             var val = Number(this.hiddenelement.value);
 
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
-            var paddingadjustmentinpixels = 22;
+            var paddingadjustmentinpixels = 20;
             var adjustmentcalc = paddingadjustmentinpixels - (2*paddingadjustmentinpixels)*(percentage/100);
-            percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
+            var percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
 
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '

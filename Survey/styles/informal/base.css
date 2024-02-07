@@ -1143,6 +1143,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
       -ms-flex: 0 1 40px;
           flex: 0 1 40px;
   display: block;
+  font-size: 17px;
 }
 
 html[dir=rtl] .o-question-hnumberslider-control .a-label-prelabel {
