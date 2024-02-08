@@ -1,0 +1,436 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" ZIndex="-10"></Style>
+        <Table UseTablesLayout="-1" Summary="I have:" TableName="_Qvisited__booth" TableID="_Q0">
+            <Row Y="0">
+                <Cell X="1" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Visited their booth for AD</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Rating (1 to 7, 7 is most valuable)</Text>
+                    </Label>
+                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                        <Control Type="SingleLineEdit"></Control>
+                    </Style>
+                </Cell>
+                <Cell X="3" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Main piece of info recalled</Text>
+                    </Label>
+                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                        <Control Type="SingleLineEdit"></Control>
+                    </Style>
+                </Cell>
+                <Cell X="4" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Want to visit again</Text>
+                    </Label>
+                </Cell>
+                <Cell X="0" Y="0" WeightY="2"></Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="1" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                    </Label>
+                </Cell>
+                <Cell X="4" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                    </Label>
+                </Cell>
+            </Row>
+            <Row Y="2">
+                <Cell X="0" Y="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Eli Lilly</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="2">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qeli__lilly_Qslice_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qeli__lilly_Qrating" ElementID="_Q0_Q0_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qeli__lilly_Qinfo__recall" ElementID="_Q0_Q0_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="2">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qeli__lilly_Qvisit__again_C" ElementID="_Q0_Q0_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="3">
+                <Cell X="0" Y="3" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Leo Pharma</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="3">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qleo__pharma_Qslice_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qleo__pharma_Qrating" ElementID="_Q0_Q1_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qleo__pharma_Qinfo__recall" ElementID="_Q0_Q1_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="3">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qleo__pharma_Qvisit__again_C" ElementID="_Q0_Q1_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="4">
+                <Cell X="0" Y="4" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Galderma</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="4">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qgalderma_Qslice_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qgalderma_Qrating" ElementID="_Q0_Q2_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qgalderma_Qinfo__recall" ElementID="_Q0_Q2_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="4">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qgalderma_Qvisit__again_C" ElementID="_Q0_Q2_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="5">
+                <Cell X="0" Y="5" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>AbbVie</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="5">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qabbvie_Qslice_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qabbvie_Qrating" ElementID="_Q0_Q3_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qabbvie_Qinfo__recall" ElementID="_Q0_Q3_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="5">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qabbvie_Qvisit__again_C" ElementID="_Q0_Q3_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="6">
+                <Cell X="0" Y="6" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sanofi-Regeneron</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="6">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qsanofi__regeneron_Qslice_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="6">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qsanofi__regeneron_Qrating" ElementID="_Q0_Q4_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="6">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qsanofi__regeneron_Qinfo__recall" ElementID="_Q0_Q4_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="6">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qsanofi__regeneron_Qvisit__again_C" ElementID="_Q0_Q4_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="7">
+                <Cell X="0" Y="7" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Pfizer</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="7">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qpfizer_Qslice_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="7">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qpfizer_Qrating" ElementID="_Q0_Q5_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="7">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qpfizer_Qinfo__recall" ElementID="_Q0_Q5_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="7">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qpfizer_Qvisit__again_C" ElementID="_Q0_Q5_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="8">
+                <Cell X="0" Y="8" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Almirall</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="8">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qalmirall_Qslice_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="8">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qalmirall_Qrating" ElementID="_Q0_Q6_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="8">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qalmirall_Qinfo__recall" ElementID="_Q0_Q6_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="8">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qalmirall_Qvisit__again_C" ElementID="_Q0_Q6_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="9">
+                <Cell X="0" Y="9" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Incyte</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="9">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qincyte_Qslice_C" ElementID="_Q0_Q7_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="2" Y="9">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qincyte_Qrating" ElementID="_Q0_Q7_Q1" Value="" MaxValue="7" MinValue="1" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="1em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="9">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_Qvisited__booth_Qincyte_Qinfo__recall" ElementID="_Q0_Q7_Q2" Value="" Length="999">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="9">
+                    <Control Type="CheckButton" QuestionName="_Qvisited__booth_Qincyte_Qvisit__again_C" ElementID="_Q0_Q7_Q3_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="CheckButton"></Control>
+                        </Style>
+                        <Category Name="yes" CategoryID="0"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>
