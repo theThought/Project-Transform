@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       'I.Test': i_test
   });
   // const url = `/?${queryParams.toString()}`; 
-//   const url = `https://ipsosbackend.onrender.com/`; 
+   const url = `https://ipsosbackend.onrender.com/`; 
 
 
   // Fetch content from the Express server
