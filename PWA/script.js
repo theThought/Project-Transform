@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   
-  const url = `https://ipsosbackend.onrender.com/`; 
+  //Loads no cors issues but not loading components
+  //const url = `https://ipsosbackend.onrender.com/`; 
+
+  //Direct link
+  const url = `https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223226`; 
    
   fetch(url)
       .then(response => response.text())
