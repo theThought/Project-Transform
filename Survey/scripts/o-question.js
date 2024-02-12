@@ -143,6 +143,10 @@ define(['component'],
         }
 
         oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.isInitialising || event.detail.isInitialising) {
+                return;
+            }
+
             if (this.element === event.detail.element) {
                 return;
             }

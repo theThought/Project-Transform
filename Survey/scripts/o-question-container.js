@@ -40,10 +40,12 @@ define(['o-question'],
         oQuestionContainer.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'broadcastChange':
-                    this.processAlternativeVisibilityRulesFromExternalTrigger(event);
-                    this.processVisibilityRulesFromExternalTrigger(event);
-                    this.processOptionVisibilityRulesFromExternalTrigger(event);
-                    this.processFilter(event);
+                    if (!this.isInitialising && !event.detail.isInitialising) {
+                        this.processAlternativeVisibilityRulesFromExternalTrigger(event);
+                        this.processVisibilityRulesFromExternalTrigger(event);
+                        this.processOptionVisibilityRulesFromExternalTrigger(event);
+                        this.processFilter(event);
+                    }
                     break;
                 case 'focusin':
                     this.onFocusIn(event);
@@ -145,6 +147,10 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.processAlternativeVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.isInitialising || event.detail.isInitialising) {
+                return;
+            }
+
             if (this.element === event.detail.element) {
                 return;
             }

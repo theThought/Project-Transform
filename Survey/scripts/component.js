@@ -67,7 +67,7 @@ define(
                 this.initialValue = this.element.value;
             }
 
-            if (typeof this.checkbox != "undefined") {
+            if (typeof this.checkbox !== "undefined") {
                 this.initialValue = (this.checkbox.checked);
             }
         }
@@ -259,6 +259,10 @@ define(
         }
 
         component.prototype.processVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.isInitialising || event.detail.isInitialising) {
+                return;
+            }
+
             if (this.element === event.detail.element) {
                 return;
             }
