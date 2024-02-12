@@ -4,8 +4,10 @@ define(
         function page(id, group) {
             this.id = id;
             this.group = group;
+            this.focusonfirstinput = true;
             this.focusquestion = true;
             this.focuscontrol = true;
+            this.focuserror = false;
             this.element = document.querySelector('body>form');
         }
 
@@ -15,6 +17,7 @@ define(
             this.setQuestionFocusStyle();
             this.setControlFocusStyle();
             this.focusFirstQuestion();
+            this.scrollToError();
             this.focusFirstInput();
         }
 
@@ -84,6 +87,12 @@ define(
             }
         }
 
+        page.prototype.jumptoerror = function (prop) {
+            if (prop) {
+                this.focuserror = true;
+            }
+        }
+
         page.prototype.setQuestionFocusStyle = function () {
             if (!this.focusquestion) {
                 return;
@@ -125,6 +134,11 @@ define(
         }
 
         page.prototype.focusFirstInput = function () {
+            // do not focus on question if there is an error present and we are focusing on error
+            if (!this.focusonfirstinput) {
+                return;
+            }
+
             // only select inputs from the first question
             var firstquestion = this.element.querySelector('div.o-question-container');
 
@@ -144,6 +158,19 @@ define(
             }
 
             firstelement.focus();
+        }
+
+        page.prototype.scrollToError = function () {
+            if (this.focuserror) {
+                var firsterror = document.getElementsByClassName('a-label-error');
+
+                if (firsterror.length === 0) {
+                    return;
+                }
+
+                this.focusonfirstinput = false;
+                firsterror[0].scrollIntoView({"block": "center"});
+            }
         }
 
         return page;
