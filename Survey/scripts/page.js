@@ -8,6 +8,7 @@ define(
             this.focusquestion = true;
             this.focuscontrol = true;
             this.focuserror = false;
+            this.allowpaste = false;
             this.element = document.querySelector('body>form');
         }
 
@@ -19,6 +20,7 @@ define(
             this.focusFirstQuestion();
             this.scrollToError();
             this.focusFirstInput();
+            this.configurePaste();
         }
 
         page.prototype.configureProperties = function (propertiesName) {
@@ -34,6 +36,10 @@ define(
             }
         }
 
+        page.prototype.paste = function (prop) {
+            this.allowpaste = prop;
+        }
+
         page.prototype.sidebyside = function (width) {
             var question = this.element.getElementsByClassName('o-question-container');
 
@@ -46,7 +52,7 @@ define(
 
         page.prototype.styleInstructions = function () {
             var questioninstructions = document.getElementsByClassName('o-question-instruction');
-            var sidebyside = (typeof this.properties.sidebyside !== "undefined");
+            var sidebyside = (typeof this.properties.sidebyside !== 'undefined');
 
             for (var i = 0; i < questioninstructions.length; i++) {
                 var questioninstruction = questioninstructions[i];
@@ -74,7 +80,12 @@ define(
                     }
                 }
             }
+        }
 
+        page.prototype.configurePaste = function () {
+            if (!this.allowpaste) {
+                this.element.setAttribute('data-paste', 'false');
+            }
         }
 
         page.prototype.focus = function (prop) {
@@ -130,7 +141,6 @@ define(
                 questions[i].classList.add('focused');
                 return;
             }
-
         }
 
         page.prototype.focusFirstInput = function () {
@@ -169,7 +179,7 @@ define(
                 }
 
                 this.focusonfirstinput = false;
-                firsterror[0].scrollIntoView({"block": "center"});
+                firsterror[0].scrollIntoView({'block': 'center'});
             }
         }
 
