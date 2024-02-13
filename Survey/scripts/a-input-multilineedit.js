@@ -15,7 +15,7 @@ define(['component'],
             this.element = document.querySelector('textarea[data-questionid="' + this.id + '"]');
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.defaultPlaceholder = (this.element.placeholder.length) ? this.element.placeholder : '';
-            this.disablePaste = true;
+            this.allowPaste = true;
         }
 
         aInputMultilineEdit.prototype = Object.create(component.prototype);
@@ -69,12 +69,14 @@ define(['component'],
             }
         }
 
-        aInputMultilineEdit.prototype.paste = function(prop) {
-            this.disablePaste = prop;
+        aInputMultilineEdit.prototype.paste = function (prop) {
+            this.allowPaste = prop;
         }
 
-        aInputMultilineEdit.prototype.onPaste = function(event) {
-            if (this.disablePaste) {
+        aInputMultilineEdit.prototype.onPaste = function (event) {
+            var parentForm = this.element.closest('form');
+
+            if (!this.allowPaste || parentForm.getAttribute('data-paste') === 'false') {
                 event.preventDefault();
                 event.stopPropagation();
             }

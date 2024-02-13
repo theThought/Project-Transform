@@ -19,7 +19,7 @@ define(['component', 'pikaday'],
             this.wrapper = this.createWrapper();
             this.stepValue = null;
             this.isReadOnly = false;
-            this.disablePaste = true;
+            this.allowPaste = true;
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
@@ -114,7 +114,7 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.paste = function (prop) {
-            this.disablePaste = prop
+            this.allowPaste = prop;
         }
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
@@ -277,7 +277,9 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.onPaste = function(event) {
-            if (this.disablePaste) {
+            var parentForm = this.element.closest('form');
+
+            if (!this.allowPaste || parentForm.getAttribute('data-paste') === 'false') {
                 event.preventDefault();
                 event.stopPropagation();
             }
