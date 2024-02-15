@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="general-styles.css">
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('serviceWorker.js')
+            .then(function (registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function (error) {
+                console.error('Service Worker registration failed:', error);
+            });
+      }
+    </script>
+
+    <title>Ipsos Healthcare Research PWA</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <div id="survey-container"></div> 
+
+  <script src="script.js"></script>
+</body>
+</html>
