@@ -9,12 +9,12 @@ define(['o-question'],
          * @param {String} group - question group
          */
 
-        function oQuestionHNumberSlider(id, group) {
+        function oQuestionSliderHorizontal(id, group) {
             oQuestion.call(this, id, group);
 
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');
-            this.wrapper = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-numberslider-horizontal');
-            this.organism = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.o-question-hnumberslider-control');
+            this.wrapper = document.querySelector('div.o-question-slider-horizontal[data-questiongroup="' + this.group + '"] div.m-slider-horizontal');
+            this.organism = document.querySelector('div.o-question-slider-horizontal[data-questiongroup="' + this.group + '"] div.o-question-slider-horizontal-control');
             this.hiddenelement = null;
             this.clickablearea = null;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
@@ -22,10 +22,10 @@ define(['o-question'],
             this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
         }
 
-        oQuestionHNumberSlider.prototype = Object.create(oQuestion.prototype);
-        oQuestionHNumberSlider.prototype.constructor = oQuestionHNumberSlider;
+        oQuestionSliderHorizontal.prototype = Object.create(oQuestion.prototype);
+        oQuestionSliderHorizontal.prototype.constructor = oQuestionSliderHorizontal;
 
-        oQuestionHNumberSlider.prototype.init = function () {
+        oQuestionSliderHorizontal.prototype.init = function () {
             this.configureProperties();
             this.cloneInputElement();
             this.getInitialValue();
@@ -37,7 +37,7 @@ define(['o-question'],
             this.updateValue();
         }
 
-        oQuestionHNumberSlider.prototype.configureIncomingEventListeners = function () {
+        oQuestionSliderHorizontal.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('input', this, false);
             document.addEventListener('change', this, false);
@@ -51,7 +51,7 @@ define(['o-question'],
             document.addEventListener(this.group + '_decrementValue', this, false);
         }
 
-        oQuestionHNumberSlider.prototype.handleEvent = function (event) {
+        oQuestionSliderHorizontal.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'clearEntries':
                     this.clearEntriesFromExternal(event);
@@ -82,7 +82,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.cloneInputElement = function () {
+        oQuestionSliderHorizontal.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
             newelement.id = '';
             newelement.name = '';
@@ -92,18 +92,18 @@ define(['o-question'],
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionHNumberSlider.prototype.getInitialValue = function () {
+        oQuestionSliderHorizontal.prototype.getInitialValue = function () {
             if (typeof this.hiddenelement.value !== 'undefined' && this.hiddenelement.value.length) {
                 this.initialValue = this.hiddenelement.getAttribute('value');
                 this.element.value = this.hiddenelement.getAttribute('value');
             }
         }
 
-        oQuestionHNumberSlider.prototype.setHiddenValue = function (valuestring) {
+        oQuestionSliderHorizontal.prototype.setHiddenValue = function (valuestring) {
             this.hiddenelement.value = valuestring;
         }
 
-        oQuestionHNumberSlider.prototype.clearEntries = function () {
+        oQuestionSliderHorizontal.prototype.clearEntries = function () {
             // do not clear items that are still initialising
             if (this.isInitialising) {
                 return;
@@ -119,7 +119,7 @@ define(['o-question'],
             this.broadcastChange();
         }
 
-        oQuestionHNumberSlider.prototype.restoreEntries = function (event) {
+        oQuestionSliderHorizontal.prototype.restoreEntries = function (event) {
             if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
                 return;
             }
@@ -133,7 +133,7 @@ define(['o-question'],
             this.broadcastChange();
         }
 
-        oQuestionHNumberSlider.prototype.setThumbVisibility = function () {
+        oQuestionSliderHorizontal.prototype.setThumbVisibility = function () {
             if (this.element.getAttribute('value').length) {
                 this.organism.classList.add('active');
                 this.organism.classList.add('has-value');
@@ -141,7 +141,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.updateFloodFill = function () {
+        oQuestionSliderHorizontal.prototype.updateFloodFill = function () {
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
@@ -155,7 +155,7 @@ define(['o-question'],
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
         }
 
-        oQuestionHNumberSlider.prototype.createClickableArea = function () {
+        oQuestionSliderHorizontal.prototype.createClickableArea = function () {
             var clickableElement = document.createElement('div');
             clickableElement.className = 'a-style-sliderclickablearea';
             clickableElement.onclick = function () {
@@ -163,12 +163,12 @@ define(['o-question'],
             this.clickablearea = this.wrapper.insertBefore(clickableElement, this.element);
         }
 
-        oQuestionHNumberSlider.prototype.values = function (props) {
+        oQuestionSliderHorizontal.prototype.values = function (props) {
             this.element.min = props.min;
             this.element.max = props.max;
         }
 
-        oQuestionHNumberSlider.prototype.show = function (props) {
+        oQuestionSliderHorizontal.prototype.show = function (props) {
             if (props.marks === true) {
                 this.showMarks();
             }
@@ -182,8 +182,8 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.showMarks = function () {
-            var marksElement = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-style-slidermarks');
+        oQuestionSliderHorizontal.prototype.showMarks = function () {
+            var marksElement = document.querySelector('div.o-question-slider-horizontal[data-questiongroup="' + this.group + '"] div.m-style-slidermarks');
 
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
@@ -199,11 +199,11 @@ define(['o-question'],
 
         }
 
-        oQuestionHNumberSlider.prototype.ticklabels = function () {
+        oQuestionSliderHorizontal.prototype.ticklabels = function () {
             // add a class to the parent which adds additional space for the thumb
             this.organism.classList.add('has-tick-labels');
 
-            var labelsElement = document.querySelector('div.o-question-hnumberslider[data-questiongroup="' + this.group + '"] div.m-label-ticklabels');
+            var labelsElement = document.querySelector('div.o-question-slider-horizontal[data-questiongroup="' + this.group + '"] div.m-label-ticklabels');
 
             var min = this.element.min ? parseInt(this.element.min) : 0;
             var max = this.element.max ? parseInt(this.element.max) : 100;
@@ -218,31 +218,31 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.showValue = function () {
+        oQuestionSliderHorizontal.prototype.showValue = function () {
             this.organism.classList.add('has-thumb-value');
         }
 
-        oQuestionHNumberSlider.prototype.updateValue = function () {
+        oQuestionSliderHorizontal.prototype.updateValue = function () {
             var updateEvent = new CustomEvent(this.group + '_updateValue', {bubbles: true, detail: this});
             this.element.dispatchEvent(updateEvent);
             this.broadcastChange();
         }
 
-        oQuestionHNumberSlider.prototype.showTerminators = function () {
+        oQuestionSliderHorizontal.prototype.showTerminators = function () {
             this.organism.classList.add('has-terminators');
         }
 
-        oQuestionHNumberSlider.prototype.floodtovalue = function (val) {
+        oQuestionSliderHorizontal.prototype.floodtovalue = function (val) {
             if (val === true) {
                 this.element.classList.add('flood-to-value');
             }
         }
 
-        oQuestionHNumberSlider.prototype.step = function (prop) {
+        oQuestionSliderHorizontal.prototype.step = function (prop) {
             this.element.step = prop;
         }
 
-        oQuestionHNumberSlider.prototype.labels = function (props) {
+        oQuestionSliderHorizontal.prototype.labels = function (props) {
             if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-outer-prelabel';
@@ -264,7 +264,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.thumb = function (props) {
+        oQuestionSliderHorizontal.prototype.thumb = function (props) {
             if (props.image) {
                 this.setThumbImage(props.image);
             }
@@ -278,20 +278,20 @@ define(['o-question'],
             }
         }
 
-        oQuestionHNumberSlider.prototype.setThumbImage = function (prop) {
+        oQuestionSliderHorizontal.prototype.setThumbImage = function (prop) {
             this.element.style.setProperty('--track-thumb-border', 'none');
             this.element.style.setProperty('--track-thumb-image', 'url(' + prop + ')');
         }
 
-        oQuestionHNumberSlider.prototype.setThumbWidth = function (prop) {
+        oQuestionSliderHorizontal.prototype.setThumbWidth = function (prop) {
             this.element.style.setProperty('--track-thumb-width', prop + 'px');
         }
 
-        oQuestionHNumberSlider.prototype.setThumbHeight = function (prop) {
+        oQuestionSliderHorizontal.prototype.setThumbHeight = function (prop) {
             this.element.style.setProperty('--track-thumb-height', prop + 'px');
         }
 
-        oQuestionHNumberSlider.prototype.onInput = function (event) {
+        oQuestionSliderHorizontal.prototype.onInput = function (event) {
 
             if (event.target === this.element || event.target === this.clickablearea || event === true) {
 
@@ -320,7 +320,7 @@ define(['o-question'],
 
         }
 
-        oQuestionHNumberSlider.prototype.incrementValue = function () {
+        oQuestionSliderHorizontal.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.max);
 
@@ -331,7 +331,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionHNumberSlider.prototype.decrementValue = function () {
+        oQuestionSliderHorizontal.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.min);
 
@@ -342,7 +342,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionHNumberSlider.prototype.onEnableExclusive = function () {
+        oQuestionSliderHorizontal.prototype.onEnableExclusive = function () {
             this.organism.classList.remove('active');
             this.organism.classList.add('inactive');
             this.value = this.element.value;
@@ -350,7 +350,7 @@ define(['o-question'],
             this.element.disabled = true;
         }
 
-        oQuestionHNumberSlider.prototype.onDismissExclusive = function () {
+        oQuestionSliderHorizontal.prototype.onDismissExclusive = function () {
             this.organism.classList.add('active');
             this.organism.classList.remove('inactive');
             this.element.disabled = false;
@@ -358,6 +358,6 @@ define(['o-question'],
             this.setHiddenValue(this.value);
         }
 
-        return oQuestionHNumberSlider;
+        return oQuestionSliderHorizontal;
 
     });

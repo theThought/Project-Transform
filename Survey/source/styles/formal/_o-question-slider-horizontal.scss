@@ -9,11 +9,11 @@
 }
 
 // question response-level container
-.o-question-hnumberslider {
+.o-question-slider-horizontal {
     overflow: visible;
 }
 
-.o-question-hnumberslider-control {
+.o-question-slider-horizontal-control {
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -67,12 +67,12 @@
     }
 }
 
-.m-numberslider-horizontal {
+.m-slider-horizontal {
     position: relative;
     flex: 1 0 auto;
 }
 
-.m-numberslider-horizontal[style*="width"] {
+.m-slider-horizontal[style*="width"] {
     flex: 0 0 auto;
 }
 
