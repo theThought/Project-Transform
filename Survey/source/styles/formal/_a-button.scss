@@ -16,6 +16,8 @@ button[class^=a-button] {
     background-color: globals.$theme-primary;
     color: globals.$white;
     white-space: normal;
+    //This is a test css just to rebuild the map scss and base scss
+    // white-space: large;
 }
 
 input[type=button]:hover,
