@@ -660,9 +660,13 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:choose>
-         <xsl:when test="$qCustomType='hnumberslider'">
+         <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='vnumberslider'">
             <xsl:element name="div">
-               <xsl:attribute name="class">o-question-hnumberslider-control</xsl:attribute>
+               <xsl:attribute name="class">
+                  <xsl:text>o-question-</xsl:text>
+                  <xsl:value-of select="$qCustomType" />
+                  <xsl:text>-control</xsl:text>
+               </xsl:attribute>
                <xsl:element name="button">
                   <xsl:attribute name="type">Button</xsl:attribute>
                   <xsl:attribute name="class">
@@ -675,7 +679,10 @@
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
-                  <xsl:comment>hnumberslider pre terminator</xsl:comment>
+                  <xsl:comment>
+                  <xsl:value-of select="$qCustomType" />
+                  <xsl:text>pre terminator</xsl:text>
+                  </xsl:comment>
                </xsl:element>
                <xsl:call-template name="appComponentScript">
                   <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
@@ -692,18 +699,31 @@
                         <xsl:value-of select="Style/@Width" />
                      </xsl:if>
                   </xsl:attribute>
-                  <xsl:attribute name="class">m-numberslider-horizontal</xsl:attribute>
+                  <xsl:choose>
+                     <xsl:when test="$qCustomType='sliderhorizontal'">
+                        <xsl:attribute name="class">m-slider-horizontal</xsl:attribute>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:attribute name="class">m-numberslider-vertical</xsl:attribute>
+                     </xsl:otherwise>
+                  </xsl:choose>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
                         <xsl:text>a-style-sliderborder</xsl:text>
                      </xsl:attribute>
-                     <xsl:comment>hnumberslider slider border</xsl:comment>
+                     <xsl:comment>
+                      <xsl:value-of select="$qCustomType" />
+                      <xsl:text> slider border</xsl:text>
+                  </xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
                         <xsl:text>m-style-slidermarks</xsl:text>
                      </xsl:attribute>
-                     <xsl:comment>hnumberslider tick marks</xsl:comment>
+                     <xsl:comment>
+                        <xsl:value-of select="$qCustomType" />
+                        <xsl:text> tick marks</xsl:text>
+                      </xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
@@ -726,7 +746,10 @@
                         </xsl:with-param>
                         <xsl:with-param name="FullName" select="$qFullName" />
                      </xsl:call-template>
-                     <xsl:comment>hnumberslider thumb value</xsl:comment>
+                     <xsl:comment>
+                        <xsl:value-of select="$qCustomType" />
+                        <xsl:text> thumb value</xsl:text>
+                     </xsl:comment>
                   </xsl:element>
                   <xsl:call-template name="MakeInputControl">
                      <xsl:with-param name="qGroup" select="$qGroup" />
@@ -741,7 +764,10 @@
                      <xsl:attribute name="class">
                         <xsl:text>m-label-ticklabels</xsl:text>
                      </xsl:attribute>
-                     <xsl:comment>hnumberslider tick labels</xsl:comment>
+                     <xsl:comment>
+                        <xsl:value-of select="$qCustomType" />
+                        <xsl:text> tick labels</xsl:text>
+                     </xsl:comment>
                   </xsl:element>
                </xsl:element>
                <xsl:call-template name="appComponentScript">
@@ -766,7 +792,10 @@
                   <xsl:attribute name="data-questiongroup">
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
-                  <xsl:comment>hnumberslider post terminator</xsl:comment>
+                  <xsl:comment>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text> post terminator</xsl:text>
+                  </xsl:comment>
                </xsl:element>
             </xsl:element>
             <xsl:call-template name="appComponentScript">
@@ -2046,7 +2075,7 @@
          </xsl:attribute>
          <!--- Set Control Type -->
          <xsl:choose>
-            <xsl:when test="$qCustomType='hnumberslider'">
+            <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='vnumberslider'">
                <xsl:attribute name="type">range</xsl:attribute>
             </xsl:when>
             <xsl:when test="$qCustomType='decimal'">
@@ -2109,7 +2138,7 @@
             <xsl:call-template name="ControlStyle">
                <xsl:with-param name="IgnoreWidth">
                   <xsl:choose>
-                     <xsl:when test="$qCustomType = 'hnumberslider'">
+                     <xsl:when test="$qCustomType = 'sliderhorizontal' or $qCustomType = 'vnumberslider'">
                         <xsl:text>true</xsl:text>
                      </xsl:when>
                      <xsl:otherwise>
@@ -2161,7 +2190,7 @@
                   <xsl:text> side</xsl:text>
                </xsl:when>
             </xsl:choose>
-            <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'hnumberslider'))">
+            <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'sliderhorizontal' or $qCustomType='vnumberslider'))">
                <xsl:text> hiddencontrol</xsl:text>
             </xsl:if>
          </xsl:attribute>
@@ -2189,7 +2218,10 @@
             <xsl:value-of select="'choice'" />
          </xsl:when>
          <xsl:when test="$theID = '-50'">
-            <xsl:value-of select="'hnumberslider'" />
+            <xsl:value-of select="'sliderhorizontal'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-51'">
+            <xsl:value-of select="'vnumberslider'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
             <xsl:value-of select="'dropdown'" />
@@ -2233,6 +2265,9 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-50'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-51'">
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
