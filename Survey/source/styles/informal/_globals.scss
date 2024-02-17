@@ -1,4 +1,4 @@
-// theme defaults and colours
+// Informal theme defaults and colours
 
 $primary-font: "Quicksand", "QuicksandLocal", sans-serif;
 $secondary-font: "Quicksand", "QuicksandLocal", serif;
@@ -25,7 +25,8 @@ $warning: #D4AA49;
 $error: #DA2911;
 
 $other0: #DEC7E8;
-$other1: #6A646F;
+$other1: #4A444E;
+$other2: #6A646F;
 
 $background: #FFFFFF;
 
@@ -38,15 +39,15 @@ $titles: $darkest;
 $placeholder: $other1;
 $input-text: $theme-secondary;
 $input-background: #FFFFFF;
-$input-background-has-content: #FAF2DF;
+$input-background-has-content: rgba($theme-primary, 0.2);
 $pre-post-text: $theme-secondary;
 $disabled-text: #847E88;
 $disabled-background: $light1;
 
 $standard-font-size: 20px;
-$standard-font-weight: 500;
+$standard-font-weight: 400;
 
-$instruction-font-size: 18px;
+$instruction-font-size: 14px;
 $option-font-size: 18px;
 $label-font-size: 16px;
 $message-font-size: 14px;
@@ -55,7 +56,7 @@ $standard-line-height: 24px;
 $instruction-line-height: 24px;
 $option-line-height: 24px;
 $label-line-height: 24px;
-$message-line-height: 19px;
+$message-line-height: 20px;
 
 $border-thickness: 1px;
 $default-padding: 8px;

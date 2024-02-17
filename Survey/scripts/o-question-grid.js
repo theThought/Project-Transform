@@ -16,6 +16,8 @@ define(['component'],
             this.grid = this.element.getElementsByClassName('o-structure-table')[0];
             this.hasrowtotals = false;
             this.rowtotals = [];
+            this.excludeRowReadOnly = true;
+            this.excludeColumnReadOnly = true;
             this.columntotals = [];
             this.hasgrandtotal = false;
         }
@@ -97,9 +99,9 @@ define(['component'],
                     tablerowlist[i].classList.add('striped');
 
                     // stripe the preceding error row, if there is one
-                    if (typeof tablerowlist[i-1] !== 'undefined' &&
-                        tablerowlist[i-1].classList.contains('m-structure-row-error')) {
-                        tablerowlist[i-1].classList.add('striped');
+                    if (typeof tablerowlist[i - 1] !== 'undefined' &&
+                        tablerowlist[i - 1].classList.contains('m-structure-row-error')) {
+                        tablerowlist[i - 1].classList.add('striped');
                     }
                 }
             }
@@ -183,12 +185,14 @@ define(['component'],
 
         oQuestionGrid.prototype.totals = function (props) {
             if (typeof props['rows'] == "object" && props['rows']['visible']) {
+                this.excludeRowReadOnly = (typeof props['rows']['excludereadonly'] === 'undefined' || props['rows']['excludereadonly']);
                 this.configureRowTotals(props['rows']);
                 this.getTableInputElements('row');
                 this.recalculateRowTotals();
             }
 
             if (typeof props['columns'] == "object" && props['columns']['visible']) {
+                this.excludeColumnReadOnly = (typeof props['columns']['excludereadonly'] === 'undefined' || props['columns']['excludereadonly']);
                 this.configureColumnTotals(props['columns']);
                 this.getTableInputElements('column');
                 this.recalculateColumnTotals();
@@ -210,7 +214,8 @@ define(['component'],
                             'id': inputelement.id,
                             'value': Number(inputelement.value),
                             'column': j,
-                            'row': i
+                            'row': i,
+                            'readonly': inputelement.readOnly
                         };
                         this[direction + 'totals'].push(details);
                     }
@@ -228,6 +233,7 @@ define(['component'],
             var rowindex = this.rowtotals.map(function (e) {
                 return e.id;
             }).indexOf(event.detail.id);
+
             var elementvalue = Number(event.detail.element.value);
 
             if (rowindex !== -1) {
@@ -276,7 +282,8 @@ define(['component'],
             for (var row = 1; row < rowcount; row++) {
                 var rowtotal = 0;
 
-                if (Array.isArray(this.properties.totals.rows['exceptions']) && this.properties.totals.rows['exceptions'].indexOf(row) >= 0) {
+                if (Array.isArray(this.properties.totals.rows['exceptions'])
+                    && this.properties.totals.rows['exceptions'].indexOf(row) >= 0) {
                     continue;
                 }
 
@@ -288,9 +295,15 @@ define(['component'],
                         continue;
                     }
 
-                    if (this.rowtotals[inputitems].row === row) {
-                        rowtotal += Number(this.rowtotals[inputitems].value);
+                    if (this.rowtotals[inputitems].row !== row) {
+                        continue;
                     }
+
+                    if (this.excludeRowReadOnly && this.rowtotals[inputitems].readonly) {
+                        continue;
+                    }
+
+                    rowtotal += Number(this.rowtotals[inputitems].value);
                 }
 
                 // prevent attempts to update a total in a title row
@@ -326,9 +339,15 @@ define(['component'],
                         continue;
                     }
 
-                    if (this.columntotals[j].column === column) {
-                        coltotal += Number(this.columntotals[j].value);
+                    if (this.columntotals[j].column !== column) {
+                        continue;
                     }
+
+                    if (this.excludeColumnReadOnly && this.columntotals[j].readonly) {
+                        continue;
+                    }
+
+                    coltotal += Number(this.columntotals[j].value);
                 }
 
                 // prevent attempts to update a total in a title column

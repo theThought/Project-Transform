@@ -77,8 +77,7 @@ define(['component'],
             }
 
             // the incoming value has been found in the exclusions list
-            if (typeof event.detail.checkbox !== "undefined"
-                && this.filterExclusions.indexOf(event.detail.checkbox.value) >= 0) {
+            if (typeof event.detail.checkbox !== "undefined" && this.filterExclusions.indexOf(event.detail.checkbox.value) >= 0) {
                 return;
             }
 
@@ -144,6 +143,10 @@ define(['component'],
         }
 
         oQuestion.prototype.processOptionVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.isInitialising || event.detail.isInitialising) {
+                return;
+            }
+
             if (this.element === event.detail.element) {
                 return;
             }

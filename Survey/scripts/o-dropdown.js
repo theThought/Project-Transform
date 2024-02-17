@@ -28,6 +28,7 @@ define(['component'],
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = true;
             this.manualWidth = false;
+            this.userspecifiedheight = 0;
             this.keytimer = null;
             this.keytimerlimit = 500; // time in milliseconds at which the buffer is cleared
         }
@@ -46,6 +47,7 @@ define(['component'],
             this.configureProperties();
             this.getInitialValue();
             this.setWidth();
+            this.setPosition();
             this.setWrapperType();
             this.configureInitialVisibility();
             this.processVisibilityRules();
@@ -143,6 +145,7 @@ define(['component'],
 
         oDropdown.prototype.listsize = function (prop) {
             var height = (27 * prop);
+            this.userspecifiedheight = height;
             this.droplist.style.maxHeight = height + 'px';
         }
 
@@ -175,6 +178,13 @@ define(['component'],
             this.manualWidth = true;
         }
 
+        oDropdown.prototype.setPosition = function () {
+            // this function is required to prevent body overflow issues where a long droplist is
+            // positioned near the bottom of a page and the page height accommodates the droplist
+            // even though it is invisible and absolutely positioned and should not contribute
+            this.droplist.style.bottom = '0';
+        }
+
         oDropdown.prototype.checkManualWidth = function () {
             return this.element.style.width.length > 0;
         }
@@ -192,7 +202,9 @@ define(['component'],
             this.element.size = Math.max(this.defaultplaceholder.length, 1);
             var inputdims = getComputedStyle(this.element);
             var inputwidth = parseFloat(inputdims.width);
-            if (isNaN(inputwidth)) inputwidth = 0;
+            if (isNaN(inputwidth)) {
+                inputwidth = 0;
+            }
             var droplistdims = getComputedStyle(this.droplist);
             var droplistwidth = parseFloat(droplistdims.width);
             var padding = 64; // the droplist does not have padding included
@@ -565,14 +577,27 @@ define(['component'],
             // reset to default direction before performing checks
             this.wrapper.classList.remove('direction-up');
             this.wrapper.classList.add('direction-down');
+            this.droplist.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
+            this.droplist.style.removeProperty('bottom');
+            var paddingAllowance = 10;
 
             var footer = document.getElementsByClassName('footer')[0];
             var viewportBounds = this.checkViewportBounds(this.droplist);
             var footerCollision = this.checkCollision(this.droplist, footer);
 
-            if (viewportBounds.bottom || footerCollision) {
+            var distanceToTop = this.element.getBoundingClientRect().top;
+            var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
+
+            if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
                 this.wrapper.classList.remove('direction-down');
                 this.wrapper.classList.add('direction-up');
+
+                if (distanceToTop < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
+                    this.droplist.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+                }
+
+            } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
+                this.droplist.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
         }
 

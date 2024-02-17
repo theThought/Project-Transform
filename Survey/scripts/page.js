@@ -4,8 +4,11 @@ define(
         function page(id, group) {
             this.id = id;
             this.group = group;
+            this.focusonfirstinput = true;
             this.focusquestion = true;
             this.focuscontrol = true;
+            this.focuserror = false;
+            this.allowpaste = false;
             this.element = document.querySelector('body>form');
         }
 
@@ -15,7 +18,9 @@ define(
             this.setQuestionFocusStyle();
             this.setControlFocusStyle();
             this.focusFirstQuestion();
+            this.scrollToError();
             this.focusFirstInput();
+            this.configurePaste();
         }
 
         page.prototype.configureProperties = function (propertiesName) {
@@ -25,11 +30,14 @@ define(
             this.properties.registered = true;
 
             for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
+                if (this.properties.hasOwnProperty(prop) && typeof this[prop] === 'function') {
                     this[prop](this.properties[prop]);
                 }
             }
+        }
+
+        page.prototype.paste = function (prop) {
+            this.allowpaste = prop;
         }
 
         page.prototype.sidebyside = function (width) {
@@ -44,7 +52,7 @@ define(
 
         page.prototype.styleInstructions = function () {
             var questioninstructions = document.getElementsByClassName('o-question-instruction');
-            var sidebyside = (typeof this.properties.sidebyside !== "undefined");
+            var sidebyside = (typeof this.properties.sidebyside !== 'undefined');
 
             for (var i = 0; i < questioninstructions.length; i++) {
                 var questioninstruction = questioninstructions[i];
@@ -72,7 +80,12 @@ define(
                     }
                 }
             }
+        }
 
+        page.prototype.configurePaste = function () {
+            if (!this.allowpaste) {
+                this.element.setAttribute('data-paste', 'false');
+            }
         }
 
         page.prototype.focus = function (prop) {
@@ -82,6 +95,12 @@ define(
 
             if (prop.question !== 'undefined' && !prop.question) {
                 this.focusquestion = false;
+            }
+        }
+
+        page.prototype.jumptoerror = function (prop) {
+            if (prop) {
+                this.focuserror = true;
             }
         }
 
@@ -122,10 +141,14 @@ define(
                 questions[i].classList.add('focused');
                 return;
             }
-
         }
 
         page.prototype.focusFirstInput = function () {
+            // do not focus on question if there is an error present and we are focusing on error
+            if (!this.focusonfirstinput) {
+                return;
+            }
+
             // only select inputs from the first question
             var firstquestion = this.element.querySelector('div.o-question-container');
 
@@ -145,6 +168,19 @@ define(
             }
 
             firstelement.focus();
+        }
+
+        page.prototype.scrollToError = function () {
+            if (this.focuserror) {
+                var firsterror = document.getElementsByClassName('a-label-error');
+
+                if (firsterror.length === 0) {
+                    return;
+                }
+
+                this.focusonfirstinput = false;
+                firsterror[0].scrollIntoView({'block': 'center'});
+            }
         }
 
         return page;

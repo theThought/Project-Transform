@@ -12,8 +12,8 @@ define(['component'],
         function aLabelThumbValue(id, group) {
             component.call(this, id, group);
 
-            this.element = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
-            this.slider = document.querySelector('div.o-question-hnumberslider[data-questiongroup=' + this.group + '] input[type=range]');
+            this.element = document.querySelector('div.o-question-slider-horizontal[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
+            this.slider = document.querySelector('div.o-question-slider-horizontal[data-questiongroup=' + this.group + '] input[type=range]');
         }
 
         aLabelThumbValue.prototype = Object.create(component.prototype);
@@ -30,12 +30,12 @@ define(['component'],
 
         aLabelThumbValue.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener(this.group + "_updateValue", this, false);
+            document.addEventListener(this.group + '_updateValue', this, false);
         }
 
         aLabelThumbValue.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case this.group + "_updateValue":
+                case this.group + '_updateValue':
                     this.updateValue(event.detail);
                     break;
             }

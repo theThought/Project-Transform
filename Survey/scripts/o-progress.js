@@ -92,9 +92,7 @@ define(['component'],
                 newPage.classList.add('current-page');
             }
 
-            newPage.title = section.title
-                + " (" + pageindex
-                + "/" + section.pages.total + ")";
+            newPage.title = section.title + " (" + pageindex + "/" + section.pages.total + ")";
 
             return newPage;
         }

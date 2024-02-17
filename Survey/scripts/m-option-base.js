@@ -60,7 +60,7 @@ define(['component'],
         }
 
         mOptionBase.prototype.handleEvent = function (event) {
-            var eventsToPassWhenReadonly =[this.group + '_beginResize', this.group + '_endResize'];
+            var eventsToPassWhenReadonly = [this.group + '_beginResize', this.group + '_endResize'];
 
             if (this.isReadOnly && eventsToPassWhenReadonly.indexOf(event.type) === -1) {
                 event.preventDefault();
@@ -158,6 +158,11 @@ define(['component'],
             }
 
             this.element.setAttribute('data-readonly', 'true');
+
+            if (this.textInput !== null) {
+                this.textInput.setAttribute('data-readonly', 'true');
+                this.textInput.readOnly = true;
+            }
         }
 
         mOptionBase.prototype.clearEntries = function () {
@@ -173,15 +178,16 @@ define(['component'],
 
             if (this.textInput !== null) {
                 this.textInput.value = "";
+                this.textInput.classList.remove('has-content');
             }
         }
 
-        mOptionBase.prototype.restoreEntries = function (event) {
-            if (event.detail.questionName !== this.questionName) {
+        mOptionBase.prototype.restoreEntries = function () {
+            if (!this.restoreValues) {
                 return;
             }
 
-            if (this.restoreValues && this.initialValue && !this.checkbox.checked) {
+            if (this.initialValue && !this.checkbox.checked) {
                 this.changeState(true);
                 this.broadcastChange();
             }
@@ -215,8 +221,11 @@ define(['component'],
                     if (this.checkbox.checked) {
                         this.textInput.focus();
                     } else {
-                        this.textInput.placeholder = this.textInput.value;
+                        if (this.textInput.value.length) {
+                            this.textInput.placeholder = this.textInput.value;
+                        }
                         this.textInput.value = '';
+                        this.textInput.classList.remove('has-content');
                     }
                 }
             }

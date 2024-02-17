@@ -27,6 +27,7 @@ define(['o-question'],
             this.processVisibilityRules();
             this.processAlternativeVisibilityRules();
             this.processResponseContainerDataTags();
+            this.setWidth();
             this.configurationComplete();
         }
 
@@ -39,10 +40,12 @@ define(['o-question'],
         oQuestionContainer.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'broadcastChange':
-                    this.processAlternativeVisibilityRulesFromExternalTrigger(event);
-                    this.processVisibilityRulesFromExternalTrigger(event);
-                    this.processOptionVisibilityRulesFromExternalTrigger(event);
-                    this.processFilter(event);
+                    if (!this.isInitialising && !event.detail.isInitialising) {
+                        this.processAlternativeVisibilityRulesFromExternalTrigger(event);
+                        this.processVisibilityRulesFromExternalTrigger(event);
+                        this.processOptionVisibilityRulesFromExternalTrigger(event);
+                        this.processFilter(event);
+                    }
                     break;
                 case 'focusin':
                     this.onFocusIn(event);
@@ -50,6 +53,14 @@ define(['o-question'],
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
+            }
+        }
+
+        oQuestionContainer.prototype.setWidth = function () {
+            if (this.element.scrollWidth > this.element.offsetWidth) {
+                // deduct 36px to allow for margins/padding at larger screen sizes
+                // add 14-18px scrollbar width for smaller screen sizes - impossible to calculate on macOS
+                this.element.style.minWidth = (this.element.scrollWidth) + 'px';
             }
         }
 
@@ -136,6 +147,10 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.processAlternativeVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.isInitialising || event.detail.isInitialising) {
+                return;
+            }
+
             if (this.element === event.detail.element) {
                 return;
             }

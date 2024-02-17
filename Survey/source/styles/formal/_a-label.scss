@@ -146,7 +146,7 @@ html[dir="rtl"] .a-label-total {
         width: 20px;
         height: 20px;
         content: '';
-        background-image: url("/Survey/images/formal/icon-information.png");
+        background-image: url("/Survey/images/formal/icon-information.svg");
         background-repeat: no-repeat;
     }
 
@@ -241,7 +241,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$error, .15);
 
     &::before {
-        background-image: url("/Survey/images/formal/icon-error.png");
+        background-image: url("/Survey/images/formal/icon-error.svg");
     }
 }
 
@@ -251,7 +251,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$warning, .15);
 
     &::before {
-        background-image: url("/Survey/images/formal/icon-warning.png");
+        background-image: url("/Survey/images/formal/icon-warning.svg");
     }
 }
 
@@ -261,7 +261,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$success, .15);
 
     &::before {
-        background-image: url("/Survey/images/formal/icon-success.png");
+        background-image: url("/Survey/images/formal/icon-success.svg");
     }
 }
 
@@ -396,8 +396,12 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
+<<<<<<< HEAD
 .o-question-hnumberslider-control,
 .o-question-vnumberslider-control {
+=======
+.o-question-slider-horizontal-control {
+>>>>>>> origin
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -476,6 +480,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 }
 
+<<<<<<< HEAD
 
 
 
@@ -576,6 +581,9 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 html[dir="rtl"] .o-question-hnumberslider-control, 
 html[dir="rtl"] .o-question-vnumberslider-control {
+=======
+html[dir="rtl"] .o-question-slider-horizontal-control {
+>>>>>>> origin
 
     .a-label-prelabel {
         left: auto;

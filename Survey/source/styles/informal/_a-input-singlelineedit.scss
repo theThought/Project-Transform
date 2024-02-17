@@ -14,7 +14,7 @@ $default-text-width: globals.$default-input-width;
     width: $default-text-width;
     background-color: globals.$input-background;
     box-sizing: content-box;
-    font-size: globals.$instruction-font-size;
+    font-size: globals.$option-font-size;
     line-height: globals.$instruction-line-height;
 }
 
@@ -108,7 +108,6 @@ html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
         opacity: 0;
         margin: 0;
     }
-
 }
 
 /* remove the clear entry button from IE as it breaks right-aligned text */
@@ -118,9 +117,10 @@ html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
 
 /* IE10 does not support :read-only selector */
 .read-only .a-input-singlelineedit,
-.a-input-singlelineedit.read-only {
+.a-input-singlelineedit.read-only,
+.a-input-singlelineedit[readonly],
+.a-input-singlelineedit[data-readonly="true"] {
     border-color: globals.$disabled-text !important;
-    border-style: dotted;
     cursor: default;
 
     &.has-content {
@@ -128,7 +128,6 @@ html[dir="rtl"] .show-spinner .a-input-singlelineedit[type=number] {
         background-color: #e6e5e7
     }
 }
-
 
 
 input.read-only:focus-visible {
@@ -164,13 +163,24 @@ input[readonly]:focus-visible {
 .m-option-base {
     .a-input-singlelineedit {
         position: relative;
+        left: 8px; // moves the text input over the 8px padding
         z-index: 1;
-        margin: -9px 0 -9px 4px;
-        border: 0;
-        border-radius: globals.$text-border-radius;
-        border: globals.$border-thickness globals.$other1 solid;
+        margin: -8px 0 -8px 4px;
+        border-radius: globals.$text-border-radius globals.$border-radius globals.$border-radius globals.$text-border-radius;
+        border-width: globals.$border-thickness;
+        border-color: globals.$other1; // this property is kept separate to allow for overrides
         width: 151px;
         height: auto;
+
+        &.has-content {
+            border-color: transparent;
+        }
+    }
+
+    &[data-readonly="true"] .a-input-singlelineedit,
+    .read-only .a-input-singlelineedit,
+    .a-input-singlelineedit.read-only {
+        border-color: transparent !important;
     }
 }
 

@@ -60,8 +60,7 @@ define(
             this.properties.registered = true;
 
             for (var prop in this.properties) {
-                if (this.properties.hasOwnProperty(prop)
-                    && typeof this[prop] === 'function') {
+                if (this.properties.hasOwnProperty(prop) && typeof this[prop] === 'function') {
                     this[prop](this.properties[prop]);
                 }
             }
@@ -72,7 +71,7 @@ define(
                 this.initialValue = this.element.value;
             }
 
-            if (typeof this.checkbox != "undefined") {
+            if (typeof this.checkbox !== "undefined") {
                 this.initialValue = (this.checkbox.checked);
             }
         }
@@ -268,15 +267,12 @@ define(
         component.prototype.onEndResize = function (event) {
 
             // preserve the original element width, if set
-            if (this.element.hasAttribute('data-original-width')
-                && this.element.getAttribute('data-original-width').length) {
+            if (this.element.hasAttribute('data-original-width') && this.element.getAttribute('data-original-width').length) {
                 this.element.style.width = this.element.getAttribute('data-original-width');
                 return;
             }
 
-            if (event.detail.isOnesize === true
-                && event.detail.widest > 0
-                && event.detail.tallest > 0) {
+            if (event.detail.isOnesize === true && event.detail.widest > 0 && event.detail.tallest > 0) {
                 this.element.style.width = event.detail.widest + 'px';
                 this.element.style.height = event.detail.tallest + 'px';
             }
@@ -285,8 +281,7 @@ define(
 
         component.prototype.configureInitialVisibility = function () {
             // if there are no visibility rules defined for this question lift the cover immediately
-            if (typeof this.properties.visible === "undefined"
-                && typeof this.properties.invisible === "undefined") {
+            if (typeof this.properties.visible === "undefined" && typeof this.properties.invisible === "undefined") {
                 this.makeAvailable();
                 return;
             }
@@ -303,6 +298,10 @@ define(
         }
 
         component.prototype.processVisibilityRulesFromExternalTrigger = function (event) {
+            if (this.isInitialising || event.detail.isInitialising) {
+                return;
+            }
+
             if (this.element === event.detail.element) {
                 return;
             }
@@ -317,8 +316,7 @@ define(
         }
 
         component.prototype.processVisibilityRules = function () {
-            if (typeof this.properties.visible === "undefined"
-                && typeof this.properties.invisible === "undefined") {
+            if (typeof this.properties.visible === "undefined" && typeof this.properties.invisible === "undefined") {
                 this.ruleParsingComplete = true;
                 return;
             }

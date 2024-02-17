@@ -49,13 +49,13 @@ define(['o-question'],
         }
 
         oQuestionChoice.prototype.balance = function (props) {
-            if (props['state'] === true) {
+            if (props.state === true) {
                 this.isBalanced = true;
             }
         }
 
         oQuestionChoice.prototype.onesize = function (props) {
-            this.isOnesize = props['state'];
+            this.isOnesize = props.state;
         }
 
         oQuestionChoice.prototype.configureBalance = function () {
@@ -120,8 +120,7 @@ define(['o-question'],
                 var contentheight = elementheight;
                 var contentwidth = elementwidth;
 
-                if (element.hasAttribute('data-original-width')
-                    && element.getAttribute('data-original-width').length) {
+                if (element.hasAttribute('data-original-width') && element.getAttribute('data-original-width').length) {
                     var elementname = element.name;
                     var originalwidth = element.getAttribute('data-original-width');
                     this.debug(elementname + ' has an original width of ' + originalwidth, 3);
@@ -134,8 +133,13 @@ define(['o-question'],
                     continue;
                 }
 
-                if (contentheight > this.tallest) this.tallest = contentheight;
-                if (contentwidth > this.widest) this.widest = contentwidth;
+                if (contentheight > this.tallest) {
+                    this.tallest = contentheight;
+                }
+
+                if (contentwidth > this.widest) {
+                    this.widest = contentwidth;
+                }
             }
 
             var endresize = new CustomEvent(this.group + '_endResize', {

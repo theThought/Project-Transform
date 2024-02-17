@@ -19,13 +19,14 @@ define(['component', 'pikaday'],
             this.wrapper = this.createWrapper();
             this.stepValue = null;
             this.isReadOnly = false;
+            this.allowPaste = true;
         }
 
         aInputSingleLineEdit.prototype = Object.create(component.prototype);
         aInputSingleLineEdit.prototype.constructor = aInputSingleLineEdit;
 
         aInputSingleLineEdit.prototype.init = function () {
-            this.isReadOnly = (this.container.getAttribute('data-readonly') === 'true' || this.element.readOnly) || false;
+            this.isReadOnly = (this.element.closest('[data-readonly="true"]') !== null || this.element.readOnly) || false;
 
             this.configureProperties();
             this.getInitialValue();
@@ -40,50 +41,54 @@ define(['component', 'pikaday'],
 
         aInputSingleLineEdit.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("clearEntries", this, false);
-            document.addEventListener("restoreEntries", this, false);
-            document.addEventListener(this.group + "_enableExclusive", this, false);
-            document.addEventListener("broadcastChange", this, false);
+            document.addEventListener('clearEntries', this, false);
+            document.addEventListener('restoreEntries', this, false);
+            document.addEventListener(this.group + '_enableExclusive', this, false);
+            document.addEventListener('broadcastChange', this, false);
         }
 
         aInputSingleLineEdit.prototype.configureLocalEventListeners = function () {
-            this.element.addEventListener("keyup", this, false);
-            this.element.addEventListener("change", this, false);
-            this.element.addEventListener("input", this, false);
-            this.element.addEventListener("click", this, false);
-            this.element.addEventListener("focusin", this, false);
-            this.element.addEventListener("focusout", this, false);
-            this.element.addEventListener("keydown", this, false);
+            this.element.addEventListener('keyup', this, false);
+            this.element.addEventListener('change', this, false);
+            this.element.addEventListener('input', this, false);
+            this.element.addEventListener('click', this, false);
+            this.element.addEventListener('focusin', this, false);
+            this.element.addEventListener('focusout', this, false);
+            this.element.addEventListener('keydown', this, false);
+            this.element.addEventListener('paste', this, false);
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
             switch (event.type) {
-                case "keydown":
+                case 'paste':
+                    this.onPaste(event);
+                    break;
+                case 'keydown':
                     this.onKeydown(event);
                     break;
-                case "click":
+                case 'click':
                     this.onClick(event);
                     break;
-                case "keyup":
-                case "change":
+                case 'keyup':
+                case 'change':
                     this.onChange(event);
                     break;
-                case "input":
+                case 'input':
                     this.onInput(event);
                     break;
-                case "clearEntries":
+                case 'clearEntries':
                     this.clearEntriesFromExternal(event);
                     break;
-                case "restoreEntries":
+                case 'restoreEntries':
                     this.restoreEntries(event);
                     break;
-                case "focusin":
+                case 'focusin':
                     this.onFocusIn(event);
                     break;
-                case "focusout":
+                case 'focusout':
                     this.onFocusOut();
                     break;
-                case this.group + "_enableExclusive":
+                case this.group + '_enableExclusive':
                     this.onEnableExclusive();
                     break;
                 case 'broadcastChange':
@@ -106,6 +111,10 @@ define(['component', 'pikaday'],
 
             this.element.classList.add('unavailable');
             this.wrapper.classList.add('unavailable');
+        }
+
+        aInputSingleLineEdit.prototype.paste = function (prop) {
+            this.allowPaste = prop;
         }
 
         aInputSingleLineEdit.prototype.setReadOnly = function () {
@@ -177,15 +186,15 @@ define(['component', 'pikaday'],
         aInputSingleLineEdit.prototype.configureDateInput = function (val) {
             var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
 
-            datemin = [2000, 1, 1];
-            datemax = [3000, 12, 31];
+            var datemin = [2000, 1, 1];
+            var datemax = [3000, 12, 31];
 
             if (this.element.getAttribute('min') !== null) {
-                var datemin = this.element.getAttribute('min').split('-');
+                datemin = this.element.getAttribute('min').split('-');
             }
 
             if (this.element.getAttribute('max') !== null) {
-                var datemax = this.element.getAttribute('max').split('-');
+                datemax = this.element.getAttribute('max').split('-');
             }
 
             var picker = new datepicker(
@@ -244,10 +253,10 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.labels = function (props) {
-            if (props['pre']) {
+            if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-prelabel';
-                var preContentText = props['pre'];
+                var preContentText = props.pre;
                 preContentText = preContentText.replace(/%lt%/g, '<');
                 preContentText = preContentText.replace(/%gt%/g, '>');
                 preElement.innerHTML = preContentText;
@@ -255,15 +264,24 @@ define(['component', 'pikaday'],
                 this.wrapper.insertBefore(preElement, this.wrapper.childNodes[0]);
             }
 
-            if (props['post']) {
+            if (props.post) {
                 var postElement = document.createElement('span');
                 postElement.className = 'a-label-postlabel';
-                var postContentText = props['post'];
+                var postContentText = props.post;
                 postContentText = postContentText.replace(/%lt%/g, '<');
                 postContentText = postContentText.replace(/%gt%/g, '>');
                 postElement.innerHTML = postContentText;
 
                 this.wrapper.appendChild(postElement);
+            }
+        }
+
+        aInputSingleLineEdit.prototype.onPaste = function(event) {
+            var parentForm = this.element.closest('form');
+
+            if (!this.allowPaste || parentForm.getAttribute('data-paste') === 'false') {
+                event.preventDefault();
+                event.stopPropagation();
             }
         }
 
@@ -289,10 +307,10 @@ define(['component', 'pikaday'],
             this.wrapper.classList.add('focused');
 
             // handle self-generated events
-            if (this.element.placeholder.length
-                && this.element.placeholder !== this.defaultPlaceholder) {
+            if (this.element.placeholder.length && this.element.placeholder !== this.defaultPlaceholder) {
                 this.element.value = this.element.placeholder;
                 this.element.placeholder = this.defaultPlaceholder;
+                this.manageContentClass();
                 this.broadcastChange();
             }
 

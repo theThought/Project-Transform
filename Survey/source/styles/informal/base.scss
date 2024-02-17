@@ -14,14 +14,19 @@
 @import 'm-structure-cell';
 @import 'o-option-list';
 @import 'o-question';
+<<<<<<< HEAD
 @import 'o-question-hnumberslider';
 @import 'o-question-vnumberslider';
+=======
+@import 'o-question-slider-horizontal';
+>>>>>>> origin
 @import 'o-select-combobox';
 @import 'o-structure-table';
 @import 't-question-base';
 
 html {
     height: 95vh;
+    width: auto;
 }
 
 body {
@@ -94,7 +99,7 @@ body > form {
     height: 1px;
 }
 
-html[dir="rtl"] .hiddencontrol {
+html[dir=rtl] .hiddencontrol {
     left: 9999px;
 }
 
@@ -146,7 +151,6 @@ input:disabled {
 // global style for focused controls
 .focus-control {
     input:focus {
-
         //box-shadow: globals.$drop-shadow;
     }
 }
@@ -165,24 +169,29 @@ input:disabled {
 ::-moz-placeholder {
     color: globals.$placeholder;
     opacity: 1;
+    font-size: 12px;
 }
 
 :-ms-input-placeholder {
     color: globals.$placeholder;
     opacity: 1;
+    font-size: 12px;
 }
 
 ::placeholder {
     color: globals.$placeholder;
     opacity: 1;
+    font-size: 12px;
 }
 
 :-ms-input-placeholder {
     color: globals.$placeholder;
+    font-size: 12px;
 }
 
 ::-ms-input-placeholder {
     color: globals.$placeholder;
+    font-size: 12px;
 }
 
 sup {

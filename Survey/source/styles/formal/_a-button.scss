@@ -46,16 +46,16 @@ input[type=reset]:disabled {
 button[data-checked="true"],
 input[type=button][data-checked="true"],
 input[type=submit][data-checked="true"] {
-    background-image: url("/Survey/images/formal/blue_checkmark.png");
+    background-image: url("/Survey/images/formal/checkmark-blue.png");
     background-repeat: no-repeat;
     background-position: center;
 
     &:active {
-        background-image: url("/Survey/images/formal/blue_checkmark.png");
+        background-image: url("/Survey/images/formal/checkmark-blue.png");
     }
 
     &:disabled {
-        background-image: url("/Survey/images/formal/blue_checkmark.png");
+        background-image: url("/Survey/images/formal/checkmark-blue.png");
     }
 }
 

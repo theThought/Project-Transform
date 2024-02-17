@@ -40,7 +40,11 @@ html[dir="rtl"] .overall-progress.complex .a-label-section-title {
 }
 
 .a-label-option {
+<<<<<<< HEAD
     color: globals.$theme-primary;
+=======
+    color: globals.$theme-secondary;
+>>>>>>> origin
     padding: 0;
     margin: 0;
 }
@@ -126,7 +130,13 @@ html[dir="rtl"] .a-label-total {
     width: 100%;
 
     * {
+<<<<<<< HEAD
         font-size: 14px;
+=======
+        font-size: globals.$instruction-font-size;
+        font-weight: 400;
+        line-height: globals.$message-line-height;
+>>>>>>> origin
     }
 }
 
@@ -135,7 +145,11 @@ html[dir="rtl"] .a-label-total {
     position: relative;
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
+<<<<<<< HEAD
     padding: 8px 16px 8px 32px;
+=======
+    padding: globals.$default-padding 16px globals.$default-padding 42px;
+>>>>>>> origin
     background-color: rgba(globals.$information, .15);
     color: globals.$information;
 
@@ -146,7 +160,11 @@ html[dir="rtl"] .a-label-total {
         width: 20px;
         height: 20px;
         content: '';
+<<<<<<< HEAD
         background-image: url("/Survey/images/formal/icon-information.png");
+=======
+        background-image: url("/Survey/images/informal/icon-information.svg");
+>>>>>>> origin
         background-repeat: no-repeat;
     }
 
@@ -204,8 +222,14 @@ html[dir="rtl"] .o-question-instruction.has-content div {
         position: relative;
         margin-bottom: .5em;
         border-radius: globals.$border-radius;
+<<<<<<< HEAD
         padding: 8px 16px 8px 32px;
         font-size: 14px;
+=======
+        padding: globals.$default-padding 16px globals.$default-padding 42px;
+        font-size: globals.$instruction-font-size;
+        line-height: globals.$message-line-height;
+>>>>>>> origin
 
         &::before {
             position: absolute;
@@ -241,7 +265,11 @@ html[dir="rtl"] {
     background-color: rgba(globals.$error, .15);
 
     &::before {
+<<<<<<< HEAD
         background-image: url("/Survey/images/formal/icon-error.png");
+=======
+        background-image: url("/Survey/images/informal/icon-error.svg");
+>>>>>>> origin
     }
 }
 
@@ -251,7 +279,11 @@ html[dir="rtl"] {
     background-color: rgba(globals.$warning, .15);
 
     &::before {
+<<<<<<< HEAD
         background-image: url("/Survey/images/formal/icon-warning.png");
+=======
+        background-image: url("/Survey/images/informal/icon-warning.svg");
+>>>>>>> origin
     }
 }
 
@@ -261,7 +293,11 @@ html[dir="rtl"] {
     background-color: rgba(globals.$success, .15);
 
     &::before {
+<<<<<<< HEAD
         background-image: url("/Survey/images/formal/icon-success.png");
+=======
+        background-image: url("/Survey/images/informal/icon-success.svg");
+>>>>>>> origin
     }
 }
 
@@ -396,8 +432,12 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
+<<<<<<< HEAD
 .o-question-hnumberslider-control,
 .o-question-vnumberslider-control {
+=======
+.o-question-slider-horizontal-control {
+>>>>>>> origin
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -465,17 +505,22 @@ html[dir="rtl"] .m-input-singlelineedit {
             text-align: center;
             flex: 0 1 40px;
             display: block;
+<<<<<<< HEAD
 
             //conditional if is the V slider:
             // @at-root .o-question-vnumberslider-control & {
             //     transform: rotate(90deg);
             // }
+=======
+            font-size: 17px;
+>>>>>>> origin
         }
 
     }
 
 }
 
+<<<<<<< HEAD
 
 
 
@@ -576,6 +621,9 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 html[dir="rtl"] .o-question-hnumberslider-control, 
 html[dir="rtl"] .o-question-vnumberslider-control {
+=======
+html[dir="rtl"] .o-question-slider-horizontal-control {
+>>>>>>> origin
 
     .a-label-prelabel {
         left: auto;
