@@ -2,25 +2,22 @@
 
 :root {
     --track-background-fill: #{rgba(globals.$theme-primary-hover, .15)};
-    --track-thumb-image: url("/Survey/images/informal/range-thumb-transparent.svg");
+    --track-thumb-image: url("/Survey/images/informal/range-thumb-default.svg");
     --track-thumb-width: 40px;
     --track-thumb-height: 45px;
 }
 
 // question response-level container
-.o-question-vnumberslider {
+.o-question-hnumberslider {
     overflow: visible;
 }
-.o-question-vnumberslider-control {
+
+.o-question-hnumberslider-control {
     position: relative;
-    transform: rotate(-90deg);
     display: flex;
     align-items: flex-start;
     margin-bottom: .5em;
-    min-width: calc(56vh - 10px);
-    max-width: calc(56vh - 10px);
-    margin-top: calc(26vh - 10px);
-    // min-width: globals.$min-display-width;
+    min-width: globals.$min-display-width;
 
     &.has-value {
         input[type=range]::-webkit-slider-thumb {
@@ -77,7 +74,7 @@
     height: 24px;
     border: globals.$border-thickness solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    top: 15px;
+    top: 12px;
     background: white;
 }
 
@@ -94,7 +91,7 @@
 input[type=range] {
     position: relative;
     z-index: 3;
-    width: calc(56vh - 10px);
+    width: calc(100% - 12px);
     left: 6px;
     height: 48px;
     margin: 0;
@@ -156,7 +153,7 @@ input[type=range]::-ms-thumb {
     height: var(--track-thumb-height);
     border: none;
     background-color: transparent;
-    background-image: url("/Survey/images/informal/range-thumb-transparent.svg");
+    background-image: url("/Survey/images/informal/range-thumb-default.svg");
     background-image: var(--track-thumb-image);
     background-size: cover;
     background-position: center;
@@ -185,11 +182,10 @@ input[type=range]::-ms-thumb {
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: transparent;
 }
 
-.flood-to-value::-webkit-slider-runnable-track {
-    background: var(--track-background-fill, transparent) !important;
+.has-value .flood-to-value::-webkit-slider-runnable-track {
+    background: var(--track-background-fill);
 }
 
 input[type=range]::-moz-range-track {
@@ -197,17 +193,17 @@ input[type=range]::-moz-range-track {
     border: 0;
     border-radius: globals.$border-radius;
     width: 100%;
-    height: 22px;
+    height: 16px;
 }
 
-.has-value .flood-to-value::-moz-range-progress {
-    background-color: rgba(globals.$theme-primary-hover, .15) !important;
+.has-value .flood-to-value::-moz-range-track {
+    background: var(--track-background-fill);
     height: 16px;
     border-top-left-radius: globals.$border-radius;
     border-bottom-left-radius: globals.$border-radius;
 }
 
-html[dir="rtl"] .has-value .flood-to-value::-moz-range-progress {
+html[dir="rtl"] .has-value .flood-to-value::-moz-range-track {
     border-radius: 0 globals.$border-radius globals.$border-radius 0;
 }
 
