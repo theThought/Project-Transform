@@ -40,11 +40,7 @@ html[dir="rtl"] .overall-progress.complex .a-label-section-title {
 }
 
 .a-label-option {
-<<<<<<< HEAD
-    color: globals.$theme-primary;
-=======
     color: globals.$theme-secondary;
->>>>>>> origin
     padding: 0;
     margin: 0;
 }
@@ -117,7 +113,7 @@ html[dir="rtl"] .a-label-total {
 
 .focus-control {
     .m-input-singlelineedit.focused {
-        box-shadow: globals.$drop-shadow;
+        //box-shadow: globals.$drop-shadow;
     }
 }
 
@@ -130,13 +126,9 @@ html[dir="rtl"] .a-label-total {
     width: 100%;
 
     * {
-<<<<<<< HEAD
-        font-size: 14px;
-=======
         font-size: globals.$instruction-font-size;
         font-weight: 400;
         line-height: globals.$message-line-height;
->>>>>>> origin
     }
 }
 
@@ -145,26 +137,18 @@ html[dir="rtl"] .a-label-total {
     position: relative;
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
-<<<<<<< HEAD
-    padding: 8px 16px 8px 32px;
-=======
     padding: globals.$default-padding 16px globals.$default-padding 42px;
->>>>>>> origin
     background-color: rgba(globals.$information, .15);
     color: globals.$information;
 
     &::before {
         position: absolute;
-        left: 8px;
-        top: 8px;
+        left: globals.$default-padding;
+        top: globals.$default-padding;
         width: 20px;
         height: 20px;
         content: '';
-<<<<<<< HEAD
-        background-image: url("/Survey/images/formal/icon-information.png");
-=======
         background-image: url("/Survey/images/informal/icon-information.svg");
->>>>>>> origin
         background-repeat: no-repeat;
     }
 
@@ -188,11 +172,11 @@ html[dir="rtl"] .a-label-total {
 }
 
 html[dir="rtl"] .o-question-instruction.has-content div {
-    padding: 8px 32px 8px 16px;
+    padding: globals.$default-padding 32px globals.$default-padding 16px;
 
     &::before {
         left: auto;
-        right: 8px;
+        right: globals.$default-padding;
     }
 
     ul {
@@ -211,7 +195,7 @@ html[dir="rtl"] .o-question-instruction.has-content div {
 .m-structure-row-error .a-label-error {
     display: inline-block;
     margin: 16px 8px 0 8px;
-    font-size: 14px;
+    font-size: globals.$instruction-font-size;
 }
 
 .o-question-error,
@@ -222,19 +206,14 @@ html[dir="rtl"] .o-question-instruction.has-content div {
         position: relative;
         margin-bottom: .5em;
         border-radius: globals.$border-radius;
-<<<<<<< HEAD
-        padding: 8px 16px 8px 32px;
-        font-size: 14px;
-=======
         padding: globals.$default-padding 16px globals.$default-padding 42px;
         font-size: globals.$instruction-font-size;
         line-height: globals.$message-line-height;
->>>>>>> origin
 
         &::before {
             position: absolute;
-            left: 8px;
-            top: 8px;
+            left: globals.$default-padding;
+            top: globals.$default-padding;
             width: 20px;
             height: 20px;
             background-size: 20px;
@@ -249,11 +228,11 @@ html[dir="rtl"] {
     .o-question-warning,
     .o-question-success {
         *[class*=-label-] {
-            padding: 8px 32px 8px 16px;
+            padding: globals.$default-padding 32px globals.$default-padding 16px;
 
             &::before {
                 left: auto;
-                right: 8px;
+                right: globals.$default-padding;
             }
         }
     }
@@ -265,11 +244,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$error, .15);
 
     &::before {
-<<<<<<< HEAD
-        background-image: url("/Survey/images/formal/icon-error.png");
-=======
         background-image: url("/Survey/images/informal/icon-error.svg");
->>>>>>> origin
     }
 }
 
@@ -279,11 +254,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$warning, .15);
 
     &::before {
-<<<<<<< HEAD
-        background-image: url("/Survey/images/formal/icon-warning.png");
-=======
         background-image: url("/Survey/images/informal/icon-warning.svg");
->>>>>>> origin
     }
 }
 
@@ -293,11 +264,7 @@ html[dir="rtl"] {
     background-color: rgba(globals.$success, .15);
 
     &::before {
-<<<<<<< HEAD
-        background-image: url("/Survey/images/formal/icon-success.png");
-=======
         background-image: url("/Survey/images/informal/icon-success.svg");
->>>>>>> origin
     }
 }
 
@@ -307,25 +274,21 @@ html[dir="rtl"] {
     }
 
     .a-label-postlabel {
-        border: globals.$border-thickness solid globals.$theme-primary !important;
-        border-left-color: globals.$borders !important;
+        border: globals.$border-thickness solid transparent !important;
     }
 
     .a-label-prelabel {
-        border: globals.$border-thickness solid globals.$theme-primary !important;
-        border-right-color: globals.$borders !important;
+        border: globals.$border-thickness solid transparent !important;
     }
 }
 
 html[dir="rtl"] .focused {
     .a-label-postlabel {
-        border: globals.$border-thickness solid globals.$theme-primary !important;
-        border-right-color: globals.$borders !important;
+        border: globals.$border-thickness solid transparent !important;
     }
 
     .a-label-prelabel {
-        border: globals.$border-thickness solid globals.$theme-primary !important;
-        border-left-color: globals.$borders !important;
+        border: globals.$border-thickness solid transparent !important;
     }
 }
 
@@ -395,32 +358,30 @@ html[dir="rtl"] {
 .m-input-singlelineedit {
     .a-label-postlabel {
         display: inline-block;
-        border: globals.$border-thickness solid globals.$borders;
+        border: globals.$border-thickness solid transparent;
         border-radius: 0 globals.$text-border-radius globals.$text-border-radius 0;
         position: relative;
-        left: -1px;
-        background-color: globals.$input-background;
-        padding: 10px 16px;
+        padding: 10px 8px;
         color: globals.$pre-post-text;
         white-space: nowrap;
         box-sizing: content-box;
+        font-size: globals.$label-font-size;
     }
 
     .a-label-prelabel {
         display: inline-block;
-        border: globals.$border-thickness solid globals.$borders;
+        border: globals.$border-thickness solid transparent;
         border-radius: globals.$text-border-radius 0 0 globals.$text-border-radius;
-        background-color: globals.$input-background;
-        padding: 10px 16px;
+        padding: 10px 8px;
         color: globals.$pre-post-text;
         white-space: nowrap;
+        font-size: globals.$label-font-size;
     }
 
     &.read-only {
         .a-label-prelabel,
         .a-label-postlabel {
             color: globals.$light3;
-            border-color: globals.$borders-light !important;
         }
     }
 }
@@ -428,20 +389,14 @@ html[dir="rtl"] {
 html[dir="rtl"] .m-input-singlelineedit {
     .a-label-postlabel {
         left: auto;
-        right: -.5em;
     }
 }
 
-<<<<<<< HEAD
-.o-question-hnumberslider-control,
-.o-question-vnumberslider-control {
-=======
-.o-question-slider-horizontal-control {
->>>>>>> origin
+.o-question-hnumberslider-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
-        top: .9em;
+        top: 12px;
         color: globals.$theme-primary;
     }
 
@@ -459,14 +414,14 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
-    // .a-label-thumbvalue {
-    //     box-sizing: border-box;
-    //     color: globals.$titles;
-    //     position: absolute;
-    //     top: -1.1em;
-    //     visibility: hidden;
-    //     transform: translateX(-50%);
-    // }
+    .a-label-thumbvalue {
+        box-sizing: border-box;
+        color: globals.$titles;
+        position: absolute;
+        top: -1.1em;
+        visibility: hidden;
+        transform: translateX(-50%);
+    }
 
     &.active.has-value.has-thumb-value .a-label-thumbvalue {
         visibility: visible;
@@ -478,10 +433,11 @@ html[dir="rtl"] .m-input-singlelineedit {
         z-index: 3;
         width: calc(100% - 12px);
         left: 6px;
-        top: 14px;
+        top: 11px;
         display: flex;
         justify-content: space-between;
-        color: globals.$borders;
+        color: globals.$other0;
+        font-size: 16px;
 
         & > i {
             text-align: center;
@@ -505,125 +461,14 @@ html[dir="rtl"] .m-input-singlelineedit {
             text-align: center;
             flex: 0 1 40px;
             display: block;
-<<<<<<< HEAD
-
-            //conditional if is the V slider:
-            // @at-root .o-question-vnumberslider-control & {
-            //     transform: rotate(90deg);
-            // }
-=======
             font-size: 17px;
->>>>>>> origin
         }
 
     }
 
 }
 
-<<<<<<< HEAD
-
-
-
-.o-question-vnumberslider-control {
-    .a-label-outer-prelabel,
-    .a-label-outer-postlabel {
-        position: relative;
-        top: .9em;
-        color: globals.$theme-primary;
-    }
-
-    .a-label-prelabel {
-        position: absolute;
-        left: 0;
-        bottom: -.8em;
-        color: globals.$theme-primary;
-    }
-
-    .a-label-postlabel {
-        position: absolute;
-        right: 0;
-        bottom: -.8em;
-        color: globals.$theme-primary;
-    }
-
-    // .a-label-thumbvalue {
-    //     box-sizing: border-box;
-    //     color: globals.$titles;
-    //     position: absolute;
-    //     top: -1.1em;
-    //     visibility: hidden;
-    //     transform: translateX(-50%);
-    // }
-
-    &.active.has-value.has-thumb-value .a-label-thumbvalue {
-        visibility: visible;
-        
-        
-//   display: block;
-//   margin-top: 0px;
-//   background: green;
-//   height: 200px;
-
-    }
-
-    
-
-    .m-style-slidermarks {
-        box-sizing: border-box;
-        position: absolute;
-        z-index: 3;
-        width: calc(100% - 12px);
-        left: 6px;
-        top: 14px;
-        display: flex;
-        justify-content: space-between;
-        color: globals.$borders;
-
-        & > i {
-            text-align: center;
-            flex: 0 1 40px;
-            display: block;
-            font-style: normal;
-        }
-    }
-
-    .m-label-ticklabels {
-        position: relative;
-        top: -.5em;
-        left: 6px;
-        box-sizing: border-box;
-        width: calc(100% - 12px);
-        display: flex;
-        justify-content: space-between;
-        color: globals.$borders;
-
-        & > span {
-            text-align: center;
-            flex: 0 1 40px;
-            display: block;
-            transform: rotate(90deg);
-          
-        }
-    }
-}
-
-
-.o-question-vnumberslider-control .m-label-ticklabels{
-    width: calc(56vh - 10px);
-}
-
-.o-question-vnumberslider-control .m-style-slidermarks{
-    width: calc(56vh - 10px);
-}
-
-
-
-
-html[dir="rtl"] .o-question-hnumberslider-control, 
-html[dir="rtl"] .o-question-vnumberslider-control {
-=======
-html[dir="rtl"] .o-question-slider-horizontal-control {
->>>>>>> origin
+html[dir="rtl"] .o-question-hnumberslider-control {
 
     .a-label-prelabel {
         left: auto;
@@ -650,11 +495,12 @@ html[dir="rtl"] .o-question-slider-horizontal-control {
     }
 }
 
-div[data-readonly="true"] .m-option-base .a-label-option {
-    color: globals.$borders !important;
-}
-
 .m-option-base {
+
+    input:checked + label::after {
+        transform: scale(1);
+    }
+
     input:checked + label > .a-label-option {
         color: globals.$theme-secondary;
     }
@@ -666,13 +512,21 @@ div[data-readonly="true"] .m-option-base .a-label-option {
     }
 
     .a-label-option {
+        position: relative;
         display: inline-block;
-        padding-left: 1.5em;
+        padding-left: 38px;
+        z-index: 2;
     }
 
     label {
         display: inline-block;
-        padding: 2px 0;
+        box-sizing: border-box;
+        position: relative;
+        border: globals.$border-thickness solid globals.$background;
+        border-radius: calc(#{globals.$border-radius} + 2px);
+        padding: globals.$default-padding;
+        width: 100%;
+        height: 100%;
     }
 
     label + .a-label-option {
@@ -680,10 +534,14 @@ div[data-readonly="true"] .m-option-base .a-label-option {
     }
 }
 
+.focused .m-option-base label {
+    border-color: white;
+}
+
 html[dir="rtl"] .m-option-base {
     .a-label-option {
         padding-left: 0;
-        padding-right: 1.5em;
+        padding-right: 38px;
     }
 
     label + .a-label-option {
@@ -705,14 +563,4 @@ html[dir="rtl"] .m-option-base {
 
 html[dir="rtl"] .m-list-optionlist:not(.display-icons) .a-label-option {
     padding-right: 0;
-}
-
-
-// temp
-.a-label-thumbvalue{
-    top: -60px;
-    position: absolute;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-    
 }
