@@ -155,11 +155,7 @@ define(
             }
 
             // only allow focus in text input fields
-            var firstelement = firstquestion.querySelector(
-                '.o-question-singlelineedit input.a-input-singlelineedit, ' +
-                'textarea, ' +
-                'input[type=checkbox], ' +
-                'input[type=radio]');
+            var firstelement = firstquestion.querySelector('input:not([type=hidden]), textarea');
 
             if (firstelement === null) {
                 return;
@@ -176,8 +172,13 @@ define(
                     return;
                 }
 
+                var errorquestion = firsterror[0].closest('.o-question-container');
+                var closestinput = errorquestion.querySelector('input:not([type=hidden]), textarea');
+
                 this.focusonfirstinput = false;
                 firsterror[0].scrollIntoView({'block': 'center'});
+
+                closestinput.focus();
             }
         }
 
