@@ -1725,6 +1725,256 @@ input[type=range]:focus::-ms-fill-lower {
     margin: 0;
   }
 }
+:root {
+  --track-background-fill: rgba(212, 170, 73, 0.15);
+  --track-thumb-image: url("../../images/informal/range-thumb-transparent.svg");
+  --track-thumb-width: 40px;
+  --track-thumb-height: 45px;
+}
+
+.o-question-vnumberslider {
+  overflow: visible;
+}
+
+.o-question-vnumberslider-control {
+  position: relative;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 0.5em;
+  min-width: calc(56vh - 10px);
+  max-width: calc(56vh - 10px);
+  margin-top: calc(26vh - 10px);
+}
+.o-question-vnumberslider-control.has-value input[type=range]::-webkit-slider-thumb {
+  visibility: visible;
+}
+.o-question-vnumberslider-control.has-value input[type=range]::-moz-range-thumb {
+  visibility: visible;
+}
+.o-question-vnumberslider-control.has-value input[type=range]::-ms-thumb {
+  visibility: visible;
+}
+.o-question-vnumberslider-control.has-thumb-value {
+  padding-top: 1em;
+}
+.o-question-vnumberslider-control.has-pre-label, .o-question-vnumberslider-control.has-post-label {
+  padding-bottom: 0.8em;
+}
+.o-question-vnumberslider-control.has-tick-labels {
+  padding-bottom: 0.8em;
+}
+.o-question-vnumberslider-control.inactive .a-style-sliderclickablearea {
+  display: block;
+}
+.o-question-vnumberslider-control > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.m-numberslider-horizontal {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.m-numberslider-horizontal[style*=width] {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.a-style-sliderborder {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 24px;
+  border: 1px solid #E8BE5D;
+  border-radius: 5px;
+  top: 15px;
+  background: white;
+}
+
+.a-style-sliderclickablearea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: none;
+}
+
+input[type=range] {
+  position: relative;
+  z-index: 3;
+  width: calc(56vh - 10px);
+  left: 6px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  border: none;
+}
+
+html[dir=rtl] input[type=range] {
+  left: auto;
+  right: 6px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 16px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--track-thumb-width);
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: -15px;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: var(--track-thumb-width);
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: none;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]::-ms-thumb {
+  width: 40px;
+  width: var(--track-thumb-width);
+  height: 45px;
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: url("../../images/informal/range-thumb-transparent.svg");
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: none;
+  margin-top: 0px;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.flood-to-value::-webkit-slider-runnable-track {
+  background: var(--track-background-fill, transparent) !important;
+}
+
+input[type=range]::-moz-range-track {
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 22px;
+}
+
+.has-value .flood-to-value::-moz-range-progress {
+  background-color: rgba(212, 170, 73, 0.15) !important;
+  height: 16px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+html[dir=rtl] .has-value .flood-to-value::-moz-range-progress {
+  border-radius: 0 5px 5px 0;
+}
+
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 5px 0;
+  color: transparent;
+  width: 100%;
+  height: 16px;
+  border-radius: 5px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.has-value .flood-to-value::-ms-fill-lower {
+  background-color: rgba(212, 170, 73, 0.15) !important;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+html[dir=rtl] .has-value .flood-to-value::-ms-fill-lower {
+  border-radius: 0 5px 5px 0;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+html[dir=rtl] input[type=range]::-ms-fill-upper {
+  border-radius: 5px 0 0 5px;
+}
+
+input[type=range]:focus {
+  border: none;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: transparent;
+}
+
+.has-value .flood-to-value:focus::-ms-fill-lower {
+  background: rgba(212, 170, 73, 0.15) !important;
+}
+
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from https://stackoverflow.com/a/32202953/7077589 */
+  /* Edge starts the margin from the thumb, not the track as other browsers do*/
+  input[type=range] {
+    margin: 0;
+  }
+}
 .o-combobox, .o-dropdown {
   position: relative;
 }
