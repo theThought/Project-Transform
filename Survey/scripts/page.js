@@ -83,9 +83,7 @@ define(
         }
 
         page.prototype.configurePaste = function () {
-            if (!this.allowpaste) {
-                this.element.setAttribute('data-paste', 'false');
-            }
+            this.element.setAttribute('data-paste', this.allowpaste);
         }
 
         page.prototype.focus = function (prop) {
