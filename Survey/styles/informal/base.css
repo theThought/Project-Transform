@@ -461,6 +461,7 @@ html[dir=rtl] #nav-controls #prevstop input[type=submit]:last-child {
 
 .m-option-base .a-icon-multistate {
   position: absolute;
+  left: 8px;
   z-index: 2;
 }
 
@@ -1180,7 +1181,6 @@ html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels {
 .m-option-base .a-label-option {
   position: relative;
   display: inline-block;
-  padding-left: 38px;
   z-index: 2;
 }
 .m-option-base label {
@@ -1190,7 +1190,7 @@ html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels {
   position: relative;
   border: 1px solid #FFFFFF;
   border-radius: calc(5px + 2px);
-  padding: 8px;
+  padding: 8px 8px 8px 46px;
   width: 100%;
   height: 100%;
 }
@@ -1205,6 +1205,9 @@ html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels {
 html[dir=rtl] .m-option-base .a-label-option {
   padding-left: 0;
   padding-right: 38px;
+}
+html[dir=rtl] .m-option-base label {
+  padding: 8px 46px 8px 8px;
 }
 html[dir=rtl] .m-option-base label + .a-label-option {
   padding-right: 0;
