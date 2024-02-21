@@ -1,3 +1,4 @@
 Survey/Simple Test study/TRI22DEUREP.mdd
 Survey/Transform/Transform.tmp.ivs
-node_modules.DS_Store
+node_modules
+.DS_Store
