@@ -2298,42 +2298,42 @@ input:disabled {
 /* Standardises the placeholder colour - these rules cannot be combined */
 ::-moz-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 :-ms-input-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 ::-webkit-input-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 ::-ms-input-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 ::placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 :-ms-input-placeholder {
   color: #4A444E;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 ::-ms-input-placeholder {
   color: #4A444E;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 sup {
