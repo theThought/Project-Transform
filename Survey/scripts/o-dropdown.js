@@ -48,6 +48,7 @@ define(['component'],
             this.getInitialValue();
             this.setWidth();
             this.setPosition();
+            this.setTabIndex();
             this.setWrapperType();
             this.configureInitialVisibility();
             this.processVisibilityRules();
@@ -183,6 +184,10 @@ define(['component'],
             // positioned near the bottom of a page and the page height accommodates the droplist
             // even though it is invisible and absolutely positioned and should not contribute
             this.droplist.style.bottom = '0';
+        }
+
+        oDropdown.prototype.setTabIndex = function () {
+            this.droplist.setAttribute('tabindex', '-1');
         }
 
         oDropdown.prototype.checkManualWidth = function () {
@@ -334,7 +339,8 @@ define(['component'],
                 case 27: // escape key
                     this.clearKeyBuffer();
                     this.clearFilter();
-                    break;
+                    this.toggleList();
+                    return;
                 case 38: // up arrow
                     this.clearKeyBuffer();
                     this.navigateUp();
