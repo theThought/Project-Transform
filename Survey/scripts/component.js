@@ -1,7 +1,7 @@
 define(
     function () {
 
-        /**
+        /** 
          * Base component class
          *
          * @constructor
@@ -14,6 +14,10 @@ define(
             this.isInitialising = true;
             this.group = group;
             this.element = null;
+            this.horizontalElement = null;
+            this.horizontalSlider = null;
+            this.verticalElement = null;
+            this.verticalSlider = null;
             this.container = null;
             this.value = null;
             this.restoreValues = false;
@@ -99,17 +103,52 @@ define(
         };
 
 
+        // component.prototype.configurationComplete = function () {
+        //     var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
+        //     this.element.dispatchEvent(completeEvent);
+        //     this.broadcastChange();
+        //     this.isInitialising = false;
+        // }
+
         component.prototype.configurationComplete = function () {
+            // Create a custom event named 'configComplete' with the component instance as the detail
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
-            this.element.dispatchEvent(completeEvent);
+            
+            // Dispatch the 'configComplete' event on the main element
+            if (this.element) {
+                this.element.dispatchEvent(completeEvent);
+            }
+        
+            // Dispatch the 'configComplete' event on the horizontal element (if it exists)
+            if (this.horizontalElement) {
+                this.horizontalElement.dispatchEvent(completeEvent);
+            }
+        
+            // Dispatch the 'configComplete' event on the vertical element (if it exists)
+            if (this.verticalElement) {
+                this.verticalElement.dispatchEvent(completeEvent);
+            }
+        
+            // Dispatch a 'broadcastChange' event on the main element
             this.broadcastChange();
+        
+            // Update the isInitialising flag to indicate that initialization is complete
             this.isInitialising = false;
         }
-
+        
+        
         component.prototype.broadcastChange = function () {
-            var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
-            this.element.dispatchEvent(broadcastChange);
+            // Check if this.element is not null before dispatching the event
+            if (this.element) {
+                var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
+                this.element.dispatchEvent(broadcastChange);
+            }
         }
+        
+        // component.prototype.broadcastChange = function () {
+        //     var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
+        //     this.element.dispatchEvent(broadcastChange);
+        // }
 
         component.prototype.clearEntries = function () {
             // do not clear items that are still initialising

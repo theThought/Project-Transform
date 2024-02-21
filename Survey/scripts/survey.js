@@ -86,9 +86,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionContainer(id, group));
             });
             break;
-        case 'oquestionsliderhorizontal':
-            requirejs(['o-question-slider-horizontal'], function (oQuestionSliderHorizontal) {
-                app.preinitcomponents.push(new oQuestionSliderHorizontal(id, group));
+        case 'oquestionhnumberslider':
+            requirejs(['o-question-h-number-slider'], function (oQuestionHNumberSlider) {
+                app.preinitcomponents.push(new oQuestionHNumberSlider(id, group));
             });
             break;
         case 'oquestionvnumberslider':
@@ -112,10 +112,10 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         case 'alabelthumbvaluevertical':
-                requirejs(['a-label-thumbvaluevertical'], function (aLabelThumbValueVertical) {
-                    app.preinitcomponents.push(new aLabelThumbValueVertical(id, group));
-                });
-            break;      
+            requirejs(['a-label-thumbvaluevertical'], function (aLabelThumbValueVertical) {
+                app.preinitcomponents.push(new aLabelThumbValueVertical(id, group));
+            });
+            break;
         default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }

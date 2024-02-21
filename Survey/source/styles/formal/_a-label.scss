@@ -396,7 +396,8 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-.o-question-slider-horizontal-control {
+.o-question-hnumberslider-control,
+.o-question-vnumberslider-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -418,14 +419,14 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
-    .a-label-thumbvalue {
-        box-sizing: border-box;
-        color: globals.$titles;
-        position: absolute;
-        top: -1.1em;
-        visibility: hidden;
-        transform: translateX(-50%);
-    }
+    // .a-label-thumbvalue {
+    //     box-sizing: border-box;
+    //     color: globals.$titles;
+    //     position: absolute;
+    //     top: -1.1em;
+    //     visibility: hidden;
+    //     transform: translateX(-50%);
+    // }
 
     &.active.has-value.has-thumb-value .a-label-thumbvalue {
         visibility: visible;
@@ -464,13 +465,117 @@ html[dir="rtl"] .m-input-singlelineedit {
             text-align: center;
             flex: 0 1 40px;
             display: block;
+
+            //conditional if is the V slider:
+            // @at-root .o-question-vnumberslider-control & {
+            //     transform: rotate(90deg);
+            // }
         }
 
     }
 
 }
 
-html[dir="rtl"] .o-question-slider-horizontal-control {
+
+
+
+.o-question-vnumberslider-control {
+    .a-label-outer-prelabel,
+    .a-label-outer-postlabel {
+        position: relative;
+        top: .9em;
+        color: globals.$theme-primary;
+    }
+
+    .a-label-prelabel {
+        position: absolute;
+        left: 0;
+        bottom: -.8em;
+        color: globals.$theme-primary;
+    }
+
+    .a-label-postlabel {
+        position: absolute;
+        right: 0;
+        bottom: -.8em;
+        color: globals.$theme-primary;
+    }
+
+    // .a-label-thumbvalue {
+    //     box-sizing: border-box;
+    //     color: globals.$titles;
+    //     position: absolute;
+    //     top: -1.1em;
+    //     visibility: hidden;
+    //     transform: translateX(-50%);
+    // }
+
+    &.active.has-value.has-thumb-value .a-label-thumbvalue {
+        visibility: visible;
+        
+        
+//   display: block;
+//   margin-top: 0px;
+//   background: green;
+//   height: 200px;
+
+    }
+
+    
+
+    .m-style-slidermarks {
+        box-sizing: border-box;
+        position: absolute;
+        z-index: 3;
+        width: calc(100% - 12px);
+        left: 6px;
+        top: 14px;
+        display: flex;
+        justify-content: space-between;
+        color: globals.$borders;
+
+        & > i {
+            text-align: center;
+            flex: 0 1 40px;
+            display: block;
+            font-style: normal;
+        }
+    }
+
+    .m-label-ticklabels {
+        position: relative;
+        top: -.5em;
+        left: 6px;
+        box-sizing: border-box;
+        width: calc(100% - 12px);
+        display: flex;
+        justify-content: space-between;
+        color: globals.$borders;
+
+        & > span {
+            text-align: center;
+            flex: 0 1 40px;
+            display: block;
+            transform: rotate(90deg);
+          
+        }
+    }
+}
+
+
+.o-question-vnumberslider-control .m-label-ticklabels{
+    width: calc(56vh - 10px);
+}
+
+.o-question-vnumberslider-control .m-style-slidermarks{
+    width: calc(56vh - 10px);
+}
+
+
+
+
+html[dir="rtl"] .o-question-slider-horizontal-control, 
+html[dir="rtl"] .o-question-vnumberslider-control {
 
     .a-label-prelabel {
         left: auto;
@@ -552,4 +657,14 @@ html[dir="rtl"] .m-option-base {
 
 html[dir="rtl"] .m-list-optionlist:not(.display-icons) .a-label-option {
     padding-right: 0;
+}
+
+
+// temp
+.a-label-thumbvalue{
+    top: -60px;
+    position: absolute;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    
 }

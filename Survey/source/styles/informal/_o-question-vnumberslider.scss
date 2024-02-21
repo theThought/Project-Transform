@@ -1,24 +1,19 @@
 @use 'globals';
 
 :root {
-    --track-background-fill: #{globals.$theme-secondary};
-    --track-thumb-image: url("/Survey/images/formal/range-thumb-transparent.svg");
+    --track-background-fill: #{rgba(globals.$theme-primary-hover, .15)};
+    --track-thumb-image: url("/Survey/images/informal/range-thumb-transparent.svg");
     --track-thumb-width: 40px;
-    --track-thumb-height: 40px;
+    --track-thumb-height: 45px;
 }
 
 // question response-level container
-.o-question-hnumberslider {
+.o-question-vnumberslider {
     overflow: visible;
 }
-
-.o-question-container.cover-off.config-complete {
-    height: calc(64vh - 10px);
-}
-
-.o-question-vnumberslider-control{
+.o-question-vnumberslider-control {
     position: relative;
-    transform: rotate(-90deg);  
+    transform: rotate(-90deg);
     display: flex;
     align-items: flex-start;
     margin-bottom: .5em;
@@ -26,15 +21,6 @@
     max-width: calc(56vh - 10px);
     margin-top: calc(26vh - 10px);
     // min-width: globals.$min-display-width;
-    
-    &:focus,
-    &:focus-visible,
-    &:focus-within {
-        .a-style-sliderborder {
-            box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
-        }
-
-    }
 
     &.has-value {
         input[type=range]::-webkit-slider-thumb {
@@ -51,7 +37,7 @@
     }
 
     &.has-thumb-value {
-        padding-top: 0em;
+        padding-top: 1em;
     }
 
     &.has-pre-label,
@@ -66,13 +52,11 @@
     &.inactive {
         .a-style-sliderclickablearea {
             display: block;
-            
         }
     }
 
     & > div {
         flex-grow: 1;
-        //  transform: rotate(-90deg);
     }
 }
 
@@ -91,9 +75,9 @@
     z-index: 3;
     width: 100%;
     height: 24px;
-    border: globals.$border-thickness solid globals.$borders;
-    border-radius: 10px;
-    top: 12px;
+    border: globals.$border-thickness solid globals.$theme-primary;
+    border-radius: globals.$border-radius;
+    top: 15px;
     background: white;
 }
 
@@ -105,13 +89,11 @@
     right: 0;
     z-index: 10;
     display: none;
-    
 }
 
-.o-question-vnumberslider input[type=range] {
+input[type=range] {
     position: relative;
     z-index: 3;
-    // width: calc(100% - 12px);
     width: calc(56vh - 10px);
     left: 6px;
     height: 48px;
@@ -120,7 +102,6 @@
     background-color: transparent;
     -webkit-appearance: none;
     border: none;
-    box-shadow: none !important;
 }
 
 html[dir="rtl"] input[type=range] {
@@ -135,13 +116,12 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
     background: transparent;
     border: 0;
-    border-radius: 24px;
+    border-radius: globals.$border-radius;
     width: 100%;
     height: 16px;
 }
 
 input[type=range]::-webkit-slider-thumb {
-    transform: rotate(90deg);
     -webkit-appearance: none;
     width: var(--track-thumb-width);
     height: var(--track-thumb-height);
@@ -151,13 +131,12 @@ input[type=range]::-webkit-slider-thumb {
     background-size: cover;
     background-position: center;
     box-shadow: none;
-    margin-top: -11px;
+    margin-top: -15px;
     z-index: 4;
     visibility: hidden;
 }
 
 input[type=range]::-moz-range-thumb {
-    transform: rotate(90deg);
     width: var(--track-thumb-width);
     height: var(--track-thumb-height);
     border: none;
@@ -171,14 +150,13 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-    transform: rotate(90deg);
     width: 40px;
     width: var(--track-thumb-width);
-    height: 40px;
+    height: 45px;
     height: var(--track-thumb-height);
     border: none;
     background-color: transparent;
-    background-image: url("/Survey/images/formal/range-thumb-transparent.svg");
+    background-image: url("/Survey/images/informal/range-thumb-transparent.svg");
     background-image: var(--track-thumb-image);
     background-size: cover;
     background-position: center;
@@ -217,20 +195,20 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 input[type=range]::-moz-range-track {
     background: transparent;
     border: 0;
-    border-radius: 22px;
+    border-radius: globals.$border-radius;
     width: 100%;
     height: 22px;
 }
 
 .has-value .flood-to-value::-moz-range-progress {
-    background-color: globals.$theme-secondary !important;
+    background-color: rgba(globals.$theme-primary-hover, .15) !important;
     height: 16px;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-top-left-radius: globals.$border-radius;
+    border-bottom-left-radius: globals.$border-radius;
 }
 
 html[dir="rtl"] .has-value .flood-to-value::-moz-range-progress {
-    border-radius: 0 16px 16px 0;
+    border-radius: 0 globals.$border-radius globals.$border-radius 0;
 }
 
 input[type=range]::-ms-tooltip {
@@ -244,32 +222,32 @@ input[type=range]::-ms-track {
     color: transparent;
     width: 100%;
     height: 16px;
-    border-radius: 16px;
+    border-radius: globals.$border-radius;
 }
 
 input[type=range]::-ms-fill-lower {
     background: transparent;
-    border-radius: 16px;
+    border-radius: globals.$border-radius;
 }
 
 .has-value .flood-to-value::-ms-fill-lower {
-    background-color: globals.$theme-secondary !important;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    background-color: rgba(globals.$theme-primary-hover, .15)!important;
+    border-top-left-radius: globals.$border-radius;
+    border-bottom-left-radius: globals.$border-radius;
 }
 
 html[dir="rtl"] .has-value .flood-to-value::-ms-fill-lower {
-    border-radius: 0 16px 16px 0;
+    border-radius: 0 globals.$border-radius globals.$border-radius 0;
 }
 
 input[type=range]::-ms-fill-upper {
     background: transparent;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-top-right-radius: globals.$border-radius;
+    border-bottom-right-radius: globals.$border-radius;
 }
 
 html[dir="rtl"] input[type=range]::-ms-fill-upper {
-    border-radius: 16px 0 0 16px;
+    border-radius: globals.$border-radius 0 0 globals.$border-radius;
 }
 
 input[type=range]:focus {
@@ -281,13 +259,13 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .has-value .flood-to-value:focus::-ms-fill-lower {
-    background: globals.$theme-secondary !important;
+    background: rgba(globals.$theme-primary-hover, .15) !important;
 }
 
 @supports (-ms-ime-align:auto) {
     /* Pre-Chromium Edge only styles, selector taken from https://stackoverflow.com/a/32202953/7077589 */
+    /* Edge starts the margin from the thumb, not the track as other browsers do*/
     input[type=range] {
         margin: 0;
-        /*Edge starts the margin from the thumb, not the track as other browsers do*/
     }
 }
