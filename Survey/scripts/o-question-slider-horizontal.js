@@ -9,7 +9,7 @@ define(['o-question'],
          * @param {String} group - question group
          */
 
-        function oQuestionSliderHorizontal(id, group) {
+        function oQuestionSliderHorizontal(id, group) { 
             oQuestion.call(this, id, group);
 
             this.element = document.querySelector('input[data-questionid="' + this.id + '"]');

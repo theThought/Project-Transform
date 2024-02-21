@@ -5,8 +5,8 @@ define(['component'], function (component) {
         component.call(this, id, group);
 
         // For vertical slider
-        this.verticalSlider = document.querySelector(`div.o-question-vnumberslider[data-questiongroup=${this.group}] input[type=range]`);
-        this.verticalElement = document.querySelector(`div.o-question-vnumberslider[data-questiongroup=${this.group}] div.a-label-thumbvalue`);
+        this.verticalSlider = document.querySelector(`div.o-question-slider-vertical[data-questiongroup=${this.group}] input[type=range]`);
+        this.verticalElement = document.querySelector(`div.o-question-slider-vertical[data-questiongroup=${this.group}] div.a-label-thumbvalue`);
     }
 
     // Inheritance setup

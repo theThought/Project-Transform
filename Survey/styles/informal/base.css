@@ -1149,32 +1149,32 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 
 .o-question-hnumberslider-control .a-label-outer-prelabel,
 .o-question-hnumberslider-control .a-label-outer-postlabel,
-.o-question-vnumberslider-control .a-label-outer-prelabel,
-.o-question-vnumberslider-control .a-label-outer-postlabel {
+.o-question-slider-vertical-control .a-label-outer-prelabel,
+.o-question-slider-vertical-control .a-label-outer-postlabel {
   position: relative;
   top: 0.9em;
   color: #E8BE5D;
 }
 .o-question-hnumberslider-control .a-label-prelabel,
-.o-question-vnumberslider-control .a-label-prelabel {
+.o-question-slider-vertical-control .a-label-prelabel {
   position: absolute;
   left: 0;
   bottom: -0.8em;
   color: #E8BE5D;
 }
 .o-question-hnumberslider-control .a-label-postlabel,
-.o-question-vnumberslider-control .a-label-postlabel {
+.o-question-slider-vertical-control .a-label-postlabel {
   position: absolute;
   right: 0;
   bottom: -0.8em;
   color: #E8BE5D;
 }
 .o-question-hnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue,
-.o-question-vnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue {
+.o-question-slider-vertical-control.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;
 }
 .o-question-hnumberslider-control .m-style-slidermarks,
-.o-question-vnumberslider-control .m-style-slidermarks {
+.o-question-slider-vertical-control .m-style-slidermarks {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
@@ -1191,7 +1191,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   color: #8797C8;
 }
 .o-question-hnumberslider-control .m-style-slidermarks > i,
-.o-question-vnumberslider-control .m-style-slidermarks > i {
+.o-question-slider-vertical-control .m-style-slidermarks > i {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1200,7 +1200,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   font-style: normal;
 }
 .o-question-hnumberslider-control .m-label-ticklabels,
-.o-question-vnumberslider-control .m-label-ticklabels {
+.o-question-slider-vertical-control .m-label-ticklabels {
   position: relative;
   top: -0.5em;
   left: 6px;
@@ -1216,7 +1216,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   color: #8797C8;
 }
 .o-question-hnumberslider-control .m-label-ticklabels > span,
-.o-question-vnumberslider-control .m-label-ticklabels > span {
+.o-question-slider-vertical-control .m-label-ticklabels > span {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1226,36 +1226,36 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           transform: rotate(90deg);
 }
 
-.o-question-vnumberslider-control .m-label-ticklabels {
+.o-question-slider-vertical-control .m-label-ticklabels {
   width: calc(56vh - 10px);
 }
 
-.o-question-vnumberslider-control .m-style-slidermarks {
+.o-question-slider-vertical-control .m-style-slidermarks {
   width: calc(56vh - 10px);
 }
 
 html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel,
-html[dir=rtl] .o-question-vnumberslider-control .a-label-prelabel {
+html[dir=rtl] .o-question-slider-vertical-control .a-label-prelabel {
   left: auto;
   right: 0;
 }
 html[dir=rtl] .o-question-slider-horizontal-control .a-label-postlabel,
-html[dir=rtl] .o-question-vnumberslider-control .a-label-postlabel {
+html[dir=rtl] .o-question-slider-vertical-control .a-label-postlabel {
   right: auto;
   left: 0;
 }
 html[dir=rtl] .o-question-slider-horizontal-control .a-label-thumbvalue,
-html[dir=rtl] .o-question-vnumberslider-control .a-label-thumbvalue {
+html[dir=rtl] .o-question-slider-vertical-control .a-label-thumbvalue {
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
 }
 html[dir=rtl] .o-question-slider-horizontal-control .m-style-slidermarks,
-html[dir=rtl] .o-question-vnumberslider-control .m-style-slidermarks {
+html[dir=rtl] .o-question-slider-vertical-control .m-style-slidermarks {
   left: auto;
   right: 6px;
 }
 html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels,
-html[dir=rtl] .o-question-vnumberslider-control .m-label-ticklabels {
+html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   left: auto;
   right: 6px;
 }
@@ -1819,11 +1819,11 @@ input[type=range]:focus::-ms-fill-lower {
   --track-thumb-height: 45px;
 }
 
-.o-question-vnumberslider {
+.o-question-slider-vertical {
   overflow: visible;
 }
 
-.o-question-vnumberslider-control {
+.o-question-slider-vertical-control {
   position: relative;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
@@ -1838,28 +1838,28 @@ input[type=range]:focus::-ms-fill-lower {
   max-width: calc(56vh - 10px);
   margin-top: calc(26vh - 10px);
 }
-.o-question-vnumberslider-control.has-value input[type=range]::-webkit-slider-thumb {
+.o-question-slider-vertical-control.has-value input[type=range]::-webkit-slider-thumb {
   visibility: visible;
 }
-.o-question-vnumberslider-control.has-value input[type=range]::-moz-range-thumb {
+.o-question-slider-vertical-control.has-value input[type=range]::-moz-range-thumb {
   visibility: visible;
 }
-.o-question-vnumberslider-control.has-value input[type=range]::-ms-thumb {
+.o-question-slider-vertical-control.has-value input[type=range]::-ms-thumb {
   visibility: visible;
 }
-.o-question-vnumberslider-control.has-thumb-value {
+.o-question-slider-vertical-control.has-thumb-value {
   padding-top: 1em;
 }
-.o-question-vnumberslider-control.has-pre-label, .o-question-vnumberslider-control.has-post-label {
+.o-question-slider-vertical-control.has-pre-label, .o-question-slider-vertical-control.has-post-label {
   padding-bottom: 0.8em;
 }
-.o-question-vnumberslider-control.has-tick-labels {
+.o-question-slider-vertical-control.has-tick-labels {
   padding-bottom: 0.8em;
 }
-.o-question-vnumberslider-control.inactive .a-style-sliderclickablearea {
+.o-question-slider-vertical-control.inactive .a-style-sliderclickablearea {
   display: block;
 }
-.o-question-vnumberslider-control > div {
+.o-question-slider-vertical-control > div {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;

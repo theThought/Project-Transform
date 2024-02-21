@@ -16,7 +16,7 @@
     height: calc(64vh - 10px);
 }
 
-.o-question-vnumberslider-control{
+.o-question-slider-vertical-control{
     position: relative;
     transform: rotate(-90deg);  
     display: flex;
@@ -108,7 +108,7 @@
     
 }
 
-.o-question-vnumberslider input[type=range] {
+.o-question-slider-vertical input[type=range] {
     position: relative;
     z-index: 3;
     // width: calc(100% - 12px);

@@ -397,7 +397,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 .o-question-hnumberslider-control,
-.o-question-vnumberslider-control {
+.o-question-slider-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -467,7 +467,7 @@ html[dir="rtl"] .m-input-singlelineedit {
             display: block;
 
             //conditional if is the V slider:
-            // @at-root .o-question-vnumberslider-control & {
+            // @at-root .o-question-slider-vertical-control & {
             //     transform: rotate(90deg);
             // }
         }
@@ -479,7 +479,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 
  
 
-.o-question-vnumberslider-control {
+.o-question-slider-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -563,11 +563,11 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 
-.o-question-vnumberslider-control .m-label-ticklabels{
+.o-question-slider-vertical-control .m-label-ticklabels{
     width: calc(56vh - 10px);
 }
 
-.o-question-vnumberslider-control .m-style-slidermarks{
+.o-question-slider-vertical-control .m-style-slidermarks{
     width: calc(56vh - 10px);
 }
 
@@ -575,7 +575,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 
 html[dir="rtl"] .o-question-slider-horizontal-control, 
-html[dir="rtl"] .o-question-vnumberslider-control {
+html[dir="rtl"] .o-question-slider-vertical-control {
 
     .a-label-prelabel {
         left: auto;
