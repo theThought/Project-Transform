@@ -518,7 +518,7 @@ html[dir="rtl"] .o-question-slider-horizontal-control {
     }
 
     label {
-        display: inline-block;
+        display: flex;
         box-sizing: border-box;
         position: relative;
         border: globals.$border-thickness solid globals.$background;
