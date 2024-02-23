@@ -23,7 +23,7 @@
     top: globals.$border-thickness;
     width: calc(100% - (#{globals.$border-thickness} * 2));
     height: calc(100% - (#{globals.$border-thickness} * 2));;
-    background: linear-gradient(90deg, #{globals.$theme-primary} 0, #{globals.$theme-primary} 38px, #{globals.$input-background-has-content} 38px);
+    background: linear-gradient(90deg, #{globals.$theme-primary} 0, #{globals.$theme-primary} 40px, #{globals.$input-background-has-content} 40px);
     transition: all 500ms;
     border-radius: globals.$border-radius;
     transform-origin: 0 50%;

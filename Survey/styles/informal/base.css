@@ -476,7 +476,7 @@ html[dir=rtl] .a-icon-multistate[data-icontype=single] {
 /* Grid layout */
 .m-structure-cell .m-option-base .a-icon-multistate {
   position: relative;
-  top: 0.2em;
+  left: 0;
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
@@ -1020,9 +1020,9 @@ html[dir=rtl] .focused .a-label-prelabel {
   white-space: nowrap;
 }
 .m-structure-cell .m-option-base label {
-  display: inline-block;
   width: 100%;
   height: 100%;
+  padding: 8px;
 }
 .m-structure-cell .m-option-base .a-label-option {
   padding-left: 0.2em;
@@ -1254,7 +1254,7 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   top: 1px;
   width: calc(100% - 1px * 2);
   height: calc(100% - 1px * 2);
-  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, rgba(232, 190, 93, 0.2) 38px);
+  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 40px, rgba(232, 190, 93, 0.2) 40px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
   border-radius: 5px;
