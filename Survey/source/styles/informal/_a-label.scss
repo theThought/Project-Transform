@@ -462,13 +462,18 @@ html[dir="rtl"] .m-input-singlelineedit {
             flex: 0 1 40px;
             display: block;
             font-size: 17px;
+
         }
 
     }
+
 }
 
-.o-question-hnumberslider-control,
-.o-question-slider-vertical-control {
+
+
+
+
+.o-question-vnumberslider-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -552,17 +557,20 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 
-.o-question-slider-vertical-control .m-label-ticklabels{
+.o-question-vnumberslider-control .m-label-ticklabels{
     width: calc(56vh - 10px);
 }
 
-.o-question-slider-vertical-control .m-style-slidermarks{
+.o-question-vnumberslider-control .m-style-slidermarks{
     width: calc(56vh - 10px);
 }
 
-html[dir="rtl"] .o-question-slider-horizontal-control,
-html[dir="rtl"] .o-question-slider-vertical-control {
 
+
+
+html[dir="rtl"] .o-question-hnumberslider-control, 
+html[dir="rtl"] .o-question-vnumberslider-control {
+html[dir="rtl"] .o-question-slider-horizontal-control {
     .a-label-prelabel {
         left: auto;
         right: 0;
@@ -659,4 +667,5 @@ html[dir="rtl"] .m-option-base {
 
 html[dir="rtl"] .m-list-optionlist:not(.display-icons) .a-label-option {
     padding-right: 0;
+}
 }

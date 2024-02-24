@@ -1,5 +1,5 @@
 define(['o-question'],
-    function (oQuestion) { 
+    function (oQuestion) {
 
         /**
          * Organism: Vertical Number Slider
