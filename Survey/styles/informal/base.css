@@ -461,6 +461,7 @@ html[dir=rtl] #nav-controls #prevstop input[type=submit]:last-child {
 
 .m-option-base .a-icon-multistate {
   position: absolute;
+  left: 8px;
   z-index: 2;
 }
 
@@ -475,7 +476,7 @@ html[dir=rtl] .a-icon-multistate[data-icontype=single] {
 /* Grid layout */
 .m-structure-cell .m-option-base .a-icon-multistate {
   position: relative;
-  top: 0.2em;
+  left: 0;
 }
 
 input[type=checkbox] + label > .a-icon-multistate {
@@ -1019,9 +1020,9 @@ html[dir=rtl] .focused .a-label-prelabel {
   white-space: nowrap;
 }
 .m-structure-cell .m-option-base label {
-  display: inline-block;
   width: 100%;
   height: 100%;
+  padding: 8px;
 }
 .m-structure-cell .m-option-base .a-label-option {
   padding-left: 0.2em;
@@ -1261,17 +1262,18 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
 .m-option-base .a-label-option {
   position: relative;
   display: inline-block;
-  padding-left: 38px;
   z-index: 2;
 }
 .m-option-base label {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
   border: 1px solid #FFFFFF;
   border-radius: calc(5px + 2px);
-  padding: 8px;
+  padding: 8px 8px 8px 46px;
   width: 100%;
   height: 100%;
 }
@@ -1286,6 +1288,9 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
 html[dir=rtl] .m-option-base .a-label-option {
   padding-left: 0;
   padding-right: 38px;
+}
+html[dir=rtl] .m-option-base label {
+  padding: 8px 46px 8px 8px;
 }
 html[dir=rtl] .m-option-base label + .a-label-option {
   padding-right: 0;
@@ -1314,6 +1319,7 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   margin-right: 1em;
   font-size: 18px;
   line-height: 24px;
+  min-height: 44px;
 }
 .m-option-base[data-checked=true]::after {
   -webkit-transform: scale(1);
@@ -1329,7 +1335,7 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   top: 1px;
   width: calc(100% - 1px * 2);
   height: calc(100% - 1px * 2);
-  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 38px, rgba(232, 190, 93, 0.2) 38px);
+  background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 40px, rgba(232, 190, 93, 0.2) 40px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
   border-radius: 5px;
@@ -2629,42 +2635,42 @@ input:disabled {
 /* Standardises the placeholder colour - these rules cannot be combined */
 ::-moz-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 :-ms-input-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 ::-webkit-input-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 ::-ms-input-placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 ::placeholder {
   color: #4A444E;
+  font-size: 14px;
   opacity: 1;
-  font-size: 12px;
 }
 
 :-ms-input-placeholder {
   color: #4A444E;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 ::-ms-input-placeholder {
   color: #4A444E;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 sup {

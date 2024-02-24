@@ -328,9 +328,9 @@ html[dir="rtl"] .focused {
 
     .m-option-base {
         label {
-            display: inline-block;
             width: 100%;
             height: 100%;
+            padding: 8px;
         }
 
         .a-label-option {
@@ -607,17 +607,16 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     .a-label-option {
         position: relative;
         display: inline-block;
-        padding-left: 38px;
         z-index: 2;
     }
 
     label {
-        display: inline-block;
+        display: flex;
         box-sizing: border-box;
         position: relative;
         border: globals.$border-thickness solid globals.$background;
         border-radius: calc(#{globals.$border-radius} + 2px);
-        padding: globals.$default-padding;
+        padding: globals.$default-padding globals.$default-padding globals.$default-padding 46px;
         width: 100%;
         height: 100%;
     }
@@ -635,6 +634,10 @@ html[dir="rtl"] .m-option-base {
     .a-label-option {
         padding-left: 0;
         padding-right: 38px;
+    }
+
+    label {
+        padding: globals.$default-padding 46px globals.$default-padding globals.$default-padding;
     }
 
     label + .a-label-option {
