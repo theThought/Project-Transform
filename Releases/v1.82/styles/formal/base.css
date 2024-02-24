@@ -2226,7 +2226,7 @@ body > form {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: content;
-  min-height: 66vh;
+  /* min-height: 66vh; */
 }
 
 .footer {
