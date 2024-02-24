@@ -164,30 +164,30 @@ input:disabled {
 /* Standardises the placeholder colour - these rules cannot be combined */
 ::-moz-placeholder {
     color: globals.$placeholder;
+    font-size: globals.$placeholder-font-size;
     opacity: 1;
-    font-size: 12px;
 }
 
 :-ms-input-placeholder {
     color: globals.$placeholder;
+    font-size: globals.$placeholder-font-size;
     opacity: 1;
-    font-size: 12px;
 }
 
 ::placeholder {
     color: globals.$placeholder;
+    font-size: globals.$placeholder-font-size;
     opacity: 1;
-    font-size: 12px;
 }
 
 :-ms-input-placeholder {
     color: globals.$placeholder;
-    font-size: 12px;
+    font-size: globals.$placeholder-font-size;
 }
 
 ::-ms-input-placeholder {
     color: globals.$placeholder;
-    font-size: 12px;
+    font-size: globals.$placeholder-font-size;
 }
 
 sup {
