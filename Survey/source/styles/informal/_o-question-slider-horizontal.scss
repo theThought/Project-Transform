@@ -8,7 +8,7 @@
 }
 
 // question response-level container
-.o-question-slider-horizontal {
+.o-question-hnumberslider {
     overflow: visible;
 }
 
@@ -57,12 +57,12 @@
     }
 }
 
-.m-slider-horizontal {
+.m-numberslider-horizontal {
     position: relative;
     flex: 1 0 auto;
 }
 
-.m-slider-horizontal[style*="width"] {
+.m-numberslider-horizontal[style*="width"] {
     flex: 0 0 auto;
 }
 

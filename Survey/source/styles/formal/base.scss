@@ -15,7 +15,7 @@
 @import 'o-option-list';
 @import 'o-question';
 @import 'o-question-slider-horizontal';
-@import 'o-question-vnumberslider';
+@import 'o-question-slider-vertical';
 @import 'o-select-combobox';
 @import 'o-structure-table';
 @import 't-question-base';
@@ -191,4 +191,4 @@ sub {
     font-size: 0.6em;
     position: relative;
     top: 4px;
-}
+} 

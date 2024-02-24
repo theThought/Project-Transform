@@ -1124,6 +1124,17 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   bottom: -0.8em;
   color: #455B97;
 }
+.o-question-hnumberslider-control .a-label-thumbvalue,
+.o-question-slider-vertical-control .a-label-thumbvalue {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #212C4C;
+  position: absolute;
+  top: -1.1em;
+  visibility: hidden;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
 .o-question-hnumberslider-control.active.has-value.has-thumb-value .a-label-thumbvalue,
 .o-question-slider-vertical-control.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;
@@ -1325,13 +1336,6 @@ html[dir=rtl] .m-option-base label + .a-label-option {
 
 html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   padding-right: 0;
-}
-
-.a-label-thumbvalue {
-  top: -60px;
-  position: absolute;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
 }
 
 .m-option-base {
@@ -1560,7 +1564,7 @@ html[dir=rtl] .balance .m-option-base {
   --track-thumb-height: 40px;
 }
 
-.o-question-slider-horizontal {
+.o-question-hnumberslider {
   overflow: visible;
 }
 
@@ -1606,14 +1610,14 @@ html[dir=rtl] .balance .m-option-base {
           flex-grow: 1;
 }
 
-.m-slider-horizontal {
+.m-numberslider-horizontal {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
 
-.m-slider-horizontal[style*=width] {
+.m-numberslider-horizontal[style*=width] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
