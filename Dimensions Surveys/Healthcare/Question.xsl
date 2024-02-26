@@ -594,6 +594,9 @@
                <xsl:when test="$SubQuestion=false()">
                   <xsl:element name="div">
                      <xsl:attribute name="class">a-label-error</xsl:attribute>
+                     <xsl:attribute name="data-questionid">
+                        <xsl:value-of select="../Control/@ElementID" />
+                     </xsl:attribute>
                      <xsl:for-each select="Text">
                         <xsl:value-of select="." />
                      </xsl:for-each>
@@ -602,6 +605,9 @@
                <xsl:otherwise>
                   <xsl:element name="span">
                      <xsl:attribute name="class">a-label-error</xsl:attribute>
+                     <xsl:attribute name="data-questionid">
+                        <xsl:value-of select="../Control/@ElementID" />
+                     </xsl:attribute>
                      <xsl:for-each select="Text">
                         <xsl:value-of select="." />
                      </xsl:for-each>
