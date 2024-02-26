@@ -1178,6 +1178,25 @@ Coke "Coca Cola" define
         Observer "Observer",
         STelegraph "Sunday Telegraph"
     };
+    tabloidpapers "Tabloids" define
+    {
+    mail "Daily Mail",
+    express "Daily Express",
+    first "1<sup>st</sup> edition",
+        Sun "Sun",
+        Mirror "The Mirror",
+        star "Daily Star",
+        I "i",
+        Metro "Metro"
+    };
+    broadsheetpapers "Broadsheets" define
+    {
+    telegraph "The Daily Telegraph",
+    times "The Times",
+        Independent "The Independent",
+        Guardian "Guardian"
+    };
+    
     FullPaperList ""
     define
     {
@@ -1494,7 +1513,6 @@ Coke "Coca Cola" define
         option4 "the penultimate option in the list",
         option5 "the very last one"
     };
-    
     '----------------------------------------
     ' filteroption Definitions
     '----------------------------------------
@@ -1564,11 +1582,13 @@ Coke "Coca Cola" define
     ' -22 Decimal
     ' -30 MultiLineEdit
     ' -40 Choice
-    ' -50 Slider
+    ' -50 Slider (Horizontal)
+    ' -51 Slider (Vertical)
     ' -60 DropDown
     ' -70 Combobox
     ' -1100 Progressive (V) Grid
     ' -1110 Progressive (H) Grid
+    ' -1400 Navigation - Tabstrip
     '---------------------------------------------
     CustomList_Layout "Layouts" define
     {
@@ -1595,6 +1615,16 @@ Coke "Coca Cola" define
         Formal "Formal",
         Informal "Informal"
     };
+    CustomList_Paste "" define
+    {
+        allow "allow",
+        prevent "prevent"
+    };
+    CustomList_Jump "" define
+    {
+        yes "Yes",
+        no "No"
+    };
     TypesList_Simple "Basic Question types" define
     {
         basic "Original Questions",
@@ -1605,7 +1635,8 @@ Coke "Coca Cola" define
         Buttons "Button questions",
         Instructions "Instructions",
         ReadWrite "Read/Write hidden inputs",
-        Sliders "Sliders",
+        SliderH "Slider (Horizontal)",
+        SliderV "Slider (Vertical)",
         SideBySide "Complex questions"
     };
     TypesList_Progressive "Progressive Grids" define
@@ -1636,7 +1667,8 @@ Coke "Coca Cola" define
         GridsofSolo "Grids of solo questions",
         GridVisibility "Grids & Visibility",
         OneColumn "1 column",
-        Split "Split grid"
+        Split "Split grid",
+        ComplexGrids "Complex Grids"
     };
     TypesList_Dropdowns "Questions using dropdowns and comboboxes" define
     {
@@ -1648,7 +1680,7 @@ Coke "Coca Cola" define
     };
     TypesList_Navigation "Implementing alternative navigation techniques" define
     {
-    TabStripOnly "Tab Strip only"
+        TabStripOnly "Tab Strip only"
     };
     '----------------------------------------
     ' Grids of solo questions Definitions
@@ -1671,27 +1703,35 @@ Coke "Coca Cola" define
     '----------------------------------------
     ' tabstrip Setup
     '----------------------------------------
-    TabStripNav1 "" categorical[1]
+    TabStripNav1 ""
+        style(
+            ZIndex = -1400
+        )
+    categorical [1..1]
     {
-    Menu, "Home",
-    Section1 "Initial Questions",
-    Section2 "Detailed Questions",
-    Section3 "Penultimate"
-    Section4 "Summary"
+        Menu "Menu",
+        Home "Home",
+        Section1 "Initial Questions",
+        Section2 "Detailed Questions",
+        Section3 "Penultimate",
+        Section4 "Summary"
     };
-    
-    TabStripHome "" categorical[1]
+
+    TabStripHome ""
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
     {
-    Section1 "Initial Questions",
-    Section2 "Detailed Questions",
-    Section3 "Penultimate"
-    Section4 "Summary"
+        Section1 "Initial Questions",
+        Section2 "Detailed Questions",
+        Section3 "Penultimate",
+        Section4 "Summary"
     };
-    
+
     '----------------------------------------
     ' Menu Questions 
     '----------------------------------------
-
     CustomList_SetBalance "Side by Side Balance:"
         style(
             Width = "4em"
@@ -1746,6 +1786,28 @@ Coke "Coca Cola" define
     categorical [1..1]
     {
         use CustomList_Theme -
+    };
+
+    CustomList_SetPaste1 "Paste into Input"
+        style(
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [1..1]
+    {
+        use CustomList_Paste -
+    };
+
+    CustomList_SetJump "Jump to first error"
+        style(
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [1..1]
+    {
+        use CustomList_Jump -
     };
 
     ChooseType "Select the type of question you want to test"
@@ -2031,9 +2093,9 @@ Coke "Coca Cola" define
     (
         LotsOfCodes "This is a question with three of special codes"
             style(
+                Align = "Left",
                 ZIndex = -20,
-                Width = "10em",
-                Align = "Left"
+                Width = "10em"
             )
         text [..30]
         codes(
@@ -2205,6 +2267,12 @@ Coke "Coca Cola" define
         )
     long [0 .. 100];
 
+    HowManyMissedV "How many of the last 10 visits did you miss"
+        style(
+            ZIndex = -51
+        )
+    long [0 .. 100];
+
     HowManyMissed_Car "How many of the last 10 visits did you miss"
         style(
             ZIndex = -50
@@ -2212,6 +2280,18 @@ Coke "Coca Cola" define
     long [0 .. 100];
 
     HowManyMissed_Heart "How many of the last 10 visits did you miss"
+        style(
+            ZIndex = -50
+        )
+    long [0 .. 100];
+
+    HowManyMissedV_Car "How many of the last 10 visits did you miss"
+        style(
+            ZIndex = -50
+        )
+    long [0 .. 100];
+
+    HowManyMissedV_Heart "How many of the last 10 visits did you miss"
         style(
             ZIndex = -50
         )
@@ -2968,6 +3048,15 @@ Coke "Coca Cola" define
     {
         use dailypapers -
     };
+    
+    TypesVsBroadsheets "Which of the following papers have you read in the last month" 
+    Categorical
+    {
+    use tabloidpapers sublist,
+    use broadsheetpapers sublist,
+    otherpaper "Other (please specify)" other (otherpapername "" style(zIndex=-20) text[..100]) fix,
+    dontread "I don't read newspapers" NA fix
+    };
 
     PaperTypes "Which of the following types of newspaper have you read in the last 4 weeks?"
     categorical
@@ -3314,6 +3403,62 @@ Coke "Coca Cola" define
     '----------------------------------------
     ' Complex Grids
     '----------------------------------------
+    visited_booth "I have:" loop
+    {
+        eli_lilly "Eli Lilly",
+        leo_pharma "Leo Pharma",
+        galderma "Galderma",
+        abbvie "AbbVie",
+        sanofi_regeneron "Sanofi-Regeneron",
+        pfizer "Pfizer",
+        almirall "Almirall",
+        incyte "Incyte"
+    } fields -
+    (
+        slice "Visited their booth for AD"
+            style(
+                ZIndex = -40
+            )
+        categorical [..1]
+        {
+            yes ""
+        };
+
+        rating "Rating (1 to 7, 7 is most valuable)"
+            style(
+                ZIndex = -20,
+                Width = "1em"
+            )
+        long [1 .. 7]
+        codes(
+        {
+            noans "No Answer" NA
+        } );
+
+        info_recall "Main piece of info recalled"
+            style(
+                ZIndex = -20,
+                Control(
+                    Type = "SingleLineEdit"
+                )
+            )
+        text [1..999]
+        codes(
+        {
+            noans "No Answer" NA
+        } );
+
+        visit_again "Want to visit again"
+            style(
+                ZIndex = -40
+            )
+        categorical [..1]
+        {
+            yes ""
+        };
+
+    ) expand;
+
     AppointmentsvsArrivals "Indicate the number of <b>appointments</b> and the % that arrived on time" loop
     {
         use weekdayslist -
@@ -5067,6 +5212,7 @@ Coke "Coca Cola" define
         categorical
         {
             FruitList use \\.fruitlist -
+            NoFruit "No Fruit" exclusive fix
         };
 
     ) expand;
@@ -5590,6 +5736,8 @@ Coke "Coca Cola" define
         CustomList_SetFocus,
         CustomList_SetDirection,
         CustomList_SetInstruction,
+        CustomList_SetPaste1,
+        CustomList_SetJump,
         ChooseType
     );
     ComplexQuestionPage ""
@@ -5854,9 +6002,18 @@ Coke "Coca Cola" define
         visibleinputsgrid,
         visiblechoicegrid
     );
-    
-    HowManyMissedPage Page (HowManyMissed, HowManyMissed_Car, HowManyMissed_Heart);
-
+    HowManyMissedPage "HowManyMissedPage"
+    page(
+        HowManyMissed,
+        HowManyMissed_Car,
+        HowManyMissed_Heart
+    );
+    HowManyMissedVPage "HowManyMissedPage"
+    page(
+        HowManyMissedV,
+        HowManyMissedV_Car,
+        HowManyMissedV_Heart
+    );
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -5866,6 +6023,7 @@ dim visibilityRule
 dim currentTemplate, layoutTemplate
 dim askAgain
 dim focusQuestion, focusControl, focusBalance
+dim isPWA, isPaste, isJump
 
 'templateLocation = "../"
 templateLocation = ""
@@ -5874,6 +6032,9 @@ askAgain = true
 focusQuestion = "true"
 focusControl = "true"
 focusBalance = ""
+isPWA = "false"
+isPaste = "false"
+isJump = "false"
 
 IOM.LayoutTemplate = "page (simple).htm"
 'IOM.LayoutTemplate = "pageoutput-label.htm"
@@ -5904,7 +6065,6 @@ IOM.Banners.AddNew("Contactushtml", "<a href='mailto:contactus@healthcare.ipsos.
 'progressJSONarray[10] = "{'title':'Dropdowns','pages':{'total':2,'current':0}}"
 
 'progressJSON = ComplexJSON_Create(IOM, 1, progressJSONarray)
-PageJSON_Create(IOM, "{'pwa':'false'}")
 
 dim linedefinitionsinfo,docDemQuarterFilt
 docDemQuarterFilt = "Y2022Q3"
@@ -5931,11 +6091,23 @@ CustomList_SetTheme.response.initial = {Formal}
 CustomList_SetFocus.Response.initial = {Question, Control}
 CustomList_SetDirection.Response.Initial = {LTR}
 CustomList_SetInstruction.Response.Initial = {below}
-
+CustomList_SetPaste1.Response.Initial = {allow}
+CustomList_SetJump.Response.Initial = {yes}
 
 do until not askAgain
 MenuPage.Ask()
 
+if CustomList_SetPaste1.Response.containsAny("allow") then
+	isPaste = "true"
+else
+	isPaste = "false"
+end if
+
+if CustomList_SetJump.Response.containsAny("yes") then
+	isJump = "true"
+else
+	isJump = "false"
+end if
 
 if CustomList_SetFocus.Response.containsAny("Question") then
 	focusQuestion = "true"
@@ -5979,8 +6151,9 @@ else
 	IOM.LayoutTemplate = layoutTemplate + "_RTL.htm"
 end if
 
+'PageJSON_Create(IOM, MakeString("{'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "'}"))
 
-PageJSON_Create(IOM, MakeString("{", focusBalance, "'focus':{'question':", focusQuestion, ",'control':", focusControl, "}}"))
+PageJSON_Create(IOM, MakeString("{", focusBalance, "'focus':{'question':", focusQuestion, ",'control':", focusControl, "},'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "'}"))
 
 select case choosetype.Response
 
@@ -6030,6 +6203,7 @@ QuestionWithLotsOfCodes.Ask()
 'gridofinputswithspecialcodes[..].LotsOfCodes.Codes[..].Style.ElementAlign = elementalignments.eaRight
 'gridofinputswithspecialcodes[..].Cell.style.ElementAlign = elementalignments.eaRight
 
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 AddCustomProperties(gridofinputswithspecialcodes, "LotsOfCodes", "{'balance':{'state':true}, 'onesize':{'state':true}}", "replace")
 gridofinputswithspecialcodes.Ask()
 
@@ -6089,6 +6263,7 @@ CustomPage.Show()
 case {choice}
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
+TypesVsBroadsheets.Ask()
 
 GenderReal.Categories.female.label.style.elementAlign = elementalignments.eaNewLine
 GenderReal.Banners.AddNew("Instruction","This is a test instruction")
@@ -6168,15 +6343,15 @@ PapersPage.ask()
 
 ChoicePage.Ask()
 
-case {sliders}
+case {sliderh}
 
 'AddCustomProperties(HowManyMissed, "HowManyMissed", "{'values':{'min':0,'max':10},'floodtovalue':true}", "replace") 
 AddCustomProperties(HowManyMissed, "HowManyMissed", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
 HowManyMissed.ask()
 
-AddCustomProperties(HowManyMissed, "HowManyMissed", "{'thumb':{'image':'../../images/formal/range-thumb-solid.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
-AddCustomProperties(HowManyMissed_Car, "HowManyMissed_Car", "{'thumb':{'image':'../../images/formal/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
-AddCustomProperties(HowManyMissed_Heart, "HowManyMissed_Heart", "{'thumb':{'image':'../../images/formal/range-thumb-heart.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissed, "HowManyMissed", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-solid.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissed_Car, "HowManyMissed_Car", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissed_Heart, "HowManyMissed_Heart", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-heart.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 HowManyMissedPage.ask()
 
 AddCustomProperties(HowManyMissedLabels, "HowManyMissedLabels", "{'values':{'min':0,'max':10},'ticklabels':1}", "replace") 
@@ -6203,6 +6378,19 @@ AddCustomProperties(PercentageTreatmentsPrePost, "PercentageTreatmentsPrePost", 
 PercentageTreatmentsPrePost.Ask()
 
 slidersPage.Ask()
+
+case {sliderv}
+
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+
+AddCustomProperties(HowManyMissedV, "HowManyMissed", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
+HowManyMissedV.ask()
+
+AddCustomProperties(HowManyMissedV, "HowManyMissed", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-solid.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissedV_Car, "HowManyMissed_Car", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissedV_Heart, "HowManyMissed_Heart", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-heart.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+HowManyMissedVPage.ask()
+
 
 case {Instructions}
 
@@ -6596,6 +6784,11 @@ userAgentPage.Ask()
 ReadWriteResult.show()
 
 case {ComplexGrids}
+
+Visited_booth[..].rating.MustAnswer = false
+Visited_booth[..].info_recall.MustAnswer = false
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+visited_booth.ask()
 
 constantsum[..].PercentageSeen.mustanswer = false
 
@@ -7000,10 +7193,10 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	
 	case {sidebyside}
 
-'	IOM.LayoutTemplate = "pageoutput-label.htm"	
 	MonthYearBlock.Ask()
 	InvisibilityTwoTest.Ask()
 	
+'	IOM.LayoutTemplate = "pageoutput-label.htm"	
 	addCustomProperties(PostCodeBlockII.PostCodeLeft, "PostCodeLeft", "{'separator':false}","replace")
 	PostCodeBlockII.PostCodeLeft.Style.ElementAlign = elementalignments.eaRight	
 	PostCodeBlockII.PostCodeRight.Style.ElementAlign = elementalignments.eaRight
@@ -7191,7 +7384,7 @@ TwoChildren[..].ask()
 
 
 case {TabStripOnly}
-IOM.GlobalQuestions.Add(TabStripNav1}
+IOM.GlobalQuestions.Add(TabStripNav1)
 TabStripHome.ask()
 end select
 
