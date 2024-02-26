@@ -1857,7 +1857,7 @@
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
-            <xsl:if test="count(Cell/Question)=0">
+            <xsl:if test="count(Cell/Question)=0 and count(Cell/Control)=0">
                <xsl:text>-heading</xsl:text>
             </xsl:if>
          </xsl:attribute>
