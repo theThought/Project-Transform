@@ -2120,7 +2120,7 @@
          <!--- CSS Class -->
 
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or Style/Control/@ReadOnly='true'">
             <xsl:attribute name="data-readonly">
                <xsl:text>true</xsl:text>
             </xsl:attribute>
