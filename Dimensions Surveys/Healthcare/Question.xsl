@@ -704,7 +704,7 @@
                         <xsl:attribute name="class">m-slider-horizontal</xsl:attribute>
                      </xsl:when>
                      <xsl:otherwise>
-                        <xsl:attribute name="class">m-numberslider-vertical</xsl:attribute>
+                        <xsl:attribute name="class">m-slider-vertical</xsl:attribute>
                      </xsl:otherwise>
                   </xsl:choose>
                   <xsl:element name="div">
