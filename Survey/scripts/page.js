@@ -175,6 +175,11 @@ define(
                 var errorquestion = firsterror[0].closest('.o-question-container');
                 var closestinput = errorquestion.querySelector('input:not([type=hidden]), textarea');
 
+                if (closestinput === null) {
+                    console.warn('An error message was displayed but no corresponding input could be found for focus.');
+                    return;
+                }
+
                 this.focusonfirstinput = false;
                 firsterror[0].scrollIntoView({'block': 'center'});
 
