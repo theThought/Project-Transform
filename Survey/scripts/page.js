@@ -166,24 +166,23 @@ define(
 
         page.prototype.scrollToError = function () {
             if (this.focuserror) {
-                var firsterror = document.getElementsByClassName('a-label-error');
+                var firsterror = document.querySelector('.a-label-error[data-questionid]');
 
-                if (firsterror.length === 0) {
+                if (firsterror === null) {
                     return;
                 }
 
-                var errorquestion = firsterror[0].closest('.o-question-container');
-                var closestinput = errorquestion.querySelector('input:not([type=hidden]), textarea');
+                var erroritem = firsterror.getAttribute('data-questionid');
+                var errorelement = document.getElementById(erroritem);
 
-                if (closestinput === null) {
+                if (errorelement === null) {
                     console.warn('An error message was displayed but no corresponding input could be found for focus.');
                     return;
                 }
 
                 this.focusonfirstinput = false;
-                firsterror[0].scrollIntoView({'block': 'center'});
-
-                closestinput.focus();
+                errorelement.scrollIntoView({'block': 'center'});
+                errorelement.focus();
             }
         }
 
