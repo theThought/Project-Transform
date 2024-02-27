@@ -161,6 +161,10 @@ define(
                 return;
             }
 
+            if (this.available) {
+                return;
+            }
+
             if (this.element.value !== this.initialValue) {
                 this.element.value = this.initialValue;
                 this.manageContentClass();
