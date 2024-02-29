@@ -20,6 +20,8 @@ define(['o-question'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');        
+            // Check if the HTML direction is set to RTL
+            this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
         }
 
         oQuestionSliderVertical.prototype = Object.create(oQuestion.prototype);
@@ -144,26 +146,43 @@ define(['o-question'],
         }
 
         oQuestionSliderVertical.prototype.setInitialFloodToValue = function () {
+            console.log('initial fired - flood to value');
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
-
+            
             var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
+            
             this.element.style.setProperty('--track-background-fill',
-                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
+            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            
+            if (this.isRTL) {
+            this.element.style.setProperty('--track-background-fill',
+            'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, '
+            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            }  
         }
-
+        
         oQuestionSliderVertical.prototype.updateFloodFill = function () {
+            console.log('updated fired - flood to value');
+            
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
-
+            
             var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             this.element.style.setProperty('--track-background-fill',
-                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-                + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
+            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            
+            if (this.isRTL) {
+            this.element.style.setProperty('--track-background-fill',
+            'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, '
+            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            } 
         }
+        
 
         oQuestionSliderVertical.prototype.createClickableArea = function () {
             var clickableElement = document.createElement('div');

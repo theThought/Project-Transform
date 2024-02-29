@@ -469,11 +469,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 }
 
-
-
-
-
-.o-question-vnumberslider-control {
+.o-question-slider-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -495,24 +491,17 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
-    // .a-label-thumbvalue {
-    //     box-sizing: border-box;
-    //     color: globals.$titles;
-    //     position: absolute;
-    //     top: -1.1em;
-    //     visibility: hidden;
-    //     transform: translateX(-50%);
-    // }
-
+    .a-label-thumbvalue {
+        box-sizing: border-box;
+        color: globals.$titles;
+        position: absolute;
+        top: -2em;
+        // visibility: hidden;
+        transform: rotate(90deg);
+    }
+    
     &.active.has-value.has-thumb-value .a-label-thumbvalue {
         visibility: visible;
-        
-        
-//   display: block;
-//   margin-top: 0px;
-//   background: green;
-//   height: 200px;
-
     }
 
     
@@ -557,11 +546,11 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 
-.o-question-vnumberslider-control .m-label-ticklabels{
+.o-question-slider-vertical-control .m-label-ticklabels{
     width: calc(56vh - 10px);
 }
 
-.o-question-vnumberslider-control .m-style-slidermarks{
+.o-question-slider-vertical-control .m-style-slidermarks{
     width: calc(56vh - 10px);
 }
 
@@ -569,7 +558,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 
 html[dir="rtl"] .o-question-hnumberslider-control, 
-html[dir="rtl"] .o-question-vnumberslider-control {
+html[dir="rtl"] .o-question-slider-vertical-control {
 html[dir="rtl"] .o-question-slider-horizontal-control {
     .a-label-prelabel {
         left: auto;

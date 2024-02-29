@@ -396,7 +396,7 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-.o-question-hnumberslider-control,
+.o-question-slider-horizontal-control,
 .o-question-slider-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
@@ -501,24 +501,18 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
-    // .a-label-thumbvalue {
-    //     box-sizing: border-box;
-    //     color: globals.$titles;
-    //     position: absolute;
-    //     top: -1.1em;
-    //     visibility: hidden;
-    //     transform: translateX(-50%);
-    // }
+    .a-label-thumbvalue {
+        box-sizing: border-box;
+        color: globals.$titles;
+        position: absolute;
+        top: -2em;
+        // visibility: hidden;
+        visibility: visible;
+        transform: rotate(90deg);
+    }
 
     &.active.has-value.has-thumb-value .a-label-thumbvalue {
         visibility: visible;
-        
-        
-//   display: block;
-//   margin-top: 0px;
-//   background: green;
-//   height: 200px;
-
     }
 
     
@@ -542,7 +536,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         }
     }
 
-    .m-label-ticklabels {
+    .m-label-ticklabels { 
         position: relative;
         top: -.5em;
         left: 6px;
@@ -558,6 +552,10 @@ html[dir="rtl"] .m-input-singlelineedit {
             display: block;
             transform: rotate(90deg);
           
+        }
+        //RTL
+        html[dir="rtl"] & > span{
+            transform: rotate(270deg);
         }
     }
 }
@@ -657,4 +655,13 @@ html[dir="rtl"] .m-option-base {
 
 html[dir="rtl"] .m-list-optionlist:not(.display-icons) .a-label-option {
     padding-right: 0;
+}
+
+// ALL RTL VERTICAL STYLES
+html[dir="rtl"] {
+
+    .o-question-slider-vertical-control{
+        transform: rotate(90deg);
+    }
+
 }
