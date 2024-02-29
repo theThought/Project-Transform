@@ -594,6 +594,9 @@
                <xsl:when test="$SubQuestion=false()">
                   <xsl:element name="div">
                      <xsl:attribute name="class">a-label-error</xsl:attribute>
+                     <xsl:attribute name="data-questionid">
+                        <xsl:value-of select="../Control/@ElementID" />
+                     </xsl:attribute>
                      <xsl:for-each select="Text">
                         <xsl:value-of select="." />
                      </xsl:for-each>
@@ -602,6 +605,9 @@
                <xsl:otherwise>
                   <xsl:element name="span">
                      <xsl:attribute name="class">a-label-error</xsl:attribute>
+                     <xsl:attribute name="data-questionid">
+                        <xsl:value-of select="../Control/@ElementID" />
+                     </xsl:attribute>
                      <xsl:for-each select="Text">
                         <xsl:value-of select="." />
                      </xsl:for-each>
@@ -660,7 +666,7 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:choose>
-         <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='vnumberslider'">
+         <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='slidervertical'">
             <xsl:element name="div">
                <xsl:attribute name="class">
                   <xsl:text>o-question-</xsl:text>
@@ -2075,7 +2081,7 @@
          </xsl:attribute>
          <!--- Set Control Type -->
          <xsl:choose>
-            <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='vnumberslider'">
+            <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='slidervertical'">
                <xsl:attribute name="type">range</xsl:attribute>
             </xsl:when>
             <xsl:when test="$qCustomType='decimal'">
@@ -2138,7 +2144,7 @@
             <xsl:call-template name="ControlStyle">
                <xsl:with-param name="IgnoreWidth">
                   <xsl:choose>
-                     <xsl:when test="$qCustomType = 'sliderhorizontal' or $qCustomType = 'vnumberslider'">
+                     <xsl:when test="$qCustomType = 'sliderhorizontal' or $qCustomType = 'slidervertical'">
                         <xsl:text>true</xsl:text>
                      </xsl:when>
                      <xsl:otherwise>
@@ -2190,7 +2196,7 @@
                   <xsl:text> side</xsl:text>
                </xsl:when>
             </xsl:choose>
-            <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'sliderhorizontal' or $qCustomType='vnumberslider'))">
+            <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'sliderhorizontal' or $qCustomType='slidervertical'))">
                <xsl:text> hiddencontrol</xsl:text>
             </xsl:if>
          </xsl:attribute>
@@ -2221,7 +2227,7 @@
             <xsl:value-of select="'sliderhorizontal'" />
          </xsl:when>
          <xsl:when test="$theID = '-51'">
-            <xsl:value-of select="'vnumberslider'" />
+            <xsl:value-of select="'slidervertical'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
             <xsl:value-of select="'dropdown'" />
