@@ -1,6 +1,5 @@
 define(['component'],
     function (component) {
-
         /**
          * Atom: Value label for slider
          *

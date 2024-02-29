@@ -1,5 +1,5 @@
 define(['component'], function (component) {
-
+    console.log('I am getting fired??');
     // Constructor function
     function aLabelThumbValueVertical(id, group) {
         component.call(this, id, group);
@@ -7,6 +7,8 @@ define(['component'], function (component) {
         // For vertical slider
         this.verticalSlider = document.querySelector(`div.o-question-slider-vertical[data-questiongroup=${this.group}] input[type=range]`);
         this.verticalElement = document.querySelector(`div.o-question-slider-vertical[data-questiongroup=${this.group}] div.a-label-thumbvalue`);
+        // Check if the HTML direction is set to RTL
+        this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
     }
 
     // Inheritance setup
@@ -15,6 +17,7 @@ define(['component'], function (component) {
 
     // Initialization method
     aLabelThumbValueVertical.prototype.init = function () {
+        console.log(`${this.isRTL} is it isRTL???`);
         this.configureProperties();
         this.configureIncomingEventListeners();
 

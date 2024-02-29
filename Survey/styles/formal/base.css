@@ -1308,6 +1308,11 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   right: 6px;
 }
 
+html[dir=rtl] .o-question-slider-vertical-control .a-label-thumbvalue {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
 div[data-readonly=true] .m-option-base .a-label-option {
   color: #8797C8 !important;
 }
@@ -1833,10 +1838,6 @@ input[type=range]:focus::-ms-fill-lower {
 
 .o-question-hnumberslider {
   overflow: visible;
-}
-
-.o-question-container.cover-off.config-complete {
-  height: calc(64vh - 10px);
 }
 
 .o-question-slider-vertical-control {

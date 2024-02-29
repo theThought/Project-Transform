@@ -15,7 +15,7 @@
         height: 100%;
         width: 100%;
     }
-}
+}  
 
 .overall-progress.complex {
     .a-label-section-title {
@@ -597,6 +597,12 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     .m-label-ticklabels {
         left: auto;
         right: 6px;
+    }
+}
+
+html[dir="rtl"] .o-question-slider-vertical-control{
+    .a-label-thumbvalue {
+        transform: rotate(-90deg);        
     }
 }
 
