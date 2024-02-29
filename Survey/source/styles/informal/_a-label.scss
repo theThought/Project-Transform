@@ -504,8 +504,6 @@ html[dir="rtl"] .m-input-singlelineedit {
         visibility: visible;
     }
 
-    
-
     .m-style-slidermarks {
         box-sizing: border-box;
         position: absolute;
@@ -524,10 +522,11 @@ html[dir="rtl"] .m-input-singlelineedit {
             font-style: normal;
         }
     }
-
+  
     .m-label-ticklabels {
         position: relative;
-        top: -.5em;
+        // top: -.5em;
+        top: 0.5em;
         left: 6px;
         box-sizing: border-box;
         width: calc(100% - 12px);
@@ -542,9 +541,19 @@ html[dir="rtl"] .m-input-singlelineedit {
             transform: rotate(90deg);
           
         }
+        //RTL
+        html[dir="rtl"] & > span{
+            transform: rotate(270deg);
+        }
     }
+
+ 
+    
 }
 
+html[dir="rtl"] .m-style-slidermarks{
+    top: 10px;
+}
 
 .o-question-slider-vertical-control .m-label-ticklabels{
     width: calc(56vh - 10px);
@@ -554,11 +563,7 @@ html[dir="rtl"] .m-input-singlelineedit {
     width: calc(56vh - 10px);
 }
 
-
-
-
-html[dir="rtl"] .o-question-hnumberslider-control, 
-html[dir="rtl"] .o-question-slider-vertical-control {
+html[dir="rtl"] .o-question-slider-vertical-control,
 html[dir="rtl"] .o-question-slider-horizontal-control {
     .a-label-prelabel {
         left: auto;
@@ -582,6 +587,12 @@ html[dir="rtl"] .o-question-slider-horizontal-control {
     .m-label-ticklabels {
         left: auto;
         right: 6px;
+    }
+}
+
+html[dir="rtl"] .o-question-slider-vertical-control{
+    .a-label-thumbvalue {
+        transform: rotate(-90deg);        
     }
 }
 
@@ -657,4 +668,13 @@ html[dir="rtl"] .m-option-base {
 html[dir="rtl"] .m-list-optionlist:not(.display-icons) .a-label-option {
     padding-right: 0;
 }
+
+
+// ALL RTL VERTICAL STYLES
+html[dir="rtl"] {
+
+    .o-question-slider-vertical-control{
+        transform: rotate(90deg);
+    }
+
 }

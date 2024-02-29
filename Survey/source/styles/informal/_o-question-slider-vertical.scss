@@ -81,6 +81,10 @@
     background: white;
 }
 
+html[dir="rtl"] .a-style-sliderborder {
+    top: 12px;
+}
+
 .a-style-sliderclickablearea {
     position: absolute;
     top: 0;

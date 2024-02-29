@@ -10,7 +10,7 @@ define(['component'], function (component) {
         // Check if the HTML direction is set to RTL
         this.isRTL = document.documentElement.getAttribute('dir') === 'rtl';
     }
-
+//test
     // Inheritance setup
     aLabelThumbValueVertical.prototype = Object.create(component.prototype);
     aLabelThumbValueVertical.prototype.constructor = aLabelThumbValueVertical;

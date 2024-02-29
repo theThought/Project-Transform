@@ -1203,7 +1203,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 }
 .o-question-slider-vertical-control .m-label-ticklabels {
   position: relative;
-  top: -0.5em;
+  top: 0.5em;
   left: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1225,6 +1225,14 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
+html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+html[dir=rtl] .m-style-slidermarks {
+  top: 10px;
+}
 
 .o-question-slider-vertical-control .m-label-ticklabels {
   width: calc(56vh - 10px);
@@ -1234,54 +1242,53 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   width: calc(56vh - 10px);
 }
 
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel {
+html[dir=rtl] .o-question-slider-vertical-control .a-label-prelabel,
+html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel {
   left: auto;
   right: 0;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .o-question-slider-horizontal-control .a-label-postlabel,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .o-question-slider-horizontal-control .a-label-postlabel {
+html[dir=rtl] .o-question-slider-vertical-control .a-label-postlabel,
+html[dir=rtl] .o-question-slider-horizontal-control .a-label-postlabel {
   right: auto;
   left: 0;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .o-question-slider-horizontal-control .a-label-thumbvalue,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .o-question-slider-horizontal-control .a-label-thumbvalue {
+html[dir=rtl] .o-question-slider-vertical-control .a-label-thumbvalue,
+html[dir=rtl] .o-question-slider-horizontal-control .a-label-thumbvalue {
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .o-question-slider-horizontal-control .m-style-slidermarks,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .o-question-slider-horizontal-control .m-style-slidermarks {
+html[dir=rtl] .o-question-slider-vertical-control .m-style-slidermarks,
+html[dir=rtl] .o-question-slider-horizontal-control .m-style-slidermarks {
   left: auto;
   right: 6px;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels {
+html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels,
+html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels {
   left: auto;
   right: 6px;
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-option-base input:checked + label::after,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base input:checked + label::after {
+
+html[dir=rtl] .o-question-slider-vertical-control .a-label-thumbvalue {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.m-option-base input:checked + label::after {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-option-base input:checked + label > .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base input:checked + label > .a-label-option {
+.m-option-base input:checked + label > .a-label-option {
   color: #7A3996;
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-option-base input:disabled + label > .a-label-option, html[dir=rtl] .o-question-hnumberslider-control .m-option-base[data-readonly=true] label .a-label-option, html[dir=rtl] .o-question-hnumberslider-control .m-option-base[data-readonly=true] input:checked + label > .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base input:disabled + label > .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base[data-readonly=true] label .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base[data-readonly=true] input:checked + label > .a-label-option {
+.m-option-base input:disabled + label > .a-label-option, .m-option-base[data-readonly=true] label .a-label-option, .m-option-base[data-readonly=true] input:checked + label > .a-label-option {
   color: #847E88;
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-option-base .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base .a-label-option {
+.m-option-base .a-label-option {
   position: relative;
   display: inline-block;
   z-index: 2;
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-option-base label,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base label {
+.m-option-base label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1294,40 +1301,42 @@ html[dir=rtl] .o-question-slider-vertical-control .m-option-base label {
   width: 100%;
   height: 100%;
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-option-base label + .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-option-base label + .a-label-option {
+.m-option-base label + .a-label-option {
   padding-left: 0;
 }
-html[dir=rtl] .o-question-hnumberslider-control .focused .m-option-base label,
-html[dir=rtl] .o-question-slider-vertical-control .focused .m-option-base label {
+
+.focused .m-option-base label {
   border-color: white;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .m-option-base .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .m-option-base .a-label-option {
+
+html[dir=rtl] .m-option-base .a-label-option {
   padding-left: 0;
   padding-right: 38px;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .m-option-base label,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .m-option-base label {
+html[dir=rtl] .m-option-base label {
   padding: 8px 46px 8px 8px;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .m-option-base label + .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .m-option-base label + .a-label-option {
+html[dir=rtl] .m-option-base label + .a-label-option {
   padding-right: 0;
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-list-optionlist .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-list-optionlist .a-label-option {
+
+.m-list-optionlist .a-label-option {
   padding-bottom: 0;
   width: calc(100% - 1.5em);
 }
-html[dir=rtl] .o-question-hnumberslider-control .m-list-optionlist:not(.display-icons) .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control .m-list-optionlist:not(.display-icons) .a-label-option {
+
+.m-list-optionlist:not(.display-icons) .a-label-option {
   padding-left: 0;
   width: 100%;
 }
-html[dir=rtl] .o-question-hnumberslider-control html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option,
-html[dir=rtl] .o-question-slider-vertical-control html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
+
+html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   padding-right: 0;
+}
+
+html[dir=rtl] .o-question-slider-vertical-control {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .m-option-base {
@@ -1909,6 +1918,10 @@ input[type=range]:focus::-ms-fill-lower {
   border-radius: 5px;
   top: 15px;
   background: white;
+}
+
+html[dir=rtl] .a-style-sliderborder {
+  top: 12px;
 }
 
 .a-style-sliderclickablearea {
