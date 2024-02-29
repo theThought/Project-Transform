@@ -65,8 +65,15 @@ define(['component'], function (component) {
         const elementToUpdate = this.verticalElement;
 
         // Applying styles and updating content
-        elementToUpdate.style.left = `calc(${position}% - ${positionOffset}px - ${positionPaddingOffset}px)`;
-        elementToUpdate.innerHTML = value;
+        if(this.isRTL) {
+            console.log(this.isRTL);
+            elementToUpdate.style.right = `calc(${position}% - ${positionOffset}px - ${positionPaddingOffset}px)`;
+            elementToUpdate.innerHTML = value;
+        } else {
+            elementToUpdate.style.left = `calc(${position}% - ${positionOffset}px - ${positionPaddingOffset}px)`;
+
+            elementToUpdate.innerHTML = value;
+        }
     };
 
     return aLabelThumbValueVertical;
