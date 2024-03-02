@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
+                xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
    <xsl:output method="xml" indent="yes" />
    <xsl:param name="bIncludeCSSStyles" select="true()" />
    <xsl:param name="bIncludeElementIds" select="true()" />
@@ -21,7 +21,7 @@
       </xsl:choose>
    </xsl:variable>
    <!--- Basic Structure -->
-  <xsl:template match="Questions">
+   <xsl:template match="Questions">
       <xsl:for-each select="*">
          <xsl:choose>
             <xsl:when test="name()='Question'">
@@ -142,7 +142,7 @@
                </xsl:if>
             </xsl:when>
             <xsl:when test="name() = 'Error'">
-
+               
             </xsl:when>
          </xsl:choose>
       </xsl:for-each>
@@ -434,7 +434,7 @@
                      <xsl:text>option</xsl:text>
                   </xsl:when>
                   <xsl:otherwise>
-                    <xsl:text>question</xsl:text>
+                     <xsl:text>question</xsl:text>
                   </xsl:otherwise>
                </xsl:choose>
             </xsl:otherwise>
@@ -585,7 +585,7 @@
       </xsl:for-each>
    </xsl:template>
    <!--- CONTROL -->
-
+   
    <xsl:template name="Error">
       <xsl:param name="SubQuestion" select="false()" />
       <xsl:choose>
@@ -686,8 +686,8 @@
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
                   <xsl:comment>
-                  <xsl:value-of select="$qCustomType" />
-                  <xsl:text>pre terminator</xsl:text>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text>pre terminator</xsl:text>
                   </xsl:comment>
                </xsl:element>
                <xsl:call-template name="appComponentScript">
@@ -718,9 +718,9 @@
                         <xsl:text>a-style-sliderborder</xsl:text>
                      </xsl:attribute>
                      <xsl:comment>
-                      <xsl:value-of select="$qCustomType" />
-                      <xsl:text> slider border</xsl:text>
-                  </xsl:comment>
+                        <xsl:value-of select="$qCustomType" />
+                        <xsl:text> slider border</xsl:text>
+                     </xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
@@ -729,7 +729,7 @@
                      <xsl:comment>
                         <xsl:value-of select="$qCustomType" />
                         <xsl:text> tick marks</xsl:text>
-                      </xsl:comment>
+                     </xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
@@ -978,14 +978,14 @@
          <xsl:variable name="QuestionID">
             <xsl:value-of select="@QuestionName" />
          </xsl:variable>
-
+         
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qGroup" select="$qGroup" />
             <xsl:with-param name="qFullName" select="$qFullName" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
-
+         
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
@@ -1067,14 +1067,14 @@
          <xsl:variable name="QuestionID">
             <xsl:value-of select="@QuestionName" />
          </xsl:variable>
-
+         
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qGroup" select="$qGroup" />
             <xsl:with-param name="qFullName" select="$qFullName" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
-
+         
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
@@ -1330,7 +1330,7 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="style">
-         <xsl:choose>
+            <xsl:choose>
                <xsl:when test="Style/@Hidden='true'">
                   <xsl:text>visibility:hidden</xsl:text>
                </xsl:when>
@@ -1869,7 +1869,7 @@
       <!--- adds the border styles to a style attribute -->
    </xsl:template>
    <xsl:template name="PaddingStyle" />
-
+   
    <!--- Custom Templates -->
    <!--- Handling Grids -->
    <xsl:template name="StructureRow">
@@ -1957,6 +1957,7 @@
                   </xsl:when>
                </xsl:choose>
             </xsl:otherwise>
+         </xsl:choose>
       </xsl:variable>
       <xsl:element name="{$cellType}">
          <xsl:attribute name="class">
@@ -2098,9 +2099,9 @@
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
-
+   
    <!--- General Functions -->
-
+   
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -2164,7 +2165,7 @@
             </xsl:attribute>
          </xsl:if>
          <!--- CSS Class -->
-
+         
          <!--- Show Only -->
          <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or Style/Control/@ReadOnly='true'">
             <xsl:attribute name="data-readonly">
@@ -2226,11 +2227,11 @@
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
-
+         
          <xsl:attribute name="data-value">
             <xsl:value-of select="@Value" />
          </xsl:attribute>
-
+         
          <xsl:attribute name="class">
             <xsl:text>a-input-</xsl:text>
             <xsl:value-of select="$qCustomType" />
@@ -2382,7 +2383,7 @@
    <xsl:template name="CountErrors">
       <xsl:value-of select="count(./Cell[Question/Error])+count(./Cell[Error])"/>
    </xsl:template>
-
+   
    <xsl:template name="CalculateQuestionName">
       <xsl:param name="QuestionName" />
       <xsl:choose>
@@ -2394,7 +2395,7 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-
+   
    <xsl:template name="CheckedToString">
       <xsl:for-each select="Category">
          <xsl:if test="@Checked">
@@ -2402,5 +2403,5 @@
          </xsl:if>
       </xsl:for-each>
    </xsl:template>
-
+   
 </xsl:stylesheet>
