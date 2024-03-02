@@ -1268,11 +1268,21 @@
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
             <xsl:choose>
-               <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
-                  <xsl:text>true</xsl:text>
+               <xsl:when test="../name()!='Cell'">
+                  <xsl:choose>
+                     <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
+                        <xsl:text>true</xsl:text>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>false</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
                </xsl:when>
                <xsl:otherwise>
-                  <xsl:text>false</xsl:text>
+                  <xsl:call-template name="CalcExclusiveCell">
+                     <xsl:with-param name="yValue" select="../@Y" />
+                     <xsl:with-param name="xValue" select="../@X" />
+                  </xsl:call-template>
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
@@ -2332,7 +2342,24 @@
       <xsl:value-of select="translate(substring($text,1,1),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
       <xsl:value-of select="translate(substring($text,2,string-length($text)-1),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
    </xsl:template>
-
+   <xsl:template name='CalcExclusiveCell'>
+      <xsl:param name="yValue" />
+      <xsl:param name="xValue" />
+      <xsl:variable name="colExclusive">
+         <xsl:value-of select="//Questions/Question/Table/Row[@Y=$yValue]/Cell[1]/Label/Style/Font/@IsBold" />
+      </xsl:variable>
+      <xsl:variable name="rowExclusive">
+         <xsl:value-of select="//Questions/Question/Table/Row[1]/Cell[@X=$xValue]/Label/Style/Font/@IsBold" />
+      </xsl:variable>
+      <xsl:choose>
+         <xsl:when test="$rowExclusive='true' or $colExclusive='true'">
+            <xsl:text>true</xsl:text>
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:text>false</xsl:text>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
    <xsl:template name="CountErrors">
       <xsl:value-of select="count(./Cell[Question/Error])+count(./Cell[Error])"/>
    </xsl:template>
