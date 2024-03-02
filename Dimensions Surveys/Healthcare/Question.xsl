@@ -1931,16 +1931,32 @@
       </xsl:variable>
       <xsl:variable name="cellScope">
          <xsl:choose>
-            <xsl:when test="$nodeCount &lt; 1">
-               <xsl:text>col</xsl:text>
+            <xsl:when test="$Orientation='Column'">
+               <xsl:choose>
+                  <xsl:when test="$nodeCount &lt; 1">
+                     <xsl:text>col</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridCategoryText'">
+                     <xsl:text>row</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridQuestionText'">
+                     <xsl:text>col</xsl:text>
+                  </xsl:when>
+               </xsl:choose>
             </xsl:when>
-            <xsl:when test="@Class='mrGridCategoryText'">
-               <xsl:text>row</xsl:text>
-            </xsl:when>
-            <xsl:when test="@Class='mrGridQuestionText'">
-               <xsl:text>col</xsl:text>
-            </xsl:when>
-         </xsl:choose>
+            <xsl:otherwise>
+               <xsl:choose>
+                  <xsl:when test="$nodeCount &lt; 1">
+                     <xsl:text>row</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridCategoryText'">
+                     <xsl:text>col</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridQuestionText'">
+                     <xsl:text>row</xsl:text>
+                  </xsl:when>
+               </xsl:choose>
+            </xsl:otherwise>
       </xsl:variable>
       <xsl:element name="{$cellType}">
          <xsl:attribute name="class">
