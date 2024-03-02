@@ -464,7 +464,9 @@
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
-      <xsl:param name="Orientation" select="Column" />
+      <xsl:variable name="Orientation">
+         <xsl:value-of select="Style/@Orientation" />
+      </xsl:variable>
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
@@ -490,6 +492,7 @@
                      <xsl:with-param name="qFullName" select="$qFullName" />
                      <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                      <xsl:with-param name="qCustomType" select="$qCustomType" />
+                     <xsl:with-param name="Orientation" select="$Orientation" />
                   </xsl:call-template>
                </xsl:for-each>
             </xsl:element>
@@ -1900,6 +1903,7 @@
                <xsl:with-param name="qFullName" select="$qFullName" />
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                <xsl:with-param name="qCustomType" select="$qCustomType" />
+               <xsl:with-param name="Orientation" select="$Orientation" />
             </xsl:call-template>
          </xsl:for-each>
       </xsl:element>
@@ -1960,6 +1964,9 @@
          </xsl:choose>
       </xsl:variable>
       <xsl:element name="{$cellType}">
+         <xsl:attribute name="orientation">
+            <xsl:value-of select="$Orientation" />
+         </xsl:attribute>
          <xsl:attribute name="class">
             <xsl:text>m-structure-cell</xsl:text>
             <xsl:if test="*/Style/@BgColor != ''">
