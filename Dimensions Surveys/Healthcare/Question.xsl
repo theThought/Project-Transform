@@ -1937,7 +1937,7 @@
       </xsl:variable>
       <xsl:variable name="cellScope">
          <xsl:choose>
-            <xsl:when test="$Orientation = 'Column'">
+            <xsl:when test="$Orientation != 'Column'">
                <xsl:choose>
                   <xsl:when test="$nodeCount &lt; 1">
                      <xsl:text>col</xsl:text>
