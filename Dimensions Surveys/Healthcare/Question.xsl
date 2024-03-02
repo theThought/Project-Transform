@@ -284,7 +284,6 @@
                      <xsl:with-param name="theID" select="../Style/@ZIndex" />
                   </xsl:call-template>
                </xsl:with-param>
-               <xsl:with-param name="Orientation" select="../Style/@Orientation" />
             </xsl:apply-templates>
          </xsl:when>
          <xsl:when test="name() = 'Questions'">
@@ -465,11 +464,14 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:variable name="Orientation">
-         <xsl:value-of select="Style/@Orientation" />
+         <xsl:value-of select="../Style/@Orientation" />
       </xsl:variable>
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
+               <xsl:attribute name="data-orientation">
+                  <xsl:value-of select="$Orientation" />
+               </xsl:attribute>
                <xsl:attribute name="class">
                   <xsl:text>o-structure-table</xsl:text>
                </xsl:attribute>
