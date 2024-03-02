@@ -1295,6 +1295,16 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
+         <xsl:attribute name='data-hidden'>
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>true</xsl:text>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:text>false</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:attribute>
          <xsl:attribute name="class">
             <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
@@ -1303,6 +1313,13 @@
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
                   <xsl:text> side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="style">
+         <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>visibility:hidden</xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
