@@ -1267,8 +1267,11 @@
       <!--- Control Label -->
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
+            <xsl:variable name="parentName">
+               <xsl:value-of select="name(parent::*)" />
+            </xsl:variable>
             <xsl:choose>
-               <xsl:when test="../name()!='Cell'">
+               <xsl:when test="$parentName != 'Cell'">
                   <xsl:choose>
                      <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
                         <xsl:text>true</xsl:text>
