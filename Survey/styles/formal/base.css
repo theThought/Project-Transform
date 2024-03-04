@@ -1131,7 +1131,6 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   color: #212C4C;
   position: absolute;
   top: -1.1em;
-  visibility: hidden;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
@@ -1854,6 +1853,7 @@ input[type=range]:focus::-ms-fill-lower {
   min-width: calc(56vh - 10px);
   max-width: calc(56vh - 10px);
   margin-top: calc(26vh - 10px);
+  margin-bottom: calc(26vh - 10px);
 }
 .o-question-slider-vertical-control:focus .a-style-sliderborder, .o-question-slider-vertical-control:focus-visible .a-style-sliderborder, .o-question-slider-vertical-control:focus-within .a-style-sliderborder {
   -webkit-box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);

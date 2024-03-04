@@ -112,7 +112,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         case 'alabelthumbvaluevertical':
-                requirejs(['a-label-thumb-slider-vertical'], function (aLabelThumbValueVertical) {
+                requirejs(['a-label-thumbvalue-slider-vertical'], function (aLabelThumbValueVertical) {
                     app.preinitcomponents.push(new aLabelThumbValueVertical(id, group));
                 });
             break;      

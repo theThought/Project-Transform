@@ -1194,7 +1194,8 @@ Coke "Coca Cola" define
     telegraph "The Daily Telegraph",
     times "The Times",
         Independent "The Independent",
-        Guardian "Guardian"
+        Guardian "Guardian",
+        Times "The Times"
     };
     
     FullPaperList ""
@@ -1788,7 +1789,7 @@ Coke "Coca Cola" define
         use CustomList_Theme -
     };
 
-    CustomList_SetPaste1 "Paste into Input"
+    CustomList_SetPaste "Paste into Input"
         style(
             Control(
                 Type = "DropList"
@@ -5212,7 +5213,6 @@ Coke "Coca Cola" define
         categorical
         {
             FruitList use \\.fruitlist -
-            NoFruit "No Fruit" exclusive fix
         };
 
     ) expand;
@@ -5736,7 +5736,7 @@ Coke "Coca Cola" define
         CustomList_SetFocus,
         CustomList_SetDirection,
         CustomList_SetInstruction,
-        CustomList_SetPaste1,
+        CustomList_SetPaste,
         CustomList_SetJump,
         ChooseType
     );
@@ -6091,13 +6091,13 @@ CustomList_SetTheme.response.initial = {Formal}
 CustomList_SetFocus.Response.initial = {Question, Control}
 CustomList_SetDirection.Response.Initial = {LTR}
 CustomList_SetInstruction.Response.Initial = {below}
-CustomList_SetPaste1.Response.Initial = {allow}
+CustomList_SetPaste.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
 do until not askAgain
 MenuPage.Ask()
 
-if CustomList_SetPaste1.Response.containsAny("allow") then
+if CustomList_SetPaste.Response.containsAny("allow") then
 	isPaste = "true"
 else
 	isPaste = "false"

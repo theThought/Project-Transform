@@ -1091,7 +1091,6 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   color: #212C4C;
   position: absolute;
   top: -1.1em;
-  visibility: hidden;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
@@ -2607,7 +2606,7 @@ body > form {
 
 .hiddencontrol {
   position: absolute;
-  left: -9999px;
+  clip: rect(0, 0, 0, 0);
   width: 1px;
   height: 1px;
 }

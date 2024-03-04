@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
+                xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
    <xsl:output method="xml" indent="yes" />
    <xsl:param name="bIncludeCSSStyles" select="true()" />
    <xsl:param name="bIncludeElementIds" select="true()" />
@@ -21,7 +21,7 @@
       </xsl:choose>
    </xsl:variable>
    <!--- Basic Structure -->
-  <xsl:template match="Questions">
+   <xsl:template match="Questions">
       <xsl:for-each select="*">
          <xsl:choose>
             <xsl:when test="name()='Question'">
@@ -142,7 +142,7 @@
                </xsl:if>
             </xsl:when>
             <xsl:when test="name() = 'Error'">
-
+               
             </xsl:when>
          </xsl:choose>
       </xsl:for-each>
@@ -284,7 +284,6 @@
                      <xsl:with-param name="theID" select="../Style/@ZIndex" />
                   </xsl:call-template>
                </xsl:with-param>
-               <xsl:with-param name="Orientation" select="../Style/@Orientation" />
             </xsl:apply-templates>
          </xsl:when>
          <xsl:when test="name() = 'Questions'">
@@ -434,7 +433,7 @@
                      <xsl:text>option</xsl:text>
                   </xsl:when>
                   <xsl:otherwise>
-                    <xsl:text>question</xsl:text>
+                     <xsl:text>question</xsl:text>
                   </xsl:otherwise>
                </xsl:choose>
             </xsl:otherwise>
@@ -464,10 +463,15 @@
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
-      <xsl:param name="Orientation" select="Column" />
+      <xsl:variable name="Orientation">
+         <xsl:value-of select="../Style/@Orientation" />
+      </xsl:variable>
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
+               <xsl:attribute name="data-orientation">
+                  <xsl:value-of select="$Orientation" />
+               </xsl:attribute>
                <xsl:attribute name="class">
                   <xsl:text>o-structure-table</xsl:text>
                </xsl:attribute>
@@ -490,6 +494,7 @@
                      <xsl:with-param name="qFullName" select="$qFullName" />
                      <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                      <xsl:with-param name="qCustomType" select="$qCustomType" />
+                     <xsl:with-param name="Orientation" select="$Orientation" />
                   </xsl:call-template>
                </xsl:for-each>
             </xsl:element>
@@ -585,7 +590,7 @@
       </xsl:for-each>
    </xsl:template>
    <!--- CONTROL -->
-
+   
    <xsl:template name="Error">
       <xsl:param name="SubQuestion" select="false()" />
       <xsl:choose>
@@ -666,7 +671,11 @@
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
       <xsl:choose>
+<<<<<<< HEAD
          <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='slidervertical'">
+=======
+         <xsl:when test="$qCustomType='slider-horizontal' or $qCustomType='slider-vertical'">
+>>>>>>> master
             <xsl:element name="div">
                <xsl:attribute name="class">
                   <xsl:text>o-question-</xsl:text>
@@ -686,8 +695,8 @@
                      <xsl:value-of select="$qFullName" />
                   </xsl:attribute>
                   <xsl:comment>
-                  <xsl:value-of select="$qCustomType" />
-                  <xsl:text>pre terminator</xsl:text>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text>pre terminator</xsl:text>
                   </xsl:comment>
                </xsl:element>
                <xsl:call-template name="appComponentScript">
@@ -706,7 +715,7 @@
                      </xsl:if>
                   </xsl:attribute>
                   <xsl:choose>
-                     <xsl:when test="$qCustomType='sliderhorizontal'">
+                     <xsl:when test="$qCustomType='slider-horizontal'">
                         <xsl:attribute name="class">m-slider-horizontal</xsl:attribute>
                      </xsl:when>
                      <xsl:otherwise>
@@ -718,9 +727,9 @@
                         <xsl:text>a-style-sliderborder</xsl:text>
                      </xsl:attribute>
                      <xsl:comment>
-                      <xsl:value-of select="$qCustomType" />
-                      <xsl:text> slider border</xsl:text>
-                  </xsl:comment>
+                        <xsl:value-of select="$qCustomType" />
+                        <xsl:text> slider border</xsl:text>
+                     </xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
@@ -729,7 +738,7 @@
                      <xsl:comment>
                         <xsl:value-of select="$qCustomType" />
                         <xsl:text> tick marks</xsl:text>
-                      </xsl:comment>
+                     </xsl:comment>
                   </xsl:element>
                   <xsl:element name="div">
                      <xsl:attribute name="class">
@@ -978,14 +987,14 @@
          <xsl:variable name="QuestionID">
             <xsl:value-of select="@QuestionName" />
          </xsl:variable>
-
+         
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qGroup" select="$qGroup" />
             <xsl:with-param name="qFullName" select="$qFullName" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
-
+         
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
@@ -1067,14 +1076,14 @@
          <xsl:variable name="QuestionID">
             <xsl:value-of select="@QuestionName" />
          </xsl:variable>
-
+         
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qGroup" select="$qGroup" />
             <xsl:with-param name="qFullName" select="$qFullName" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
-
+         
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
@@ -1267,12 +1276,25 @@
       <!--- Control Label -->
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
+            <xsl:variable name="parentName">
+               <xsl:value-of select="name(parent::*)" />
+            </xsl:variable>
             <xsl:choose>
-               <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
-                  <xsl:text>true</xsl:text>
+               <xsl:when test="$parentName != 'Cell'">
+                  <xsl:choose>
+                     <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
+                        <xsl:text>true</xsl:text>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>false</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
                </xsl:when>
                <xsl:otherwise>
-                  <xsl:text>false</xsl:text>
+                  <xsl:call-template name="CalcExclusiveCell">
+                     <xsl:with-param name="yValue" select="../@Y" />
+                     <xsl:with-param name="xValue" select="../@X" />
+                  </xsl:call-template>
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
@@ -1295,6 +1317,16 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
+         <xsl:attribute name='data-hidden'>
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>true</xsl:text>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:text>false</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:attribute>
          <xsl:attribute name="class">
             <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
@@ -1303,6 +1335,13 @@
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
                   <xsl:text> side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="style">
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>visibility:hidden</xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
@@ -1839,7 +1878,7 @@
       <!--- adds the border styles to a style attribute -->
    </xsl:template>
    <xsl:template name="PaddingStyle" />
-
+   
    <!--- Custom Templates -->
    <!--- Handling Grids -->
    <xsl:template name="StructureRow">
@@ -1857,7 +1896,7 @@
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
-            <xsl:if test="count(Cell/Question)=0">
+            <xsl:if test="count(Cell/Question)=0 and count(Cell/Control)=0">
                <xsl:text>-heading</xsl:text>
             </xsl:if>
          </xsl:attribute>
@@ -1870,6 +1909,7 @@
                <xsl:with-param name="qFullName" select="$qFullName" />
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                <xsl:with-param name="qCustomType" select="$qCustomType" />
+               <xsl:with-param name="Orientation" select="$Orientation" />
             </xsl:call-template>
          </xsl:for-each>
       </xsl:element>
@@ -1901,18 +1941,38 @@
       </xsl:variable>
       <xsl:variable name="cellScope">
          <xsl:choose>
-            <xsl:when test="$nodeCount &lt; 1">
-               <xsl:text>col</xsl:text>
+            <xsl:when test="$Orientation != 'Column'">
+               <xsl:choose>
+                  <xsl:when test="$nodeCount &lt; 1">
+                     <xsl:text>col</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridCategoryText'">
+                     <xsl:text>row</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridQuestionText'">
+                     <xsl:text>col</xsl:text>
+                  </xsl:when>
+               </xsl:choose>
             </xsl:when>
-            <xsl:when test="@Class='mrGridCategoryText'">
-               <xsl:text>row</xsl:text>
-            </xsl:when>
-            <xsl:when test="@Class='mrGridQuestionText'">
-               <xsl:text>col</xsl:text>
-            </xsl:when>
+            <xsl:otherwise>
+               <xsl:choose>
+                  <xsl:when test="$nodeCount &lt; 1">
+                     <xsl:text>row</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridCategoryText'">
+                     <xsl:text>col</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@Class='mrGridQuestionText'">
+                     <xsl:text>row</xsl:text>
+                  </xsl:when>
+               </xsl:choose>
+            </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
       <xsl:element name="{$cellType}">
+         <xsl:attribute name="orientation">
+            <xsl:value-of select="$Orientation" />
+         </xsl:attribute>
          <xsl:attribute name="class">
             <xsl:text>m-structure-cell</xsl:text>
             <xsl:if test="*/Style/@BgColor != ''">
@@ -2052,9 +2112,9 @@
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
-
+   
    <!--- General Functions -->
-
+   
    <xsl:template name="MakeInputControl">
       <xsl:param name="qGroup" />
       <xsl:param name="qFullName" />
@@ -2081,7 +2141,11 @@
          </xsl:attribute>
          <!--- Set Control Type -->
          <xsl:choose>
+<<<<<<< HEAD
             <xsl:when test="$qCustomType='sliderhorizontal' or $qCustomType='slidervertical'">
+=======
+            <xsl:when test="$qCustomType='slider-horizontal' or $qCustomType='slider-vertical'">
+>>>>>>> master
                <xsl:attribute name="type">range</xsl:attribute>
             </xsl:when>
             <xsl:when test="$qCustomType='decimal'">
@@ -2118,9 +2182,9 @@
             </xsl:attribute>
          </xsl:if>
          <!--- CSS Class -->
-
+         
          <!--- Show Only -->
-         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false'">
+         <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or Style/Control/@ReadOnly='true'">
             <xsl:attribute name="data-readonly">
                <xsl:text>true</xsl:text>
             </xsl:attribute>
@@ -2144,7 +2208,11 @@
             <xsl:call-template name="ControlStyle">
                <xsl:with-param name="IgnoreWidth">
                   <xsl:choose>
+<<<<<<< HEAD
                      <xsl:when test="$qCustomType = 'sliderhorizontal' or $qCustomType = 'slidervertical'">
+=======
+                     <xsl:when test="$qCustomType = 'slider-horizontal' or $qCustomType = 'slider-vertical'">
+>>>>>>> master
                         <xsl:text>true</xsl:text>
                      </xsl:when>
                      <xsl:otherwise>
@@ -2180,11 +2248,11 @@
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
-
+         
          <xsl:attribute name="data-value">
             <xsl:value-of select="@Value" />
          </xsl:attribute>
-
+         
          <xsl:attribute name="class">
             <xsl:text>a-input-</xsl:text>
             <xsl:value-of select="$qCustomType" />
@@ -2196,7 +2264,11 @@
                   <xsl:text> side</xsl:text>
                </xsl:when>
             </xsl:choose>
+<<<<<<< HEAD
             <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'sliderhorizontal' or $qCustomType='slidervertical'))">
+=======
+            <xsl:if test="(($qIsCustom!='false') and ($qCustomType != 'slider-horizontal' or $qCustomType='slider-vertical'))">
+>>>>>>> master
                <xsl:text> hiddencontrol</xsl:text>
             </xsl:if>
          </xsl:attribute>
@@ -2224,10 +2296,14 @@
             <xsl:value-of select="'choice'" />
          </xsl:when>
          <xsl:when test="$theID = '-50'">
-            <xsl:value-of select="'sliderhorizontal'" />
+            <xsl:value-of select="'slider-horizontal'" />
          </xsl:when>
          <xsl:when test="$theID = '-51'">
+<<<<<<< HEAD
             <xsl:value-of select="'slidervertical'" />
+=======
+            <xsl:value-of select="'slider-vertical'" />
+>>>>>>> master
          </xsl:when>
          <xsl:when test="$theID = '-60'">
             <xsl:value-of select="'dropdown'" />
@@ -2315,11 +2391,28 @@
       <xsl:value-of select="translate(substring($text,1,1),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
       <xsl:value-of select="translate(substring($text,2,string-length($text)-1),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
    </xsl:template>
-
+   <xsl:template name='CalcExclusiveCell'>
+      <xsl:param name="yValue" />
+      <xsl:param name="xValue" />
+      <xsl:variable name="colExclusive">
+         <xsl:value-of select="//Questions/Question/Table/Row[@Y=$yValue]/Cell[1]/Label/Style/Font/@IsBold" />
+      </xsl:variable>
+      <xsl:variable name="rowExclusive">
+         <xsl:value-of select="//Questions/Question/Table/Row[1]/Cell[@X=$xValue]/Label/Style/Font/@IsBold" />
+      </xsl:variable>
+      <xsl:choose>
+         <xsl:when test="$rowExclusive='true' or $colExclusive='true'">
+            <xsl:text>true</xsl:text>
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:text>false</xsl:text>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
    <xsl:template name="CountErrors">
       <xsl:value-of select="count(./Cell[Question/Error])+count(./Cell[Error])"/>
    </xsl:template>
-
+   
    <xsl:template name="CalculateQuestionName">
       <xsl:param name="QuestionName" />
       <xsl:choose>
@@ -2331,7 +2424,7 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
-
+   
    <xsl:template name="CheckedToString">
       <xsl:for-each select="Category">
          <xsl:if test="@Checked">
@@ -2339,5 +2432,5 @@
          </xsl:if>
       </xsl:for-each>
    </xsl:template>
-
+   
 </xsl:stylesheet>

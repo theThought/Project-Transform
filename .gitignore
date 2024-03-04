@@ -1,5 +1,14 @@
 Survey/Simple Test study/TRI22DEUREP.mdd
 Survey/Transform/Transform.tmp.ivs
+<<<<<<< HEAD
 Dimensions Surveys/Healthcare/Transform.lmd
 .DS_Store
 ./node_modules
+=======
+.DS_Store
+Dimensions Surveys/Healthcare/Transform.tmp.ivs
+Dimensions Surveys/Healthcare/Transform.tmp.ivs
+Dimensions Surveys/Healthcare/Transform.lmd
+*.lmd
+*.lmd
+>>>>>>> master
