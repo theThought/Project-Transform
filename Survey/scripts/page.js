@@ -51,7 +51,7 @@ define(
         }
 
         page.prototype.styleInstructions = function () {
-            var questioninstructions = document.getElementsByClassName('o-question-instruction');
+            var questioninstructions = document.getElementsByClassName('m-message-instruction');
             var sidebyside = (typeof this.properties.sidebyside !== 'undefined');
 
             for (var i = 0; i < questioninstructions.length; i++) {
