@@ -20,6 +20,7 @@ define(['o-question'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
+            this.isRTL = document.dir === 'rtl';
         }
 
         oQuestionSliderHorizontal.prototype = Object.create(oQuestion.prototype);
@@ -148,11 +149,16 @@ define(['o-question'],
 
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             var paddingadjustmentinpixels = 20;
-            var adjustmentcalc = paddingadjustmentinpixels - (2*paddingadjustmentinpixels)*(percentage/100);
+            var adjustmentcalc = paddingadjustmentinpixels - (2 * paddingadjustmentinpixels) * (percentage / 100);
             var percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
 
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
+
+            if (this.isRTL) {
+                this.element.style.setProperty('--track-background-fill',
+                    'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
+            }
         }
 
         oQuestionSliderHorizontal.prototype.createClickableArea = function () {
