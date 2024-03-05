@@ -34,7 +34,7 @@ define(['o-question'],
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
-            this.setInitialFloodToValue();
+            this.updateFloodFill();
             this.configurationComplete();
             this.updateValue();
         }
@@ -95,8 +95,7 @@ define(['o-question'],
         }
 
         oQuestionSliderVertical.prototype.getInitialValue = function () {
-            if (typeof this.hiddenelement.value !== 'undefined'
-            && this.hiddenelement.value.length) {
+            if (typeof this.hiddenelement.value !== 'undefined' && this.hiddenelement.value.length) {
                 this.initialValue = this.hiddenelement.getAttribute('value');
                 this.element.value = this.hiddenelement.getAttribute('value');
             }
@@ -118,13 +117,12 @@ define(['o-question'],
             this.updateValue();
             this.organism.classList.remove('has-value');
             this.organism.classList.remove('active');
-            this.setInitialFloodToValue();
+            this.updateFloodFill();
             this.broadcastChange();
         }
 
         oQuestionSliderVertical.prototype.restoreEntries = function (event) {
-            if (event.detail.questionName !== this.questionName
-                || !this.restoreValues || this.initialValue === null) {
+            if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
                 return;
             }
 
@@ -133,7 +131,7 @@ define(['o-question'],
             this.updateValue();
             this.organism.classList.add('has-value');
             this.organism.classList.add('active');
-            this.setInitialFloodToValue();
+            this.updateFloodFill();
             this.broadcastChange();
         }
 
@@ -144,45 +142,25 @@ define(['o-question'],
                 this.updateFloodFill();
             }
         }
-
-        oQuestionSliderVertical.prototype.setInitialFloodToValue = function () {
-            console.log('initial fired - flood to value');
-            var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
-            var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
-            var val = Number(this.hiddenelement.value);
-            
-            var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
-            
-            this.element.style.setProperty('--track-background-fill',
-            'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
-            
-            if (this.isRTL) {
-            this.element.style.setProperty('--track-background-fill',
-            'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, '
-            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
-            }  
-        }
         
         oQuestionSliderVertical.prototype.updateFloodFill = function () {
-            console.log('updated fired - flood to value');
-            
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
-            
-            var percentagefill = (Math.abs(val - min) / Math.abs(max - min)) * 100;
+
+            var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
+            var paddingadjustmentinpixels = 20;
+            var adjustmentcalc = paddingadjustmentinpixels - (2*paddingadjustmentinpixels)*(percentage/100);
+            var percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
+
             this.element.style.setProperty('--track-background-fill',
-            'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, '
-            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
-            
+                'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+
             if (this.isRTL) {
-            this.element.style.setProperty('--track-background-fill',
-            'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, '
-            + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
-            } 
+                this.element.style.setProperty('--track-background-fill',
+                    'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + '%, transparent ' + percentagefill + '%, transparent 100%)');
+            }
         }
-        
 
         oQuestionSliderVertical.prototype.createClickableArea = function () {
             var clickableElement = document.createElement('div');
@@ -193,20 +171,20 @@ define(['o-question'],
         }
 
         oQuestionSliderVertical.prototype.values = function (props) {
-            this.element.min = props['min'];
-            this.element.max = props['max'];
+            this.element.min = props.min;
+            this.element.max = props.max;
         }
 
         oQuestionSliderVertical.prototype.show = function (props) {
-            if (props['marks'] === true) {
+            if (props.marks === true) {
                 this.showMarks();
             }
 
-            if (props['value'] === true) {
+            if (props.value === true) {
                 this.showValue();
             }
 
-            if (props['terminators'] === true) {
+            if (props.terminators === true) {
                 this.showTerminators();
             }
         }
@@ -218,7 +196,9 @@ define(['o-question'],
             var max = this.element.max ? parseInt(this.element.max) : 100;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
 
-            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
+            if (step === 0) {
+                step = Math.floor(((max - min) / 100) * 10);
+            }
 
             for (var i = min; i <= max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
@@ -236,7 +216,9 @@ define(['o-question'],
             var max = this.element.max ? parseInt(this.element.max) : 100;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 10 : parseInt(this.properties.ticklabels);
 
-            if (step === 0) step = Math.floor(((max - min) / 100) * 10);
+            if (step === 0) {
+                step = Math.floor(((max - min) / 100) * 10);
+            }
 
             for (var i = min; i <= max; i = i + step) {
                 labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + i + '</span>';
@@ -268,20 +250,20 @@ define(['o-question'],
         }
 
         oQuestionSliderVertical.prototype.labels = function (props) {
-            if (props['pre']) {
+            if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-outer-prelabel';
-                var preContent = document.createTextNode(props['pre']);
+                var preContent = document.createTextNode(props.pre);
                 preElement.appendChild(preContent);
 
                 this.organism.classList.add('has-pre-label');
                 this.organism.insertBefore(preElement, this.organism.firstChild);
             }
 
-            if (props['post']) {
+            if (props.post) {
                 var postElement = document.createElement('span');
                 postElement.className = 'a-label-outer-postlabel';
-                var postContent = document.createTextNode(props['post']);
+                var postContent = document.createTextNode(props.post);
                 postElement.appendChild(postContent);
 
                 this.organism.classList.add('has-post-label');
@@ -290,16 +272,16 @@ define(['o-question'],
         }
 
         oQuestionSliderVertical.prototype.thumb = function (props) {
-            if (props['image']) {
-                this.setThumbImage(props['image']);
+            if (props.image) {
+                this.setThumbImage(props.image);
             }
 
-            if (props['width']) {
-                this.setThumbWidth(props['width']);
+            if (props.width) {
+                this.setThumbWidth(props.width);
             }
 
-            if (props['height']) {
-                this.setThumbHeight(props['height']);
+            if (props.height) {
+                this.setThumbHeight(props.height);
             }
         }
 
@@ -347,18 +329,22 @@ define(['o-question'],
         oQuestionSliderVertical.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.max);
+
             if (currentValue < maxValue) {
                 this.element.value++;
             }
+
             this.onInput(true);
         }
 
         oQuestionSliderVertical.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var maxValue = parseInt(this.element.min);
+
             if (currentValue > maxValue) {
                 this.element.value--;
             }
+
             this.onInput(true);
         }
 
@@ -377,5 +363,7 @@ define(['o-question'],
             this.element.value = this.value;
             this.setHiddenValue(this.value);
         }
+
         return oQuestionSliderVertical;
+
     });
