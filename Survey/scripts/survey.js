@@ -92,11 +92,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionSlider(id, group));
             });
             break;
-        case 'oquestionslider-vertical':
-            requirejs(['o-question-slider-vertical'], function (oQuestionSliderVertical) {
-                app.preinitcomponents.push(new oQuestionSliderVertical(id, group));
-            });
-            break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.preinitcomponents.push(new aInputButtonDec(id, group));
@@ -112,14 +107,8 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new aLabelThumbValue(id, group));
             });
             break;
-        case 'alabelthumbvaluevertical':
-                requirejs(['a-label-thumbvalue-slider-vertical'], function (aLabelThumbValueVertical) {
-                    app.preinitcomponents.push(new aLabelThumbValueVertical(id, group));
-                });
-            break;      
         default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
-            console.info(`ERROR - A request was made to register an unrecognised component type, ${componentType} -- ${id}  --${group}`);
     }
 
 }
