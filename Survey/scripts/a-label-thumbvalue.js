@@ -11,8 +11,8 @@ define(['component'],
         function aLabelThumbValue(id, group) {
             component.call(this, id, group);
 
-            this.element = document.querySelector('div.o-question-slider-horizontal[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
-            this.slider = document.querySelector('div.o-question-slider-horizontal[data-questiongroup=' + this.group + '] input[type=range]');
+            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] div.a-label-thumbvalue');
+            this.slider = document.querySelector('div[data-questiongroup=' + this.group + '] input[type=range]');
         }
 
         aLabelThumbValue.prototype = Object.create(component.prototype);
