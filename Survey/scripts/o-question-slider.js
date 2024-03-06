@@ -144,6 +144,7 @@ define(['o-question'],
         }
 
         oQuestionSlider.prototype.updateFloodFill = function () {
+            console.log('updated updateFloodFill');
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
