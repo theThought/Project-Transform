@@ -18,6 +18,7 @@ define(
             this.horizontalSlider = null;
             this.verticalElement = null;
             this.verticalSlider = null;
+
             this.container = null;
             this.value = null;
             this.restoreValues = false;

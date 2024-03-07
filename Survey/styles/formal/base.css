@@ -2429,6 +2429,11 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   padding-left: 28px;
 }
 
+.m-t-scale.background {
+  background-repeat: no-repeat;
+  height: 100px;
+}
+
 .o-question-container {
   padding: 1em;
   position: relative;

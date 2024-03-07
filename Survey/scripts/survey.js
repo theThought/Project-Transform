@@ -92,6 +92,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionSlider(id, group));
             });
             break;
+        case 'oquestion-t-scale':
+            requirejs(['o-question-t-scale'], function (oQuestionTScale) {
+                app.preinitcomponents.push(new oQuestionTScale(id, group));
+            });
+            break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.preinitcomponents.push(new aInputButtonDec(id, group));
