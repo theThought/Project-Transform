@@ -1276,7 +1276,7 @@
                <xsl:value-of select="name(parent::*)" />
             </xsl:variable>
             <xsl:choose>
-               <xsl:when test="$parentName != 'Cell'">
+               <xsl:when test="../@X=0">
                   <xsl:choose>
                      <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
                         <xsl:text>true</xsl:text>
