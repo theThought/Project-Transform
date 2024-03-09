@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
    <xsl:output method="xml" indent="yes" />
    <xsl:param name="bIncludeCSSStyles" select="true()" />
    <xsl:param name="bIncludeElementIds" select="true()" />
@@ -1165,7 +1164,7 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:attribute name='data-hidden'>
+        <xsl:attribute name='data-hidden'>
             <xsl:choose>
                <xsl:when test="Style/@Hidden='true'">
                   <xsl:text>true</xsl:text>
@@ -1175,7 +1174,7 @@
                </xsl:otherwise>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:attribute name="class">
+          <xsl:attribute name="class">
             <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
@@ -1338,6 +1337,13 @@
                </xsl:when>
                <xsl:when test="Style/@ElementAlign='Right'">
                   <xsl:text> side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="style">
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>visibility:hidden</xsl:text>
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
