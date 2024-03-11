@@ -103,12 +103,34 @@
                             <!--t-scale pre terminator-->
                         </button>
                         <script>app.registerComponent('aButtonPreTerminator', '_Q17_Preterm', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
-                    <img src="../../Survey/images/formal/BusIcons/busScaleIcon.svg" />
-                    <img src="../../Survey/images/formal/BusIcons/scaleIcon.svg" />
-                    <img src="../../Survey/images/formal/BusIcons/scaleIconActive.svg" />
                     
-                        <div style="" class="m-t-scale background">
-                          <!-- The background class above it where I want to target  -->
+                    
+                        <div style="" class="m-t-scale"	>
+							
+								<label>
+								  <input type="checkbox" class="hidden" value="1">
+								  <div class="person" data-index="1" onclick="updatePersonIcons(1)">&#128100;</div>
+								</label>
+								<label>
+								  <input type="checkbox" class="hidden" value="2">
+								  <div class="person" data-index="2" onclick="updatePersonIcons(2)">&#128100;</div>
+								</label>
+								<label>
+								  <input type="checkbox" class="hidden" value="3">
+								  <div class="person" data-index="3" onclick="updatePersonIcons(3)">&#128100;</div>
+								</label>
+								<label>
+								  <input type="checkbox" class="hidden" value="4">
+								  <div class="person" data-index="4" onclick="updatePersonIcons(4)">&#128100;</div>
+								</label>
+								<label>
+								  <input type="checkbox" class="hidden" value="5">
+								  <div class="person" data-index="5" onclick="updatePersonIcons(5)">&#128100;</div>
+								</label>
+							  
+
+
+                          
                             <input data-questionid="_Q17"
                                    data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
                                    name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"

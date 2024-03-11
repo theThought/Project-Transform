@@ -2429,9 +2429,15 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   padding-left: 28px;
 }
 
-.m-t-scale.background {
+.m-t-scale {
   background-repeat: no-repeat;
-  height: 100px;
+  height: 20vh;
+}
+
+.m-t-scale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .o-question-container {
