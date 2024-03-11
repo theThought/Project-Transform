@@ -44,6 +44,7 @@ define(['component'],
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
+            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case 'paste':
                     this.onPaste(event);

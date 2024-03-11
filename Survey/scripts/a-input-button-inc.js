@@ -36,6 +36,7 @@ define(['component'],
         }
 
         aInputButtonInc.prototype.handleEvent = function (event) {
+            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case "click":
                     this.onClick(event);

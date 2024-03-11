@@ -38,6 +38,7 @@ define(['component', 'ua-parser.min'],
         }
 
         aInputReadWriteEdit.prototype.handleEvent = function (event) {
+            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case "keyup":
                 case "change":

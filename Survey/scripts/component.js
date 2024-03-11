@@ -49,6 +49,10 @@ define(
             }
         }
 
+        component.prototype.handleEvent = function (event) {
+
+        }
+
         component.prototype.configureProperties = function (propertiesName) {
             propertiesName = (typeof propertiesName === 'undefined') ? this.group : propertiesName;
 
@@ -65,10 +69,12 @@ define(
         component.prototype.getInitialValue = function () {
             if (typeof this.element.value !== 'undefined') {
                 this.initialValue = this.element.value;
+                this.value = this.element.value;
             }
 
             if (typeof this.checkbox !== "undefined") {
                 this.initialValue = (this.checkbox.checked);
+                this.value = (this.checkbox.checked);
             }
         }
 

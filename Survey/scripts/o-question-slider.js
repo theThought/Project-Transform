@@ -54,6 +54,7 @@ define(['o-question'],
         }
 
         oQuestionSlider.prototype.handleEvent = function (event) {
+            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case 'clearEntries':
                     this.clearEntriesFromExternal(event);

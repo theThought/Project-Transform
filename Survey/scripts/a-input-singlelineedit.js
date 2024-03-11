@@ -59,6 +59,7 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
+            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case 'paste':
                     this.onPaste(event);

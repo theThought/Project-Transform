@@ -34,6 +34,7 @@ define(['component'],
         }
 
         aLabelThumbValue.prototype.handleEvent = function (event) {
+            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case this.group + '_updateValue':
                     this.updateValue(event.detail);
