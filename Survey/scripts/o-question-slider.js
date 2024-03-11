@@ -149,6 +149,8 @@ define(['o-question'],
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
 
+            console.log(val);
+
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             var paddingadjustmentinpixels = 20;
             var adjustmentcalc = paddingadjustmentinpixels - (2 * paddingadjustmentinpixels) * (percentage / 100);

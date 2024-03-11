@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
    <xsl:output method="xml" indent="yes" />
    <xsl:param name="bIncludeCSSStyles" select="true()" />
    <xsl:param name="bIncludeElementIds" select="true()" />
@@ -1169,7 +1168,17 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:attribute name="class">
+        <xsl:attribute name='data-hidden'>
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>true</xsl:text>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:text>false</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:attribute>
+          <xsl:attribute name="class">
             <xsl:text>m-option-base </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
@@ -1276,11 +1285,8 @@
       <!--- Control Label -->
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
-            <xsl:variable name="parentName">
-               <xsl:value-of select="name(parent::*)" />
-            </xsl:variable>
             <xsl:choose>
-               <xsl:when test="$parentName != 'Cell'">
+               <xsl:when test="../@X=0">
                   <xsl:choose>
                      <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
                         <xsl:text>true</xsl:text>
