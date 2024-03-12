@@ -74,6 +74,7 @@ button.a-button-postterminator {
 }
 
 // Having display block here is the issue I am facing!
+// To be investigated and worked on asap
 // .has-terminators {
 //     .a-button-preterminator,
 //     .a-button-postterminator {
@@ -84,6 +85,7 @@ button.a-button-postterminator {
 
 
 //This is a small fix for now. 
+// I am not 100% sure if my mapping is incorrect - as it kept hiding this. 
 .o-question-slider-vertical-control .a-label-thumbvalue{
     visibility: visible !important;
 }
