@@ -1093,6 +1093,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   top: -1.1em;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  visibility: visible;
 }
 .o-question-slider-horizontal-control.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;

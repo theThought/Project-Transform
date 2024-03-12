@@ -419,8 +419,8 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$titles;
         position: absolute;
         top: -1.1em;
-        // visibility: hidden;
         transform: translateX(-50%);
+        visibility: visible;
     }
 
     &.active.has-value.has-thumb-value .a-label-thumbvalue {
@@ -496,7 +496,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$titles;
         position: absolute;
         top: -2em;
-        // visibility: hidden;
+        
         transform: rotate(90deg);
     }
     

@@ -74,13 +74,18 @@ button.a-button-postterminator {
 }
 
 // Having display block here is the issue I am facing!
-
 // .has-terminators {
-//     // .a-button-preterminator,
-//     // .a-button-postterminator {
-//     //     // display: block;
-//     //     // display: contents;
-//     // }
+//     .a-button-preterminator,
+//     .a-button-postterminator {
+//         display: block;
+//         display: contents;
+//     }
+// }
+
+
+//This is a small fix for now. 
+// .o-question-slider-vertical-control .a-label-thumbvalue{
+//     visibility: visible !important;
 // }
 
 button.a-button-postterminator {
