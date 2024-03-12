@@ -13,7 +13,7 @@
 }
 
 .o-question-slider-vertical{
-    display: table;
+    display: table; 
 }
 
 .o-rotate{
@@ -21,13 +21,14 @@
     height: 0;
 }
 .o-question-slider-vertical-control{
-    
-    display: block;
-     display: flex;
+    display: flex;
     align-items: flex-start;
     position: relative;
     transform: rotate(270deg);  
-    min-width: globals.$min-display-width;
+    // min-width: globals.$min-display-width;
+
+    //just for the vertical sliders!
+    min-width: 460px;
     
     &:focus,
     &:focus-visible,
@@ -88,6 +89,7 @@
     position: absolute;
     z-index: 3;
     width: 100%;
+    
     height: 24px;
     border: globals.$border-thickness solid globals.$borders;
     border-radius: 10px;

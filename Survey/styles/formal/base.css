@@ -338,11 +338,6 @@ button.a-button-postterminator {
   color: #455B97;
 }
 
-.has-terminators .a-button-preterminator,
-.has-terminators .a-button-postterminator {
-  display: block;
-}
-
 button.a-button-postterminator {
   margin-left: 1em;
 }
@@ -1144,8 +1139,8 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: calc(100% - 12px);
-  left: 6px;
+  width: 100%;
+  left: 46px;
   top: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1171,7 +1166,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   left: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: calc(100% - 12px);
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1841,7 +1836,6 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-question-slider-vertical-control {
-  display: block;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1851,7 +1845,7 @@ input[type=range]:focus::-ms-fill-lower {
   position: relative;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
-  min-width: 343px;
+  min-width: 460px;
 }
 .o-question-slider-vertical-control:focus .a-style-sliderborder, .o-question-slider-vertical-control:focus-visible .a-style-sliderborder, .o-question-slider-vertical-control:focus-within .a-style-sliderborder {
   -webkit-box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
