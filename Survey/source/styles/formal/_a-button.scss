@@ -74,13 +74,14 @@ button.a-button-postterminator {
 }
 
 // Having display block here is the issue I am facing!
-.has-terminators {
-    .a-button-preterminator,
-    .a-button-postterminator {
-        // display: block;
-        // display: contents;
-    }
-}
+
+// .has-terminators {
+//     // .a-button-preterminator,
+//     // .a-button-postterminator {
+//     //     // display: block;
+//     //     // display: contents;
+//     // }
+// }
 
 button.a-button-postterminator {
     margin-left: 1em;
