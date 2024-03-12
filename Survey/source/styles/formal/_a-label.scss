@@ -465,19 +465,12 @@ html[dir="rtl"] .m-input-singlelineedit {
             text-align: center;
             flex: 0 1 40px;
             display: block;
-
-            //conditional if is the V slider:
-            // @at-root .o-question-slider-vertical-control & {
-            //     transform: rotate(90deg);
-            // }
         }
 
     }
 
 }
 
-
- 
 
 .o-question-slider-vertical-control {
     .a-label-outer-prelabel,
@@ -506,8 +499,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$titles;
         position: absolute;
         top: -2em;
-        // visibility: hidden;
-        visibility: visible;
+        visibility: hidden;
         transform: rotate(90deg);
     }
 
@@ -521,7 +513,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         box-sizing: border-box;
         position: absolute;
         z-index: 3;
-        width: calc(100% - 12px);
+        width:100%; 
         left: 6px;
         top: 14px;
         display: flex;
@@ -533,18 +525,18 @@ html[dir="rtl"] .m-input-singlelineedit {
             flex: 0 1 40px;
             display: block;
             font-style: normal;
-        }
+        }   
     }
-
     .m-label-ticklabels { 
         position: relative;
         top: 0.5em;
         left: 6px;
         box-sizing: border-box;
-        width: calc(100% - 12px);
+        width: 100%;
         display: flex;
         justify-content: space-between;
         color: globals.$borders;
+        
 
         & > span {
             text-align: center;
@@ -560,14 +552,6 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-
-.o-question-slider-vertical-control .m-label-ticklabels{
-    width: calc(56vh - 10px);
-}
-
-.o-question-slider-vertical-control .m-style-slidermarks{
-    width: calc(56vh - 10px);
-}
 
 html[dir="rtl"] .o-question-slider-horizontal-control, 
 html[dir="rtl"] .o-question-slider-vertical-control {

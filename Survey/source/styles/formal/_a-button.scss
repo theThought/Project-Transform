@@ -77,8 +77,14 @@ button.a-button-postterminator {
     .a-button-preterminator,
     .a-button-postterminator {
         display: block;
+        // display: contents;
+        
     }
 }
+
+
+
+
 
 button.a-button-postterminator {
     margin-left: 1em;

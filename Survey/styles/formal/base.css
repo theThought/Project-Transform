@@ -1213,7 +1213,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   color: #212C4C;
   position: absolute;
   top: -2em;
-  visibility: visible;
+  visibility: hidden;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
@@ -1225,7 +1225,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: calc(100% - 12px);
+  width: 100%;
   left: 6px;
   top: 14px;
   display: -webkit-box;
@@ -1250,7 +1250,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   left: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: calc(100% - 12px);
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1271,14 +1271,6 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
-}
-
-.o-question-slider-vertical-control .m-label-ticklabels {
-  width: calc(56vh - 10px);
-}
-
-.o-question-slider-vertical-control .m-style-slidermarks {
-  width: calc(56vh - 10px);
 }
 
 html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel,
@@ -1839,21 +1831,27 @@ input[type=range]:focus::-ms-fill-lower {
   overflow: visible;
 }
 
+.o-question-slider-vertical {
+  display: table;
+}
+
+.o-rotate {
+  padding: 70% 0;
+  height: 0;
+}
+
 .o-question-slider-vertical-control {
-  position: relative;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+  display: block;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-bottom: 0.5em;
-  min-width: calc(56vh - 10px);
-  max-width: calc(56vh - 10px);
-  margin-top: calc(26vh - 10px);
-  margin-bottom: calc(26vh - 10px);
+  position: relative;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  min-width: 343px;
 }
 .o-question-slider-vertical-control:focus .a-style-sliderborder, .o-question-slider-vertical-control:focus-visible .a-style-sliderborder, .o-question-slider-vertical-control:focus-within .a-style-sliderborder {
   -webkit-box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
@@ -1886,14 +1884,14 @@ input[type=range]:focus::-ms-fill-lower {
           flex-grow: 1;
 }
 
-.m-numberslider-horizontal {
+.m-numberslider-vertical {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
 
-.m-numberslider-horizontal[style*=width] {
+.m-numberslider-vertical[style*=width] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -1925,7 +1923,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-slider-vertical input[type=range] {
   position: relative;
   z-index: 3;
-  width: calc(56vh - 10px);
+  width: 100%;
   left: 6px;
   height: 48px;
   margin: 0;
