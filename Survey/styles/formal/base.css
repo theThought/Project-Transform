@@ -338,6 +338,10 @@ button.a-button-postterminator {
   color: #455B97;
 }
 
+.o-question-slider-vertical-control .a-label-thumbvalue {
+  visibility: visible !important;
+}
+
 button.a-button-postterminator {
   margin-left: 1em;
 }
