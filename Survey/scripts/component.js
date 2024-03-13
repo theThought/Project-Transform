@@ -16,8 +16,9 @@ define(
             this.element = null;
             this.container = null;
             this.value = null;
-            this.restoreValues = false;
             this.initialValue = null;
+            this.hasChangedValue = false;
+            this.restoreValues = false;
             this.isDebugging = true;
             this.questionName = app.extractQuestionName(group);
             this.complexVisibilityRule = '';
@@ -49,8 +50,24 @@ define(
             }
         }
 
-        component.prototype.handleEvent = function (event) {
+        component.prototype.init = function () {
+            this.getInitialValue();
+            this.value = this.getCurrentValue();
+        }
 
+        component.prototype.handleEvent = function (event) {
+            return;
+
+            if (event.target.id !== this.id && !(this.element.contains(event.target))) {
+                return;
+            }
+
+            var newValue = this.getCurrentValue();
+
+            if (this.value !== newValue) {
+                this.hasChangedValue = true;
+                this.value = newValue;
+            }
         }
 
         component.prototype.configureProperties = function (propertiesName) {
@@ -69,13 +86,21 @@ define(
         component.prototype.getInitialValue = function () {
             if (typeof this.element.value !== 'undefined') {
                 this.initialValue = this.element.value;
-                this.value = this.element.value;
             }
 
             if (typeof this.checkbox !== "undefined") {
                 this.initialValue = (this.checkbox.checked);
-                this.value = (this.checkbox.checked);
             }
+        }
+
+        component.prototype.getCurrentValue = function () {
+            var value = this.element.value;
+
+            if (typeof this.checkbox !== "undefined") {
+                value = (this.checkbox.checked);
+            }
+
+            return value;
         }
 
         component.prototype.setInitialContentClass = function () {
@@ -104,7 +129,6 @@ define(
             return overflow;
         };
 
-
         component.prototype.configurationComplete = function () {
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
             this.element.dispatchEvent(completeEvent);
@@ -113,8 +137,23 @@ define(
         }
 
         component.prototype.broadcastChange = function () {
+
+            // do not broadcast events during page initialisation
+            if (this.isInitialising) {
+                return;
+            }
+            
+            // do not broadcast a change when the value has not altered
+            if (!this.hasChangedValue) {
+                return;
+            }
+
+            console.log('broadcasting a change');
+
             var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
             this.element.dispatchEvent(broadcastChange);
+            
+            this.hasChangedValue = false;
         }
 
         component.prototype.clearEntries = function () {

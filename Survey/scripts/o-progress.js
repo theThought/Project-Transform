@@ -28,7 +28,6 @@ define(['component'],
         }
 
         oProgress.prototype.handleEvent = function (event) {
-            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 // event handlers to match incoming event listeners
             }

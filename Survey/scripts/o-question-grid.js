@@ -44,7 +44,6 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.handleEvent = function (event) {
-            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case "broadcastChange":
                     this.receiveBroadcast(event);

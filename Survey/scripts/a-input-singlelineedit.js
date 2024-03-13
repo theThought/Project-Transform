@@ -59,7 +59,6 @@ define(['component', 'pikaday'],
         }
 
         aInputSingleLineEdit.prototype.handleEvent = function (event) {
-            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case 'paste':
                     this.onPaste(event);
@@ -242,7 +241,7 @@ define(['component', 'pikaday'],
             }
             decButton.onmousedown = function () {
                 that.element.value = Number(that.element.value) - that.stepValue;
-                that.broadcastChange()
+                that.broadcastChange();
             }
             spinnerWrapper.appendChild(incButton);
             spinnerWrapper.appendChild(decButton);

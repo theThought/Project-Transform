@@ -41,11 +41,14 @@ define(['component'],
             this.element.addEventListener('focusin', this, false);
             this.element.addEventListener('input', this, false);
             this.element.addEventListener('paste', this, false);
+            this.element.addEventListener('change', this, false);
         }
 
         aInputMultilineEdit.prototype.handleEvent = function (event) {
-            component.prototype.handleEvent.call(this);
             switch (event.type) {
+                case 'change':
+                    this.onChange();
+                    break;
                 case 'paste':
                     this.onPaste(event);
                     break;
@@ -72,6 +75,10 @@ define(['component'],
 
         aInputMultilineEdit.prototype.paste = function (prop) {
             this.allowPaste = prop;
+        }
+
+        aInputMultilineEdit.prototype.onChange = function () {
+            this.broadcastChange();
         }
 
         aInputMultilineEdit.prototype.onPaste = function (event) {

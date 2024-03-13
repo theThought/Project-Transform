@@ -36,7 +36,7 @@ define(['o-question'],
             this.setThumbVisibility();
             this.updateFloodFill();
             this.configurationComplete();
-            this.updateValue();
+            //this.updateValue();
         }
 
         oQuestionSlider.prototype.configureIncomingEventListeners = function () {
@@ -54,7 +54,6 @@ define(['o-question'],
         }
 
         oQuestionSlider.prototype.handleEvent = function (event) {
-            component.prototype.handleEvent.call(this);
             switch (event.type) {
                 case 'clearEntries':
                     this.clearEntriesFromExternal(event);
