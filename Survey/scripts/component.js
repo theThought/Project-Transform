@@ -78,7 +78,7 @@ define(
         }
 
         component.prototype.getCurrentValue = function () {
-            var value = this.element.value;
+            var value = (this.element.value) ? this.element.value : null
 
             if (typeof this.checkbox !== "undefined") {
                 value = (this.checkbox.checked);
