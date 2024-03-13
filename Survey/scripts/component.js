@@ -17,7 +17,6 @@ define(
             this.container = null;
             this.value = null;
             this.initialValue = null;
-            this.hasChangedValue = false;
             this.restoreValues = false;
             this.isDebugging = true;
             this.questionName = app.extractQuestionName(group);
@@ -53,21 +52,6 @@ define(
         component.prototype.init = function () {
             this.getInitialValue();
             this.value = this.getCurrentValue();
-        }
-
-        component.prototype.handleEvent = function (event) {
-            return;
-
-            if (event.target.id !== this.id && !(this.element.contains(event.target))) {
-                return;
-            }
-
-            var newValue = this.getCurrentValue();
-
-            if (this.value !== newValue) {
-                this.hasChangedValue = true;
-                this.value = newValue;
-            }
         }
 
         component.prototype.configureProperties = function (propertiesName) {
@@ -136,6 +120,14 @@ define(
             this.isInitialising = false;
         }
 
+        component.prototype.hasChangedValue = function () {
+            var oldValue = this.value;
+            var newValue = this.getCurrentValue();
+            this.value = newValue;
+
+            return oldValue !== newValue;
+        }
+
         component.prototype.broadcastChange = function () {
 
             // do not broadcast events during page initialisation
@@ -144,7 +136,7 @@ define(
             }
             
             // do not broadcast a change when the value has not altered
-            if (!this.hasChangedValue) {
+            if (!this.hasChangedValue()) {
                 return;
             }
 
@@ -152,8 +144,6 @@ define(
 
             var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
             this.element.dispatchEvent(broadcastChange);
-            
-            this.hasChangedValue = false;
         }
 
         component.prototype.clearEntries = function () {
