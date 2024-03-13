@@ -510,7 +510,8 @@ html[dir="rtl"] .m-input-singlelineedit {
         z-index: 3;
         width: calc(100% - 12px);
         left: 6px;
-        top: 14px;
+        // top: 14px;
+        top: 11px;
         display: flex;
         justify-content: space-between;
         color: globals.$borders;

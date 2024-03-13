@@ -7,20 +7,54 @@
     --track-thumb-height: 45px;
 }
 
+// This rotates the image
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--track-thumb-width);
+    height: var(--track-thumb-height);
+    background-image: var(--track-thumb-image);
+    transform: rotate(90deg);
+    background-size: cover; 
+}
+input[type="range"]::-moz-range-thumb {
+    width: var(--track-thumb-width);
+    height: var(--track-thumb-height);
+    background-image: var(--track-thumb-image);
+    transform: rotate(90deg); 
+    background-size: cover; 
+}
 // question response-level container
-.o-question-slider-vertical {
+.o-question-hnumberslider {
     overflow: visible;
 }
-.o-question-slider-vertical-control {
-    position: relative;
-    transform: rotate(-90deg);
+
+.o-question-slider-vertical{
+    display: table; 
+}
+
+.o-slider-rotate{
+    // padding: 70% 0;
+    padding: 50% 0 70% 0;
+    height: 0;
+}
+.o-question-slider-vertical-control{
     display: flex;
     align-items: flex-start;
-    margin-bottom: .5em;
-    min-width: calc(56vh - 10px);
-    max-width: calc(56vh - 10px);
-    margin-top: calc(26vh - 10px);
+    position: relative;
+    transform: rotate(270deg);  
     // min-width: globals.$min-display-width;
+
+    //just for the vertical sliders!
+    min-width: 460px;
+    
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+        .a-style-sliderborder {
+            box-shadow: 0 11px 11px -6px rgba(0, 0, 0, 0.25), 0 -11px 11px -6px rgba(49, 46, 46, 0.25);
+        }
+    }
 
     &.has-value {
         input[type=range]::-webkit-slider-thumb {
@@ -37,7 +71,7 @@
     }
 
     &.has-thumb-value {
-        padding-top: 1em;
+        padding-top: 0em;
     }
 
     &.has-pre-label,
@@ -54,7 +88,6 @@
             display: block;
         }
     }
-
     & > div {
         flex-grow: 1;
     }
@@ -77,7 +110,8 @@
     height: 24px;
     border: globals.$border-thickness solid globals.$theme-primary;
     border-radius: globals.$border-radius;
-    top: 15px;
+    // top: 15px;
+    top: 12px;
     background: white;
 }
 
