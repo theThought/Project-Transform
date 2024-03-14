@@ -92,11 +92,32 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionSlider(id, group));
             });
             break;
-        case 'oquestion-t-scale':
-            requirejs(['o-question-t-scale'], function (oQuestionTScale) {
-                app.preinitcomponents.push(new oQuestionTScale(id, group));
+        case 'oquestionscalehorizontal': 
+            requirejs(['o-question-scale-horizontal'], function (oQuestionScaleHorizontal) {
+                console.log('Registering oQuestionScaleHorizontal');
+                app.preinitcomponents.push(new oQuestionScaleHorizontal(id, group));
             });
             break;
+        case 'oscale':
+            requirejs(['o-scale'], function (oScale) {
+                console.log('Registering oScale');
+                app.preinitcomponents.push(new oScale(id, group));
+            });
+            break;
+        case 'oscalecontainer':
+            requirejs(['o-scale-container'], function (oScaleContainer) {
+                console.log('Registering oScaleContainer');
+                app.preinitcomponents.push(new oScaleContainer(id, group));
+            });
+            break;
+case 'mscaleunit':
+    requirejs(['m-scale-unit'], function (mScaleUnit) {
+        console.log('Registering mScaleUnit');
+        app.preinitcomponents.push(new mScaleUnit(id, group));
+    });
+    break;
+
+        
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.preinitcomponents.push(new aInputButtonDec(id, group));
