@@ -2,16 +2,14 @@ define(['o-question'], function (oQuestion) {
     function oQuestionScaleHorizontal(id, group) {
         oQuestion.call(this, id, group);
         
-        
-
         this.singleStateImage = document.querySelector('.m-image-singlestate');
 
         var properties = this.fetchProperties(group);
-        if (properties && properties.unit) {
-            this.setImageAndAlt(properties.unit);
+        if (properties && properties.background) {
+            console.log(properties);
+            console.log(properties.background);
+            this.setImageAndAlt(properties.background);
         }
-
-        this.initPersonIcons();
     }
 
     oQuestionScaleHorizontal.prototype = Object.create(oQuestion.prototype);
@@ -21,32 +19,15 @@ define(['o-question'], function (oQuestion) {
         return app.getProperties(group); 
     };
 
-    
-    oQuestionScaleHorizontal.prototype.setImageAndAlt = function(unitProps) {
+    oQuestionScaleHorizontal.prototype.setImageAndAlt = function(backgroundProps) {
         if (this.singleStateImage) {
-            if (unitProps.image) {
-                this.singleStateImage.src = unitProps.image;
+            if (backgroundProps.image) {
+                this.singleStateImage.src = backgroundProps.image;
             }
-            if (unitProps.caption) {
-                this.singleStateImage.alt = unitProps.caption;
+            if (backgroundProps.caption) {
+                this.singleStateImage.alt = backgroundProps.caption;
             }
         }
-    };
-
-
-    oQuestionScaleHorizontal.prototype.initPersonIcons = function() {
-        var self = this; 
-        var checkboxes = document.querySelectorAll('.person-checkbox');
-        checkboxes.forEach(function(checkbox, index) {
-            checkbox.addEventListener('change', function() {
-                self.updatePersonIcons(index + 1);
-            });
-        });
-    };
-
-    oQuestionScaleHorizontal.prototype.updatePersonIcons = function(clickedIndex) {
-        // Assuming you've updated this function according to your HTML structure.
-        // Implementation details remain the same as your previous approach.
     };
 
     return oQuestionScaleHorizontal;

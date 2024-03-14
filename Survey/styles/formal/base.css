@@ -2425,15 +2425,69 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   padding-left: 28px;
 }
 
-.m-t-scale {
-  background-repeat: no-repeat;
-  height: 20vh;
+.o-scale-container {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
 }
 
-.m-t-scale {
+.m-image-singlestate {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.o-scale-container .o-scale-container {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.m-scale-unit {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.scale-checkbox {
+  display: none;
+}
+
+.checkbox-custom {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+.scale-checkbox:checked + .checkbox-custom {
+  background-color: #000;
+}
+
+.a-image-multistate {
+  display: block;
+  margin: 0 auto;
+}
+
+.a-label-datavalue {
+  visibility: hidden;
 }
 
 .o-question-container {

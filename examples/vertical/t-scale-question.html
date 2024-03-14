@@ -72,7 +72,7 @@
 
     <div class="surroundcontent">t-scale htm example
         <div class="o-question-container cover-off config-complete focused">
-            <script data-questionid="_Q17">app.registerComponent('oQuestionContainer', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
+            <script data-questionid="_Q17">app.registerComponent('oQuestionContainer', '_Q17', '_Qvaropinion');</script>
             <script type="text/javascript">app.RegisterProperties('_QHowManyMissedMarksLabels', {             
                  "values": {
                     "min": 0,
@@ -80,8 +80,9 @@
                 }, 
                 "show": {"marks": true}, 
                 "ticklabels": 1,
-                'unit':{'image':'../../Survey/images/formal/BusIcons/busScaleIcon.svg'},
-                'background':{'image':'../../Survey/images/formal/BusIcons/busScaleIcon.svg','caption':'Bus background SVG'}
+                'background':{'image':'../../Survey/images/formal/BusIcons/busScaleIcon.svg','caption':'Bus background SVG'},
+                'unit':{'image':'../../Survey/images/formal/BusIcons/scaleIcon.svg'},
+				'activeUnit':{'image': '../../Survey/images/formal/BusIcons/scaleIconActive.svg'},
             }); 
             </script>
             <div class="m-question-cover"><!-- cover --></div>
@@ -89,99 +90,77 @@
             <div class="o-question-core">
                 <div class="m-question-warning"></div>
 				<div class="m-message-information">
-                    <div class="o-question-information-content">Which of the following statements best reflects your
-                        opinions on VAR in football?</div>
-                    <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+                    <div class="o-question-information-content">How full was the bus today?</div>
+                    <div class="o-question-alternatives">How many people?<!-- alternative labels go here --></div>
                 </div>
                 <div class="m-message-instruction">Instruction</div>
         
 
 
                 <div class="o-question-response o-question-scale-horizontal"
-                     data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
+                     data-questiongroup="_Qvaropinion">
                     <script>app.registerComponent('oQuestionScaleHorizontal', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 
 					<span class="a-label-outer-prelabel">PreLabel</span>
-					
-					<button type="Button" class="a-button-preterminator" data-questionid="_Q17_Preterm"
-                                data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
-                            <!--t-scale pre terminator-->
-                        </button>
-                        <script>app.registerComponent('aButtonPreTerminator', '_Q17_Preterm', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
-
+					<button type="Button" class="a-button-preterminator" data-questionid="_Qvaropinion"
+                    data-questiongroup="_QHowManyMissed">«</button>
+                    <script>app.registerComponent('aButtonPreTerminator', '_Q0_Preterm', '_Qvaropinion');</script>
                     <div class="o-scale">
 						<script>app.registerComponent('oScale', '_Q0_Scale', '_Qvaropinion');</script>
-						<img class="m-image-singlestate" />
+						
+						
+						<!-- <img class="m-image-singlestate" /> -->
+						
+
+						<!-- units -->
 						<div class="o-scale-container">
-                            <script>app.registerComponent('oScaleContainer', '_Q0_ScaleContainer', '_Qvaropinion');</script>
-                            <div class="m-scale-unit" data-value="1">
-                                <script>app.registerComponent('mScaleUnit', '_Q0_ScaleContainer_1', '_Qvaropinion');</script>
-                                <img class="a-image-multistate" />
-                                <div class="a-label-datavalue">1</div>
-                            </div>
-                            <div class="m-image-unit" data-value="2">
-                                <script>app.registerComponent('mScaleUnit', '_Q0_ScaleContainer_2', '_Qvaropinion');</script>
-                                <img class="a-image-multistate" />
-                                <div class="a-label-datavalue">2</div>
-                            </div>
-                            <div class="m-image-unit" data-value="3">
-                                <script>app.registerComponent('mScaleUnit', '_Q0_ScaleContainer_3', '_Qvaropinion');</script>
-                                <img class="a-image-multistate" />
-                                <div class="a-label-datavalue">3</div>
-                            </div>
-                            <div class="m-image-unit" data-value="4">
-                                <script>app.registerComponent('mScaleUnit', '_Q0_ScaleContainer_4', '_Qvaropinion');</script>
-                                <img class="a-image-multistate" />
-                                <div class="a-label-datavalue">4</div>
-                            </div>
-                            <div class="m-image-unit" data-value="5">
-                                <script>app.registerComponent('mScaleUnit', '_Q0_ScaleContainer_5', '_Qvaropinion');</script>
-                                <img class="a-image-multistate" />
-                                <div class="a-label-datavalue">5</div>
-                            </div>
+
+						<!-- Background image -->
+							<img class="m-image-singlestate" />
+
+
+							<!-- All the units  or scales -->
+							<div class="o-scale-container">
+								<!-- Scale Unit 1 -->
+								<label class="m-scale-unit" data-value="1">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="1"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" src="../../Survey/images/formal/BusIcons/scaleIcon.svg" alt="Scale Icon 1"/>
+									<div class="a-label-datavalue">1</div>
+								</label>
+								<label class="m-scale-unit" data-value="2">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="2"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" src="../../Survey/images/formal/BusIcons/scaleIcon.svg" alt="Scale Icon 2"/>
+									<div class="a-label-datavalue">2</div>
+								</label>
+								<label class="m-scale-unit" data-value="3">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="3"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" src="../../Survey/images/formal/BusIcons/scaleIcon.svg" alt="Scale Icon 3"/>
+									<div class="a-label-datavalue">3</div>
+								</label>
+								<label class="m-scale-unit" data-value="4">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="4"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" src="../../Survey/images/formal/BusIcons/scaleIcon.svg" alt="Scale Icon 3"/>
+									<div class="a-label-datavalue">4</div>
+								</label>
+								<label class="m-scale-unit" data-value="5">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="5"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" src="../../Survey/images/formal/BusIcons/scaleIcon.svg" alt="Scale Icon 5"/>
+									<div class="a-label-datavalue">5</div>
+								</label>
+							</div>	
                         </div>
                     
-                        <!-- <div style="" class="m-t-scale"	>
-							
-								<label>
-								  <input type="checkbox" class="hidden" value="1">
-								  <div class="person" data-index="1" onclick="updatePersonIcons(1)">&#128100;</div>
-								</label>
-								<label>
-								  <input type="checkbox" class="hidden" value="2">
-								  <div class="person" data-index="2" onclick="updatePersonIcons(2)">&#128100;</div>
-								</label>
-								<label>
-								  <input type="checkbox" class="hidden" value="3">
-								  <div class="person" data-index="3" onclick="updatePersonIcons(3)">&#128100;</div>
-								</label>
-								<label>
-								  <input type="checkbox" class="hidden" value="4">
-								  <div class="person" data-index="4" onclick="updatePersonIcons(4)">&#128100;</div>
-								</label>
-								<label>
-								  <input type="checkbox" class="hidden" value="5">
-								  <div class="person" data-index="5" onclick="updatePersonIcons(5)">&#128100;</div>
-								</label>
-							  
-
-
-                          
-                            <input data-questionid="_Q17"
-                                   data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
-                                   name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"
-                                   class="a-input-t-scale" autocomplete="off" style="" maxlength="2" value="4"/>
-                            <div data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels"
-                                 class="m-label-ticklabels">
-                                <!--t-scale tick labels-->
-                            <!-- </div>
-                        </div> -->
-						<button type="Button" class="a-button-postterminator" data-questionid="_Qvaropinion"
-                        data-questiongroup="_QHowManyMissed">»</button>
-
-                    <span class="a-label-outer-postlabel">Postlabel</span>
                     </div>
+					<button type="Button" class="a-button-postterminator" data-questionid="_Qvaropinion"
+                        data-questiongroup="_QHowManyMissed">»</button>
                     <script>app.registerComponent('aButtonPostTerminator', '_Q0_Postterm', '_Qvaropinion');</script>
+					<span class="a-label-outer-postlabel">Postlabel</span>
+					
                 </div>
             </div>
         </div>
