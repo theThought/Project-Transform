@@ -785,7 +785,11 @@ html[dir=rtl] .a-label-prelabel + div > .a-input-singlelineedit {
 }
 
 .a-label-details {
-  margin-top: 16px;
+  position: absolute;
+  padding: 8px 16px 8px 42px;
+  background-color: #E4EBF4;
+  left: 0;
+  z-index: 2;
 }
 
 .overall-progress.complex .a-label-section-title {
