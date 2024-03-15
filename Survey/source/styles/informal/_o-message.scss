@@ -37,6 +37,7 @@ details[open] summary:after {
 
 .o-message-information.has-content {
     display: block;
+    line-height: globals.$message-line-height;
 
     * {
         font-size: globals.$instruction-font-size;

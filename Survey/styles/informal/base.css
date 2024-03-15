@@ -1470,6 +1470,7 @@ details[open] summary:after {
 
 .o-message-information.has-content {
   display: block;
+  line-height: 20px;
 }
 .o-message-information.has-content * {
   font-size: 14px;
