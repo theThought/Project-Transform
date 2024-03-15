@@ -1,0 +1,78 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="5em">
+            <Control Type="Edit"></Control>
+        </Style>
+        <Label ElementId="_Q0_Q0" LabelID="_Q0_Q0">
+            <Style ElementAlign="NewLine"></Style>
+        </Label>
+        <Control Type="Edit" QuestionName="_QComplexQuestionPage_QPostCodeBlockSideBySide_QPostCodeLeft" ElementID="_Q0_Q0" Value="" Length="5">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="5em">
+                <Control Type="Edit"></Control>
+            </Style>
+        </Control>
+    </Question>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="5em">
+            <Control Type="Edit"></Control>
+        </Style>
+        <Label ElementId="_Q0_Q1" LabelID="_Q0_Q1">
+            <Style ElementAlign="NewLine"></Style>
+        </Label>
+        <Control Type="Edit" QuestionName="_QComplexQuestionPage_QPostCodeBlockSideBySide_QPostCodeRight" ElementID="_Q0_Q1" Value="" Length="5">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-20" Width="5em">
+                <Control Type="Edit"></Control>
+            </Style>
+        </Control>
+    </Question>
+    <div><br/></div>
+    <Style ElementAlign="NewLine"></Style>
+    <Text>&lt;script data-questionid='_Q1'&gt;app.registerComponent('oQuestionContainer','_Q1','_QComplexQuestionPage_QWeightandMeasureblockSidebySide');&lt;/script&gt;</Text>
+    <Style ElementAlign="NewLine"></Style>
+    <div><br/></div>
+    <Question>
+        <Style ElementAlign="Right" Indent="1" ZIndex="-20" Width="3em">
+            <Control Type="Edit"></Control>
+        </Style>
+        <Label ElementId="_Q1_Q0" LabelID="_Q1_Q0">
+            <Style ElementAlign="NewLine"></Style>
+            <Text>How much content</Text>
+        </Label>
+        <Control Type="Edit" QuestionName="_QComplexQuestionPage_QWeightandMeasureblockSidebySide_Qweight" ElementID="_Q1_Q0" Value="" Length="5">
+            <Style ElementAlign="Right" Indent="1" ZIndex="-20" Width="3em">
+                <Control Type="Edit"></Control>
+            </Style>
+        </Control>
+    </Question>
+    <Question>
+        <Style ElementAlign="Right" Indent="1" ZIndex="-60" Width="4em">
+            <Control Type="DropList"></Control>
+        </Style>
+        <Label LabelID="_Q1_Q1">
+            <Style ElementAlign="NewLine"></Style>
+        </Label>
+        <Control Type="DropList" QuestionName="_QComplexQuestionPage_QWeightandMeasureblockSidebySide_Qmeasure_C" ElementID="_Q1_Q1_C">
+            <Style ElementAlign="Right" Indent="1" ZIndex="-60" Width="4em">
+                <Control Type="DropList"></Control>
+            </Style>
+            <Category Name="gram" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>g</Text>
+                </Label>
+            </Category>
+            <Category Name="floz" CategoryID="1">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>fl oz</Text>
+                </Label>
+            </Category>
+            <Category Name="ounce" CategoryID="2">
+                <Label>
+                    <Style ElementAlign="Right"></Style>
+                    <Text>oz</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>
