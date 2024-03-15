@@ -760,10 +760,12 @@ html[dir=rtl] .m-option-base .a-input-singlelineedit {
 
 .a-label-details {
   position: absolute;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 8px 16px 8px 42px;
   background-color: #E4EBF4;
   left: 0;
-  z-index: 2;
 }
 
 .overall-progress.complex .a-label-section-title {
