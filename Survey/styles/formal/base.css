@@ -1409,6 +1409,14 @@ html[dir=rtl] .balance .m-option-base {
   display: none;
 }
 
+details summary ~ * {
+  display: none;
+}
+
+details[open] summary ~ * {
+  display: block;
+}
+
 details > summary {
   list-style: none;
 }

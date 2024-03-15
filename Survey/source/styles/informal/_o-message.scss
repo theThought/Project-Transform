@@ -1,5 +1,13 @@
 @use 'globals';
 
+details summary ~ * {
+    display: none;
+}
+
+details[open] summary ~ * {
+    display: block;
+}
+
 details > summary {
     list-style: none;
 }

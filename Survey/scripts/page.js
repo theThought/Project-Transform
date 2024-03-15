@@ -55,6 +55,17 @@ define(
             var detailmessages = document.querySelectorAll('details.o-message-information');
             var sidebyside = (typeof this.properties.sidebyside !== 'undefined');
 
+            document.addEventListener('click', function (event) {
+                if (event.target.tagName === 'SUMMARY') {
+                    event.preventDefault();
+                    if (event.target.parentElement.getAttribute('open') !== 'open') {
+                        event.target.parentElement.setAttribute('open', 'open');
+                    } else {
+                        event.target.parentElement.removeAttribute('open');
+                    }
+                }
+            });
+
             for (var i = 0; i < detailmessages.length; i++) {
                 var detailmessage = detailmessages[i];
                 if (detailmessage.innerHTML.trim().length) {
