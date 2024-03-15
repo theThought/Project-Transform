@@ -83,6 +83,7 @@ details[open] summary:after {
         content: '';
         background-image: url("/Survey/images/informal/icon-information.svg");
         background-repeat: no-repeat;
+        z-index: 2;
     }
 
     p {

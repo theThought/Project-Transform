@@ -1492,6 +1492,7 @@ details[open] summary:after {
   content: "";
   background-image: url("../../images/formal/icon-information.svg");
   background-repeat: no-repeat;
+  z-index: 2;
 }
 .m-message-instruction.has-content div p,
 .o-message-information.has-content p {
