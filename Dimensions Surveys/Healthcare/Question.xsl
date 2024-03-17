@@ -22,10 +22,14 @@
    <!--- Basic Structure -->
    <xsl:template match="Questions">
       <xsl:for-each select="*">
+         <xsl:variable name="qGroupName" select="Control[1]/@ElementID" />
+         <xsl:varaible name="qQuestionName" select="Control[1]/@QuestionName" />
          <xsl:choose>
             <xsl:when test="name()='Question'">
                <Question>
-                  <xsl:call-template name="Question" />
+                  <xsl:call-template name="Question">
+                     <xsl:with-param name="GroupName" select="$qGroupName" />
+                     <xsl:with-param name="QuestionName" select="$qQuestionName" />
                </Question>
             </xsl:when>
             <xsl:otherwise>
@@ -39,6 +43,8 @@
    <xsl:template name="Question">
       <xsl:param name="bWithinTable" select="false()" />
       <xsl:param name="SubQuestion" select="false()" />
+      <xsl:param name="qGroupName" />
+      <xsl:param name="qFullName" />
       <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
