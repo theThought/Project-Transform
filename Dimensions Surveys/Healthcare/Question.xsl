@@ -23,7 +23,7 @@
    <xsl:template match="Questions">
       <xsl:for-each select="*">
          <xsl:variable name="qGroupName" select="Control[1]/@ElementID" />
-         <xsl:varaible name="qQuestionName">
+         <xsl:variable name="qQuestionName">
             <xsl:call-template name="CalculateQuestionName">
                <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
             </xsl:call-template>
@@ -34,6 +34,7 @@
                   <xsl:call-template name="Question">
                      <xsl:with-param name="qGroupName" select="$qGroupName" />
                      <xsl:with-param name="qFullName" select="$qQuestionName" />
+                  </xsl:call-template>
                </Question>
             </xsl:when>
             <xsl:otherwise>
