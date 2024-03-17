@@ -22,10 +22,10 @@
    <!--- Basic Structure -->
    <xsl:template match="Questions">
       <xsl:for-each select="*">
-         <xsl:variable name="qGroupName" select="Control[1]/@ElementID" />
+         <xsl:variable name="qGroupName" select=".//Control[1]/@ElementID" />
          <xsl:variable name="qQuestionName">
             <xsl:call-template name="CalculateQuestionName">
-               <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
+               <xsl:with-param name="QuestionName" select=".//Control[1]/@QuestionName" />
             </xsl:call-template>
          </xsl:variable>
          <xsl:choose>
