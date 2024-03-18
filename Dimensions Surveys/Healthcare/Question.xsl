@@ -681,7 +681,7 @@
                <xsl:element name="div">
                   <xsl:if test="$qCustomType='slider-vertical'">
                      <xsl:attribute name="class">
-                        <xsl:text>o-slider-rotate:</xsl:text>
+                        <xsl:text>o-slider-rotate</xsl:text>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:comment>
