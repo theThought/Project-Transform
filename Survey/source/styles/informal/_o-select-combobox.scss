@@ -8,6 +8,7 @@ $default-text-width: globals.$default-input-width;
 
 .o-combobox {
     input[type=text] {
+        max-width: 100%;
         padding: 10px 16px;
         border-radius: globals.$text-border-radius;
         border: globals.$border-thickness solid globals.$borders;
@@ -60,6 +61,7 @@ $default-text-width: globals.$default-input-width;
 
 .o-dropdown {
     input[type=text] {
+        max-width: 100%;
         padding: 10px 48px 10px 16px;
         border-radius: globals.$border-radius;
         border: globals.$border-thickness solid globals.$theme-primary;
@@ -106,6 +108,7 @@ html[dir="rtl"] .o-dropdown {
 
 .o-combobox ul,
 .o-dropdown ul {
+    max-width: 100%;
     list-style-type: none;
     margin: -1px 0 4px 0;
     padding: 0 0 8px 0;

@@ -1800,6 +1800,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-combobox input[type=text] {
+  max-width: 100%;
   padding: 10px 16px;
   border-radius: 3px;
   border: 1px solid #8797C8;
@@ -1857,6 +1858,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-dropdown input[type=text] {
+  max-width: 100%;
   padding: 10px 48px 10px 16px;
   border-radius: 5px;
   border: 1px solid #E8BE5D;
@@ -1910,6 +1912,7 @@ html[dir=rtl] .o-dropdown input[type=text] {
 
 .o-combobox ul,
 .o-dropdown ul {
+  max-width: 100%;
   list-style-type: none;
   margin: -1px 0 4px 0;
   padding: 0 0 8px 0;
