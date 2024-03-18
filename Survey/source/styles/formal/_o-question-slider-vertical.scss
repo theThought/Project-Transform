@@ -26,7 +26,7 @@
     align-items: flex-start;
     position: relative;
     transform: rotate(270deg);  
-    // min-width: globals.$min-display-width;
+    //  min-width: globals.$min-display-width;
 
     //just for the vertical sliders!
     min-width: 460px;
@@ -89,7 +89,8 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 3;
-    width: 100%;
+    // width: 100%;
+    width: calc(80% - 10px);
     
     height: 24px;
     border: globals.$border-thickness solid globals.$borders;

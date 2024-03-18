@@ -110,14 +110,12 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oScaleContainer(id, group));
             });
             break;
-case 'mscaleunit':
-    requirejs(['m-scale-unit'], function (mScaleUnit) {
-        console.log('Registering mScaleUnit');
-        app.preinitcomponents.push(new mScaleUnit(id, group));
-    });
-    break;
-
-        
+        case 'mscaleunit':
+            requirejs(['m-scale-unit'], function (mScaleUnit) {
+                console.log('Registering mScaleUnit');
+                app.preinitcomponents.push(new mScaleUnit(id, group));
+            });
+            break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.preinitcomponents.push(new aInputButtonDec(id, group));
@@ -133,7 +131,12 @@ case 'mscaleunit':
                 app.preinitcomponents.push(new aLabelThumbValue(id, group));
             });
             break;
-        default:
+        case 'alabelthumbvaluevertical':
+            requirejs(['a-label-thumbvalue-slider-vertical'], function (aLabelThumbValueVertical) {
+                app.preinitcomponents.push(new aLabelThumbValueVertical(id, group));
+            });
+            break;
+            default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }
 

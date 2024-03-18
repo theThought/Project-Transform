@@ -71,17 +71,16 @@ button.a-button-postterminator {
     margin: 0;
     display: none;
     color: globals.$theme-primary;
+    cursor: pointer;
 }
 
-// Having display block here is the issue I am facing!
-// To be investigated and worked on asap
-// .has-terminators {
-//     .a-button-preterminator,
-//     .a-button-postterminator {
-//         display: block;
-//         display: contents;
-//     }
-// }
+.has-terminators {
+    .a-button-preterminator,
+    .a-button-postterminator {
+        display: block;
+        // display: contents;
+    }
+}
 
 
 //This is a small fix for now. 
@@ -102,6 +101,12 @@ html[dir="rtl"] button.a-button-postterminator {
 button.a-button-preterminator {
     margin-right: 1em;
 }
+
+.o-slider-rotate button.a-button-preterminator {
+    margin-right: 0em;
+}
+
+
 
 html[dir="rtl"] button.a-button-preterminator {
     margin-right: 0;

@@ -144,12 +144,9 @@ define(['o-question'],
         }
 
         oQuestionSlider.prototype.updateFloodFill = function () {
-            console.log('updated updateFloodFill');
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
-
-            console.log(val);
 
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             var paddingadjustmentinpixels = 20;

@@ -336,6 +336,12 @@ button.a-button-postterminator {
   margin: 0;
   display: none;
   color: #455B97;
+  cursor: pointer;
+}
+
+.has-terminators .a-button-preterminator,
+.has-terminators .a-button-postterminator {
+  display: block;
 }
 
 .o-question-slider-vertical-control .a-label-thumbvalue {
@@ -353,6 +359,10 @@ html[dir=rtl] button.a-button-postterminator {
 
 button.a-button-preterminator {
   margin-right: 1em;
+}
+
+.o-slider-rotate button.a-button-preterminator {
+  margin-right: 0em;
 }
 
 html[dir=rtl] button.a-button-preterminator {
@@ -1102,29 +1112,24 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 }
 
 .o-question-slider-horizontal-control .a-label-outer-prelabel,
-.o-question-slider-horizontal-control .a-label-outer-postlabel,
-.o-question-slider-vertical-control .a-label-outer-prelabel,
-.o-question-slider-vertical-control .a-label-outer-postlabel {
+.o-question-slider-horizontal-control .a-label-outer-postlabel {
   position: relative;
   top: 0.9em;
   color: #455B97;
 }
-.o-question-slider-horizontal-control .a-label-prelabel,
-.o-question-slider-vertical-control .a-label-prelabel {
+.o-question-slider-horizontal-control .a-label-prelabel {
   position: absolute;
   left: 0;
   bottom: -0.8em;
   color: #455B97;
 }
-.o-question-slider-horizontal-control .a-label-postlabel,
-.o-question-slider-vertical-control .a-label-postlabel {
+.o-question-slider-horizontal-control .a-label-postlabel {
   position: absolute;
   right: 0;
   bottom: -0.8em;
   color: #455B97;
 }
-.o-question-slider-horizontal-control .a-label-thumbvalue,
-.o-question-slider-vertical-control .a-label-thumbvalue {
+.o-question-slider-horizontal-control .a-label-thumbvalue {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #212C4C;
@@ -1133,12 +1138,10 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-.o-question-slider-horizontal-control.active.has-value.has-thumb-value .a-label-thumbvalue,
-.o-question-slider-vertical-control.active.has-value.has-thumb-value .a-label-thumbvalue {
+.o-question-slider-horizontal-control.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;
 }
-.o-question-slider-horizontal-control .m-style-slidermarks,
-.o-question-slider-vertical-control .m-style-slidermarks {
+.o-question-slider-horizontal-control .m-style-slidermarks {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
@@ -1154,8 +1157,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           justify-content: space-between;
   color: #8797C8;
 }
-.o-question-slider-horizontal-control .m-style-slidermarks > i,
-.o-question-slider-vertical-control .m-style-slidermarks > i {
+.o-question-slider-horizontal-control .m-style-slidermarks > i {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1163,8 +1165,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   display: block;
   font-style: normal;
 }
-.o-question-slider-horizontal-control .m-label-ticklabels,
-.o-question-slider-vertical-control .m-label-ticklabels {
+.o-question-slider-horizontal-control .m-label-ticklabels {
   position: relative;
   top: -0.5em;
   left: 6px;
@@ -1179,8 +1180,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           justify-content: space-between;
   color: #8797C8;
 }
-.o-question-slider-horizontal-control .m-label-ticklabels > span,
-.o-question-slider-vertical-control .m-label-ticklabels > span {
+.o-question-slider-horizontal-control .m-label-ticklabels > span {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1224,8 +1224,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: 100%;
-  left: 6px;
+  width: calc(80% - 10px);
   top: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1246,10 +1245,9 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 .o-question-slider-vertical-control .m-label-ticklabels {
   position: relative;
   top: 0.5em;
-  left: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
+  width: calc(106% - 10px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1900,7 +1898,7 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: 100%;
+  width: calc(80% - 10px);
   height: 24px;
   border: 1px solid #8797C8;
   border-radius: 10px;

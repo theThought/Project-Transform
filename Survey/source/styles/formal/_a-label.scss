@@ -396,8 +396,7 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-.o-question-slider-horizontal-control,
-.o-question-slider-vertical-control {
+.o-question-slider-horizontal-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -515,8 +514,9 @@ html[dir="rtl"] .m-input-singlelineedit {
         box-sizing: border-box;
         position: absolute;
         z-index: 3;
-        width:100%; 
-        left: 6px;
+        //width:100%; 
+        width: calc(80% - 10px);
+        // left: 6px;
         top: 14px;
         display: flex;
         justify-content: space-between;
@@ -532,9 +532,10 @@ html[dir="rtl"] .m-input-singlelineedit {
     .m-label-ticklabels { 
         position: relative;
         top: 0.5em;
-        left: 6px;
+        // left: 6px;
         box-sizing: border-box;
-        width: 100%;
+        // width: 100%;
+        width: calc(106% - 10px);
         display: flex;
         justify-content: space-between;
         color: globals.$borders;

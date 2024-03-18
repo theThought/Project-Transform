@@ -75,15 +75,14 @@ button.a-button-postterminator {
     color: globals.$theme-primary;
 }
 
-// Having display block here is the issue I am facing!
-// To be investigated and worked on asap
-// .has-terminators {
-//     .a-button-preterminator,
-//     .a-button-postterminator {
-//         display: block;
-//         display: contents;
-//     }
-// }
+
+.has-terminators {
+    .a-button-preterminator,
+    .a-button-postterminator {
+        display: block;
+        display: contents;
+    }
+}
 
 button.a-button-postterminator {
     margin-left: 1em;

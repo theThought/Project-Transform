@@ -328,6 +328,12 @@ button.a-button-postterminator {
   color: #E8BE5D;
 }
 
+.has-terminators .a-button-preterminator,
+.has-terminators .a-button-postterminator {
+  display: block;
+  display: contents;
+}
+
 button.a-button-postterminator {
   margin-left: 1em;
 }
