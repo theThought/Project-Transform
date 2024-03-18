@@ -681,90 +681,101 @@
                   <xsl:value-of select="$qCustomType" />
                   <xsl:text>-control</xsl:text>
                </xsl:attribute>
-               <xsl:element name="button">
-                  <xsl:attribute name="type">Button</xsl:attribute>
-                  <xsl:attribute name="class">
-                     <xsl:text>a-button-preterminator</xsl:text>
-                  </xsl:attribute>
-                  <xsl:attribute name="data-questionid">
-                     <xsl:value-of select="@ElementID" />
-                     <xsl:text>_Preterm</xsl:text>
-                  </xsl:attribute>
-                  <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qFullName" />
-                  </xsl:attribute>
-                  <xsl:comment>
-                     <xsl:value-of select="$qCustomType" />
-                     <xsl:text>pre terminator</xsl:text>
-                  </xsl:comment>
-               </xsl:element>
-               <xsl:call-template name="appComponentScript">
-                  <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
-                  <xsl:with-param name="ElementID">
-                     <xsl:value-of select="@ElementID" />
-                     <xsl:text>_Preterm</xsl:text>
-                  </xsl:with-param>
-                  <xsl:with-param name="FullName" select="$qFullName" />
-               </xsl:call-template>
                <xsl:element name="div">
-                  <xsl:attribute name="style">
-                     <xsl:if test="Style/@Width != ''">
-                        <xsl:text>width:</xsl:text>
-                        <xsl:value-of select="Style/@Width" />
-                     </xsl:if>
-                  </xsl:attribute>
-                  <xsl:choose>
-                     <xsl:when test="$qCustomType='slider-horizontal'">
-                        <xsl:attribute name="class">m-slider-horizontal</xsl:attribute>
-                     </xsl:when>
-                     <xsl:otherwise>
-                        <xsl:attribute name="class">m-slider-vertical</xsl:attribute>
-                     </xsl:otherwise>
-                  </xsl:choose>
-                  <xsl:element name="div">
+                  <xsl:if test="$qCustomType='slider-vertical'">
                      <xsl:attribute name="class">
-                        <xsl:text>a-style-sliderborder</xsl:text>
+                        <xsl:text>o-slider-rotate</xsl:text>
                      </xsl:attribute>
-                     <xsl:comment>
-                        <xsl:value-of select="$qCustomType" />
-                        <xsl:text> slider border</xsl:text>
-                     </xsl:comment>
-                  </xsl:element>
-                  <xsl:element name="div">
+                  </xsl:if>
+                  <xsl:comment>
+                     <xsl:text>--- used to set orientation ---</xsl:text>
+                  </xsl:comment>
+                  <xsl:element name="button">
+                     <xsl:attribute name="type">Button</xsl:attribute>
                      <xsl:attribute name="class">
-                        <xsl:text>m-style-slidermarks</xsl:text>
-                     </xsl:attribute>
-                     <xsl:comment>
-                        <xsl:value-of select="$qCustomType" />
-                        <xsl:text> tick marks</xsl:text>
-                     </xsl:comment>
-                  </xsl:element>
-                  <xsl:element name="div">
-                     <xsl:attribute name="class">
-                        <xsl:text>a-label-thumbvalue</xsl:text>
+                        <xsl:text>a-button-preterminator</xsl:text>
                      </xsl:attribute>
                      <xsl:attribute name="data-questionid">
                         <xsl:value-of select="@ElementID" />
-                        <xsl:text>_Val</xsl:text>
+                        <xsl:text>_Preterm</xsl:text>
                      </xsl:attribute>
                      <xsl:attribute name="data-questiongroup">
                         <xsl:value-of select="$qFullName" />
                      </xsl:attribute>
-                     <xsl:call-template name="appComponentScript">
-                        <xsl:with-param name="ComponentName">
-                           <xsl:text>aLabelThumbValue</xsl:text>
-                        </xsl:with-param>
-                        <xsl:with-param name="ElementID">
-                           <xsl:value-of select="@ElementID" />
-                           <xsl:text>_Thumbvalue</xsl:text>
-                        </xsl:with-param>
-                        <xsl:with-param name="FullName" select="$qFullName" />
-                     </xsl:call-template>
                      <xsl:comment>
                         <xsl:value-of select="$qCustomType" />
-                        <xsl:text> thumb value</xsl:text>
+                        <xsl:text>pre terminator</xsl:text>
                      </xsl:comment>
                   </xsl:element>
+                  <xsl:call-template name="appComponentScript">
+                     <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+                     <xsl:with-param name="ElementID">
+                        <xsl:value-of select="@ElementID" />
+                        <xsl:text>_Preterm</xsl:text>
+                     </xsl:with-param>
+                     <xsl:with-param name="FullName" select="$qFullName" />
+                  </xsl:call-template>
+                  <xsl:element name="div">
+                     <xsl:attribute name="style">
+                        <xsl:if test="Style/@Width != ''">
+                           <xsl:text>width:</xsl:text>
+                           <xsl:value-of select="Style/@Width" />
+                        </xsl:if>
+                     </xsl:attribute>
+                     <xsl:choose>
+                        <xsl:when test="$qCustomType='slider-horizontal'">
+                           <xsl:attribute name="class">m-slider-horizontal</xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                           <xsl:attribute name="class">m-slider-vertical</xsl:attribute>
+                        </xsl:otherwise>
+                     </xsl:choose>
+                     <xsl:element name="div">
+                        <xsl:attribute name="class">
+                           <xsl:text>a-style-sliderborder</xsl:text>
+                        </xsl:attribute>
+                        <xsl:comment>
+                           <xsl:value-of select="$qCustomType" />
+                           <xsl:text> slider border</xsl:text>
+                        </xsl:comment>
+                     </xsl:element>
+                     <xsl:element name="div">
+                        <xsl:attribute name="class">
+                           <xsl:text>m-style-slidermarks</xsl:text>
+                        </xsl:attribute>
+                        <xsl:comment>
+                           <xsl:value-of select="$qCustomType" />
+                           <xsl:text> tick marks</xsl:text>
+                        </xsl:comment>
+                     </xsl:element>
+                     <xsl:element name="div">
+                        <xsl:attribute name="class">
+                           <xsl:text>a-label-thumbvalue</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-questionid">
+                           <xsl:value-of select="@ElementID" />
+                           <xsl:text>_Val</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-questiongroup">
+                           <xsl:value-of select="$qFullName" />
+                        </xsl:attribute>
+                        <xsl:call-template name="appComponentScript">
+                           <xsl:with-param name="ComponentName">
+                              <xsl:text>aLabelThumbValue</xsl:text>
+                           </xsl:with-param>
+                           <xsl:with-param name="ElementID">
+                              <xsl:value-of select="@ElementID" />
+                              <xsl:text>_Thumbvalue</xsl:text>
+                           </xsl:with-param>
+                           <xsl:with-param name="FullName" select="$qFullName" />
+                        </xsl:call-template>
+                        <xsl:comment>
+                           <xsl:value-of select="$qCustomType" />
+                           <xsl:text> thumb value</xsl:text>
+                        </xsl:comment>
+                     </xsl:element>
+                  </xsl:element>
+                  
                   <xsl:call-template name="MakeInputControl">
                      <xsl:with-param name="qGroup" select="$qGroup" />
                      <xsl:with-param name="qFullName" select="$qFullName" />
