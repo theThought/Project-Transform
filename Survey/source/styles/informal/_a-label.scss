@@ -26,6 +26,12 @@
     left: 0;
 }
 
+.style-inline .a-label-details {
+    position: static;
+    padding: 0;
+    margin-top: 8px;
+}
+
 .overall-progress.complex {
     .a-label-section-title {
         display: block;
