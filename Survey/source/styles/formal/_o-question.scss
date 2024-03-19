@@ -22,6 +22,7 @@
     &.balance {
         display: flex;
         flex-wrap: wrap;
+        align-self: flex-start;
     }
 
     &.balance > .o-option-sublist {

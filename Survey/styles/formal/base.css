@@ -1396,6 +1396,8 @@ html[dir=rtl] .balance .m-option-base {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 .o-question-response.balance > .o-option-sublist {
   display: -webkit-box;
