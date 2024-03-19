@@ -1642,7 +1642,7 @@ Coke "Coca Cola" define
     {
     paste "Allow/Prevent Pasting",
     InfoPop "Information Popup"
-    }
+    };
     
     TypesList_Progressive "Progressive Grids" define
     {
@@ -1941,6 +1941,41 @@ Coke "Coca Cola" define
         refuse "I refuse to answer" exclusive
     };
 
+	VisibleConComitantPage "" Page (SimpleVisibility, concomitant);
+	
+	SimpleVisibility "Change visibility"
+	style(ZIndex = -40)
+	categorical[1]
+	{
+	Show, 
+	Hide
+	};
+	
+   concomitant "Concomitant disease affecting cancer treatment"
+   style(zIndex=-40)
+    categorical [1..]
+    {
+        Diabetes "Diabetes",
+        Liver_disorder "Liver disorder",
+        HBV "HBV",
+        Pulmonary_disorder "Pulmonary disorder",
+        Obesity "Obesity",
+        Renal_function_disorder "Renal function disorder",
+        History_of_GI_perforation "History of GI perforation",
+        Cardiovascular_disease "Cardiovascular disease",
+        Thyroid_Disorder "Thyroid Disorder",
+        Hypertension "Hypertension",
+        Dementia "Dementia/Alzheimer’s",
+        Depression "Depression/Anxiety",
+        Autoimmune_disease "Autoimmune disease",
+        hypercholesterolemia "Hypercholesterolemia", 'UDSH ADDED NEW OPTION ON 20/04/2021
+        osteoporosis "Osteoporosis", 'UDSH ADDED NEW OPTION ON 28/04/2021
+        covid "COVID/Long COVID", 'CS pre Q2 2022
+        otheritem "Other",
+        none "None" exclusive,
+        dk "Don't know" exclusive
+    };
+    
     DrinksRandom "Which of the following drinks have you consumed in the last 7 days"
         style(
             ZIndex = -40
@@ -5845,6 +5880,19 @@ Coke "Coca Cola" define
         };
 
     ) expand;
+    
+    '----------------------------------------
+    ' Information Popup 
+    '----------------------------------------
+	varopinion "Which of the following statements best reflects your opinions on VAR in football?" style(zIndex=-40) categorical[1]
+	{
+	option1 "It is a tragic corruption of the game",
+	option2 "It is not adding quality to refereeing",
+	option3 "It is entertaining, but nothing more",
+	option4 "It has changed the game and will improve",
+	option5 "It is getting better but not yet great",
+	option6 "It does just what it should do"
+	};
 
     '----------------------------------------
     ' Page Definitions
@@ -6409,11 +6457,11 @@ CustomPage.Show()
 
 case {choice}
 
-'IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 
-'AddCustomProperties(Daily, "Daily", "{'balance':{'state':true}, 'onesize':{'state':false}}", "replace")
-'Daily.categories.filter={first,Sun,Mail}
-'Daily.ask()
+AddCustomProperties(Daily, "Daily", "{'balance':{'state':true}, 'onesize':{'state':false}}", "replace")
+Daily.categories.filter={first,Sun,Mail}
+Daily.ask()
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 TypesVsBroadsheets.Banners.AddNew("Instruction","Select one or more papers")
@@ -7692,6 +7740,10 @@ case {RotatedHiddenCells}
 	
 	hiddenQuestions.Ask()
 
+	case {infopop}
+	CreateInformationPopUp(varopinion, "A description of VAR", "VAR is Virtual Assistant Referee, it can be used to overturn the decisions of the referee on the pitch where it is determined that they have made a clear and obvious error.")
+	varopinion.ask() 
+
 end select
 
 loop
@@ -7911,13 +7963,33 @@ sub setZIndex(theQuestion,theIOM)
       end if     
 end sub
 
-sub CreateInformationPopup (theQuestion, theExpandedTitle, theCollapsedTitle, theContent)
+sub CreateInformationPopup (theQuestion, theTitle, theContent)
 dim informationBanner
+dim bannerArray[6]
 	CreateBanner(theQuestion, "Information")
 	set informationBanner  = theQuestion.Banners["Information"]
-	informationBanner.Add("<div class='m-message-title'><div class='a-label-message-title collapsed'>collapsed</div><div class='a-label-message-title expanded hidden'>expanded</div></div><div class='m-message-content'>this is the inforamtion content</div>") 
+	bannerArray[0] = "<summary class='a-label-summary'>"
+	bannerArray[1] = theTitle
+	bannerArray[2] = "</summary>"
+	bannerArray[3] = "<div class='a-label-details'>"
+	bannerArray[4] = theContent
+	bannerArray[5] = "</div>"
+	
+	informationBanner.text = CombineArray(bannerArray, "")
 end sub
 
+function CombineArray(theArray, theBetween)
+dim limit
+dim counter 
+dim newString
+	newString = ""
+	limit = ubound(theArray)
+	for counter = 0 to limit
+		newString = newString + theArray[counter]
+		newString = newString + theBetween
+	Next
+	CombineArray = newString
+end function
 
 sub RotateGrid(theGrid, theOrientation)
       theGrid.style.orientation = theOrientation

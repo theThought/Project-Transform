@@ -21,8 +21,8 @@ define(
 
             this.container = null;
             this.value = null;
-            this.restoreValues = false;
             this.initialValue = null;
+            this.restoreValues = false;
             this.isDebugging = true;
             this.questionName = app.extractQuestionName(group);
             this.complexVisibilityRule = '';
@@ -54,6 +54,11 @@ define(
             }
         }
 
+        component.prototype.init = function () {
+            this.getInitialValue();
+            this.value = this.getCurrentValue();
+        }
+
         component.prototype.configureProperties = function (propertiesName) {
             propertiesName = (typeof propertiesName === 'undefined') ? this.group : propertiesName;
 
@@ -75,6 +80,16 @@ define(
             if (typeof this.checkbox !== "undefined") {
                 this.initialValue = (this.checkbox.checked);
             }
+        }
+
+        component.prototype.getCurrentValue = function () {
+            var value = (this.element.value) ? this.element.value : null
+
+            if (typeof this.checkbox !== "undefined") {
+                value = (this.checkbox.checked);
+            }
+
+            return value;
         }
 
         component.prototype.setInitialContentClass = function () {
@@ -103,14 +118,6 @@ define(
             return overflow;
         };
 
-
-        // component.prototype.configurationComplete = function () {
-        //     var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
-        //     this.element.dispatchEvent(completeEvent);
-        //     this.broadcastChange();
-        //     this.isInitialising = false;
-        // }
-
         component.prototype.configurationComplete = function () {
             // Create a custom event named 'configComplete' with the component instance as the detail
             var completeEvent = new CustomEvent('configComplete', {bubbles: true, detail: this});
@@ -136,14 +143,31 @@ define(
             // Update the isInitialising flag to indicate that initialization is complete
             this.isInitialising = false;
         }
-        
-        
+
+        component.prototype.hasChangedValue = function () {
+            var oldValue = this.value;
+            var newValue = this.getCurrentValue();
+            this.value = newValue;
+
+            return oldValue !== newValue;
+        }
+
         component.prototype.broadcastChange = function () {
-            // Check if this.element is not null before dispatching the event
-            if (this.element) {
-                var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
-                this.element.dispatchEvent(broadcastChange);
+
+            // do not broadcast events during page initialisation
+            if (this.isInitialising) {
+                return;
             }
+            
+            // do not broadcast a change when the value has not altered
+            if (!this.hasChangedValue()) {
+                return;
+            }
+
+            console.log('broadcasting a change');
+
+            var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
+            this.element.dispatchEvent(broadcastChange);
         }
         
         // component.prototype.broadcastChange = function () {

@@ -17,6 +17,15 @@
     }
 }  
 
+.a-label-details {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px 8px 42px;
+    background-color: #E4EBF4;
+    left: 0;
+}
+
 .overall-progress.complex {
     .a-label-section-title {
         display: block;
@@ -115,73 +124,6 @@ html[dir="rtl"] .a-label-total {
     .m-input-singlelineedit.focused {
         box-shadow: globals.$drop-shadow;
     }
-}
-
-.m-message-instruction {
-    display: none;
-}
-
-.m-message-instruction.has-content {
-    display: inline-block;
-    width: 100%;
-
-    * {
-        font-size: 14px;
-    }
-}
-
-.m-message-instruction.has-content div {
-    display: inline-block;
-    position: relative;
-    margin-bottom: .5em;
-    border-radius: globals.$border-radius;
-    padding: 8px 16px 8px 32px;
-    background-color: rgba(globals.$information, .15);
-    color: globals.$information;
-
-    &::before {
-        position: absolute;
-        left: 8px;
-        top: 8px;
-        width: 20px;
-        height: 20px;
-        content: '';
-        background-image: url("/Survey/images/formal/icon-information.svg");
-        background-repeat: no-repeat;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    ul {
-        list-style-position: inside;
-        margin: 0;
-        padding-left: 0;
-    }
-
-    p + ul {
-        margin-top: 8px;
-    }
-
-    ul + p {
-        margin-top: 8px;
-    }
-}
-
-html[dir="rtl"] .m-message-instruction.has-content div {
-    padding: 8px 32px 8px 16px;
-
-    &::before {
-        left: auto;
-        right: 8px;
-    }
-
-    ul {
-        padding-left: inherit;
-        padding-right: 0;
-    }
-
 }
 
 // callout and warning labels

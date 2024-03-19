@@ -1,0 +1,47 @@
+<Questions>
+    <question>
+        <style elementalign="Right" indent="1" zindex="-20" width="3em">
+            <Control Type="SingleLineEdit"></Control>
+        </style>
+        <label elementid="_Q1_Q0" labelid="_Q1_Q0">
+            <style elementalign="NewLine"></style>
+            <text>How much content</text>
+        </label>
+        <control type="SingleLineEdit" questionname="_QComplexQuestionPage_QWeightandMeasureblockSidebySide_Qweight" elementid="_Q1_Q0" value="" length="5">
+            <style elementalign="Right" indent="1" zindex="-20" width="3em">
+                <Control Type="SingleLineEdit"></Control>
+            </style>
+        </control>
+    </question>
+    <question>
+        <style elementalign="Right" indent="1" zindex="-60" width="4em">
+            <Control Type="DropList"></Control>
+        </style>
+        <label labelid="_Q1_Q1">
+            <style elementalign="NewLine"></style>
+        </label>
+        <control type="DropList" questionname="_QComplexQuestionPage_QWeightandMeasureblockSidebySide_Qmeasure_C" elementid="_Q1_Q1_C">
+            <style elementalign="Right" indent="1" zindex="-60" width="4em">
+                <Control Type="DropList"></Control>
+            </style>
+            <category name="gram" categoryid="0">
+                <label>
+                    <style elementalign="Right"></style>
+                    <text>g</text>
+                </label>
+            </category>
+            <category name="floz" categoryid="1">
+                <label>
+                    <style elementalign="Right"></style>
+                    <text>fl oz</text>
+                </label>
+            </category>
+            <category name="ounce" categoryid="2">
+                <label>
+                    <style elementalign="Right"></style>
+                    <text>oz</text>
+                </label>
+            </category>
+        </control>
+    </question>
+</Questions>

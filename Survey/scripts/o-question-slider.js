@@ -36,7 +36,7 @@ define(['o-question'],
             this.setThumbVisibility();
             this.updateFloodFill();
             this.configurationComplete();
-            this.updateValue();
+            //this.updateValue();
         }
 
         oQuestionSlider.prototype.configureIncomingEventListeners = function () {

@@ -17,6 +17,15 @@
     }
 }
 
+.a-label-details {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px 8px 42px;
+    background-color: #E4EBF4;
+    left: 0;
+}
+
 .overall-progress.complex {
     .a-label-section-title {
         display: block;
@@ -115,75 +124,6 @@ html[dir="rtl"] .a-label-total {
     .m-input-singlelineedit.focused {
         //box-shadow: globals.$drop-shadow;
     }
-}
-
-.m-message-instruction {
-    display: none;
-}
-
-.m-message-instruction.has-content {
-    display: inline-block;
-    width: 100%;
-
-    * {
-        font-size: globals.$instruction-font-size;
-        font-weight: 400;
-        line-height: globals.$message-line-height;
-    }
-}
-
-.m-message-instruction.has-content div {
-    display: inline-block;
-    position: relative;
-    margin-bottom: .5em;
-    border-radius: globals.$border-radius;
-    padding: globals.$default-padding 16px globals.$default-padding 42px;
-    background-color: rgba(globals.$information, .15);
-    color: globals.$information;
-
-    &::before {
-        position: absolute;
-        left: globals.$default-padding;
-        top: globals.$default-padding;
-        width: 20px;
-        height: 20px;
-        content: '';
-        background-image: url("/Survey/images/informal/icon-information.svg");
-        background-repeat: no-repeat;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    ul {
-        list-style-position: inside;
-        margin: 0;
-        padding-left: 0;
-    }
-
-    p + ul {
-        margin-top: 8px;
-    }
-
-    ul + p {
-        margin-top: 8px;
-    }
-}
-
-html[dir="rtl"] .m-message-instruction.has-content div {
-    padding: globals.$default-padding 32px globals.$default-padding 16px;
-
-    &::before {
-        left: auto;
-        right: globals.$default-padding;
-    }
-
-    ul {
-        padding-left: inherit;
-        padding-right: 0;
-    }
-
 }
 
 // callout and warning labels

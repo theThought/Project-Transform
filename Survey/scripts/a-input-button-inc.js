@@ -22,7 +22,7 @@ define(['component'],
         aInputButtonInc.prototype.init = function () {
             this.symbol(this.defaultsymbol)
             this.configureProperties();
-            this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
             this.configurationComplete();
         }
 
@@ -30,9 +30,9 @@ define(['component'],
             this.element.innerHTML = symbol;
         }
 
-        aInputButtonInc.prototype.configureIncomingEventListeners = function () {
+        aInputButtonInc.prototype.configureLocalEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener("click", this, false);
+            this.element.addEventListener("click", this, false);
         }
 
         aInputButtonInc.prototype.handleEvent = function (event) {
@@ -43,15 +43,12 @@ define(['component'],
             }
         }
 
-        aInputButtonInc.prototype.onClick = function (event) {
-            if (event.target === this.element) {
-
-                var incrementValueEvent = new CustomEvent(this.group + '_incrementValue', {
-                    bubbles: true,
-                    detail: this
-                });
-                this.element.dispatchEvent(incrementValueEvent);
-            }
+        aInputButtonInc.prototype.onClick = function () {
+            var incrementValueEvent = new CustomEvent(this.group + '_incrementValue', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(incrementValueEvent);
         }
 
         return aInputButtonInc;

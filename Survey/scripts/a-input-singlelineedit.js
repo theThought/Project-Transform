@@ -241,7 +241,7 @@ define(['component', 'pikaday'],
             }
             decButton.onmousedown = function () {
                 that.element.value = Number(that.element.value) - that.stepValue;
-                that.broadcastChange()
+                that.broadcastChange();
             }
             spinnerWrapper.appendChild(incButton);
             spinnerWrapper.appendChild(decButton);

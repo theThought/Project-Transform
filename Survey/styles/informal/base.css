@@ -759,6 +759,16 @@ html[dir=rtl] .m-option-base .a-input-singlelineedit {
   width: 100%;
 }
 
+.a-label-details {
+  position: absolute;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 8px 16px 8px 42px;
+  background-color: #E4EBF4;
+  left: 0;
+}
+
 .overall-progress.complex .a-label-section-title {
   display: block;
   margin: 0 0 8px 0;
@@ -844,66 +854,6 @@ html[dir=rtl] .a-label-total {
 .focused .grid-grandtotal .a-label-prelabel,
 .focused .grid-grandtotal .a-label-postlabel {
   border: none !important;
-}
-
-.m-message-instruction {
-  display: none;
-}
-
-.m-message-instruction.has-content {
-  display: inline-block;
-  width: 100%;
-}
-.m-message-instruction.has-content * {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-}
-
-.m-message-instruction.has-content div {
-  display: inline-block;
-  position: relative;
-  margin-bottom: 0.5em;
-  border-radius: 5px;
-  padding: 8px 16px 8px 42px;
-  background-color: rgba(75, 121, 182, 0.15);
-  color: #4B79B6;
-}
-.m-message-instruction.has-content div::before {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  width: 20px;
-  height: 20px;
-  content: "";
-  background-image: url("../../images/informal/icon-information.svg");
-  background-repeat: no-repeat;
-}
-.m-message-instruction.has-content div p {
-  margin: 0;
-}
-.m-message-instruction.has-content div ul {
-  list-style-position: inside;
-  margin: 0;
-  padding-left: 0;
-}
-.m-message-instruction.has-content div p + ul {
-  margin-top: 8px;
-}
-.m-message-instruction.has-content div ul + p {
-  margin-top: 8px;
-}
-
-html[dir=rtl] .m-message-instruction.has-content div {
-  padding: 8px 32px 8px 16px;
-}
-html[dir=rtl] .m-message-instruction.has-content div::before {
-  left: auto;
-  right: 8px;
-}
-html[dir=rtl] .m-message-instruction.has-content div ul {
-  padding-left: inherit;
-  padding-right: 0;
 }
 
 .a-label-error {
@@ -1600,6 +1550,120 @@ html[dir=rtl] .balance .m-option-base {
   display: none;
 }
 
+details summary ~ * {
+  display: none;
+}
+
+details[open] summary ~ * {
+  display: block;
+}
+
+details > summary {
+  list-style: none;
+}
+
+summary::marker {
+  content: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  position: absolute;
+  right: 8px;
+  top: 7px;
+  content: url("../../images/informal/chevron-open.svg");
+}
+
+details[open] summary:after {
+  content: url("../../images/informal/chevron-close.svg");
+}
+
+.o-message-information {
+  display: none;
+}
+
+.o-message-information.has-content {
+  display: block;
+  line-height: 20px;
+}
+.o-message-information.has-content * {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.m-message-instruction {
+  display: none;
+}
+
+.m-message-instruction.has-content {
+  display: inline-block;
+  width: 100%;
+}
+.m-message-instruction.has-content * {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.m-message-instruction.has-content div {
+  display: inline-block;
+}
+
+.m-message-instruction.has-content div,
+.o-message-information.has-content {
+  position: relative;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  padding: 8px 16px 8px 42px;
+  background-color: rgba(75, 121, 182, 0.15);
+  color: #4B79B6;
+}
+.m-message-instruction.has-content div::before,
+.o-message-information.has-content::before {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background-image: url("../../images/informal/icon-information.svg");
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.m-message-instruction.has-content div p,
+.o-message-information.has-content p {
+  margin: 0;
+}
+.m-message-instruction.has-content div ul,
+.o-message-information.has-content ul {
+  list-style-position: inside;
+  margin: 0;
+  padding-left: 0;
+}
+.m-message-instruction.has-content div p + ul,
+.o-message-information.has-content p + ul {
+  margin-top: 8px;
+}
+.m-message-instruction.has-content div ul + p,
+.o-message-information.has-content ul + p {
+  margin-top: 8px;
+}
+
+html[dir=rtl] .m-message-instruction.has-content div {
+  padding: 8px 32px 8px 16px;
+}
+html[dir=rtl] .m-message-instruction.has-content div::before {
+  left: auto;
+  right: 8px;
+}
+html[dir=rtl] .m-message-instruction.has-content div ul {
+  padding-left: inherit;
+  padding-right: 0;
+}
+
 :root {
   --track-background-fill: rgba(212, 170, 73, 0.15);
   --track-thumb-image: url("../../images/informal/range-thumb-default.svg");
@@ -2130,6 +2194,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-combobox input[type=text] {
+  max-width: 100%;
   padding: 10px 16px;
   border-radius: 3px;
   border: 1px solid #8797C8;
@@ -2187,6 +2252,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 .o-dropdown input[type=text] {
+  max-width: 100%;
   padding: 10px 48px 10px 16px;
   border-radius: 5px;
   border: 1px solid #E8BE5D;
@@ -2240,6 +2306,7 @@ html[dir=rtl] .o-dropdown input[type=text] {
 
 .o-combobox ul,
 .o-dropdown ul {
+  max-width: 100%;
   list-style-type: none;
   margin: -1px 0 4px 0;
   padding: 0 0 8px 0;
