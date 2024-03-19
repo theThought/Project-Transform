@@ -56,6 +56,31 @@ define(['o-question'],
             }
         }
 
+        oQuestionContainer.prototype.messageinformation = function (prop) {
+            if (typeof prop.widthinpercentage !== "undefined") {
+                this.setMessageInformationWidth(prop.widthinpercentage);
+            }
+
+            if (typeof prop.popover !== "undefined") {
+                this.setMessagePopoverType(prop.popover);
+            }
+        }
+
+        oQuestionContainer.prototype.setMessageInformationWidth = function (prop) {
+            var message = this.element.querySelector('.o-message-information');
+            message.classList.add('width-' + prop);
+        }
+
+        oQuestionContainer.prototype.setMessagePopoverType = function (prop) {
+            var message = this.element.querySelector('.o-message-information');
+
+            if (prop) {
+                message.classList.add('style-popover')
+            } else {
+                message.classList.add('style-inline');
+            }
+        }
+
         oQuestionContainer.prototype.setWidth = function () {
             if (this.element.scrollWidth > this.element.offsetWidth) {
                 // deduct 36px to allow for margins/padding at larger screen sizes
