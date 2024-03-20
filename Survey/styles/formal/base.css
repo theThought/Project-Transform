@@ -2559,6 +2559,41 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   visibility: hidden;
 }
 
+.o-question-scale-vertical .o-scale-container {
+  max-width: 350px;
+}
+.o-question-scale-vertical .o-scale-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.o-question-scale-vertical .a-image-multistate {
+  width: 68%;
+}
+.o-question-scale-vertical .m-scale-unit:nth-child(1) {
+  width: 125%;
+  padding-top: 20px;
+}
+.o-question-scale-vertical .m-scale-unit:nth-child(2) {
+  width: 115%;
+}
+.o-question-scale-vertical .m-scale-unit:nth-child(3) {
+  width: 105%;
+}
+.o-question-scale-vertical .m-scale-unit:nth-child(4) {
+  width: 95%;
+}
+.o-question-scale-vertical .m-scale-unit:nth-child(5) {
+  width: 85%;
+}
+
 .o-question-container {
   padding: 1em;
   position: relative;

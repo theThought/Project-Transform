@@ -56,3 +56,51 @@
 .a-label-datavalue {
     visibility: hidden;
 }
+
+
+// t scale vertical.
+
+.o-question-scale-vertical{
+
+    .o-scale-container{
+        max-width: 350px;
+    }
+
+     .o-scale-container{
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .a-image-multistate{
+        width: 68%;
+    }
+
+    //For the cups example
+
+     .m-scale-unit:nth-child(1){
+        width: 125%;
+        padding-top: 20px;
+    }
+     .m-scale-unit:nth-child(2){
+        width: 115%;
+     }
+     .m-scale-unit:nth-child(3){
+        width: 105%;
+     }
+     .m-scale-unit:nth-child(4){
+        width: 95%;
+     }
+     .m-scale-unit:nth-child(5){
+        width: 85%;
+     }
+
+
+    // .m-scale-unit{
+    //     width: 95%;
+    // }
+
+
+
+}
