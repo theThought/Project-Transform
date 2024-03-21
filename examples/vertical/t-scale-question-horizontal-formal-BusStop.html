@@ -11,8 +11,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 	
-	<link rel="alternative stylesheet" type="text/css" href="../../Survey/styles/informal/base.css" title="Informal style"/>
 	<link rel="stylesheet" type="text/css" href="../../Survey/styles/formal/base.css" title="Formal style"/>
+	<link rel="alternative stylesheet" type="text/css" href="../../Survey/styles/informal/base.css" title="Informal style"/>
 
 	<script type="text/javascript" src="../../Survey/scripts/require.js"><!-- Require Script --></script>
 	<script type="text/javascript">
@@ -62,8 +62,8 @@
 			<div class="overall-progress-bar">
 				<table style="height: 100%; width: 100%">
 					<tr>
-						<td style="width: 23%; background-color: #D0DAE6"/>
-						<td class="mrProgressText">23%</td>
+						<td style="width: 84%; background-color: #D0DAE6"/>
+						<td class="mrProgressText">84%</td>
 					</tr>
 				</table><!-- progress bar -->
 			</div>
@@ -80,9 +80,9 @@
                 }, 
                 "show": {"marks": true}, 
                 "ticklabels": 1,
-                'background':{'image':'../../Survey/images/informal/CupIcons/Cup.svg','caption':'Bus background SVG'},
-                'unit':{'image':'../../Survey/images/formal/CupIcons/Default.svg'},
-				'activeUnit':{'image': '../../Survey/images/informal/CupIcons/Answered.svg'},
+                'background':{'image':'../../Survey/images/formal/BusStopIcon/BusStopFormal.svg','caption':'Bus background SVG'},
+                'unit':{'image':'../../Survey/images/formal/BusStopIcon/Man_Default.svg'},
+				'activeUnit':{'image': '../../Survey/images/formal/BusStopIcon/Man_Answered.svg'},
             }); 
             </script>
             <div class="m-question-cover"><!-- cover --></div>
@@ -90,12 +90,12 @@
             <div class="o-question-core">
                 <div class="m-question-warning"></div>
 				<div class="m-message-information">
-                    <div class="o-question-information-content">How full was your cup?</div>
+                    <div class="o-question-information-content">How busy was the bus stop?</div>
                     <div class="o-question-alternatives">How many people?<!-- alternative labels go here --></div>
                 </div>
                 <div class="m-message-instruction">Instruction</div>
     
-                <div class="o-question-response o-question-scale-vertical"
+                <div class="o-question-response o-question-scale-horizontal"
                      data-questiongroup="_Qvaropinion">
                     <script>app.registerComponent('oQuestionScaleHorizontal', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 
@@ -149,7 +149,10 @@
 									<img class="a-image-multistate" alt="Scale Icon 5"/>
 									<div class="a-label-datavalue">5</div>
 								</label>
-
+								
+								
+								
+							
 							</div>	
                         </div>
                     
