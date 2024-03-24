@@ -21,6 +21,7 @@
    </xsl:variable>
    <!--- Basic Structure -->
    <xsl:template match="Questions">
+      <xsl:element name="Questions">
       <xsl:for-each select="*">
          <xsl:choose>
             <xsl:when test="name()='Question'">
@@ -35,6 +36,7 @@
             </xsl:otherwise>
          </xsl:choose>
       </xsl:for-each>
+      </xsl:element>
    </xsl:template>
    <xsl:template name="Question">
       <xsl:param name="bWithinTable" select="false()" />
