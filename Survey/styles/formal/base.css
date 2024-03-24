@@ -1893,8 +1893,14 @@ html[dir=rtl] .o-dropdown input[type=text] {
   padding: 10px 16px 10px 48px;
 }
 
+.o-structure-table .o-combobox ul,
+.o-structure-table .o-dropdown ul {
+  max-width: none;
+}
+
 .o-combobox ul,
 .o-dropdown ul {
+  max-width: 100%;
   list-style-type: none;
   margin: -1px 0 4px 0;
   padding: 0 0 8px 0;

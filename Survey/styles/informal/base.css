@@ -1208,8 +1208,8 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   display: block;
   left: 1px;
   top: 1px;
-  width: calc(100% - 1px * 2);
-  height: calc(100% - 1px * 2);
+  width: calc(100% - (1px * 2));
+  height: calc(100% - (1px * 2));
   background: linear-gradient(90deg, #E8BE5D 0, #E8BE5D 40px, rgba(232, 190, 93, 0.2) 40px);
   -webkit-transition: all 500ms;
   transition: all 500ms;
