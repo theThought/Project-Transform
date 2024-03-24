@@ -26,9 +26,10 @@
          <xsl:for-each select="*">
             <xsl:choose>
             <xsl:when test="name()='Question'">
-               <Question>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">question</xsl:attribute>
                   <xsl:call-template name="Question" />
-               </Question>
+               </xsl:element>
             </xsl:when>
             <xsl:otherwise>
                <Other>
