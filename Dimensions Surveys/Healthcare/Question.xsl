@@ -21,13 +21,12 @@
    </xsl:variable>
    <!--- Basic Structure -->
    <xsl:template match="Questions">
-      <xsl:element name="div">
-         <xsl:attribute name="class">questions</xsl:attribute>
+      <xsl:element name="root">
+      <xsl:element name="Questions">
          <xsl:for-each select="*">
             <xsl:choose>
             <xsl:when test="name()='Question'">
-               <xsl:element name="div">
-                  <xsl:attribute name="class">question</xsl:attribute>
+               <xsl:element name="Question">
                   <xsl:call-template name="Question" />
                </xsl:element>
             </xsl:when>
@@ -38,6 +37,7 @@
             </xsl:otherwise>
             </xsl:choose>
          </xsl:for-each>
+      </xsl:element>
       </xsl:element>
    </xsl:template>
    <xsl:template name="Question">
