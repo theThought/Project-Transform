@@ -21,19 +21,12 @@
    </xsl:variable>
    <!--- Basic Structure -->
    <xsl:template match="Questions">
-<<<<<<< HEAD
-      <xsl:for-each select="*">
-         <xsl:choose>
-            <xsl:when test="name()='Question'">
-               <Question>
-=======
       <xsl:element name="root">
       <xsl:element name="Questions">
          <xsl:for-each select="*">
             <xsl:choose>
             <xsl:when test="name()='Question'">
                <xsl:element name="Question">
->>>>>>> 32498a21 (adding a root node to see the question node)
                   <xsl:call-template name="Question" />
                </Question>
             </xsl:when>
@@ -42,15 +35,10 @@
                   <xsl:value-of select="name()" />
                </Other>
             </xsl:otherwise>
-<<<<<<< HEAD
-         </xsl:choose>
-      </xsl:for-each>
-=======
             </xsl:choose>
          </xsl:for-each>
       </xsl:element>
       </xsl:element>
->>>>>>> 32498a21 (adding a root node to see the question node)
    </xsl:template>
    <xsl:template name="Question">
       <xsl:param name="bWithinTable" select="false()" />
