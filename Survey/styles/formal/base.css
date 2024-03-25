@@ -1151,6 +1151,8 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   position: relative;
   top: 0.9em;
   color: #455B97;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 .o-question-slider-vertical-control .a-label-prelabel {
   position: absolute;

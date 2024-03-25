@@ -427,6 +427,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         position: relative;
         top: .9em;
         color: globals.$theme-primary;
+        transform: rotate(90deg);   
     }
 
     .a-label-prelabel {
