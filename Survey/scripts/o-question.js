@@ -209,6 +209,12 @@ define(['component'],
                 return;
             }
 
+            var optionVisibilityBroadcast = new CustomEvent(this.group + '_optionVisibility', {
+                bubbles: true,
+                detail: {itemValue: itemValue, hideMethod: hideMethod}
+            });
+            this.element.dispatchEvent(optionVisibilityBroadcast);
+
             var optiongroup = option.parentNode.getAttribute('data-questiongroup');
 
             // for m-option-base we should operate on the parent element

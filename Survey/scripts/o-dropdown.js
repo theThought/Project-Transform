@@ -61,10 +61,11 @@ define(['component'],
         oDropdown.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('mousedown', this, false);
-            document.addEventListener("clearEntries", this, false);
-            document.addEventListener("restoreEntries", this, false);
+            document.addEventListener('clearEntries', this, false);
+            document.addEventListener('restoreEntries', this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
-            document.addEventListener("broadcastChange", this, false);
+            document.addEventListener('broadcastChange', this, false);
+            document.addEventListener(this.group + '_optionVisibility', this, false);
         }
 
         oDropdown.prototype.configureLocalEventListeners = function () {
@@ -90,6 +91,9 @@ define(['component'],
                     this.restoreEntries(event);
                     this.setWidth();
                     this.restoreSelection();
+                    break;
+                case this.group + '_optionVisibility':
+                    this.receiveOptionVisibilityChange(event);
                     break;
                 case 'change':
                     this.onChange(event);
@@ -121,6 +125,14 @@ define(['component'],
                 case 'scroll':
                     this.updateDroplistPosition(event);
                     break;
+                default:
+                    console.debug(event);
+            }
+        }
+
+        oDropdown.prototype.receiveOptionVisibilityChange = function (event) {
+            if (this.hiddenelement.value === event.detail.itemValue) {
+                this.clearEntries();
             }
         }
 

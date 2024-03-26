@@ -65,6 +65,7 @@ define(['component'],
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
+            document.addEventListener(this.group + '_optionVisibility', this, false);
         }
 
         oCombobox.prototype.configureLocalEventListeners = function () {
@@ -90,6 +91,9 @@ define(['component'],
                     this.restoreEntries(event);
                     this.setWidth();
                     this.restoreSelection();
+                    break;
+                case this.group + '_optionVisibility':
+                    this.receiveOptionVisibilityChange(event);
                     break;
                 case 'change':
                     this.onChange(event);
@@ -121,6 +125,12 @@ define(['component'],
                 case 'scroll':
                     this.updateDroplistPosition(event);
                     break;
+            }
+        }
+
+        oCombobox.prototype.receiveOptionVisibilityChange = function (event) {
+            if (this.hiddenelement.value === event.detail.itemValue) {
+                this.clearEntries();
             }
         }
 
