@@ -83,7 +83,7 @@ define(
                             continue;
                         }
 
-                        questionresponse.insertAdjacentElement('beforeend', detailmessage);
+                        //questionresponse.insertAdjacentElement('beforeend', detailmessage);
                     }
                 }
             }
@@ -115,7 +115,7 @@ define(
                             continue;
                         }
 
-                        questionresponse.insertAdjacentElement('afterbegin', questioninstruction);
+                        //questionresponse.insertAdjacentElement('afterbegin', questioninstruction);
                     }
                 }
             }
