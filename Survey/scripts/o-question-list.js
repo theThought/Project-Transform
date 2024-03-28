@@ -21,7 +21,8 @@ define(['o-question'],
         oQuestionList.prototype.constructor = oQuestionList;
 
         oQuestionList.prototype.init = function () {
-            this.configureProperties();
+            oQuestion.prototype.init.call(this);
+
             this.configureOnesize();
             this.configurationComplete();
         }

@@ -25,7 +25,8 @@ define(['o-question'],
         oQuestionChoice.prototype.constructor = oQuestionChoice;
 
         oQuestionChoice.prototype.init = function () {
-            this.configureProperties();
+            oQuestion.prototype.init.call(this);
+
             this.configureIncomingEventListeners();
             this.configureBalance();
             this.configureOnesize();
