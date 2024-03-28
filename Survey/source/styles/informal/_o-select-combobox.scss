@@ -106,6 +106,13 @@ html[dir="rtl"] .o-dropdown {
     }
 }
 
+.o-structure-table {
+    .o-combobox ul,
+    .o-dropdown ul {
+        max-width: none;
+    }
+}
+
 .o-combobox ul,
 .o-dropdown ul {
     max-width: 100%;

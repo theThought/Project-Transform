@@ -28,7 +28,7 @@
             <xsl:when test="name()='Question'">
                <xsl:element name="Question">
                   <xsl:call-template name="Question" />
-               </Question>
+               </xsl:element>
             </xsl:when>
             <xsl:otherwise>
                <Other>

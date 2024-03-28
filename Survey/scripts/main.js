@@ -29,6 +29,8 @@ require(['domready'], function (domReady) {
                     } catch (e) {
                         console.error('Failed to init component ' + currentcomponent.id + ' due to following error ' + e);
                     }
+                } else {
+                    console.log('No init defined for + ' + currentcomponent.id);
                 }
                 app.components.push(app.preinitcomponents.splice(i, 1));
             }

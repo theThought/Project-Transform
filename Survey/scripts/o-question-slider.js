@@ -28,7 +28,8 @@ define(['o-question'],
         oQuestionSlider.prototype.constructor = oQuestionSlider;
 
         oQuestionSlider.prototype.init = function () {
-            this.configureProperties();
+            oQuestion.prototype.init.call(this);
+
             this.cloneInputElement();
             this.getInitialValue();
             this.configureIncomingEventListeners();
@@ -36,7 +37,6 @@ define(['o-question'],
             this.setThumbVisibility();
             this.updateFloodFill();
             this.configurationComplete();
-            //this.updateValue();
         }
 
         oQuestionSlider.prototype.configureIncomingEventListeners = function () {
