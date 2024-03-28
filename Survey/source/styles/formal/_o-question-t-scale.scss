@@ -60,15 +60,18 @@
 }
 
 
-// t scale vertical.
+// scale vertical.
 
-.o-question-scale-vertical{
+.o-question-scale-vertical,
+.o-question-scale-vertical-control{
 
     .o-scale-container{
         max-width: 350px;
     }
     //For the cup example need to column-reverse.
-     .o-scale-container{
+     .o-scale-container,
+     .o-scale-unitcontainer{
+        // position: absolute;
         display: flex;
         flex-direction: column-reverse;
         // justify-content: space-evenly;
