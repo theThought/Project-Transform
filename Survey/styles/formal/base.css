@@ -2497,6 +2497,7 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   padding-left: 28px;
 }
 
+.o-scale,
 .o-scale-container {
   position: relative;
   width: 100%;
@@ -2509,7 +2510,8 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   display: block;
 }
 
-.o-scale-container .o-scale-container {
+.o-scale-container .o-scale-unitcontainer,
+.o-scale-unitcontainer {
   position: absolute;
   top: 15px;
   left: 0;

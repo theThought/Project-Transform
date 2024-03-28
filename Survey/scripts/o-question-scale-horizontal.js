@@ -1,7 +1,6 @@
 define(['o-question'], function (oQuestion) {
     function oQuestionScaleHorizontal(id, group) {
         oQuestion.call(this, id, group);
-        
         this.properties = this.fetchProperties(group);
         if (this.properties && this.properties.background) {
             console.log(this.properties);
@@ -30,6 +29,9 @@ define(['o-question'], function (oQuestion) {
                 singleStateImage.alt = backgroundProps.caption;
             }
         }
+
+        console.log('singleStateImage');
+        console.log(singleStateImage);
     };
 
     oQuestionScaleHorizontal.prototype.initializeScaleUnits = function() {

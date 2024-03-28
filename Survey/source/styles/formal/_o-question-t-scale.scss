@@ -1,3 +1,4 @@
+.o-scale,
 .o-scale-container {
     position: relative;
     width: 100%;
@@ -10,7 +11,8 @@
     display: block;
 }
 
-.o-scale-container .o-scale-container {
+.o-scale-container .o-scale-unitcontainer,
+.o-scale-unitcontainer {
     position: absolute;
     top: 15px;
     left: 0;

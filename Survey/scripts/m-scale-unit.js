@@ -28,10 +28,10 @@ define(['o-question'], function (oQuestion) {
 
     mScaleUnit.prototype.initializeScaleUnits = function() {
         var self = this;
-        var scaleUnits = document.querySelectorAll('.o-scale-container .m-scale-unit');
+        var scaleUnits = document.querySelectorAll('.o-scale-unitcontainer .m-scale-unit');
         scaleUnits.forEach(function(unit) {
             var value = unit.getAttribute('data-value');
-            var imgElement = unit.querySelector('img.a-image-multistate');
+            var imgElement = unit.querySelector('.a-image-multistate');
             
             if (imgElement) {
                 // Set the default image and alt for each scale unit based on the value
