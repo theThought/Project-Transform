@@ -308,6 +308,14 @@
          </xsl:call-template>
       </xsl:param>
       <xsl:choose>
+         <xsl:when test="$qCustomType='scale'">
+            <xsl:call-template name="ScaleControl">
+               <xsl:with-param name="qGroup" select="$qGroup" />
+               <xsl:with-param name="qFullName" select="$qFullName" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
                <xsl:with-param name="qGroup" select="$qGroup" />
@@ -1808,6 +1816,106 @@
          </xsl:attribute>
       </xsl:element>
    </xsl:template>
+   <xsl:template name="ScaleControl">
+      <xsl:param name="qGroup" />
+      <xsl:param name="qFullName" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+            <xsl:element name="div">
+               <xsl:if test="$qCustomType='scale-vertical'">
+                  <xsl:attribute name="class">o-scale-rotate</xsl:attribute>
+               </xsl:if>
+               <xsl:comment> --- rotation div --- </xsl:comment>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">
+                     <xsl:text>o-question-</xsl:text>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text>-control</xsl:text>
+                  </xsl:attribute>
+                  <xsl:element name="button">
+                     <xsl:attribute name="type">Button</xsl:attribute>
+                     <xsl:attribute name="class">
+                        <xsl:text>a-button-preterminator</xsl:text>
+                     </xsl:attribute>
+                     <xsl:attribute name="data-questionid">
+                        <xsl:value-of select="@ElementID" />
+                        <xsl:text>_Preterm</xsl:text>
+                     </xsl:attribute>
+                     <xsl:attribute name="data-questiongroup">
+                        <xsl:value-of select="$qFullName" />
+                     </xsl:attribute>
+                     <xsl:comment>
+                        <xsl:value-of select="$qCustomType" />
+                        <xsl:text>pre terminator</xsl:text>
+                     </xsl:comment>
+                  </xsl:element>
+                  <xsl:call-template name="appComponentScript">
+                     <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+                     <xsl:with-param name="ElementID">
+                        <xsl:value-of select="@ElementID" />
+                        <xsl:text>_Preterm</xsl:text>
+                     </xsl:with-param>
+                     <xsl:with-param name="FullName" select="$qFullName" />
+                  </xsl:call-template>
+                  <xsl:element name="div">
+                     <xsl:attribute name="class">
+                        <xsl:text>o-scale</xsl:text>
+                     </xsl:attribute>
+                     <xsl:element name="div">
+                        <xsl:attribute name="class">
+                           <xsl:text>o-scale-container</xsl:text>
+                        </xsl:attribute>
+                     </xsl:element>
+                     <xsl:call-template name="MakeInputControl">
+                        <xsl:with-param name="qGroup" select="$qGroup" />
+                        <xsl:with-param name="qFullName" select="$qFullName" />
+                        <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                        <xsl:with-param name="qCustomType" select="$qCustomType" />
+                     </xsl:call-template>
+                  </xsl:element> 
+               </xsl:element>
+               <xsl:call-template name="appComponentScript">
+                  <xsl:with-param name="ComponentName">
+                     <xsl:text>aInput</xsl:text>
+                     <xsl:call-template name="CamelCaseWord">
+                        <xsl:with-param name="text" select="$qCustomType" />
+                     </xsl:call-template>
+                  </xsl:with-param>
+                  <xsl:with-param name="ElementID" select="@ElementID" />
+                  <xsl:with-param name="FullName" select="$qFullName" />
+               </xsl:call-template>
+            </xsl:element>
+
+
+            
+            <xsl:element name="button">
+               <xsl:attribute name="type">Button</xsl:attribute>
+               <xsl:attribute name="class">
+                  <xsl:text>a-button-postterminator</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questionid">
+                  <xsl:value-of select="@ElementID" />
+                  <xsl:text>_Postterm</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qFullName" />
+               </xsl:attribute>
+               <xsl:comment>
+                  <xsl:value-of select="$qCustomType" />
+                  <xsl:text> post terminator</xsl:text>
+               </xsl:comment>
+            </xsl:element>
+               </xsl:element>
+               <xsl:call-template name="appComponentScript">
+                  <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
+                  <xsl:with-param name="ElementID">
+                     <xsl:value-of select="@ElementID" />
+                     <xsl:text>_Postterm</xsl:text>
+                  </xsl:with-param>
+                  <xsl:with-param name="FullName" select="$qFullName" />
+               </xsl:call-template>
+            </xsl:element>
+   </xsl:template>
    <!--- Style Templates -->
    <xsl:template name="LabelStyle">
       <xsl:param name="IgnoreWidth" select="'false'" />
@@ -2306,6 +2414,9 @@
          </xsl:when>
          <xsl:when test="$theID = '-70'">
             <xsl:value-of select="'combobox'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-80'">
+            <xsl:value-of select="'scale'" />
          </xsl:when>
          <xsl:when test="$theID = '-1100'">
             <xsl:value-of select="'vprogressive'" />
