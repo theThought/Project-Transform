@@ -2536,7 +2536,7 @@
    <xsl:template name="CalculateQuestionName">
       <xsl:param name="QuestionName" />
       <xsl:choose>
-         <xsl:when test="substring($QuestionName, string-length($QuestionName) - 1)='_C'">
+         <xsl:when test="substring($QuestionName, string-length($QuestionName) - 1)='_C' or substring($QuestionName, string-length($QuestionName) - 1)='_X'">
             <xsl:value-of select="substring($QuestionName, 1, string-length($QuestionName)-2)" />
          </xsl:when>
          <xsl:otherwise>
