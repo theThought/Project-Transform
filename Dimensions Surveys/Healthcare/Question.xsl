@@ -1300,7 +1300,7 @@
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
             <xsl:choose>
-               <xsl:when test="../name()='Question'">
+               <xsl:when test="name(..)='Question'">
                   <xsl:choose>
                      <xsl:when test="Category/Label/Style/Font/@IsBold='true'">
                         <xsl:text>true</xsl:text>
