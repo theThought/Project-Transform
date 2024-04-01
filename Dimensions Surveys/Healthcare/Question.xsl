@@ -1035,6 +1035,7 @@
                   <xsl:attribute name="class">a-option-list</xsl:attribute>
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$data-questionid" />
+                     <xsl:text>_C</xsl:text>
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
@@ -1126,6 +1127,7 @@
                   <xsl:attribute name="class">a-option-list</xsl:attribute>
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$data-questionid" />
+                     <xsl:text>_C</xsl:text>
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
@@ -1214,6 +1216,7 @@
          <xsl:if test="Category[1]/@CategoryID">
             <xsl:variable name="ElementID">
                <xsl:value-of select="@ElementID" />
+               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
@@ -1391,6 +1394,7 @@
             <xsl:with-param name="ComponentName" select="'mOptionBase'" />
             <xsl:with-param name="ElementID">
                <xsl:value-of select="@ElementID" />
+               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
