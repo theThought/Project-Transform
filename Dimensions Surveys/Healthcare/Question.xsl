@@ -987,13 +987,11 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
-         <xsl:element name="script">
-            <xsl:text>app.registerComponent('oDropdown','</xsl:text>
-            <xsl:value-of select="$qGroup" />
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-         </xsl:element>
+         <call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'oDropdown'" />
+            <xsl:with-param name="ElementID" select="@ElementID" />
+            <xsl:with-param name="FullName" select="$qFullName" />
+         </xsl:call-template>
          <xsl:variable name="data-questionid">
             <xsl:value-of select="$qGroup" />
          </xsl:variable>
@@ -1076,13 +1074,11 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
-         <xsl:element name="script">
-            <xsl:text>app.registerComponent('oCombobox','</xsl:text>
-            <xsl:value-of select="$qGroup" />
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-         </xsl:element>
+         <call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'oDropdown'" />
+            <xsl:with-param name="ElementID" select="@ElementID" />
+            <xsl:with-param name="FullName" select="$qFullName" />
+         </xsl:call-template>
          <xsl:variable name="data-questionid">
             <xsl:value-of select="$qGroup" />
          </xsl:variable>
@@ -1379,16 +1375,16 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:element name="script">
-            <xsl:text>app.registerComponent('mOptionBase','</xsl:text>
-            <xsl:value-of select="@ElementID" />
-            <xsl:if test="Category[1]/@CategoryID">
-               <xsl:value-of select="Category[1]/@CategoryID" />
-            </xsl:if>
-            <xsl:text>','</xsl:text>
-            <xsl:value-of select="$qFullName" />
-            <xsl:text>');</xsl:text>
-         </xsl:element>
+         <call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'mOptionBase'" />
+            <xsl:with-param name="ElementID">
+               <xsl:value-of select="@ElementID" />
+               <xsl:if test="Category[1]/@CategoryID">
+                  <xsl:value-of select="Category[1]/@CategoryID" />
+               </xsl:if>
+            </xsl:with-param>       
+            <xsl:with-param name="FullName" select="$qFullName" />
+         </call-template>
          <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
@@ -1639,16 +1635,16 @@
             </xsl:element>
          </xsl:when>
          <xsl:otherwise>
-            <xsl:element name="script">
-               <xsl:text>app.registerComponent('aButtonOption','</xsl:text>
+            <call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'aButtonOption'" />
+               <xsl:with-param name="ElementID">
                <xsl:value-of select="@ElementID" />
-               <xsl:if test="Category[1]/@CategoryID">
-                  <xsl:value-of select="Category[1]/@CategoryID" />
-               </xsl:if>
-               <xsl:text>','</xsl:text>
-               <xsl:value-of select="$qFullName" />
-               <xsl:text>');</xsl:text>
-            </xsl:element>
+                  <xsl:if test="Category[1]/@CategoryID">
+                     <xsl:value-of select="Category[1]/@CategoryID" />
+                  </xsl:if>
+               </xsl:with-param>
+               <xsl:with-param name="FullName" select="$qFullName" />
+            </call-template>
             <xsl:element name="input">
                <xsl:attribute name="data-questionid">
                   <xsl:value-of select="@ElementID" />
