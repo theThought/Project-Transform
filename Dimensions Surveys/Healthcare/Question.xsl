@@ -987,7 +987,7 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
-         <call-template name="appComponentScript">
+         <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'oDropdown'" />
             <xsl:with-param name="ElementID" select="@ElementID" />
             <xsl:with-param name="FullName" select="$qFullName" />
@@ -1074,7 +1074,7 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
          </xsl:attribute>
-         <call-template name="appComponentScript">
+         <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'oDropdown'" />
             <xsl:with-param name="ElementID" select="@ElementID" />
             <xsl:with-param name="FullName" select="$qFullName" />
@@ -1375,7 +1375,7 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <call-template name="appComponentScript">
+         <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'mOptionBase'" />
             <xsl:with-param name="ElementID">
                <xsl:value-of select="@ElementID" />
@@ -1384,7 +1384,7 @@
                </xsl:if>
             </xsl:with-param>       
             <xsl:with-param name="FullName" select="$qFullName" />
-         </call-template>
+         </xsl:call-template>
          <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
@@ -1635,7 +1635,7 @@
             </xsl:element>
          </xsl:when>
          <xsl:otherwise>
-            <call-template name="appComponentScript">
+            <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'aButtonOption'" />
                <xsl:with-param name="ElementID">
                <xsl:value-of select="@ElementID" />
@@ -1644,7 +1644,7 @@
                   </xsl:if>
                </xsl:with-param>
                <xsl:with-param name="FullName" select="$qFullName" />
-            </call-template>
+            </xsl:call-template>
             <xsl:element name="input">
                <xsl:attribute name="data-questionid">
                   <xsl:value-of select="@ElementID" />
