@@ -989,7 +989,11 @@
          </xsl:attribute>
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'oDropdown'" />
-            <xsl:with-param name="ElementID" select="@ElementID" />
+            <xsl:with-param name="ElementID">
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="@ElementID" />
+               </xsl:call-template>
+            </xsl:with-param>
             <xsl:with-param name="FullName" select="$qFullName" />
          </xsl:call-template>
          <xsl:variable name="data-questionid">
@@ -1076,7 +1080,11 @@
          </xsl:attribute>
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'oDropdown'" />
-            <xsl:with-param name="ElementID" select="@ElementID" />
+            <xsl:with-param name="ElementID">
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="@ElementID" />
+               </xsl:call-template>
+            </xsl:with-param>
             <xsl:with-param name="FullName" select="$qFullName" />
          </xsl:call-template>
          <xsl:variable name="data-questionid">
