@@ -1216,7 +1216,6 @@
          <xsl:if test="Category[1]/@CategoryID">
             <xsl:variable name="ElementID">
                <xsl:value-of select="@ElementID" />
-               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
@@ -1394,7 +1393,6 @@
             <xsl:with-param name="ComponentName" select="'mOptionBase'" />
             <xsl:with-param name="ElementID">
                <xsl:value-of select="@ElementID" />
-               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
