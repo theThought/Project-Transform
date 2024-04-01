@@ -1006,10 +1006,13 @@
          <xsl:variable name="QuestionID">
             <xsl:value-of select="@QuestionName" />
          </xsl:variable>
-         
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qGroup" select="$qGroup" />
-            <xsl:with-param name="qFullName" select="$qFullName" />
+            <xsl:with-param name="qFullName">
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="$qFullName" />
+               </xsl:call-template>
+            </xsl:with-param>
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
@@ -1101,7 +1104,11 @@
          
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qGroup" select="$qGroup" />
-            <xsl:with-param name="qFullName" select="$qFullName" />
+            <xsl:with-param name="qFullName">
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="$qFullName" />
+               </xsl:call-template>
+            </xsl:with-param>
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
