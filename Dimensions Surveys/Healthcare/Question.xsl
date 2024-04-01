@@ -45,7 +45,11 @@
       <xsl:param name="SubQuestion" select="false()" />
       <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
-            <xsl:variable name="qGroupName" select="//Control[1]/@ElementID" />
+            <xsl:variable name="qGroupName">
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="//Control[1]/@ElementID" />
+               </xsl:call-template>
+            </xsl:variable>
             <xsl:variable name="qFullName">
                <xsl:call-template name="CalculateQuestionName">
                   <xsl:with-param name="QuestionName" select="//Control[1]/@QuestionName" />
@@ -990,9 +994,9 @@
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'oDropdown'" />
             <xsl:with-param name="ElementID">
-               <xsl:call-template name="CalculateQuestionName">
-                  <xsl:with-param name="QuestionName" select="@ElementID" />
-               </xsl:call-template>
+            <xsl:call-template name="CalculateQuestionName">
+               <xsl:with-param name="QuestionName" select="@ElementID" />
+            </xsl:call-template>
             </xsl:with-param>
             <xsl:with-param name="FullName" select="$qFullName" />
          </xsl:call-template>
