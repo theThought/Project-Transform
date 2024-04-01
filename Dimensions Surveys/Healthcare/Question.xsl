@@ -1021,7 +1021,7 @@
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
                <xsl:call-template name="CalculateQuestionName">
-                  <xsl:with-param name="QuestionName" select="$qGroup" />
+                  <xsl:with-param name="QuestionName" select="$qFullName" />
                </xsl:call-template>
                <xsl:text>_list</xsl:text>
             </xsl:attribute>
@@ -1122,7 +1122,6 @@
                <xsl:call-template name="CalculateQuestionName">
                   <xsl:with-param name="QuestionName" select="$qFullName" />
                </xsl:call-template>
-
                <xsl:text>_list</xsl:text>
             </xsl:attribute>
             <xsl:attribute name="data-questiongroup">
@@ -1162,6 +1161,7 @@
                   <xsl:if test="$bIncludeElementIds">
                      <xsl:attribute name="id">
                         <xsl:value-of select="$data-questionid" />
+                        <xsl:text>_C</xsl:text>
                         <xsl:value-of select="@CategoryID" />
                      </xsl:attribute>
                   </xsl:if>
