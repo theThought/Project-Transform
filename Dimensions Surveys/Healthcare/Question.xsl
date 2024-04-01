@@ -1021,7 +1021,7 @@
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
                <xsl:call-template name="CalculateQuestionName">
-                  <xsl:with-param name="QuestionName" select="$qFullName" />
+                  <xsl:with-param name="QuestionName" select="$qGroup" />
                </xsl:call-template>
                <xsl:text>_list</xsl:text>
             </xsl:attribute>
@@ -1062,6 +1062,7 @@
                   <xsl:if test="$bIncludeElementIds">
                      <xsl:attribute name="id">
                         <xsl:value-of select="$data-questionid" />
+                        <xsl:text>_C</xsl:text>
                         <xsl:value-of select="@CategoryID" />
                      </xsl:attribute>
                   </xsl:if>
@@ -2278,7 +2279,7 @@
       <!--- Edit box -->
       <xsl:element name="input">
          <xsl:attribute name="data-questionid">
-            <xsl:value-of select="$Group" />
+            <xsl:value-of select="$qGroup" />
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
@@ -2319,7 +2320,7 @@
          </xsl:attribute>
          <!--- ID -->
          <xsl:attribute name="id">
-            <xsl:value-of select="$Group" />
+            <xsl:value-of select="$qGroup" />
             <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
                <xsl:text>_C</xsl:text>
                <xsl:value-of select="Category[1]/@CategoryID" />
