@@ -2278,7 +2278,7 @@
       <!--- Edit box -->
       <xsl:element name="input">
          <xsl:attribute name="data-questionid">
-            <xsl:value-of select="@ElementID" />
+            <xsl:value-of select="$Group" />
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
@@ -2319,9 +2319,7 @@
          </xsl:attribute>
          <!--- ID -->
          <xsl:attribute name="id">
-            <xsl:if test="@ElementID">
-               <xsl:value-of select="$qFullName" />
-            </xsl:if>
+            <xsl:value-of select="$Group" />
             <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
                <xsl:text>_C</xsl:text>
                <xsl:value-of select="Category[1]/@CategoryID" />
