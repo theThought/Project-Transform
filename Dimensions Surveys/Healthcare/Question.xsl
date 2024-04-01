@@ -1116,7 +1116,10 @@
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
-               <xsl:value-of select="$qFullName" />
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="$qFullName" />
+               </xsl:call-template>
+
                <xsl:text>_list</xsl:text>
             </xsl:attribute>
             <xsl:attribute name="data-questiongroup">
@@ -2316,9 +2319,6 @@
          <xsl:attribute name="id">
             <xsl:if test="@ElementID">
                <xsl:value-of select="@ElementID" />
-            </xsl:if>
-            <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
-               <xsl:value-of select="Category[1]/@CategoryID" />
             </xsl:if>
          </xsl:attribute>
          <!--- Alt -->
