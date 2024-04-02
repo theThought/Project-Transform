@@ -1180,16 +1180,20 @@
       <xsl:param name="qFullName" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
+      <xsl:variable name="ElementID">
+         <xsl:value-of select="$qGroup" />
+         <xsl:text>_C</xsl:text>
+         <xsl:if test="Category[1]/@CategoryID">
+            <xsl:value-of select="Category[1]/@CategoryID" />
+         </xsl:if>
+      </xsl:variable>
       <!--- Control Label -->
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
             <xsl:text>true</xsl:text>
          </xsl:attribute>
          <xsl:attribute name="data-questionid">
-            <xsl:value-of select="@ElementID" />
-            <xsl:if test="Category[1]/@CategoryID">
-               <xsl:value-of select="Category[1]/@CategoryID" />
-            </xsl:if>
+            <xsl:value-of select="$ElementID" />
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qFullName" />
@@ -1233,13 +1237,6 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:if test="Category[1]/@CategoryID">
-            <xsl:variable name="ElementID">
-               <xsl:value-of select="@ElementID" />
-               <xsl:if test="Category[1]/@CategoryID">
-                  <xsl:text>_C</xsl:text>
-                  <xsl:value-of select="Category[1]/@CategoryID" />
-               </xsl:if>
-            </xsl:variable>
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'mOptionBase'" />
                <xsl:with-param name="ElementID" select="$ElementID" />
@@ -1261,11 +1258,7 @@
             <!--- ID -->
             <xsl:if test="$bIncludeElementIds">
                <xsl:attribute name="id">
-                  <xsl:value-of select="$qFullName" />
-                  <xsl:text>_C</xsl:text>
-                  <xsl:if test="Category[1]/@CategoryID">
-                     <xsl:value-of select="Category[1]/@CategoryID" />
-                  </xsl:if>
+                  <xsl:value-of select="$ElementID" />
                </xsl:attribute>
             </xsl:if>
             <!--- Alt -->
@@ -1302,13 +1295,10 @@
                <xsl:attribute name="checked" />
             </xsl:if>
          </xsl:element>
+         <xsl:text>LABEL</xsl:text>
          <xsl:element name="label">
             <xsl:attribute name="for">
-               <xsl:value-of select="$qFullName" />
-               <xsl:text>_C</xsl:text>
-               <xsl:if test="Category[1]/@CategoryID">
-                  <xsl:value-of select="Category[1]/@CategoryID" />
-               </xsl:if>
+               <xsl:value-of select="$ElementID" />
             </xsl:attribute>
             <xsl:element name="span">
                <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
