@@ -79,8 +79,6 @@ define(['component'],
             console.log('running calc');
             elementToUpdate.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
             elementToUpdate.innerHTML = value;
-
-            
         }
     };
 

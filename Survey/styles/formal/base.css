@@ -1205,9 +1205,10 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 .o-question-slider-vertical-control .m-label-ticklabels {
   position: relative;
   top: 0.5em;
+  left: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: calc(106% - 10px);
+  width: calc(105% - 10px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1971,7 +1972,6 @@ input[type=range]:focus::-ms-fill-lower {
   position: absolute;
   z-index: 3;
   width: calc(80% - 10px);
-  height: 24px;
   border: 1px solid #8797C8;
   border-radius: 10px;
   top: 12px;
@@ -1991,7 +1991,7 @@ input[type=range]:focus::-ms-fill-lower {
 .o-question-slider-vertical input[type=range] {
   position: relative;
   z-index: 3;
-  width: 100%;
+  width: calc(106% - 10px);
   left: 6px;
   height: 48px;
   margin: 0;
@@ -2016,7 +2016,7 @@ input[type=range]::-webkit-slider-runnable-track {
   background: transparent;
   border: 0;
   border-radius: 24px;
-  width: 100%;
+  width: calc(105% - 10px);
   height: 16px;
 }
 

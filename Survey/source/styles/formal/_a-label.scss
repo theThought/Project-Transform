@@ -449,6 +449,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$titles;
         position: absolute;
         top: -2em;
+        
         visibility: hidden;
         transform: rotate(90deg);
     }
@@ -463,7 +464,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         box-sizing: border-box;
         position: absolute;
         z-index: 3;
-        //width:100%; 
+        // width:95%; 
         width: calc(80% - 10px);
         // left: 6px;
         top: 14px;
@@ -481,10 +482,11 @@ html[dir="rtl"] .m-input-singlelineedit {
     .m-label-ticklabels { 
         position: relative;
         top: 0.5em;
-        // left: 6px;
+        left: 6px;
         box-sizing: border-box;
+        width: calc(105% - 10px);
         // width: 100%;
-        width: calc(106% - 10px);
+        
         display: flex;
         justify-content: space-between;
         color: globals.$borders;
