@@ -1295,7 +1295,6 @@
                <xsl:attribute name="checked" />
             </xsl:if>
          </xsl:element>
-         <xsl:text>LABEL</xsl:text>
          <xsl:element name="label">
             <xsl:attribute name="for">
                <xsl:value-of select="$ElementID" />
