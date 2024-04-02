@@ -90,7 +90,7 @@
                         <xsl:with-param name="qGroup" select="$qGroupName" />
                         <xsl:with-param name="qFullName">
                            <xsl:call-template name="CalculateQuestionName">
-                              <xsl:with-param name="QuestionName" select=".//Control[1]/@QuestionName" />
+                              <xsl:with-param name="QuestionName" select="@QuestionName" />
                            </xsl:call-template>
                         </xsl:with-param>
                      </xsl:call-template>
@@ -844,11 +844,7 @@
          </xsl:when>
          <xsl:otherwise>
             <xsl:call-template name="MakeInputControl">
-               <xsl:with-param name="qGroup">
-                  <xsl:call-template name="CalculateQuestionName">
-                     <xsl:with-param name="QuestionName" select="$qGroup" /> 
-                  </xsl:call-template>
-               </xsl:with-param>
+               <xsl:with-param name="qGroup" select="$qGroup" />
                <xsl:with-param name="qFullName" select="$qFullName" />
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                <xsl:with-param name="qCustomType" select="$qCustomType" />
@@ -2316,7 +2312,9 @@
          </xsl:choose>
          <!--- Input name -->
          <xsl:attribute name="name">
-            <xsl:value-of select="@QuestionName" />
+            <xsl:call-template name="CalculateQuestionName">
+               <xsl:with-param name="QuestionName" select="@QuestionName" />
+            </xsl:call-template>
             <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
                <xsl:value-of select="Category[1]/@Name" />
             </xsl:if>
