@@ -2313,7 +2313,7 @@
          <!--- Input name -->
          <xsl:attribute name="name">
             <xsl:call-template name="CalculateQuestionName">
-               <xsl:with-param name="QuestionName" select="@QuestionName" />
+               <xsl:with-param name="QuestionName" select="$qFullName" />
             </xsl:call-template>
             <xsl:if test="@Type='RadioButton' or @Type='CheckBox'">
                <xsl:value-of select="Category[1]/@Name" />
