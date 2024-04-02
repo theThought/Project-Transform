@@ -1244,7 +1244,7 @@
             <xsl:attribute name="type">radio</xsl:attribute>
             <!--- Input name -->
             <xsl:attribute name="name">
-               <xsl:value-of select="$qFullName" />
+               <xsl:value-of select="@QuestionName" />
             </xsl:attribute>
             <!--- ID -->
             <xsl:if test="$bIncludeElementIds">
@@ -1417,7 +1417,7 @@
             <xsl:attribute name="type">checkbox</xsl:attribute>
             <!--- Input name -->
             <xsl:attribute name="name">
-               <xsl:value-of select="$qFullName" />
+               <xsl:value-of select="@QuestionName" />
                <xsl:if test="Category[1]/@Name">
                   <xsl:value-of select="Category[1]/@Name" />
                </xsl:if>
