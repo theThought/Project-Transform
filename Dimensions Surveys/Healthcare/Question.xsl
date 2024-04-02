@@ -43,6 +43,7 @@
    <xsl:template name="Question">
       <xsl:param name="bWithinTable" select="false()" />
       <xsl:param name="SubQuestion" select="false()" />
+      <xsl:param name="Parent" />
       <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qGroupName">
@@ -88,11 +89,7 @@
                      </xsl:variable>
                      <xsl:call-template name="Control">
                         <xsl:with-param name="qGroup" select="$qGroupName" />
-                        <xsl:with-param name="qFullName">
-                           <xsl:call-template name="CalculateQuestionName">
-                              <xsl:with-param name="QuestionName" select="@QuestionName" />
-                           </xsl:call-template>
-                        </xsl:with-param>
+                        <xsl:with-param name="qFullName" select="$Parent" />
                      </xsl:call-template>
                   </xsl:when>
                   <xsl:when test="name() = 'Question'">
@@ -1312,6 +1309,7 @@
             <xsl:call-template name="Question">
                <xsl:with-param name="bWithinTable" select="true()" />
                <xsl:with-param name="SubQuestion" select="true()" />
+               <xsl:with-param name="Parent" select="$qFullName" />
             </xsl:call-template>
          </xsl:for-each>
       </xsl:element>
@@ -1495,6 +1493,7 @@
             <xsl:call-template name="Question">
                <xsl:with-param name="bWithinTable" select="false()" />
                <xsl:with-param name="SubQuestion" select="true()" />
+               <xsl:with-param name="Parent" select="$qFullName" />
             </xsl:call-template>
          </xsl:for-each>
       </xsl:element>
