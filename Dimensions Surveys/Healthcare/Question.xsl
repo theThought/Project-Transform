@@ -1225,10 +1225,18 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
+         <xsl:attribute name="style">
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>visibility:hidden</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
          <xsl:if test="Category[1]/@CategoryID">
             <xsl:variable name="ElementID">
                <xsl:value-of select="@ElementID" />
                <xsl:if test="Category[1]/@CategoryID">
+                  <xsl:text>_C</xsl:text>
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
             </xsl:variable>
@@ -1245,11 +1253,16 @@
             <!--- Input name -->
             <xsl:attribute name="name">
                <xsl:value-of select="$qFullName" />
+               <xsl:text>_C</xsl:text>
+               <xsl:if test="Category[1]/@Name">
+                  <xsl:value-of select="Category[1]/@Name" />
+               </xsl:if>
             </xsl:attribute>
             <!--- ID -->
             <xsl:if test="$bIncludeElementIds">
                <xsl:attribute name="id">
-                  <xsl:value-of select="@ElementID" />
+                  <xsl:value-of select="$qFullName" />
+                  <xsl:text>_C</xsl:text>
                   <xsl:if test="Category[1]/@CategoryID">
                      <xsl:value-of select="Category[1]/@CategoryID" />
                   </xsl:if>
@@ -1291,7 +1304,8 @@
          </xsl:element>
          <xsl:element name="label">
             <xsl:attribute name="for">
-               <xsl:value-of select="@ElementID" />
+               <xsl:value-of select="$qFullName" />
+               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
@@ -1401,16 +1415,20 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'mOptionBase'" />
-            <xsl:with-param name="ElementID">
+                  <xsl:if test="Category[1]/@CategoryID">
+            <xsl:variable name="ElementID">
                <xsl:value-of select="@ElementID" />
                <xsl:if test="Category[1]/@CategoryID">
+                  <xsl:text>_C</xsl:text>
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
-            </xsl:with-param>       
-            <xsl:with-param name="FullName" select="$qFullName" />
-         </xsl:call-template>
+            </xsl:variable>
+            <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'mOptionBase'" />
+               <xsl:with-param name="ElementID" select="$ElementID" />
+               <xsl:with-param name="FullName" select="$qFullName" />
+            </xsl:call-template>
+         </xsl:if>
          <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
@@ -1418,6 +1436,7 @@
             <!--- Input name -->
             <xsl:attribute name="name">
                <xsl:value-of select="$qFullName" />
+               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@Name">
                   <xsl:value-of select="Category[1]/@Name" />
                </xsl:if>
@@ -1425,7 +1444,8 @@
             <!--- ID -->
             <xsl:if test="$bIncludeElementIds">
                <xsl:attribute name="id">
-                  <xsl:value-of select="@ElementID" />
+                  <xsl:value-of select="$qFullName" />
+                  <xsl:text>_C</xsl:text>
                   <xsl:if test="Category[1]/@CategoryID">
                      <xsl:value-of select="Category[1]/@CategoryID" />
                   </xsl:if>
@@ -1467,7 +1487,8 @@
          </xsl:element>
          <xsl:element name="label">
             <xsl:attribute name="for">
-               <xsl:value-of select="@ElementID" />
+               <xsl:value-of select="$qFullName" />
+               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@CategoryID">
                   <xsl:value-of select="Category[1]/@CategoryID" />
                </xsl:if>
