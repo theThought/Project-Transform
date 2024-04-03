@@ -32,6 +32,11 @@
     display: flex;
 }
 
+.o-question-slider-vertical-control  .o-question-core {
+    display: flex;
+    align-items: center;
+}
+
 .o-question-information {
     margin-bottom: .5em;
 }
@@ -48,6 +53,14 @@ html[dir="rtl"] .o-question-errorandinstruction {
 }
 
 .sidebyside .o-question-information {
+    box-sizing: border-box;
+    margin-right: 1em;
+    padding-right: 1em;
+    margin-bottom: 0;
+    flex: 0 0 40%;
+}
+
+.o-question-slider-vertical-control .sidebyside .o-question-information {
     box-sizing: border-box;
     margin-right: 1em;
     padding-right: 1em;

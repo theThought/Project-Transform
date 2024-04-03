@@ -58,25 +58,21 @@ define(['component'],
         var min = eventDetail.element.min || 0;
         var max = eventDetail.element.max || 100;
         var thumbWidth = 20;
-        console.log(thumbWidth);
+
         var range = max - min;
-        console.log(range);
+
 
         // Calculation of position and offsets
         var position = ((value - min) / range) * 100;
         var positionOffset = Math.round(thumbWidth * position / 100) - (thumbWidth / 2);
         var positionPaddingOffset = Math.round(12 * position / 100) - 6;
 
-        // Element to update
         var elementToUpdate = this.verticalElement;
 
-        // Applying styles and updating content
         if(this.isRTL) {
-            console.log(this.isRTL);
             elementToUpdate.style.right = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
             elementToUpdate.innerHTML = value;
         } else {
-            console.log('running calc');
             elementToUpdate.style.left = 'calc(' + position + '% - ' + positionOffset + 'px - ' + positionPaddingOffset + 'px)';
             elementToUpdate.innerHTML = value;
         }

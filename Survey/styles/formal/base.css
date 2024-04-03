@@ -2654,6 +2654,15 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   display: flex;
 }
 
+.o-question-slider-vertical-control .o-question-core {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .o-question-information {
   margin-bottom: 0.5em;
 }
@@ -2671,6 +2680,17 @@ html[dir=rtl] .o-question-errorandinstruction {
 }
 
 .sidebyside .o-question-information {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-right: 1em;
+  padding-right: 1em;
+  margin-bottom: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+}
+
+.o-question-slider-vertical-control .sidebyside .o-question-information {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-right: 1em;
