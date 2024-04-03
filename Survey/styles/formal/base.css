@@ -344,10 +344,6 @@ button.a-button-postterminator {
   display: block;
 }
 
-.o-question-slider-vertical-control .a-label-thumbvalue {
-  visibility: visible !important;
-}
-
 button.a-button-postterminator {
   margin-left: 1em;
 }

@@ -21,6 +21,7 @@ define(['o-question'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
+            this.verticalSlider = document.querySelector('div.o-question-slider-vertical');
             this.isRTL = document.dir === 'rtl';
         }
 
@@ -144,6 +145,7 @@ define(['o-question'],
         }
 
         oQuestionSlider.prototype.updateFloodFill = function () {
+            
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
@@ -152,13 +154,22 @@ define(['o-question'],
             var paddingadjustmentinpixels = 20;
             var adjustmentcalc = paddingadjustmentinpixels - (2 * paddingadjustmentinpixels) * (percentage / 100);
             var percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
-
+            
             this.element.style.setProperty('--track-background-fill',
                 'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
 
             if (this.isRTL) {
                 this.element.style.setProperty('--track-background-fill',
                     'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');
+            }
+            //This is for the vertical slider
+            if (this.verticalSlider){
+                var paddingadjustmentinpixelsVertical = 0;
+                var adjustmentcalcVertical = paddingadjustmentinpixelsVertical - (2 * paddingadjustmentinpixelsVertical) * (percentage / 100);
+                var percentagefillVertical = 'calc(' + percentage + '% + ' + adjustmentcalcVertical + 'px)';
+          
+                this.element.style.setProperty('--track-background-fill',
+                    'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefillVertical + ', transparent ' + percentagefillVertical + ', transparent 100%)');
             }
         }
 
