@@ -57,7 +57,7 @@ define(['component'],
         var value = eventDetail.element.value;
         var min = eventDetail.element.min || 0;
         var max = eventDetail.element.max || 100;
-        var thumbWidth = 40;
+        var thumbWidth = 20;
         console.log(thumbWidth);
         var range = max - min;
         console.log(range);

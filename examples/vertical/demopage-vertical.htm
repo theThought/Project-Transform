@@ -111,11 +111,15 @@
 								<div class="m-style-slidermarks">
 									<!--slider-vertical tick marks-->
 								</div>
-								<div class="a-label-thumbvalue" data-questionid="_Q17_Val" 
-									data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
-									<script>app.registerComponent('aLabelThumbValueVertical', '_Q17_Thumbvalue', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
-									<!--slider-vertical thumb value-->
+								<!-- New class added to contain the thumblabel -- this applies only to the vertical slider. -->
+								<div class="vertical-thumbvalue-wrapper">
+									<div class="a-label-thumbvalue" data-questionid="_Q17_Val" 
+										data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
+										<script>app.registerComponent('aLabelThumbValueVertical', '_Q17_Thumbvalue', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
+										<!--slider-vertical thumb value-->
+									</div>
 								</div>
+
 								<input data-questionid="_Q17"
 									data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
 									name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"
@@ -125,8 +129,7 @@
 									<!--slider-vertical tick labels-->
 								</div>
 							</div>
-							<!-- aInputSliderHorizontal aInputSliderHorizontal -->
-							<!-- aInputslider-vertical -->
+							
 							<script>app.registerComponent('aInputslider-vertical', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
 							<button type="Button" class="a-button-postterminator" data-questionid="_Q17_Postterm"
 									data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">

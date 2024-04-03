@@ -444,6 +444,12 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
+    .vertical-thumbvalue-wrapper{
+        // width: calc(80% - 10px);
+        width: 76%;
+        position: absolute;   
+    }
+
     .a-label-thumbvalue {
         box-sizing: border-box;
         color: globals.$titles;

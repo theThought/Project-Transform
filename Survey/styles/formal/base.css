@@ -1166,6 +1166,10 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   bottom: -0.8em;
   color: #455B97;
 }
+.o-question-slider-vertical-control .vertical-thumbvalue-wrapper {
+  width: 76%;
+  position: absolute;
+}
 .o-question-slider-vertical-control .a-label-thumbvalue {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
