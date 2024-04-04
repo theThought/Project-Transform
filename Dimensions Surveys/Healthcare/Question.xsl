@@ -782,7 +782,7 @@
                   </xsl:element>
                   <xsl:call-template name="appComponentScript">
                      <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
-                     <xsl:with-param name="ElementID">
+                     <xsl:with-param name="qElementID">
                         <xsl:value-of select="$qElementID" />
                         <xsl:text>_Preterm</xsl:text>
                      </xsl:with-param>
@@ -837,7 +837,7 @@
                            <xsl:with-param name="ComponentName">
                               <xsl:text>aLabelThumbValue</xsl:text>
                            </xsl:with-param>
-                           <xsl:with-param name="ElementID">
+                           <xsl:with-param name="qElementID">
                               <xsl:value-of select="$qElementID" />
                               <xsl:text>_Thumbvalue</xsl:text>
                            </xsl:with-param>
@@ -897,16 +897,16 @@
                         <xsl:text> post terminator</xsl:text>
                      </xsl:comment>
                   </xsl:element>
+                  <xsl:call-template name="appComponentScript">
+                     <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
+                     <xsl:with-param name="qElementID">
+                        <xsl:value-of select="$qElementID" />
+                        <xsl:text>_Postterm</xsl:text>
+                     </xsl:with-param>
+                     <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                     <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                  </xsl:call-template>
                </xsl:element>
-               <xsl:call-template name="appComponentScript">
-                  <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
-                  <xsl:with-param name="ElementID">
-                     <xsl:value-of select="$qElementID" />
-                     <xsl:text>_Postterm</xsl:text>
-                  </xsl:with-param>
-                  <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-                  <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-               </xsl:call-template>
             </xsl:element>
          </xsl:when>
          <xsl:otherwise>
@@ -1992,10 +1992,10 @@
             </xsl:element>
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
-                  <xsl:with-param name="qElementID">
-                     <xsl:value-of select="$qElementID" />
-                     <xsl:text>_Postterm</xsl:text>
-                  </xsl:with-param>
+               <xsl:with-param name="qElementID">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Postterm</xsl:text>
+               </xsl:with-param>
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
@@ -2007,9 +2007,9 @@
                   <xsl:with-param name="text" select="$qCustomType" />
                </xsl:call-template>
             </xsl:with-param>
-               <xsl:with-param name="qElementID" select="$qElementID" />
-               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            <xsl:with-param name="qElementID" select="$qElementID" />
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
          </xsl:call-template>
       </xsl:element>
    </xsl:template>
@@ -2593,8 +2593,6 @@
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
       <xsl:param name="ComponentName" />
-      <xsl:param name="ElementID" />
-      <xsl:param name="FullName" />
       <xsl:element name="script">
          <xsl:text>app.registerComponent('</xsl:text>
          <xsl:value-of select="$ComponentName" />
