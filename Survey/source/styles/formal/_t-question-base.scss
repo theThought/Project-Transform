@@ -62,7 +62,8 @@ html[dir="rtl"] .sidebyside .o-question-information {
     padding-left: 1em;
 }
 
-.sidebyside .o-question-response {
+.sidebyside .o-question-core > .o-question-response,
+.sidebyside .o-question-core > questions {
     flex: 1;
     flex-basis: auto;
 }
