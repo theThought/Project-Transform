@@ -1380,6 +1380,12 @@
       <xsl:param name="qGroup_Name" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
+
+      <xsl:variable name="qCategoryID">
+         <xsl:value-of select="$qElementID" />
+         <xsl:text>_C</xsl:text>
+         <xsl:value-of select=".//Category[1]/@CategoryID" />
+      </xsl:variable>
       <!--- Control Label -->
       <xsl:element name="div">
          <xsl:attribute name="data-exclusive">
@@ -1417,7 +1423,7 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="data-questionid">
-            <xsl:value-of select="$qElementID" />
+            <xsl:value-of select="$qCategoryID" />
          </xsl:attribute>
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qGroup_Name" />
@@ -1463,7 +1469,7 @@
          <xsl:if test="Category[1]/@CategoryID">
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'mOptionBase'" />
-               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qElementID" select="$qCategoryID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
@@ -1483,7 +1489,7 @@
             <!--- ID -->
             <xsl:if test="$bIncludeElementIds">
                <xsl:attribute name="id">
-                  <xsl:value-of select="$qElementID" />
+                  <xsl:value-of select="$qCategoryID" />
                </xsl:attribute>
             </xsl:if>
             <!--- Alt -->
@@ -1522,7 +1528,7 @@
          </xsl:element>
          <xsl:element name="label">
             <xsl:attribute name="for">
-               <xsl:value-of select="$qElementID" />
+               <xsl:value-of select="$qCategoryID" />
             </xsl:attribute>
             <xsl:element name="span">
                <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
@@ -1535,10 +1541,13 @@
          </xsl:element>
          <xsl:for-each select="../Question">
             <xsl:call-template name="Question">
-               <xsl:with-param name="bWithinTable" select="false()" />
+               <xsl:with-param name="bWithinTable" select="true()" />
                <xsl:with-param name="SubQuestion" select="true()" />
                <xsl:with-param name="Parent" select="$qGroup_Name" />
-            </xsl:call-template>
+               <xsl:with-param name="SubElement">
+                  <xsl:value-of select=".//Control[1]/@ElementID" />
+               </xsl:with-param>
+             </xsl:call-template>
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
