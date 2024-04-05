@@ -1,0 +1,166 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" ZIndex="-10"></Style>
+        <Table UseTablesLayout="-1" Summary="Here are some repeating questions each with special codes" TableId="_Q0">
+            <Row Y="0">
+                <Cell X="0" Y="0" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>first</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="0">
+                    <Question>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="10em">
+                            <Control Type="Edit"></Control>
+                        </Style>
+                        <Control Type="Edit" QuestionName="_Qgridofinputswithspecialcodes_Qfirst_QLotsOfCodes" ElementID="_Q0_Q0_Q0" Value="" Length="30">
+                            <Style Align="Left" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="10em">
+                                <Control Type="Edit"></Control>
+                            </Style>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qfirst_QLotsOfCodes_X" ElementID="_Q0_Q0_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code1" CategoryID="0">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>this is the first code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qfirst_QLotsOfCodes_X" ElementID="_Q0_Q0_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code2" CategoryID="1">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>second code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qfirst_QLotsOfCodes_X" ElementID="_Q0_Q0_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code3" CategoryID="2">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>3rd code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="0" Y="1" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>second</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="1">
+                    <Question>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="10em">
+                            <Control Type="Edit"></Control>
+                        </Style>
+                        <Control Type="Edit" QuestionName="_Qgridofinputswithspecialcodes_Qsecond_QLotsOfCodes" ElementID="_Q0_Q1_Q0" Value="" Length="30">
+                            <Style Align="Left" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="10em">
+                                <Control Type="Edit"></Control>
+                            </Style>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qsecond_QLotsOfCodes_X" ElementID="_Q0_Q1_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code1" CategoryID="0">
+                                <Label>
+                                    <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>this is the first code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qsecond_QLotsOfCodes_X" ElementID="_Q0_Q1_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code2" CategoryID="1">
+                                <Label>
+                                    <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>second code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qsecond_QLotsOfCodes_X" ElementID="_Q0_Q1_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code3" CategoryID="2">
+                                <Label>
+                                    <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>3rd code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="2">
+                <Cell X="0" Y="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>third</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="2">
+                    <Question>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="10em">
+                            <Control Type="Edit"></Control>
+                        </Style>
+                        <Control Type="Edit" QuestionName="_Qgridofinputswithspecialcodes_Qthird_QLotsOfCodes" ElementID="_Q0_Q2_Q0" Value="" Length="30">
+                            <Style Align="Left" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="10em">
+                                <Control Type="Edit"></Control>
+                            </Style>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qthird_QLotsOfCodes_X" ElementID="_Q0_Q2_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code1" CategoryID="0">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>this is the first code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qthird_QLotsOfCodes_X" ElementID="_Q0_Q2_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code2" CategoryID="1">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>second code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                        <Control Type="RadioButton" QuestionName="_Qgridofinputswithspecialcodes_Qthird_QLotsOfCodes_X" ElementID="_Q0_Q2_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                                <Control Type="RadioButton"></Control>
+                            </Style>
+                            <Category Name="code3" CategoryID="2">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                    <Text>3rd code</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>
