@@ -2307,12 +2307,24 @@
                   </xsl:call-template>
                </xsl:when>
                <xsl:when test="name() = 'Control'">
+                  <xsl:variable name="cellElementID">
+                     <xsl:call-template name="CalculateQuestionName">
+                        <xsl:with-param name="QuestionName" select="@ElementID" />
+                     </xsl:call-template>
+                  </xsl:variable>
+                  <xsl:variable name="cellLocal_Name" select="@QuestionName" />
+                  <xsl:variable name="cellGroup_Name">
+                     <xsl:call-template name="CalculateQuestionName">
+                        <xsl:with-param name="QuestionName" select="$cellLocal_Name" />
+                     </xsl:call-template>
+                  </xsl:variable>
+
                   <xsl:choose>
                      <xsl:when test="not(@Type = 'RadioButton') and not(@Type ='CheckButton')">
                         <xsl:call-template name="InsertQuestionDiv">
-                           <xsl:with-param name="qElementID" select="$qElementID" />
-                           <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-                           <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                           <xsl:with-param name="qElementID" select="$cellElementID" />
+                           <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
+                           <xsl:with-param name="qLocal_Name" select="$cellLocal_Name" />
                         </xsl:call-template>
                      </xsl:when>
                      <xsl:otherwise>
