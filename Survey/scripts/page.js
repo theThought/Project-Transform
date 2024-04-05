@@ -45,7 +45,7 @@ define(
             var question = this.element.getElementsByClassName('o-question-container');
 
             for (var i = 0; i < question.length; i++) {
-                var questioninformation = question[i].getElementsByClassName('o-question-information')[0];
+                var questioninformation = question[i].getElementsByClassName('o-message-information')[0];
                 questioninformation.style.flexBasis = width + '%';
                 questioninformation.style.msFlex = '0 0 ' + width + '%';
             }
