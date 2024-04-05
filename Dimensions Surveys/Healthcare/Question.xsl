@@ -274,18 +274,10 @@
       <xsl:choose>
          <xsl:when test="$inQuestion='Question'">
             <xsl:for-each select="*">
-            <xsl:text>Node: </xsl:text>
-            <xsl:value-of select="name()" />
-            <xsl:text>[</xsl:text>  
-            <xsl:value-of select="name()='Control'" />
-            <xsl:text>]</xsl:text>
                <xsl:choose>
                   <xsl:when test="name()='Control'">
                      <xsl:variable name="cElementID" select="@ElementID" />
                      <xsl:variable name="cLocal_Name" select="@QuestionName" />
-
-                     Here:Control
-
                      <xsl:call-template name="TypePickerChoose">
                         <xsl:with-param name="qElementID" select="$cElementID" />
                         <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
@@ -293,7 +285,6 @@
                      </xsl:call-template>
                   </xsl:when>
                   <xsl:when test="name()='Table'">
-                     Here:Table
                      <xsl:call-template name="TypePickerChoose">
                         <xsl:with-param name="qElementID" select="$qElementID" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -304,9 +295,7 @@
             </xsl:for-each>
          </xsl:when>
          <xsl:when test="$inQuestion='Control'">
-         InQuestion:Control
             <xsl:for-each select=".">
-            Here: inQuestionControl
                <xsl:choose>
                   <xsl:when test="@ElementID">
                      <xsl:variable name="cElementID" select="@ElementID" />
@@ -334,10 +323,6 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
-      typepickerchoose
-      <xsl:value-of select="name()" />
-      <xsl:text> - </xsl:text>
-      <xsl:value-of select="$qElementID" />
 
       <xsl:choose>
          <xsl:when test="name() = 'Control'">
@@ -576,7 +561,6 @@
       <xsl:variable name="Orientation">
          <xsl:value-of select="../Style/@Orientation" />
       </xsl:variable>
-ARE We here
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
@@ -630,9 +614,6 @@ ARE We here
                                  <xsl:variable name="cElementID" select=".//Control[1]/@ElementID" />
                                  <xsl:variable name="cLocal_Name" select=".//Control[1]/@QuestionName" />
                                  
-                                 <xsl:text>cElementID: </xsl:text>
-                                 <xsl:value-of select="$cElementID" />
-
                                  <xsl:call-template name="SpanCell">
                                     <xsl:with-param name="qElementID" select="$cElementID" />
                                     <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
@@ -649,9 +630,6 @@ ARE We here
                         <xsl:variable name="cElementID" select=".//Control[1]/@ElementID" />
                         <xsl:variable name="cLocal_Name" select=".//Control[1]/@QuestionName" />
                         
-                        <xsl:text>cElementID[2]: </xsl:text>
-                        <xsl:value-of select="$cElementID" />
-
                         <xsl:call-template name="SpanCell">
                            <xsl:with-param name="qElementID" select="$cElementID" />
                            <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
