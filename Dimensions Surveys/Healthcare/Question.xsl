@@ -626,7 +626,6 @@
                         </xsl:element>
                      </xsl:when>
                      <xsl:otherwise>
-                        <xsl:value-of select="name()" />
                         <xsl:variable name="cElementID" select=".//Control[1]/@ElementID" />
                         <xsl:variable name="cLocal_Name" select=".//Control[1]/@QuestionName" />
                         
@@ -1277,10 +1276,6 @@
       <xsl:param name="qGroup_Name" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
-      
-      RADIO Button
-      <xsl:value-of select="$qElementID" />
-
       <xsl:variable name="qCategoryID">
          <xsl:value-of select="$qElementID" />
          <xsl:value-of select=".//Category[1]/@CategoryID" />
