@@ -437,6 +437,11 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
+    .vertical-thumbvalue-wrapper{
+        width: calc(98% - 10px);
+        position: absolute;   
+    }
+
     .a-label-thumbvalue {
         box-sizing: border-box;
         color: globals.$titles;
@@ -508,7 +513,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 .has-terminators .m-label-ticklabels {
-    width: calc(115% - 10px);
+    width: calc(108% - 10px);
 }
 
 
@@ -516,8 +521,8 @@ html[dir="rtl"] .m-style-slidermarks{
     top: 10px;
 }
 
-html[dir="rtl"] .o-question-slider-vertical-control,
-html[dir="rtl"] .o-question-slider-horizontal-control {
+// html[dir="rtl"] .o-question-slider-horizontal-control,
+html[dir="rtl"] .o-question-slider-vertical-control {
     .a-label-prelabel {
         left: auto;
         right: 0;
@@ -536,11 +541,17 @@ html[dir="rtl"] .o-question-slider-horizontal-control {
         left: auto;
         right: 6px;
     }
+    
+
 
     .m-label-ticklabels {
         left: auto;
         right: 6px;
     }
+}
+
+html[dir="rtl"] .has-terminators  .m-style-slidermarks{
+    right: 55px;    
 }
 
 html[dir="rtl"] .o-question-slider-vertical-control{

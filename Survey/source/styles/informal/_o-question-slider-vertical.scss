@@ -93,6 +93,10 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
+html[dir="rtl"] .o-question-slider-vertical-control{
+    min-width: 500px;
+}
+
 .m-numberslider-horizontal {
     position: relative;
     flex: 1 0 auto;
@@ -123,6 +127,11 @@ html[dir="rtl"] .a-style-sliderborder {
     top: 12px;
 }
 
+html[dir="rtl"] .has-terminators .a-style-sliderborder {
+    width: calc(77% - 10px);
+}
+
+
 .a-style-sliderclickablearea {
     position: absolute;
     top: 0;
@@ -137,7 +146,7 @@ html[dir="rtl"] .a-style-sliderborder {
     position: relative;
     z-index: 3;
     // width: 100%;
-    width: calc(115% - 10px);
+    width: calc(100% - 10px);
     left: 6px;
     height: 48px;
     margin: 0;
@@ -148,23 +157,15 @@ html[dir="rtl"] .a-style-sliderborder {
     box-shadow: none !important;
 }
 
+.o-question-slider-vertical .has-terminators input[type=range]{
+    width: calc(109% - 10px);
+}
 
-// input[type=range] {
-//     position: relative;
-//     z-index: 3;
-//     width: calc(56vh - 10px);
-//     left: 6px;
-//     height: 48px;
-//     margin: 0;
-//     padding: 0;
-//     background-color: transparent;
-//     -webkit-appearance: none;
-//     border: none;
-// }
 
 html[dir="rtl"] input[type=range] {
     left: auto;
     right: 6px;
+    width: calc(100% - 10px);
 }
 
 input[type=range]:focus {

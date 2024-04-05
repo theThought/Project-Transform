@@ -1240,27 +1240,22 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
   position: absolute;
 }
 
-html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel,
 html[dir=rtl] .o-question-slider-vertical-control .a-label-prelabel {
   left: auto;
   right: 0;
 }
-html[dir=rtl] .o-question-slider-horizontal-control .a-label-postlabel,
 html[dir=rtl] .o-question-slider-vertical-control .a-label-postlabel {
   right: auto;
   left: 0;
 }
-html[dir=rtl] .o-question-slider-horizontal-control .a-label-thumbvalue,
 html[dir=rtl] .o-question-slider-vertical-control .a-label-thumbvalue {
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
 }
-html[dir=rtl] .o-question-slider-horizontal-control .m-style-slidermarks,
 html[dir=rtl] .o-question-slider-vertical-control .m-style-slidermarks {
   left: auto;
   right: 6px;
 }
-html[dir=rtl] .o-question-slider-horizontal-control .m-label-ticklabels,
 html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   left: auto;
   right: 6px;

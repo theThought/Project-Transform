@@ -85,11 +85,6 @@ button.a-button-postterminator {
     }
 }
 
-button.a-button-postterminator {
-    margin-left: 1em;
-    
-}
-
 .o-slider-rotate{
 
     button.a-button-preterminator {
@@ -106,13 +101,11 @@ html[dir="rtl"] button.a-button-postterminator {
     margin-right: 1em;
 }
 
-button.a-button-preterminator {
-    margin-right: 1em;
-}
+
 
 html[dir="rtl"] button.a-button-preterminator {
     margin-right: 0;
-    margin-left: 1em;
+    margin-left: 0;
 }
 
 .balance {
