@@ -1,11 +1,11 @@
 <Questions>
     <Question>
         <Style ElementAlign="NewLine" Indent="1" ZIndex="-70">
-            <Control Type="DropList"></Control>
+            <Control Type="ComboList"></Control>
         </Style>
-        <Control Type="DropList" QuestionName="_QComboNewProducts_C" ElementID="_Q0_C">
+        <Control Type="ComboList" QuestionName="_QComboNewProducts_C" ElementID="_Q0_C">
             <Style ElementAlign="NewLine" Indent="1" ZIndex="-70">
-                <Control Type="DropList"></Control>
+                <Control Type="ComboList"></Control>
             </Style>
             <Category Name="first" CategoryID="0_S0">
                 <Label>
@@ -35,6 +35,19 @@
                 <Label>
                     <Style ElementAlign="Right"></Style>
                     <Text>I wait to be comfortable (for more than a few months) with a new product by speaking to colleagues, hearing about its success before I prescribe it</Text>
+                </Label>
+            </Category>
+        </Control>
+        <Control Type="CheckButton" QuestionName="_QComboNewProducts_X" ElementID="_Q0_X">
+            <Style ElementAlign="NewLine" Indent="1">
+                <Control Type="CheckButton"></Control>
+            </Style>
+            <Category Name="noproduct" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right">
+                        <Font IsBold="true"></Font>
+                    </Style>
+                    <Text>none of the above</Text>
                 </Label>
             </Category>
         </Control>

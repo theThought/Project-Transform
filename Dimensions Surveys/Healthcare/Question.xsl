@@ -1099,6 +1099,11 @@
       <xsl:param name="qGroup_Name" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+      </xsl:variable>
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-dropdown</xsl:text>
@@ -1106,20 +1111,17 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qGroup_Name" />
          </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$lElementID" />
+         </xsl:attribute>
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName" select="'oDropdown'" />
-            <xsl:with-param name="qElementID" select="$qElementID" />
+            <xsl:with-param name="qElementID" select='$lElementID' />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
          </xsl:call-template>
-         <xsl:variable name="data-questionid">
-            <xsl:value-of select="$qElementID" />
-         </xsl:variable>
-         <xsl:variable name="QuestionID">
-            <xsl:value-of select="@QuestionName" />
-         </xsl:variable>
          <xsl:call-template name="MakeInputControl">
-            <xsl:with-param name="qElementID" select="$qElementID" />
+            <xsl:with-param name="qElementID" select="$lElementID" />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
@@ -1129,7 +1131,7 @@
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
-               <xsl:value-of select="$qElementID" />
+               <xsl:value-of select="$lElementID" />
                <xsl:text>_list</xsl:text>
             </xsl:attribute>
             <xsl:attribute name="data-questiongroup">
@@ -1188,6 +1190,11 @@
       <xsl:param name="qGroup_Name" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+      </xsl:variable>
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-combobox</xsl:text>
@@ -1195,14 +1202,17 @@
          <xsl:attribute name="data-questiongroup">
             <xsl:value-of select="$qGroup_Name" />
          </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$lElementID" />
+         </xsl:attribute>
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'oDropdown'" />
-            <xsl:with-param name="qElementID" select="$qElementID" />
+            <xsl:with-param name="ComponentName" select="'oCombobox'" />
+            <xsl:with-param name="qElementID" select="$lElementID" />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
          </xsl:call-template>
          <xsl:call-template name="MakeInputControl">
-            <xsl:with-param name="qElementID" select="$qElementID" />
+            <xsl:with-param name="qElementID" select="$lElementID" />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
@@ -1212,7 +1222,7 @@
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
-               <xsl:value-of select="$qElementID" />
+               <xsl:value-of select="$lElementID" />
                <xsl:text>_list</xsl:text>
             </xsl:attribute>
             <xsl:attribute name="data-questiongroup">
