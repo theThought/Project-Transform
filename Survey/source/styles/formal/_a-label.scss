@@ -445,8 +445,7 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 
     .vertical-thumbvalue-wrapper{
-        // width: calc(80% - 10px);
-        width: 76%;
+        width: calc(105% - 10px);
         position: absolute;   
     }
 
@@ -470,9 +469,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         box-sizing: border-box;
         position: absolute;
         z-index: 3;
-        // width:95%; 
-        width: calc(80% - 10px);
-        // left: 6px;
+        width: calc(105% - 10px);
         top: 14px;
         display: flex;
         justify-content: space-between;
@@ -485,6 +482,7 @@ html[dir="rtl"] .m-input-singlelineedit {
             font-style: normal;
         }   
     }
+
     .m-label-ticklabels { 
         position: relative;
         top: 0.5em;
@@ -510,6 +508,15 @@ html[dir="rtl"] .m-input-singlelineedit {
             transform: rotate(270deg);
         }
     }
+}
+//Having to put this outside of the .o-question-slider-vertical-control class above.
+.has-terminators .m-style-slidermarks{
+    width: calc(80% - 10px);
+}
+
+.has-terminators .vertical-thumbvalue-wrapper{
+    width: calc(79% - 10px);
+    position: absolute;   
 }
 
 

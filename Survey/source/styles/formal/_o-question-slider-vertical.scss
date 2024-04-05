@@ -89,15 +89,18 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 3;
-    // width: 100%;
-    // width: 95%;
-    width: calc(80% - 10px);
+    
+    width: calc(105% - 10px);
     
     // height: 24px;
     border: globals.$border-thickness solid globals.$borders;
     border-radius: 10px;
     top: 12px;
     background: white;
+}
+//If has terminators then adjust sizing.
+.has-terminators .a-style-sliderborder{
+    width: calc(80% - 10px)
 }
 
 .a-style-sliderclickablearea {

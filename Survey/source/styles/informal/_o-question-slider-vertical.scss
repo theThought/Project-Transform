@@ -114,6 +114,10 @@ input[type="range"]::-moz-range-thumb {
     top: 12px;
     background: white;
 }
+//If has terminators then adjust sizing.
+.has-terminators .a-style-sliderborder{
+    width: calc(80% - 10px)
+}
 
 html[dir="rtl"] .a-style-sliderborder {
     top: 12px;
@@ -129,10 +133,11 @@ html[dir="rtl"] .a-style-sliderborder {
     display: none;
 }
 
-input[type=range] {
+.o-question-slider-vertical input[type=range] {
     position: relative;
     z-index: 3;
-    width: calc(56vh - 10px);
+    // width: 100%;
+    width: calc(115% - 10px);
     left: 6px;
     height: 48px;
     margin: 0;
@@ -140,7 +145,22 @@ input[type=range] {
     background-color: transparent;
     -webkit-appearance: none;
     border: none;
+    box-shadow: none !important;
 }
+
+
+// input[type=range] {
+//     position: relative;
+//     z-index: 3;
+//     width: calc(56vh - 10px);
+//     left: 6px;
+//     height: 48px;
+//     margin: 0;
+//     padding: 0;
+//     background-color: transparent;
+//     -webkit-appearance: none;
+//     border: none;
+// }
 
 html[dir="rtl"] input[type=range] {
     left: auto;

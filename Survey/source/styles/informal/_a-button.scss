@@ -73,6 +73,7 @@ button.a-button-postterminator {
     margin: 0;
     display: none;
     color: globals.$theme-primary;
+    cursor: pointer;
 }
 
 
@@ -80,14 +81,26 @@ button.a-button-postterminator {
     .a-button-preterminator,
     .a-button-postterminator {
         display: block;
-        display: contents;
+        // display: contents;
     }
 }
 
 button.a-button-postterminator {
     margin-left: 1em;
+    
 }
 
+.o-slider-rotate{
+
+    button.a-button-preterminator {
+        margin-right: 0em;
+    }
+    button.a-button-postterminator {
+        right: -15px;
+    }
+    
+
+} 
 html[dir="rtl"] button.a-button-postterminator {
     margin-left: 0;
     margin-right: 1em;

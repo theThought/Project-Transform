@@ -1163,7 +1163,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   color: #455B97;
 }
 .o-question-slider-vertical-control .vertical-thumbvalue-wrapper {
-  width: 76%;
+  width: calc(105% - 10px);
   position: absolute;
 }
 .o-question-slider-vertical-control .a-label-thumbvalue {
@@ -1184,7 +1184,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
           box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: calc(80% - 10px);
+  width: calc(105% - 10px);
   top: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1229,6 +1229,15 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
 html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
+}
+
+.has-terminators .m-style-slidermarks {
+  width: calc(80% - 10px);
+}
+
+.has-terminators .vertical-thumbvalue-wrapper {
+  width: calc(79% - 10px);
+  position: absolute;
 }
 
 html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel,
@@ -1971,11 +1980,15 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: calc(80% - 10px);
+  width: calc(105% - 10px);
   border: 1px solid #8797C8;
   border-radius: 10px;
   top: 12px;
   background: white;
+}
+
+.has-terminators .a-style-sliderborder {
+  width: calc(80% - 10px);
 }
 
 .a-style-sliderclickablearea {

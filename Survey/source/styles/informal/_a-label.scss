@@ -455,7 +455,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         position: absolute;
         z-index: 3;
         width: calc(100% - 12px);
-        left: 6px;
+        // left: 6px;
         // top: 14px;
         top: 11px;
         display: flex;
@@ -497,17 +497,23 @@ html[dir="rtl"] .m-input-singlelineedit {
  
     
 }
+//Having to put this outside of the .o-question-slider-vertical-control class above.
+.has-terminators .m-style-slidermarks{
+    width: calc(80% - 10px);
+}
+
+.has-terminators .vertical-thumbvalue-wrapper{
+    width: calc(79% - 10px);
+    position: absolute;   
+}
+
+.has-terminators .m-label-ticklabels {
+    width: calc(115% - 10px);
+}
+
 
 html[dir="rtl"] .m-style-slidermarks{
     top: 10px;
-}
-
-.o-question-slider-vertical-control .m-label-ticklabels{
-    width: calc(56vh - 10px);
-}
-
-.o-question-slider-vertical-control .m-style-slidermarks{
-    width: calc(56vh - 10px);
 }
 
 html[dir="rtl"] .o-question-slider-vertical-control,

@@ -326,16 +326,23 @@ button.a-button-postterminator {
   margin: 0;
   display: none;
   color: #E8BE5D;
+  cursor: pointer;
 }
 
 .has-terminators .a-button-preterminator,
 .has-terminators .a-button-postterminator {
   display: block;
-  display: contents;
 }
 
 button.a-button-postterminator {
   margin-left: 1em;
+}
+
+.o-slider-rotate button.a-button-preterminator {
+  margin-right: 0em;
+}
+.o-slider-rotate button.a-button-postterminator {
+  right: -15px;
 }
 
 html[dir=rtl] button.a-button-postterminator {
@@ -1140,7 +1147,6 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   position: absolute;
   z-index: 3;
   width: calc(100% - 12px);
-  left: 6px;
   top: 11px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1187,16 +1193,21 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
           transform: rotate(270deg);
 }
 
+.has-terminators .m-style-slidermarks {
+  width: calc(80% - 10px);
+}
+
+.has-terminators .vertical-thumbvalue-wrapper {
+  width: calc(79% - 10px);
+  position: absolute;
+}
+
+.has-terminators .m-label-ticklabels {
+  width: calc(115% - 10px);
+}
+
 html[dir=rtl] .m-style-slidermarks {
   top: 10px;
-}
-
-.o-question-slider-vertical-control .m-label-ticklabels {
-  width: calc(56vh - 10px);
-}
-
-.o-question-slider-vertical-control .m-style-slidermarks {
-  width: calc(56vh - 10px);
 }
 
 html[dir=rtl] .o-question-slider-vertical-control .a-label-prelabel,
@@ -2022,6 +2033,10 @@ input[type=range]::-moz-range-thumb {
   background: white;
 }
 
+.has-terminators .a-style-sliderborder {
+  width: calc(80% - 10px);
+}
+
 html[dir=rtl] .a-style-sliderborder {
   top: 12px;
 }
@@ -2036,10 +2051,10 @@ html[dir=rtl] .a-style-sliderborder {
   display: none;
 }
 
-input[type=range] {
+.o-question-slider-vertical input[type=range] {
   position: relative;
   z-index: 3;
-  width: calc(56vh - 10px);
+  width: calc(115% - 10px);
   left: 6px;
   height: 48px;
   margin: 0;
@@ -2047,6 +2062,8 @@ input[type=range] {
   background-color: transparent;
   -webkit-appearance: none;
   border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 html[dir=rtl] input[type=range] {
