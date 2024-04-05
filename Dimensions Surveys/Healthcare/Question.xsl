@@ -2312,6 +2312,8 @@
                         <xsl:with-param name="QuestionName" select="@ElementID" />
                      </xsl:call-template>
                   </xsl:variable>
+                  <xsl:variable name="cellCategoryID" select="@ElementID" />
+
                   <xsl:variable name="cellLocal_Name" select="@QuestionName" />
                   <xsl:variable name="cellGroup_Name">
                      <xsl:call-template name="CalculateQuestionName">
@@ -2328,10 +2330,12 @@
                         </xsl:call-template>
                      </xsl:when>
                      <xsl:otherwise>
+                     CONTROL:
+                     <xsl:value-of select="$cellElementID" />
                         <xsl:call-template name="Control">
-                           <xsl:with-param name="qElementID" select="$qElementID" />
-                           <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-                           <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                           <xsl:with-param name="qElementID" select="$cellCategoryID" />
+                           <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
+                           <xsl:with-param name="qLocal_Name" select="$cellLocal_Name" />
                            <xsl:with-param name="qIsCustom">
                               <xsl:call-template name="TranslateZIndexToIsCustom">
                                  <xsl:with-param name="theID" select="Style/@ZIndex" />
