@@ -58,23 +58,20 @@
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
-      <xsl:variable name="qLocal_Name">
-         <xsl:call-template name="CalculateQuestionName">
-            <xsl:with-param name="QuestionName" select=".//Control[1]/@QuestionName" />
-         </xsl:call-template>
-      </xsl:variable>
+      <xsl:variable name="qLocal_Name" select=".//Control[1]/@QuestionName" />
       <xsl:variable name="qGroup_Name">
          <xsl:choose>
             <xsl:when test="$Parent">
                <xsl:value-of select="$Parent" />
             </xsl:when>
             <xsl:otherwise>
-               <xsl:value-of select="$qLocal_Name" />
+               <xsl:call-template name="CalculateQuestionName">
+                  <xsl:with-param name="QuestionName" select="$qLocal_Name" />
+               </xsl:call-template>
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
-
-      <xsl:choose>
+     <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qCustomType">
                <xsl:call-template name="TranslateZIndexToName">
@@ -115,6 +112,7 @@
                      </xsl:apply-templates>
                   </xsl:when>
                   <xsl:when test="name() = 'Control'">
+                     <xsl:text>CONTROL</xsl:text>
                      <xsl:call-template name="Control">
                         <xsl:with-param name="qElementID" select="$qElementID" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -272,23 +270,51 @@
             </xsl:when>
          </xsl:choose>
       </xsl:variable>
+
       <xsl:choose>
          <xsl:when test="$inQuestion='Question'">
             <xsl:for-each select="*">
-               <xsl:call-template name="TypePickerChoose">
-                  <xsl:with-param name="qElementID" select="$qElementID" />
-                  <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-                  <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-               </xsl:call-template>
-            </xsl:for-each>
-         </xsl:when>
-         <xsl:when test="$inQuestion='Control'">
-            <xsl:for-each select=".">
+            <xsl:text>Node: </xsl:text>
+            <xsl:value-of select="name()" />
+            <xsl:text>[</xsl:text>  
+            <xsl:value-of select="name()='Control'" />
+            <xsl:text>]</xsl:text>
                <xsl:choose>
-                  <xsl:when test="@ElementID">
+                  <xsl:when test="name()='Control'">
+                     <xsl:variable name="cElementID" select="@ElementID" />
+                     <xsl:variable name="cLocal_Name" select="@QuestionName" />
+
+                     Here:Control
+
+                     <xsl:call-template name="TypePickerChoose">
+                        <xsl:with-param name="qElementID" select="$cElementID" />
+                        <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
+                        <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                     </xsl:call-template>
+                  </xsl:when>
+                  <xsl:when test="name()='Table'">
+                     Here:Table
                      <xsl:call-template name="TypePickerChoose">
                         <xsl:with-param name="qElementID" select="$qElementID" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                        <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                     </xsl:call-template>
+                  </xsl:when>
+               </xsl:choose>
+            </xsl:for-each>
+         </xsl:when>
+         <xsl:when test="$inQuestion='Control'">
+         InQuestion:Control
+            <xsl:for-each select=".">
+            Here: inQuestionControl
+               <xsl:choose>
+                  <xsl:when test="@ElementID">
+                     <xsl:variable name="cElementID" select="@ElementID" />
+                     <xsl:variable name="cLocal_Name" select="@QuestionName" />
+
+                     <xsl:call-template name="TypePickerChoose">
+                        <xsl:with-param name="qElementID" select="$cElementID" />
+                        <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
                         <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                      </xsl:call-template>
                   </xsl:when>
@@ -308,6 +334,11 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
+      typepickerchoose
+      <xsl:value-of select="name()" />
+      <xsl:text> - </xsl:text>
+      <xsl:value-of select="$qElementID" />
+
       <xsl:choose>
          <xsl:when test="name() = 'Control'">
             <xsl:call-template name="Control">
@@ -545,7 +576,7 @@
       <xsl:variable name="Orientation">
          <xsl:value-of select="../Style/@Orientation" />
       </xsl:variable>
-
+ARE We here
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
@@ -596,9 +627,15 @@
                            </xsl:call-template>
                            <xsl:for-each select="./following-sibling::Row">
                               <xsl:if test="starts-with(./Cell/Control/Category/@CategoryID, $rowID)">
+                                 <xsl:variable name="cElementID" select=".//Control[1]/@ElementID" />
+                                 <xsl:variable name="cLocal_Name" select=".//Control[1]/@QuestionName" />
+                                 
+                                 <xsl:text>cElementID: </xsl:text>
+                                 <xsl:value-of select="$cElementID" />
+
                                  <xsl:call-template name="SpanCell">
-                                    <xsl:with-param name="qElementID" select="$qElementID" />
-                                    <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                                    <xsl:with-param name="qElementID" select="$cElementID" />
+                                    <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
                                     <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                                     <xsl:with-param name="qCustomType" select="$qCustomType" />
@@ -608,9 +645,16 @@
                         </xsl:element>
                      </xsl:when>
                      <xsl:otherwise>
+                        <xsl:value-of select="name()" />
+                        <xsl:variable name="cElementID" select=".//Control[1]/@ElementID" />
+                        <xsl:variable name="cLocal_Name" select=".//Control[1]/@QuestionName" />
+                        
+                        <xsl:text>cElementID[2]: </xsl:text>
+                        <xsl:value-of select="$cElementID" />
+
                         <xsl:call-template name="SpanCell">
-                           <xsl:with-param name="qElementID" select="$qElementID" />
-                           <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                           <xsl:with-param name="qElementID" select="$cElementID" />
+                           <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
                            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                            <xsl:with-param name="qCustomType" select="$qCustomType" />
@@ -1255,9 +1299,12 @@
       <xsl:param name="qGroup_Name" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
+      
+      RADIO Button
+      <xsl:value-of select="$qElementID" />
+
       <xsl:variable name="qCategoryID">
          <xsl:value-of select="$qElementID" />
-         <xsl:text>_C</xsl:text>
          <xsl:value-of select=".//Category[1]/@CategoryID" />
       </xsl:variable>
       <!--- Control Label -->
@@ -1324,7 +1371,6 @@
             <!--- Input name -->
             <xsl:attribute name="name">
                <xsl:value-of select="$qLocal_Name" />
-               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@Name">
                   <xsl:value-of select="Category[1]/@Name" />
                </xsl:if>
@@ -1403,7 +1449,6 @@
 
       <xsl:variable name="qCategoryID">
          <xsl:value-of select="$qElementID" />
-         <xsl:text>_C</xsl:text>
          <xsl:value-of select=".//Category[1]/@CategoryID" />
       </xsl:variable>
       <!--- Control Label -->
@@ -1501,7 +1546,6 @@
             <!--- Input name -->
             <xsl:attribute name="name">
                <xsl:value-of select="$qLocal_Name" />
-               <xsl:text>_C</xsl:text>
                <xsl:if test="Category[1]/@Name">
                   <xsl:value-of select="Category[1]/@Name" />
                </xsl:if>
