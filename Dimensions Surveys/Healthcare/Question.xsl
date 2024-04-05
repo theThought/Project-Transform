@@ -2330,8 +2330,6 @@
                         </xsl:call-template>
                      </xsl:when>
                      <xsl:otherwise>
-                     CONTROL:
-                     <xsl:value-of select="$cellElementID" />
                         <xsl:call-template name="Control">
                            <xsl:with-param name="qElementID" select="$cellCategoryID" />
                            <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
