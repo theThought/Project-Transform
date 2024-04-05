@@ -112,7 +112,6 @@
                      </xsl:apply-templates>
                   </xsl:when>
                   <xsl:when test="name() = 'Control'">
-                     <xsl:text>CONTROL</xsl:text>
                      <xsl:call-template name="Control">
                         <xsl:with-param name="qElementID" select="$qElementID" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -1148,7 +1147,6 @@
                   <xsl:attribute name="class">a-option-list</xsl:attribute>
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$qElementID" />
-                     <xsl:text>_C</xsl:text>
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
@@ -1170,7 +1168,6 @@
                   <xsl:if test="$bIncludeElementIds">
                      <xsl:attribute name="id">
                         <xsl:value-of select="$qElementID" />
-                        <xsl:text>_C</xsl:text>
                         <xsl:value-of select="@CategoryID" />
                      </xsl:attribute>
                   </xsl:if>
@@ -1233,7 +1230,6 @@
                   <xsl:attribute name="class">a-option-list</xsl:attribute>
                   <xsl:attribute name="data-questionid">
                      <xsl:value-of select="$qElementID" />
-                     <xsl:text>_C</xsl:text>
                      <xsl:value-of select="@CategoryID" />
                   </xsl:attribute>
                   <xsl:attribute name="data-questiongroup">
@@ -1255,7 +1251,6 @@
                   <xsl:if test="$bIncludeElementIds">
                      <xsl:attribute name="id">
                         <xsl:value-of select="$qElementID" />
-                        <xsl:text>_C</xsl:text>
                         <xsl:value-of select="@CategoryID" />
                      </xsl:attribute>
                   </xsl:if>
