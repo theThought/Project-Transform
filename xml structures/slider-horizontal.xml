@@ -1,0 +1,25 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" Indent="1" ZIndex="-50" Width="50%">
+            <Control Type="SingleLineEdit"></Control>
+        </Style>
+        <Control Type="SingleLineEdit" QuestionName="_QPercentageTreatmentsPrePost" ElementID="_Q0" Value="" Length="3">
+            <Style ElementAlign="NewLine" Indent="1" ZIndex="-50" Width="50%">
+                <Control Type="SingleLineEdit"></Control>
+            </Style>
+        </Control>
+        <Control Type="CheckButton" QuestionName="_QPercentageTreatmentsPrePost_X" ElementID="_Q0_X">
+            <Style ElementAlign="NewLine" Indent="1">
+                <Control Type="CheckButton"></Control>
+            </Style>
+            <Category Name="novisits" CategoryID="0">
+                <Label>
+                    <Style ElementAlign="Right">
+                        <Font IsBold="true"></Font>
+                    </Style>
+                    <Text>None of the visits</Text>
+                </Label>
+            </Category>
+        </Control>
+    </Question>
+</Questions>

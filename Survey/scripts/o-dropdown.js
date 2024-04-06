@@ -15,7 +15,7 @@ define(['component'],
             this.element = document.querySelector('input.a-input-dropdown[data-questionid="' + this.id + '"]');
             this.droplist = document.querySelector('input.a-input-dropdown[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-dropdown][data-questiongroup="' + this.group + '"]');
-            this.container = this.droplist.closest('div.o-question-core>.o-question-response');
+            this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;

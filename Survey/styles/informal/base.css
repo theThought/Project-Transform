@@ -2733,7 +2733,8 @@ html[dir=rtl] .sidebyside .o-question-information {
   padding-left: 1em;
 }
 
-.sidebyside .o-question-response {
+.sidebyside .o-question-core > .o-question-response,
+.sidebyside .o-question-core > questions {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2985,5 +2986,10 @@ sub {
 
 .width-90 {
   width: 90%;
+}
+
+question,
+questions {
+  display: block;
 }
 /*# sourceMappingURL=base.css.map */
