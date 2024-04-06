@@ -237,6 +237,10 @@ input[type=range]::-moz-range-track {
     border-bottom-left-radius: 16px;
 }
 
+html[dir=rtl] .o-question-slider-vertical-control{
+    min-width: 500px;
+}
+
 html[dir="rtl"] .has-value .flood-to-value::-moz-range-progress {
     border-radius: 0 16px 16px 0;
 }

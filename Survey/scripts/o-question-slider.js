@@ -168,7 +168,7 @@ define(['o-question'],
                 this.element.style.setProperty('--track-background-fill',
                     'linear-gradient(to right, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefillVertical + ', transparent ' + percentagefillVertical + ', transparent 100%)');
             }  
-            
+            //RTL
             if (this.isRTL) {
                 this.element.style.setProperty('--track-background-fill',
                     'linear-gradient(to left, ' + this.floodtovaluecolor + ' 0%, ' + this.floodtovaluecolor + ' ' + percentagefill + ', transparent ' + percentagefill + ', transparent 100%)');

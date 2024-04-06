@@ -1261,6 +1261,11 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   right: 6px;
 }
 
+html[dir=rtl] .has-terminators .m-style-slidermarks {
+  left: auto;
+  right: 56px;
+}
+
 html[dir=rtl] .o-question-slider-vertical-control .a-label-thumbvalue {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
@@ -2099,6 +2104,10 @@ input[type=range]::-moz-range-track {
   height: 16px;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
+}
+
+html[dir=rtl] .o-question-slider-vertical-control {
+  min-width: 500px;
 }
 
 html[dir=rtl] .has-value .flood-to-value::-moz-range-progress {

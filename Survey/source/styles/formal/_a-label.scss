@@ -544,13 +544,17 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     .m-style-slidermarks {  
         left: auto;
         right: 6px;
-        
     }
 
     .m-label-ticklabels {
         left: auto;
         right: 6px;
     }
+}
+
+html[dir="rtl"] .has-terminators .m-style-slidermarks {  
+    left: auto;
+    right: 56px;
 }
 
 html[dir="rtl"] .o-question-slider-vertical-control{
