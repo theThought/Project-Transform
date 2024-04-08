@@ -77,7 +77,7 @@
 				  "values": {
 					"min": 0,
 					"max": 10
-				}, "show": {"marks": true}, "ticklabels": 1,
+				}, "show": {"marks": true, "terminators": true}, "ticklabels": 1,
 				"floodtovalue": true
 			});</script>
 			<div class="m-question-cover"><!-- cover --></div>
@@ -106,15 +106,21 @@
 							<div class="m-style-slidermarks">
 								<!--slider-horizontal tick marks-->
 							</div>
-							<div class="a-label-thumbvalue" data-questionid="_Q17_Val" 
-								 data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
-								<script>app.registerComponent('alabelthumbvalue', '_Q17_Thumbvalue', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
-								<!--slider-horizontal thumb value-->
-							</div>
+
+<!-- New class added to contain the thumblabel -- this applies only to the horizontal slider. -->
+	<div class="horizontal-thumbvalue-wrapper">
+		<div class="a-label-thumbvalue" data-questionid="_Q17_Val" 
+			data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels">
+			<script>app.registerComponent('alabelthumbvalue', '_Q17_Thumbvalue', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
+			<!--slider-horizontal thumb value-->
+		</div>
+	</div>
+
+
 							<input data-questionid="_Q17"
 								   data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels" type="range"
 								   name="_QSideBySidePage_QHowManyMissedMarksLabels" id="_Q17"
-								   class="a-input-slider-horizontal" autocomplete="off" style="" maxlength="2" value="4"/>
+								   class="a-input-slider-horizontal" autocomplete="off" style="" maxlength="2" value="0"/>
 							<div data-questiongroup="_QSideBySidePage_QHowManyMissedMarksLabels"
 								 class="m-label-ticklabels">
 								<!--slider-horizontal tick labels-->
