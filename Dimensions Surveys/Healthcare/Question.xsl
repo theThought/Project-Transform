@@ -45,7 +45,7 @@
       <xsl:param name="SubQuestion" select="false()" />
       <xsl:param name="Parent" />
       <xsl:param name="SubElement" />
-
+      
       <xsl:variable name="qElementID">
          <xsl:choose>
             <xsl:when test="not($SubQuestion)">
@@ -71,14 +71,14 @@
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
-     <xsl:choose>
+      <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qCustomType">
                <xsl:call-template name="TranslateZIndexToName">
                   <xsl:with-param name="theID" select="Style/@ZIndex" />
                </xsl:call-template>
             </xsl:variable>
-
+            
             <xsl:if test="$qLocal_Name!=''">
                <xsl:choose>
                   <xsl:when test="Table/@UseTablesLayout = '-1'">
@@ -134,10 +134,10 @@
       </xsl:choose>
    </xsl:template>
    <xsl:template name="CellQuestion">
-     <xsl:variable name="qElementID">
-      <xsl:call-template name="CalculateQuestionName">
-         <xsl:with-param name="QuestionName" select=".//Control[1]/@ElementID" />
-      </xsl:call-template>
+      <xsl:variable name="qElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select=".//Control[1]/@ElementID" />
+         </xsl:call-template>
       </xsl:variable>
       <xsl:variable name="qLocal_Name">
          <xsl:call-template name="CalculateQuestionName">
@@ -147,7 +147,7 @@
       <xsl:variable name="qGroup_Name">
          <xsl:value-of select="$qLocal_Name" />
       </xsl:variable>
-
+      
       <xsl:for-each select="*">
          <xsl:choose>
             <xsl:when test="name() = 'Questions'">
@@ -163,7 +163,7 @@
                <xsl:text>Question: </xsl:text>
             </xsl:when>
             <xsl:when test="name() = 'Table'">
-            <xsl:text>TABLE !!!! </xsl:text>
+               <xsl:text>TABLE !!!! </xsl:text>
                <xsl:call-template name="InsertQuestionDiv">
                   <xsl:with-param name="qElementID" select="$qElementID" />
                   <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -194,7 +194,7 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
-
+      
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-question-response</xsl:text>
@@ -269,7 +269,7 @@
             </xsl:when>
          </xsl:choose>
       </xsl:variable>
-
+      
       <xsl:choose>
          <xsl:when test="$inQuestion='Question'">
             <xsl:for-each select="*">
@@ -299,7 +299,7 @@
                   <xsl:when test="@ElementID">
                      <xsl:variable name="cElementID" select="@ElementID" />
                      <xsl:variable name="cLocal_Name" select="@QuestionName" />
-
+                     
                      <xsl:call-template name="TypePickerChoose">
                         <xsl:with-param name="qElementID" select="$cElementID" />
                         <xsl:with-param name="qLocal_Name" select="$cLocal_Name" />
@@ -322,7 +322,7 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
-
+      
       <xsl:choose>
          <xsl:when test="name() = 'Control'">
             <xsl:call-template name="Control">
@@ -765,7 +765,7 @@
       <!--- Need to decide whether to use a text area of a edit control -->
       <xsl:choose>
          <xsl:when test="$qCustomType='multilineedit'">
-               <xsl:call-template name="MultiLineEditControl">
+            <xsl:call-template name="MultiLineEditControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
@@ -864,31 +864,45 @@
                      </xsl:element>
                      <xsl:element name="div">
                         <xsl:attribute name="class">
-                           <xsl:text>a-label-thumbvalue</xsl:text>
+                           <xsl:text>m-slider-thumb</xsl:text>
+                           <xsl:choose>
+                              <xsl:when test="$qCustomType='slider-horizontal'">
+                                 <xsl:text>horizontal</xsl:text>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                 <xsl:text>vertical</xsl:text>
+                              </xsl:otherwise>
+                           </xsl:choose>
                         </xsl:attribute>
-                        <xsl:attribute name="data-questionid">
-                           <xsl:value-of select="$qElementID" />
-                           <xsl:text>_Val</xsl:text>
-                        </xsl:attribute>
-                        <xsl:attribute name="data-questiongroup">
-                           <xsl:value-of select="$qGroup_Name" />
-                        </xsl:attribute>
-                        <xsl:call-template name="appComponentScript">
-                           <xsl:with-param name="ComponentName">
-                              <xsl:text>aLabelThumbValue</xsl:text>
-                           </xsl:with-param>
-                           <xsl:with-param name="qElementID">
+                        <xsl:element name="div">
+                           <xsl:attribute name="class">
+                              <xsl:text>a-label-thumbvalue</xsl:text>
+                           </xsl:attribute>
+                           <xsl:attribute name="data-questionid">
                               <xsl:value-of select="$qElementID" />
-                              <xsl:text>_Thumbvalue</xsl:text>
-                           </xsl:with-param>
-                           <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-                           <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-                        </xsl:call-template>
-                        <xsl:comment>
-                           <xsl:value-of select="$qCustomType" />
-                           <xsl:text> thumb value</xsl:text>
-                        </xsl:comment>
+                              <xsl:text>_Val</xsl:text>
+                           </xsl:attribute>
+                           <xsl:attribute name="data-questiongroup">
+                              <xsl:value-of select="$qGroup_Name" />
+                           </xsl:attribute>
+                           <xsl:call-template name="appComponentScript">
+                              <xsl:with-param name="ComponentName">
+                                 <xsl:text>aLabelThumbValue</xsl:text>
+                              </xsl:with-param>
+                              <xsl:with-param name="qElementID">
+                                 <xsl:value-of select="$qElementID" />
+                                 <xsl:text>_Thumbvalue</xsl:text>
+                              </xsl:with-param>
+                              <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                              <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                           </xsl:call-template>
+                           <xsl:comment>
+                              <xsl:value-of select="$qCustomType" />
+                              <xsl:text> thumb value</xsl:text>
+                           </xsl:comment>
+                        </xsl:element>
                      </xsl:element>
+                     
                      <xsl:call-template name="MakeInputControl">
                         <xsl:with-param name="qElementID" select="$qElementID" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -1424,7 +1438,7 @@
       <xsl:param name="qGroup_Name" />
       <xsl:param name="qIsCustom" />
       <xsl:param name="qCustomType" />
-
+      
       <xsl:variable name="qCategoryID">
          <xsl:value-of select="$qElementID" />
          <xsl:value-of select=".//Category[1]/@CategoryID" />
@@ -1589,7 +1603,7 @@
                <xsl:with-param name="SubElement">
                   <xsl:value-of select=".//Control[1]/@ElementID" />
                </xsl:with-param>
-             </xsl:call-template>
+            </xsl:call-template>
          </xsl:for-each>
       </xsl:element>
    </xsl:template>
@@ -2315,14 +2329,14 @@
                         </xsl:call-template>
                      </xsl:variable>
                      <xsl:variable name="cellCategoryID" select="@ElementID" />
-
+                     
                      <xsl:variable name="cellLocal_Name" select="@QuestionName" />
                      <xsl:variable name="cellGroup_Name">
                         <xsl:call-template name="CalculateQuestionName">
                            <xsl:with-param name="QuestionName" select="$cellLocal_Name" />
                         </xsl:call-template>
                      </xsl:variable>
-
+                     
                      <xsl:choose>
                         <xsl:when test="not(@Type = 'RadioButton') and not(@Type ='CheckButton')">
                            <xsl:call-template name="InsertQuestionDiv">
@@ -2358,7 +2372,7 @@
                   </xsl:otherwise>
                </xsl:choose>
             </xsl:if>
-            </xsl:for-each>
+         </xsl:for-each>
       </xsl:element>
    </xsl:template>
    <xsl:template name="StructureError">
