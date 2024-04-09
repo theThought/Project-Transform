@@ -1236,8 +1236,8 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
 }
 
 .has-terminators .m-slider-thumb-vertical {
-  width: calc(79% - 10px);
   position: absolute;
+  width: calc(76% - 0px);
 }
 
 html[dir=rtl] .o-question-slider-vertical-control .a-label-prelabel {
