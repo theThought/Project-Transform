@@ -1162,7 +1162,7 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   bottom: -0.8em;
   color: #455B97;
 }
-.o-question-slider-vertical-control .vertical-thumbvalue-wrapper {
+.o-question-slider-vertical-control .m-slider-thumb-vertical {
   width: calc(105% - 10px);
   position: absolute;
 }
@@ -1235,7 +1235,7 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels > span {
   width: calc(80% - 10px);
 }
 
-.has-terminators .vertical-thumbvalue-wrapper {
+.has-terminators .m-slider-thumb-vertical {
   width: calc(79% - 10px);
   position: absolute;
 }

@@ -444,7 +444,7 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$theme-primary;
     }
 
-    .vertical-thumbvalue-wrapper{
+    .m-slider-thumb-vertical{
         width: calc(105% - 10px);
         position: absolute;   
     }
@@ -518,7 +518,7 @@ html[dir="rtl"] .m-input-singlelineedit {
 //     width: calc(90% - 10px);
 // }
 
-.has-terminators .vertical-thumbvalue-wrapper{
+.has-terminators .m-slider-thumb-vertical{
     width: calc(79% - 10px);
     position: absolute;   
 }
