@@ -867,10 +867,10 @@
                            <xsl:text>m-slider-thumb</xsl:text>
                            <xsl:choose>
                               <xsl:when test="$qCustomType='slider-horizontal'">
-                                 <xsl:text>horizontal</xsl:text>
+                                 <xsl:text>-horizontal</xsl:text>
                               </xsl:when>
                               <xsl:otherwise>
-                                 <xsl:text>vertical</xsl:text>
+                                 <xsl:text>-vertical</xsl:text>
                               </xsl:otherwise>
                            </xsl:choose>
                         </xsl:attribute>
