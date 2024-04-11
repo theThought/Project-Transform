@@ -1363,6 +1363,18 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
+.no-separator .o-option-sublist + .o-option-sublist:before {
+  display: none;
+}
+
+.o-option-sublist + .o-option-sublist:before {
+  display: block;
+  content: "";
+  width: 25%;
+  border-bottom: 2px dashed #B4BDDB;
+  margin-bottom: 1em;
+}
+
 /* prevents corrects separation of lists when they are balanced */
 .balance > .o-option-sublist + .o-option-sublist {
   margin-top: 0;

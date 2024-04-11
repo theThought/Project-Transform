@@ -4,6 +4,7 @@
     display: none !important;
 
 }
+
 .hidden-rule {
     display: none !important;
 }
@@ -32,6 +33,18 @@
 /* Separates sub-lists when they are immediately adjacent */
 .o-option-sublist + .o-option-sublist {
     margin-top: 1em;
+}
+
+.no-separator .o-option-sublist + .o-option-sublist:before {
+    display: none;
+}
+
+.o-option-sublist + .o-option-sublist:before {
+    display: block;
+    content: '';
+    width: 25%;
+    border-bottom: 2px dashed globals.$light3;
+    margin-bottom: 1em;
 }
 
 /* prevents corrects separation of lists when they are balanced */

@@ -34,6 +34,18 @@
     margin-top: 1em;
 }
 
+.no-separator .o-option-sublist + .o-option-sublist:before {
+    display: none;
+}
+
+.o-option-sublist + .o-option-sublist:before {
+    display: block;
+    content: '';
+    width: 25%;
+    border-bottom: 1px solid globals.$other0;
+    margin-bottom: 1em;
+}
+
 /* prevents corrects separation of lists when they are balanced */
 .balance > .o-option-sublist + .o-option-sublist {
     margin-top: 0;
