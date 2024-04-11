@@ -81,6 +81,16 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionChoice(id, group));
             });
             break;
+        case 'oquestiondropdown':
+            requirejs(['o-question'], function (oQuestionDropdown) {
+                app.preinitcomponents.push(new oQuestionDropdown(id, group));
+            });
+            break;
+        case 'oquestioncombobox':
+            requirejs(['o-question'], function (oQuestionCombobox) {
+                app.preinitcomponents.push(new oQuestionCombobox(id, group));
+            });
+            break;
         case 'oquestioncontainer':
             requirejs(['o-question-container'], function (oQuestionContainer) {
                 app.preinitcomponents.push(new oQuestionContainer(id, group));
