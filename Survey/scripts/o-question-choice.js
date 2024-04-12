@@ -55,7 +55,7 @@ define(['o-question'],
             }
 
             if (typeof props.length !== 'undefined') {
-                this.element.classList.add('line-width-' + props.length);
+                this.element.classList.add('separator-length-' + props.length);
             }
         }
 

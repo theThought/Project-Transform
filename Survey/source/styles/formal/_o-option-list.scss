@@ -47,6 +47,38 @@
     margin-bottom: 1em;
 }
 
+.separator-length-30 > .o-option-sublist + .o-option-sublist:before {
+    width: 30%;
+}
+
+.separator-length-40 > .o-option-sublist + .o-option-sublist:before {
+    width: 40%;
+}
+
+.separator-length-50 > .o-option-sublist + .o-option-sublist:before {
+    width: 50%;
+}
+
+.separator-length-60 > .o-option-sublist + .o-option-sublist:before {
+    width: 60%;
+}
+
+.separator-length-70 > .o-option-sublist + .o-option-sublist:before {
+    width: 70%;
+}
+
+.separator-length-80 > .o-option-sublist + .o-option-sublist:before {
+    width: 80%;
+}
+
+.separator-length-90 > .o-option-sublist + .o-option-sublist:before {
+    width: 90%;
+}
+
+.separator-length-100 > .o-option-sublist + .o-option-sublist:before {
+    width: 100%;
+}
+
 /* prevents corrects separation of lists when they are balanced */
 .balance > .o-option-sublist + .o-option-sublist {
     margin-top: 0;
