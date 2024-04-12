@@ -20,7 +20,7 @@
 
     .o-option-sublist {
         margin-top: 1em;
-        margin-bottom: 1em;
+        margin-bottom: calc(1em - 3px);
     }
 
     .o-option-sublist + .m-option-base {
@@ -82,6 +82,11 @@
 
 /* prevents corrects separation of lists when they are balanced */
 .balance > .o-option-sublist + .o-option-sublist {
+    margin-top: 1em;
+}
+
+/* prevents corrects separation of lists when they are balanced */
+.no-separator.balance > .o-option-sublist + .o-option-sublist {
     margin-top: 0;
 }
 
