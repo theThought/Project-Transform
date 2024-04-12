@@ -2235,7 +2235,7 @@ html[dir=rtl] .o-question-errorandinstruction {
   padding-left: 1em;
 }
 
-.sidebyside .o-question-information {
+.sidebyside .o-question-information-and-messages {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-right: 1em;
@@ -2246,7 +2246,7 @@ html[dir=rtl] .o-question-errorandinstruction {
           flex: 0 0 40%;
 }
 
-html[dir=rtl] .sidebyside .o-question-information-and-messages {
+html[dir=rtl] .sidebyside .o-question-information {
   margin-right: 0;
   margin-left: 1em;
   padding-right: 0;
