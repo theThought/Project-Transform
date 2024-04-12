@@ -9,6 +9,10 @@
     display: none !important;
 }
 
+.o-option-sublist {
+    position: relative;
+}
+
 .balance {
     .o-option-sublist:first-of-type {
         margin-top: 0;
@@ -31,63 +35,66 @@
 }
 
 /* Separates sub-lists when they are immediately adjacent */
-.o-option-sublist + .o-option-sublist {
+.o-option-sublist + .o-option-sublist,
+.o-option-sublist + .m-option-base {
+    margin-top: 2em;
+}
+
+.no-separator .o-option-sublist + .o-option-sublist,
+.no-separator .o-option-sublist + .m-option-base {
     margin-top: 1em;
 }
 
-.no-separator .o-option-sublist + .o-option-sublist:before {
+.no-separator .o-option-sublist + .o-option-sublist::before,
+.no-separator .o-option-sublist + .m-option-base::before {
     display: none;
 }
 
-.o-option-sublist + .o-option-sublist:before {
+.o-option-sublist + .o-option-sublist::before,
+.o-option-sublist + .m-option-base::before {
     display: block;
+    position: absolute;
+    top: -1em;
     content: '';
     width: 25%;
     border-bottom: 2px dashed globals.$light3;
-    margin-bottom: 1em;
 }
 
-.separator-length-30 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-30 > .o-option-sublist + .o-option-sublist::before {
     width: 30%;
 }
 
-.separator-length-40 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-40 > .o-option-sublist + .o-option-sublist::before {
     width: 40%;
 }
 
-.separator-length-50 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-50 > .o-option-sublist + .o-option-sublist::before {
     width: 50%;
 }
 
-.separator-length-60 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-60 > .o-option-sublist + .o-option-sublist::before {
     width: 60%;
 }
 
-.separator-length-70 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-70 > .o-option-sublist + .o-option-sublist::before {
     width: 70%;
 }
 
-.separator-length-80 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-80 > .o-option-sublist + .o-option-sublist::before {
     width: 80%;
 }
 
-.separator-length-90 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-90 > .o-option-sublist + .o-option-sublist::before {
     width: 90%;
 }
 
-.separator-length-100 > .o-option-sublist + .o-option-sublist:before {
+.separator-length-100 > .o-option-sublist + .o-option-sublist::before {
     width: 100%;
 }
 
 /* prevents corrects separation of lists when they are balanced */
 .balance > .o-option-sublist + .o-option-sublist {
     margin-top: 0;
-}
-
-/* Separates m-option-base elements when they are not
- * part of a sub-list but directly follow a sub-list */
-.o-option-sublist + .m-option-base {
-    margin-top: 1em;
 }
 
 /* This combination shouldn't be seen but was observed as part
