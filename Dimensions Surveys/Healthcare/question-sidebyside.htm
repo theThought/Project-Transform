@@ -1,22 +1,28 @@
 <mrSubTemplate>
-	<section class="o-question-container sidebyside">
+	<div class="o-question-container sidebyside">
 		<mrData QuestionElement="Banner"  Name="RegisterContainer" />
 		<mrData QuestionElement="Banner"  Name="CustomProperties" />
 		<div class="m-question-cover"><!-- cover --></div>
 
-		<header class="o-question-messages">
+		<div class="o-question-messages">
 			<div class="o-question-information-messages">
-				<mrData QuestionElement="Error" ShowErrors='TopMost' />
+				<div class='m-message-error'>
+					<mrData QuestionElement="Error" ShowErrors='TopMost' />
+				</div>
 			</div>
 			<div class="o-question-response-messages">
-				<mrData QuestionElement="Banner"  Name="Instruction" />
+				<div class='m-message-instruction'>
+					<mrData QuestionElement="Banner"  Name="Instruction" />
+				</div>
 			</div>
-		</header>
+		</div>
 	  
 		<div class="o-question-core">
 			<div class="o-question-information-and-messages">
 				<div class="o-question-information">
-					<mrData QuestionElement="Label" /> 
+					<div class="o-question-information-content">
+						<mrData QuestionElement="Label" /> 
+					</div>
 				</div>         
 				  
 				<div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -26,15 +32,12 @@
 			</div>
 		</div>
 
-		<header class="o-question-messages">
+		<div class="o-question-messages">
 			<div class="o-question-information-messages">
 				<details class='o-message-information'>
 					<mrData QuestionElement="Banner"  Name="Information" />
 				</details>	
 			</div>
-			<div class="o-question-response-messages">
-				<mrData QuestionElement="Banner"  Name="Instruction" />
-			</div>
-		</header>
-	</section>
+		</div>
+	</div>
 </mrSubTemplate>

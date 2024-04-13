@@ -49,6 +49,16 @@ define(['o-question'],
             }
         }
 
+        oQuestionChoice.prototype.sublistline = function (props) {
+            if (props.state === false) {
+                this.element.classList.add('no-separator');
+            }
+
+            if (typeof props.length !== 'undefined') {
+                this.element.classList.add('separator-length-' + props.length);
+            }
+        }
+
         oQuestionChoice.prototype.balance = function (props) {
             if (props.state === true) {
                 this.isBalanced = true;
