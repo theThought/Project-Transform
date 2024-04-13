@@ -581,7 +581,7 @@
                   <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                </xsl:call-template>
                <xsl:for-each select="./Row">
-                  <xsl:sort select="@Y" data-type="number" />
+                  <xsl:sort select="@Y" data-type="number" order="ascending"/>
                   <xsl:call-template name="StructureRow">
                      <xsl:with-param name="qElementID" select="$qElementID" />
                      <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -2179,7 +2179,7 @@
          <xsl:attribute name='data-iterationname'>
          </xsl:attribute>
          <xsl:for-each select="./Cell">
-            <xsl:sort select="@X" data-type="number" />
+            <xsl:sort select="@X" data-type="number" order="ascending" />
             <xsl:call-template name="StructureCell">
                <xsl:with-param name="qElementID" select="$qElementID" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
