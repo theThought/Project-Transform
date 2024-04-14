@@ -2264,12 +2264,12 @@
                <xsl:value-of select="$cellScope" />
             </xsl:attribute>
          </xsl:if>
-         <xsl:if test="@WeightY != ''">
+         <xsl:if test="@WeightY > 1">
             <xsl:attribute name="rowspan">
                <xsl:value-of select="@WeightY" />
             </xsl:attribute>
          </xsl:if>
-         <xsl:if test="@WeightX != ''">
+         <xsl:if test="@WeightX > 1">
             <xsl:attribute name="colspan">
                <xsl:value-of select="@WeightX" />
             </xsl:attribute>
