@@ -1121,6 +1121,12 @@ Coke "Coca Cola" define
         international "international papers",
         Sunday "Sunday papers"
     };
+    NewspapersSubList "" define
+    {
+        use dailypapers sublist ,
+        use internationalpapers sublist ,
+        use sundaypapers sublist
+    };
     measurelist "" define
     {
         grams "grams",
@@ -1138,7 +1144,8 @@ Coke "Coca Cola" define
             )
         text [0..200] )
     } asc;
-    NewspapersSubList ""
+    
+    FullNewspapersSubList ""
     define
     {
         use dailypapers sublist -,
@@ -1257,6 +1264,25 @@ Coke "Coca Cola" define
                 )
             )
     };
+    weekdayslistdetail "Week" define
+    {
+        Mon "Monday",
+        Tue "Tuesday",
+        Wed "Wednesday",
+        Thu "Thursday",
+        Fri "Friday"
+    };
+    weekedndayslistdetail "Weekned" define
+    {
+    Sat "Saturday",
+    Sun "Sunday"
+    };
+    
+    weekdayslistfull "" define
+    {
+    use weekdayslistdetail sublist,
+    use weekedndayslistdetail sublist
+    };
     daysoftheweeklist "" define
     {
         Mon "Monday",
@@ -1328,6 +1354,27 @@ Coke "Coca Cola" define
         Pineapple "Pineapple",
         Grapefruit "Grapefruit",
         Mango "Mango"
+    };
+    fruitlistwithother "" define
+    {
+        Banana "Banana",
+        Apple "Apple",
+        Orange "Orange",
+        kiwi "kiwi fruit",
+        Satsuma "Satsuma",
+        Grapes "Grapes",
+        Pineapple "Pineapple",
+        Grapefruit "Grapefruit",
+        Mango "Mango",
+        otherFruit "otherFruit" other(namefruit ""
+            style(
+                ZIndex = -20,
+                Control(
+                    Type = "SingleLineEdit"
+                )
+            )
+        text [..50] ),
+        nofruit "No fruit" exclusive
     };
     cigarbrandslist "" define
     {
@@ -1583,6 +1630,8 @@ Coke "Coca Cola" define
     ' -40 Choice
     ' -50 Slider (Horizontal)
     ' -51 Slider (Vertical)
+    ' -55 Scale (Horizontal)
+    ' -56 Scale (Vertical)
     ' -60 DropDown
     ' -70 Combobox
     ' -1100 Progressive (V) Grid
@@ -1636,14 +1685,15 @@ Coke "Coca Cola" define
         ReadWrite "Read/Write hidden inputs",
         SliderH "Slider (Horizontal)",
         SliderV "Slider (Vertical)",
+        ScaleH "Scale (Horizontal)",
+        ScaleV "Scale (Vertical)",
         SideBySide "Complex questions"
     };
     TypesList_Special "Special functions" define
     {
-    paste "Allow/Prevent Pasting",
-    InfoPop "Information Popup"
+        paste "Allow/Prevent Pasting",
+        InfoPop "Information Popup"
     };
-    
     TypesList_Progressive "Progressive Grids" define
     {
         ProgressiveChoice "Choice",
@@ -1754,7 +1804,7 @@ Coke "Coca Cola" define
         style(
             Width = "4em"
         )
-    long [15 .. 60];
+    long [15 .. 60]codes ({novalue "" na});
 
     CustomList_SetFocus "Which focus"
     categorical
@@ -1883,6 +1933,14 @@ Coke "Coca Cola" define
         )
     info;
 
+	middlename "middle name"
+	style(zIndex=-20, control(type="singlelineedit"))
+	text[..40]
+	codes ({
+	noanswer "" NA,
+	nomiddle "I don't have a middle name",
+	toolong "my name is too long to fit"
+	})
     Comments "Would you please describe the positive and negative aspects of the experience you had during your last visit"
         style(
             ZIndex = -30
@@ -1941,18 +1999,20 @@ Coke "Coca Cola" define
         refuse "I refuse to answer" exclusive
     };
 
-	VisibleConComitantPage "" Page (SimpleVisibility, concomitant);
-	
-	SimpleVisibility "Change visibility"
-	style(ZIndex = -40)
-	categorical[1]
-	{
-	Show, 
-	Hide
-	};
-	
-   concomitant "Concomitant disease affecting cancer treatment"
-   style(zIndex=-40)
+    SimpleVisibility "Change visibility"
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        Show "Show",
+        Hide "Hide"
+    };
+
+    concomitant "Concomitant disease affecting cancer treatment"
+        style(
+            ZIndex = -40
+        )
     categorical [1..]
     {
         Diabetes "Diabetes",
@@ -1975,7 +2035,7 @@ Coke "Coca Cola" define
         none "None" exclusive,
         dk "Don't know" exclusive
     };
-    
+
     DrinksRandom "Which of the following drinks have you consumed in the last 7 days"
         style(
             ZIndex = -40
@@ -2319,7 +2379,6 @@ Coke "Coca Cola" define
     '----------------------------------------
     ' sliders
     '----------------------------------------
-
     HowManyMissed "How many of the last 10 visits did you miss"
         style(
             ZIndex = -50
@@ -2438,7 +2497,6 @@ Coke "Coca Cola" define
         novisits "None of the visits" NA
     } );
 
-
     PercentageTreatmentsPrePost "What percentage of visits resulted in changes to treatments"
         style(
             ZIndex = -50,
@@ -2460,7 +2518,6 @@ Coke "Coca Cola" define
     {
         novisits "None of the visits" NA
     } );
-
 
     modifications "Indicate the speed modification"
         style(
@@ -2487,6 +2544,33 @@ Coke "Coca Cola" define
             Width = "15em"
         )
     long [0 .. 100];
+
+    '----------------------------------------
+    ' scales (horizontal)
+    '----------------------------------------
+    tenpointfeedback "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -55,
+            Width = "15em"
+        )
+    long [1 .. 10];
+
+    sevenpointfeedback "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -55,
+            Width = "30%"
+        )
+    long [1 .. 7];
+
+    fivepointfeedback "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -55
+        )
+    long [1 .. 5]
+    codes(
+    {
+        noscent "I did not use a scent booster" NA
+    } );
 
     sizes "Which of the odd options works for you"
         [
@@ -3175,7 +3259,20 @@ Coke "Coca Cola" define
         use dailypapers -
     };
 
-    TypesVsBroadsheets "Which of the following papers have you read in the last month,Which of the following papers have you read in the last month,Which of the following papers have you read in the last month,Which of the following papers have you read in the last month,Which of the following papers have you read in the last month,Which of the following papers have you read in the last monthDaily"
+    TypesVsBroadsheetsSingle "Which of the following papers have you read in the last month?"
+    categorical [1..1]
+    {
+        use tabloidpapers sublist -,
+        use broadsheetpapers sublist -,
+        otherpaper "Other (please specify)" other(otherpapername ""
+            style(
+                ZIndex = -20
+            )
+        text [..100] ) fix,
+        dontread "I don't read newspapers" NA
+    };
+
+    TypesVsBroadsheets "Which of the following papers have you read in the last month?"
     categorical
     {
         use tabloidpapers sublist -,
@@ -4405,7 +4502,7 @@ Coke "Coca Cola" define
     '----------------------------------------
     ' Dynamic Labels
     '----------------------------------------
-    DynamicLabel1 "How many bananas did you eat last week"
+    DynamicLabel1 "How many <span style='bold'>bananas</span> did you eat last week"
     info;
 
     DynamicLabel2 "if you could eat more bananas how many would you eat today"
@@ -4672,6 +4769,32 @@ Coke "Coca Cola" define
     WhichPapers ""
         style(
             ZIndex = -40
+        )
+    categorical
+    {
+        use FullPaperList -
+        asc
+    };
+
+    WhichPapersDroplist ""
+        style(
+            ZIndex = -60,
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical
+    {
+        use FullPaperList -
+        asc
+    };
+
+    WhichPapersCombo ""
+        style(
+            ZIndex = -70,
+            Control(
+                Type = "ComboList"
+            )
         )
     categorical
     {
@@ -5280,7 +5403,11 @@ Coke "Coca Cola" define
                     Type = "SingleLineEdit"
                 )
             )
-        text [1..10];
+        text [1..10]
+        codes(
+        {
+            noanswer "" NA
+        } );
 
     );
 
@@ -5291,6 +5418,7 @@ Coke "Coca Cola" define
     (
         NumberOfSports ""
             style(
+                Align = "Left",
                 ZIndex = -20
             )
         long [ .. 10]
@@ -5371,29 +5499,42 @@ Coke "Coca Cola" define
         whichfruitmulti ""
         categorical
         {
-            FruitList use \\.fruitlist -,
-            otherFruit "otherFruit" other(namefruit ""
-                style(
-                    ZIndex = -20,
-                    Control(
-                        Type = "SingleLineEdit"
-                    )
-                )
-            text [..50] )
+            FruitListwithother use \\.fruitlistwithother -
         };
 
     ) expand;
 
-	DailyNewspapersByDay "Indicate the preferred newspaper for each day" loop
-	{
-	use daysoftheweeklist
-	} fields
-	(
-	Whichpaper style(zIndex=-40) categorical[1]
-	{
-	use dailypapers
-	}
-	) expand;
+    DailyNewspapersByDay "Indicate the preferred newspaper for each day" loop
+    {
+        use daysoftheweeklist -
+    } fields -
+    (
+        Whichpaper "Whichpaper"
+            style(
+                ZIndex = -40
+            )
+        categorical [1..1]
+        {
+            dailypapers use \\.dailypapers -
+        };
+
+    ) expand;
+
+    DailyNewspapersByDaySublists "Indicate the preferred newspaper for each day" loop
+    {
+        use weekdayslistfull -
+    } fields -
+    (
+        Whichpaper "Whichpaper"
+            style(
+                ZIndex = -40
+            )
+        categorical [1..1]
+        {
+            use FullNewspapersSubList -
+        };
+
+    ) expand;
     '----------------------------------------
     ' 1 column
     '----------------------------------------
@@ -5417,7 +5558,7 @@ Coke "Coca Cola" define
         long [0 .. ]
         codes(
         {
-            notanswered "" NA
+            notanswered "I don't smoke cigarettes" NA
         } );
 
         PleaseReview "Please review your answers if you did not smoke any cigarettes in the last seven days"
@@ -5430,7 +5571,7 @@ Coke "Coca Cola" define
         long [0 .. 100]
         codes(
         {
-            notanswered "" NA
+            notanswered "I don't smoke at the weekend" NA
         } );
 
         Howmanyvaped "How many times did you use your vape in the last seven days?"
@@ -5454,7 +5595,7 @@ Coke "Coca Cola" define
             cigarbrandslist use \\.cigarbrandslist -
         };
 
-        whichcigars "Which of the following cigar brand have you used in the last month"
+        whichcigars "Which of the following cigar brands have you used in the last month"
             style(
                 ZIndex = -60,
                 Control(
@@ -5466,7 +5607,7 @@ Coke "Coca Cola" define
             cigarbrandslist use \\.cigarbrandslist -
         };
 
-        whichcigarettes ""
+        whichcigarettes "Which of the following cigarette brands have you used in the last month"
             style(
                 ZIndex = -60,
                 Control(
@@ -5880,19 +6021,23 @@ Coke "Coca Cola" define
         };
 
     ) expand;
-    
+
     '----------------------------------------
     ' Information Popup 
     '----------------------------------------
-	varopinion "Which of the following statements best reflects your opinions on VAR in football?" style(zIndex=-40) categorical[1]
-	{
-	option1 "It is a tragic corruption of the game",
-	option2 "It is not adding quality to refereeing",
-	option3 "It is entertaining, but nothing more",
-	option4 "It has changed the game and will improve",
-	option5 "It is getting better but not yet great",
-	option6 "It does just what it should do"
-	};
+    varopinion "Which of the following statements best reflects your opinions on VAR in football?"
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        option1 "It is a tragic corruption of the game",
+        option2 "It is not adding quality to refereeing",
+        option3 "It is entertaining, but nothing more",
+        option4 "It has changed the game and will improve",
+        option5 "It is getting better but not yet great",
+        option6 "It does just what it should do"
+    };
 
     '----------------------------------------
     ' Page Definitions
@@ -5940,6 +6085,16 @@ Coke "Coca Cola" define
     page(
         PaperTypes,
         WhichPapers
+    );
+    PaperTypesDroplistPage ""
+    page(
+        PaperTypes,
+        WhichPapersDroplist
+    );
+    PaperTypesComboPage ""
+    page(
+        PaperTypes,
+        WhichPapersCombo
     );
     ChildrenPage ""
     page(
@@ -6184,6 +6339,17 @@ Coke "Coca Cola" define
         HowManyMissedV_Car,
         HowManyMissedV_Heart
     );
+    VisibleConComitantPage ""
+    page(
+        SimpleVisibility,
+        concomitant
+    );
+    Laundryfeedback ""
+    page(
+        tenpointfeedback,
+        sevenpointfeedback,
+        fivepointfeedback
+    );
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -6247,8 +6413,10 @@ CustomList_SetFocus.QuestionTemplate = templateLocation + "question-sidebyside.h
 CustomList_SetLayout.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetDirection.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetTheme.QuestionTemplate = templateLocation + "question-sidebyside.htm"
-
-CustomList_SetBalance.Response = 25
+CustomList_SetInstruction.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+CustomList_SetPaste1.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+CustomList_SetJump.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+choosetype.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 
 addCustomProperties(ChooseType, "ChooseType", MakeString("{'separator':true, 'onesize':{'state':true},'balance':{'state':true}}"), "replace")
 addCustomProperties(CustomList_SetBalance, "CustomList_SetBalance", MakeString("{'separator':false,'visible':{'collapse':true,'rules':'", balanceVisibility, "'}}"), "replace")
@@ -6256,7 +6424,7 @@ addCustomProperties(CustomList_SetFocus, "CustomList_SetFocus", MakeString("{'se
 addCustomProperties(CustomList_SetLayout, "CustomList_SetLayout", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'select layout'}"), "replace")
 addCustomProperties(CustomList_SetInstruction, "CustomList_SetInstruction", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'place instruction'}"), "replace")
 
-CustomList_SetLayout.Response.initial = {vertical}
+CustomList_SetLayout.Response.initial = {horizontal}
 CustomList_SetTheme.response.initial = {Formal}
 CustomList_SetFocus.Response.initial = {Question, Control}
 CustomList_SetDirection.Response.Initial = {LTR}
@@ -6264,10 +6432,18 @@ CustomList_SetInstruction.Response.Initial = {below}
 CustomList_SetPaste1.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
+PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':false}")
+
+CustomList_SetBalance.MustAnswer = false
+CustomList_SetBalance.Response = 30
+
 do until not askAgain
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 'ChooseType.Ask()
+
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+'TypesVsBroadsheetsSingle.Ask()
 
 MenuPage.Ask()
 
@@ -6374,7 +6550,10 @@ FirstLine.Ask()
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':4}}"
 progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
 AddCustomProperties(hospital_days, "Qty", "{'type':'number'}", "replace")
+'IOM.Layouttemplate = ""
 hospital_days.Ask()
+
+middlename.ask()
 
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':5}}"
 progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
@@ -6405,6 +6584,7 @@ gridofinputswithspecialcodes.Ask()
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 QuestionWithLotsofCodes.show()
 
+'iom.LayoutTemplate = ""
 Hospital_DaysbySide.Codes.Unknown.Style.ElementAlign = elementalignments.eaRight
 hospital_days2CodesSideBySide.Codes.Unknown.Style.ElementAlign = elementalignments.eaRight
 hospital_days2CodesSideBySide.Codes.refuse.Style.ElementAlign = elementalignments.eaRight
@@ -6457,11 +6637,15 @@ CustomPage.Show()
 
 case {choice}
 
-IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+'IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 
-AddCustomProperties(Daily, "Daily", "{'balance':{'state':true}, 'onesize':{'state':false}}", "replace")
-Daily.categories.filter={first,Sun,Mail}
-Daily.ask()
+'AddCustomProperties(Daily, "Daily", "{'balance':{'state':true}, 'onesize':{'state':false}}", "replace")
+'Daily.categories.filter={first,Sun,Mail}
+'Daily.ask()
+
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+addCustomProperties(TypesVsBroadsheetsSingle, "TypesVsBroadsheetsSingle", "{'sublistline': {'state':true,'length': 40}}", "replace")
+TypesVsBroadsheetsSingle.Ask()
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 TypesVsBroadsheets.Banners.AddNew("Instruction","Select one or more papers")
@@ -6559,7 +6743,6 @@ case {sliderh}
 AddCustomProperties(HowManyMissed, "HowManyMissed", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
 HowManyMissed.ask()
 
-AddCustomProperties(HowManyMissed, "HowManyMissed", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-solid.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 AddCustomProperties(HowManyMissed_Car, "HowManyMissed_Car", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 AddCustomProperties(HowManyMissed_Heart, "HowManyMissed_Heart", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-heart.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 HowManyMissedPage.ask()
@@ -6584,6 +6767,7 @@ modifications.Ask()
 AddCustomProperties(PercentageTreatments, "PercentageTreatments", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 PercentageTreatments.Ask()
 
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 AddCustomProperties(PercentageTreatmentsPrePost, "PercentageTreatmentsPrePost", "{'values':{'min':0,'max':100},'labels':{'pre':'None of them','post':'All of them'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 PercentageTreatmentsPrePost.Ask()
 
@@ -6593,10 +6777,10 @@ case {sliderv}
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 
-AddCustomProperties(HowManyMissedV, "HowManyMissed", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
+AddCustomProperties(HowManyMissedV, "HowManyMissedV", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
 HowManyMissedV.ask()
 
-AddCustomProperties(HowManyMissedV, "HowManyMissedV", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-solid.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissedV, "HowManyMissedV", "{'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 AddCustomProperties(HowManyMissedV_Car, "HowManyMissedV_Car", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 AddCustomProperties(HowManyMissedV_Heart, "HowManyMissedV_Heart", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-heart.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 HowManyMissedVPage.ask()
@@ -6624,7 +6808,15 @@ PercentageTreatmentsV.Ask()
 AddCustomProperties(PercentageTreatmentsPrePostV, "PercentageTreatmentsPrePostV", "{'values':{'min':0,'max':100},'labels':{'pre':'None of them','post':'All of them'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 PercentageTreatmentsPrePostV.Ask()
 
+case {scaleh}
+AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+tenpointfeedback.ask()
+AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+sevenpointfeedback.ask()
+AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+fivepointfeedback.Ask()
 
+case {scalev}
 case {Instructions}
 
 AddCustomProperties(new_products, "new_products", "{'balance':{'state':false}, 'onesize':{'state':false}}", "replace")
@@ -6681,6 +6873,15 @@ buttonsPage.ask()
 case {newvisibility}
 
 Dim currentRule
+
+	AddCustomProperties(concomitant, "concomitant", "{'balance':{'state':true},'onesize':{'state':true}}", "replace")
+
+	currentRule =  CreateVisibilityRule("SimpleVisibility.containsAny('Show')")
+	addCustomProperties(concomitant, "concomitant", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "add")
+
+CreateInformationPopup(concomitant, "Extra Information", "This is an exmaple of information pop-up")
+VisibleConComitantPage.Ask()
+
 	currentRule =  CreateVisibilityRule("DailyBalance_OneSize.containsAny('Telegraph','Independent','Guardian','Times')")
 addCustomProperties(Broadsheets, "Broadsheets", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
@@ -6882,6 +7083,7 @@ AddCustomProperties(effective_age_wise, "under5", "{'listsize':9,'placeholder':'
 AddCustomProperties(effective_age_wise, "slice1", "{'displayicon':false,'onesize':{'state':false},'listsize':5,'showanswers':false,'placeholder':'pick a drug'}", "add")
 AddCustomProperties(effective_age_wise, "slice2", "{'placeholder':'select one drug'}", "add")
 
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 effective_age_wise.Ask() 
 
 effective_age_wise[..].under5.Style.Width = "15em"
@@ -6933,6 +7135,8 @@ AddCustomProperties(constantsum, "PercentageSeen", "{'type':'decimal', labels:{'
 'constantsum[..].PercentageSeen.Style.Align = alignments.alCenter
 constantsum.ask()
 
+constantsum.QuestionFilter = {Mon,Tue}
+constantsum.ask()
 
 AddCustomProperties(rowtotals, "rowtotals", "{'caption':'Team Members','cellshading':{'columnheader':true,'altrows':true},'totals':{'rows':{'visible':true,'exceptions':[],'caption':{'content':'Total Hours'}},'columns':{'visible':false}}}", "replace")
 AddCustomProperties(rowtotals, "HoursMon", "{'type':'number','showspinner':true}", "add")
@@ -6996,6 +7200,7 @@ biggrid.style.Cell.RepeatHeader = 2
 biggrid.ask()
 
 BigGrid2Categoricals.style.Cell.RepeatHeader = 3
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 BigGrid2Categoricals.Ask()
 
 gridPage.ask()
@@ -7029,6 +7234,7 @@ case {ComplexGrids}
 	Visited_booth[..].rating.MustAnswer = false
 	Visited_booth[..].info_recall.MustAnswer = false
 	'IOM.LayoutTemplate = "pageoutput-label.htm"
+'	IOM.LayoutTemplate = ""
 	visited_booth.ask()
 
 	RotateGrid(constantsum, orientations.orRow)
@@ -7278,9 +7484,17 @@ dim optionsRules, optionRulesCounter
 		optionsRules = MakeString(optionsRules, optionsArray[optionRulesCounter])
 	Next
 	AddCustomProperties(WhichPapers, "WhichPapers", MakeString(optionsStart, optionsRules, optionsEnd), "add")
-	
+
 	PaperTypesPage.Ask()
 
+	AddCustomProperties(WhichPapersDroplist, "WhichPapersDroplist", "{'listsize':5,'showanswers':false,'placeholder':'select a paper'}", "replace")
+	AddCustomProperties(WhichPapersDroplist, "WhichPapersDroplist", MakeString(optionsStart, optionsRules, optionsEnd), "add")
+	PaperTypesDropListPage.Ask()
+
+	AddCustomProperties(WhichPapersCombo, "WhichPapersCombo", "{'listsize':5,'showanswers':false,'placeholder':'select a paper'}", "replace")
+	AddCustomProperties(WhichPapersCombo, "WhichPapersCombo", MakeString(optionsStart, optionsRules, optionsEnd), "add")
+	PaperTypesComboPage.Ask()
+	
 case {OtherSpecifyLists}
 dim otherspecifyvisibility, otherspecifyvisibility1, otherspecifyvisibility2, otherspecifyvisibility3
 dim tumourCount, tumourCounter, tumourVisibility, tumourID
@@ -7316,7 +7530,7 @@ dim tumourCount, tumourCounter, tumourVisibility, tumourID
 	patientTumoursCombo.Show()
 
 	tumourCount = patientTumoursNumeric.Count
-	patientTumours[..].otherspecifyotherinput.MustAnswer = false
+	patientTumoursNumeric[..].otherspecifyotherinput.MustAnswer = false
 	'addCustomProperties(patientTumoursNumeric, tumourID + "_Qotherspecifyotherinput", MakeString("{}"), "replace")
 
 	for tumourCounter = 1 to tumourCount
@@ -7462,6 +7676,7 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	AddCustomProperties(WeightandMeasureblock.measure, "measure", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select an option'}", "replace")
 	WeightandMeasureblock.ask()
 
+	OtherandSpecifyblock.theotheroption.MustAnswer = false
 	AddCustomProperties(OtherandSpecifyblock.pickanoption, "pickanoption", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select one'}", "replace")
 	AddCustomProperties(OtherandSpecifyblock.theotheroption, "theotheroption", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("OtherandSpecifyblock_Qpickanoption.containsAny('otheroption')"), "'}}"), "replace")
     OtherandSpecifyblock.Ask()
@@ -7475,7 +7690,11 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	
 	case {GridsofSolo}
 'IOM.LayoutTemplate = "pageoutput-label.htm"
+	InputandonecodeGrid[..].NumberOfSports.style.Align = alignments.alLeft
+	InputandonecodeGrid[..].NumberOfSports.Label.Style.Align = alignments.alLeft
 	InputandonecodeGrid.ask()
+	InputandtwocodesGrid[..].NumberOfSports.style.Align = alignments.alLeft
+	InputandtwocodesGrid[..].NumberOfSports.Label.Style.Align = alignments.alLeft
 	InputandtwocodesGrid.Ask()
 	
 	case {CategoricalGrids}
@@ -7486,6 +7705,9 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 
 	DailyNewspapersByDay.Wed.whichpaper.Categories.Mail.Style.Hidden = true
 	DailyNewspapersByDay.Ask()
+	
+	RotateGrid(DailyNewspapersByDaySublists, orientations.orRow)
+	DailyNewspapersByDaySublists.ask()
 	
 	RotateGrid(AnyFruitByDay, orientations.orRow)
 	AddCustomProperties(AnyFruitByDay,"AnyFruitByDay","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
@@ -7503,11 +7725,13 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 	AnyFruitByDay.Ask()
 	
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 	RotateGrid(AnyFruitByDaywithOther, orientations.orRow)
 	AnyFruitByDaywithOther.Ask()
 '	IOM.LayoutTemplate = "page.htm"
 	
 	case {onecolumn}
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 	onecolumnsmoke.ask()
 	onecolumnsmoke[1].Ask()
 	onecolumnsmokecol.ask()
@@ -7538,7 +7762,7 @@ addCustomProperties(invisLong, "invisLong", MakeString("{'invisible':{'collapse'
 addCustomProperties(invisDrop, "invisDrop", "{'separator':false}", "replace")
 addCustomProperties(invisDrop, "invisDrop", MakeString("{'invisible':{'collapse':false,'rules':'", currentRule1, "'},'listsize':2,'placeholder':'Select option'}"), "add")
 
-	 
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 'IOM.QuestionTemplate = "question.htm"
 invislong.x1.invisLongSlice.MustAnswer = false
 vislong.x1.visLongSlice.MustAnswer = false
