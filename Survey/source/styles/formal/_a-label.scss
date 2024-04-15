@@ -488,8 +488,8 @@ html[dir="rtl"] .m-input-singlelineedit {
         top: 0.5em;
         left: 6px;
         box-sizing: border-box;
-        width: calc(105% - 10px);
-        // width: 100%;
+        // width: calc(105% - 10px);
+        width: 100%;
         
         display: flex;
         justify-content: space-between;

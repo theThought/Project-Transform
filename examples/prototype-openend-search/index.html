@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Type-ahead Dropdown</title>
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content div:hover {
+    background-color: #f1f1f1;
+  }
+  .show {display: block;}
+  .selected-item {
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    background-color: #e4e4e4;
+    border-radius: 4px;
+  }
+  .selected-item span {
+    cursor: pointer;
+    color: #999;
+    margin-left: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+  <label for="brandInput">Select the brand that you consumed:</label>
+  <input type="text" placeholder="Type or select a brand name" id="brandInput" onkeyup="filterFunction()">
+  <div id="selectedBrand" class="selected-item" style="display:none;">
+    Selected: <span id="selectedText">None</span> <span onclick="clearSelection()">×</span>
+  </div>
+  <div id="dropdownList" class="dropdown-content">
+    <!-- List items will be inserted here using JavaScript -->
+  </div>
+</div>
+
+<div id="beverageCount">6 beverages found</div>
+
+<script>
+var brands = ['Granville Island Brewing', 'Brick Brewing Co.', 'Big Rock Brewery', 'Central City Brewers', 'Phillips Brewing & Malting Co.', 'Pump House Brewery'];
+var selectedBrand = null;
+
+function populateList() {
+  var dropdownList = document.getElementById('dropdownList');
+  brands.forEach(function(brand) {
+    var div = document.createElement('div');
+    div.innerHTML = brand;
+    div.onclick = function() { selectBrand(brand); };
+    dropdownList.appendChild(div);
+  });
+}
+
+function filterFunction() {
+  var input, filter, div, i;
+  input = document.getElementById("brandInput");
+  filter = input.value.toUpperCase();
+
+  // Show the dropdown list only if at least 3 characters have been typed
+  var dropdownList = document.getElementById("dropdownList");
+  if (input.value.length >= 3) {
+    dropdownList.classList.add('show');
+    div = dropdownList.getElementsByTagName("div");
+    for (i = 0; i < div.length; i++) {
+      var txtValue = div[i].textContent || div[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        div[i].style.display = "";
+      } else {
+        div[i].style.display = "none";
+      }
+    }
+  } else {
+    dropdownList.classList.remove('show');
+  }
+}
+
+function selectBrand(brand) {
+  selectedBrand = brand;
+  document.getElementById('selectedText').textContent = brand;
+  document.getElementById('selectedBrand').style.display = 'inline-block';
+  document.getElementById('brandInput').value = '';
+  document.getElementById('dropdownList').classList.remove('show');
+}
+
+function clearSelection() {
+  selectedBrand = null;
+  document.getElementById('selectedText').textContent = 'None';
+  document.getElementById('selectedBrand').style.display = 'none';
+  filterFunction(); // To re-filter the list after clearing the selection
+}
+
+// Initialize the list when the page loads
+populateList();
+</script>
+
+</body>
+</html>

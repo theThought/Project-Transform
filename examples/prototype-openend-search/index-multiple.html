@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Select Dropdown</title>
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content div:hover {
+    background-color: #f1f1f1;
+  }
+  .show {display: block;}
+  .selected-items {
+    margin: 5px;
+    padding: 5px;
+  }
+  .selected-item {
+    display: inline-block;
+    background-color: #e4e4e4;
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin-right: 5px;
+  }
+  .selected-item span {
+    cursor: pointer;
+    color: #999;
+    margin-left: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+  <label for="brandInput">Select the brands that you consumed:</label>
+  <input type="text" placeholder="Type or select brand names" id="brandInput" onkeyup="filterFunction()">
+  <div id="selectedBrands" class="selected-items">
+    <!-- Selected items will be inserted here using JavaScript -->
+  </div>
+  <div id="dropdownList" class="dropdown-content">
+    <!-- List items will be inserted here using JavaScript -->
+  </div>
+</div>
+
+<div id="beverageCount">6 beverages found</div>
+
+<script>
+var brands = ['Granville Island Brewing', 'Brick Brewing Co.', 'Big Rock Brewery', 'Central City Brewers', 'Phillips Brewing & Malting Co.', 'Pump House Brewery'];
+var selectedBrands = [];
+
+function populateList() {
+  var dropdownList = document.getElementById('dropdownList');
+  brands.forEach(function(brand) {
+    var div = document.createElement('div');
+    div.innerHTML = brand;
+    div.onclick = function() { selectBrand(brand); };
+    dropdownList.appendChild(div);
+  });
+}
+
+function filterFunction() {
+  var input = document.getElementById("brandInput");
+  var filter = input.value.toUpperCase();
+  var dropdownList = document.getElementById("dropdownList");
+  if (input.value.length >= 3) {
+    dropdownList.classList.add('show');
+    var divs = dropdownList.getElementsByTagName("div");
+    for (var i = 0; i < divs.length; i++) {
+      var txtValue = divs[i].textContent || divs[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        divs[i].style.display = "";
+      } else {
+        divs[i].style.display = "none";
+      }
+    }
+  } else {
+    dropdownList.classList.remove('show');
+  }
+}
+
+function selectBrand(brand) {
+  if (selectedBrands.indexOf(brand) === -1) {
+    selectedBrands.push(brand);
+    updateSelectedBrandsDisplay();
+  }
+  document.getElementById('brandInput').value = '';
+  document.getElementById('dropdownList').classList.remove('show');
+}
+
+function updateSelectedBrandsDisplay() {
+  var selectedBrandsDiv = document.getElementById('selectedBrands');
+  selectedBrandsDiv.innerHTML = '';
+  selectedBrands.forEach(function(brand, index) {
+    var span = document.createElement('span');
+    span.className = 'selected-item';
+    span.textContent = brand;
+    var removeSpan = document.createElement('span');
+    removeSpan.textContent = '×';
+    removeSpan.onclick = function() { removeBrand(index); };
+    span.appendChild(removeSpan);
+    selectedBrandsDiv.appendChild(span);
+  });
+}
+
+function removeBrand(index) {
+  selectedBrands.splice(index, 1);
+  updateSelectedBrandsDisplay();
+}
+
+// Initialize the list when the page loads
+populateList();
+</script>
+
+</body>
+</html>

@@ -22,6 +22,7 @@ define(['o-question'],
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
             this.verticalSlider = document.querySelector('div.o-question-slider-vertical');
+            this.thumbWrapper = document.querySelector('div.m-slider-thumb-vertical');
             this.isRTL = document.dir === 'rtl';
         }
 
@@ -161,7 +162,7 @@ define(['o-question'],
       
             //This is for the vertical slider
             if (this.verticalSlider){
-                var paddingadjustmentinpixelsVertical = 0;
+                var paddingadjustmentinpixelsVertical = 20;
                 var adjustmentcalcVertical = paddingadjustmentinpixelsVertical - (2 * paddingadjustmentinpixelsVertical) * (percentage / 100);
                 var percentagefillVertical = 'calc(' + percentage + '% + ' + adjustmentcalcVertical + 'px)';
           
