@@ -22,25 +22,23 @@ define(['o-question'], function (oQuestion) {
     oQuestionScaleHorizontal.prototype.setImageAndAlt = function(backgroundProps) {
         var singleStateImage = document.querySelector('.m-image-singlestate');
         if (singleStateImage) {
-            if (backgroundProps.image) {
-                singleStateImage.src = backgroundProps.image;
+            if (backgroundProps.image && backgroundProps.image.url) { 
+                singleStateImage.src = backgroundProps.image.url;
             }
             if (backgroundProps.caption) {
                 singleStateImage.alt = backgroundProps.caption;
             }
         }
-
-        console.log('singleStateImage');
-        console.log(singleStateImage);
+        console.log('singleStateImage', singleStateImage);
     };
+    
 
     oQuestionScaleHorizontal.prototype.initializeScaleUnits = function() {
         var scaleUnits = document.querySelectorAll('.m-scale-unit');
         var properties = this.properties;
         scaleUnits.forEach(function(unit) {
             var img = unit.querySelector('.a-image-multistate');
-            // Set initial src based on 'unit' property
-            img.src = properties.unit.image;
+            img.src = properties.unit.image.url;
         });
     };
 
@@ -64,7 +62,7 @@ define(['o-question'], function (oQuestion) {
             var isActive = index < selectedValue || parseInt(cb.value) === selectedValue;
 
             cb.checked = isActive;
-            img.src = cb.checked ? properties.activeUnit.image : properties.unit.image;
+            img.src = cb.checked ? properties.activeUnit.image.url : properties.unit.image.url;
 
             if (cb.checked) activeCount++;
         });

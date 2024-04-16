@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html dir="ltr" lang="en-US">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -73,17 +73,58 @@
     <div class="surroundcontent">t-scale htm example
         <div class="o-question-container cover-off config-complete focused">
             <script data-questionid="_Q17">app.registerComponent('oQuestionContainer', '_Q17', '_Qvaropinion');</script>
-            <script type="text/javascript">app.RegisterProperties('_QHowManyMissedMarksLabels', {             
-                 "values": {
-                    "min": 0,
+            <script type="text/javascript">app.RegisterProperties('_QHowManyMissedMarksLabels', {
+				// In this will we still need a activeUnit for hover and active states
+				// Unless you want me to write it a different way?
+				"background": {
+				  "image": {
+					"url": "../../Survey/images/formal/BusIcons/busScaleIcon.svg",
+					"width": "100%",
+					"height": "100%"
+				  },
+				  "caption": "This is the bus icon",
+				  "offset": {
+					"x": 0,
+					"y": 0
+				  }
+				},
+				"unit": {
+				  "image": {
+					"url": "../../Survey/images/formal/BusIcons/scaleIcon.svg",
+					"width": "32px",
+					"height": "32px"
+				  },
+				  "caption": "this is the prestate scale unit",
+				  "offset": {
+					"x": 0,
+					"y": 0
+				  }
+				},
+				"activeUnit": {
+				  "image": {
+					"url": "../../Survey/images/formal/BusIcons/scaleIconActive.svg",
+					"width": "32px",
+					"height": "32px"
+				  },
+				  "caption": "this is the active state scale unit",
+				  "offset": {
+					"x": 0,
+					"y": 0
+				  }
+				}, 
+				"values": {
+					"position": "inside",
+					"min": 0,
                     "max": 5
-                }, 
-                "show": {"marks": true}, 
-                "ticklabels": 1,
-                'background':{'image':'../../Survey/images/formal/BusIcons/busScaleIcon.svg','caption':'Bus background SVG'},
-                'unit':{'image':'../../Survey/images/formal/BusIcons/scaleIcon.svg'},
-				'activeUnit':{'image': '../../Survey/images/formal/BusIcons/scaleIconActive.svg'},
-            }); 
+				},
+				"show": {
+				  "terminators": true
+				},
+				"labels": {
+				  "pre": "Very Dissatisfied",
+				  "post": "Very Satisfied"
+				}
+			  }); 
             </script>
             <div class="m-question-cover"><!-- cover --></div>
             <div class="o-question-error"></div>
@@ -154,22 +195,13 @@
 									<img class="a-image-multistate" alt="Scale Icon 5"/>
 									<div class="a-label-datavalue">5</div>
 								</label>
-								
-								
-								
-							
 							</div>	
                         </div>
                     
-                
-
-
 					<button type="Button" class="a-button-postterminator" data-questionid="_Qvaropinion"
                         data-questiongroup="_QHowManyMissed">»</button>
                     <script>app.registerComponent('aButtonPostTerminator', '_Q0_Postterm', '_Qvaropinion');</script>
 					<span class="a-label-outer-postlabel">Postlabel</span>
-
-
 
                     </div>
                 </div>
