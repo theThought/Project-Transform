@@ -2019,6 +2019,7 @@
                   <xsl:attribute name="class">
                      <xsl:text>o-scale-container</xsl:text>
                   </xsl:attribute>
+                  <xsl:comment> --- units container --- </xsl:comment>
                </xsl:element>
             </xsl:element> 
             <xsl:call-template name="MakeInputControl">
