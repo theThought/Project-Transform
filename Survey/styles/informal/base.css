@@ -1536,6 +1536,8 @@ details[open] summary:after {
 
 .m-message-instruction {
   display: none;
+  position: relative;
+  z-index: 1;
 }
 
 .m-message-instruction.has-content {
@@ -1557,8 +1559,9 @@ details[open] summary:after {
   margin-bottom: 0.5em;
   border-radius: 5px;
   padding: 8px 16px 8px 42px;
-  background-color: rgba(75, 121, 182, 0.15);
+  background-color: #E4EBF4;
   color: #4B79B6;
+  z-index: 2;
 }
 .m-message-instruction.has-content div::before,
 .o-message-information.has-content::before {

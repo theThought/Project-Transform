@@ -46,6 +46,8 @@ details[open] summary:after {
 
 .m-message-instruction {
     display: none;
+    position: relative;
+    z-index: 1;
 }
 
 .m-message-instruction.has-content {
@@ -67,8 +69,9 @@ details[open] summary:after {
     margin-bottom: .5em;
     border-radius: globals.$border-radius;
     padding: 8px 16px 8px 32px;
-    background-color: rgba(globals.$information, .15);
+    background-color: #E4EBF4;
     color: globals.$information;
+    z-index: 2;
 
     &::before {
         position: absolute;
