@@ -378,7 +378,7 @@
          </xsl:call-template>
       </xsl:param>
       <xsl:choose>
-         <xsl:when test="$qCustomType='scale'">
+         <xsl:when test="$qCustomType='scale-horizontal' or $qCustomType='scale-vertical' ">
             <xsl:call-template name="ScaleControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
