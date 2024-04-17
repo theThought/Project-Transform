@@ -2016,7 +2016,7 @@
                   <xsl:text>o-scale</xsl:text>
                </xsl:attribute>
                <xsl:call-template name="appComponentScript">
-               <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+               <xsl:with-param name="ComponentName" select="'oScale'" />
                <xsl:with-param name="qElementID">
                   <xsl:value-of select="$qElementID" />
                   <xsl:text>_Scale</xsl:text>
@@ -2029,7 +2029,7 @@
                      <xsl:text>o-scale-container</xsl:text>
                   </xsl:attribute>
                   <xsl:call-template name="appComponentScript">
-               <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+               <xsl:with-param name="ComponentName" select="'oScaleContainer'" />
                <xsl:with-param name="qElementID">
                   <xsl:value-of select="$qElementID" />
                   <xsl:text>_ScaleContainer</xsl:text>
