@@ -1373,13 +1373,11 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
-.no-separator .o-option-sublist + .o-option-sublist::before,
-.no-separator .o-option-sublist + .m-option-base::before {
+.no-separator .o-option-sublist::after {
   display: none;
 }
 
-.o-option-sublist + .o-option-sublist::before,
-.o-option-sublist + .m-option-base::before {
+.o-option-sublist::after {
   display: block;
   position: absolute;
   top: -1em;
@@ -1388,23 +1386,23 @@ html[dir=rtl] .balance .m-option-base {
   border-bottom: 3px dotted #B4BDDB;
 }
 
-.separator-length-10 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-10 > .o-option-sublist + .o-option-sublist::after {
   width: 10%;
 }
 
-.separator-length-25 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-25 > .o-option-sublist + .o-option-sublist::after {
   width: 25%;
 }
 
-.separator-length-50 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-50 > .o-option-sublist + .o-option-sublist::after {
   width: 50%;
 }
 
-.separator-length-75 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-75 > .o-option-sublist + .o-option-sublist::after {
   width: 75%;
 }
 
-.separator-length-100 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-100 > .o-option-sublist + .o-option-sublist::after {
   width: 100%;
 }
 
