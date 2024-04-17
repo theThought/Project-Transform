@@ -2015,10 +2015,28 @@
                <xsl:attribute name="class">
                   <xsl:text>o-scale</xsl:text>
                </xsl:attribute>
+               <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+               <xsl:with-param name="qElementID">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Scale</xsl:text>
+               </xsl:with-param>
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
                <xsl:element name="div">
                   <xsl:attribute name="class">
                      <xsl:text>o-scale-container</xsl:text>
                   </xsl:attribute>
+                  <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+               <xsl:with-param name="qElementID">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_ScaleContainer</xsl:text>
+               </xsl:with-param>
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
                   <xsl:comment> --- units container --- </xsl:comment>
                </xsl:element>
             </xsl:element> 
