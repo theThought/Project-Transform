@@ -38,7 +38,7 @@ define(['component'],
             var scripttagid = this.id.split('_')[1];
             var scripttag = document.querySelector('script[data-questionid="_' + scripttagid + '"]');
             var container = scripttag.closest('div.o-question-container');
-
+        
             // prevent sub-questions from overwriting attributes in a parent container
             if (container !== null && container.getAttribute('data-questiongroup') === null) {
                 container.setAttribute('data-questiongroup', this.group);

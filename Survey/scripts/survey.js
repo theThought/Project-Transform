@@ -104,7 +104,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             break;
         case 'oquestionscalehorizontal': 
             requirejs(['o-question-scale-horizontal'], function (oQuestionScaleHorizontal) {
-                console.log('Registering oQuestionScaleHorizontal');
                 app.preinitcomponents.push(new oQuestionScaleHorizontal(id, group));
             });
             break;
@@ -149,7 +148,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }
-
 }
 
 Survey.prototype.checkProperties = function () {

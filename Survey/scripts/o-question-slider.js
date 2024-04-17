@@ -13,6 +13,7 @@ define(['o-question'],
             oQuestion.call(this, id, group);
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
+            console.log(this.container);
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
             this.wrapper = this.container.querySelector('div[class^="m-slider-"]');
             this.organism = this.container.querySelector('div[class*="-control"]');

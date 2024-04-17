@@ -70,12 +70,10 @@
 		</div>
 	</div>
 
-    <div class="surroundcontent">t-scale htm example
-        <div class="o-question-container cover-off config-complete focused">
-            <script data-questionid="_Q17">app.registerComponent('oQuestionContainer', '_Q17', '_Qvaropinion');</script>
-            <script type="text/javascript">app.RegisterProperties('_QHowManyMissedMarksLabels', {
-				// In this will we still need a activeUnit for hover and active states
-				// Unless you want me to write it a different way?
+    <div class="surroundcontent">Scale Bus
+        <div class="o-question-container ">
+            <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_Qvaropinion');</script>
+            <script type="text/javascript">app.RegisterProperties('_Qvaropinion', {
 				"background": {
 				  "image": {
 					"url": "../../Survey/images/formal/BusIcons/busScaleIcon.svg",
@@ -117,9 +115,8 @@
 					"min": 0,
                     "max": 5
 				},
-				"show": {
-				  "terminators": true
-				},
+				"show":{"marks":true,"value":true,"terminators":true},
+				"ticklable": 1,
 				"labels": {
 				  "pre": "Very Dissatisfied",
 				  "post": "Very Satisfied"
@@ -134,21 +131,22 @@
                     <div class="o-question-information-content">How full was the bus today?</div>
                     <div class="o-question-alternatives">How many people?<!-- alternative labels go here --></div>
                 </div>
-                <div class="m-message-instruction">Instruction</div>
+                <div class="o-question-instruction">	</div>
     
-                <div class="o-question-response o-question-scale-horizontal"
-                     data-questiongroup="_Qvaropinion">
-                    <script>app.registerComponent('oQuestionScaleHorizontal', '_Q17', '_QSideBySidePage_QHowManyMissedMarksLabels');</script>
-                    <div>
-                        <!-- - - - rotation div - - - -->
+                <div class="o-question-response o-question-scale-horizontal" data-questiongroup="_Qvaropinion">
+					 
+					 <div>
+						 <!-- - - - rotation div - - - -->
+						 <script>app.registerComponent('oQuestionScaleHorizontal', '_Q0', '_Qvaropinion');</script>
                         <div class="o-question-scale-horizontal-control">
 
-					<span class="a-label-outer-prelabel">PreLabel</span>
-					<button type="Button" class="a-button-preterminator" data-questionid="_Qvaropinion"
-                    data-questiongroup="_QHowManyMissed">«</button>
+					<!-- <span class="a-label-outer-prelabel">PreLabel</span> -->
+
+					<button type="Button" class="a-button-preterminator" data-questionid="_Q0_Preterm"
+                    data-questiongroup="_Qvaropinion"><!--scale-horizontal pre terminator--></button>
                     <script>app.registerComponent('aButtonPreTerminator', '_Q0_Preterm', '_Qvaropinion');</script>
                     
-						<script>app.registerComponent('oScale', '_Q0_Scale', '_Qvaropinion');</script>
+						<!-- <script>app.registerComponent('oScale', '_Q0_Scale', '_Qvaropinion');</script> -->
 						
 						<!-- units -->
 						<div class="o-scale">
@@ -162,35 +160,35 @@
 							<div class="o-scale-unitcontainer">
 							
 								<label class="m-scale-unit" data-value="1">
-									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="1"/>
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="1" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0" />
 									<span class="checkbox-custom"></span>
 									<img class="a-image-multistate" alt="Scale Icon 1"/>
 									<div class="a-label-datavalue">1</div>
 								</label>
 								
 								<label class="m-scale-unit" data-value="2">
-									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="2"/>
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="2" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
 									<span class="checkbox-custom"></span>
 									<img class="a-image-multistate" alt="Scale Icon 2"/>
 									<div class="a-label-datavalue">2</div>
 								</label>
 								
 								<label class="m-scale-unit" data-value="3">
-									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="3"/>
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="3" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
 									<span class="checkbox-custom"></span>
 									<img class="a-image-multistate" alt="Scale Icon 3"/>
 									<div class="a-label-datavalue">3</div>
 								</label>
 								
 								<label class="m-scale-unit" data-value="4">
-									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="4"/>
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="4" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
 									<span class="checkbox-custom"></span>
 									<img class="a-image-multistate" alt="Scale Icon 4"/>
 									<div class="a-label-datavalue">4</div>
 								</label>
 								
 								<label class="m-scale-unit" data-value="5">
-									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="5"/>
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="5" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
 									<span class="checkbox-custom"></span>
 									<img class="a-image-multistate" alt="Scale Icon 5"/>
 									<div class="a-label-datavalue">5</div>
@@ -198,10 +196,12 @@
 							</div>	
                         </div>
                     
-					<button type="Button" class="a-button-postterminator" data-questionid="_Qvaropinion"
-                        data-questiongroup="_QHowManyMissed">»</button>
+					<button type="Button" class="a-button-postterminator" data-questionid="_Q0_Postterm"
+                        data-questiongroup="_Qvaropinion">
+						<!--scale-horizontal post terminator-->
+					</button>
                     <script>app.registerComponent('aButtonPostTerminator', '_Q0_Postterm', '_Qvaropinion');</script>
-					<span class="a-label-outer-postlabel">Postlabel</span>
+					<!-- <span class="a-label-outer-postlabel">Postlabel</span> -->
 
                     </div>
                 </div>
