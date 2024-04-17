@@ -45,9 +45,13 @@ define(
             var question = this.element.getElementsByClassName('o-question-container');
 
             for (var i = 0; i < question.length; i++) {
-                var questionmessages = question[i].getElementsByClassName('o-question-information-messages')[0];
-                questionmessages.style.flexBasis = width + '%';
-                questionmessages.style.msFlex = '0 0 ' + width + '%';
+                var questionmessages = question[i].getElementsByClassName('o-question-information-messages');
+
+                for (var j = 0; j < questionmessages.length; j++) {
+                    questionmessages[j].style.flexBasis = width + '%';
+                    questionmessages[j].style.msFlex = '0 0 ' + width + '%';
+                }
+
                 var questioninformation = question[i].getElementsByClassName('o-question-information-and-messages')[0];
                 questioninformation.style.flexBasis = width + '%';
                 questioninformation.style.msFlex = '0 0 ' + width + '%';

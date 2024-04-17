@@ -2203,7 +2203,8 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   border-bottom: none;
 }
 
-.sidebyside .o-question-core {
+.sidebyside .o-question-core,
+.sidebyside .o-question-messages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
