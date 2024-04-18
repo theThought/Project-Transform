@@ -2242,7 +2242,8 @@ html[dir=rtl] .o-question-errorandinstruction {
   padding-left: 1em;
 }
 
-.sidebyside .o-question-information-and-messages {
+.sidebyside .o-question-information-and-messages,
+.sidebyside .o-question-information-messages {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-right: 1em;

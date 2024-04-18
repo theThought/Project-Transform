@@ -48,7 +48,8 @@ html[dir="rtl"] .o-question-errorandinstruction {
     padding-left: 1em;
 }
 
-.sidebyside .o-question-information-and-messages {
+.sidebyside .o-question-information-and-messages,
+.sidebyside .o-question-information-messages {
     box-sizing: border-box;
     margin-right: 1em;
     padding-right: 1em;
