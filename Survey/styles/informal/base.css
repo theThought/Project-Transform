@@ -1514,38 +1514,37 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
-.no-separator .o-option-sublist + .o-option-sublist::before,
-.no-separator .o-option-sublist + .m-option-base::before {
+.no-separator .o-option-sublist::after,
+.o-option-sublist:last-child::after {
   display: none;
 }
 
-.o-option-sublist + .o-option-sublist::before,
-.o-option-sublist + .m-option-base::before {
+.o-option-sublist::after {
   display: block;
   position: absolute;
-  top: -1em;
+  bottom: -1em;
   content: "";
   width: 25%;
   border-bottom: 1px solid #DEC7E8;
 }
 
-.separator-length-10 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-10 > .o-option-sublist + .o-option-sublist::after {
   width: 10%;
 }
 
-.separator-length-25 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-25 > .o-option-sublist + .o-option-sublist::after {
   width: 25%;
 }
 
-.separator-length-50 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-50 > .o-option-sublist + .o-option-sublist::after {
   width: 50%;
 }
 
-.separator-length-75 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-75 > .o-option-sublist + .o-option-sublist::after {
   width: 75%;
 }
 
-.separator-length-100 > .o-option-sublist + .o-option-sublist::before {
+.separator-length-100 > .o-option-sublist + .o-option-sublist::after {
   width: 100%;
 }
 
@@ -1655,6 +1654,8 @@ details[open] summary:after {
 
 .m-message-instruction {
   display: none;
+  position: relative;
+  z-index: 1;
 }
 
 .m-message-instruction.has-content {
@@ -1676,8 +1677,9 @@ details[open] summary:after {
   margin-bottom: 0.5em;
   border-radius: 5px;
   padding: 8px 16px 8px 42px;
-  background-color: rgba(75, 121, 182, 0.15);
+  background-color: #E4EBF4;
   color: #4B79B6;
+  z-index: 2;
 }
 .m-message-instruction.has-content div::before,
 .o-message-information.has-content::before {
@@ -2737,7 +2739,8 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   border-bottom: none;
 }
 
-.sidebyside .o-question-core {
+.sidebyside .o-question-core,
+.sidebyside .o-question-messages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2759,7 +2762,8 @@ html[dir=rtl] .o-question-errorandinstruction {
   padding-left: 1em;
 }
 
-.sidebyside .o-question-information-and-messages {
+.sidebyside .o-question-information-and-messages,
+.sidebyside .o-question-information-messages {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-right: 1em;

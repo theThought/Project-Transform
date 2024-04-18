@@ -122,6 +122,8 @@ define(['component'],
                 return;
             }
 
+            var that = this;
+
             prop.alternatives.forEach(function (item, idx, arr) {
 
                 var elementtype = item.block ? 'div' : 'span';
@@ -129,7 +131,7 @@ define(['component'],
 
                 alternative.setAttribute('name', item.name);
                 alternative.classList.add('o-question-information-content');
-                alternative.innerHTML = item.label;
+                alternative.innerHTML = that.decodeHTML(that.replaceHTMLPlaceholder(item.label));
 
                 if (prop.separator !== 'undefined' && prop.separator.length && idx !== arr.length - 1) {
                     var alternativeseparator = document.createElement('span');
