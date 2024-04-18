@@ -1380,7 +1380,7 @@ html[dir=rtl] .balance .m-option-base {
 .o-option-sublist::after {
   display: block;
   position: absolute;
-  top: -1em;
+  bottom: -1em;
   content: "";
   width: 25%;
   border-bottom: 3px dotted #B4BDDB;
