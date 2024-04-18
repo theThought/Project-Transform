@@ -1397,7 +1397,8 @@ html[dir=rtl] .balance .m-option-base {
   margin-top: 1em;
 }
 
-.no-separator .o-option-sublist::after {
+.no-separator .o-option-sublist::after,
+.o-option-sublist:last-child::after {
   display: none;
 }
 
