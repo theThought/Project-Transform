@@ -141,10 +141,10 @@ define(['component'],
 
                         var element = null;
 
-                        if (this.getElementsByTagName('BUTTON').length) {
-                            element = this.getElementsByTagName('BUTTON')[0];
-                        } else if (this.getElementsByTagName('INPUT').length) {
+                        if (this.getElementsByTagName('INPUT').length) {
                             element = this.getElementsByTagName('INPUT')[0];
+                        } else if (this.getElementsByTagName('BUTTON').length) {
+                            element = this.getElementsByTagName('BUTTON')[0];
                         } else if (this.getElementsByTagName('TEXTAREA')) {
                             element = this.getElementsByTagName('TEXTAREA')[0];
                         }
@@ -154,9 +154,18 @@ define(['component'],
                             return;
                         }
 
-                        if (element.type !== 'checkbox' && element.type !== 'radio') {
+                        // preference for focus is text, radio/check, button
+                        if (element.type === 'text' || element.type === 'number') {
                             element.focus();
+                            return;
                         }
+
+                        if (element.type === 'checkbox' || element.type === 'radio') {
+                            element.focus();
+                            return
+                        }
+
+                        element.focus();
                     }
                 }
 
