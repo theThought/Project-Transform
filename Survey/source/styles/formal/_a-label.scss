@@ -344,7 +344,8 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-.o-question-slider-horizontal-control {
+.o-question-slider-horizontal-control,
+.o-question-slider-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -418,7 +419,8 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 }
 
-html[dir="rtl"] .o-question-slider-horizontal-control {
+html[dir="rtl"] .o-question-slider-horizontal-control,
+html[dir="rtl"] .o-question-slider-vertical-control {
 
     .a-label-prelabel {
         left: auto;
@@ -442,6 +444,25 @@ html[dir="rtl"] .o-question-slider-horizontal-control {
     .m-label-ticklabels {
         left: auto;
         right: 6px;
+    }
+}
+
+.o-question-slider-vertical-control {
+    .m-label-ticklabels {
+        left: 12px;
+        top: 0;
+        width: calc(100% - 22px);
+
+        span {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.o-question-slider-vertical-control {
+    .a-label-thumbvalue {
+        top: -1.5em;
+        transform: translateX(-50%) rotate(90deg);
     }
 }
 

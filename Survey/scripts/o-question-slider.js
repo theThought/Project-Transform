@@ -147,9 +147,10 @@ define(['o-question'],
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
+            var orientation = (this.container.classList.contains('o-question-slider-vertical') ? 'vertical' : 'horizontal');
 
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
-            var paddingadjustmentinpixels = 20;
+            var paddingadjustmentinpixels = (orientation === 'horizontal') ? 20 : 16;
             var adjustmentcalc = paddingadjustmentinpixels - (2 * paddingadjustmentinpixels) * (percentage / 100);
             var percentagefill = 'calc(' + percentage + '% + ' + adjustmentcalc + 'px)';
 
