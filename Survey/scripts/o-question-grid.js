@@ -51,6 +51,22 @@ define(['component'],
             }
         }
 
+        oQuestionGrid.prototype.topheadings = function (props) {
+            // add a new row at the start of the table with an appropriate class
+            var headingrow = this.grid.insertRow(0);
+            headingrow.className = 'm-structure-row m-structure-caption-row';
+
+            for (var i = 0; i <= props.length; i++) {
+                // insert two cells; the second cell will contain the caption
+                var newth = document.createElement('th');
+                newth.scope = 'col';
+                newth.innerHTML = '<span class="a-label-caption">' + props[i].caption + '</span>';
+                newth.colSpan = props[i].colspan;
+                newth.className = 'm-structure-cell m-structure-heading';
+                headingrow.appendChild(newth);
+            }
+        }
+
         oQuestionGrid.prototype.configureTHStyles = function () {
             for (var i = 0, row; row = this.grid.rows[i]; i++) {
 
@@ -174,35 +190,34 @@ define(['component'],
 
         oQuestionGrid.prototype.cellshading = function (props) {
 
-            if (props['headercolumn'] === true) {
+            if (props.headercolumn === true) {
                 this.grid.classList.add('shade-headercolumn');
             }
 
-            if (props['altcolumns'] === true) {
+            if (props.altcolumns === true) {
                 this.grid.classList.add('shade-altcolumns');
             }
 
-            if (props['headerrow'] === true) {
+            if (props.headerrow === true) {
                 this.grid.classList.add('shade-headerrow');
             }
 
-            if (props['altrows'] === true) {
+            if (props.altrows === true) {
                 this.grid.classList.add('shade-altrows');
             }
-
         }
 
         oQuestionGrid.prototype.totals = function (props) {
-            if (typeof props['rows'] == "object" && props['rows']['visible']) {
-                this.excludeRowReadOnly = (typeof props['rows']['excludereadonly'] === 'undefined' || props['rows']['excludereadonly']);
-                this.configureRowTotals(props['rows']);
+            if (typeof props.rows === "object" && props.rows.visible) {
+                this.excludeRowReadOnly = (typeof props.rows.excludereadonly === 'undefined' || props.rows.excludereadonly);
+                this.configureRowTotals(props.rows);
                 this.getTableInputElements('row');
                 this.recalculateRowTotals();
             }
 
-            if (typeof props['columns'] == "object" && props['columns']['visible']) {
-                this.excludeColumnReadOnly = (typeof props['columns']['excludereadonly'] === 'undefined' || props['columns']['excludereadonly']);
-                this.configureColumnTotals(props['columns']);
+            if (typeof props.columns === "object" && props.columns.visible) {
+                this.excludeColumnReadOnly = (typeof props.columns.excludereadonly === 'undefined' || props.columns.excludereadonly);
+                this.configureColumnTotals(props.columns);
                 this.getTableInputElements('column');
                 this.recalculateColumnTotals();
             }
@@ -266,17 +281,17 @@ define(['component'],
             var color = '#212C4C';
             var generatedstyles = '';
 
-            if (typeof props['columns'] !== "undefined" && Array.isArray(props['columns'])) {
-                for (var column = 0; column < props['columns'].length; column++) {
-                    generatedstyles += '.separator-column-' + props['columns'][column] + ' tr>:nth-child(' + props['columns'][column] + ') { border-right: 1px solid ' + color + '; } ';
-                    this.grid.classList.add('separator-column-' + props['columns'][column]);
+            if (typeof props.columns !== "undefined" && Array.isArray(props.columns)) {
+                for (var column = 0; column < props.columns.length; column++) {
+                    generatedstyles += '.separator-column-' + props.columns.column + ' tr>:nth-child(' + props.columns.column + ') { border-right: 1px solid ' + color + '; } ';
+                    this.grid.classList.add('separator-column-' + props.columns.column);
                 }
             }
 
-            if (typeof props['rows'] !== "undefined" && Array.isArray(props['rows'])) {
-                for (var row = 0; row < props['rows'].length; row++) {
-                    generatedstyles += '.separator-row-' + props['rows'][row] + ' tr:nth-of-type(' + props['rows'][row] + ') { border-bottom: 1px solid ' + color + '; } ';
-                    this.grid.classList.add('separator-row-' + props['rows'][row]);
+            if (typeof props.rows !== "undefined" && Array.isArray(props.rows)) {
+                for (var row = 0; row < props.rows.length; row++) {
+                    generatedstyles += '.separator-row-' + props.rows.row + ' tr:nth-of-type(' + props.rows.row + ') { border-bottom: 1px solid ' + color + '; } ';
+                    this.grid.classList.add('separator-row-' + props.rows.row);
                 }
             }
 
@@ -291,16 +306,16 @@ define(['component'],
             for (var row = 1; row < rowcount; row++) {
                 var rowtotal = 0;
 
-                if (Array.isArray(this.properties.totals.rows['exceptions'])
-                    && this.properties.totals.rows['exceptions'].indexOf(row) >= 0) {
+                if (Array.isArray(this.properties.totals.rows.exceptions)
+                    && this.properties.totals.rows.exceptions.indexOf(row) >= 0) {
                     continue;
                 }
 
                 for (var inputitems = 0; inputitems < this.rowtotals.length; inputitems++) {
 
                     if (typeof this.properties.totals.columns !== 'undefined'
-                        && Array.isArray(this.properties.totals.columns['exceptions'])
-                        && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[inputitems].column) >= 0) {
+                        && Array.isArray(this.properties.totals.columns.exceptions)
+                        && this.properties.totals.columns.exceptions.indexOf(this.rowtotals[inputitems].column) >= 0) {
                         continue;
                     }
 
@@ -324,7 +339,6 @@ define(['component'],
             }
 
             this.updateGrandTotal(grandtotal);
-
         }
 
         oQuestionGrid.prototype.recalculateColumnTotals = function () {
@@ -336,15 +350,15 @@ define(['component'],
 
                 for (var j = 0; j < this.columntotals.length; j++) {
 
-                    if (Array.isArray(this.properties.totals.columns['exceptions'])
+                    if (Array.isArray(this.properties.totals.columns.exceptions)
                         && typeof this.rowtotals[j] !== 'undefined'
-                        && this.properties.totals.columns['exceptions'].indexOf(this.rowtotals[j].column) >= 0) {
+                        && this.properties.totals.columns.exceptions.indexOf(this.rowtotals[j].column) >= 0) {
                         continue;
                     }
 
-                    if (Array.isArray(this.properties.totals.columns['exceptions'])
+                    if (Array.isArray(this.properties.totals.columns.exceptions)
                         && typeof this.rowtotals[j] !== 'undefined'
-                        && this.properties.totals.rows['exceptions'].indexOf(this.rowtotals[j].row) >= 0) {
+                        && this.properties.totals.rows.exceptions.indexOf(this.rowtotals[j].row) >= 0) {
                         continue;
                     }
 
@@ -370,7 +384,6 @@ define(['component'],
             }
 
             this.updateGrandTotal(grandtotal);
-
         }
 
         oQuestionGrid.prototype.updateGrandTotal = function (grandtotal) {
@@ -379,12 +392,11 @@ define(['component'],
             }
 
             this.grid.querySelector('div.a-label-total-grand').innerHTML = grandtotal;
-
         }
 
         oQuestionGrid.prototype.caption = function (props) {
 
-            if (typeof props['content'] === 'undefined') {
+            if (typeof props.content === 'undefined') {
                 this.debug(this.id + ' did not correctly define caption properties.', 2);
                 props = {content: props};
             }
@@ -407,16 +419,16 @@ define(['component'],
         oQuestionGrid.prototype.addTableCaption = function (caption) {
             var captioncontentcontainer = document.createElement('span');
             captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption['content']);
+            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption.content);
 
             var newcaption = this.grid.createCaption();
 
-            if (typeof caption['width'] !== 'undefined') {
-                newcaption.style.width = caption['width'];
+            if (typeof caption.width !== 'undefined') {
+                newcaption.style.width = caption.width;
             }
 
-            if (typeof caption['align'] !== 'undefined') {
-                newcaption.classList.add('align-' + caption['align']);
+            if (typeof caption.align !== 'undefined') {
+                newcaption.classList.add('align-' + caption.align);
             }
 
             newcaption.appendChild(captioncontentcontainer);
@@ -425,14 +437,14 @@ define(['component'],
         oQuestionGrid.prototype.addSingleRowCaption = function (caption) {
             var captioncontentcontainer = document.createElement('span');
             captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption['content']);
+            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption.content);
 
-            if (typeof caption['width'] !== 'undefined') {
-                captioncontentcontainer.style.width = caption['width'];
+            if (typeof caption.width !== 'undefined') {
+                captioncontentcontainer.style.width = caption.width;
             }
 
-            if (typeof caption['align'] !== 'undefined') {
-                captioncontentcontainer.classList.add('align-' + caption['align']);
+            if (typeof caption.align !== 'undefined') {
+                captioncontentcontainer.classList.add('align-' + caption.align);
             }
 
             // insert a blank cell in the heading row
@@ -453,14 +465,14 @@ define(['component'],
         oQuestionGrid.prototype.addSingleColumnCaption = function (caption) {
             var captioncontentcontainer = document.createElement('span');
             captioncontentcontainer.classList.add('a-label-caption');
-            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption['content']);
+            captioncontentcontainer.innerHTML = this.replaceHTMLPlaceholder(caption.content);
 
-            if (typeof caption['width'] !== 'undefined') {
-                captioncontentcontainer.style.width = caption['width'];
+            if (typeof caption.width !== 'undefined') {
+                captioncontentcontainer.style.width = caption.width;
             }
 
-            if (typeof caption['align'] !== 'undefined') {
-                captioncontentcontainer.classList.add('align-' + caption['align']);
+            if (typeof caption.align !== 'undefined') {
+                captioncontentcontainer.classList.add('align-' + caption.align);
             }
 
             // add a new row at the start of the table with an appropriate class
@@ -478,7 +490,7 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.configureRowTotals = function (props) {
-            if (!props['visible']) {
+            if (!props.visible) {
                 return;
             }
 
@@ -489,13 +501,19 @@ define(['component'],
             var captionalign = '';
             var captionwidth = '';
 
-            var figurealign = (typeof props['align'] === "undefined") ? 'default' : props['align'];
-            var figurewidth = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
+            var figurealign = (typeof props.align === "undefined") ? 'default' : props.align;
+            var figurewidth = (typeof props.width === "undefined") ? '' : 'width: ' + props.width;
 
-            if (typeof props['caption'] !== 'undefined') {
-                if (typeof props['caption']['content'] !== 'undefined') captiontitle = props['caption']['content'];
-                if (typeof props['caption']['align'] !== 'undefined') captionalign = props['caption']['align'];
-                if (typeof props['caption']['width'] !== 'undefined') captionwidth = props['caption']['width'];
+            if (typeof props.caption !== 'undefined') {
+                if (typeof props.caption.content !== 'undefined') {
+                    captiontitle = props.caption.content;
+                }
+                if (typeof props.caption.align !== 'undefined') {
+                    captionalign = props.caption.align;
+                }
+                if (typeof props.caption.width !== 'undefined') {
+                    captionwidth = props.caption.width;
+                }
             }
 
             for (var i = 0; i < rowcount; i++) {
@@ -515,15 +533,15 @@ define(['component'],
                         continue;
                     }
 
-                    if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
+                    if (Array.isArray(props.exceptions) && props.exceptions.indexOf(i) >= 0) {
                         continue;
                     }
 
                     var htmlString = '';
 
-                    if (props['labels'] && props['labels']['pre']) {
+                    if (props.labels && props.labels.pre) {
                         htmlString += '<span class="a-label-prelabel">'
-                            + props['labels']['pre']
+                            + props.labels.pre
                             + '</span>';
                     }
 
@@ -532,9 +550,9 @@ define(['component'],
                         + 'style="' + figurewidth + '"'
                         + '><span>0</span></div>';
 
-                    if (props['labels'] && props['labels']['post']) {
+                    if (props.labels && props.labels.post) {
                         htmlString += '<span class="a-label-postlabel">'
-                            + props['labels']['post']
+                            + props.labels.post
                             + '</span>';
                     }
 
@@ -544,7 +562,7 @@ define(['component'],
         }
 
         oQuestionGrid.prototype.configureColumnTotals = function (props) {
-            if (!props['visible']) {
+            if (!props.visible) {
                 return;
             }
 
@@ -556,13 +574,19 @@ define(['component'],
             var captionalign = '';
             var captionwidth = '';
 
-            var figurealign = (typeof props['align'] === "undefined") ? 'default' : props['align'];
-            var figurewidth = (typeof props['width'] === "undefined") ? '' : 'width: ' + props['width'];
+            var figurealign = (typeof props.align === "undefined") ? 'default' : props.align;
+            var figurewidth = (typeof props.width === "undefined") ? '' : 'width: ' + props.width;
 
-            if (typeof props['caption'] !== 'undefined') {
-                if (typeof props['caption']['content'] !== 'undefined') captiontitle = props['caption']['content'];
-                if (typeof props['caption']['align'] !== 'undefined') captionalign = props['caption']['align'];
-                if (typeof props['caption']['width'] !== 'undefined') captionwidth = props['caption']['width'];
+            if (typeof props.caption !== 'undefined') {
+                if (typeof props.caption.content !== 'undefined') {
+                    captiontitle = props.caption.content;
+                }
+                if (typeof props.caption.align !== 'undefined') {
+                    captionalign = props.caption.align;
+                }
+                if (typeof props.caption.width !== 'undefined') {
+                    captionwidth = props.caption.width;
+                }
             }
 
             for (var i = 0; i < columncount; i++) {
@@ -585,15 +609,15 @@ define(['component'],
                         totalcell.className = 'm-structure-cell grid-column-total';
                         totalcell.classList.add('align-' + figurealign);
 
-                        if (Array.isArray(props['exceptions']) && props['exceptions'].indexOf(i) >= 0) {
+                        if (Array.isArray(props.exceptions) && props.exceptions.indexOf(i) >= 0) {
                             continue;
                         }
 
                         var htmlString = '';
 
-                        if (props['labels'] && props['labels']['pre']) {
+                        if (props.labels && props.labels.pre) {
                             htmlString += '<span class="a-label-prelabel">'
-                                + props['labels']['pre']
+                                + props.labels.pre
                                 + '</span>';
                         }
 
@@ -602,9 +626,9 @@ define(['component'],
                             + 'style="' + figurewidth + '"'
                             + '><span>0</span></div>';
 
-                        if (props['labels'] && props['labels']['post']) {
+                        if (props.labels && props.labels.post) {
                             htmlString += '<span class="a-label-postlabel">'
-                                + props['labels']['post']
+                                + props.labels.post
                                 + '</span>';
                         }
 
