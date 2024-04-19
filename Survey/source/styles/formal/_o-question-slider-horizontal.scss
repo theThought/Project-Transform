@@ -9,12 +9,24 @@
 }
 
 // question response-level container
-.o-question-hnumberslider {
+.o-question-slider-horizontal,
+.o-question-slider-vertical {
     overflow: visible;
 }
 
+.o-question-slider-vertical {
+    .o-slider-rotate {
+        padding: 50% 0 70% 0;
+        height: 0;
+    }
+}
 
-.o-question-slider-horizontal-control {
+.o-question-slider-vertical-control {
+    transform: rotate(270deg)
+}
+
+.o-question-slider-horizontal-control,
+.o-question-slider-vertical-control {
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -68,12 +80,14 @@
     }
 }
 
-.m-numberslider-horizontal {
+.m-slider-horizontal,
+.m-slider-vertical {
     position: relative;
     flex: 1 0 auto;
 }
 
-.m-numberslider-horizontal[style*="width"] {
+.m-slider-horizontal[style*="width"],
+.m-slider-vertical[style*="width"] {
     flex: 0 0 auto;
 }
 

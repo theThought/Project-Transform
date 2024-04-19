@@ -7,7 +7,7 @@
         cursor: default;
     }
 }
- 
+
 .m-list-optionlist {
     label {
         position: relative;
@@ -338,7 +338,8 @@ html[dir="rtl"] .m-input-singlelineedit {
     }
 }
 
-.o-question-slider-horizontal-control {
+.o-question-slider-horizontal-control,
+.o-question-slider-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -365,8 +366,8 @@ html[dir="rtl"] .m-input-singlelineedit {
         color: globals.$titles;
         position: absolute;
         top: -1.1em;
+        visibility: hidden;
         transform: translateX(-50%);
-        visibility: visible;
     }
 
     &.active.has-value.has-thumb-value .a-label-thumbvalue {
@@ -408,121 +409,15 @@ html[dir="rtl"] .m-input-singlelineedit {
             flex: 0 1 40px;
             display: block;
             font-size: 17px;
-
         }
 
     }
 
 }
 
-.o-question-slider-vertical-control {
-    .a-label-outer-prelabel,
-    .a-label-outer-postlabel {
-        position: relative;
-        top: .9em;
-        color: globals.$theme-primary;
-    }
-
-    .a-label-prelabel {
-        position: absolute;
-        left: 0;
-        bottom: -.8em;
-        color: globals.$theme-primary;
-    }
-
-    .a-label-postlabel {
-        position: absolute;
-        right: 0;
-        bottom: -.8em;
-        color: globals.$theme-primary;
-    }
-
-    .m-slider-thumb-vertical{
-        width: calc(98% - 10px);
-        position: absolute;   
-    }
-
-    .a-label-thumbvalue {
-        box-sizing: border-box;
-        color: globals.$titles;
-        position: absolute;
-        top: -2em;
-        
-        transform: rotate(90deg);
-    }
-    
-    &.active.has-value.has-thumb-value .a-label-thumbvalue {
-        visibility: visible;
-    }
-
-    .m-style-slidermarks {
-        box-sizing: border-box;
-        position: absolute;
-        z-index: 3;
-        width: calc(100% - 12px);
-        // left: 6px;
-        // top: 14px;
-        top: 11px;
-        display: flex;
-        justify-content: space-between;
-        color: globals.$borders;
-
-        & > i {
-            text-align: center;
-            flex: 0 1 40px;
-            display: block;
-            font-style: normal;
-        }
-    }
-  
-    .m-label-ticklabels {
-        position: relative;
-        // top: -.5em;
-        top: 0.5em;
-        left: 6px;
-        box-sizing: border-box;
-        width: calc(100% - 12px);
-        display: flex;
-        justify-content: space-between;
-        color: globals.$borders;
-
-        & > span {
-            text-align: center;
-            flex: 0 1 40px;
-            display: block;
-            transform: rotate(90deg);
-          
-        }
-        //RTL
-        html[dir="rtl"] & > span{
-            transform: rotate(270deg);
-        }
-    }
-
- 
-    
-}
-//Having to put this outside of the .o-question-slider-vertical-control class above.
-.has-terminators .m-style-slidermarks{
-    width: calc(80% - 10px);
-}
-
-.has-terminators .m-slider-thumb-vertical{
-    width: calc(79% - 10px);
-    position: absolute;   
-}
-
-.has-terminators .m-label-ticklabels {
-    width: calc(108% - 10px);
-}
-
-
-html[dir="rtl"] .m-style-slidermarks{
-    top: 10px;
-}
-
-// html[dir="rtl"] .o-question-slider-horizontal-control,
+html[dir="rtl"] .o-question-slider-horizontal-control,
 html[dir="rtl"] .o-question-slider-vertical-control {
+
     .a-label-prelabel {
         left: auto;
         right: 0;
@@ -541,8 +436,6 @@ html[dir="rtl"] .o-question-slider-vertical-control {
         left: auto;
         right: 6px;
     }
-    
-
 
     .m-label-ticklabels {
         left: auto;
@@ -550,13 +443,22 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     }
 }
 
-html[dir="rtl"] .has-terminators  .m-style-slidermarks{
-    right: 55px;    
+.o-question-slider-vertical-control {
+    .m-label-ticklabels {
+        left: 12px;
+        top: 0;
+        width: calc(100% - 22px);
+
+        span {
+            transform: rotate(90deg);
+        }
+    }
 }
 
-html[dir="rtl"] .o-question-slider-vertical-control{
+.o-question-slider-vertical-control {
     .a-label-thumbvalue {
-        transform: rotate(-90deg);        
+        top: -1.5em;
+        transform: translateX(-50%) rotate(90deg);
     }
 }
 
@@ -631,14 +533,4 @@ html[dir="rtl"] .m-option-base {
 
 html[dir="rtl"] .m-list-optionlist:not(.display-icons) .a-label-option {
     padding-right: 0;
-}
-
-
-// ALL RTL VERTICAL STYLES
-html[dir="rtl"] {
-
-    .o-question-slider-vertical-control{
-        transform: rotate(90deg);
-    }
-
 }
