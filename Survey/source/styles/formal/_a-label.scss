@@ -419,6 +419,13 @@ html[dir="rtl"] .m-input-singlelineedit {
 
 }
 
+.o-question-slider-vertical-control {
+    .a-label-outer-prelabel,
+    .a-label-outer-postlabel {
+        transform: rotate(90deg);
+    }
+}
+
 html[dir="rtl"] .o-question-slider-horizontal-control,
 html[dir="rtl"] .o-question-slider-vertical-control {
 

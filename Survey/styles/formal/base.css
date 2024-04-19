@@ -1148,6 +1148,12 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   display: block;
 }
 
+.o-question-slider-vertical-control .a-label-outer-prelabel,
+.o-question-slider-vertical-control .a-label-outer-postlabel {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
 html[dir=rtl] .o-question-slider-horizontal-control .a-label-prelabel,
 html[dir=rtl] .o-question-slider-vertical-control .a-label-prelabel {
   left: auto;
