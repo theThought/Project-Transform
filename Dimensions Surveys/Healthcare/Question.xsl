@@ -1710,6 +1710,13 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+
+      <xsl:variable name="qCategoryID">
+         <xsl:value-of select="$qElementID" />
+         <xsl:value-of select=".//Category[1]/@CategoryID" />
+      </xsl:variable>
       <xsl:choose>
          <xsl:when test="Style/@Image != ''">
             <!--- Image control buttons -->
@@ -1780,18 +1787,16 @@
             </xsl:element>
          </xsl:when>
          <xsl:otherwise>
+         
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'aButtonOption'" />
-               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qElementID" select="$qCategoryID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
             <xsl:element name="input">
                <xsl:attribute name="data-questionid">
-                  <xsl:value-of select="$qElementID" />
-                  <xsl:if test="Category[1]/@CategoryID">
-                     <xsl:value-of select="Category[1]/@CategoryID" />
-                  </xsl:if>
+                  <xsl:value-of select="$qCategoryID" />
                </xsl:attribute>
                <xsl:attribute name="data-questiongroup">
                   <xsl:value-of select="$qGroup_Name" />
@@ -1806,10 +1811,7 @@
                <!--- ID -->
                <xsl:if test="$bIncludeElementIds">
                   <xsl:attribute name="id">
-                     <xsl:value-of select="$qElementID" />
-                     <xsl:if test="Category[1]/@CategoryID">
-                        <xsl:value-of select="Category[1]/@CategoryID" />
-                     </xsl:if>
+                     <xsl:value-of select="$qCategoryID" />
                   </xsl:attribute>
                </xsl:if>
                <!--- CSS Class -->
