@@ -2511,13 +2511,6 @@ html[dir=rtl] .show-spinner .grid-column-total span {
   padding-left: 28px;
 }
 
-.o-scale,
-.o-scale-container {
-  position: relative;
-  width: 100%;
-  max-width: 350px;
-}
-
 .m-image-singlestate {
   width: 100%;
   height: auto;
@@ -2526,19 +2519,9 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 
 .o-scale-container .o-scale-unitcontainer,
 .o-scale-unitcontainer {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 
 .m-scale-unit {
@@ -2548,21 +2531,7 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 }
 
 .scale-checkbox {
-  display: none;
-}
-
-.checkbox-custom {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  background-color: #fff;
-  border: 2px solid #000;
-  border-radius: 4px;
+  visibility: hidden;
 }
 
 .scale-checkbox:checked + .checkbox-custom {
@@ -2572,10 +2541,26 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 .a-image-multistate {
   display: block;
   margin: 0 auto;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .a-label-datavalue {
   visibility: hidden;
+}
+
+.a-label-datavalue.showValue {
+  visibility: visible;
+  position: absolute;
+  top: 32px;
+  left: 30px;
+  color: #57699C;
+}
+
+.a-label-datavalue.showValue.highlighted {
+  color: #FAFAFA;
 }
 
 .o-question-scale-vertical .o-scale-container,

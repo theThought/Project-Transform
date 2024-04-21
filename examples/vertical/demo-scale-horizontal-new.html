@@ -70,17 +70,17 @@
 		</div>
 	</div>
 
-    <div class="surroundcontent">Scale Bus
+    <div class="surroundcontent">Scale 
         <div class="o-question-container ">
             <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_Qvaropinion');</script>
             <script type="text/javascript">app.RegisterProperties('_Qvaropinion', {
 				"background": {
 				  "image": {
-					"url": "../../Survey/images/formal/background_default.svg",
-					"width": "100%",
-					"height": "100%"
+					"url": "",
+					"width": "",
+					"height": ""
 				  },
-				  "caption": "This is the bus icon",
+				  "caption": "",
 				  "offset": {
 					"x": 0,
 					"y": 0
@@ -88,39 +88,35 @@
 				},
 				"unit": {
 				  "image": {
-					"url": "../../Survey/images/formal/unit_default.svg",
-					"width": "32px",
-					"height": "32px"
+					"url": "../../Survey/images/formal/StateInactive.svg",
+					"width": "",
+					"height": ""
 				  },
 				  "caption": "this is the prestate scale unit",
 				  "offset": {
-					"x": 0,
-					"y": 0
+					"x": "",
+					"y": ""
 				  }
 				},
 				"activeUnit": {
 				  "image": {
-					"url": "../../Survey/images/formal/unit_defaultActive.svg",
-					"width": "32px",
-					"height": "32px"
-				  },
-				  "caption": "this is the active state scale unit",
-				  "offset": {
-					"x": 0,
-					"y": 0
+					"url": "../../Survey/images/formal/StateSelected.svg",
 				  }
 				}, 
 				"values": {
 					"position": "inside",
 					"min": 0,
                     "max": 5
+				},		
+				"show":{
+					"marks":true,"value":true,
+					"terminators":false,	
 				},
-				"show":{"marks":true,"value":true,"terminators":false},
-				"ticklable": 1,
 				"labels": {
-				  "pre": "Very Dissatisfied",
-				  "post": "Very Satisfied"
-				}
+					"marks": false,
+				  	"pre": "Very Dissatisfied",
+				  	"post": "Very Satisfied",  
+				},
 			  }); 
             </script>
             <div class="m-question-cover"><!-- cover --></div>
@@ -128,8 +124,8 @@
             <div class="o-question-core">
                 <div class="m-question-warning"></div>
 				<div class="m-message-information">
-                    <div class="o-question-information-content">How full was the bus today?</div>
-                    <div class="o-question-alternatives">How many people?<!-- alternative labels go here --></div>
+                    <div class="o-question-information-content">Please rate your overall satisfaction of the wash you just completed.</div>
+                    <div class="o-question-alternatives">Select a value between 1 and 10 1 = awful; 10 = brilliant<!-- alternative labels go here --></div>
                 </div>
                 <div class="o-question-instruction">	</div>
     
@@ -146,7 +142,7 @@
                     data-questiongroup="_Qvaropinion"><!--scale-horizontal pre terminator--></button>
                     <script>app.registerComponent('aButtonPreTerminator', '_Q0_Preterm', '_Qvaropinion');</script>
                     
-						<!-- <script>app.registerComponent('oScale', '_Q0_Scale', '_Qvaropinion');</script> -->
+						
 						
 						<!-- units -->
 						<div class="o-scale">
@@ -193,6 +189,36 @@
 									<img class="a-image-multistate" alt="Scale Icon 5"/>
 									<div class="a-label-datavalue">5</div>
 								</label>
+								<label class="m-scale-unit" data-value="6">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="6" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" alt="Scale Icon 6"/>
+									<div class="a-label-datavalue">6</div>
+								</label>
+								<label class="m-scale-unit" data-value="7">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="7" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" alt="Scale Icon 7"/>
+									<div class="a-label-datavalue">7</div>
+								</label>
+								<label class="m-scale-unit" data-value="8">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="8" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" alt="Scale Icon 8"/>
+									<div class="a-label-datavalue">8</div>
+								</label>
+								<label class="m-scale-unit" data-value="9">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="9" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" alt="Scale Icon 9"/>
+									<div class="a-label-datavalue">9</div>
+								</label>
+								<label class="m-scale-unit" data-value="10">
+									<input type="checkbox" class="scale-checkbox" name="scaleOption" value="10" data-questionid="_Q0" data-questiongroup="_Qvaropinion" id="_Q0"/>
+									<span class="checkbox-custom"></span>
+									<img class="a-image-multistate" alt="Scale Icon 10"/>
+									<div class="a-label-datavalue">10</div>
+								</label>
 							</div>	
                         </div>
                     
@@ -207,7 +233,7 @@
                 </div>
             </div>
         </div>
-    </div>
+   		 </div>
 </div>
 
 

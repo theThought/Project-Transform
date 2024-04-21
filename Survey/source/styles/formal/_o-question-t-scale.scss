@@ -1,9 +1,4 @@
-.o-scale,
-.o-scale-container {
-    position: relative;
-    width: 100%;
-    max-width: 350px;   
-}
+@use 'globals';
 
 .m-image-singlestate {
     width: 100%;
@@ -13,14 +8,7 @@
 
 .o-scale-container .o-scale-unitcontainer,
 .o-scale-unitcontainer {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    display: flex;   
 }
 
 .m-scale-unit {
@@ -29,21 +17,9 @@
     cursor: pointer;
 }
 
+//Hide the classic checkbox.
 .scale-checkbox {
-    display: none;
-}
-
-.checkbox-custom {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 4px;
+    visibility: hidden;
 }
 
 .scale-checkbox:checked + .checkbox-custom {
@@ -53,14 +29,24 @@
 .a-image-multistate {
     display: block;
     margin: 0 auto;
+    transition: transform 0.3s ease; 
 }
 
 .a-label-datavalue {
     visibility: hidden;
 }
 
+.a-label-datavalue.showValue {
+    visibility: visible;
+    position: absolute;
+    top:32px;
+    left: 30px;
+    color: globals.$dark1;
+}
 
-// scale vertical.
+.a-label-datavalue.showValue.highlighted {
+    color: globals.$white;
+}
 
 .o-question-scale-vertical,
 .o-question-scale-vertical-control{
