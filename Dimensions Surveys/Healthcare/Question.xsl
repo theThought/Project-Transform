@@ -2315,9 +2315,6 @@
             </xsl:if>
          </xsl:attribute>
 
-         <xsl:text>Child nodename</xsl:text>
-         <xsl:value-of select="name(child::node()[1])" />
-
          <xsl:variable name='testposition'>
             <xsl:choose>
                <xsl:when test="name(child::node()[1]) = 'Error'">
