@@ -2188,6 +2188,7 @@
       <xsl:if test="$ErrorCount>0">
          <xsl:call-template name="StructureError" />
       </xsl:if>
+
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
@@ -2313,9 +2314,19 @@
                <xsl:text>;</xsl:text>
             </xsl:if>
          </xsl:attribute>
-         
+
+         <xsl:variable name='testposition'>
+            <xsl:choose>
+               <xsl:when test="*[1]/name() = 'Error'">
+                  <xsl:value-of select="2" />
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:value-of select="1" />
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:variable>
+
          <xsl:for-each select="*">
-            <xsl:if test="position()=1">
                <xsl:choose>
                   <xsl:when test="name() = 'Question'">
                      <xsl:call-template name="CellQuestion" />
