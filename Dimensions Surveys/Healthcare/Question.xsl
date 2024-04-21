@@ -1713,6 +1713,13 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+
+      <xsl:variable name="qCategoryID">
+         <xsl:value-of select="$qElementID" />
+         <xsl:value-of select=".//Category[1]/@CategoryID" />
+      </xsl:variable>
       <xsl:choose>
          <xsl:when test="Style/@Image != ''">
             <!--- Image control buttons -->
@@ -1783,18 +1790,16 @@
             </xsl:element>
          </xsl:when>
          <xsl:otherwise>
+         
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'aButtonOption'" />
-               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qElementID" select="$qCategoryID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
             <xsl:element name="input">
                <xsl:attribute name="data-questionid">
-                  <xsl:value-of select="$qElementID" />
-                  <xsl:if test="Category[1]/@CategoryID">
-                     <xsl:value-of select="Category[1]/@CategoryID" />
-                  </xsl:if>
+                  <xsl:value-of select="$qCategoryID" />
                </xsl:attribute>
                <xsl:attribute name="data-questiongroup">
                   <xsl:value-of select="$qGroup_Name" />
@@ -1809,10 +1814,7 @@
                <!--- ID -->
                <xsl:if test="$bIncludeElementIds">
                   <xsl:attribute name="id">
-                     <xsl:value-of select="$qElementID" />
-                     <xsl:if test="Category[1]/@CategoryID">
-                        <xsl:value-of select="Category[1]/@CategoryID" />
-                     </xsl:if>
+                     <xsl:value-of select="$qCategoryID" />
                   </xsl:attribute>
                </xsl:if>
                <!--- CSS Class -->
@@ -2191,6 +2193,7 @@
       <xsl:if test="$ErrorCount>0">
          <xsl:call-template name="StructureError" />
       </xsl:if>
+
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row</xsl:text>
@@ -2316,84 +2319,93 @@
                <xsl:text>;</xsl:text>
             </xsl:if>
          </xsl:attribute>
-         
+
+         <xsl:variable name='testposition'>
+            <xsl:choose>
+               <xsl:when test="name(child::node()[1]) = 'Error'">
+                  <xsl:value-of select="2" />
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:value-of select="1" />
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:variable>
+
          <xsl:for-each select="*">
-            <xsl:if test="position()=1">
-               <xsl:choose>
-                  <xsl:when test="name() = 'Question'">
-                     <xsl:call-template name="CellQuestion" />
-                  </xsl:when>
-                  <xsl:when test="name() = 'Label'">
-                     <xsl:call-template name="Label">
-                        <xsl:with-param name="labelType">
-                           <xsl:choose>
-                              <xsl:when test="../@Class='mrGridQuestionText'">
-                                 <xsl:choose>
-                                    <xsl:when test="Style/@Align='Center'">
-                                       <xsl:text>option</xsl:text>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                       <xsl:text>question</xsl:text>
-                                    </xsl:otherwise>
-                                 </xsl:choose>
-                              </xsl:when>
-                              <xsl:when test="../@Class='mrGridCategoryText'">
-                                 <xsl:text>iteration</xsl:text>
-                              </xsl:when>
-                           </xsl:choose>
-                        </xsl:with-param>
+            <xsl:choose>
+               <xsl:when test="name() = 'Question'">
+                  <xsl:call-template name="CellQuestion" />
+               </xsl:when>
+               <xsl:when test="name() = 'Label'">
+                  <xsl:call-template name="Label">
+                     <xsl:with-param name="labelType">
+                        <xsl:choose>
+                           <xsl:when test="../@Class='mrGridQuestionText'">
+                              <xsl:choose>
+                                 <xsl:when test="Style/@Align='Center'">
+                                    <xsl:text>option</xsl:text>
+                                 </xsl:when>
+                                 <xsl:otherwise>
+                                    <xsl:text>question</xsl:text>
+                                 </xsl:otherwise>
+                              </xsl:choose>
+                           </xsl:when>
+                           <xsl:when test="../@Class='mrGridCategoryText'">
+                              <xsl:text>iteration</xsl:text>
+                           </xsl:when>
+                        </xsl:choose>
+                     </xsl:with-param>
+                  </xsl:call-template>
+               </xsl:when>
+               <xsl:when test="name() = 'Control'">
+                  <xsl:variable name="cellElementID">
+                     <xsl:call-template name="CalculateQuestionName">
+                        <xsl:with-param name="QuestionName" select="@ElementID" />
                      </xsl:call-template>
-                  </xsl:when>
-                  <xsl:when test="name() = 'Control'">
-                     <xsl:variable name="cellElementID">
-                        <xsl:call-template name="CalculateQuestionName">
-                           <xsl:with-param name="QuestionName" select="@ElementID" />
+                  </xsl:variable>
+                  <xsl:variable name="cellCategoryID" select="@ElementID" />
+                  
+                  <xsl:variable name="cellLocal_Name" select="@QuestionName" />
+                  <xsl:variable name="cellGroup_Name">
+                     <xsl:call-template name="CalculateQuestionName">
+                        <xsl:with-param name="QuestionName" select="$cellLocal_Name" />
+                     </xsl:call-template>
+                  </xsl:variable>
+                  
+                  <xsl:choose>
+                     <xsl:when test="not(@Type = 'RadioButton') and not(@Type ='CheckButton')">
+                        <xsl:call-template name="InsertQuestionDiv">
+                           <xsl:with-param name="qElementID" select="$cellElementID" />
+                           <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
+                           <xsl:with-param name="qLocal_Name" select="$cellLocal_Name" />
                         </xsl:call-template>
-                     </xsl:variable>
-                     <xsl:variable name="cellCategoryID" select="@ElementID" />
-                     
-                     <xsl:variable name="cellLocal_Name" select="@QuestionName" />
-                     <xsl:variable name="cellGroup_Name">
-                        <xsl:call-template name="CalculateQuestionName">
-                           <xsl:with-param name="QuestionName" select="$cellLocal_Name" />
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:call-template name="Control">
+                           <xsl:with-param name="qElementID" select="$cellCategoryID" />
+                           <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
+                           <xsl:with-param name="qLocal_Name" select="$cellLocal_Name" />
+                           <xsl:with-param name="qIsCustom">
+                              <xsl:call-template name="TranslateZIndexToIsCustom">
+                                 <xsl:with-param name="theID" select="Style/@ZIndex" />
+                              </xsl:call-template>
+                           </xsl:with-param>
+                           <xsl:with-param name="qCustomType">
+                              <xsl:call-template name="TranslateZIndexToName">
+                                 <xsl:with-param name="theID" select="Style/@ZIndex" />
+                              </xsl:call-template>
+                           </xsl:with-param>
                         </xsl:call-template>
-                     </xsl:variable>
-                     
-                     <xsl:choose>
-                        <xsl:when test="not(@Type = 'RadioButton') and not(@Type ='CheckButton')">
-                           <xsl:call-template name="InsertQuestionDiv">
-                              <xsl:with-param name="qElementID" select="$cellElementID" />
-                              <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
-                              <xsl:with-param name="qLocal_Name" select="$cellLocal_Name" />
-                           </xsl:call-template>
-                        </xsl:when>
-                        <xsl:otherwise>
-                           <xsl:call-template name="Control">
-                              <xsl:with-param name="qElementID" select="$cellCategoryID" />
-                              <xsl:with-param name="qGroup_Name" select="$cellGroup_Name" />
-                              <xsl:with-param name="qLocal_Name" select="$cellLocal_Name" />
-                              <xsl:with-param name="qIsCustom">
-                                 <xsl:call-template name="TranslateZIndexToIsCustom">
-                                    <xsl:with-param name="theID" select="Style/@ZIndex" />
-                                 </xsl:call-template>
-                              </xsl:with-param>
-                              <xsl:with-param name="qCustomType">
-                                 <xsl:call-template name="TranslateZIndexToName">
-                                    <xsl:with-param name="theID" select="Style/@ZIndex" />
-                                 </xsl:call-template>
-                              </xsl:with-param>
-                           </xsl:call-template>
-                        </xsl:otherwise>
-                     </xsl:choose>
-                  </xsl:when>
-                  <xsl:when test="name() = 'Error'">
-                     <xsl:comment>old error message</xsl:comment>
-                  </xsl:when>
-                  <xsl:otherwise>
-                     <xsl:apply-templates select="." />
-                  </xsl:otherwise>
-               </xsl:choose>
-            </xsl:if>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:when>
+               <xsl:when test="name() = 'Error'">
+                  <xsl:comment>old error message</xsl:comment>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:apply-templates select="." />
+               </xsl:otherwise>
+            </xsl:choose>
          </xsl:for-each>
       </xsl:element>
    </xsl:template>

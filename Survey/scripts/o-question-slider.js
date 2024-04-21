@@ -345,9 +345,9 @@ define(['o-question'],
 
         oQuestionSlider.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
-            var maxValue = parseInt(this.element.max);
+            var max = this.element.max ? parseInt(this.element.max) : 100;
 
-            if (currentValue < maxValue) {
+            if (currentValue < max) {
                 this.element.value++;
             }
 
@@ -356,9 +356,9 @@ define(['o-question'],
 
         oQuestionSlider.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
-            var maxValue = parseInt(this.element.min);
+            var min = this.element.min ? parseInt(this.element.min) : 0;
 
-            if (currentValue > maxValue) {
+            if (currentValue > min) {
                 this.element.value--;
             }
 
