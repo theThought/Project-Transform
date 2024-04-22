@@ -102,7 +102,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.push(new oQuestionSlider(id, group));
             });
             break;
-        case 'oquestionscalehorizontal': 
+        case 'oquestionscale-horizontal': 
             requirejs(['o-question-scale-horizontal'], function (oQuestionScaleHorizontal) {
                 app.preinitcomponents.push(new oQuestionScaleHorizontal(id, group));
             });
