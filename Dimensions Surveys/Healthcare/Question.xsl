@@ -2028,7 +2028,7 @@
             </xsl:call-template>
                <xsl:element name="div">
                   <xsl:attribute name="class">
-                     <xsl:text>o-scale-container</xsl:text>
+                     <xsl:text>o-scale-unitcontainer</xsl:text>
                   </xsl:attribute>
                   <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'oScaleContainer'" />
