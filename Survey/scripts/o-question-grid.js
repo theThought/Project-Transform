@@ -31,7 +31,6 @@ define(['component'],
             gridid = grididarray[grididarray.length - 3];
 
             this.configureCellEvents();
-            this.configureTHStyles();
             this.configureRowStyles();
             this.configureIncomingEventListeners();
             this.configureProperties(gridid);
@@ -64,38 +63,6 @@ define(['component'],
                 newth.colSpan = props[i].colspan;
                 newth.className = 'm-structure-cell m-structure-heading';
                 headingrow.appendChild(newth);
-            }
-        }
-
-        oQuestionGrid.prototype.configureTHStyles = function () {
-            for (var i = 0, row; row = this.grid.rows[i]; i++) {
-
-                // get total number of cells in the current row
-                var cellcount = row.cells.length;
-                var emptyheadercount = 0;
-
-                for (var j = 0, col; col = row.cells[j]; j++) {
-                    var celltext = '';
-
-                    // it is necessary to examine the content of the cell and all child nodes
-                    // to ascertain if there is any text contained within them - this could be
-                    // text directly in the <th> or text within a child <span> - but only if
-                    // there is actually text (do not return html tags as valid headers)
-
-                    if (col.tagName.toLowerCase() === 'th') {
-                        celltext += this.recursiveTextSearch(col, '');
-
-                        if (!celltext.length) {
-                            emptyheadercount++;
-                        }
-                    }
-
-                }
-
-                if (emptyheadercount === cellcount) {
-                    this.grid.rows[i].classList.add('empty-header-row');
-                }
-
             }
         }
 
