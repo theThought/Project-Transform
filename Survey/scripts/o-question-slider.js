@@ -287,7 +287,6 @@ define(['o-question'],
         }
 
         oQuestionSlider.prototype.setThumbImage = function (prop) {
-            this.element.style.setProperty('--track-thumb-border', 'none');
             this.element.style.setProperty('--track-thumb-image', 'url(' + prop + ')');
         }
 
@@ -302,6 +301,9 @@ define(['o-question'],
         oQuestionSlider.prototype.onInput = function (event) {
 
             if (event.target === this.element || event.target === this.clickablearea || event === true) {
+                var thumbimage = getComputedStyle(this.element).getPropertyValue('--track-thumb-image');
+                thumbimage = thumbimage.replace('-readonly', '');
+                this.element.style.setProperty('--track-thumb-image', thumbimage);
 
                 this.organism.classList.add('has-value');
                 this.setHiddenValue(this.element.value);
@@ -356,14 +358,21 @@ define(['o-question'],
             this.value = this.element.value;
             this.setHiddenValue('');
             this.element.disabled = true;
+            var thumbimage = getComputedStyle(this.element).getPropertyValue('--track-thumb-image');
+            thumbimage = thumbimage.replace('.svg','-readonly.svg')
+            this.element.style.setProperty('--track-thumb-image', thumbimage);
+
         }
 
         oQuestionSlider.prototype.onDismissExclusive = function () {
-            this.organism.classList.add('active');
             this.organism.classList.remove('inactive');
+            this.organism.classList.add('active');
             this.element.disabled = false;
             this.element.value = this.value;
             this.setHiddenValue(this.value);
+            var thumbimage = getComputedStyle(this.element).getPropertyValue('--track-thumb-image');
+            thumbimage = thumbimage.replace('-readonly', '');
+            this.element.style.setProperty('--track-thumb-image', thumbimage);
         }
 
         return oQuestionSlider;
