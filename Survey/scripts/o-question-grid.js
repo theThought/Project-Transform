@@ -401,8 +401,11 @@ define(['component'],
                 props = {content: props};
             }
 
-            // handle tables with exactly 2 rows
-            if (this.grid.rows.length === 2) {
+            // check whether the table has a heading row
+            var headingrow = this.grid.querySelector('tr.m-structure-row-heading');
+
+            // handle tables with exactly 2 rows with neither row being a heading
+            if (this.grid.rows.length === 2 && headingrow) {
                 this.addSingleRowCaption(props);
                 return;
             }
@@ -494,9 +497,6 @@ define(['component'],
                 return;
             }
 
-            this.hasrowtotals = true;
-            var rowcount = this.grid.rows.length;
-
             var captiontitle = '';
             var captionalign = '';
             var captionwidth = '';
@@ -515,6 +515,23 @@ define(['component'],
                     captionwidth = props.caption.width;
                 }
             }
+
+            var headingrow = this.grid.querySelector('tr.m-structure-row-heading');
+
+            // if a caption has been defined for the total column but there is no column heading row we need to add one
+            if (!headingrow && captiontitle.length > 0) {
+                // add a new row at the start of the table with an appropriate class
+                var captionrow = this.grid.insertRow(0);
+                captionrow.className = 'm-structure-row m-structure-caption-row';
+
+                // insert two cells; the second cell will contain the caption
+                var newth = document.createElement('th');
+                newth.scope = 'col';
+                newth.colSpan = this.grid.rows[1].cells.length;
+                captionrow.appendChild(newth);
+            }
+
+            var rowcount = this.grid.rows.length;
 
             for (var i = 0; i < rowcount; i++) {
 
@@ -559,6 +576,8 @@ define(['component'],
                     totalcell.innerHTML = htmlString;
                 }
             }
+
+            this.hasrowtotals = true;
         }
 
         oQuestionGrid.prototype.configureColumnTotals = function (props) {
