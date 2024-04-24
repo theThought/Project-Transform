@@ -153,7 +153,7 @@ define(['o-question'],
                 return;
             }
 
-            var previousResponseBlock = previousResponseContainer.querySelector('.o-question-core');
+            var previousResponseBlock = previousResponseContainer.querySelector('.o-question-core question');
 
             if (previousResponseBlock === null) {
                 return;
