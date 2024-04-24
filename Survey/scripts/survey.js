@@ -16,61 +16,61 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         case 'page':
             requirejs(['page'], function (page) {
                 console.log('Registering page');
-                app.preinitcomponents.push(new page(id, group));
+                app.preinitcomponents.unshift(new page(id, group));
             });
             break;
         case 'oprogress':
             requirejs(['o-progress'], function (oProgress) {
                 console.log('Registering progress');
-                app.preinitcomponents.push(new oProgress(id, group));
+                app.preinitcomponents.unshift(new oProgress(id, group));
             });
             break;
         case 'ainputsinglelineedit':
             requirejs(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
                 console.log('Registering single line');
-                app.preinitcomponents.push(new aInputSinglelineEdit(id, group));
+                app.preinitcomponents.unshift(new aInputSinglelineEdit(id, group));
             });
             break;
         case 'ainputmultilineedit':
             requirejs(['a-input-multilineedit'], function (aInputMultilineEdit) {
-                app.preinitcomponents.push(new aInputMultilineEdit(id, group));
+                app.preinitcomponents.unshift(new aInputMultilineEdit(id, group));
             });
             break;
         case 'ainputreadwriteedit':
             requirejs(['a-input-readwriteedit'], function (aInputReadWriteEdit) {
                 console.log('Registering input');
-                app.preinitcomponents.push(new aInputReadWriteEdit(id, group));
+                app.preinitcomponents.unshift(new aInputReadWriteEdit(id, group));
             });
             break;
         case 'moptionbase':
             requirejs(['m-option-base'], function (mOptionBase) {
                 console.log('Registering moptionbase');
-                app.preinitcomponents.push(new mOptionBase(id, group));
+                app.preinitcomponents.unshift(new mOptionBase(id, group));
             });
             break;
         case 'abuttonoption':
             requirejs(['a-button-option'], function (aButtonOption) {
-                app.preinitcomponents.push(new aButtonOption(id, group));
+                app.preinitcomponents.unshift(new aButtonOption(id, group));
             });
             break;
         case 'ocombobox':
             requirejs(['o-combobox'], function (oCombobox) {
-                app.preinitcomponents.push(new oCombobox(id, group));
+                app.preinitcomponents.unshift(new oCombobox(id, group));
             });
             break;
         case 'odropdown':
             requirejs(['o-dropdown'], function (oDropdown) {
-                app.preinitcomponents.push(new oDropdown(id, group));
+                app.preinitcomponents.unshift(new oDropdown(id, group));
             });
             break;
         case 'oquestiongrid':
             requirejs(['o-question-grid'], function (oQuestionGrid) {
-                app.preinitcomponents.push(new oQuestionGrid(id, group));
+                app.preinitcomponents.unshift(new oQuestionGrid(id, group));
             });
             break;
         case 'oquestionlist':
             requirejs(['o-question-list'], function (oQuestionList) {
-                app.preinitcomponents.push(new oQuestionList(id, group));
+                app.preinitcomponents.unshift(new oQuestionList(id, group));
             });
             break;
         case 'oquestion':
@@ -78,43 +78,43 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         case 'oquestionreadwriteedit':
         case 'oquestionsinglelineedit':
             requirejs(['o-question-choice'], function (oQuestionChoice) {
-                app.preinitcomponents.push(new oQuestionChoice(id, group));
+                app.preinitcomponents.unshift(new oQuestionChoice(id, group));
             });
             break;
         case 'oquestiondropdown':
             requirejs(['o-question'], function (oQuestionDropdown) {
-                app.preinitcomponents.push(new oQuestionDropdown(id, group));
+                app.preinitcomponents.unshift(new oQuestionDropdown(id, group));
             });
             break;
         case 'oquestioncombobox':
             requirejs(['o-question'], function (oQuestionCombobox) {
-                app.preinitcomponents.push(new oQuestionCombobox(id, group));
+                app.preinitcomponents.unshift(new oQuestionCombobox(id, group));
             });
             break;
         case 'oquestioncontainer':
             requirejs(['o-question-container'], function (oQuestionContainer) {
-                app.preinitcomponents.push(new oQuestionContainer(id, group));
+                app.preinitcomponents.unshift(new oQuestionContainer(id, group));
             });
             break;
         case 'oquestionslider-horizontal':
         case 'oquestionslider-vertical':
             requirejs(['o-question-slider'], function (oQuestionSlider) {
-                app.preinitcomponents.push(new oQuestionSlider(id, group));
+                app.preinitcomponents.unshift(new oQuestionSlider(id, group));
             });
             break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
-                app.preinitcomponents.push(new aInputButtonDec(id, group));
+                app.preinitcomponents.unshift(new aInputButtonDec(id, group));
             });
             break;
         case 'abuttonpostterminator':
             requirejs(['a-input-button-inc'], function (aInputButtonInc) {
-                app.preinitcomponents.push(new aInputButtonInc(id, group));
+                app.preinitcomponents.unshift(new aInputButtonInc(id, group));
             });
             break;
         case 'alabelthumbvalue':
             requirejs(['a-label-thumbvalue'], function (aLabelThumbValue) {
-                app.preinitcomponents.push(new aLabelThumbValue(id, group));
+                app.preinitcomponents.unshift(new aLabelThumbValue(id, group));
             });
             break;
         default:
