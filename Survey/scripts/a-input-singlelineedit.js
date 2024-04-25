@@ -218,7 +218,7 @@ define(['component', 'pikaday'],
             var spinnerWrapper = document.createElement('div');
             spinnerWrapper.className = 'm-button-spinner';
 
-            var that = this;
+            var self = this;
 
             // create the spinner buttons and append them to the spinner container
             var incButton = document.createElement('button');
@@ -229,8 +229,8 @@ define(['component', 'pikaday'],
                 event.preventDefault();
             }
             incButton.onmousedown = function () {
-                that.element.value = Number(that.element.value) + that.stepValue;
-                that.broadcastChange();
+                self.element.value = Number(self.element.value) + self.stepValue;
+                self.broadcastChange();
             };
             var decButton = document.createElement('button');
             decButton.className = 'a-button-spinner-down';
@@ -240,8 +240,8 @@ define(['component', 'pikaday'],
                 event.preventDefault();
             }
             decButton.onmousedown = function () {
-                that.element.value = Number(that.element.value) - that.stepValue;
-                that.broadcastChange();
+                self.element.value = Number(self.element.value) - self.stepValue;
+                self.broadcastChange();
             }
             spinnerWrapper.appendChild(incButton);
             spinnerWrapper.appendChild(decButton);

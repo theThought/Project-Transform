@@ -25,6 +25,7 @@ define(['component'],
             this.isExact = true;
             this.filtermethod = 'contains';
             this.listtype = 'combobox';
+            this.listsource = 'html';
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = false;
             this.manualWidth = false;
@@ -261,7 +262,24 @@ define(['component'],
         }
 
         oCombobox.prototype.buildList = function () {
-            return this.droplist.querySelectorAll('li');
+            if (this.listsource === 'html') {
+                return this.buildListFromHtml();
+            } else {
+                return this.buildListFromRemote(this.listsource);
+            }
+        }
+
+        oCombobox.prototype.buildListFromHtml = function () {
+            return this.droplist.querySelector('li');
+        }
+
+        oCombobox.prototype.buildListFromRemote = function  (listsource) {
+            // AJAX call xmlHttpRequest(listsource)
+            //for each (item in list) {
+            // this.droplist.append(new item)
+            // }
+            // parse list and build the HTML on the page
+            // return the HTML collection return this.droplist.querySelector('li');
         }
 
         oCombobox.prototype.buildVisibleList = function () {
@@ -357,9 +375,9 @@ define(['component'],
                     return;
                 default:
                     clearInterval(this.keytimer);
-                    var that = this;
+                    var self = this;
                     this.keytimer = setTimeout(function () {
-                        that.clearKeyBuffer()
+                        self.clearKeyBuffer()
                     }, this.keytimerlimit);
                     this.filterList();
                     break;

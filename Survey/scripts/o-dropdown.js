@@ -369,9 +369,9 @@ define(['component'],
                 default:
                     if (this.filtermethod === 'none') {
                         clearInterval(this.keytimer);
-                        var that = this;
+                        var self = this;
                         this.keytimer = setTimeout(function () {
-                            that.clearKeyBuffer()
+                            self.clearKeyBuffer()
                         }, this.keytimerlimit);
                     }
 

@@ -122,7 +122,7 @@ define(['component'],
                 return;
             }
 
-            var that = this;
+            var self = this;
 
             prop.alternatives.forEach(function (item, idx, arr) {
 
@@ -131,7 +131,7 @@ define(['component'],
 
                 alternative.setAttribute('name', item.name);
                 alternative.classList.add('o-question-information-content');
-                alternative.innerHTML = that.decodeHTML(that.replaceHTMLPlaceholder(item.label));
+                alternative.innerHTML = self.decodeHTML(self.replaceHTMLPlaceholder(item.label));
 
                 if (prop.separator !== 'undefined' && prop.separator.length && idx !== arr.length - 1) {
                     var alternativeseparator = document.createElement('span');
