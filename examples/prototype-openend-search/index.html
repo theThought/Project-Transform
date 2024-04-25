@@ -58,6 +58,35 @@
 <div id="beverageCount">6 beverages found</div>
 
 <script>
+/*
+
+MultiSelect
+
+1, Get list first 
+2, we store into an array
+3, seearch end or start of string
+4, display error message if no matching
+
+See minCharacters for the list  - user specified how tall the list would be. 
+
+Maybe worth asking Kevin:
+
+How similar this this going to be combocbox with a remote list:
+
+Not defined in Figma
+ - when there are 'none' - this is a user defined incase this is not in the list
+
+
+
+Have a look at the comboBox js 
+
+
+*/
+
+// Get the list from the XMLHttpRequest then pass 
+// into the brands for example. 
+// The user the css classes based on the obox-combo then you can use the styles for that
+
 var brands = ['Granville Island Brewing', 'Brick Brewing Co.', 'Big Rock Brewery', 'Central City Brewers', 'Phillips Brewing & Malting Co.', 'Pump House Brewery'];
 var selectedBrand = null;
 
