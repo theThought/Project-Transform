@@ -1723,7 +1723,10 @@ Coke "Coca Cola" define
         GridVisibility "Grids & Visibility",
         OneColumn "1 column",
         Split "Split grid",
-        ComplexGrids "Complex Grids"
+        ComplexGrids "Complex Grids",
+        OneRowGrid "1 Row Grid",
+        GridScale "Scale Grid",
+        GridSlider "Slider Grid"
     };
     TypesList_Rotated "Rotated Grids" define
     {
@@ -1736,7 +1739,9 @@ Coke "Coca Cola" define
         RotatedGridVisibility "Grids & Visibility",
         RotatedOneColumn "1 Row",
         RotatedSplit "Split grid",
-        RotatedComplexGrids "Complex Grids"
+        RotatedComplexGrids "Complex Grids",
+        RotatedGridScale "Scale Grid",
+        RotatedGridSlider "Slider Grid"
     };
     TypesList_Dropdowns "Questions using dropdowns and comboboxes" define
     {
@@ -1939,8 +1944,10 @@ Coke "Coca Cola" define
 	codes ({
 	noanswer "" NA,
 	nomiddle "I don't have a middle name",
-	toolong "my name is too long to fit"
-	})
+	toolong "my name is too long to fit",
+	refused "I don't want to provide my middle name" REF
+	});
+	
     Comments "Would you please describe the positive and negative aspects of the experience you had during your last visit"
         style(
             ZIndex = -30
@@ -2393,13 +2400,15 @@ Coke "Coca Cola" define
 
     HowManyMissed_Car "How many of the last 10 visits did you miss"
         style(
-            ZIndex = -50
+            ZIndex = -50,
+            width = "70%"
         )
     long [0 .. 100];
 
     HowManyMissed_Heart "How many of the last 10 visits did you miss"
         style(
-            ZIndex = -50
+            ZIndex = -50,
+            width = "60%"
         )
     long [0 .. 100];
 
@@ -2546,8 +2555,38 @@ Coke "Coca Cola" define
     long [0 .. 100];
 
     '----------------------------------------
+    ' grid slider
+    '----------------------------------------
+    vacinate "what percentage of people are right to not get vaccinated in the follwing:"
+    {
+    MMR,
+    Covid,
+    Flu,
+    Measles,
+    Polio
+    } fields (
+    percentright "what percentage of people are right to not get vaccinated"
+        style(
+            ZIndex = -50,
+            Width = "15em"
+        )
+    long [0 .. 100];
+    );
+    
+    '----------------------------------------
     ' scales (horizontal)
     '----------------------------------------
+    Passive10Scale "Indicate your satisfaction with this wash"
+        style(
+            ZIndex = -55,
+            Width = "80%"
+        )
+    long [1 .. 10];
+    
+    Passive10Feedback "Please provide some detail as to why you scored your wash with a rating" 
+    style(zIndex=-30)
+    text[..400];
+        
     tenpointfeedback "Based on your last wash indicate your satisfaction with your detergent"
         style(
             ZIndex = -55,
@@ -2572,6 +2611,25 @@ Coke "Coca Cola" define
         noscent "I did not use a scent booster" NA
     } );
 
+    '----------------------------------------
+    ' Grid of scales (horizontal)
+    '----------------------------------------
+    LaundryScales "" loop
+    {
+    Scent,
+    Clean,
+    Soft,
+    overall
+    } fields
+    (
+    Passive5Scale "Indicate your satisfaction with this wash"
+        style(
+            ZIndex = -55,
+            Width = "80%"
+        )
+    long [1 .. 5]
+	);
+	
     sizes "Which of the odd options works for you"
         [
             json = "{'balance':{'state':false},'onesize':{'state':false}}"
@@ -2758,6 +2816,19 @@ Coke "Coca Cola" define
     VisibilityStatement "<p>This group of questions have been setup to test the new visibility rules.  There are currently three visibility rules implemented:<UL><LI>Specific Option</LI><LI>Not Specific Option</LI><LI>Min Value</LI></UL></p>"
     info;
 
+	Pipesmoking "what percentage of your day do you use a pipe"
+	style(zindex=-20)
+	long[1..100]
+	codes({nopipe "I don't use a pipe" NA});
+	
+	EverPiped "Have you ever used a pipe?" 
+	style (zIndex=-40)
+	categorical[1]
+	{
+	Yes,
+	No
+	};
+		
     DoYouMind "Do you mind questions about smoking"
         style(
             ZIndex = -40
@@ -3260,6 +3331,7 @@ Coke "Coca Cola" define
     };
 
     TypesVsBroadsheetsSingle "Which of the following papers have you read in the last month?"
+    style(zIndex=-40)
     categorical [1..1]
     {
         use tabloidpapers sublist -,
@@ -3273,6 +3345,7 @@ Coke "Coca Cola" define
     };
 
     TypesVsBroadsheets "Which of the following papers have you read in the last month?"
+    style(zIndex=-40)
     categorical
     {
         use tabloidpapers sublist -,
@@ -3286,7 +3359,8 @@ Coke "Coca Cola" define
     };
 
     PaperTypes "Which of the following types of newspaper have you read in the last 4 weeks?"
-    categorical
+        style(zIndex=-40)
+        categorical
     {
         use NewspaperTypesList -
     };
@@ -3355,13 +3429,15 @@ Coke "Coca Cola" define
     };
 
     Broadsheets "for how long have you been reading broadsheet newspapers?"
-    categorical [1..1]
+        style(zIndex=-40)
+        categorical [1..1]
     {
         use howlonglist -
     };
 
     Tabloids "for how long have you been reading the tabloids?"
-    categorical [1..1]
+        style(zIndex=-40)
+        categorical [1..1]
     {
         use howlonglist -
     };
@@ -4502,7 +4578,7 @@ Coke "Coca Cola" define
     '----------------------------------------
     ' Dynamic Labels
     '----------------------------------------
-    DynamicLabel1 "How many <span style='bold'>bananas</span> did you eat last week"
+    DynamicLabel1 "How many <span class=%%%bold%%%>bananas</span> did you eat last week"
     info;
 
     DynamicLabel2 "if you could eat more bananas how many would you eat today"
@@ -5473,7 +5549,43 @@ Coke "Coca Cola" define
         text [..10];
 
     );
+    
+    '----------------------------------------
+    ' onerow grids
+    '----------------------------------------
 
+	date_grid "Date (grid)" loop [1] fields -
+    (
+        month "Month"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [1..1]
+        {
+            jan "January",
+            feb "February",
+            mar "March",
+            apr "April"
+        };
+ 
+        year "Year"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [1..1]
+        {
+            _2020 "2020",
+            _2021 "2021",
+            _2022 "2022"
+        };
+ 
+    ) expand;
     '----------------------------------------
     ' Categorical grids
     '----------------------------------------
@@ -6350,6 +6462,11 @@ Coke "Coca Cola" define
         sevenpointfeedback,
         fivepointfeedback
     );
+    
+    PipePage page (pipesmoking,everpiped);
+
+    Passive10Page page (Passive10Scale, Passive10Feedback);
+
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -6531,11 +6648,13 @@ BasicPage.Ask()
 
 case {basic}
 
+CreateInformationPopup(Hello, "Summary", "Complex information question with embedded HTML content")
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':1}}"
 'progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
 Hello.Banners.AddNew("Instruction", "This formatting can be applied <span class='bold'>in any text</span> including the banners.")
 Hello.Banners.AddNew("Warning", "<span class='caps plusfour bold italic'>Don't be this extreme</span> but you can combine these classes to create composite affects")
 Hello.Errors.AddNew("Error", "If there was an error message generated for the question it would look like this")
+Hello.Show()
 
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':2}}"
 progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
@@ -6553,6 +6672,7 @@ AddCustomProperties(hospital_days, "Qty", "{'type':'number'}", "replace")
 'IOM.Layouttemplate = ""
 hospital_days.Ask()
 
+middlename.MustAnswer = false
 middlename.ask()
 
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':5}}"
@@ -6808,13 +6928,30 @@ PercentageTreatmentsV.Ask()
 AddCustomProperties(PercentageTreatmentsPrePostV, "PercentageTreatmentsPrePostV", "{'values':{'min':0,'max':100},'labels':{'pre':'None of them','post':'All of them'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 PercentageTreatmentsPrePostV.Ask()
 
+case {gridSlider}
+AddCustomProperties(vacinate, "percentright", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+vacinate.ask()
+
 case {scaleh}
-AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+dim passive10visibility
+AddCustomProperties(Passive10Scale, "Passive10Scale", "{'unit':{'image':{'url':'../../images/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+passive10visibility = CreateVisibilityRule("Passive10Scale < 9)")
+
+addCustomProperties(Passive10Feedback, "Passive10Feedback", MakeString("{'visible':{'collapse':true,'rules':'", passive10visibility, "'}}"), "replace")
+Passive10Scale.ask()
+
+AddCustomProperties(tenpointfeedback, "tenpointfeedback", "'{'unit':{'image':{'url':'../../images/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 tenpointfeedback.ask()
 AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 sevenpointfeedback.ask()
 AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 fivepointfeedback.Ask()
+
+case {GridScale}
+AddCustomProperties(LaundryScales, "Passive5Scale", "{'unit':{'image':{'url':'../../images/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':false},'labels':{'pre':'Dissatisfied','post':'Satisfied'}}", "replace") 
+
+LaundryScales.ask()
 
 case {scalev}
 case {Instructions}
@@ -6873,6 +7010,12 @@ buttonsPage.ask()
 case {newvisibility}
 
 Dim currentRule
+	
+	currentRule =  CreateVisibilityRule("Pipesmoking.containsAny('nopipe')")
+	addCustomProperties(EverPiped, "EverPiped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "add")
+	PipePage.ask()
+	PipePage.Show()
+
 
 	AddCustomProperties(concomitant, "concomitant", "{'balance':{'state':true},'onesize':{'state':true}}", "replace")
 
@@ -7205,6 +7348,10 @@ BigGrid2Categoricals.Ask()
 
 gridPage.ask()
 
+case {onerowgrid}
+date_grid.ask()
+date_grid.Show()
+
 case {ReadWrite}
 
 WriteFirstName.response = "Kevin"
@@ -7300,6 +7447,7 @@ dim currentFruitName, currentFruitLabel
 dim labelRule[9], labelRuleItems, labelRuleStart, labelRuleEnd, labelsRule
 dim optionRule[9], optionRuleItems, optionRuleStart, optionRuleEnd, optionsRule
 dim counter
+
 
 labelRule[0] = MakeString("{'name':'first','label':'", DynamicLabel1.label.text, "','block':true,'visible':{'collapse':true,'rules':'", CreateVisibilityRule("DynamicLabelChoice.containsAny('choice1')"),"'}}")
 labelRule[1] = MakeString("{'name':'second','label':'", DynamicLabel2.label.text, "','block':true,'visible':{'collapse':true,'rules':'", CreateVisibilityRule("DynamicLabelChoice.containsAny('choice2')"),"'}}")
