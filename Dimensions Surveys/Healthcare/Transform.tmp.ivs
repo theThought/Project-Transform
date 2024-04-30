@@ -1687,7 +1687,9 @@ Coke "Coca Cola" define
         SliderV "Slider (Vertical)",
         ScaleH "Scale (Horizontal)",
         ScaleV "Scale (Vertical)",
-        SideBySide "Complex questions"
+        SideBySide "Complex questions",
+        longlist "Long Lists",
+        ImageList "Image Lists"
     };
     TypesList_Special "Special functions" define
     {
@@ -2557,7 +2559,7 @@ Coke "Coca Cola" define
     '----------------------------------------
     ' grid slider
     '----------------------------------------
-    vacinate "what percentage of people are right to not get vaccinated in the follwing:"
+    vacinate "what percentage of people are right to not get vaccinated in the follwing:" loop
     {
     MMR,
     Covid,
@@ -3254,6 +3256,20 @@ Coke "Coca Cola" define
         long [0 .. 100];
 
         Friday "Friday"
+            style(
+                ZIndex = -20,
+                Width = "3em"
+            )
+        long [0 .. 100];
+
+       Saturday "Saturday"
+            style(
+                ZIndex = -20,
+                Width = "3em"
+            )
+        long [0 .. 100];
+
+       Sunday "Sunday"
             style(
                 ZIndex = -20,
                 Width = "3em"
@@ -6151,6 +6167,24 @@ Coke "Coca Cola" define
         option6 "It does just what it should do"
     };
 
+
+    '----------------------------------------
+    ' Long Lists Question
+    '----------------------------------------
+	barcodelist "Provide a description of the product you consumed" 
+	style(zIndex = "-120",
+	control(type="singlelineedit")
+	text[..200];
+
+	brandlist "Provide a description of the product you consumed" 
+	style(zIndex = "-120",
+	control(type="singlelineedit")
+	text[..200]
+	codes({nobrand "I don't know the brand" dk});
+    '----------------------------------------
+    ' Image List Question
+    '----------------------------------------
+
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -7249,7 +7283,7 @@ GridDrugDropSingle.Ask()
 case {totals}
 
 'IOM.QuestionTemplate = templateLocation + "question.htm"
-
+RotateGrid(grid5_rowtotal_diffpostlabel_percol, orientations.orRow)
 grid5_rowtotal_diffpostlabel_percol.MustAnswer = false
 grid5_rowtotal_diffpostlabel_percol[..].tot = 20
 grid5_rowtotal_diffpostlabel_percol[..].slice1.Response.initial = 200
@@ -7269,6 +7303,7 @@ AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "slice5", "{'type':'num
 grid5_rowtotal_diffpostlabel_percol.Ask()
 
 'IOM.LayoutTemplate = "pageoutput.htm"
+RotateGrid(constantsum, orientations.orRow)
 constantsum.Banners.AddNew("Warning", "<b>Percentages</b> <span class='test'>allocated must total</span><br />to 100%")
 constantsum[..].PercentageSeen.mustanswer = false
 
@@ -7315,13 +7350,16 @@ totalsPage.ask()
 case {grids}
 
 PainRelief[..].dosesgiven.Style.Control.ReadOnly = false
-AddCustomProperties(PainRelief, "PainRelief", "{'caption':'Pain Relief','totals':{'rows':{'visible':true,'caption':{'content':'Consumption'},'exceptions':[]},'columns':{'visible':false,'exceptions':[1]}}}", "replace")
+AddCustomProperties(PainRelief, "PainRelief", "{'caption':{'content':'Pain Relief'},'totals':{'rows':{'visible':true,'caption':{'content':'Consumption'},'exceptions':[]},'columns':{'visible':false,'exceptions':[1]}}}", "replace")
 AddCustomProperties(PainRelief, "dosesgiven", "{'type':'number'}", "add")
 AddCustomProperties(PainRelief, "Monday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Tuesday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Wednesday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Thursday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Friday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Saturday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Sunday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "PainRelief", "{'topheadings':[{'caption':'','colspan':1},{'caption':'Week','colspan':5},{'caption':'Weekend','colspan':2},{'caption':'Total','colspan':1}]}", "add")
 PainRelief.ask()
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
@@ -7335,10 +7373,25 @@ AddCustomProperties(PainRelief, "Tuesday", "{'type':'number','showspinner':true}
 AddCustomProperties(PainRelief, "Wednesday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Thursday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Friday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Saturday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Sunday", "{'type':'number','showspinner':true}", "add")
+PainRelief.ask()
+
+
+PainRelief[..].dosesgiven.Style.Control.ReadOnly = false
+AddCustomProperties(PainRelief, "PainRelief", "{'caption':'Pain Relief','totals':{'rows':{'visible':true,'caption':{'content':'Consumption'},'exceptions':[]},'columns':{'visible':false,'exceptions':[1]}}}", "replace")
+AddCustomProperties(PainRelief, "dosesgiven", "{'type':'number'}", "add")
+AddCustomProperties(PainRelief, "Monday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Tuesday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Wednesday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Thursday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Friday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Saturday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "Sunday", "{'type':'number','showspinner':true}", "add")
+AddCustomProperties(PainRelief, "PainRelief", "{'TopHeadings':[{'caption':'','colspan':1},{'caption':'Week','colspan':5},{'caption':'Weekend','colspan':2},{'caption':'Total','colspan':1}]}", "add")
 PainRelief.ask()
 
 AddCustomProperties(biggrid, "biggrid", "{'caption':'Fruit Consumed'}", "replace")
-
 biggrid.style.Cell.RepeatHeader = 2
 biggrid.ask()
 
@@ -8038,6 +8091,41 @@ case {TabStripOnly}
 IOM.GlobalQuestions.Add(TabStripNav1)
 TabStripHome.ask()
 
+case {RotatedTotals}
+
+'IOM.QuestionTemplate = templateLocation + "question.htm"
+RotateGrid(grid5_rowtotal_diffpostlabel_percol, orientations.orColumn)
+grid5_rowtotal_diffpostlabel_percol.MustAnswer = false
+grid5_rowtotal_diffpostlabel_percol[..].tot = 20
+grid5_rowtotal_diffpostlabel_percol[..].slice1.Response.initial = 200
+
+grid5_rowtotal_diffpostlabel_percol[{stage_iiic}].slice4.Style.Hidden = false
+grid5_rowtotal_diffpostlabel_percol[{stage_iv}].slice4.Style.hidden = false
+
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "grid5_rowtotal_diffpostlabel_percol", "{'cellshading':{'rowheader':true, 'columnheader':true, 'altrows':true}, 'totals':{'columns':{'visible':false, 'exceptions':[1]}, 'rows':{'visible':true, 'caption':{'content':'Total','align':'right','width':'8em'}, 'labels':{'post':'" + IOM.Questions.lperc_info.Label + "'}}}}", "replace")
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "tot", "{'type':'number', labels:{'post':'pts'}}", "add")
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "slice1", "{'type':'number', labels:{'post':'" + IOM.Questions.lperc_info.label + "'}}", "add")
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "slice2", "{'type':'number', labels:{'post':'" + IOM.Questions.lperc_info.label + "'}}", "add")
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "slice3", "{'type':'number', labels:{'post':'" + IOM.Questions.lperc_info.label + "'}}", "add")
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "slice4", "{'type':'number', labels:{'post':'" + IOM.Questions.lperc_info.label + "'}}", "add")
+AddCustomProperties(grid5_rowtotal_diffpostlabel_percol, "slice5", "{'type':'number', labels:{'post':'" + IOM.Questions.lperc_info.label + "'}}", "add")
+
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+grid5_rowtotal_diffpostlabel_percol.Ask()
+
+'IOM.LayoutTemplate = "pageoutput.htm"
+RotateGrid(constantsum, orientations.orColumn)
+constantsum.Banners.AddNew("Warning", "<b>Percentages</b> <span class='test'>allocated must total</span><br />to 100%")
+constantsum[..].PercentageSeen.mustanswer = false
+
+AddCustomProperties(constantsum, "constantsum", "{'caption':{'content':'<b>%</b> of Patents<br /> Seen each day','width':'7em','align':'center'},'totals':{'columns':{'visible':true,'align':'centre', 'width':'4em','caption':{'content':'Total','align':'centre'},'labels':{'post':'%'}}}}", "replace")
+AddCustomProperties(constantsum, "PercentageSeen", "{'type':'decimal', labels:{'post':'%'}}", "add")
+'constantsum[..].PercentageSeen.Style.Cell.Width = "6em"
+'constantsum[..].PercentageSeen.Style.Align = alignments.alCenter
+constantsum.ask()
+
+constantsum.QuestionFilter = {Mon,Tue}
+constantsum.ask()
 
 case {RotatedCategoricalGrids}
 	RotateGrid(AnyFruitByDay, orientations.orColumn)
