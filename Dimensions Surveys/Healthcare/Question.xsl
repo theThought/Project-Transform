@@ -2597,6 +2597,9 @@
          <xsl:when test="$theID = '-22'">
             <xsl:value-of select="'decimal'" />
          </xsl:when>
+         <xsl:when test="$theID = '-25'">
+            <xsl:value-of select="'openend-search'" />
+         </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'multilineedit'" />
          </xsl:when>
@@ -2649,6 +2652,9 @@
          </xsl:when>
          <xsl:when test="$theID = '-22'">
             <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-25'">
+            <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'false'" />
