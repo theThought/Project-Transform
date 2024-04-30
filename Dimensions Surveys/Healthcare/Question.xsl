@@ -387,6 +387,15 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="$qCustomType='openend-search'">
+            <xsl:call-template name="OpenendSearchControl">
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
@@ -2091,7 +2100,43 @@
       </xsl:element>
    </xsl:template>
    
-   
+   <xsl:template name="OpenendSearchControl">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+      </xsl:variable>
+      <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xsl:text>o-openend-search</xsl:text>
+         </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qGroup_Name" />
+         </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$lElementID" />
+         </xsl:attribute>
+         <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'oDropdown'" />
+            <xsl:with-param name="qElementID" select='$lElementID' />
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+         </xsl:call-template>
+         <xsl:call-template name="MakeInputControl">
+            <xsl:with-param name="qElementID" select="$lElementID" />
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+            <xsl:with-param name="qCustomType" select="$qCustomType" />
+         </xsl:call-template>    
+      </xsl:element>  
+   </xsl:template>
+
    <!--- Style Templates -->
    <xsl:template name="LabelStyle">
       <xsl:param name="IgnoreWidth" select="'false'" />
