@@ -5,3 +5,4 @@ Dimensions Surveys/Healthcare/Transform.tmp.ivs
 Dimensions Surveys/Healthcare/Transform.lmd
 *.lmd
 node_modules
+.vscode
