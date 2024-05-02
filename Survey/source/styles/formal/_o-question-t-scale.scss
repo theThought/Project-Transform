@@ -1,0 +1,98 @@
+@use 'globals';
+
+.m-image-singlestate {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.o-scale-container .o-scale-unitcontainer,
+.o-scale-unitcontainer {
+    display: flex;   
+}
+
+.m-scale-unit {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+//Hide the classic checkbox.
+.scale-checkbox {
+    visibility: hidden;
+}
+
+.scale-checkbox:checked + .checkbox-custom {
+    background-color: #000;
+}
+
+.a-image-multistate {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease; 
+}
+
+.a-label-datavalue {
+    visibility: hidden;
+}
+
+.a-label-datavalue.showValue {
+    visibility: visible;
+    position: absolute;
+    top:32px;
+    left: 30px;
+    color: globals.$dark1;
+}
+
+.a-label-datavalue.showValue.highlighted {
+    color: globals.$white;
+}
+
+.o-question-scale-vertical,
+.o-question-scale-vertical-control{
+
+    .o-scale-container{
+        max-width: 350px;
+    }
+    //For the cup example need to column-reverse.
+     .o-scale-container,
+     .o-scale-unitcontainer{
+        // position: absolute;
+        display: flex;
+        flex-direction: column-reverse;
+        // justify-content: space-evenly;
+        align-items: center;
+        // align-items: flex-end;
+    }
+
+    .a-image-multistate{
+        width: 68%;
+    }
+
+    //For the cups example
+
+     .m-scale-unit:nth-child(5){
+        width: 125%;
+        padding-top: 30px;
+    }
+     .m-scale-unit:nth-child(4){
+        width: 120%;
+     }
+     .m-scale-unit:nth-child(3){
+        width: 110%;
+     }
+     .m-scale-unit:nth-child(2){
+        width: 105%;
+     }
+     .m-scale-unit:nth-child(1){
+        width: 100%;
+     }
+
+
+    // .m-scale-unit{
+    //     width: 95%;
+    // }
+
+
+
+}
