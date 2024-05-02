@@ -1241,7 +1241,13 @@
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
-         
+         <xsl:element>
+            <xsl:attribute name="class">o-list-selected</xsl:attribute>
+            <xsl:attribute name="data-questiongroup">
+               <xsl:value-of select="$qGroup_Name" />
+            </xsl:attribute>
+            <xsl:comment> --- selected tags --- </xsl:comment>
+         </xsl:element>
          <xsl:element name="ul">
             <xsl:attribute name="class">m-list</xsl:attribute>
             <xsl:attribute name="id">
@@ -1258,43 +1264,9 @@
                   <xsl:text>;</xsl:text>
                </xsl:attribute>
             </xsl:if>
-            <xsl:for-each select="Category">
-               <xsl:element name="li">
-                  <xsl:attribute name="class">a-option-list</xsl:attribute>
-                  <xsl:attribute name="data-questionid">
-                     <xsl:value-of select="$qElementID" />
-                     <xsl:value-of select="@CategoryID" />
-                  </xsl:attribute>
-                  <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qGroup_Name" />
-                  </xsl:attribute>
-                  <xsl:if test="$bShowOnly != false() or ../Style/Control/@ReadOnly != 'false'">
-                     <xsl:attribute name="data-readonly">
-                        <xsl:text>true</xsl:text>
-                     </xsl:attribute>
-                  </xsl:if>
-                  <xsl:attribute name="data-value">
-                     <xsl:value-of select="@Name" />
-                  </xsl:attribute>
-                  <xsl:if test="@Alt != ''">
-                     <xsl:attribute name="Alt">
-                        <xsl:value-of select="@Alt" />
-                     </xsl:attribute>
-                  </xsl:if>
-                  <xsl:if test="$bIncludeElementIds">
-                     <xsl:attribute name="id">
-                        <xsl:value-of select="$qElementID" />
-                        <xsl:value-of select="@CategoryID" />
-                     </xsl:attribute>
-                  </xsl:if>
-                  <xsl:if test="@Checked = 'true'">
-                     <xsl:attribute name="data-selected">
-                        <xsl:text>true</xsl:text>
-                     </xsl:attribute>
-                  </xsl:if>
-                  <xsl:value-of select="Label/Text" />
-               </xsl:element>
-            </xsl:for-each>
+            <xsl:comment>
+               <!-- external list goes here -->
+            </xsl:comment>
          </xsl:element>
       </xsl:element>
    </xsl:template>
@@ -2134,6 +2106,66 @@
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>    
+         <xsl:element name="ul">
+            <xsl:attribute name="class">m-list-external</xsl:attribute>
+            <xsl:attribute name="id">
+               <xsl:value-of select="$lElementID" />
+               <xsl:text>_list</xsl:text>
+            </xsl:attribute>
+            <xsl:attribute name="data-questiongroup">
+               <xsl:value-of select="$qGroup_Name" />
+            </xsl:attribute>
+            <xsl:if test="Style/@Width">
+               <xsl:attribute name="style">
+                  <xsl:text>width:</xsl:text>
+                  <xsl:value-of select="Style/@Width" />
+                  <xsl:text>;</xsl:text>
+               </xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'m-list-external'" />
+               <xsl:with-param name="qElementID" select='$lElementID' />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
+            <xsl:for-each select="Category">
+               <xsl:element name="li">
+                  <xsl:attribute name="class">a-option-list</xsl:attribute>
+                  <xsl:attribute name="data-questionid">
+                     <xsl:value-of select="$qElementID" />
+                     <xsl:value-of select="@CategoryID" />
+                  </xsl:attribute>
+                  <xsl:attribute name="data-questiongroup">
+                     <xsl:value-of select="$qGroup_Name" />
+                  </xsl:attribute>
+                  <xsl:if test="$bShowOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="data-readonly">
+                        <xsl:text>true</xsl:text>
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:attribute name="data-value">
+                     <xsl:value-of select="@Name" />
+                  </xsl:attribute>
+                  <xsl:if test="@Alt != ''">
+                     <xsl:attribute name="Alt">
+                        <xsl:value-of select="@Alt" />
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:if test="$bIncludeElementIds">
+                     <xsl:attribute name="id">
+                        <xsl:value-of select="$qElementID" />
+                        <xsl:value-of select="@CategoryID" />
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:if test="@Checked = 'true'">
+                     <xsl:attribute name="data-selected">
+                        <xsl:text>true</xsl:text>
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:value-of select="Label/Text" />
+               </xsl:element>
+            </xsl:for-each>
+         </xsl:element>
       </xsl:element>  
    </xsl:template>
 
