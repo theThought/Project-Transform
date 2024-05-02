@@ -1241,7 +1241,7 @@
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
          </xsl:call-template>
-         <xsl:element>
+         <xsl:element name='div'>
             <xsl:attribute name="class">o-list-selected</xsl:attribute>
             <xsl:attribute name="data-questiongroup">
                <xsl:value-of select="$qGroup_Name" />
