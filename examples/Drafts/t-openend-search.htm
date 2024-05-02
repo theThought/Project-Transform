@@ -1,0 +1,97 @@
+<div class="surroundcontent">
+    <!-- In all this content the question name is wrong it should be _QBarCodeList -->
+       <div class="o-question-container">
+          <script
+             data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QComboPapers');</script>
+          <script type="text/javascript">app.RegisterProperties("_QComboPapers", 
+             {
+               "displayicon": false,
+               "listsize": 15,
+               "list": {
+                   "location": "external",  
+                   "source": "https://media.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/barcodelistdemo.json",
+                   "valuefrom": "code",
+                   "descriptionfrom": "Description"
+               },
+               "showanswers": true,
+               "mincharactersforlist": 3,
+               "notenoughcharacters": "type at least 3 characters to see a list of products containing what has been typed.",
+               "filtertype": "contains",
+               "placeholder": "Describe your drink, include the brand if you know it",
+               "noitemsinlist": "There are no drinks of that name in the list, you can accept this answer by tapping the tick"
+               }
+             
+             );
+          </script>
+          
+          <div class="m-question-cover">
+             <!-- cover -->
+          </div>
+          <div class="o-question-error">
+          </div>
+          <div class="o-question-core">
+             <div class="o-question-warning">
+             </div>
+             <div class="o-question-information">
+                <div class="o-question-information-content">Select the brand that you consumed.</div>
+                <div class="o-question-alternatives">
+                   <!-- alternative labels go here -->
+                </div>
+             </div>
+             <div class="o-question-instruction">Type or select a brand name</div>
+             <div class="o-question-selected">
+                <!-- these will change dynamically based -->
+                <!-- on when the user selects -->
+                <!-- is this therefor a register component as it has to handle the insertion and deletion of selctions? -->
+    
+                <div class="o-question-none">None</div>
+                <div class="o-question-item">
+                   <!-- item selected for example Big Rock Brewery -->
+                </div>
+                <!-- to be clear, these are dynamically created by Javascript, only one of them should exist
+                The class name is wrong the class for the none asset should be a-tag-none and the class for the selected answer should be m-tag-answer
+    
+                I am not entirely convinced by the None (in the design it does not look right and it has no real value) so we could drop this
+    
+                m-tag-answer will include the text in the input at the point the user selected an option or clicked the tick button. 
+                It will also include a cross button to allow the tag to be deleted.
+                Consequently we need a definition of the m-tag component and an undertanding of its functionality
+                -->
+             </div>
+             <div class="o-question-response o-question-combobox" data-questiongroup="_QComboPapers" data-readonly="false" data-position="below">
+                <script>app.registerComponent('oQuestionCombobox', '_Q0_C', '_QComboPapers');</script>
+                <!-- first property of the register component is wrong the question type is oQuestionOpenend-search -->
+                <!-- the second property of this register comoponent is wrong this is _Q0 the _C should not be there -->
+                <div class="o-combobox" data-questiongroup="_QComboPapers">
+                <!-- class name is wrong here this is not o-combobox, this is o-openend-search -->
+                   <script>app.registerComponent('oCombobox', '_Q0_C', '_QComboPapers');</script>
+                   <!-- first property of the register component is wrong the question type is oQuestionOpenend-search -->
+                   <!-- the second property of this register comoponent is wrong this is _Q0 the _C should not be there -->
+                   <input data-questionid="_Q0_C" data-questiongroup="_QComboPapers" data-position="below"
+                      type="text" name="_QComboPapers_C" id="_Q0_C" autocomplete="off" style=""
+                      list="_QComboPapers_list" value="" data-value="" class="a-input-combobox below" />
+                    <!-- the data-questionid and the id are wrong they should be _Q0 -->
+                    <!-- the list name s wrong as the question name is wrong -->
+                    <!-- the class may be right but it could be a-input-search 
+                        (depends on whether or not it is different from a-input-combobox)
+                        If its not different then its name can remain -->
+
+                   <button class="" id="_QBarCodeList_Confirm">
+                      <!-- class would be a-button-confirm -->
+                      <!-- it probably needs an id or a class so that it can be identified when the click event fires 
+                    somwthing is going to listen for that event and has to handle the fact that there could be two of these questions
+                     (two of these buttons on the same page)
+                    I added an example ID -->
+                   </button>
+                   <ul class="m-list" id="_QComboPapers_list" data-questiongroup="_QComboPapers">
+                      <!-- The list items will be dynamically populated from JS when the user starts to type-->
+                   </ul>
+                   <p class="o-question-item-count">
+                      <!-- Item Count --> 
+                   </p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    
