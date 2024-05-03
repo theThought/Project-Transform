@@ -240,3 +240,15 @@ question,
 questions {
     display: block;
 }
+
+questions[data-position="side"] {
+    question {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    question + question {
+        margin-left: 1em;
+    }
+}
+

@@ -117,6 +117,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new aLabelThumbValue(id, group));
             });
             break;
+        case 'oquestionscale':
+            requirejs(['o-question-scale'], function (oQuestionScale) {
+                app.preinitcomponents.unshift(new oQuestionScale(id, group));
+            });
+            break;
         default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }

@@ -1466,6 +1466,7 @@ html[dir=rtl] .balance .m-option-base {
 }
 .o-question-response[data-position=side] {
   display: inline-block;
+  vertical-align: top;
 }
 .o-question-response:not(.balance) > *:not(script):last-child {
   margin-bottom: 0;
@@ -2561,5 +2562,13 @@ sub {
 question,
 questions {
   display: block;
+}
+
+questions[data-position=side] question {
+  display: inline-block;
+  vertical-align: top;
+}
+questions[data-position=side] question + question {
+  margin-left: 1em;
 }
 /*# sourceMappingURL=base.css.map */

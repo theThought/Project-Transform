@@ -98,7 +98,7 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.processResponseContainerDataTags = function () {
-            var element = this.element.querySelector('.o-question-response');
+            var element = this.element.querySelector('question .o-question-response');
             var attr;
 
             if (element === null) {
@@ -146,19 +146,20 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.relocateResponseBlock = function () {
-            var responseBlock = this.element.querySelector('.o-question-response');
+            var responseBlock = this.element.querySelector('question');
             var previousResponseContainer = this.element.previousElementSibling;
 
             if (previousResponseContainer === null) {
                 return;
             }
 
-            var previousResponseBlock = previousResponseContainer.querySelector('.o-question-core question');
+            var previousResponseBlock = previousResponseContainer.querySelector('.o-question-core questions');
 
             if (previousResponseBlock === null) {
                 return;
             }
 
+            previousResponseBlock.setAttribute('data-position', 'side');
             previousResponseBlock.appendChild(responseBlock);
             this.element.style.display = 'none';
         }

@@ -10,6 +10,7 @@
 
     &[data-position="side"] {
         display: inline-block;
+        vertical-align: top;
     }
 
     // normally we want the final item to have no explicit bottom margin
