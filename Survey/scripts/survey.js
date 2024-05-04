@@ -58,6 +58,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oCombobox(id, group));
             });
             break;
+        case 'oopenendsearch':
+            requirejs(['o-openendsearch'], function (oOpenendSearch) {
+                app.preinitcomponents.unshift(new oOpenendSearch(id, group));
+            });
+            break;
         case 'odropdown':
             requirejs(['o-dropdown'], function (oDropdown) {
                 app.preinitcomponents.unshift(new oDropdown(id, group));
@@ -101,6 +106,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             requirejs(['o-question-slider'], function (oQuestionSlider) {
                 app.preinitcomponents.unshift(new oQuestionSlider(id, group));
             });
+            break;
+        case 'oquestionopenend-search':
+                requirejs(['o-question-openend-search'], function (oQuestionOpenendSearch) {
+                    app.preinitcomponents.unshift(new oQuestionOpenendSearch(id, group));
+                });
             break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
