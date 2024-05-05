@@ -16,11 +16,6 @@ define(['component'],
             this.droplist = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-combobox][data-questiongroup="' + this.group + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-            
-
-            //Openend search
-            this.isOpenendedSearch = document.querySelector('div.o-question-openended-search');
-            this.openendCount = document.querySelector('p.o-question-item-count');
 
             this.hiddenelement = null;
             this.mincharacters = 0;
@@ -276,124 +271,6 @@ define(['component'],
             }
         }
 
-        //Start opened functions -- these are the settings for the openend search
-        oCombobox.prototype.getDataFromSource = function () {
-                if(this.properties.list.location === 'external'){
-                    
-                    var xhr = new XMLHttpRequest();
-                            var self = this; 
-                            
-                            xhr.open('GET', this.properties.list.source, true); 
-                        
-                            xhr.onload = function () {
-                                if (xhr.status >= 200 && xhr.status < 300) {
-                                    var response = JSON.parse(xhr.responseText);
-                                    if (response && response.length) {
-                                        var html = '';
-                                        for (var i = 0; i < response.length; i++) {
-                                            var item = response[i];
-                                            html += '<li class="a-option-list">' + item.name + '</li>';
-                                        }
-                                        self.droplist.innerHTML = html; 
-                                    } else {
-                                        self.droplist.innerHTML = '<li>No items found.</li>'; 
-                                    }
-                                } else {
-                                    console.error('Request failed with status:', xhr.status);
-                                }
-                            };
-                        
-                            xhr.onerror = function () {
-                                console.error('Error during the request.');
-                            };
-                        
-                            xhr.send();
-             }
-        };
-
-        oCombobox.prototype.openendSearchListCount = function (){
-            console.log(this.openendCount.innerHTML);
-        }
-        //updating the count
-        oCombobox.prototype.updateItemCount = function(count) {
-            var itemCountElement = document.querySelector('.o-question-item-count');
-            if (itemCountElement) {
-                if (count > 0) {
-                    itemCountElement.textContent = count + " matching items";
-                    itemCountElement.classList.remove('hidden'); 
-                } else if (count === 0) {
-                    itemCountElement.textContent = "No matches found";
-                    itemCountElement.classList.remove('hidden'); 
-                } else {
-                    itemCountElement.classList.add('hidden'); 
-                }
-            }
-        };  
-        //reposition html elements
-        oCombobox.prototype.repositionItemCount = function() {
-            // Only move the item count if the droplist is visible and has 'manual-width'
-            if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
-                const itemCountElement = document.querySelector('.o-question-item-count');
-                if (itemCountElement) {
-                    // Move the item count element to come right after the droplist
-                    this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
-                }
-            }
-        };
-
-        //Tag config
-        oCombobox.prototype.configureTagContainer = function() {
-            const container = document.createElement('div');
-            container.className = 'o-question-selected';
-            this.wrapper.appendChild(container); 
-        };
-         
-        // Function to add a tag
-        oCombobox.prototype.addTag = function(label) {
-            if (typeof label === 'undefined' || label === null) {
-                return; 
-            }
-        
-            var container = document.querySelector('.o-question-selected');
-            var tag = document.createElement('div');
-            tag.className = 'm-tag-answer';
-           
-            tag.innerHTML =   '<span> ' + label + '</span><button class="delete-tag">X</button>';
-            container.appendChild(tag);
-
-            tag.querySelector('.delete-tag').addEventListener('click', () => {
-                this.removeTag(tag);
-            });
-        };
-        oCombobox.prototype.removeTag = function(tag, position) {
-            tag.remove();
-
-            if (this.element) {
-                this.element.value = '';  // Clearing the input field
-            }
-    
-            if (this.hiddenelement) {
-                this.hiddenelement.value = '';
-            }
-            
-            var currentvisiblelist = this.buildVisibleList();
-
-            for (var i = 0; i < currentvisiblelist.length; i++) {
-                if (i === position) {
-                    currentvisiblelist[i].classList.remove('selected');
-                    currentvisiblelist[i].removeAttribute('data-selected');
-                    this.currentlistposition = i;
-                    console.log('remove classes');
-                } 
-            }
-        };
-
-
-        
-
-
-
-        //End openend search functions!
 
         oCombobox.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
