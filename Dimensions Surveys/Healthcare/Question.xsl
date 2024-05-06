@@ -605,6 +605,9 @@
          <xsl:otherwise>
             <xsl:for-each select="./Row">
                <xsl:variable name="rowID" select="concat(./Cell/Control/Category/@CategoryID, '_')" />
+               <xsl:text>RowID: </xsl:text>
+               <xsl:value-of select="$rowID" />
+
                <xsl:if test="not(contains(./Cell/Control/Category/@CategoryID, '_'))">
                   <xsl:choose>
                      <xsl:when test="./Cell/Control[@Type='Static']">
@@ -2094,7 +2097,7 @@
             <xsl:value-of select="$lElementID" />
          </xsl:attribute>
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'oDropdown'" />
+            <xsl:with-param name="ComponentName" select="'oOpenend-search'" />
             <xsl:with-param name="qElementID" select='$lElementID' />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
