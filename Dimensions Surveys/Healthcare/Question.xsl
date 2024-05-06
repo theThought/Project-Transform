@@ -2419,7 +2419,27 @@
          <xsl:for-each select="*">
             <xsl:choose>
                <xsl:when test="name() = 'Question'">
-                  <xsl:call-template name="CellQuestion" />
+                  <xsl:variable name="shouldGo">
+                     <xsl:choose>
+                        <xsl:when test="position() &lt; 2">
+                           <xsl:value-of select="true()" />
+                        </xsl:when>
+                        <xsl:otherwise>
+                           <xsl:choose>
+                              <xsl:when test="../*[1]/name() != 'Control'">
+                                 <xsl:value-of select="true()" />
+                              </xsl:when>
+                              <xsl:otherwise>
+                                 <xsl:value-of select="false()" />
+                              </xsl:otherwise>
+                           </xsl:choose>
+                        </xsl:otherwise>
+                     </xsl:choose>
+                  </xsl:variable>
+                  <xsl:if test="$shouldGo='true'">
+                     <xsl:text>here</xsl:text>
+                     <xsl:call-template name="CellQuestion" />
+                  </xsl:if>
                </xsl:when>
                <xsl:when test="name() = 'Label'">
                   <xsl:call-template name="Label">
