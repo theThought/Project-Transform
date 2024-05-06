@@ -2175,6 +2175,7 @@
             <xsl:element name="span">
                <xsl:attribute name="class">a-label-counter-prompt</xsl:attribute>
                <!-- item count prompt goes here -->
+            </xsl:element>
          </xsl:element>
       </xsl:element>  
    </xsl:template>
