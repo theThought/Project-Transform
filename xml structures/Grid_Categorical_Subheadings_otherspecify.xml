@@ -1,0 +1,1430 @@
+<Questions>
+    <Question>
+        <Style ElementAlign="NewLine" ZIndex="-10" Orientation="Row"></Style>
+        <Table UseTablesLayout="-1" Summary="Indicate the preferred newspaper for each day" TableId="_Q0">
+            <Row Y="0">
+                <Cell X="2" Y="0" WeightX="12" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Daily Papers</Text>
+                    </Label>
+                </Cell>
+                <Cell X="14" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Washington Post</Text>
+                    </Label>
+                </Cell>
+                <Cell X="15" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Le Monde</Text>
+                    </Label>
+                </Cell>
+                <Cell X="16" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Wall Street Journal</Text>
+                    </Label>
+                </Cell>
+                <Cell X="17" Y="0" WeightX="3" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sunday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="20" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Other Paper</Text>
+                    </Label>
+                </Cell>
+                <Cell X="21" Y="0" WeightY="2" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>none of them</Text>
+                    </Label>
+                </Cell>
+                <Cell X="0" Y="0" WeightX="2" WeightY="2"></Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="2" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>1&lt;sup&gt;st&lt;/sup&gt; &amp;amp; edition</Text>
+                    </Label>
+                </Cell>
+                <Cell X="3" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sun</Text>
+                    </Label>
+                </Cell>
+                <Cell X="4" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Daily Mail</Text>
+                    </Label>
+                </Cell>
+                <Cell X="5" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Daily Express</Text>
+                    </Label>
+                </Cell>
+                <Cell X="6" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Mirror</Text>
+                    </Label>
+                </Cell>
+                <Cell X="7" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Daily Telegraph</Text>
+                    </Label>
+                </Cell>
+                <Cell X="8" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Independent</Text>
+                    </Label>
+                </Cell>
+                <Cell X="9" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Guardian</Text>
+                    </Label>
+                </Cell>
+                <Cell X="10" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Daily Star</Text>
+                    </Label>
+                </Cell>
+                <Cell X="11" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>The Times</Text>
+                    </Label>
+                </Cell>
+                <Cell X="12" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>i</Text>
+                    </Label>
+                </Cell>
+                <Cell X="13" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Metro</Text>
+                    </Label>
+                </Cell>
+                <Cell X="17" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sunday Times</Text>
+                    </Label>
+                </Cell>
+                <Cell X="18" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Observer</Text>
+                    </Label>
+                </Cell>
+                <Cell X="19" Y="1" Class="mrGridQuestionText">
+                    <Label>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sunday Telegraph</Text>
+                    </Label>
+                </Cell>
+            </Row>
+            <Row Y="2">
+                <Cell X="0" Y="2" WeightY="5" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Week</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Monday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q0_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_Ootherpaper" ElementID="_Q0_Q0_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="2">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QMon_QWhichpaper_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="3">
+                <Cell X="1" Y="3" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Tuesday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q1_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_Ootherpaper" ElementID="_Q0_Q1_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="3">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QTue_QWhichpaper_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="4">
+                <Cell X="1" Y="4" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Wednesday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q2_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_Ootherpaper" ElementID="_Q0_Q2_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="4">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QWed_QWhichpaper_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="5">
+                <Cell X="1" Y="5" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Thursday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q3_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_Ootherpaper" ElementID="_Q0_Q3_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="5">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QThu_QWhichpaper_C" ElementID="_Q0_Q3_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="6">
+                <Cell X="1" Y="6" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Friday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q4_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_Ootherpaper" ElementID="_Q0_Q4_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="6">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QFri_QWhichpaper_C" ElementID="_Q0_Q4_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="7">
+                <Cell X="0" Y="7" WeightY="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Weekned</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="7" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Saturday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q5_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_Ootherpaper" ElementID="_Q0_Q5_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="7">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSat_QWhichpaper_C" ElementID="_Q0_Q5_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+            <Row Y="8">
+                <Cell X="1" Y="8" Class="mrGridCategoryText">
+                    <Label>
+                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sunday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="first" CategoryID="0_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="3" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Sun" CategoryID="0_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="4" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mail" CategoryID="0_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="5" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Express" CategoryID="0_S3"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="6" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Mirror" CategoryID="0_S4"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="7" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Telegraph" CategoryID="0_S5"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="8" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Independent" CategoryID="0_S6"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="9" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Guardian" CategoryID="0_S7"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="10" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="star" CategoryID="0_S8"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="11" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Times" CategoryID="0_S9"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="12" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="I" CategoryID="0_S10"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="13" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Metro" CategoryID="0_S11"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="14" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Post" CategoryID="1_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="15" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="LeMonde" CategoryID="1_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="16" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Journal" CategoryID="1_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="17" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STimes" CategoryID="2_S0"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="18" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="Observer" CategoryID="2_S1"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="19" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="STelegraph" CategoryID="2_S2"></Category>
+                    </Control>
+                </Cell>
+                <Cell X="20" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="otherpaper" CategoryID="3"></Category>
+                    </Control>
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Label ElementId="_Q0_Q6_Q0_O3">
+                            <Style ElementAlign="Right"></Style>
+                            <Text>please specify</Text>
+                        </Label>
+                        <Control Type="SingleLineEdit" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_Ootherpaper" ElementID="_Q0_Q6_Q0_O3" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="21" Y="8">
+                    <Control Type="RadioButton" QuestionName="_QDailyNewspapersByDaySublists_QSun_QWhichpaper_C" ElementID="_Q0_Q6_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
+                            <Control Type="RadioButton"></Control>
+                        </Style>
+                        <Category Name="noneofthem" CategoryID="4"></Category>
+                    </Control>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>

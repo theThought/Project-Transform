@@ -2426,7 +2426,7 @@
                         </xsl:when>
                         <xsl:otherwise>
                            <xsl:choose>
-                              <xsl:when test="../*[1]/name() != 'Control'">
+                              <xsl:when test="name(../*[1]) != 'Control'">
                                  <xsl:value-of select="true()" />
                               </xsl:when>
                               <xsl:otherwise>
