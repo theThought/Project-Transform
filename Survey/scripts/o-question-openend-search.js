@@ -11,29 +11,15 @@ define(['o-question'],
 
         function oQuestionOpenendSearch(id, group) {
             oQuestion.call(this, id, group);
-            console.log(this);
-            console.log(id);
-            console.log(group);
             this.element = document.querySelector('input.a-input-openend-search[data-questionid="' + this.id + '"]');
-            console.log(this.element);
-            
-            
             this.droplist = document.querySelector('input.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
-            console.log("this.droplist");
-            console.log(this.droplist);
             this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
-            console.log("this.wrapper");
-            console.log(this.wrapper);
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-            console.log(this.container);
             this.hiddenelement = null;
 
             //Openend search
             this.isOpenendedSearch = document.querySelector('div.o-question-response');
-            console.log(this.isOpenendedSearch);
             this.openendCount = document.querySelector('p.o-question-item-count');
-            console.log(this.openendCount);
-            console.log("openendCount");
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
@@ -297,41 +283,48 @@ define(['o-question'],
         }
 
         //Start opened functions -- these are the settings for the openend search
+    
+        //Getting data from what source??
         oQuestionOpenendSearch.prototype.getDataFromSource = function () {
-                if(this.properties.list.location === 'external'){
-                   console.log("this.properties.list.location"); 
-                   console.log(this.properties.list.location); 
-                    var xhr = new XMLHttpRequest();
-                            var self = this; 
-                            
-                            xhr.open('GET', this.properties.list.source, true); 
-                        
-                            xhr.onload = function () {
-                                if (xhr.status >= 200 && xhr.status < 300) {
-                                    var response = JSON.parse(xhr.responseText);
-                                    if (response && response.length) {
-                                        var html = '';
-                                        for (var i = 0; i < response.length; i++) {
-                                            var item = response[i];
-                                            html += '<li class="a-option-list">' + item.name + '</li>';
-                                        }
-                                        self.droplist.innerHTML = html; 
-                                    } else {
-                                        self.droplist.innerHTML = '<li>No items found.</li>'; 
-                                    }
-                                } else {
-                                    console.error('Request failed with status:', xhr.status);
-                                }
-                            };
-                        
-                            xhr.onerror = function () {
-                                console.error('Error during the request.');
-                            };
-                        
-                            xhr.send();
+            var sourceConfig = this.properties.list;
+            if (sourceConfig.location === 'external') {
+                fetch(sourceConfig.source)
+                    .then(response => {
+                        if (response.ok) return response.json();
+                        throw new Error('Network response was not ok.');
+                    })
+                    .then(jsonData => this.processResponse(jsonData))
+                    .catch(error => console.error('Failed to fetch:', error));
+            } else if (sourceConfig.location === 'internal') {
+                
+                var scriptTag = document.querySelector(sourceConfig.source);
+                if (scriptTag && scriptTag.getAttribute('src')) {
+                    
+                    fetch(scriptTag.getAttribute('src'))
+                        .then(response => {
+                            if (response.ok) return response.json();
+                            throw new Error('Network response was not ok.');
+                        })
+                        .then(jsonData => this.processResponse(jsonData))
+                        .catch(error => console.error('Failed to fetch:', error));
                 }
+            }
         };
-
+        //Processing the response from above
+        oQuestionOpenendSearch.prototype.processResponse = function (response) {
+            console.log('response:', response);
+            if (response && response.list && response.list.length) {
+                var html = '';
+                for (var i = 0; i < response.list.length; i++) {
+                    var item = response.list[i];
+                    html += '<li class="a-option-list">' + item.name + '</li>';
+                }
+                this.droplist.innerHTML = html;
+            } else {
+                this.droplist.innerHTML = '<li>No items found.</li>';
+            }
+        };
+        // List Count
         oQuestionOpenendSearch.prototype.openendSearchListCount = function (){
             console.log(this.openendCount.innerHTML);
         }
@@ -361,14 +354,12 @@ define(['o-question'],
                 }
             }
         };
-
         //Tag config
         oQuestionOpenendSearch.prototype.configureTagContainer = function() {
             const container = document.createElement('div');
             container.className = 'o-question-selected';
             this.wrapper.appendChild(container); 
         };
-         
         // Function to add a tag
         oQuestionOpenendSearch.prototype.addTag = function(label) {
             if (typeof label === 'undefined' || label === null) {

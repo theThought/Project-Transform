@@ -94,11 +94,20 @@
                     "displayicon": false,
                     "listsize": 15,
                     "list": {
-                        "location": "external",  
-                        // "source": "https://media.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/barcodelistdemo.json",
-                        "source": "http://127.0.0.1:5500/demoServer/data.json",
-                        "valuefrom": "code",
-                        "descriptionfrom": "Description"
+                        //External - working
+                        //"location": "external",  
+                        //"source": "http://127.0.0.1:5500/demoServer/data.json",
+
+                        // 
+                        // "location": "internal",
+                        // "source": "m.list",
+
+                     //   Internal - #jsonlist working
+                        "location": "internal",
+                        "source": "#jsonlist",
+
+                        "valuefrom": "UPC",
+                        "descriptionfrom": "name"
                     },
                     "showanswers": true,
                     "mincharactersforlist": 3,
@@ -139,9 +148,14 @@
                               
                             <ul class="m-list" id="_QBarCodeList_list" data-questiongroup="_QBarCodeList">
                                 <!-- li items will be injected here -->
-								<li>one</li>
-								<li>onet</li>
-								<li>onetthte</li>
+                                <li>vodka</li>
+                                <li>vodka</li>
+                                <li>vodka</li>
+                                <li>vodka</li>
+                                <li>vodka</li>
+                                <li>vodka</li>
+                                <li>vodka</li>
+                                
                             </ul>
                             <p class="o-question-item-count hidden">
                                 <!-- Item Count -->
@@ -150,6 +164,9 @@
                         
                     </div>
                 </div>
+                
+                <!-- <script id="jsonlist" type="application/json" src="http://127.0.0.1:5500/demoServer/data.json"></script> -->
+
             </div>
         </div>
         <div class="footer">
