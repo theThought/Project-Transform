@@ -605,9 +605,6 @@
          <xsl:otherwise>
             <xsl:for-each select="./Row">
                <xsl:variable name="rowID" select="concat(./Cell/Control/Category/@CategoryID, '_')" />
-               <xsl:text>RowID: </xsl:text>
-               <xsl:value-of select="$rowID" />
-
                <xsl:if test="not(contains(./Cell/Control/Category/@CategoryID, '_'))">
                   <xsl:choose>
                      <xsl:when test="./Cell/Control[@Type='Static']">
