@@ -2166,6 +2166,16 @@
                </xsl:element>
             </xsl:for-each>
          </xsl:element>
+         <xsl:element name="div>">
+            <xsl:attribute name="class">m-openend-search-count</xsl:attribute>
+            <xsl:element name="span">
+               <xsl:attribute name="class">a-label-counter</xsl:attribute>
+               <!-- item count goes here -->
+            </xsl:element>
+            <xsl:element name="span">
+               <xsl:attribute name="class">a-label-counter-prompt</xsl:attribute>
+               <!-- item count prompt goes here -->
+         </xsl:element>
       </xsl:element>  
    </xsl:template>
 
