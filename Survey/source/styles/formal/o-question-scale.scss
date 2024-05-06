@@ -1,0 +1,73 @@
+@use 'globals';
+
+.o-scale-unitcontainer {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    max-width: 100%;
+    border-radius: globals.$text-border-radius;
+    border: 1px solid globals.$light4;
+}
+
+.m-scale-unit {
+    position: relative;
+    cursor: pointer;
+    flex: 1 0 0;
+    text-align: center;
+    height: 52px;
+    align-content: center;
+}
+
+.m-scale-unit::before {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    display: block;
+    content: ' ';
+    height: calc(100% - 8px);
+    width: calc(100% - 8px);
+    background-color: globals.$light3;
+    border-radius: globals.$border-radius;
+}
+
+.m-scale-unit.current-value::before,
+.o-scale-unitcontainer:hover > .m-scale-unit::before {
+    background-color: globals.$theme-secondary-hover;
+}
+
+.m-scale-unit.current-value,
+.o-scale-unitcontainer:hover > .m-scale-unit {
+    color: globals.$white;
+}
+
+.o-scale-unitcontainer > .m-scale-unit.current-value ~ .m-scale-unit,
+.o-scale-unitcontainer > .m-scale-unit:hover ~ .m-scale-unit {
+    color: globals.$theme-primary-hover;
+}
+
+.o-scale-unitcontainer > .m-scale-unit.current-value ~ .m-scale-unit::before,
+.o-scale-unitcontainer > .m-scale-unit:hover ~ .m-scale-unit::before {
+    background-color: globals.$light3;
+}
+
+.a-image-multistate {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease; 
+}
+
+.a-label-datavalue {
+    visibility: hidden;
+}
+
+.a-label-datavalue.showValue {
+    visibility: visible;
+    position: absolute;
+    top:32px;
+    left: 30px;
+    color: globals.$dark1;
+}
+
+.a-label-datavalue.showValue.highlighted {
+    color: globals.$white;
+}

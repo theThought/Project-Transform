@@ -168,6 +168,11 @@ html[dir="rtl"] .a-label-total {
     }
 }
 
+.m-scale-unit .a-label {
+    position: relative;
+    z-index: 2;
+}
+
 html[dir="rtl"] {
     .m-message-error,
     .m-message-warning,

@@ -128,6 +128,8 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             });
             break;
         case 'oquestionscale':
+        case 'oquestionscale-horizontal':
+        case 'oquestionscale-vertical':
             requirejs(['o-question-scale'], function (oQuestionScale) {
                 app.preinitcomponents.unshift(new oQuestionScale(id, group));
             });
