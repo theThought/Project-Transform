@@ -2473,7 +2473,13 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   -ms-flex-line-pack: center;
       align-content: center;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: left center;
+}
+
+.has-unit-background .m-scale-unit {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
 }
 
 .m-scale-unit::before {

@@ -119,7 +119,9 @@ define(['o-question'],
 
                 if (currentUnitValue <= value) {
                     unit.classList.add('current-value');
-                    unit.style.backgroundPositionX = '-' + self.properties.unit.offset.x + 'px';
+                    if (typeof self.properties.unit.offset !== 'undefined') {
+                        unit.style.backgroundPositionX = '-' + self.properties.unit.offset.x + 'px';
+                    }
                 } else {
                     unit.classList.remove('current-value');
                     unit.style.backgroundPositionX = '0';
@@ -186,6 +188,11 @@ define(['o-question'],
 
         oQuestionScale.prototype.background = function (backgroundProperties) {
             var imageProperties = backgroundProperties.image;
+
+            if (typeof imageProperties === 'undefined') {
+                return;
+            }
+
             var imageURL = imageProperties.url;
             var imageWidth = imageProperties.width;
             var imageHeight = imageProperties.height;
@@ -210,6 +217,11 @@ define(['o-question'],
 
         oQuestionScale.prototype.unit = function (unitProperties) {
             var imageProperties = unitProperties.image;
+
+            if (typeof imageProperties === 'undefined') {
+                return;
+            }
+
             var imageURL = imageProperties.url;
             var imageWidth = imageProperties.width;
             var imageHeight = imageProperties.height;

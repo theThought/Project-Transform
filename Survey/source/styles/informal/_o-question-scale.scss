@@ -40,7 +40,11 @@
     height: 52px;
     align-content: center;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: left center;
+}
+
+.has-unit-background .m-scale-unit {
+    flex: 0 0 auto;
 }
 
 .m-scale-unit::before {
