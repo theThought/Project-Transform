@@ -119,7 +119,7 @@ define(['o-question'],
 
                 if (currentUnitValue <= value) {
                     unit.classList.add('current-value');
-                    unit.style.backgroundPositionX = self.properties.unit.offset.x + 'px';
+                    unit.style.backgroundPositionX = '-' + self.properties.unit.offset.x + 'px';
                 } else {
                     unit.classList.remove('current-value');
                     unit.style.backgroundPositionX = '0';
