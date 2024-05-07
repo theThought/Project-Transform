@@ -4,6 +4,7 @@ define(['o-question'],
             oQuestion.call(this, id, group);
 
             this.container = document.querySelector('.o-question-scale-horizontal[data-questiongroup="' + this.group + '"]');
+            this.unitContainer = this.container.querySelector('.o-scale-unitcontainer');
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
             this.isRTL = document.dir === 'rtl';
             this.min = 1;
@@ -38,7 +39,7 @@ define(['o-question'],
         oQuestionScale.prototype.configureLocalEventListeners = function () {
             var self = this;
 
-            this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
+            this.unitContainer.querySelectorAll('.m-scale-unit').forEach(function (unit) {
                 unit.addEventListener('click', self, false);
             });
         }
@@ -73,7 +74,7 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.onClick = function (event) {
-            this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
+            this.unitContainer.querySelectorAll('.m-scale-unit').forEach(function (unit) {
                 unit.classList.remove('current-value');
             });
             var value = parseInt(event.target.getAttribute('data-value'));
@@ -82,7 +83,7 @@ define(['o-question'],
 
         oQuestionScale.prototype.configureWidth = function () {
             if (this.element.style.width) {
-                this.container.style.width = this.element.style.width;
+                this.unitContainer.style.width = this.element.style.width;
             }
         }
 
@@ -92,8 +93,6 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.createScaleUnits = function () {
-            var unitContainer = this.container.querySelector('.o-scale-unitcontainer');
-
             for (var i = this.min; i <= this.max; i++) {
 
                 var scaleItem = document.createElement('div');
@@ -104,7 +103,7 @@ define(['o-question'],
                 scaleLabel.setAttribute('data-value', i);
                 scaleLabel.innerHTML = i;
                 scaleItem.appendChild(scaleLabel);
-                unitContainer.append(scaleItem);
+                this.unitContainer.append(scaleItem);
 
                 if (this.element.value === i) {
                     this.setValue(i);
@@ -121,7 +120,7 @@ define(['o-question'],
             value = parseInt(value);
             var self = this;
 
-            this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
+            this.unitContainer.querySelectorAll('.m-scale-unit').forEach(function (unit) {
                 var currentUnitValue = parseInt(unit.getAttribute('data-value'));
 
                 if (currentUnitValue <= value) {

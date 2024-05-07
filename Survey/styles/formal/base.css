@@ -2444,8 +2444,7 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   border: 1px solid #8797C8;
 }
 
-.o-label-container,
-.o-question-scale-horizontal-control {
+.o-label-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
