@@ -119,8 +119,8 @@ define(['o-question'],
 
                 if (currentUnitValue <= value) {
                     unit.classList.add('current-value');
-                    if (typeof self.properties.unit.offset !== 'undefined') {
-                        unit.style.backgroundPositionX = '-' + self.properties.unit.offset.x + 'px';
+                    if (typeof self.properties.unit.image.width !== 'undefined') {
+                        unit.style.backgroundPositionX = '-' + self.properties.unit.image.width;
                     }
                 } else {
                     unit.classList.remove('current-value');
