@@ -122,7 +122,6 @@ define(['o-question'],
                     unit.classList.add('current-value');
                 }
             });
-
         }
 
         oQuestionScale.prototype.show = function (showProperties) {
@@ -202,6 +201,8 @@ define(['o-question'],
             this.container.style.height = imageHeight;
             this.container.style.width = imageWidth;
             this.container.style.backgroundImage = 'url("' + imageURL + '")';
+            this.container.style.backgroundPositionX = imageXOffset + 'px';
+            this.container.style.backgroundPositionY = imageYOffset + 'px';
         }
 
         oQuestionScale.prototype.unit = function (unitProperties) {
@@ -226,6 +227,8 @@ define(['o-question'],
                 unit.style.height = imageHeight;
                 unit.style.width = imageWidth;
                 unit.style.backgroundImage = 'url("' + imageURL + '")';
+                unit.style.top = imageYOffset + 'px';
+                unit.style.left = imageXOffset + 'px';
             });
         }
 
