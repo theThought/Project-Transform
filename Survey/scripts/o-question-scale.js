@@ -16,6 +16,7 @@ define(['o-question'],
         oQuestionScale.prototype.init = function () {
             this.setScaleRange();
             this.createScaleUnits();
+            this.configureWidth();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configureProperties();
@@ -77,6 +78,12 @@ define(['o-question'],
             });
             var value = parseInt(event.target.getAttribute('data-value'));
             this.setValue(value);
+        }
+
+        oQuestionScale.prototype.configureWidth = function () {
+            if (this.element.style.width) {
+                this.container.style.width = this.element.style.width;
+            }
         }
 
         oQuestionScale.prototype.setScaleRange = function () {
