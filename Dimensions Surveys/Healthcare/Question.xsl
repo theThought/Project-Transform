@@ -2437,7 +2437,6 @@
                      </xsl:choose>
                   </xsl:variable>
                   <xsl:if test="$shouldGo='true'">
-                     <xsl:text>here</xsl:text>
                      <xsl:call-template name="CellQuestion" />
                   </xsl:if>
                </xsl:when>
