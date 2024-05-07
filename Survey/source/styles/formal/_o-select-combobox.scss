@@ -257,23 +257,3 @@ html[dir="rtl"] {
     font-size: 16px;
 }
 
-.suggestions {
-    display: none;
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin-top: 2px;
-    position: absolute;
-    background: white;
-    width: 90%;  /* Adjust based on your actual input field width */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.suggestions.visible {
-    display: block;
-}
-
-.suggestions div:hover {
-    background-color: #ddf;
-    cursor: pointer;
-}
-
