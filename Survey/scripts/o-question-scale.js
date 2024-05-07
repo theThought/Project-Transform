@@ -14,14 +14,12 @@ define(['o-question'],
         oQuestionScale.prototype.constructor = oQuestionScale;
 
         oQuestionScale.prototype.init = function () {
-            //oQuestion.prototype.init.call(this);
-
             this.setScaleRange();
             this.createScaleUnits();
-            this.setClasses(this.element.value);
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configureProperties();
+            this.setClasses(this.element.value);
         }
 
         oQuestionScale.prototype.configureIncomingEventListeners = function () {
@@ -113,13 +111,17 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.setClasses = function (value) {
-            this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
-                var currentValue = parseInt(unit.getAttribute('data-value'));
+            value = parseInt(value);
+            var self = this;
 
-                if (value < currentValue) {
-                    unit.classList.remove('current-value');
-                } else {
+            this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
+                var currentUnitValue = parseInt(unit.getAttribute('data-value'));
+
+                if (currentUnitValue <= value) {
                     unit.classList.add('current-value');
+                    unit.style.backgroundPositionX = self.properties.unit.offset.x + 'px';
+                } else {
+                    unit.classList.remove('current-value');
                 }
             });
         }
@@ -224,11 +226,11 @@ define(['o-question'],
             var scaleUnits = this.container.querySelectorAll('.m-scale-unit');
 
             scaleUnits.forEach(function (unit) {
+                unit.style.top = imageYOffset + 'px';
+                unit.style.left = imageXOffset + 'px';
                 unit.style.height = imageHeight;
                 unit.style.width = imageWidth;
                 unit.style.backgroundImage = 'url("' + imageURL + '")';
-                unit.style.top = imageYOffset + 'px';
-                unit.style.left = imageXOffset + 'px';
             });
         }
 
