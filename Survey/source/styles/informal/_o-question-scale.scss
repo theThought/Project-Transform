@@ -1,88 +1,101 @@
-.o-scale-container {
-    position: relative;
-    width: 100%;
-    max-width: 350px;   
+@use 'globals';
+
+.o-question-scale-horizontal {
+    background-repeat: no-repeat;
 }
 
-.m-image-singlestate {
-    width: 100%;
-    height: auto;
-    display: block;
+.has-container-background .o-scale-unitcontainer {
+    border: none;
+}
+
+.o-scale-unitcontainer {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    max-width: 100%;
+    border-radius: globals.$text-border-radius;
+    border: 1px solid globals.$light4;
+}
+
+.o-label-container,
+.o-question-scale-horizontal-control {
+    display: flex;
+}
+
+.has-terminators .o-label-container {
+    margin-left: 65px;
+}
+
+.o-label-container {
+    width: 400px;
+    justify-content: space-between;
 }
 
 .m-scale-unit {
-    display: inline-block;
     position: relative;
     cursor: pointer;
+    flex: 1 0 0;
+    text-align: center;
+    height: 52px;
+    align-content: center;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.scale-checkbox {
-    display: none;
-}
-
-.checkbox-custom {
-    display: none;
+.m-scale-unit::before {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 4px;
+    left: 4px;
+    top: 4px;
+    display: block;
+    content: ' ';
+    height: calc(100% - 8px);
+    width: calc(100% - 8px);
+    background-color: globals.$light3;
+    border-radius: globals.$border-radius;
 }
 
-.scale-checkbox:checked + .checkbox-custom {
-    background-color: #000;
+.has-unit-background .m-scale-unit::before {
+    content: none;
+}
+
+.m-scale-unit.current-value::before,
+.o-scale-unitcontainer:hover > .m-scale-unit::before {
+    background-color: globals.$theme-secondary-hover;
+}
+
+.m-scale-unit.current-value,
+.o-scale-unitcontainer:hover > .m-scale-unit {
+    color: globals.$white;
+}
+
+.o-scale-unitcontainer > .m-scale-unit.current-value ~ .m-scale-unit,
+.o-scale-unitcontainer > .m-scale-unit:hover ~ .m-scale-unit {
+    color: globals.$theme-primary-hover;
+}
+
+.o-scale-unitcontainer > .m-scale-unit.current-value ~ .m-scale-unit::before,
+.o-scale-unitcontainer > .m-scale-unit:hover ~ .m-scale-unit::before {
+    background-color: globals.$light3;
 }
 
 .a-image-multistate {
     display: block;
     margin: 0 auto;
+    transition: transform 0.3s ease;
 }
 
 .a-label-datavalue {
     visibility: hidden;
 }
 
+.a-label-datavalue.showValue {
+    visibility: visible;
+    position: absolute;
+    top:32px;
+    left: 30px;
+    color: globals.$dark1;
+}
 
-// t scale vertical.
-
-.o-question-scale-vertical{
-
-    .o-scale-container{
-        max-width: 350px;
-    }
-    //For the cup example need to column-reverse.
-     .o-scale-container{
-        display: flex;
-        flex-direction: column-reverse;
-        // justify-content: space-evenly;
-        align-items: center;
-        // align-items: flex-end;
-    }
-
-    .a-image-multistate{
-        width: 68%;
-    }
-
-    //For the cups example
-
-     .m-scale-unit:nth-child(5){
-        width: 125%;
-        padding-top: 30px;
-    }
-     .m-scale-unit:nth-child(4){
-        width: 120%;
-     }
-     .m-scale-unit:nth-child(3){
-        width: 110%;
-     }
-     .m-scale-unit:nth-child(2){
-        width: 105%;
-     }
-     .m-scale-unit:nth-child(1){
-        width: 100%;
-     }
+.a-label-datavalue.showValue.highlighted {
+    color: globals.$white;
 }

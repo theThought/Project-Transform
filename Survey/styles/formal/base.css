@@ -338,6 +338,11 @@ button.a-button-postterminator {
   color: #455B97;
 }
 
+.o-question-scale-horizontal-control .a-button-preterminator,
+.o-question-scale-horizontal-control .a-button-postterminator {
+  top: 0;
+}
+
 .has-terminators .a-button-preterminator,
 .has-terminators .a-button-postterminator {
   display: block;
@@ -926,8 +931,13 @@ html[dir=rtl] .a-label-total {
 }
 
 .m-scale-unit .a-label {
+  display: none;
   position: relative;
   z-index: 2;
+}
+
+.values-inside .m-scale-unit .a-label {
+  display: block;
 }
 
 html[dir=rtl] .m-message-error *[class*=-label-],
@@ -964,6 +974,12 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
 }
 .m-message-success *[class*=-label-]::before {
   background-image: url("../../images/formal/icon-success.svg");
+}
+
+.o-question-scale-horizontal div.a-label-prelabel,
+.o-question-scale-horizontal div.a-label-postlabel {
+  margin-top: 1em;
+  border: none !important;
 }
 
 .focused * {
@@ -2386,6 +2402,14 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   margin-right: 1em;
 }
 
+.o-question-scale-horizontal {
+  background-repeat: no-repeat;
+}
+
+.has-container-background .o-scale-unitcontainer {
+  border: none;
+}
+
 .o-scale-unitcontainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2398,6 +2422,24 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   border: 1px solid #8797C8;
 }
 
+.o-label-container,
+.o-question-scale-horizontal-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.has-terminators .o-label-container {
+  margin-left: 65px;
+}
+
+.o-label-container {
+  width: 400px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .m-scale-unit {
   position: relative;
   cursor: pointer;
@@ -2408,6 +2450,8 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   height: 52px;
   -ms-flex-line-pack: center;
       align-content: center;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .m-scale-unit::before {
@@ -2420,6 +2464,10 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   width: calc(100% - 8px);
   background-color: #B4BDDB;
   border-radius: 4px;
+}
+
+.has-unit-background .m-scale-unit::before {
+  content: none;
 }
 
 .m-scale-unit.current-value::before,

@@ -1,5 +1,13 @@
 @use 'globals';
 
+.o-question-scale-horizontal {
+    background-repeat: no-repeat;
+}
+
+.has-container-background .o-scale-unitcontainer {
+    border: none;
+}
+
 .o-scale-unitcontainer {
     display: flex;
     justify-content: space-around;
@@ -9,6 +17,20 @@
     border: 1px solid globals.$light4;
 }
 
+.o-label-container,
+.o-question-scale-horizontal-control {
+    display: flex;
+}
+
+.has-terminators .o-label-container {
+    margin-left: 65px;
+}
+
+.o-label-container {
+    width: 400px;
+    justify-content: space-between;
+}
+
 .m-scale-unit {
     position: relative;
     cursor: pointer;
@@ -16,6 +38,8 @@
     text-align: center;
     height: 52px;
     align-content: center;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .m-scale-unit::before {
@@ -28,6 +52,10 @@
     width: calc(100% - 8px);
     background-color: globals.$light3;
     border-radius: globals.$border-radius;
+}
+
+.has-unit-background .m-scale-unit::before {
+    content: none;
 }
 
 .m-scale-unit.current-value::before,

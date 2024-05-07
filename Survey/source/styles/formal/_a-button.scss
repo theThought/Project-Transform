@@ -73,6 +73,11 @@ button.a-button-postterminator {
     color: globals.$theme-primary;
 }
 
+.o-question-scale-horizontal-control .a-button-preterminator,
+.o-question-scale-horizontal-control .a-button-postterminator {
+    top: 0;
+}
+
 .has-terminators {
     .a-button-preterminator,
     .a-button-postterminator {

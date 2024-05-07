@@ -14,12 +14,14 @@ define(['o-question'],
         oQuestionScale.prototype.constructor = oQuestionScale;
 
         oQuestionScale.prototype.init = function () {
-            oQuestion.prototype.init.call(this);
+            //oQuestion.prototype.init.call(this);
 
             this.setScaleRange();
             this.createScaleUnits();
+            this.setClasses(this.element.value);
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
+            this.configureProperties();
         }
 
         oQuestionScale.prototype.configureIncomingEventListeners = function () {
@@ -75,7 +77,7 @@ define(['o-question'],
             this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
                 unit.classList.remove('current-value');
             });
-            var value = event.target.getAttribute('data-value');
+            var value = parseInt(event.target.getAttribute('data-value'));
             this.setValue(value);
         }
 
@@ -107,31 +109,76 @@ define(['o-question'],
 
         oQuestionScale.prototype.setValue = function (value) {
             this.element.value = value;
+            this.setClasses(value);
+        }
+
+        oQuestionScale.prototype.setClasses = function (value) {
+            this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
+                unit.classList.remove('current-value');
+            })
+
+            if (value === '') {
+                return;
+            }
+
             this.container.querySelector('.m-scale-unit[data-value="' + value + '"]').classList.add('current-value');
         }
 
         oQuestionScale.prototype.show = function (showProperties) {
             // this could have multiple entries so here is the local routing for sub-options of 'show'
             if (showProperties.terminators !== 'undefined') {
-                this.showTerminators();
+                this.showTerminators(showProperties.terminators);
             }
         }
 
-        oQuestionScale.prototype.showTerminators = function () {
-            console.log('Display terminators');
+        oQuestionScale.prototype.showTerminators = function (prop) {
+            if (prop) {
+                this.container.classList.add('has-terminators');
+            }
         }
 
         oQuestionScale.prototype.values = function (valuesProperties) {
             var valuesPosition = valuesProperties.position;
-            console.log('Values position: ' + valuesPosition);
+
+            if (valuesPosition === "inside") {
+                this.container.classList.add('values-inside');
+            }
         }
 
         oQuestionScale.prototype.labels = function (labelProperties) {
             var preLabel = labelProperties.pre;
             var postLabel = labelProperties.post;
 
-            console.log('Configure pre-label ' + preLabel);
-            console.log('Configure post-label ' + postLabel);
+            if (typeof preLabel === 'undefined' && typeof postLabel === 'undefined') {
+                return;
+            }
+
+            var labelContainer = document.createElement('div');
+            labelContainer.classList.add('o-label-container');
+
+            if (preLabel.length) {
+                var preElement = document.createElement('div');
+                preElement.className = 'a-label-prelabel';
+                var preContentText = preLabel;
+                preContentText = preContentText.replace(/%lt%/g, '<');
+                preContentText = preContentText.replace(/%gt%/g, '>');
+                preElement.innerHTML = preContentText;
+
+                labelContainer.append(preElement);
+            }
+
+            if (postLabel.length) {
+                var postElement = document.createElement('div');
+                postElement.className = 'a-label-postlabel';
+                var postContentText = postLabel;
+                postContentText = postContentText.replace(/%lt%/g, '<');
+                postContentText = postContentText.replace(/%gt%/g, '>');
+                postElement.innerHTML = postContentText;
+
+                labelContainer.appendChild(postElement);
+            }
+
+            this.container.appendChild(labelContainer);
         }
 
         oQuestionScale.prototype.background = function (backgroundProperties) {
@@ -145,13 +192,15 @@ define(['o-question'],
             var imageXOffset = backgroundProperties.offset.x;
             var imageYOffset = backgroundProperties.offset.y;
 
-            var singleStateImage = this.container.querySelector('.m-image-singlestate');
-
-            if (singleStateImage) {
-                singleStateImage.src = backgroundProperties.image.url;
-                singleStateImage.alt = backgroundProperties.caption || '';
-                singleStateImage.style = 'transform:translate(' + this.properties.background.offset.x + 'px, ' + this.properties.background.offset.y + 'px); width:' + this.properties.background.image.width + 'px; height:' + this.properties.background.image.height + 'px; ';
+            if (typeof imageURL === "undefined") {
+                return;
             }
+
+            this.container.classList.add('has-container-background');
+
+            this.container.style.height = imageHeight;
+            this.container.style.width = imageWidth;
+            this.container.style.backgroundImage = 'url("' + imageURL + '")';
         }
 
         oQuestionScale.prototype.unit = function (unitProperties) {
@@ -165,25 +214,31 @@ define(['o-question'],
             var imageXOffset = unitProperties.offset.x;
             var imageYOffset = unitProperties.offset.y;
 
-            if (imageURL === "undefined") {
+            if (typeof imageURL === "undefined") {
                 return;
             }
 
-            //var scaleUnits = this.container.querySelectorAll('.m-scale-unit');
-        }
+            this.container.classList.add('has-unit-background');
+            var scaleUnits = this.container.querySelectorAll('.m-scale-unit');
 
-        oQuestionScale.prototype.updateScaleUnitDisplay = function (checkbox, isActive) {
-            var unitLabel = checkbox.closest('.m-scale-unit');
-            var img = unitLabel.querySelector('.a-image-multistate');
-            img.src = isActive ? this.properties.activeUnit.image.url : this.properties.unit.image.url;
+            scaleUnits.forEach(function (unit) {
+                unit.style.height = imageHeight;
+                unit.style.width = imageWidth;
+                unit.style.backgroundImage = 'url("' + imageURL + '")';
+            });
         }
 
         oQuestionScale.prototype.incrementValue = function (checkboxes, event) {
             var currentValue = parseInt(this.element.value);
+
+            if (isNaN(currentValue)) {
+                currentValue = this.min - 1;
+            }
+
             var max = this.element.max ? parseInt(this.element.max) : 10;
 
             if (currentValue < max) {
-                this.setValue(this.element.value + 1);
+                this.setValue(currentValue + 1);
             }
         }
 
@@ -192,7 +247,7 @@ define(['o-question'],
             var min = this.element.min ? parseInt(this.element.min) : 1;
 
             if (currentValue > min) {
-                this.setValue(this.element.value - 1);
+                this.setValue(currentValue - 1);
             }
         }
 

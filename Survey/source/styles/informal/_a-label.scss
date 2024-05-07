@@ -169,6 +169,16 @@ html[dir="rtl"] .a-label-total {
     }
 }
 
+.m-scale-unit .a-label {
+    display: none;
+    position: relative;
+    z-index: 2;
+}
+
+.values-inside .m-scale-unit .a-label {
+    display: block;
+}
+
 html[dir="rtl"] {
     .m-message-error,
     .m-message-warning,
@@ -211,6 +221,14 @@ html[dir="rtl"] {
 
     &::before {
         background-image: url("/Survey/images/informal/icon-success.svg");
+    }
+}
+
+.o-question-scale-horizontal {
+    div.a-label-prelabel,
+    div.a-label-postlabel {
+        margin-top: 1em;
+        border: none !important;
     }
 }
 
