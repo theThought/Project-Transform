@@ -259,13 +259,13 @@ define(['o-question'],
             var currentValue = parseInt(this.element.value);
 
             if (isNaN(currentValue)) {
-                currentValue = this.min - 1;
+                currentValue = this.min - this.step;
             }
 
             var max = this.element.max ? parseInt(this.element.max) : 10;
 
             if (currentValue < max) {
-                this.setValue(currentValue + 1);
+                this.setValue(currentValue + this.step);
             }
         }
 
