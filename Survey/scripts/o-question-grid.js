@@ -144,7 +144,7 @@ define(['component'],
                         }
 
                         if (element.type === 'checkbox' || element.type === 'radio') {
-                            element.focus();
+                            this.getElementsByTagName('LABEL')[0].click();
                             return
                         }
 
