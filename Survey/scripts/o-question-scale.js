@@ -122,6 +122,7 @@ define(['o-question'],
                     unit.style.backgroundPositionX = self.properties.unit.offset.x + 'px';
                 } else {
                     unit.classList.remove('current-value');
+                    unit.style.backgroundPositionX = '0';
                 }
             });
         }
@@ -234,7 +235,7 @@ define(['o-question'],
             });
         }
 
-        oQuestionScale.prototype.incrementValue = function (checkboxes, event) {
+        oQuestionScale.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
 
             if (isNaN(currentValue)) {
@@ -248,7 +249,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionScale.prototype.decrementValue = function (checkboxes, event) {
+        oQuestionScale.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var min = this.element.min ? parseInt(this.element.min) : 1;
 
