@@ -2174,27 +2174,6 @@ html[dir=rtl] .o-dropdown ul li {
   font-size: 16px;
 }
 
-.suggestions {
-  display: none;
-  border: 1px solid #ccc;
-  padding: 5px;
-  margin-top: 2px;
-  position: absolute;
-  background: white;
-  width: 90%; /* Adjust based on your actual input field width */
-  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.suggestions.visible {
-  display: block;
-}
-
-.suggestions div:hover {
-  background-color: #ddf;
-  cursor: pointer;
-}
-
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
@@ -2203,6 +2182,12 @@ html[dir=rtl] .o-dropdown ul li {
    * that contains headers but is entirely empty - in these cases there should be no border
    */
   /* may remove the following styles if display: none above is the appropriate solution */
+}
+.o-structure-table tr.m-structure-row {
+  border-top: 1px solid #212C4C;
+}
+.o-structure-table tr.m-structure-row ~ tr.m-structure-row {
+  border-top: none;
 }
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
@@ -2267,16 +2252,10 @@ html[dir=rtl] .o-dropdown ul li {
 .o-structure-table tr.empty-header-row td {
   border: 0 !important;
 }
-.o-structure-table th[scope=col] {
-  border-bottom: 1px solid #212C4C;
-}
 .o-structure-table .grid-column-total-title,
 .o-structure-table .grid-column-total,
 .o-structure-table .grid-grandtotal {
   border-top: 1px solid #212C4C;
-}
-.o-structure-table .grid-row-total-title {
-  border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title,
 .o-structure-table .grid-row-total,
