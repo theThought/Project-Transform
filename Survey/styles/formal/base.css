@@ -980,6 +980,7 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
 .o-question-scale-horizontal div.a-label-postlabel {
   margin-top: 1em;
   border: none !important;
+  padding: 0;
 }
 
 html[dir=rtl] .o-question-scale-horizontal div.a-label-prelabel,

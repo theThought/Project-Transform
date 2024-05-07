@@ -169,6 +169,10 @@ define(['o-question'],
             var labelContainer = document.createElement('div');
             labelContainer.classList.add('o-label-container');
 
+            if (this.element.style.width) {
+                labelContainer.style.maxWidth = this.element.style.width;
+            }
+
             if (preLabel.length) {
                 var preElement = document.createElement('div');
                 preElement.className = 'a-label-prelabel';
