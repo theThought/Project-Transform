@@ -10,6 +10,7 @@ define(['o-question'],
             this.min = 1;
             this.max = 10;
             this.step = 1;
+            this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
         }
 
         oQuestionScale.prototype = Object.create(oQuestion.prototype);
@@ -23,6 +24,7 @@ define(['o-question'],
             this.configureLocalEventListeners();
             this.configureProperties();
             this.setClasses(this.element.value);
+            this.isInitialising = false;
         }
 
         oQuestionScale.prototype.configureIncomingEventListeners = function () {
@@ -74,11 +76,21 @@ define(['o-question'],
             }
         }
 
+        oQuestionScale.prototype.onEnableExclusive = function (event) {
+            this.placeholder = this.element.value;
+            this.setValue();
+        }
+
+        oQuestionScale.prototype.onDismissExclusive = function (event) {
+            this.setValue(this.placeholder);
+        }
+
         oQuestionScale.prototype.onClick = function (event) {
             this.unitContainer.querySelectorAll('.m-scale-unit').forEach(function (unit) {
                 unit.classList.remove('current-value');
             });
             var value = parseInt(event.target.getAttribute('data-value'));
+            this.placeholder = value;
             this.setValue(value);
         }
 
@@ -114,8 +126,22 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.setValue = function (value) {
+            if (this.element.value === value) {
+                return;
+            }
+
             this.element.value = value;
             this.setClasses(value);
+
+            if (this.isExclusive) {
+                var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
+                    bubbles: true,
+                    detail: this
+                });
+                this.element.dispatchEvent(enableExclusive);
+            }
+
+            this.broadcastChange();
         }
 
         oQuestionScale.prototype.setClasses = function (value) {
@@ -127,7 +153,7 @@ define(['o-question'],
 
                 if (currentUnitValue <= value) {
                     unit.classList.add('current-value');
-                    if (typeof self.properties.unit.image.width !== 'undefined') {
+                    if (typeof self.properties.unit !== 'undefined') {
                         unit.style.backgroundPositionX = '-' + self.properties.unit.image.width;
                     }
                 } else {
