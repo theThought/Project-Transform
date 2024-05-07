@@ -982,6 +982,11 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
   border: none !important;
 }
 
+html[dir=rtl] .o-question-scale-horizontal div.a-label-prelabel,
+html[dir=rtl] .o-question-scale-horizontal div.a-label-postlabel {
+  border: none !important;
+}
+
 .focused * {
   outline: none;
 }
@@ -2432,6 +2437,12 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   border: none;
 }
 
+.has-terminators .o-question-scale-horizontal-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .o-scale-unitcontainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2452,6 +2463,11 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
 
 .has-terminators .o-label-container {
   margin-left: 65px;
+}
+
+html[dir=rtl] .has-terminators .o-label-container {
+  margin-left: 0;
+  margin-right: 65px;
 }
 
 .o-label-container {

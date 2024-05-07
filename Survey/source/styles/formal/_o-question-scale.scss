@@ -9,6 +9,10 @@
     border: none;
 }
 
+.has-terminators .o-question-scale-horizontal-control {
+    display: flex;
+}
+
 .o-scale-unitcontainer {
     display: flex;
     justify-content: space-around;
@@ -24,6 +28,13 @@
 
 .has-terminators .o-label-container {
     margin-left: 65px;
+}
+
+html[dir=rtl] {
+    .has-terminators .o-label-container {
+        margin-left: 0;
+        margin-right: 65px;
+    }
 }
 
 .o-label-container {

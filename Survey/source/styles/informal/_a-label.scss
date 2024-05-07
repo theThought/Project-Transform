@@ -232,6 +232,13 @@ html[dir="rtl"] {
     }
 }
 
+html[dir="rtl"] .o-question-scale-horizontal {
+    div.a-label-prelabel,
+    div.a-label-postlabel {
+        border: none !important;
+    }
+}
+
 .focused {
     * {
         outline: none;
