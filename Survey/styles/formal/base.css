@@ -2168,6 +2168,27 @@ html[dir=rtl] .o-dropdown ul li {
   font-size: 16px;
 }
 
+.suggestions {
+  display: none;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-top: 2px;
+  position: absolute;
+  background: white;
+  width: 90%; /* Adjust based on your actual input field width */
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions.visible {
+  display: block;
+}
+
+.suggestions div:hover {
+  background-color: #ddf;
+  cursor: pointer;
+}
+
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
@@ -2470,24 +2491,12 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   content: none;
 }
 
-.m-scale-unit.current-value::before,
-.o-scale-unitcontainer:hover > .m-scale-unit::before {
+.m-scale-unit.current-value::before {
   background-color: #317474;
 }
 
-.m-scale-unit.current-value,
-.o-scale-unitcontainer:hover > .m-scale-unit {
+.m-scale-unit.current-value {
   color: #FAFAFA;
-}
-
-.o-scale-unitcontainer > .m-scale-unit.current-value ~ .m-scale-unit,
-.o-scale-unitcontainer > .m-scale-unit:hover ~ .m-scale-unit {
-  color: #324371;
-}
-
-.o-scale-unitcontainer > .m-scale-unit.current-value ~ .m-scale-unit::before,
-.o-scale-unitcontainer > .m-scale-unit:hover ~ .m-scale-unit::before {
-  background-color: #B4BDDB;
 }
 
 .a-image-multistate {

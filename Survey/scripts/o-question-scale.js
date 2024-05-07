@@ -114,14 +114,15 @@ define(['o-question'],
 
         oQuestionScale.prototype.setClasses = function (value) {
             this.container.querySelectorAll('.m-scale-unit').forEach(function (unit) {
-                unit.classList.remove('current-value');
-            })
+                var currentValue = parseInt(unit.getAttribute('data-value'));
 
-            if (value === '') {
-                return;
-            }
+                if (value < currentValue) {
+                    unit.classList.remove('current-value');
+                } else {
+                    unit.classList.add('current-value');
+                }
+            });
 
-            this.container.querySelector('.m-scale-unit[data-value="' + value + '"]').classList.add('current-value');
         }
 
         oQuestionScale.prototype.show = function (showProperties) {
