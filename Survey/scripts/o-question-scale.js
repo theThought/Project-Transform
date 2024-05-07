@@ -9,6 +9,7 @@ define(['o-question'],
             this.isRTL = document.dir === 'rtl';
             this.min = 1;
             this.max = 10;
+            this.step = 1;
         }
 
         oQuestionScale.prototype = Object.create(oQuestion.prototype);
@@ -90,10 +91,11 @@ define(['o-question'],
         oQuestionScale.prototype.setScaleRange = function () {
             this.min = (this.element.min) ? parseInt(this.element.min) : this.min;
             this.max = (this.element.max) ? parseInt(this.element.max) : this.max;
+            this.step = (this.element.step) ? parseInt(this.element.step) : this.step;
         }
 
         oQuestionScale.prototype.createScaleUnits = function () {
-            for (var i = this.min; i <= this.max; i++) {
+            for (var i = this.min; i <= this.max; i=i+this.step) {
 
                 var scaleItem = document.createElement('div');
                 var scaleLabel = document.createElement('span');
