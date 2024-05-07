@@ -13,9 +13,9 @@ define(['component'],
             component.call(this, id, group);
             
             this.element = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"]');
-            this.droplist = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-combobox][data-questiongroup="' + this.group + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
+            this.droplist = this.container.querySelector('ul.m-list');
 
             this.hiddenelement = null;
             this.mincharacters = 0;
