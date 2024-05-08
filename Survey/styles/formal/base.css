@@ -2183,6 +2183,12 @@ html[dir=rtl] .o-dropdown ul li {
    */
   /* may remove the following styles if display: none above is the appropriate solution */
 }
+.o-structure-table tr.m-structure-row {
+  border-top: 1px solid #212C4C;
+}
+.o-structure-table tr.m-structure-row ~ tr.m-structure-row {
+  border-top: none;
+}
 .o-structure-table.shade-headercolumn th[scope=row],
 .o-structure-table.shade-headercolumn td[scope=row] {
   background-color: #D6DDEB;
@@ -2246,16 +2252,10 @@ html[dir=rtl] .o-dropdown ul li {
 .o-structure-table tr.empty-header-row td {
   border: 0 !important;
 }
-.o-structure-table th[scope=col] {
-  border-bottom: 1px solid #212C4C;
-}
 .o-structure-table .grid-column-total-title,
 .o-structure-table .grid-column-total,
 .o-structure-table .grid-grandtotal {
   border-top: 1px solid #212C4C;
-}
-.o-structure-table .grid-row-total-title {
-  border-bottom: 1px solid #212C4C;
 }
 .o-structure-table .grid-row-total-title,
 .o-structure-table .grid-row-total,

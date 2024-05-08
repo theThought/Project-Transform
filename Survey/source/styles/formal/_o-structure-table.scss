@@ -9,6 +9,14 @@ $separator-colour: globals.$titles;
 .o-structure-table {
     border-collapse: collapse;
 
+    tr.m-structure-row {
+        border-top: globals.$border-thickness solid $separator-colour;
+    }
+
+    tr.m-structure-row ~ tr.m-structure-row {
+        border-top: none;
+    }
+
     &.shade-headercolumn {
         th[scope=row],
         td[scope=row] {
@@ -105,18 +113,10 @@ $separator-colour: globals.$titles;
         border: 0 !important;
     }
 
-    th[scope=col] {
-        border-bottom: globals.$border-thickness solid $separator-colour;
-    }
-
     .grid-column-total-title,
     .grid-column-total,
     .grid-grandtotal {
         border-top: globals.$border-thickness solid $separator-colour;
-    }
-
-    .grid-row-total-title {
-        border-bottom: globals.$border-thickness solid $separator-colour;
     }
 
     .grid-row-total-title,

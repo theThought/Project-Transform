@@ -53,7 +53,7 @@ define(['component'],
         oQuestionGrid.prototype.topheadings = function (props) {
             // add a new row at the start of the table with an appropriate class
             var headingrow = this.grid.insertRow(0);
-            headingrow.className = 'm-structure-row m-structure-caption-row';
+            headingrow.className = 'm-structure-caption-row';
 
             for (var i = 0; i <= props.length; i++) {
                 // insert two cells; the second cell will contain the caption
@@ -144,7 +144,7 @@ define(['component'],
                         }
 
                         if (element.type === 'checkbox' || element.type === 'radio') {
-                            element.focus();
+                            this.getElementsByTagName('LABEL')[0].click();
                             return
                         }
 
@@ -447,7 +447,7 @@ define(['component'],
 
             // add a new row at the start of the table with an appropriate class
             var captionrow = this.grid.insertRow(0);
-            captionrow.className = 'm-structure-row m-structure-caption-row';
+            captionrow.className = 'm-structure-caption-row';
 
             // insert two cells; the second cell will contain the caption
             var newth = document.createElement('th');
@@ -489,7 +489,7 @@ define(['component'],
             if (!headingrow && captiontitle.length > 0) {
                 // add a new row at the start of the table with an appropriate class
                 var captionrow = this.grid.insertRow(0);
-                captionrow.className = 'm-structure-row m-structure-caption-row';
+                captionrow.className = 'm-structure-caption-row';
 
                 // insert two cells; the second cell will contain the caption
                 var newth = document.createElement('th');
