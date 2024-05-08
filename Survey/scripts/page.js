@@ -42,7 +42,7 @@ define(
         }
 
         page.prototype.sidebyside = function (width) {
-            var question = this.element.getElementsByClassName('o-question-container.sidebyside');
+            var question = this.element.getElementsByClassName('o-question-container sidebyside');
 
             for (var i = 0; i < question.length; i++) {
                 var questionmessages = question[i].getElementsByClassName('o-question-information-messages');
