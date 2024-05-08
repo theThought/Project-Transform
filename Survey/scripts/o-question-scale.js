@@ -77,6 +77,10 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.onEnableExclusive = function (event) {
+            if (event.target === this.element) {
+                return;
+            }
+
             this.placeholder = this.element.value;
             this.setValue();
         }
@@ -117,7 +121,7 @@ define(['o-question'],
                 scaleLabel.setAttribute('data-value', i);
                 scaleLabel.innerHTML = i;
                 scaleItem.appendChild(scaleLabel);
-                this.unitContainer.append(scaleItem);
+                this.unitContainer.appendChild(scaleItem);
 
                 if (this.element.value === i) {
                     this.setValue(i);
