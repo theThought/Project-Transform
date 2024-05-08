@@ -15,14 +15,17 @@
 }
 
 .o-question-slider-vertical {
+    display: table;
+
     .o-slider-rotate {
-        padding: 50% 0 70% 0;
+        padding: 50% 0;
         height: 0;
     }
 }
 
 .o-question-slider-vertical-control {
-    transform: rotate(270deg)
+    transform: rotate(270deg);
+    transform-origin: top;
 }
 
 .o-question-slider-horizontal-control,

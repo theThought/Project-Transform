@@ -446,6 +446,11 @@ html[dir="rtl"] .m-input-singlelineedit {
 }
 
 .o-question-slider-vertical-control {
+    .m-style-slidermarks {
+        width: calc(100% - 31px);
+        left: 15px;
+    }
+
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         transform: rotate(90deg);
@@ -482,9 +487,9 @@ html[dir="rtl"] .o-question-slider-vertical-control {
 
 .o-question-slider-vertical-control {
     .m-label-ticklabels {
-        left: 12px;
+        left: 16px;
         top: 0;
-        width: calc(100% - 22px);
+        width: calc(100% - 29px);
 
         span {
             transform: rotate(90deg);

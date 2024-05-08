@@ -1660,14 +1660,19 @@ html[dir=rtl] .m-message-instruction.has-content div ul {
   overflow: visible;
 }
 
+.o-question-slider-vertical {
+  display: table;
+}
 .o-question-slider-vertical .o-slider-rotate {
-  padding: 50% 0 70% 0;
+  padding: 50% 0;
   height: 0;
 }
 
 .o-question-slider-vertical-control {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
 }
 
 .o-question-slider-horizontal-control,

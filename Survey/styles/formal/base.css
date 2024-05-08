@@ -1157,6 +1157,10 @@ html[dir=rtl] .m-input-singlelineedit .a-label-postlabel {
   display: block;
 }
 
+.o-question-slider-vertical-control .m-style-slidermarks {
+  width: calc(100% - 31px);
+  left: 15px;
+}
 .o-question-slider-vertical-control .a-label-outer-prelabel,
 .o-question-slider-vertical-control .a-label-outer-postlabel {
   -webkit-transform: rotate(90deg);
@@ -1190,9 +1194,9 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
 }
 
 .o-question-slider-vertical-control .m-label-ticklabels {
-  left: 12px;
+  left: 16px;
   top: 0;
-  width: calc(100% - 22px);
+  width: calc(100% - 29px);
 }
 .o-question-slider-vertical-control .m-label-ticklabels span {
   -webkit-transform: rotate(90deg);
@@ -1639,14 +1643,19 @@ html[dir=rtl] .m-message-instruction.has-content div ul {
   overflow: visible;
 }
 
+.o-question-slider-vertical {
+  display: table;
+}
 .o-question-slider-vertical .o-slider-rotate {
-  padding: 50% 0 70% 0;
+  padding: 50% 0;
   height: 0;
 }
 
 .o-question-slider-vertical-control {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
 }
 
 .o-question-slider-horizontal-control,
