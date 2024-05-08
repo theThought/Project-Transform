@@ -11,7 +11,7 @@ define(['component'],
 
         function oCombobox(id, group) {
             component.call(this, id, group);
-            
+
             this.element = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"]');
             this.wrapper = document.querySelector('div[class*=o-combobox][data-questiongroup="' + this.group + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
@@ -21,18 +21,11 @@ define(['component'],
             this.mincharacters = 0;
             this.keypressed = null;
             this.keybuffer = '';
-            
             this.list = null;
-            this.location = null;
-            this.source = null;
-            this.valuefrom = null;
-            this.descriptionfrom = null;
-
             this.currentlistposition = -1;
             this.isExact = true;
             this.filtermethod = 'contains';
             this.listtype = 'combobox';
-
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = false;
             this.manualWidth = false;
@@ -45,38 +38,26 @@ define(['component'],
         oCombobox.prototype.constructor = oCombobox;
 
         oCombobox.prototype.init = function () {
-            
-                this.list = this.buildList();
-                this.indexList();
-                this.manualWidth = this.checkManualWidth();
-                this.cloneInputElement();
-                this.restoreSelection();
-                this.setCurrentListPosition();
-                this.updateScrollPosition(this.getCurrentListPosition());
-                this.configureProperties();
-                this.getInitialValue();
-
-                this.setWidth();
-                this.setPosition();
-                this.setTabIndex();
-                this.setWrapperType();
-                this.configureInitialVisibility();
-                this.processVisibilityRules();
-                this.configureInitialFilter();
-                this.configureIncomingEventListeners();
-                this.configureLocalEventListeners();
-                this.configurationComplete();
-                
-                //For the new openend search
-                this.getDataFromSource();
-                this.openendSearchListCount();
-                this.updateItemCount();
-                this.repositionItemCount();
-                this.configureTagContainer();
-                this.updateTagContainerVisibility();
-                this.addTag();
-                this.removeTag();
-        };
+            this.list = this.buildList();
+            this.indexList();
+            this.manualWidth = this.checkManualWidth();
+            this.cloneInputElement();
+            this.restoreSelection();
+            this.setCurrentListPosition();
+            this.updateScrollPosition(this.getCurrentListPosition());
+            this.configureProperties();
+            this.getInitialValue();
+            this.setWidth();
+            this.setPosition();
+            this.setTabIndex();
+            this.setWrapperType();
+            this.configureInitialVisibility();
+            this.processVisibilityRules();
+            this.configureInitialFilter();
+            this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
+            this.configurationComplete();
+        }
 
         oCombobox.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
@@ -271,7 +252,6 @@ define(['component'],
             }
         }
 
-
         oCombobox.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
             newelement.id = '';
@@ -283,10 +263,6 @@ define(['component'],
 
         oCombobox.prototype.buildList = function () {
             return this.droplist.querySelectorAll('li');
-        }
-        
-        oCombobox.prototype.buildListFromHtml = function () {
-            return this.droplist.querySelector('li');
         }
 
         oCombobox.prototype.buildVisibleList = function () {
@@ -339,7 +315,7 @@ define(['component'],
                 this.keypressed = event.key;
             } else {
                 this.keypressed = event.code;
-            } 
+            }
         }
 
         oCombobox.prototype.onKeydown = function (event) {
@@ -360,7 +336,6 @@ define(['component'],
                 default:
                     this.keybuffer += String.fromCharCode(this.keypressed).toLowerCase();
             }
-            
         }
 
         oCombobox.prototype.onKeyup = function () {
@@ -487,11 +462,6 @@ define(['component'],
             }
 
             this.hideList();
-
-            if (event.target.classList.contains('a-option-list')) {
-                this.addTag(event.target.innerText); 
-                this.hideList();
-            }
         }
 
         oCombobox.prototype.onEnableExclusive = function (event) {
@@ -549,7 +519,6 @@ define(['component'],
             this.element.value = this.sanitiseText(selectedOption.innerText);
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
-            this.addTag(selectedOption.innerText);
         }
 
         oCombobox.prototype.clearEntries = function () {
@@ -592,20 +561,17 @@ define(['component'],
             this.setDropListDirection();
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
-            this.repositionItemCount(); 
         }
 
         oCombobox.prototype.hideList = function () {
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
-            this.repositionItemCount();
         }
 
         oCombobox.prototype.toggleList = function () {
             this.setDropListDirection();
-
-                this.element.classList.toggle('list-visible');
-                this.droplist.classList.toggle('visible');
+            this.element.classList.toggle('list-visible');
+            this.droplist.classList.toggle('visible');
         }
 
         oCombobox.prototype.setDropListDirection = function () {
@@ -692,70 +658,104 @@ define(['component'],
             }
         }
 
-        oCombobox.prototype.filterListStarts = function(inputstring) {
-            if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
-                this.droplist.classList.add('charrestriction'); // Apply visual cue for character restriction
-                this.updateItemCount(0); // Update count to reflect no items are being displayed
-                this.togglePlaceholderVisibility(true); // Show a placeholder indicating the need for more characters
-                return; // Exit the function early to avoid further processing
-            }
-        
-            this.droplist.classList.remove('charrestriction');
+        oCombobox.prototype.filterListStarts = function (inputstring) {
             var exactmatch = false;
-            var visibleitems = 0; // Initialize visible items counter
-            inputstring = inputstring.toLowerCase();
-        
             var droplistparentnode = this.droplist.parentNode;
-            droplistparentnode.removeChild(this.droplist); // Temporarily remove droplist from DOM for performance
-        
-            this.list.forEach(item => {
-                var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
-                if (itemlabel.startsWith(inputstring)) {
-                    item.classList.remove('filter-hidden');
-                    visibleitems++; // Increment count for each visible item
-                } else {
-                    item.classList.add('filter-hidden');
-                }
-            });
-        
-            droplistparentnode.appendChild(this.droplist); // Reattach droplist to DOM
-            this.updateItemCount(visibleitems); // Update the count based on number of visible items
-            this.togglePlaceholderVisibility(visibleitems === 0); // Manage placeholder visibility
-        };
-        
-        oCombobox.prototype.filterListContains = function(inputstring) {
+            droplistparentnode.removeChild(this.droplist);
+
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction');
-                this.updateItemCount(0); // Explicitly state that no items match because the input is too short
-                this.togglePlaceholderVisibility(true);
-                return; // Avoid further filtering logic until sufficient characters are entered
+                inputstring = '';
+            } else {
+                this.droplist.classList.remove('charrestriction');
             }
-        
-            this.droplist.classList.remove('charrestriction');
-            var exactmatch = false;
-            var visibleitems = 0; // Reset visible item counter
+
             inputstring = inputstring.toLowerCase();
-        
+            var visibleitems = this.list.length;
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
+                    this.broadcastChange();
+                }
+
+                if (itemlabel.indexOf(inputstring) === 0) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.clearOptions();
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+            }
+
+            droplistparentnode.appendChild(this.droplist);
+            this.list = this.buildVisibleList();
+        }
+
+        oCombobox.prototype.filterListContains = function (inputstring) {
+            var exactmatch = false;
+
+            if (inputstring.length < this.mincharacters) {
+                this.clearOptions();
+                this.droplist.classList.add('charrestriction');
+                return;
+            } else {
+                this.droplist.classList.remove('charrestriction');
+            }
+
+            inputstring = inputstring.toLowerCase();
+            var visibleitems = this.list.length;
             var droplistparentnode = this.droplist.parentNode;
             droplistparentnode.removeChild(this.droplist);
-        
-            this.list.forEach(item => {
-                var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
-                if (itemlabel.includes(inputstring)) {
-                    item.classList.remove('filter-hidden');
-                    visibleitems++;
-                } else {
-                    item.classList.add('filter-hidden');
+
+            for (var i = 0; i < this.list.length; i++) {
+                var itemlabel = this.sanitiseText(this.list[i].innerText.toLowerCase());
+
+                if (itemlabel === inputstring && this.isExact) {
+                    exactmatch = true;
+                    this.clearOptions();
+                    this.setSelectedOption(this.list[i]);
+                    this.broadcastChange();
                 }
-            });
-        
+
+                if (itemlabel.indexOf(inputstring) !== -1) {
+                    this.list[i].classList.remove('filter-hidden');
+                } else {
+                    this.list[i].classList.add('filter-hidden');
+                    visibleitems--;
+                }
+            }
+
+            if (visibleitems === 0) {
+                this.clearOptions();
+                this.togglePlaceholderVisibility(true);
+            } else {
+                this.togglePlaceholderVisibility(false);
+            }
+
+            if (this.isExact && !exactmatch) {
+                this.clearOptions();
+            }
+
             droplistparentnode.appendChild(this.droplist);
-            this.updateItemCount(visibleitems);
-            this.togglePlaceholderVisibility(visibleitems === 0);
-        };
-        
+            this.list = this.buildVisibleList();
+        }
+
         oCombobox.prototype.togglePlaceholderVisibility = function (visibility) {
             if (visibility) {
                 this.droplist.classList.add('empty');
