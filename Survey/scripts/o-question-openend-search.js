@@ -18,7 +18,7 @@ define(['o-question'],
             this.hiddenelement = null;
             
             //Openend search
-            this.isOpenendedSearch = document.querySelector('div.o-question-response');
+            this.isOpenendSearch = document.querySelector('div.o-question-response');
             this.itemCountElement = document.querySelector('.m-openend-search-count');
             this.hiddenelement = null;
             this.mincharacters = 0;
@@ -285,60 +285,65 @@ define(['o-question'],
         //Start opened functions -- these are the settings for the openend search
 
         // Getting data from what source??
-oQuestionOpenendSearch.prototype.getDataFromSource = function() {
-    var sourceConfig = this.properties.list;
-    console.log("sourceConfig");
-    console.log(sourceConfig);
-    var that = this; 
-
-    function handleResponse(xhr) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            var jsonData = JSON.parse(xhr.responseText);
-            that.processResponse(jsonData);
-            console.log(jsonData);
-        } else {
-            console.error('Failed to fetch:', xhr.statusText);
-        }
-    }
-
-    function sendRequest(url) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                handleResponse(xhr);
+        oQuestionOpenendSearch.prototype.getDataFromSource = function() {
+            var sourceConfig = this.properties.list;
+            var that = this;
+        
+            function handleResponse(xhr) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var jsonData = JSON.parse(xhr.responseText);
+                        that.processResponse(jsonData);
+                        console.log("Data fetched:", jsonData);
+                    } catch (e) {
+                        console.error('Error parsing JSON', e);
+                    }
+                } else {
+                    console.error('Failed to fetch:', xhr.statusText);
+                }
+            }
+        
+            function sendRequest(url) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {  
+                        handleResponse(xhr);
+                    }
+                };
+                xhr.onerror = function() {
+                    console.error('Network error');
+                };
+                xhr.send();
+            }
+        
+            // Locating the script tag and initiating a request
+            if (sourceConfig.location === 'internal') {
+                var scriptTag = document.querySelector('script.a-list');
+                if (scriptTag && scriptTag.src) {
+                    sendRequest(scriptTag.src);
+                } else {
+                    console.error("No script tag with class 'a-list' or 'src' attribute found.");
+                }
+            } else if (sourceConfig.location === 'external') {
+                sendRequest(sourceConfig.source);
             }
         };
-        xhr.onerror = function() {
-            console.error('Network error');
+        
+        // Processing the response from above
+        // I need this to be processed in the same way with the input etc EG DROPLIST!
+        oQuestionOpenendSearch.prototype.processResponse = function(response) {
+            if (response && response.list && response.list.length) {
+                var html = '';
+                for (var i = 0; i < response.list.length; i++) {
+                    var item = response.list[i];
+                    html += '<li class="a-option-list">' + item.name + '</li>';
+                }
+                this.droplist.innerHTML = html;
+            } else {
+                this.droplist.innerHTML = '<li>No items found.</li>';
+            }
         };
-        xhr.send();
-    }
-
-    if (sourceConfig.location === 'external') {
-        sendRequest(sourceConfig.source);
-    } else if (sourceConfig.location === 'internal') {
-        var scriptTag = document.querySelector(sourceConfig.source);
-        if (scriptTag && scriptTag.getAttribute('src')) {
-            sendRequest(scriptTag.getAttribute('src'));
-        }
-    }
-};
-
-// Processing the response from above
-oQuestionOpenendSearch.prototype.processResponse = function(response) {
-    console.log('response:::', response);
-    if (response && response.list && response.list.length) {
-        var html = '';
-        for (var i = 0; i < response.list.length; i++) {
-            var item = response.list[i];
-            html += '<li class="a-option-list">' + item.name + '</li>';
-        }
-        this.droplist.innerHTML = html;
-    } else {
-        this.droplist.innerHTML = '<li>No items found.</li>';
-    }
-};
 
 // List Count
 oQuestionOpenendSearch.prototype.openendSearchListCount = function() {
@@ -347,8 +352,7 @@ oQuestionOpenendSearch.prototype.openendSearchListCount = function() {
 
 // Updating the count
 oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
-    console.log('this.properties.list.prompts.listcount');
-    console.log( this.properties.list.prompts.listcount);
+    
     var itemCountElement = document.querySelector('.m-openend-search-count');
     if (itemCountElement) {
         if (count > 0) {

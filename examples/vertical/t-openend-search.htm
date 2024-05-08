@@ -99,12 +99,12 @@
                     "listsize": 15,
                     "list": {
                         //External - working
-                        "location": "external",  
-                        "source": "http://127.0.0.1:5500/demoServer/data.json",
+                        // "location": "external",  
+                        // "source": "http://127.0.0.1:5500/demoServer/data.json",
 
-                        // Internal a-list
-                        // "location": "internal",
-                        // "source": "a-list",
+                        // Internal a-list - this will have UL - LI 
+                        "location": "internal",
+                        "source": "a-list",
 
                         //Internal - #jsonlist working
                         // "location": "internal",
@@ -143,7 +143,7 @@
                     </div>
                     <Questions>
                         <Question>                   
-                             <div class="o-question-response	 o-question-openended-search" data-questiongroup="_QBarCodeList"
+                             <div class="o-question-response o-question-openend-search" data-questiongroup="_QBarCodeList"
                         data-readonly="false" data-position="below">
                         <script>app.registerComponent('oQuestionOpenend-search', '_Q0', '_QBarCodeList');</script>
                         <div class="o-combobox o-openend-search" data-questiongroup="_QBarCodeList">
@@ -154,16 +154,9 @@
                                 type="text" name="_QBarCodeList_C" id="_Q0" autocomplete="off" style=""
                                 list="_QBarCodeList_list" value="" data-value="" class="a-input-openend-search below" />
                               
-                            <ul class="m-list" id="_QBarCodeList_list" data-questiongroup="_QBarCodeList">
+                            <ul class="a-list" id="_QBarCodeList_list" data-questiongroup="_QBarCodeList">
                                 <!-- li items will be injected here -->  
-                                <li>apple drink</li>    
-                                <li>apple vodka</li>    
-                                <li>apple spice</li>    
-                                <li>apple froth</li>    
-                                <li>apple phone</li>    
-                                <li>apple car</li>    
-                                <li>apple house</li>    
-                                <li>apple apple</li>    
+                                <script>app.registerComponent('m-list-external','_Q0','_Qbarcodelist');</script>
                             </ul>
 
                             <div class="m-openend-search-count">
@@ -182,7 +175,9 @@
                     </div>
                 </div>
                 
-                <!-- <script id="jsonlist" type="application/json" src="http://127.0.0.1:5500/demoServer/data.json"></script> -->
+                <!-- <script class="a-list" type="application/json" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/barcodelistdemo.json"></script> -->
+                <!-- <script class="a-list" type="application/json" src="http://127.0.0.1:5500/demoServer/data.json"></script> -->
+                <script class="a-list" type="application/json" src="http://127.0.0.1:5500/demoServer/data.json"></script>
 
             </div>
         </div>
