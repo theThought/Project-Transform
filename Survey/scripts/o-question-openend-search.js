@@ -11,19 +11,29 @@ define(['o-question'],
 
         function oQuestionOpenendSearch(id, group) {
             oQuestion.call(this, id, group);
-            this.element = document.querySelector('input.a-input-openend-search[data-questionid="' + this.id + '"]');
-            this.droplist = document.querySelector('input.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
+            this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
+            this.droplist = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
+            
+            
+
+    
+            
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-            this.hiddenelement = null;
+           
+            
             
             //Openend search
-            this.isOpenendSearch = document.querySelector('div.o-question-response');
+            // this.isOpenendSearch = document.querySelector('div.o-question-response');
+            this.isOpenendSearch = document.querySelector('div.o-openend-search');
             this.itemCountElement = document.querySelector('.m-openend-search-count');
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
             this.keybuffer = '';
+            this.searchableNames = [];
+            
+            
             
             this.list = null;
             this.location = null;
@@ -84,9 +94,8 @@ define(['o-question'],
                 this.updateItemCount();
                 this.repositionItemCount();
                 this.configureTagContainer();
-                
                 this.addTag();
-                this.removeTag();
+                this.removeTag();                 
         };
 
         oQuestionOpenendSearch.prototype.configureIncomingEventListeners = function () {
@@ -97,6 +106,8 @@ define(['o-question'],
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + '_optionVisibility', this, false);
+       
+            
         }
 
         oQuestionOpenendSearch.prototype.configureLocalEventListeners = function () {
@@ -274,6 +285,8 @@ define(['o-question'],
 
         oQuestionOpenendSearch.prototype.setWrapperType = function () {
             this.wrapper.classList.add('list-combobox');
+            //this makes it combox
+            this.wrapper.classList.add('o-combobox');
         }
 
         oQuestionOpenendSearch.prototype.getInitialValue = function () {
@@ -288,7 +301,7 @@ define(['o-question'],
         oQuestionOpenendSearch.prototype.getDataFromSource = function() {
             var sourceConfig = this.properties.list;
             var that = this;
-        
+            
             function handleResponse(xhr) {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     try {
@@ -333,7 +346,15 @@ define(['o-question'],
         // Processing the response from above
         // I need this to be processed in the same way with the input etc EG DROPLIST!
         oQuestionOpenendSearch.prototype.processResponse = function(response) {
+
+            //setting data
             if (response && response.list && response.list.length) {
+                this.setDropListDirection();
+                this.element.classList.remove('list-visible');
+                this.droplist.classList.remove('visible');
+                this.repositionItemCount(); 
+        
+                
                 var html = '';
                 for (var i = 0; i < response.list.length; i++) {
                     var item = response.list[i];
@@ -343,89 +364,88 @@ define(['o-question'],
             } else {
                 this.droplist.innerHTML = '<li>No items found.</li>';
             }
+
+       
+         
         };
 
-// List Count
-oQuestionOpenendSearch.prototype.openendSearchListCount = function() {
-    
-};
+        // List Count
+        oQuestionOpenendSearch.prototype.openendSearchListCount = function() {
+            
+        };
 
-// Updating the count
-oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
-    
-    var itemCountElement = document.querySelector('.m-openend-search-count');
-    if (itemCountElement) {
-        if (count > 0) {
-            itemCountElement.textContent = count + " " + this.properties.list.prompts.listcount;
-            itemCountElement.classList.remove('hidden');
-        } else if (count === 0) {
-            itemCountElement.textContent = "No matches found";
-            itemCountElement.classList.remove('hidden');
-        } else {
-            itemCountElement.classList.add('hidden');
-        }
-    }
-};
+        // Updating the count
+        oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
+            
+            var itemCountElement = document.querySelector('.m-openend-search-count');
+            if (itemCountElement) {
+                if (count > 0) {
+                    itemCountElement.textContent = count + " " + this.properties.list.prompts.listcount;
+                    itemCountElement.classList.remove('hidden');
+                } else if (count === 0) {
+                    itemCountElement.textContent = "No matches found";
+                    itemCountElement.classList.remove('hidden');
+                } else {
+                    itemCountElement.classList.add('hidden');
+                }
+            }
+        };
 
-// Reposition html elements
-oQuestionOpenendSearch.prototype.repositionItemCount = function() {
-    var itemCountElement = document.querySelector('.m-openend-search-count');
-    if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
-        this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
-    }
-};
+        // Reposition html elements
+        oQuestionOpenendSearch.prototype.repositionItemCount = function() {
+            var itemCountElement = document.querySelector('.m-openend-search-count');
+            if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
+                this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
+            }
+        };
 
-// Tag config
-oQuestionOpenendSearch.prototype.configureTagContainer = function() {
-    var container = document.createElement('div');
-    container.className = 'o-question-selected';
-    this.wrapper.appendChild(container);
-};
+        // Tag config
+        oQuestionOpenendSearch.prototype.configureTagContainer = function() {
+            var container = document.createElement('div');
+            container.className = 'o-question-selected';
+            this.wrapper.appendChild(container);
+        };
 
-// Function to add a tag
-oQuestionOpenendSearch.prototype.addTag = function(label) {
-
-
-    if (typeof label === 'undefined' || label === null) {
-        return;
-    } else {
-        var container = document.querySelector('.o-question-selected');
-        var tag = document.createElement('div');
-        tag.className = 'm-tag-answer';
-        tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
-        container.appendChild(tag);    
-    
-        var deleteButton = tag.querySelector('.delete-tag');
-        deleteButton.addEventListener('click', function() {
-            this.removeTag(tag);
-        }.bind(this));
-    }
-
-   
-};
-oQuestionOpenendSearch.prototype.removeTag = function(tag) {
-
-    tag.remove();
-
-    if (this.element) {
-        this.element.value = '';  
-    }
-
-    if (this.hiddenelement) {
-        this.hiddenelement.value = '';
-    }
-    //I want to reset the itemCOUNT
-    if (this.itemCountElement) {
-        this.itemCountElement.textContent = "No matches found";
-        this.itemCountElement.classList.remove('hidden');
-    } else {
-        console.error('Item count element not found');
-    }
-};
+        // Function to add a tag
+        oQuestionOpenendSearch.prototype.addTag = function(label) {
 
 
+            if (typeof label === 'undefined' || label === null) {
+                return;
+            } else {
+                var container = document.querySelector('.o-question-selected');
+                var tag = document.createElement('div');
+                tag.className = 'm-tag-answer';
+                tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
+                container.appendChild(tag);    
+            
+                var deleteButton = tag.querySelector('.delete-tag');
+                deleteButton.addEventListener('click', function() {
+                    this.removeTag(tag);
+                }.bind(this));
+            }
 
-  
+        
+        };
+        oQuestionOpenendSearch.prototype.removeTag = function(tag) {
+
+            tag.remove();
+
+            if (this.element) {
+                this.element.value = '';  
+            }
+
+            if (this.hiddenelement) {
+                this.hiddenelement.value = '';
+            }
+            //I want to reset the itemCOUNT
+            if (this.itemCountElement) {
+                this.itemCountElement.textContent = "No matches found";
+                this.itemCountElement.classList.remove('hidden');
+            } else {
+                console.error('Item count element not found');
+            }
+        };
 
         //End openend search functions!
 
@@ -627,7 +647,6 @@ oQuestionOpenendSearch.prototype.removeTag = function(tag) {
         }
 
         oQuestionOpenendSearch.prototype.onClick = function (event) {
-
             if (event.target === this.element) {
                 this.toggleList();
                 return;
@@ -738,6 +757,7 @@ oQuestionOpenendSearch.prototype.removeTag = function(tag) {
             if (this.hiddenelement.value) {
                 this.setHiddenValue('');
                 this.broadcastChange();
+                
             }
         }
 
@@ -823,6 +843,7 @@ oQuestionOpenendSearch.prototype.removeTag = function(tag) {
                 var item = this.list[i];
                 if (item.getAttribute('data-selected')) {
                     this.element.value = this.sanitiseText(item.innerText);
+                    
                     item.setAttribute('data-selected', 'selected');
                     item.classList.add('selected');
                     this.filterList();
@@ -868,6 +889,7 @@ oQuestionOpenendSearch.prototype.removeTag = function(tag) {
         
             this.list.forEach(item => {
                 var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
+                
                 if (itemlabel.startsWith(inputstring)) {
                     item.classList.remove('filter-hidden');
                     visibleitems++; // Increment count for each visible item
