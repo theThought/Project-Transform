@@ -214,46 +214,5 @@ html[dir="rtl"] {
     }
 }
 
-// These are the styles for the openend search 
-.m-openend-search-count{
-    width: 100%;
-    border-top: 2px solid globals.$darkest;
-    margin: 30px 0;
-    padding: 10px 0;
-    text-align: right;
-    .hidden {
-        display: none;
-    }
-}
 
-.o-question-selected {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.m-tag-answer {
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 5px 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: 5px;
-    margin: 20px 0;
-}
-
-.m-tag-answer span {
-    font-size: 16px;
-}
-
-.delete-tag {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    font-size: 16px;
-}
 

@@ -63,8 +63,10 @@
 </head>
 
 <body>
-    <form name="mrForm" id="mrForm" action="/mrIWeb/mrIWeb.dll" method="post"><input type="hidden" name="I.Engine"
-            value="engine7" /><input type="hidden" name="I.Project" value="S20223226" /><input type="hidden"
+    <form name="mrForm" id="mrForm" action="/mrIWeb/mrIWeb.dll" method="post">
+        <input type="hidden" name="I.Engine"
+            value="engine7" /><input type="hidden" name="I.Project" value="S20223226" />
+            <input type="hidden"
             name="I.Session" value="luh56rdjemdulfbygdzbhqaye6uaeaaa" /><input type="hidden" name="I.SavePoint"
             value="ComboPapers" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
         <div class="header">
@@ -84,6 +86,8 @@
                 </div>
             </div>
         </div>
+        <script id="pageproperties">app.RegisterProperties('Page',{
+            "sidebyside":30,"focus":{"question":true,"control":true},"pwa":"false","paste":"true","jumptoerror":"true"})</script>
         <div class="surroundcontent">
             <div class="o-question-container">
                 <script
@@ -95,12 +99,12 @@
                     "listsize": 15,
                     "list": {
                         //External - working
-                        // "location": "external",  
-                        // "source": "http://127.0.0.1:5500/demoServer/data.json",
+                        "location": "external",  
+                        "source": "http://127.0.0.1:5500/demoServer/data.json",
 
                         // Internal a-list
-                        "location": "internal",
-                        "source": "a-list",
+                        // "location": "internal",
+                        // "source": "a-list",
 
                         //Internal - #jsonlist working
                         // "location": "internal",
@@ -138,7 +142,8 @@
                         <!-- Tags for selected -->
                     </div>
                     <Questions>
-                        <Question>                    <div class="o-question-response	 o-question-openended-search" data-questiongroup="_QBarCodeList"
+                        <Question>                   
+                             <div class="o-question-response	 o-question-openended-search" data-questiongroup="_QBarCodeList"
                         data-readonly="false" data-position="below">
                         <script>app.registerComponent('oQuestionOpenend-search', '_Q0', '_QBarCodeList');</script>
                         <div class="o-combobox o-openend-search" data-questiongroup="_QBarCodeList">

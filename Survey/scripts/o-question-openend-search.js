@@ -287,12 +287,15 @@ define(['o-question'],
         // Getting data from what source??
 oQuestionOpenendSearch.prototype.getDataFromSource = function() {
     var sourceConfig = this.properties.list;
-    var that = this; // Reference to the current instance for use in callbacks
+    console.log("sourceConfig");
+    console.log(sourceConfig);
+    var that = this; 
 
     function handleResponse(xhr) {
         if (xhr.status >= 200 && xhr.status < 300) {
             var jsonData = JSON.parse(xhr.responseText);
             that.processResponse(jsonData);
+            console.log(jsonData);
         } else {
             console.error('Failed to fetch:', xhr.statusText);
         }
@@ -324,7 +327,7 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function() {
 
 // Processing the response from above
 oQuestionOpenendSearch.prototype.processResponse = function(response) {
-    console.log('response:', response);
+    console.log('response:::', response);
     if (response && response.list && response.list.length) {
         var html = '';
         for (var i = 0; i < response.list.length; i++) {
