@@ -2128,14 +2128,14 @@ html[dir=rtl] .o-dropdown ul li {
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
-.o-question-item-count {
+.m-openend-search-count {
   width: 100%;
   border-top: 2px solid #212C4C;
   margin: 30px 0;
   padding: 10px 0;
   text-align: right;
 }
-.o-question-item-count .hidden {
+.m-openend-search-count .hidden {
   display: none;
 }
 

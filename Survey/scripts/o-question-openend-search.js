@@ -16,10 +16,10 @@ define(['o-question'],
             this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
             this.hiddenelement = null;
-
+            
             //Openend search
             this.isOpenendedSearch = document.querySelector('div.o-question-response');
-            this.openendCount = document.querySelector('p.o-question-item-count');
+            this.itemCountElement = document.querySelector('.m-openend-search-count');
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
@@ -84,7 +84,7 @@ define(['o-question'],
                 this.updateItemCount();
                 this.repositionItemCount();
                 this.configureTagContainer();
-                this.updateTagContainerVisibility();
+                
                 this.addTag();
                 this.removeTag();
         };
@@ -283,122 +283,142 @@ define(['o-question'],
         }
 
         //Start opened functions -- these are the settings for the openend search
-    
-        //Getting data from what source??
-        oQuestionOpenendSearch.prototype.getDataFromSource = function () {
-            var sourceConfig = this.properties.list;
-            if (sourceConfig.location === 'external') {
-                fetch(sourceConfig.source)
-                    .then(response => {
-                        if (response.ok) return response.json();
-                        throw new Error('Network response was not ok.');
-                    })
-                    .then(jsonData => this.processResponse(jsonData))
-                    .catch(error => console.error('Failed to fetch:', error));
-            } else if (sourceConfig.location === 'internal') {
-                
-                var scriptTag = document.querySelector(sourceConfig.source);
-                if (scriptTag && scriptTag.getAttribute('src')) {
-                    
-                    fetch(scriptTag.getAttribute('src'))
-                        .then(response => {
-                            if (response.ok) return response.json();
-                            throw new Error('Network response was not ok.');
-                        })
-                        .then(jsonData => this.processResponse(jsonData))
-                        .catch(error => console.error('Failed to fetch:', error));
-                }
-            }
-        };
-        //Processing the response from above
-        oQuestionOpenendSearch.prototype.processResponse = function (response) {
-            console.log('response:', response);
-            if (response && response.list && response.list.length) {
-                var html = '';
-                for (var i = 0; i < response.list.length; i++) {
-                    var item = response.list[i];
-                    html += '<li class="a-option-list">' + item.name + '</li>';
-                }
-                this.droplist.innerHTML = html;
-            } else {
-                this.droplist.innerHTML = '<li>No items found.</li>';
-            }
-        };
-        // List Count
-        oQuestionOpenendSearch.prototype.openendSearchListCount = function (){
-            console.log(this.openendCount.innerHTML);
+
+        // Getting data from what source??
+oQuestionOpenendSearch.prototype.getDataFromSource = function() {
+    var sourceConfig = this.properties.list;
+    var that = this; // Reference to the current instance for use in callbacks
+
+    function handleResponse(xhr) {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var jsonData = JSON.parse(xhr.responseText);
+            that.processResponse(jsonData);
+        } else {
+            console.error('Failed to fetch:', xhr.statusText);
         }
-        //updating the count
-        oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
-            var itemCountElement = document.querySelector('.o-question-item-count');
-            if (itemCountElement) {
-                if (count > 0) {
-                    itemCountElement.textContent = count + " matching items";
-                    itemCountElement.classList.remove('hidden'); 
-                } else if (count === 0) {
-                    itemCountElement.textContent = "No matches found";
-                    itemCountElement.classList.remove('hidden'); 
-                } else {
-                    itemCountElement.classList.add('hidden'); 
-                }
-            }
-        };  
-        //reposition html elements
-        oQuestionOpenendSearch.prototype.repositionItemCount = function() {
-            // Only move the item count if the droplist is visible and has 'manual-width'
-            if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
-                const itemCountElement = document.querySelector('.o-question-item-count');
-                if (itemCountElement) {
-                    // Move the item count element to come right after the droplist
-                    this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
-                }
-            }
-        };
-        //Tag config
-        oQuestionOpenendSearch.prototype.configureTagContainer = function() {
-            const container = document.createElement('div');
-            container.className = 'o-question-selected';
-            this.wrapper.appendChild(container); 
-        };
-        // Function to add a tag
-        oQuestionOpenendSearch.prototype.addTag = function(label) {
-            if (typeof label === 'undefined' || label === null) {
-                return; 
-            }
-        
-            var container = document.querySelector('.o-question-selected');
-            var tag = document.createElement('div');
-            tag.className = 'm-tag-answer';
-           
-            tag.innerHTML =   '<span> ' + label + '</span><button class="delete-tag">X</button>';
-            container.appendChild(tag);
+    }
 
-            tag.querySelector('.delete-tag').addEventListener('click', () => {
-                this.removeTag(tag);
-            });
-        };
-        oQuestionOpenendSearch.prototype.removeTag = function(tag, position) {
-            tag.remove();
-
-            if (this.element) {
-                this.element.value = '';  // Clearing the input field
+    function sendRequest(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                handleResponse(xhr);
             }
+        };
+        xhr.onerror = function() {
+            console.error('Network error');
+        };
+        xhr.send();
+    }
+
+    if (sourceConfig.location === 'external') {
+        sendRequest(sourceConfig.source);
+    } else if (sourceConfig.location === 'internal') {
+        var scriptTag = document.querySelector(sourceConfig.source);
+        if (scriptTag && scriptTag.getAttribute('src')) {
+            sendRequest(scriptTag.getAttribute('src'));
+        }
+    }
+};
+
+// Processing the response from above
+oQuestionOpenendSearch.prototype.processResponse = function(response) {
+    console.log('response:', response);
+    if (response && response.list && response.list.length) {
+        var html = '';
+        for (var i = 0; i < response.list.length; i++) {
+            var item = response.list[i];
+            html += '<li class="a-option-list">' + item.name + '</li>';
+        }
+        this.droplist.innerHTML = html;
+    } else {
+        this.droplist.innerHTML = '<li>No items found.</li>';
+    }
+};
+
+// List Count
+oQuestionOpenendSearch.prototype.openendSearchListCount = function() {
     
-            if (this.hiddenelement) {
-                this.hiddenelement.value = '';
-            }
-            
-            var currentvisiblelist = this.buildVisibleList();
+};
 
-            for (var i = 0; i < currentvisiblelist.length; i++) {
-                if (i === position) {
-                    currentvisiblelist[i].classList.remove('selected');
-                    currentvisiblelist[i].removeAttribute('data-selected');
-                    this.currentlistposition = i;
-                    console.log('remove classes');
-                } 
-            }
-        };
+// Updating the count
+oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
+    console.log('this.properties.list.prompts.listcount');
+    console.log( this.properties.list.prompts.listcount);
+    var itemCountElement = document.querySelector('.m-openend-search-count');
+    if (itemCountElement) {
+        if (count > 0) {
+            itemCountElement.textContent = count + " " + this.properties.list.prompts.listcount;
+            itemCountElement.classList.remove('hidden');
+        } else if (count === 0) {
+            itemCountElement.textContent = "No matches found";
+            itemCountElement.classList.remove('hidden');
+        } else {
+            itemCountElement.classList.add('hidden');
+        }
+    }
+};
+
+// Reposition html elements
+oQuestionOpenendSearch.prototype.repositionItemCount = function() {
+    var itemCountElement = document.querySelector('.m-openend-search-count');
+    if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
+        this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
+    }
+};
+
+// Tag config
+oQuestionOpenendSearch.prototype.configureTagContainer = function() {
+    var container = document.createElement('div');
+    container.className = 'o-question-selected';
+    this.wrapper.appendChild(container);
+};
+
+// Function to add a tag
+oQuestionOpenendSearch.prototype.addTag = function(label) {
+
+
+    if (typeof label === 'undefined' || label === null) {
+        return;
+    } else {
+        var container = document.querySelector('.o-question-selected');
+        var tag = document.createElement('div');
+        tag.className = 'm-tag-answer';
+        tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
+        container.appendChild(tag);    
+    
+        var deleteButton = tag.querySelector('.delete-tag');
+        deleteButton.addEventListener('click', function() {
+            this.removeTag(tag);
+        }.bind(this));
+    }
+
+   
+};
+oQuestionOpenendSearch.prototype.removeTag = function(tag) {
+
+    tag.remove();
+
+    if (this.element) {
+        this.element.value = '';  
+    }
+
+    if (this.hiddenelement) {
+        this.hiddenelement.value = '';
+    }
+    //I want to reset the itemCOUNT
+    if (this.itemCountElement) {
+        this.itemCountElement.textContent = "No matches found";
+        this.itemCountElement.classList.remove('hidden');
+    } else {
+        console.error('Item count element not found');
+    }
+};
+
+
+
+  
 
         //End openend search functions!
 
