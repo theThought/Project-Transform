@@ -60,7 +60,6 @@ define(
 
         page.prototype.styleDetails = function () {
             var detailmessages = document.querySelectorAll('details.o-message-information');
-            var sidebyside = (typeof this.properties.sidebyside !== 'undefined');
 
             document.addEventListener('click', function (event) {
                 if (event.target.tagName === 'SUMMARY') {
@@ -77,28 +76,12 @@ define(
                 var detailmessage = detailmessages[i];
                 if (detailmessage.innerHTML.trim().length) {
                     detailmessage.classList.add('has-content');
-
-                    // in side-by-side layouts it is necessary to move the instruction to prevent
-                    // it from occupying horizontal space adjacent to the question information
-                    if (sidebyside) {
-                        var questioncontainer = detailmessage.closest('.o-question-container');
-                        var questionresponse = questioncontainer.querySelector('.o-question-response');
-
-                        // in certain circumstances (information only questions) there may not be a question response
-                        // area - in these cases the instruction should be left in its original position
-                        if (questionresponse === null) {
-                            continue;
-                        }
-
-                        //questionresponse.insertAdjacentElement('beforeend', detailmessage);
-                    }
                 }
             }
         }
 
         page.prototype.styleInstructions = function () {
             var questioninstructions = document.getElementsByClassName('m-message-instruction');
-            var sidebyside = (typeof this.properties.sidebyside !== 'undefined');
 
             for (var i = 0; i < questioninstructions.length; i++) {
                 var questioninstruction = questioninstructions[i];
@@ -109,21 +92,6 @@ define(
                     questioninstructions[i].innerHTML = '';
                     questioninstructions[i].appendChild(questioninformationcontentcontainer);
                     questioninstruction.classList.add('has-content');
-
-                    // in side-by-side layouts it is necessary to move the instruction to prevent
-                    // it from occupying horizontal space adjacent to the question information
-                    if (sidebyside) {
-                        var questioncontainer = questioninstruction.closest('.o-question-container');
-                        var questionresponse = questioncontainer.querySelector('.o-question-response');
-
-                        // in certain circumstances (information only questions) there may not be a question response
-                        // area - in these cases the instruction should be left in its original position
-                        if (questionresponse === null) {
-                            continue;
-                        }
-
-                        //questionresponse.insertAdjacentElement('afterbegin', questioninstruction);
-                    }
                 }
             }
         }
