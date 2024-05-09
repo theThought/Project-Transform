@@ -1313,8 +1313,8 @@ span.m-input-singlelineedit + script ~ .m-option-base {
 
 .balance .m-option-base {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   margin-right: 1em;
 }
 
@@ -1420,7 +1420,7 @@ html[dir=rtl] .balance .m-option-base {
   margin-bottom: calc(1em - 1px);
 }
 .balance .o-option-sublist + .m-option-base {
-  margin-top: 0;
+  margin-top: 1em;
 }
 .balance .m-option-base + .o-option-sublist {
   margin-top: 0.5em;
