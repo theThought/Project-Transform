@@ -111,7 +111,7 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.createScaleUnits = function () {
-            for (var i = this.min; i <= this.max; i=i+this.step) {
+            for (var i = this.min; i <= this.max; i = i + this.step) {
 
                 var scaleItem = document.createElement('div');
                 var scaleLabel = document.createElement('span');
@@ -236,16 +236,21 @@ define(['o-question'],
             }
 
             var imageURL = imageProperties.url;
-            var imageWidth = imageProperties.width;
-            var imageHeight = imageProperties.height;
-
-            var caption = backgroundProperties.caption;
-
-            var imageXOffset = backgroundProperties.offset.x;
-            var imageYOffset = backgroundProperties.offset.y;
 
             if (typeof imageURL === "undefined") {
                 return;
+            }
+
+            var imageWidth = (typeof imageProperties.width === 'undefined') ? '' : imageProperties.width;
+            var imageHeight = (typeof imageProperties.height === 'undefined') ? '' : imageProperties.height;
+            var imageOffsetX = '0';
+            var imageOffsetY = '0';
+
+            var caption = (typeof imageProperties.caption === 'undefined') ? '' : backgroundProperties.caption;
+
+            if (typeof imageProperties.offset !== 'undefined') {
+                imageOffsetX = (typeof imageProperties.offset.x === 'undefined') ? '0' : backgroundProperties.offset.x;
+                imageOffsetY = (typeof imageProperties.offset.y === 'undefined') ? '0' : backgroundProperties.offset.y;
             }
 
             this.container.classList.add('has-container-background');
@@ -253,8 +258,9 @@ define(['o-question'],
             this.container.style.height = imageHeight;
             this.container.style.width = imageWidth;
             this.container.style.backgroundImage = 'url("' + imageURL + '")';
-            this.container.style.backgroundPositionX = imageXOffset + 'px';
-            this.container.style.backgroundPositionY = imageYOffset + 'px';
+            this.container.style.backgroundPositionX = imageOffsetX + 'px';
+            this.container.style.backgroundPositionY = imageOffsetY + 'px';
+            this.container.ariaLabel = caption;
         }
 
         oQuestionScale.prototype.unit = function (unitProperties) {
@@ -267,11 +273,15 @@ define(['o-question'],
             var imageURL = imageProperties.url;
             var imageWidth = imageProperties.width;
             var imageHeight = imageProperties.height;
+            var imageOffsetX = '0';
+            var imageOffsetY = '0';
 
-            var caption = unitProperties.caption;
+            var caption = (typeof imageProperties.caption === 'undefined') ? '' : unitProperties.caption;
 
-            var imageXOffset = unitProperties.offset.x;
-            var imageYOffset = unitProperties.offset.y;
+            if (typeof imageProperties.offset !== 'undefined') {
+                imageOffsetX = (typeof imageProperties.offset.x === 'undefined') ? '0' : unitProperties.offset.x;
+                imageOffsetY = (typeof imageProperties.offset.y === 'undefined') ? '0' : unitProperties.offset.y;
+            }
 
             if (typeof imageURL === "undefined") {
                 return;
@@ -281,11 +291,12 @@ define(['o-question'],
             var scaleUnits = this.container.querySelectorAll('.m-scale-unit');
 
             scaleUnits.forEach(function (unit) {
-                unit.style.top = imageYOffset + 'px';
-                unit.style.left = imageXOffset + 'px';
+                unit.style.left = imageOffsetX + 'px';
+                unit.style.top = imageOffsetY + 'px';
                 unit.style.height = imageHeight;
                 unit.style.width = imageWidth;
                 unit.style.backgroundImage = 'url("' + imageURL + '")';
+                unit.ariaLabel = caption;
             });
         }
 
