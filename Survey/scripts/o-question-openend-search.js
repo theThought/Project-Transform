@@ -14,15 +14,8 @@ define(['o-question'],
             this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
             this.droplist = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
-            
-            
-
-    
-            
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-           
-            
-            
+        
             //Openend search
             // this.isOpenendSearch = document.querySelector('div.o-question-response');
             this.isOpenendSearch = document.querySelector('div.o-openend-search');
@@ -32,8 +25,6 @@ define(['o-question'],
             this.keypressed = null;
             this.keybuffer = '';
             this.searchableNames = [];
-            
-            
             
             this.list = null;
             this.location = null;
@@ -59,13 +50,6 @@ define(['o-question'],
 
         oQuestionOpenendSearch.prototype.init = function () {
             oQuestionOpenendSearch.prototype.init.call(this);
-            
-            this.cloneInputElement();
-            this.getDataFromSource();
-            
-        }
-
-        oQuestionOpenendSearch.prototype.init = function () {
             
                 this.list = this.buildList();
                 this.indexList();
