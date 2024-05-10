@@ -93,7 +93,7 @@ define(['o-question'],
 
         oQuestionScale.prototype.configureWidth = function () {
             if (this.element.style.width) {
-                this.unitContainer.style.width = this.element.style.width;
+                this.unitContainer.style.maxWidth = this.element.style.width;
             }
         }
 
