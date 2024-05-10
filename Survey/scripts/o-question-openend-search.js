@@ -17,7 +17,6 @@ define(['o-question'],
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
         
             //Openend search
-            // this.isOpenendSearch = document.querySelector('div.o-question-response');
             this.isOpenendSearch = document.querySelector('div.o-openend-search');
             this.itemCountElement = document.querySelector('.m-openend-search-count');
             this.hiddenelement = null;
@@ -49,7 +48,6 @@ define(['o-question'],
         oQuestionOpenendSearch.prototype.constructor = oQuestionOpenendSearch;
 
         oQuestionOpenendSearch.prototype.init = function () {
-            oQuestionOpenendSearch.prototype.init.call(this);
             
                 this.list = this.buildList();
                 this.indexList();
@@ -74,7 +72,6 @@ define(['o-question'],
                 
                 //For the new openend search
                 this.getDataFromSource();
-                this.openendSearchListCount();
                 this.updateItemCount();
                 this.repositionItemCount();
                 this.configureTagContainer();
@@ -90,8 +87,6 @@ define(['o-question'],
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener(this.group + '_optionVisibility', this, false);
-       
-            
         }
 
         oQuestionOpenendSearch.prototype.configureLocalEventListeners = function () {
@@ -279,159 +274,7 @@ define(['o-question'],
             }
         }
 
-        //Start opened functions -- these are the settings for the openend search
-
-        // Getting data from what source??
-        oQuestionOpenendSearch.prototype.getDataFromSource = function() {
-            var sourceConfig = this.properties.list;
-            var that = this;
-            
-            function handleResponse(xhr) {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    try {
-                        var jsonData = JSON.parse(xhr.responseText);
-                        that.processResponse(jsonData);
-                        console.log("Data fetched:", jsonData);
-                    } catch (e) {
-                        console.error('Error parsing JSON', e);
-                    }
-                } else {
-                    console.error('Failed to fetch:', xhr.statusText);
-                }
-            }
-        
-            function sendRequest(url) {
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', url, true);
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4) {  
-                        handleResponse(xhr);
-                    }
-                };
-                xhr.onerror = function() {
-                    console.error('Network error');
-                };
-                xhr.send();
-            }
-        
-            // Locating the script tag and initiating a request
-            if (sourceConfig.location === 'internal') {
-                var scriptTag = document.querySelector('script.a-list');
-                if (scriptTag && scriptTag.src) {
-                    sendRequest(scriptTag.src);
-                } else {
-                    console.error("No script tag with class 'a-list' or 'src' attribute found.");
-                }
-            } else if (sourceConfig.location === 'external') {
-                sendRequest(sourceConfig.source);
-            }
-        };
-        
-        // Processing the response from above
-        // I need this to be processed in the same way with the input etc EG DROPLIST!
-        oQuestionOpenendSearch.prototype.processResponse = function(response) {
-
-            //setting data
-            if (response && response.list && response.list.length) {
-                this.setDropListDirection();
-                this.element.classList.remove('list-visible');
-                this.droplist.classList.remove('visible');
-                this.repositionItemCount(); 
-        
-                
-                var html = '';
-                for (var i = 0; i < response.list.length; i++) {
-                    var item = response.list[i];
-                    html += '<li class="a-option-list">' + item.name + '</li>';
-                }
-                this.droplist.innerHTML = html;
-            } else {
-                this.droplist.innerHTML = '<li>No items found.</li>';
-            }
-
-       
-         
-        };
-
-        // List Count
-        oQuestionOpenendSearch.prototype.openendSearchListCount = function() {
-            
-        };
-
-        // Updating the count
-        oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
-            
-            var itemCountElement = document.querySelector('.m-openend-search-count');
-            if (itemCountElement) {
-                if (count > 0) {
-                    itemCountElement.textContent = count + " " + this.properties.list.prompts.listcount;
-                    itemCountElement.classList.remove('hidden');
-                } else if (count === 0) {
-                    itemCountElement.textContent = "No matches found";
-                    itemCountElement.classList.remove('hidden');
-                } else {
-                    itemCountElement.classList.add('hidden');
-                }
-            }
-        };
-
-        // Reposition html elements
-        oQuestionOpenendSearch.prototype.repositionItemCount = function() {
-            var itemCountElement = document.querySelector('.m-openend-search-count');
-            if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
-                this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
-            }
-        };
-
-        // Tag config
-        oQuestionOpenendSearch.prototype.configureTagContainer = function() {
-            var container = document.createElement('div');
-            container.className = 'o-question-selected';
-            this.wrapper.appendChild(container);
-        };
-
-        // Function to add a tag
-        oQuestionOpenendSearch.prototype.addTag = function(label) {
-
-
-            if (typeof label === 'undefined' || label === null) {
-                return;
-            } else {
-                var container = document.querySelector('.o-question-selected');
-                var tag = document.createElement('div');
-                tag.className = 'm-tag-answer';
-                tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
-                container.appendChild(tag);    
-            
-                var deleteButton = tag.querySelector('.delete-tag');
-                deleteButton.addEventListener('click', function() {
-                    this.removeTag(tag);
-                }.bind(this));
-            }
-
-        
-        };
-        oQuestionOpenendSearch.prototype.removeTag = function(tag) {
-
-            tag.remove();
-
-            if (this.element) {
-                this.element.value = '';  
-            }
-
-            if (this.hiddenelement) {
-                this.hiddenelement.value = '';
-            }
-            //I want to reset the itemCOUNT
-            if (this.itemCountElement) {
-                this.itemCountElement.textContent = "No matches found";
-                this.itemCountElement.classList.remove('hidden');
-            } else {
-                console.error('Item count element not found');
-            }
-        };
-
-        //End openend search functions!
+//WAS ERE
 
         oQuestionOpenendSearch.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
@@ -758,7 +601,7 @@ define(['o-question'],
 
         oQuestionOpenendSearch.prototype.hideList = function () {
             this.element.classList.remove('list-visible');
-            this.droplist.classList.remove('visible');
+           this.droplist.classList.remove('visible');
             this.repositionItemCount();
         }
 
@@ -766,7 +609,7 @@ define(['o-question'],
             this.setDropListDirection();
 
                 this.element.classList.toggle('list-visible');
-                this.droplist.classList.toggle('visible');
+                //this.droplist.classList.toggle('visible');
         }
 
         oQuestionOpenendSearch.prototype.setDropListDirection = function () {
@@ -855,6 +698,7 @@ define(['o-question'],
         }
 
         oQuestionOpenendSearch.prototype.filterListStarts = function(inputstring) {
+            console.log(inputstring);
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction'); // Apply visual cue for character restriction
@@ -921,11 +765,190 @@ define(['o-question'],
         
         oQuestionOpenendSearch.prototype.togglePlaceholderVisibility = function (visibility) {
             if (visibility) {
-                this.droplist.classList.add('empty');
+                // this.droplist.classList.add('emptydddd');
             } else {
                 this.droplist.classList.remove('empty');
             }
         }
+
+
+                //Start opened functions -- these are the settings for the openend search
+
+                oQuestionOpenendSearch.prototype.getDataFromSource = function() {
+                    var sourceConfig = this.properties.list;
+                    var that = this;
+                    
+                    function handleResponse(xhr) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            try {
+                                var jsonData = JSON.parse(xhr.responseText);
+                                that.processResponse(jsonData);
+                                //console.log("Data fetched:", jsonData);
+                            } catch (e) {
+                                console.error('Error parsing JSON', e);
+                            }
+                        } else {
+                            console.error('Failed to fetch:', xhr.statusText);
+                        }
+                    }
+                
+                    function sendRequest(url) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', url, true);
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState === 4) {  
+                                handleResponse(xhr);
+                            }
+                        };
+                        xhr.onerror = function() {
+                            console.error('Network error');
+                        };
+                        xhr.send();
+                    }
+                
+                    // Locating the script tag and initiating a request
+                    if (sourceConfig.location === 'internal') {
+                        var scriptTag = document.querySelector('script.a-list');
+                        if (scriptTag && scriptTag.src) {
+                            sendRequest(scriptTag.src);
+                            console.log('Send the script.');
+                        } else {
+                            this.droplist.classList.remove('visible');
+                            this.element.classList.remove('list-visible');
+                            console.error("No script tag with class 'a-list' or 'src' attribute found.");
+                        }
+                    } else if (sourceConfig.location === 'external') {
+                        sendRequest(sourceConfig.source);
+                    }
+                };
+                
+            
+                oQuestionOpenendSearch.prototype.processResponse = function(response) {
+                    //Set ul => list items
+                    if (response && response.list && response.list.length) {
+                        this.setDropListDirection();
+                        this.repositionItemCount(); 
+                
+                        var html = '';
+                        for (var i = 0; i < response.list.length; i++) {
+                            var item = response.list[i];
+                            html += '<li class="a-option-list">' + item.name + '</li>';
+                        }
+                        this.droplist.innerHTML = html;
+                    } else {
+                        this.droplist.innerHTML = '';
+                        
+                    }
+        
+          
+                    
+                    var uniqueWords = {}; // Object to hold unique words
+                    var itemList = response.list;
+                
+                    // Loop through each item in the list
+                    for (var i = 0; i < itemList.length; i++) {
+                        var item = itemList[i];
+                        // making sure there is a name property
+                        if (item.name) {
+                            // Split the name into words based on spaces
+                            var words = item.name.split(/\s+/); 
+                            for (var j = 0; j < words.length; j++) {
+                                // Clean the word to remove non-alphanumeric characters
+                                var word = words[j].replace(/[^a-zA-Z0-9]/g, ''); 
+                                // Making sure the word is over 4 characters
+                                if (word.length > 4) {
+                                    uniqueWords[word] = true; // Add the word to the object as a key
+                                }
+                            }
+                        }
+                    }
+                    console.log('word?');
+                    console.log(Object.keys(uniqueWords));
+                    // return Object.keys(uniqueWords); 
+
+                
+                 
+                };
+        
+                // Updating the count
+                oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
+                    var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
+                    var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
+                    if (itemCountElement && itemPromptElement) {
+                        if (count > 0) {
+                            if (this.properties && this.properties.list && this.properties.list.prompts && this.properties.list.prompts.listcount) {
+                                itemCountElement.textContent = count;
+                                itemPromptElement.textContent = this.properties.list.prompts.listcount;
+                            } else {
+                                itemCountElement.textContent = count;
+                                itemPromptElement.textContent = "items";
+                            }
+                            itemCountElement.parentNode.classList.remove('hidden');
+                        } else if (count === 0) {
+                            itemCountElement.textContent = "0";
+                            itemPromptElement.textContent = "No matches found";
+                            itemCountElement.parentNode.classList.remove('hidden');
+                        } else {
+                            itemCountElement.parentNode.classList.add('hidden');
+                        }
+                    }
+                };
+                
+                // Reposition html elements
+                oQuestionOpenendSearch.prototype.repositionItemCount = function() {
+                    var itemCountElement = document.querySelector('.m-openend-search-count');
+                    if (this.droplist.classList.contains('visible') && this.droplist.classList.contains('manual-width')) {
+                        this.droplist.parentNode.insertBefore(itemCountElement, this.droplist.nextSibling);
+                    }
+                };
+        
+                // Configure tag container and insert above the inputs
+                oQuestionOpenendSearch.prototype.configureTagContainer = function() {
+                    var container = document.createElement('div');
+                    container.className = 'o-question-selected';
+                    var inputElement = this.wrapper.querySelector('input'); // Assuming there is an input element to reference
+                    this.wrapper.insertBefore(container, inputElement);
+                };
+        
+                // Function to add a tag
+                oQuestionOpenendSearch.prototype.addTag = function(label) {
+                    if (typeof label === 'undefined' || label === null) {
+                        return;
+                    } else {
+                        var container = document.querySelector('.o-question-selected');
+                        var tag = document.createElement('div');
+                        tag.className = 'm-tag-answer';
+                        tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
+                        container.appendChild(tag);
+        
+                        var deleteButton = tag.querySelector('.delete-tag');
+                        deleteButton.addEventListener('click', function() {
+                            this.removeTag(tag);
+                        }.bind(this));
+                    }
+                };
+        
+                // Function to remove a tag
+                oQuestionOpenendSearch.prototype.removeTag = function(tag) {
+                    tag.remove();
+        
+                    if (this.element) {
+                        this.element.value = '';  
+                    }
+        
+                    if (this.hiddenelement) {
+                        this.hiddenelement.value = '';
+                    }
+                    // Reset the item count
+                    if (this.itemCountElement) {
+                        this.itemCountElement.textContent = "No matches found";
+                        this.itemCountElement.classList.remove('hidden');
+                    } else {
+                        console.error('Item count element not found');
+                    }
+                };
+        
+                //End openend search functions!
 
         return oQuestionOpenendSearch;
 
