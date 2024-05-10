@@ -6,7 +6,6 @@ define(['o-question'],
             this.container = document.querySelector('.o-question-scale-horizontal[data-questiongroup="' + this.group + '"]');
             this.unitContainer = this.container.querySelector('.o-scale-unitcontainer');
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
-            this.isRTL = document.dir === 'rtl';
             this.min = 1;
             this.max = 10;
             this.step = 1;
@@ -64,12 +63,6 @@ define(['o-question'],
                 case this.group + '_dismissExclusive':
                     this.onDismissExclusive(event);
                     break;
-                case this.group + '_incrementValue':
-                    this.incrementValue(event);
-                    break;
-                case this.group + '_decrementValue':
-                    this.decrementValue(event);
-                    break;
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
                     break;
@@ -85,7 +78,7 @@ define(['o-question'],
             this.setValue();
         }
 
-        oQuestionScale.prototype.onDismissExclusive = function (event) {
+        oQuestionScale.prototype.onDismissExclusive = function () {
             this.setValue(this.placeholder);
         }
 
@@ -165,19 +158,6 @@ define(['o-question'],
                     unit.style.backgroundPositionX = '0';
                 }
             });
-        }
-
-        oQuestionScale.prototype.show = function (showProperties) {
-            // this could have multiple entries so here is the local routing for sub-options of 'show'
-            if (showProperties.terminators !== 'undefined') {
-                this.showTerminators(showProperties.terminators);
-            }
-        }
-
-        oQuestionScale.prototype.showTerminators = function (prop) {
-            if (prop) {
-                this.container.classList.add('has-terminators');
-            }
         }
 
         oQuestionScale.prototype.values = function (valuesProperties) {
@@ -298,29 +278,6 @@ define(['o-question'],
                 unit.style.backgroundImage = 'url("' + imageURL + '")';
                 unit.ariaLabel = caption;
             });
-        }
-
-        oQuestionScale.prototype.incrementValue = function () {
-            var currentValue = parseInt(this.element.value);
-
-            if (isNaN(currentValue)) {
-                currentValue = this.min - this.step;
-            }
-
-            var max = this.element.max ? parseInt(this.element.max) : 10;
-
-            if (currentValue < max) {
-                this.setValue(currentValue + this.step);
-            }
-        }
-
-        oQuestionScale.prototype.decrementValue = function () {
-            var currentValue = parseInt(this.element.value);
-            var min = this.element.min ? parseInt(this.element.min) : 1;
-
-            if (currentValue > min) {
-                this.setValue(currentValue - 1);
-            }
         }
 
         return oQuestionScale;

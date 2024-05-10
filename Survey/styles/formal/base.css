@@ -2408,12 +2408,6 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   border: none;
 }
 
-.has-terminators .o-question-scale-horizontal-control {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .o-scale-unitcontainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2430,15 +2424,6 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.has-terminators .o-label-container {
-  margin-left: 50px;
-}
-
-html[dir=rtl] .has-terminators .o-label-container {
-  margin-left: 0;
-  margin-right: 50px;
 }
 
 .o-label-container {

@@ -9,10 +9,6 @@
     border: none;
 }
 
-.has-terminators .o-question-scale-horizontal-control {
-    display: flex;
-}
-
 .o-scale-unitcontainer {
     display: flex;
     justify-content: space-around;
@@ -24,17 +20,6 @@
 
 .o-label-container {
     display: flex;
-}
-
-.has-terminators .o-label-container {
-    margin-left: 50px;
-}
-
-html[dir=rtl] {
-    .has-terminators .o-label-container {
-        margin-left: 0;
-        margin-right: 50px;
-    }
 }
 
 .o-label-container {
