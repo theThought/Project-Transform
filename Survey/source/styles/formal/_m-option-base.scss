@@ -39,6 +39,7 @@ span.m-input-singlelineedit + script ~ .m-option-base {
     margin-bottom: 0;
 }
 
+.balance .m-option-base:nth-last-of-type(1),
 .balance.one-size .m-option-base:nth-last-of-type(1) {
     margin-bottom: 4px;
 }
