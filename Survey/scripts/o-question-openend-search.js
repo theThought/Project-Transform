@@ -11,11 +11,12 @@ define(['o-question'],
 
         function oQuestionOpenendSearch(id, group) {
             oQuestion.call(this, id, group);
+
             this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
             this.droplist = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
             this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-        
+            this.ULlist = this.element.closest('div[data-questiongroup="' + this.group + '"]');
             //Openend search
             this.isOpenendSearch = document.querySelector('div.o-openend-search');
             this.itemCountElement = document.querySelector('.m-openend-search-count');
@@ -765,7 +766,7 @@ define(['o-question'],
         
         oQuestionOpenendSearch.prototype.togglePlaceholderVisibility = function (visibility) {
             if (visibility) {
-                // this.droplist.classList.add('emptydddd');
+                // this.droplist.classList.add('empty');
             } else {
                 this.droplist.classList.remove('empty');
             }
@@ -808,14 +809,16 @@ define(['o-question'],
                 
                     // Locating the script tag and initiating a request
                     if (sourceConfig.location === 'internal') {
+                        
                         var scriptTag = document.querySelector('script.a-list');
+                        
                         if (scriptTag && scriptTag.src) {
                             sendRequest(scriptTag.src);
-                            console.log('Send the script.');
+                            console.log('Script tag found send data.');
                         } else {
                             this.droplist.classList.remove('visible');
                             this.element.classList.remove('list-visible');
-                            console.error("No script tag with class 'a-list' or 'src' attribute found.");
+                            console.log("No script tag with class 'a-list' or 'src' attribute found.");
                         }
                     } else if (sourceConfig.location === 'external') {
                         sendRequest(sourceConfig.source);
@@ -842,9 +845,17 @@ define(['o-question'],
         
           
                     
-                    var uniqueWords = {}; // Object to hold unique words
-                    var itemList = response.list;
-                
+                    // Object to hold unique words
+                    var uniqueWords = {}; 
+
+                    // Will need to either get all the item like below
+                    // When script is found this runs!
+                    var itemList = response.list; 
+
+                    // Or I will need to go over all the LI elements in the html and then get all the key words from list items
+                    // not too sure what impact this will have on performance based on end lists being return. 
+                    // If exceeds 1k this might have an impact
+
                     // Loop through each item in the list
                     for (var i = 0; i < itemList.length; i++) {
                         var item = itemList[i];
@@ -864,16 +875,14 @@ define(['o-question'],
                     }
                     console.log('word?');
                     console.log(Object.keys(uniqueWords));
-                    // return Object.keys(uniqueWords); 
-
-                
-                 
+                    // return Object.keys(uniqueWords);  
                 };
         
                 // Updating the count
                 oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
                     var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
                     var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
+
                     if (itemCountElement && itemPromptElement) {
                         if (count > 0) {
                             if (this.properties && this.properties.list && this.properties.list.prompts && this.properties.list.prompts.listcount) {
