@@ -78,8 +78,8 @@ define(['o-question'],
                 this.configureTagContainer();
                 this.addTag();
                 this.removeTag();                 
-                this.processResponse();
-                this.wordMatching();
+                // this.processResponse();
+                // this.wordMatching();
         };
 
         oQuestionOpenendSearch.prototype.configureIncomingEventListeners = function () {
@@ -766,88 +766,38 @@ define(['o-question'],
             this.togglePlaceholderVisibility(visibleitems === 0);
         };
         
-        oQuestionOpenendSearch.prototype.togglePlaceholderVisibility = function (visibility) {
-            if (visibility) {
-                // this.droplist.classList.add('empty');
-            } else {
-                this.droplist.classList.remove('empty');
-            }
-        }
+                oQuestionOpenendSearch.prototype.togglePlaceholderVisibility = function (visibility) {
+                    console.log("visibility status");
+                    console.log(visibility);
+                    if (visibility) {
+                        //Before this was hidden to stop annoying LI warning but now back in play, I will remove this comment in a few commits.
+                         this.droplist.classList.add('empty');
+                    } else {
+                        this.droplist.classList.remove('empty');
+                    }
+                }
 
 
                 //Start opened functions -- these are the settings for the openend search
 
+                //Getting data from
+                //"location":"internal",
+                //"source":"a-list",
+                // No ajax needed here for this senario.
+
                 oQuestionOpenendSearch.prototype.getDataFromSource = function() {
-                    var sourceConfig = this.properties.list;
-                    var that = this;
                     
-                    function handleResponse(xhr) {
-                        if (xhr.status >= 200 && xhr.status < 300) {
-                            try {
-                                var jsonData = JSON.parse(xhr.responseText);
-                                that.processResponse(jsonData);
-                                //console.log("Data fetched:", jsonData);
-                            } catch (e) {
-                                console.error('Error parsing JSON', e);
-                            }
-                        } else {
-                            console.error('Failed to fetch:', xhr.statusText);
-                        }
+                    var listElement = document.getElementById(this.droplist.id);
+                    var html = '';
+
+                    for (var i = 0; i < barcodelist.list.length; i++) {
+                        var item = barcodelist.list[i];
+                        html += '<li class="a-option-list">' + item.name + '</li>';
                     }
-                
-                    function sendRequest(url) {
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('GET', url, true);
-                        xhr.onreadystatechange = function() {
-                            if (xhr.readyState === 4) {  
-                                handleResponse(xhr);
-                            }
-                        };
-                        xhr.onerror = function() {
-                            console.error('Network error');
-                        };
-                        xhr.send();
-                    }
-                
-                    // Locating the script tag and initiating a request
-                    if (sourceConfig.location === 'internal') {
-                        
-                        var scriptTag = document.querySelector('script.a-list');
-                        
-                        if (scriptTag && scriptTag.src) {
-                            sendRequest(scriptTag.src);
-                            console.log('Script tag found send data.');
-                        } else {
-                            this.droplist.classList.remove('visible');
-                            this.element.classList.remove('list-visible');
-                            console.log("No script tag with class 'a-list' or 'src' attribute found.");
-                        }
-                    } else if (sourceConfig.location === 'external') {
-                        sendRequest(sourceConfig.source);
-                    }
+
+                    listElement.innerHTML = html;
                 };
-                
-            
-                oQuestionOpenendSearch.prototype.processResponse = function(response) {
-                    //only runs when there is data coming from external json list
-                    
-                    //Set ul => list items
-                    if (response && response.list && response.list.length) {
-                        this.setDropListDirection();
-                        this.repositionItemCount(); 
-                
-                        var html = '';
-                        for (var i = 0; i < response.list.length; i++) {
-                            var item = response.list[i];
-                            html += '<li class="a-option-list">' + item.name + '</li>';
-                        }
-                        this.droplist.innerHTML = html;
-                    } else {
-                        this.droplist.innerHTML = '';
-                        
-                    }
-                };
-          
+
                 // Updating the count
                 oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
                     var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
@@ -927,54 +877,65 @@ define(['o-question'],
                     }
                 };
         
-                oQuestionOpenendSearch.prototype.wordMatching = function() {
+                // oQuestionOpenendSearch.prototype.wordMatching = function() {
 
-                    console.log("this.droplist");
-                    
+                // //Word Matching
 
-                    //console.log(this.droplist);
+                //            // Object to hold unique words
+                //            var uniqueWords = {}; 
 
-
-                //Word Matching
-
-                           // Object to hold unique words
-                        //    var uniqueWords = {}; 
-
-                           // Will need to either get all the item like below
-                           // When script is found this runs!
-                        //    var itemList = response.list; 
-                        //    console.log("this.droplist");
-                        //    console.log(this.droplist);
+                //            // Will need to either get all the item like below
+                //            // When script is found this runs!
+                //            var itemList = response.list; 
+                //            console.log("this.droplist");
+                //            console.log(this.droplist);
        
-                           // Or I will need to go over all the LI elements in the html and then get all the key words from list items
-                           // not too sure what impact this will have on performance based on end lists being return. 
-                           // If exceeds 1k this might have an impact
+                //            // Or I will need to go over all the LI elements in the html and then get all the key words from list items
+                //            // not too sure what impact this will have on performance based on end lists being return. 
+                //            // If exceeds 1k this might have an impact
        
-                           // Loop through each item in the list
-                        //    for (var i = 0; i < itemList.length; i++) {
-                        //        var item = itemList[i];
-                        //        // making sure there is a name property
-                        //        if (item.name) {
-                        //            // Split the name into words based on spaces
-                        //            var words = item.name.split(/\s+/); 
-                        //            for (var j = 0; j < words.length; j++) {
-                        //                // Clean the word to remove non-alphanumeric characters
-                        //                var word = words[j].replace(/[^a-zA-Z0-9]/g, ''); 
-                        //                // Making sure the word is over 4 characters
-                        //                if (word.length > 4) {
-                        //                    uniqueWords[word] = true; // Add the word to the object as a key
-                        //                }
-                        //            }
-                        //        }
-                        //    }
-                        //    console.log('word?');
-                        //    console.log(Object.keys(uniqueWords));
-                           // return Object.keys(uniqueWords);  
+                //            // Loop through each item in the list
+                //            for (var i = 0; i < itemList.length; i++) {
+                //                var item = itemList[i];
+                //                // making sure there is a name property
+                //         //   Object to hold unique words
+                //            var uniqueWords = {}; 
 
-                }
+                //            // Will need to either get all the item like below
+                //            // When script is found this runs!
+                //            var itemList = response.list; 
+                //            console.log("this.droplist");
+                //            console.log(this.droplist);
+       
+                //            // Or I will need to go over all the LI elements in the html and then get all the key words from list items
+                //            // not too sure what impact this will have on performance based on end lists being return. 
+                //            // If exceeds 1k this might have an impact
+       
+                //            // Loop through each item in the list
+                //            for (var i = 0; i < itemList.length; i++) {
+                //                var item = itemList[i];
+                //                // making sure there is a name property
+                //                if (item.name) {
+                //                    // Split the name into words based on spaces
+                //                    var words = item.name.split(/\s+/); 
+                //                    for (var j = 0; j < words.length; j++) {
+                //                        // Clean the word to remove non-alphanumeric characters
+                //                        var word = words[j].replace(/[^a-zA-Z0-9]/g, ''); 
+                //                        // Making sure the word is over 4 characters
+                //                        if (word.length > 4) {
+                //                            uniqueWords[word] = true; // Add the word to the object as a key
+                //                        }
+                //                    }
+                //                }
+                //            }
+                //            console.log('word?');
+                //            console.log(Object.keys(uniqueWords));
+                //            return Object.keys(uniqueWords);  
+
+                // }
 
 
-
+                //  }
                 //End openend search functions!
 
         return oQuestionOpenendSearch;
