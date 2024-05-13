@@ -1,0 +1,298 @@
+﻿Metadata(en-US, Question, Label)
+
+WhenResult "" info;
+WhereResult "" info;
+WhatResult"" info;
+HowMuchResult "" info; 
+PictureResult "" info;
+SummaryPage Page "" (WhenResult, WhereResult, WhatResult, HowMuchResult, PictureResult);
+End Metadata
+Routing(Web)
+
+dim templateLocation
+dim progressJSON
+dim progressJSONarray[11]
+dim visibilityRule
+dim currentTemplate, layoutTemplate
+dim askAgain
+dim focusQuestion, focusControl, focusBalance
+dim isPWA, isPaste, isJump
+
+templateLocation = ""
+layoutTemplate = ""
+askAgain = true
+focusQuestion = "true"
+focusControl = "true"
+focusBalance = ""
+isPWA = "false"
+isPaste = "false"
+isJump = "false"
+
+IOM.LayoutTemplate = "formal.htm"
+
+IOM.QuestionTemplate = templateLocation + "question.htm"
+
+IOM.Banners.AddNew("PageName", "")
+IOM.Banners.AddNew("PageCustomProperties", "")
+IOM.Banners.AddNew("Contactushtml", "<a href='mailto:contactus@healthcare.ipsos.com' window='new'>Contact Us</a>")
+
+
+IOM.Info.EstimatedPages = 4
+
+WhenResult.banners.AddNew("subprompt", "")
+WhenResult.banners.addnew("response", "")
+
+'WhereResult "" info;
+'WhatResult"" info;
+'HowMuchResult "" info; 
+'PictureResult "" info;
+'SummaryPage.Show()
+
+function FindBanner(theQuestion, theBannerName)
+dim numberOfBanners
+dim bannerFound
+dim bannercount
+	numberOfBanners = theQuestion.Banners.count
+	bannerFound = false
+	for bannerCount = 0 to numberOfBanners - 1
+		if theQuestion.Banners[bannerCount].name = theBannerName then
+			set FindBanner = theQuestion.Banners[bannerCount]
+			exit function
+		end if
+	Next
+	set FindBanner = null
+end function
+
+function AddCustomProperties(theQuestion, theQuestionName, theBannerContent, theAction)
+dim questionName
+
+	questionName = MakeString("_Q", theQuestionName.Replace("_", "__"))
+	questionName = questionName.Replace("__Q","_Q")
+	CreateBanner(theQuestion, "CustomProperties")
+	
+	SetCustomProperties(theQuestion, questionName, theBannerContent, theAction)
+end function
+
+function SetCustomProperties(theQuestion, theQuestionName, theBannerContent, theAction)
+dim quote
+dim bannerArray
+dim bannerContent
+	if theAction is null then theAction = "replace"
+	
+	quote = ChrW(34)
+	debug.Log(MakeString("start banner content:", theBannerContent))
+	bannerContent = theBannerContent.Replace("'", quote).Replace("%%","'").Replace("<","%lt%").Replace(">","%gt%")'.Replace("&","%amp;%")
+	debug.Log(MakeString("complete banner content:", bannerContent))
+	
+	bannerContent = MakeString("<script type='text/javascript'>", "app.RegisterProperties(", quote, theQuestionName, quote, ",", bannerContent, ");</script>")
+	debug.Log(MakeString("final banner content:", bannerContent))
+	
+	if theAction <> "replace" then
+		theQuestion.Banners["CustomProperties"].text = MakeString(theQuestion.Banners["CustomProperties"].text, bannerContent)
+	else
+		theQuestion.Banners["CustomProperties"].text = bannerContent
+	end if
+end function
+
+function CreateBanner(theQuestion, theBannerName)
+dim bannerFound
+	set bannerFound = FindBanner(theQuestion, theBannerName)
+	if bannerFound is null then
+		theQuestion.Banners.AddNew(theBannerName, "")
+	end if
+end function
+
+
+function BuildRegisterContainer(theQuestion, theIndex, theName)
+dim registerScript, registerBanner
+dim questionIndex
+dim questionName
+dim stringScript, stringComponent, stringQuestionID, stringContainer
+	questionIndex = MakeString("_Q", theIndex)
+	registerScript = MakeString("<script data-questionid='", questionIndex, "'>app.registerComponent('oQuestionContainer','", questionIndex, "','", theName, "');</script>")
+
+	theQuestion.Banners["RegisterContainer"].text = MakeString(theQuestion.Banners["RegisterContainer"].text, registerScript)
+end function
+
+function onAfterQuestionAsk(theQuestion, theIOM)
+debug.Log("after question")
+'debug.Log("Question:" + theQuestion.Questionname + ", response: " + ctext(theQuestion.response))
+end function
+
+function OnBeforeQuestionValidation(theQuestion, theIOM)
+'debug.Log("before validation")
+'if theQuestion.questionname = "GridDrugComboSingle" then theIOM.LayoutTemplate = "pageoutput-label.htm"
+end function
+
+function onBeforeQuestionAsk(theQuestion, theIOM)
+'debug.Log("before question")
+dim currentName, currentFullname, currentType, currentOrder
+dim registerBanner
+dim numberOfSubQuestions, counter, subQuestion, subName
+dim InstructionBanner, warningBanner
+
+
+currentname = theQuestion.QuestionName 
+currentfullname = theQuestion.QuestionFullName
+currenttype = theQuestion.QuestionType
+	select case(thequestion.QuestionType)
+	case QuestionTypes.qtBlock, QuestionTypes.qtPage
+		numberOfSubQuestions = theQuestion.count 
+		for counter = 0 to numberOfSubQuestions - 1
+			set subQuestion = theQuestion[counter]
+			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
+
+			CreateBanner(subQuestion, "RegisterContainer")
+			subQuestion.Banners["RegisterContainer"].text = ""
+
+			setZIndex(subQuestion, theIOM)
+			BuildRegisterContainer(subQuestion, counter, subName)
+
+'			set instructionBanner = FindBanner(subQuestion, "Instruction")
+'			if instructionBanner <> null then
+'				PadBanner(instructionBanner)
+'			end if
+			
+'			set warningBanner = FindBanner(subQuestion, "Warning")
+'			if warningBanner <> null then
+'				PadBanner(warningBanner)
+'			end if
+
+		Next	
+		case else 
+			CreateBanner(theQuestion, "RegisterContainer")
+			theQuestion.Banners["RegisterContainer"].text = ""
+	'this may need to loop for a table (sub questions) as in the non page version
+			SetZIndex(theQuestion, theIOM)
+			BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
+	
+'			set instructionBanner = FindBanner(theQuestion, "Instruction")
+'			if instructionBanner <> null then
+'				PadBanner(instructionBanner)
+'			end if
+			
+'			set warningBanner = FindBanner(theQuestion, "Warning")
+'			if warningBanner <> null then
+'				PadBanner(warningBanner)
+'			end if
+		end select
+end function
+
+function ComplexJSON_Create(theIOM, theCurrentSection, theArray)
+dim curentItem
+dim counter
+dim arrayLength
+dim newJSON
+dim jsonStart, jsonFull
+dim scriptStart, scriptEnd
+dim quote
+	quote = ChrW(34)
+	newJSON = ""
+	scriptStart = "<script>app.RegisterProperties('_Progress',"
+	scriptEnd = ")</script>"
+	jsonstart = MakeString("{'currentsection':", theCurrentSection, ",'sections':[")
+	arrayLength = theArray.Len()
+	for counter = 0 to arrayLength -1
+		if newJSON <> "" then newJSON = MakeString(newJSON, ",")
+		newJSON = MakeString(newJSON, theArray[counter])
+	Next
+	jsonFull = MakeString(jsonStart, newJSON, "]}").replace("'", quote)
+	
+	theIOM.Banners["CustomProgressBar"].Text = MakeString(scriptStart, jsonFull, scriptEnd)
+	
+	ComplexJSON_Create = MakeString(scriptStart, jsonFull, scriptEnd)
+end function
+
+function PageJSON_Create(theIOM, theJSON)
+dim pageBanner
+dim quote
+dim scriptStart, scriptEnd
+	scriptStart = "<script id='pageproperties'>app.RegisterProperties('Page',"
+	scriptEnd = ")</script>"
+	quote = ChrW(34)
+	set pageBanner = theIOM.Banners["PageCustomProperties"]
+	
+	if theJSON <> "" then
+		pageBanner.text = MakeString(scriptStart, theJSON.Replace("'", quote), scriptEnd)
+	else
+		pageBanner.Text = ""
+	end if
+	
+end function
+
+function PadBanner(theBanner)
+debug.Log("padBanner: " + theBanner)
+	if theBanner.text.Left("3") <> "<p>" then theBanner.text = MakeString("<p>", theBanner.text, "</p>")
+end function
+
+function CreateVisibilityRule(theRule)
+dim newString 
+	newString = theRule.replace("'", "%%").replace("_","__")
+	newString = newString.Replace("__Q","_Q")
+	CreateVisibilityRule = newString
+end function
+
+sub setZIndex(theQuestion,theIOM)
+      if theQuestion.Style.ZIndex = NULL then
+           select case theQuestion.QuestionDataType
+          'Info
+          case DataTypeConstants.mtNone
+                theQuestion.Style.ZIndex = -10
+                
+          'Long/Double/Text
+          case DataTypeConstants.mtLong,DataTypeConstants.mtDouble, DataTypeConstants.mtText
+                theQuestion.Style.ZIndex = -20
+                
+          'Categorical
+          case DataTypeConstants.mtCategorical
+      		select case theQuestion.style.control.type
+
+      		'single/multi-choice
+      		case controltypes.ctCheckButton or controltypes.ctRadioButton
+            	theQuestion.Style.ZIndex = -40
+
+      		'dropdowns
+            case controlTypes.ctDropList
+            	theQuestion.style.zindex = -60
+
+      		'combobox
+            case controlTypes.ctComboList
+            	theQuestion.style.zindex = -70
+			end Select                      	
+           end select
+      end if     
+end sub
+
+sub CreateInformationPopup (theQuestion, theTitle, theContent)
+dim informationBanner
+dim bannerArray[6]
+	CreateBanner(theQuestion, "Information")
+	set informationBanner  = theQuestion.Banners["Information"]
+	bannerArray[0] = "<summary class='a-label-summary'>"
+	bannerArray[1] = theTitle
+	bannerArray[2] = "</summary>"
+	bannerArray[3] = "<div class='a-label-details'>"
+	bannerArray[4] = theContent
+	bannerArray[5] = "</div>"
+	
+	informationBanner.text = CombineArray(bannerArray, "")
+end sub
+
+function CombineArray(theArray, theBetween)
+dim limit
+dim counter 
+dim newString
+	newString = ""
+	limit = ubound(theArray)
+	for counter = 0 to limit
+		newString = newString + theArray[counter]
+		newString = newString + theBetween
+	Next
+	CombineArray = newString
+end function
+
+sub RotateGrid(theGrid, theOrientation)
+      theGrid.style.orientation = theOrientation
+end sub
+
+End Routing

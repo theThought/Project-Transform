@@ -1173,7 +1173,7 @@ Coke "Coca Cola" define
         I "i",
         Metro "Metro"
     };
-    internationalpapers "Internationals" define
+    internationalpapers "" define
     {
         Post "The Washington Post",
         LeMonde "Le Monde",
@@ -1689,7 +1689,8 @@ Coke "Coca Cola" define
         ScaleV "Scale (Vertical)",
         SideBySide "Complex questions",
         longlist "Long Lists",
-        ImageList "Image Lists"
+        ImageList "Image Lists",
+        Special "Unusual question combinations"
     };
     TypesList_Special "Special functions" define
     {
@@ -1940,6 +1941,8 @@ Coke "Coca Cola" define
         )
     info;
 
+	eattime "What is your birthdate" date["09/05/2024 00:56" .. "09/05/2024 12:56"];
+	
 	middlename "middle name"
 	style(zIndex=-20, control(type="singlelineedit"))
 	text[..40]
@@ -2251,7 +2254,8 @@ Coke "Coca Cola" define
             ZIndex = -20,
             Control(
                 Type = "SingleLineEdit"
-            )
+            ),
+            width="15em"
         )
     text [..200];
 
@@ -2390,7 +2394,8 @@ Coke "Coca Cola" define
     '----------------------------------------
     HowManyMissed "How many of the last 10 visits did you miss"
         style(
-            ZIndex = -50
+            ZIndex = -50,
+            width="50%"
         )
     long [0 .. 100];
 
@@ -3278,6 +3283,45 @@ Coke "Coca Cola" define
 
     ) expand;
 
+grid6_subheading "Grid with row subheadings and column total" loop
+    {
+        pat_related "Customer-related"
+        {
+            pats_prescription_tx "{#ins_consult_interact_pharma} with customers on <b>prescription</b> treatments",
+            pats_nonprescription_tx "{#ins_consult_interact_pharma} with customers on <b>non-prescription</b> treatments (e.g. over-the-counter (OTC) treatments)",
+            pats_vaccinations "{#ins_consult_interact_pharma} with customers on <b>vaccinations</b>",
+            pats_general_health_education "{#ins_consult_interact_pharma} with customers on <b>general health education</b>, not related to prescription or OTC treatments"
+        },
+        presc_related "Prescription-related"
+        {
+            entering_prescriptions_into_the_system "Entering prescriptions into the system",
+            filling_prescription "Filling prescription (i.e. filling the bottle, label printing etc.)",
+            prescription_verification "Prescription verification",
+            dispensing_medications_to_patients "Dispensing medications to customers",
+            prescription_refills_with_no_changes "Prescription re-fills with no changes",
+            prescription_refills_with_at_least_one_change "Prescription re-fills with at least one change",
+            calls_pat_prescription_ready_pickup "Calls to customers to let them know their prescription is ready for pick-up"
+        },
+        oth_admin "Other / administrative"
+        {
+            engaging_physicians_healthcare_prof_admin_staff_behalf_of_pats "Engaging with physicians, other healthcare professionals or administrative staff on behalf of customers",
+            engaging_insurance_comp_behalf_pats "Engaging with insurance companies on behalf of customers",
+            inventory_keeping_stock "Inventory / keeping stock",
+            general_administration_operational_activities "General administration / operational activities (e.g. purchasing, managing staff, ordering supplies)",
+            other_activities "Other activities"
+        }
+    } fields -
+    (
+        slice "% of time"
+            style(
+                ZIndex = -20,
+                Width = "3em"
+            )
+        long [0 .. 100]
+        defaultanswer(0 );
+
+    ) expand;
+    
     ConstantSum "What percentage of patients did you see each day" loop
     {
         use weekdayslist -
@@ -6172,19 +6216,79 @@ Coke "Coca Cola" define
     ' Long Lists Question
     '----------------------------------------
 	barcodelist "Provide a description of the product you consumed" 
-	style(zIndex = "-120",
-	control(type="singlelineedit")
+	style(zIndex = "-25",
+	control(type="singlelineedit"))
 	text[..200];
 
 	brandlist "Provide a description of the product you consumed" 
-	style(zIndex = "-120",
-	control(type="singlelineedit")
+	style(zIndex = "-25",
+	control(type="singlelineedit"))
 	text[..200]
 	codes({nobrand "I don't know the brand" dk});
     '----------------------------------------
     ' Image List Question
     '----------------------------------------
 
+
+
+    '----------------------------------------
+    ' Invisible dates Question
+    '----------------------------------------
+    shortyearlist "" define
+ 	{
+    year19 "2019",
+    year20 "2020",
+    year21 "2021",
+    year22 "2022",
+    year23 "2023",
+    year24 "2024"
+    };
+    
+    YearofDiagnosis "What was the year of diagnosis?"
+    style(zIndex=-40)
+    categorical[1]
+    {
+    use shortyearlist
+    };
+    
+    relapse "Has the patient suffered a relapse"
+    style(zIndex=-40)
+    Categorical[..1]
+    {
+    yes "Yes",
+    no "No"
+    };
+    
+    yearoftreatment "year"
+    style(zIndex=-60, control(type="Droplist"))
+    categorical[..1]
+    {
+    use shortyearlist
+    };
+    
+    relapseblock "" block 
+    fields
+    (
+        relapse "Has the patient suffered a relapse"
+	    style(zIndex=-40)
+	    Categorical[..1]
+	    {
+	    yes "Yes",
+	    no "No"
+	    };
+	    
+	    yearoftreatment "year"
+	    style(zIndex=-60, control(type="Droplist"))
+	    categorical[..1]
+	    {
+	    use shortyearlist
+	    };
+    );
+    
+	PageOfRelapse "" Page (relapse, yearoftreatment);
+	
+    
+    
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -6511,7 +6615,7 @@ dim currentTemplate, layoutTemplate
 dim askAgain
 dim focusQuestion, focusControl, focusBalance
 dim isPWA, isPaste, isJump
-
+dim mediaAssetsURL
 'templateLocation = "../"
 templateLocation = ""
 layoutTemplate = ""
@@ -6523,6 +6627,7 @@ isPWA = "false"
 isPaste = "false"
 isJump = "false"
 
+mediaAssetsURL = "https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/"
 IOM.LayoutTemplate = "page (simple).htm"
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 'IOM.LayoutTemplate = "page (complex).htm"
@@ -6583,7 +6688,7 @@ CustomList_SetInstruction.Response.Initial = {below}
 CustomList_SetPaste1.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
-PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':false}")
+'PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':false}")
 
 CustomList_SetBalance.MustAnswer = false
 CustomList_SetBalance.Response = 30
@@ -6596,6 +6701,7 @@ do until not askAgain
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 'TypesVsBroadsheetsSingle.Ask()
 
+    
 MenuPage.Ask()
 
 if CustomList_SetPaste1.Response.containsAny("allow") then
@@ -6636,7 +6742,7 @@ If CustomList_SetLayout.response.containsAny({Vertical}) then
 	If CustomList_SetInstruction.response.containsAny({above}) then
 		currentTemplate = currentTemplate + "-instructionabove"
 	end if
-	focusBalance = ""
+	focusBalance = MakeString("'sidebyside':30,")
 	IOM.QuestionTemplate = currentTemplate + ".htm"
 end if
 
@@ -6681,6 +6787,9 @@ AddCustomProperties(Comments, "Comments", "{'paste':false}", "replace")
 BasicPage.Ask()
 
 case {basic}
+iom.LayoutTemplate = ""
+iom.QuestionTemplate = ""
+eattime.Ask()
 
 CreateInformationPopup(Hello, "Summary", "Complex information question with embedded HTML content")
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':1}}"
@@ -6692,11 +6801,13 @@ Hello.Show()
 
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':2}}"
 progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
+CreateInformationPopup(FirstName, "Basic Openend", "Simple single line input requiring a text response")
 FirstName.Banners.AddNew("Instruction", "Enter just your first name.")
 FirstName.ask()
 
 
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':3}}"
+CreateInformationPopup(FirstLine, "Basic Openend", "Longer openend to confirm that width of control can be changed")
 progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
 FirstLine.Ask()
 
@@ -6968,18 +7079,20 @@ vacinate.ask()
 
 case {scaleh}
 dim passive10visibility
-AddCustomProperties(Passive10Scale, "Passive10Scale", "{'unit':{'image':{'url':'../../images/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
-passive10visibility = CreateVisibilityRule("Passive10Scale < 9)")
-
-addCustomProperties(Passive10Feedback, "Passive10Feedback", MakeString("{'visible':{'collapse':true,'rules':'", passive10visibility, "'}}"), "replace")
+AddCustomProperties(Passive10Scale, "Passive10Scale", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+passive10visibility = CreateVisibilityRule("Passive10Scale < 9")
 Passive10Scale.ask()
 
-AddCustomProperties(tenpointfeedback, "tenpointfeedback", "'{'unit':{'image':{'url':'../../images/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+addCustomProperties(Passive10Feedback, "Passive10Feedback", MakeString("{'visible':{'collapse':true,'rules':'", passive10visibility, "'}}"), "replace")
+
+Passive10Page.ask()
+
+AddCustomProperties(tenpointfeedback, "tenpointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 tenpointfeedback.ask()
-AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+AddCustomProperties(sevenpointfeedback, "sevenpointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 sevenpointfeedback.ask()
-AddCustomProperties(PercentageTreatmentsV, "PercentageTreatmentsV", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+AddCustomProperties(fivepointfeedback, "fivepointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 fivepointfeedback.Ask()
 
 case {GridScale}
@@ -7282,6 +7395,13 @@ GridDrugDropSingle.Ask()
 
 case {totals}
 
+
+AddCustomProperties(grid6_subheading, "grid6_subheading", makestring("{'cellshading':{'rowheader':false, 'altrows':true}, 'totals':{'rows':{'visible':false, 'exceptions':[1]}, 'columns':{'visible':true, 'caption':'Totals', 'exceptions':[], 'labels':{'post':'%'}}}}"), "replace")
+AddCustomProperties(grid6_subheading, "slice", makestring("{'type':'number', 'labels':{'post':'%'}}"), "add")
+grid6_subheading.Banners.AddNew("Instruction", "this is an instruction for the grid")
+grid6_subheading.MustAnswer = false
+grid6_subheading.ask()
+
 'IOM.QuestionTemplate = templateLocation + "question.htm"
 RotateGrid(grid5_rowtotal_diffpostlabel_percol, orientations.orRow)
 grid5_rowtotal_diffpostlabel_percol.MustAnswer = false
@@ -7571,7 +7691,7 @@ addCustomProperties(SecondChoice, "SecondChoice", MakeString("{'balance':{'state
 visibilityRule = CreateVisibilityRule("FirstChoice.Count('Equals',1)")	
 'addCustomProperties(SecondChoice, "SecondChoice", MakeString("{'visible':{'collapse':true,'rules':'", visibilityRule, "'}}"), "replace")
 
-
+IOM.LayoutTemplate = "pageoutput-label.htm"
 filterPage.ask()
 
 firstChoicedroplist.Style.ZIndex = -68
@@ -7907,6 +8027,7 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	DailyNewspapersByDay.Wed.whichpaper.Categories.Mail.Style.Hidden = true
 	DailyNewspapersByDay.Ask()
 	
+'	IOM.LayoutTemplate = "pageoutput-label.htm"
 	RotateGrid(DailyNewspapersByDaySublists, orientations.orRow)
 	DailyNewspapersByDaySublists.ask()
 	
@@ -8204,10 +8325,81 @@ case {RotatedHiddenCells}
 	CreateInformationPopUp(varopinion, "A description of VAR", "VAR is Virtual Assistant Referee, it can be used to overturn the decisions of the referee on the pitch where it is determined that they have made a clear and obvious error.")
 	varopinion.ask() 
 
+	case {longlist}
+    '----------------------------------------
+    ' Long Lists
+    '----------------------------------------
+	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'internal','source':'a-list','valuefrom':'UPC','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+    barcodelist.QuestionTemplate = "question-database.htm"
+    barcodelist.Ask()
+
+	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'external','source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\barcodelistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
+    barcodelist.QuestionTemplate = null
+    barcodelist.Ask()
+
+	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':15,'list':{'source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\brandlistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':2,'notenoughcharacters':'product descriptions will start to appear when you type at least 2 characters','filtertype':'contains','placeholder':'Describe your brand of drink you consumed','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
+    brandlist.Ask()
+
+	case {special}
+	
+	'----------------------------------------
+	' Invisible dates Question
+	'----------------------------------------
+	Dim yearFilter, chosenyear, yearfilterrule
+	Dim yearlistcounter
+	
+	YearofDiagnosis.ask()
+	chosenyear = clong(format(yearofdiagnosis.Response, "b"))
+	yearfilter = ""
+	yearfilterrule = CreateVisibilityRule("relapse.containsAny('yes')")
+	
+	AddCustomProperties(yearoftreatment, "yearoftreatment", "{'resettonull':false,'listsize':5,'showanswers':false,'placeholder':'select a year'}", "replace")
+	AddCustomProperties(yearoftreatment, "yearoftreatment", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
+	
+	for yearlistcounter = 0  to yearofdiagnosis.Categories.Count - 1
+		if chosenyear <= clong(yearoftreatment.Categories[yearlistcounter].Label) then
+			if yearfilter <> "" then yearfilter = yearfilter + ","
+			yearfilter = yearfilter + yearoftreatment.Categories[yearlistcounter].FullName
+		end if
+	next
+	
+	If yearfilter <> "" then 
+		yearfilter = "{" + yearfilter + "}"
+		yearoftreatment.Categories.Filter = ccategorical(yearfilter)
+	end if
+		
+	if yearoftreatment.Categories.Count > 0 and yearoftreatment.Categories.Count < 2 then
+	yearoftreatment.Response = yearofdiagnosis.Response
+	end if
+	
+	PageOfRelapse.ask()
+	
+	yearfilter = ""
+	AddCustomProperties(RelapseBlock.yearoftreatment, "yearoftreatment", "{'resettonull':false,'listsize':5,'showanswers':false,'placeholder':'select a year'}", "replace")
+	AddCustomProperties(RelapseBlock.yearoftreatment, "yearoftreatment", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
+	
+	for yearlistcounter = 0  to yearofdiagnosis.Categories.Count - 1
+		if chosenyear <= clong(RelapseBlock.yearoftreatment.Categories[yearlistcounter].Label) then
+			if yearfilter <> "" then yearfilter = yearfilter + ","
+			yearfilter = yearfilter + RelapseBlock.yearoftreatment.Categories[yearlistcounter].FullName
+		end if
+	next
+	
+	If yearfilter <> "" then 
+		yearfilter = "{" + yearfilter + "}"
+		RelapseBlock.yearoftreatment.Categories.Filter = ccategorical(yearfilter)
+	end if
+		
+	if RelapseBlock.yearoftreatment.Categories.Count > 0 and RelapseBlock.yearoftreatment.Categories.Count < 2 then
+		RelapseBlock.yearoftreatment.Response = yearofdiagnosis.Response
+	end if
+	
+	RelapseBlock.ask()
+
+    
 end select
 
 loop
-
 function FindBanner(theQuestion, theBannerName)
 dim numberOfBanners
 dim bannerFound
