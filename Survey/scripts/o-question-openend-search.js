@@ -18,7 +18,7 @@ define(['o-question'],
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
             this.ULlist = this.element.closest('div[data-questiongroup="' + this.group + '"]');
             //Openend search
-            this.isOpenendSearch = document.querySelector('div.o-openend-search');
+            this.isOpenendSearch = document.querySelector('ul.m-list-external');
             this.itemCountElement = document.querySelector('.m-openend-search-count');
             this.hiddenelement = null;
             this.mincharacters = 0;
@@ -78,6 +78,8 @@ define(['o-question'],
                 this.configureTagContainer();
                 this.addTag();
                 this.removeTag();                 
+                this.processResponse();
+                this.wordMatching();
         };
 
         oQuestionOpenendSearch.prototype.configureIncomingEventListeners = function () {
@@ -187,18 +189,37 @@ define(['o-question'],
         }
 
         oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
-            var placeholderelement = document.createElement('li');
+            var placeholderelement = document.createElement('p');
             placeholderelement.classList.add('a-list-placeholder-restriction');
             placeholderelement.innerHTML = prop;
-            this.droplist.appendChild(placeholderelement);
+        
+            var ulElement = this.droplist;
+            var parentElement = ulElement.parentNode;
+        
+            if (ulElement.nextSibling) {
+                parentElement.insertBefore(placeholderelement, ulElement.nextSibling);
+            } else {
+                parentElement.appendChild(placeholderelement);
+            }
         }
+        
 
         oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
-            var placeholderelement = document.createElement('li');
+            var placeholderelement = document.createElement('p');
             placeholderelement.classList.add('a-list-placeholder-empty');
             placeholderelement.innerHTML = prop;
-            this.droplist.appendChild(placeholderelement);
+        
+            var ulElement = this.droplist;
+            var parentElement = ulElement.parentNode;
+        
+            if (ulElement.nextSibling) {
+                parentElement.insertBefore(placeholderelement, ulElement.nextSibling);
+            } else {
+                parentElement.appendChild(placeholderelement);
+            }
+            
         }
+        
 
         oQuestionOpenendSearch.prototype.placeholder = function (prop) {
             this.defaultplaceholder = this.decodeHTML(prop);
@@ -699,7 +720,7 @@ define(['o-question'],
         }
 
         oQuestionOpenendSearch.prototype.filterListStarts = function(inputstring) {
-            console.log(inputstring);
+            //console.log(inputstring);
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction'); // Apply visual cue for character restriction
@@ -827,6 +848,8 @@ define(['o-question'],
                 
             
                 oQuestionOpenendSearch.prototype.processResponse = function(response) {
+                    //only runs when there is data coming from external json list
+                    
                     //Set ul => list items
                     if (response && response.list && response.list.length) {
                         this.setDropListDirection();
@@ -842,42 +865,8 @@ define(['o-question'],
                         this.droplist.innerHTML = '';
                         
                     }
-        
-          
-                    
-                    // Object to hold unique words
-                    var uniqueWords = {}; 
-
-                    // Will need to either get all the item like below
-                    // When script is found this runs!
-                    var itemList = response.list; 
-
-                    // Or I will need to go over all the LI elements in the html and then get all the key words from list items
-                    // not too sure what impact this will have on performance based on end lists being return. 
-                    // If exceeds 1k this might have an impact
-
-                    // Loop through each item in the list
-                    for (var i = 0; i < itemList.length; i++) {
-                        var item = itemList[i];
-                        // making sure there is a name property
-                        if (item.name) {
-                            // Split the name into words based on spaces
-                            var words = item.name.split(/\s+/); 
-                            for (var j = 0; j < words.length; j++) {
-                                // Clean the word to remove non-alphanumeric characters
-                                var word = words[j].replace(/[^a-zA-Z0-9]/g, ''); 
-                                // Making sure the word is over 4 characters
-                                if (word.length > 4) {
-                                    uniqueWords[word] = true; // Add the word to the object as a key
-                                }
-                            }
-                        }
-                    }
-                    console.log('word?');
-                    console.log(Object.keys(uniqueWords));
-                    // return Object.keys(uniqueWords);  
                 };
-        
+          
                 // Updating the count
                 oQuestionOpenendSearch.prototype.updateItemCount = function(count) {
                     var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
@@ -957,6 +946,54 @@ define(['o-question'],
                     }
                 };
         
+                oQuestionOpenendSearch.prototype.wordMatching = function() {
+
+                    console.log("this.droplist");
+                    
+
+                    //console.log(this.droplist);
+
+
+                //Word Matching
+
+                           // Object to hold unique words
+                        //    var uniqueWords = {}; 
+
+                           // Will need to either get all the item like below
+                           // When script is found this runs!
+                        //    var itemList = response.list; 
+                        //    console.log("this.droplist");
+                        //    console.log(this.droplist);
+       
+                           // Or I will need to go over all the LI elements in the html and then get all the key words from list items
+                           // not too sure what impact this will have on performance based on end lists being return. 
+                           // If exceeds 1k this might have an impact
+       
+                           // Loop through each item in the list
+                        //    for (var i = 0; i < itemList.length; i++) {
+                        //        var item = itemList[i];
+                        //        // making sure there is a name property
+                        //        if (item.name) {
+                        //            // Split the name into words based on spaces
+                        //            var words = item.name.split(/\s+/); 
+                        //            for (var j = 0; j < words.length; j++) {
+                        //                // Clean the word to remove non-alphanumeric characters
+                        //                var word = words[j].replace(/[^a-zA-Z0-9]/g, ''); 
+                        //                // Making sure the word is over 4 characters
+                        //                if (word.length > 4) {
+                        //                    uniqueWords[word] = true; // Add the word to the object as a key
+                        //                }
+                        //            }
+                        //        }
+                        //    }
+                        //    console.log('word?');
+                        //    console.log(Object.keys(uniqueWords));
+                           // return Object.keys(uniqueWords);  
+
+                }
+
+
+
                 //End openend search functions!
 
         return oQuestionOpenendSearch;
