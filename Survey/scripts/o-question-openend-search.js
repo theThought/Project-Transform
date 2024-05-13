@@ -189,37 +189,18 @@ define(['o-question'],
         }
 
         oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
-            var placeholderelement = document.createElement('p');
+            var placeholderelement = document.createElement('li');
             placeholderelement.classList.add('a-list-placeholder-restriction');
             placeholderelement.innerHTML = prop;
-        
-            var ulElement = this.droplist;
-            var parentElement = ulElement.parentNode;
-        
-            if (ulElement.nextSibling) {
-                parentElement.insertBefore(placeholderelement, ulElement.nextSibling);
-            } else {
-                parentElement.appendChild(placeholderelement);
-            }
+            this.droplist.appendChild(placeholderelement);
         }
-        
 
         oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
-            var placeholderelement = document.createElement('p');
+            var placeholderelement = document.createElement('li');
             placeholderelement.classList.add('a-list-placeholder-empty');
             placeholderelement.innerHTML = prop;
-        
-            var ulElement = this.droplist;
-            var parentElement = ulElement.parentNode;
-        
-            if (ulElement.nextSibling) {
-                parentElement.insertBefore(placeholderelement, ulElement.nextSibling);
-            } else {
-                parentElement.appendChild(placeholderelement);
-            }
-            
+            this.droplist.appendChild(placeholderelement);
         }
-        
 
         oQuestionOpenendSearch.prototype.placeholder = function (prop) {
             this.defaultplaceholder = this.decodeHTML(prop);
@@ -720,7 +701,7 @@ define(['o-question'],
         }
 
         oQuestionOpenendSearch.prototype.filterListStarts = function(inputstring) {
-            //console.log(inputstring);
+            console.log(inputstring);
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
                 this.droplist.classList.add('charrestriction'); // Apply visual cue for character restriction
