@@ -16,12 +16,13 @@ define(['o-question'],
         oQuestionScale.prototype.constructor = oQuestionScale;
 
         oQuestionScale.prototype.init = function () {
-            this.setScaleRange();
-            this.createScaleUnits();
+            this.configureProperties();
+            this.setRange();
+            this.createUnits();
+            this.setUnitBackground();
             this.configureWidth();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.configureProperties();
             this.setClasses(this.element.value);
             this.isInitialising = false;
         }
@@ -97,13 +98,13 @@ define(['o-question'],
             }
         }
 
-        oQuestionScale.prototype.setScaleRange = function () {
+        oQuestionScale.prototype.setRange = function () {
             this.min = (this.element.min) ? parseInt(this.element.min) : this.min;
             this.max = (this.element.max) ? parseInt(this.element.max) : this.max;
             this.step = (this.element.step) ? parseInt(this.element.step) : this.step;
         }
 
-        oQuestionScale.prototype.createScaleUnits = function () {
+        oQuestionScale.prototype.createUnits = function () {
             for (var i = this.min; i <= this.max; i = i + this.step) {
 
                 var scaleItem = document.createElement('div');
@@ -120,6 +121,44 @@ define(['o-question'],
                     this.setValue(i);
                 }
             }
+        }
+
+        oQuestionScale.prototype.setUnitBackground = function () {
+            var unitProperties = this.properties.unit;
+            var imageProperties = unitProperties.image;
+
+            if (typeof imageProperties === 'undefined') {
+                return;
+            }
+
+            var imageURL = imageProperties.url;
+            var imageWidth = imageProperties.width;
+            var imageHeight = imageProperties.height;
+            var imageOffsetX = '0';
+            var imageOffsetY = '0';
+
+            var caption = (typeof imageProperties.caption === 'undefined') ? '' : unitProperties.caption;
+
+            if (typeof imageProperties.offset !== 'undefined') {
+                imageOffsetX = (typeof imageProperties.offset.x === 'undefined') ? '0' : unitProperties.offset.x;
+                imageOffsetY = (typeof imageProperties.offset.y === 'undefined') ? '0' : unitProperties.offset.y;
+            }
+
+            if (typeof imageURL === "undefined") {
+                return;
+            }
+
+            this.container.classList.add('has-unit-background');
+            var scaleUnits = this.container.querySelectorAll('.m-scale-unit');
+
+            scaleUnits.forEach(function (unit) {
+                unit.style.left = imageOffsetX + 'px';
+                unit.style.top = imageOffsetY + 'px';
+                unit.style.height = imageHeight;
+                unit.style.width = imageWidth;
+                unit.style.backgroundImage = 'url("' + imageURL + '")';
+                unit.ariaLabel = caption;
+            });
         }
 
         oQuestionScale.prototype.setValue = function (value) {
@@ -166,6 +205,10 @@ define(['o-question'],
             if (valuesPosition === "inside") {
                 this.container.classList.add('values-inside');
             }
+
+            this.element.min = valuesProperties.min;
+            this.element.max = valuesProperties.max;
+            this.element.step = valuesProperties.step;
         }
 
         oQuestionScale.prototype.labels = function (labelProperties) {
@@ -241,43 +284,6 @@ define(['o-question'],
             this.container.style.backgroundPositionX = imageOffsetX + 'px';
             this.container.style.backgroundPositionY = imageOffsetY + 'px';
             this.container.ariaLabel = caption;
-        }
-
-        oQuestionScale.prototype.unit = function (unitProperties) {
-            var imageProperties = unitProperties.image;
-
-            if (typeof imageProperties === 'undefined') {
-                return;
-            }
-
-            var imageURL = imageProperties.url;
-            var imageWidth = imageProperties.width;
-            var imageHeight = imageProperties.height;
-            var imageOffsetX = '0';
-            var imageOffsetY = '0';
-
-            var caption = (typeof imageProperties.caption === 'undefined') ? '' : unitProperties.caption;
-
-            if (typeof imageProperties.offset !== 'undefined') {
-                imageOffsetX = (typeof imageProperties.offset.x === 'undefined') ? '0' : unitProperties.offset.x;
-                imageOffsetY = (typeof imageProperties.offset.y === 'undefined') ? '0' : unitProperties.offset.y;
-            }
-
-            if (typeof imageURL === "undefined") {
-                return;
-            }
-
-            this.container.classList.add('has-unit-background');
-            var scaleUnits = this.container.querySelectorAll('.m-scale-unit');
-
-            scaleUnits.forEach(function (unit) {
-                unit.style.left = imageOffsetX + 'px';
-                unit.style.top = imageOffsetY + 'px';
-                unit.style.height = imageHeight;
-                unit.style.width = imageWidth;
-                unit.style.backgroundImage = 'url("' + imageURL + '")';
-                unit.ariaLabel = caption;
-            });
         }
 
         return oQuestionScale;
