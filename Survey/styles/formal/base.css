@@ -2123,6 +2123,16 @@ html[dir=rtl] .o-dropdown ul li {
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
+#a-button-word-match {
+  margin-left: 10px;
+  position: absolute;
+  margin-top: -1px;
+  height: 42px;
+  width: 42px;
+  border-radius: 2px;
+  border-color: #B4BDDB;
+}
+
 .m-openend-search-count {
   width: 100%;
   border-top: 2px solid #212C4C;

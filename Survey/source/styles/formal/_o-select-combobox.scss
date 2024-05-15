@@ -215,4 +215,18 @@ html[dir="rtl"] {
 }
 
 
+// Temp style for the button on the open search
+#a-button-word-match {
+    margin-left: 10px;
+    position: absolute;
+    margin-top: -1px;
+    height: 42px;
+    width: 42px;
+    // background: white !important;
+    border-radius: 2px;
+    border-color: globals.$light3;
+
+}
+  
+
 
