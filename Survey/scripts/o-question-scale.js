@@ -206,9 +206,9 @@ define(['o-question'],
                 this.container.classList.add('values-inside');
             }
 
-            this.element.min = valuesProperties.min;
-            this.element.max = valuesProperties.max;
-            this.element.step = valuesProperties.step;
+            this.element.min = (typeof valuesProperties.min !== 'undefined') ? valuesProperties.min : 1;
+            this.element.max = (typeof valuesProperties.max !== 'undefined') ? valuesProperties.max : 10;
+            this.element.step = (typeof valuesProperties.step !== 'undefined') ? valuesProperties.step : 1;
         }
 
         oQuestionScale.prototype.labels = function (labelProperties) {
