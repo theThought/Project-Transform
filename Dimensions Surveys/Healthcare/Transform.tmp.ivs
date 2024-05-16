@@ -1690,7 +1690,7 @@ Coke "Coca Cola" define
         SideBySide "Complex questions",
         longlist "Long Lists",
         ImageList "Image Lists",
-        Special "Unusual question combinations"
+        SpecialOnes "Unusual question combinations"
     };
     TypesList_Special "Special functions" define
     {
@@ -2618,10 +2618,19 @@ Coke "Coca Cola" define
         noscent "I did not use a scent booster" NA
     } );
 
+    fivepointfeedbackbytheside "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -55
+        )
+    long [1 .. 5]
+    codes(
+    {
+        noscent "I did not use a scent booster" style(elementalign = "right") NA
+    } );
     '----------------------------------------
     ' Grid of scales (horizontal)
     '----------------------------------------
-    LaundryScales "" loop
+    LaundryScales "We would like you to rate you last wash" loop
     {
     Scent,
     Clean,
@@ -2635,7 +2644,7 @@ Coke "Coca Cola" define
             Width = "80%"
         )
     long [1 .. 5]
-	);
+	) codes({dontknow "Don't know" style(elementalign = "right") dk});
 	
     sizes "Which of the odd options works for you"
         [
@@ -3381,6 +3390,16 @@ grid6_subheading "Grid with row subheadings and column total" loop
     '----------------------------------------
     ' Newspaper Questions
     '----------------------------------------
+    ReallyLongOptions "here is a basic question that contains some really long options, pick an option" 
+    style(zIndex=-40)
+    categorical[1]
+    {
+    option1 "this is a really long option that is trying to determine whether it is possible to wrap it over several lines",
+    option2 "a very short option",
+    option3 "antoher long option that has so much content that its not possible to view the content on any device in a way that shows just one line.  We are testing these because onesize can not be used in these instances"
+    };
+    
+    
     Daily "Daily: Can you tell us which of the following daily newspapers have you looked at this week, you don't need to have bought them only to have spent at least five minutes browsing"
         style(
             ZIndex = -40
@@ -6787,9 +6806,9 @@ AddCustomProperties(Comments, "Comments", "{'paste':false}", "replace")
 BasicPage.Ask()
 
 case {basic}
-iom.LayoutTemplate = ""
-iom.QuestionTemplate = ""
-eattime.Ask()
+'iom.LayoutTemplate = ""
+'iom.QuestionTemplate = ""
+'eattime.Ask()
 
 CreateInformationPopup(Hello, "Summary", "Complex information question with embedded HTML content")
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':1}}"
@@ -6907,6 +6926,9 @@ case {choice}
 'AddCustomProperties(Daily, "Daily", "{'balance':{'state':true}, 'onesize':{'state':false}}", "replace")
 'Daily.categories.filter={first,Sun,Mail}
 'Daily.ask()
+addCustomProperties(ReallyLongOptions, "ReallyLongOptions", "{'balance':{'state':true}}", "replace")
+ReallyLongOptions.ask()
+
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 addCustomProperties(TypesVsBroadsheetsSingle, "TypesVsBroadsheetsSingle", "{'sublistline': {'state':true,'length': 40}}", "replace")
@@ -7079,7 +7101,7 @@ vacinate.ask()
 
 case {scaleh}
 dim passive10visibility
-AddCustomProperties(Passive10Scale, "Passive10Scale", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(Passive10Scale, "Passive10Scale", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 passive10visibility = CreateVisibilityRule("Passive10Scale < 9")
 Passive10Scale.ask()
 
@@ -7096,7 +7118,7 @@ AddCustomProperties(fivepointfeedback, "fivepointfeedback", "'{'values':{'min':1
 fivepointfeedback.Ask()
 
 case {GridScale}
-AddCustomProperties(LaundryScales, "Passive5Scale", "{'unit':{'image':{'url':'../../images/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':false},'labels':{'pre':'Dissatisfied','post':'Satisfied'}}", "replace") 
+AddCustomProperties(LaundryScales, "Passive5Scale", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace")
 
 LaundryScales.ask()
 
@@ -8340,7 +8362,7 @@ case {RotatedHiddenCells}
 	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':15,'list':{'source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\brandlistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':2,'notenoughcharacters':'product descriptions will start to appear when you type at least 2 characters','filtertype':'contains','placeholder':'Describe your brand of drink you consumed','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
     brandlist.Ask()
 
-	case {special}
+	case {SpecialOnes}
 	
 	'----------------------------------------
 	' Invisible dates Question
