@@ -450,6 +450,26 @@ html[dir=rtl] #nav-controls #prevstop input[type=submit]:last-child {
   margin-left: 0;
 }
 
+#a-button-word-match {
+  margin-left: 10px;
+  position: absolute;
+  margin-top: -1px;
+  height: 42px;
+  width: 42px;
+  border: #2F469C 2px solid !important;
+  background-color: #FAFAFA !important;
+  border-radius: 4px !important;
+  background-image: url("../../images/formal/active.png") !important;
+  cursor: pointer;
+}
+
+#a-button-word-match:disabled {
+  background-color: #FAFAFA !important;
+  border: #B4BDDB 2px solid !important;
+  background-image: url("../../images/formal/inactive.png") !important;
+  cursor: not-allowed;
+}
+
 .a-icon-multistate {
   display: inline-block;
   width: 18px;
@@ -2121,16 +2141,6 @@ html[dir=rtl] .o-dropdown ul li {
 .focus-control .o-dropdown ul {
   -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
-}
-
-#a-button-word-match {
-  margin-left: 10px;
-  position: absolute;
-  margin-top: -1px;
-  height: 42px;
-  width: 42px;
-  border-radius: 2px;
-  border-color: #B4BDDB;
 }
 
 .m-openend-search-count {

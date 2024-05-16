@@ -210,12 +210,15 @@ define(['o-question'], function (oQuestion) {
         
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
+        // buttonElement.classList.add('class');
         buttonElement.disabled = true;
-        buttonElement.textContent = '✔';
+        // buttonElement.textContent = '✔';
+        
     
         this.element.insertAdjacentElement('afterend', buttonElement);
     
         this.buttonElement = buttonElement;
+        buttonElement.setAttribute('data-checked', 'true');
     
         var self = this;
         buttonElement.addEventListener('click', function (event) {
@@ -277,6 +280,7 @@ define(['o-question'], function (oQuestion) {
         // Enable or disable the button based on matching words
         if (matchingWords.length > 0) {
             this.buttonElement.disabled = false;
+     
             // Store the first matched word to use when the button is clicked
             this.matchedWord = matchingWords[0];
         } else {
@@ -920,6 +924,7 @@ define(['o-question'], function (oQuestion) {
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.removeTag(tag);
+                this.buttonElement.disabled = true;
             }.bind(this));
         }
     };

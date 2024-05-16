@@ -213,20 +213,3 @@ html[dir="rtl"] {
         box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
     }
 }
-
-
-// Temp style for the button on the open search
-#a-button-word-match {
-    margin-left: 10px;
-    position: absolute;
-    margin-top: -1px;
-    height: 42px;
-    width: 42px;
-    // background: white !important;
-    border-radius: 2px;
-    border-color: globals.$light3;
-
-}
-  
-
-

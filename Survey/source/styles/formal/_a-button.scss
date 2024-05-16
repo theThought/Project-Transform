@@ -204,3 +204,24 @@ html[dir="rtl"] #nav-controls {
         margin-left: 0;
     }
 }
+
+// Temp style for the button on the open search
+#a-button-word-match {
+    margin-left: 10px;
+    position: absolute;
+    margin-top: -1px;
+    height: 42px;
+    width: 42px;
+    border: #2F469C 2px solid !important;
+    background-color: globals.$white !important;
+    border-radius: 4px !important;
+    background-image: url("/Survey/images/formal/active.png") !important;
+    cursor:  pointer;
+}
+
+#a-button-word-match:disabled{
+    background-color: globals.$white !important;
+    border: globals.$light3 2px solid !important;
+    background-image: url("/Survey/images/formal/inactive.png") !important;
+    cursor:not-allowed;
+}
