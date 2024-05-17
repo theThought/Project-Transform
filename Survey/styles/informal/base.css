@@ -1677,6 +1677,9 @@ html[dir=rtl] .m-message-instruction.has-content div ul {
           transform: rotate(270deg);
   -webkit-transform-origin: top;
           transform-origin: top;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .o-question-slider-horizontal-control,

@@ -26,6 +26,7 @@
 .o-question-slider-vertical-control {
     transform: rotate(270deg);
     transform-origin: top;
+    justify-content: flex-end;
 }
 
 .o-question-slider-horizontal-control,
