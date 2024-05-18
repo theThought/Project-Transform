@@ -1123,9 +1123,9 @@ Coke "Coca Cola" define
     };
     NewspapersSubList "" define
     {
-        use dailypapers sublist ,
-        use internationalpapers sublist ,
-        use sundaypapers sublist
+        use dailypapers sublist -,
+        use internationalpapers sublist -,
+        use sundaypapers sublist -
     };
     measurelist "" define
     {
@@ -1144,7 +1144,6 @@ Coke "Coca Cola" define
             )
         text [0..200] )
     } asc;
-    
     FullNewspapersSubList ""
     define
     {
@@ -1274,14 +1273,13 @@ Coke "Coca Cola" define
     };
     weekedndayslistdetail "Weekned" define
     {
-    Sat "Saturday",
-    Sun "Sunday"
+        Sat "Saturday",
+        Sun "Sunday"
     };
-    
     weekdayslistfull "" define
     {
-    use weekdayslistdetail sublist,
-    use weekedndayslistdetail sublist
+        use weekdayslistdetail sublist -,
+        use weekedndayslistdetail sublist -
     };
     daysoftheweeklist "" define
     {
@@ -1775,6 +1773,21 @@ Coke "Coca Cola" define
         Oncology "Oncology",
         Gen "General Discussion"
     };
+    '----------------------------------------
+    ' Image List Question
+    '----------------------------------------
+    '----------------------------------------
+    ' Invisible dates Question
+    '----------------------------------------
+    shortyearlist "" define
+    {
+        year19 "2019",
+        year20 "2020",
+        year21 "2021",
+        year22 "2022",
+        year23 "2023",
+        year24 "2024"
+    };
 
     '----------------------------------------
     ' tabstrip Setup
@@ -1812,7 +1825,11 @@ Coke "Coca Cola" define
         style(
             Width = "4em"
         )
-    long [15 .. 60]codes ({novalue "" na});
+    long [15 .. 60]
+    codes(
+    {
+        novalue "" NA
+    } );
 
     CustomList_SetFocus "Which focus"
     categorical
@@ -1941,18 +1958,25 @@ Coke "Coca Cola" define
         )
     info;
 
-	eattime "What is your birthdate" date["09/05/2024 00:56" .. "09/05/2024 12:56"];
-	
-	middlename "middle name"
-	style(zIndex=-20, control(type="singlelineedit"))
-	text[..40]
-	codes ({
-	noanswer "" NA,
-	nomiddle "I don't have a middle name",
-	toolong "my name is too long to fit",
-	refused "I don't want to provide my middle name" REF
-	});
-	
+    eattime "What is your birthdate"
+    date ["09/05/2024 00:56" .. "09/05/2024 12:56"];
+
+    middlename "middle name"
+        style(
+            ZIndex = -20,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..40]
+    codes(
+    {
+        noanswer "" NA,
+        nomiddle "I don't have a middle name",
+        toolong "my name is too long to fit",
+        refused "I don't want to provide my middle name" REF
+    } );
+
     Comments "Would you please describe the positive and negative aspects of the experience you had during your last visit"
         style(
             ZIndex = -30
@@ -2025,7 +2049,7 @@ Coke "Coca Cola" define
         style(
             ZIndex = -40
         )
-    categorical [1..]
+    categorical [0..]
     {
         Diabetes "Diabetes",
         Liver_disorder "Liver disorder",
@@ -2252,10 +2276,10 @@ Coke "Coca Cola" define
     FirstLine "What is the first line of your address"
         style(
             ZIndex = -20,
+            Width = "15em",
             Control(
                 Type = "SingleLineEdit"
-            ),
-            width="15em"
+            )
         )
     text [..200];
 
@@ -2395,7 +2419,7 @@ Coke "Coca Cola" define
     HowManyMissed "How many of the last 10 visits did you miss"
         style(
             ZIndex = -50,
-            width="50%"
+            Width = "50%"
         )
     long [0 .. 100];
 
@@ -2408,14 +2432,14 @@ Coke "Coca Cola" define
     HowManyMissed_Car "How many of the last 10 visits did you miss"
         style(
             ZIndex = -50,
-            width = "70%"
+            Width = "70%"
         )
     long [0 .. 100];
 
     HowManyMissed_Heart "How many of the last 10 visits did you miss"
         style(
             ZIndex = -50,
-            width = "60%"
+            Width = "60%"
         )
     long [0 .. 100];
 
@@ -2566,20 +2590,22 @@ Coke "Coca Cola" define
     '----------------------------------------
     vacinate "what percentage of people are right to not get vaccinated in the follwing:" loop
     {
-    MMR,
-    Covid,
-    Flu,
-    Measles,
-    Polio
-    } fields (
-    percentright "what percentage of people are right to not get vaccinated"
-        style(
-            ZIndex = -50,
-            Width = "15em"
-        )
-    long [0 .. 100];
+        MMR "MMR",
+        Covid "Covid",
+        Flu "Flu",
+        Measles "Measles",
+        Polio "Polio"
+    } fields -
+    (
+        percentright "what percentage of people are right to not get vaccinated"
+            style(
+                ZIndex = -50,
+                Width = "15em"
+            )
+        long [0 .. 100];
+
     );
-    
+
     '----------------------------------------
     ' scales (horizontal)
     '----------------------------------------
@@ -2589,11 +2615,17 @@ Coke "Coca Cola" define
             Width = "80%"
         )
     long [1 .. 10];
-    
-    Passive10Feedback "Please provide some detail as to why you scored your wash with a rating" 
-    style(zIndex=-30)
-    text[..400];
-        
+
+    Passive10Feedback "Please provide some detail as to why you scored your wash with a rating"
+        style(
+            ZIndex = -30
+        )
+    text [..400]
+    codes(
+    {
+        noasnwer "" NA
+    } );
+
     tenpointfeedback "Based on your last wash indicate your satisfaction with your detergent"
         style(
             ZIndex = -55,
@@ -2625,27 +2657,41 @@ Coke "Coca Cola" define
     long [1 .. 5]
     codes(
     {
-        noscent "I did not use a scent booster" style(elementalign = "right") NA
+        noscent "I did not use a scent booster"
+            style(
+                ElementAlign = "Right"
+            )
+        NA
     } );
+
     '----------------------------------------
     ' Grid of scales (horizontal)
     '----------------------------------------
     LaundryScales "We would like you to rate you last wash" loop
     {
-    Scent,
-    Clean,
-    Soft,
-    overall
-    } fields
+        Scent "Scent",
+        Clean "Clean",
+        Soft "Soft",
+        overall "overall"
+    } fields -
     (
-    Passive5Scale "Indicate your satisfaction with this wash"
-        style(
-            ZIndex = -55,
-            Width = "80%"
-        )
-    long [1 .. 5]
-	) codes({dontknow "Don't know" style(elementalign = "right") dk});
-	
+        Passive5Scale "Indicate your satisfaction with this wash"
+            style(
+                ZIndex = -55,
+                Width = "80%"
+            )
+        long [1 .. 5]
+        codes(
+        {
+            dontknow "Don't know"
+                style(
+                    ElementAlign = "Right"
+                )
+            DK
+        } );
+
+    ) expand;
+
     sizes "Which of the odd options works for you"
         [
             json = "{'balance':{'state':false},'onesize':{'state':false}}"
@@ -2832,19 +2878,26 @@ Coke "Coca Cola" define
     VisibilityStatement "<p>This group of questions have been setup to test the new visibility rules.  There are currently three visibility rules implemented:<UL><LI>Specific Option</LI><LI>Not Specific Option</LI><LI>Min Value</LI></UL></p>"
     info;
 
-	Pipesmoking "what percentage of your day do you use a pipe"
-	style(zindex=-20)
-	long[1..100]
-	codes({nopipe "I don't use a pipe" NA});
-	
-	EverPiped "Have you ever used a pipe?" 
-	style (zIndex=-40)
-	categorical[1]
-	{
-	Yes,
-	No
-	};
-		
+    Pipesmoking "what percentage of your day do you use a pipe"
+        style(
+            ZIndex = -20
+        )
+    long [1 .. 100]
+    codes(
+    {
+        nopipe "I don't use a pipe" NA
+    } );
+
+    EverPiped "Have you ever used a pipe?"
+        style(
+            ZIndex = -40
+        )
+    categorical [0..1]
+    {
+        Yes "Yes",
+        No "No"
+    };
+
     DoYouMind "Do you mind questions about smoking"
         style(
             ZIndex = -40
@@ -2943,8 +2996,8 @@ Coke "Coca Cola" define
         )
     categorical [0..1]
     {
-        cigars "cigars",
-        cigarettes "cigarettes"
+        cigars "I have smoked at least one cigar",
+        cigarettes "I have smoked at least one cigarette"
     };
 
     DidyouPreviously "Did you previously smoke?"
@@ -2964,7 +3017,7 @@ Coke "Coca Cola" define
     };
 
     biomarkerstatus1 ""
-    categorical [1..1]
+    categorical [0..1]
     {
         positive "positive",
         negative "negative",
@@ -3276,14 +3329,14 @@ Coke "Coca Cola" define
             )
         long [0 .. 100];
 
-       Saturday "Saturday"
+        Saturday "Saturday"
             style(
                 ZIndex = -20,
                 Width = "3em"
             )
         long [0 .. 100];
 
-       Sunday "Sunday"
+        Sunday "Sunday"
             style(
                 ZIndex = -20,
                 Width = "3em"
@@ -3292,7 +3345,7 @@ Coke "Coca Cola" define
 
     ) expand;
 
-grid6_subheading "Grid with row subheadings and column total" loop
+    grid6_subheading "Grid with row subheadings and column total" loop
     {
         pat_related "Customer-related"
         {
@@ -3330,7 +3383,7 @@ grid6_subheading "Grid with row subheadings and column total" loop
         defaultanswer(0 );
 
     ) expand;
-    
+
     ConstantSum "What percentage of patients did you see each day" loop
     {
         use weekdayslist -
@@ -3390,16 +3443,17 @@ grid6_subheading "Grid with row subheadings and column total" loop
     '----------------------------------------
     ' Newspaper Questions
     '----------------------------------------
-    ReallyLongOptions "here is a basic question that contains some really long options, pick an option" 
-    style(zIndex=-40)
-    categorical[1]
+    ReallyLongOptions "here is a basic question that contains some really long options, pick an option"
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
     {
-    option1 "this is a really long option that is trying to determine whether it is possible to wrap it over several lines",
-    option2 "a very short option",
-    option3 "antoher long option that has so much content that its not possible to view the content on any device in a way that shows just one line.  We are testing these because onesize can not be used in these instances"
+        option1 "this is a really long option that is trying to determine whether it is possible to wrap it over several lines",
+        option2 "a very short option",
+        option3 "antoher long option that has so much content that its not possible to view the content on any device in a way that shows just one line.  We are testing these because onesize can not be used in these instances"
     };
-    
-    
+
     Daily "Daily: Can you tell us which of the following daily newspapers have you looked at this week, you don't need to have bought them only to have spent at least five minutes browsing"
         style(
             ZIndex = -40
@@ -3410,7 +3464,9 @@ grid6_subheading "Grid with row subheadings and column total" loop
     };
 
     TypesVsBroadsheetsSingle "Which of the following papers have you read in the last month?"
-    style(zIndex=-40)
+        style(
+            ZIndex = -40
+        )
     categorical [1..1]
     {
         use tabloidpapers sublist -,
@@ -3424,7 +3480,9 @@ grid6_subheading "Grid with row subheadings and column total" loop
     };
 
     TypesVsBroadsheets "Which of the following papers have you read in the last month?"
-    style(zIndex=-40)
+        style(
+            ZIndex = -40
+        )
     categorical
     {
         use tabloidpapers sublist -,
@@ -3438,8 +3496,10 @@ grid6_subheading "Grid with row subheadings and column total" loop
     };
 
     PaperTypes "Which of the following types of newspaper have you read in the last 4 weeks?"
-        style(zIndex=-40)
-        categorical
+        style(
+            ZIndex = -40
+        )
+    categorical
     {
         use NewspaperTypesList -
     };
@@ -3508,15 +3568,19 @@ grid6_subheading "Grid with row subheadings and column total" loop
     };
 
     Broadsheets "for how long have you been reading broadsheet newspapers?"
-        style(zIndex=-40)
-        categorical [1..1]
+        style(
+            ZIndex = -40
+        )
+    categorical [0..1]
     {
         use howlonglist -
     };
 
     Tabloids "for how long have you been reading the tabloids?"
-        style(zIndex=-40)
-        categorical [1..1]
+        style(
+            ZIndex = -40
+        )
+    categorical [0..1]
     {
         use howlonglist -
     };
@@ -5455,7 +5519,9 @@ grid6_subheading "Grid with row subheadings and column total" loop
 
     );
 
-    PostCodeBlockSideBySide "Post code" block fields
+    PostCodeBlockSideBySide "Post code"
+    style(zIndex=-2000)
+    block fields "is there text here?"
     (
         PostCodeLeft ""
             style(
@@ -5628,12 +5694,11 @@ grid6_subheading "Grid with row subheadings and column total" loop
         text [..10];
 
     );
-    
+
     '----------------------------------------
     ' onerow grids
     '----------------------------------------
-
-	date_grid "Date (grid)" loop [1] fields -
+    date_grid "Date (grid)" loop [1] fields -
     (
         month "Month"
             style(
@@ -5649,7 +5714,7 @@ grid6_subheading "Grid with row subheadings and column total" loop
             mar "March",
             apr "April"
         };
- 
+
         year "Year"
             style(
                 ZIndex = -60,
@@ -5663,8 +5728,9 @@ grid6_subheading "Grid with row subheadings and column total" loop
             _2021 "2021",
             _2022 "2022"
         };
- 
+
     ) expand;
+
     '----------------------------------------
     ' Categorical grids
     '----------------------------------------
@@ -5722,10 +5788,11 @@ grid6_subheading "Grid with row subheadings and column total" loop
             )
         categorical [1..1]
         {
-            use FullNewspapersSubList -
+            FullNewspapersSubList use \\.FullNewspapersSubList - ran
         };
 
     ) expand;
+
     '----------------------------------------
     ' 1 column
     '----------------------------------------
@@ -6230,84 +6297,93 @@ grid6_subheading "Grid with row subheadings and column total" loop
         option6 "It does just what it should do"
     };
 
-
     '----------------------------------------
     ' Long Lists Question
     '----------------------------------------
-	barcodelist "Provide a description of the product you consumed" 
-	style(zIndex = "-25",
-	control(type="singlelineedit"))
-	text[..200];
+    barcodelist "Provide a description of the product you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200];
 
-	brandlist "Provide a description of the product you consumed" 
-	style(zIndex = "-25",
-	control(type="singlelineedit"))
-	text[..200]
-	codes({nobrand "I don't know the brand" dk});
-    '----------------------------------------
-    ' Image List Question
-    '----------------------------------------
+    brandlist "Provide a description of the product you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200]
+    codes(
+    {
+        nobrand "I don't know the brand" DK
+    } );
 
-
-
-    '----------------------------------------
-    ' Invisible dates Question
-    '----------------------------------------
-    shortyearlist "" define
- 	{
-    year19 "2019",
-    year20 "2020",
-    year21 "2021",
-    year22 "2022",
-    year23 "2023",
-    year24 "2024"
-    };
-    
     YearofDiagnosis "What was the year of diagnosis?"
-    style(zIndex=-40)
-    categorical[1]
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
     {
-    use shortyearlist
+        use shortyearlist -
     };
-    
+
     relapse "Has the patient suffered a relapse"
-    style(zIndex=-40)
-    Categorical[..1]
+        style(
+            ZIndex = -40
+        )
+    categorical [..1]
     {
-    yes "Yes",
-    no "No"
+        yes "Yes",
+        no "No"
     };
-    
+
     yearoftreatment "year"
-    style(zIndex=-60, control(type="Droplist"))
-    categorical[..1]
+        style(
+            ZIndex = -60,
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [..1]
     {
-    use shortyearlist
+        use shortyearlist -
     };
-    
-    relapseblock "" block 
-    fields
+
+    relapseblock "" block fields
     (
         relapse "Has the patient suffered a relapse"
-	    style(zIndex=-40)
-	    Categorical[..1]
-	    {
-	    yes "Yes",
-	    no "No"
-	    };
-	    
-	    yearoftreatment "year"
-	    style(zIndex=-60, control(type="Droplist"))
-	    categorical[..1]
-	    {
-	    use shortyearlist
-	    };
+            style(
+                ZIndex = -40
+            )
+        categorical [..1]
+        {
+            yes "Yes",
+            no "No"
+        };
+
+        yearoftreatment "year"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [..1]
+        {
+            use shortyearlist -
+        };
+
     );
-    
-	PageOfRelapse "" Page (relapse, yearoftreatment);
-	
-    
-    
+
+    PageOfRelapse ""
+    page(
+        relapse,
+        yearoftreatment
+    );
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -6619,11 +6695,16 @@ grid6_subheading "Grid with row subheadings and column total" loop
         sevenpointfeedback,
         fivepointfeedback
     );
-    
-    PipePage page (pipesmoking,everpiped);
-
-    Passive10Page page (Passive10Scale, Passive10Feedback);
-
+    PipePage "PipePage"
+    page(
+        Pipesmoking,
+        EverPiped
+    );
+    Passive10Page "Passive10Page"
+    page(
+        Passive10Scale,
+        Passive10Feedback
+    );
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -7104,17 +7185,24 @@ dim passive10visibility
 AddCustomProperties(Passive10Scale, "Passive10Scale", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 passive10visibility = CreateVisibilityRule("Passive10Scale < 9")
 Passive10Scale.ask()
-
+Passive10Feedback.MustAnswer = false
 addCustomProperties(Passive10Feedback, "Passive10Feedback", MakeString("{'visible':{'collapse':true,'rules':'", passive10visibility, "'}}"), "replace")
 
 Passive10Page.ask()
+'AddCustomProperties(tenpointfeedback, "tenpointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 
-AddCustomProperties(tenpointfeedback, "tenpointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(tenpointfeedback, "tenpointfeedback", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 tenpointfeedback.ask()
-AddCustomProperties(sevenpointfeedback, "sevenpointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(sevenpointfeedback, "sevenpointfeedback", "{'values':{'min':1,'max':7,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 sevenpointfeedback.ask()
-AddCustomProperties(fivepointfeedback, "fivepointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/scale/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/scale/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(fivepointfeedback, "fivepointfeedback", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(fivepointfeedback, "fivepointfeedback", "{'balance':{'state':true}, 'onesize':{'state':true}}", "add")
+
+fivepointfeedback.Ask()
+
+AddCustomProperties(fivepointfeedbackbytheside, "fivepointfeedbackbytheside", "'{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+
 fivepointfeedback.Ask()
 
 case {GridScale}
@@ -7179,6 +7267,38 @@ buttonsPage.ask()
 case {newvisibility}
 
 Dim currentRule
+
+'New rules structure for visibility
+HowManySmoked.MustAnswer = false
+WeekendPercentage.MustAnswer = false
+
+
+smokecigars.Style.ZIndex = -60
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked')")
+addCustomProperties(smokecigars, "smokecigars", MakeString("{'separator':true, 'onesize':{'state':true},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'Select an answer','visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigars')")
+addCustomProperties(brandswhich, "brandswhich", MakeString("{'separator':true, 'balanced':{'state':true},'onesize':{'state':true},'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigarettes')")
+AddCustomProperties(Howmanysmoked, "Howmanysmoked", MakeString("{'separator':false, 'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
+AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Howmanysmoked >= 30")
+AddCustomProperties(Weekendpercentage, "Weekendpercentage",MakeString("{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true, 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked') and smokecigars.containsAny('cigarettes') and Howmanysmoked <= 0")
+AddCustomProperties(PleaseReview, "PleaseReview", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
+AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_smoked','yes_vaped')")
+AddCustomProperties(DidyouPreviously, "DidyouPreviously", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+smokepage.Ask()
 	
 	currentRule =  CreateVisibilityRule("Pipesmoking.containsAny('nopipe')")
 	addCustomProperties(EverPiped, "EverPiped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "add")
@@ -7219,37 +7339,7 @@ addCustomProperties(NetPromoterComment, "NetPromoterComment", MakeString("{'visi
 NetPromoterPage.Ask()
 
 
-'New rules structure for visibility
-HowManySmoked.MustAnswer = false
-WeekendPercentage.MustAnswer = false
 
-
-smokecigars.Style.ZIndex = -60
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked')")
-addCustomProperties(smokecigars, "smokecigars", MakeString("{'separator':true, 'onesize':{'state':true},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'Select an answer','visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigars')")
-addCustomProperties(brandswhich, "brandswhich", MakeString("{'separator':true, 'balanced':{'state':true},'onesize':{'state':true},'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigarettes')")
-AddCustomProperties(Howmanysmoked, "Howmanysmoked", MakeString("{'separator':false, 'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
-AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("Howmanysmoked >= 30")
-AddCustomProperties(Weekendpercentage, "Weekendpercentage",MakeString("{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true, 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked') and smokecigars.containsAny('cigarettes') and Howmanysmoked <= 0")
-AddCustomProperties(PleaseReview, "PleaseReview", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
-AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_smoked','yes_vaped')")
-AddCustomProperties(DidyouPreviously, "DidyouPreviously", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-smokepage.Ask()
 
 
 case {Combobox}
@@ -7263,7 +7353,7 @@ ComboPapers.Style.ZIndex = -70
 AddCustomProperties(ComboNewProducts, "ComboNewProducts", "{'onesize':{'state':false},'listsize':10,'showanswers':false,'mincharactersforlist':0,'notenoughcharacters':'You need to type at least one character of the required drug for options to be listed','filtertype':'starts','placeholder':'','otherquestion':'', 'noitemsinlist':'no items match this filter'}", "replace")
 ComboNewProducts.Ask()
 
-AddCustomProperties(ComboPapers, "ComboPapers", "{'displayicon':false,'onesize':{'state':false},'listsize':15,'showanswers':false,'mincharactersforlist':0,'notenoughcharacters':'A list of tabloids &amp; newspapers will be displayed once you type at least 2 characters','filtertype':'contains','placeholder':'Select a tabloid &amp; broadsheet newspaper','noitemsinlist':'no tabloids &amp; broadsheets available'}", "replace")
+AddCustomProperties(ComboPapers, "ComboPapers", "{'displayicon':false,'listsize':15,'showanswers':false,'mincharactersforlist':2,'notenoughcharacters':'A list of tabloids &amp; newspapers will be displayed once you type at least 2 characters','filtertype':'contains','placeholder':'Select a tabloid &amp; broadsheet newspaper','noitemsinlist':'no tabloids &amp; broadsheets available'}", "replace")
 ComboPapers.ask()
 
 AddCustomProperties(ComboPapers, "ComboPapers", "{'displayicon':false,'onesize':{'state':true},'listsize':15,'showanswers':false,'mincharactersforlist':3,'notenoughcharacters':'Type at least 3 characters to see a list of options','filtertype':'starts','placeholder':'Select Newspaper','otherquestion':'otherpaper','noitemsinlist':'no options available'}", "replace")
@@ -7764,6 +7854,8 @@ dim childrenInvisibilityRule
 	Howmanypatients.Response = 3
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
+	MonthYearBlock.Askyear.Style.ElementAlign = elementalignments.eaRight
+	MonthYearBlock.Askmonth.Style.ElementAlign = elementalignments.eaRight
 	InvisibilityTwoTest.Ask()
 	
 case {InvisibleAlternatives}
@@ -8008,26 +8100,33 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	addCustomProperties(WrappedInputOptionsBlock.Drug, "Drug", "{'balance':{'state':true}}", "replace")
 	WrappedInputOptionsBlock.Drug.Style.ElementAlign = elementalignments.eaRight
 	WrappedInputOptionsBlock.HowMany.Style.ElementAlign = elementalignments.eaRight
-	WrappedInputOptionsBlock.ask()
+'	WrappedInputOptionsBlock.ask()
 	
 	addCustomProperties(PostCodeBlockII.PostCodeLeft, "PostCodeLeft", "{'separator':false}","replace")
 	PostCodeBlockII.PostCodeLeft.Style.ElementAlign = elementalignments.eaRight	
 	PostCodeBlockII.PostCodeRight.Style.ElementAlign = elementalignments.eaRight
-	PostCodeBlockII.ask()
+'	PostCodeBlockII.ask()
 
 	addCustomProperties(WeightandMeasureblock.weight, "Weight", "{'separator':false}","replace")	
 	AddCustomProperties(WeightandMeasureblock.measure, "measure", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select an option'}", "replace")
-	WeightandMeasureblock.ask()
+'	WeightandMeasureblock.ask()
 
 	OtherandSpecifyblock.theotheroption.MustAnswer = false
 	AddCustomProperties(OtherandSpecifyblock.pickanoption, "pickanoption", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select one'}", "replace")
 	AddCustomProperties(OtherandSpecifyblock.theotheroption, "theotheroption", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("OtherandSpecifyblock_Qpickanoption.containsAny('otheroption')"), "'}}"), "replace")
-    OtherandSpecifyblock.Ask()
 
 	OtherandSpecifyblock.pickanoption.Style.ElementAlign = elementalignments.eaRight	
 	OtherandSpecifyblock.theotheroption.Style.ElementAlign = elementalignments.eaRight	
-    OtherandSpecifyblock.Ask()
+ '   OtherandSpecifyblock.Ask()
+IOM.LayoutTemplate = "pageoutput-label.htm"
 	
+	PostCodeBlockSideBySide.Style.ElementAlign = elementalignments.eaNewLine
+	PostCodeBlockSideBySide.PostCodeLeft.Style.ElementAlign = elementalignments.eaRight
+	PostCodeBlockSideBySide.PostCodeRight.Style.ElementAlign = elementalignments.eaRight
+	
+	WeightandMeasureblockSidebySide.Style.ElementAlign = elementalignments.eaNewLine
+	WeightandMeasureblockSidebySide.weight.Style.ElementAlign = elementalignments.eaRight
+	WeightandMeasureblockSidebySide.measure.Style.ElementAlign = elementalignments.eaRight
 	ComplexQuestionPage.ask()
 	
 	
