@@ -23,10 +23,26 @@
    <xsl:template match="Questions">
       <xsl:element name="root">
          <xsl:element name="Questions">
+            <xsl:attribute name="data-position">
+               <xsl:text>below</xsl:text>
+            </xsl:attribute>
             <xsl:for-each select="*">
                <xsl:choose>
                   <xsl:when test="name()='Question'">
                      <xsl:element name="Question">
+                        <xsl:attribute name="data-position">
+                           <xsl:choose>
+                              <xsl:when test="Style/@ElementAlign='NewLine'">
+                                 <xsl:text>below</xsl:text>
+                              </xsl:when>
+                              <xsl:when test="Style/@ElementAlign='Right'">
+                                 <xsl:text>side</xsl:text>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                 <xsl:text>below</xsl:text>
+                              </xsl:otherwise>
+                           </xsl:choose>
+                        </xsl:attribute>
                         <xsl:call-template name="Question" />
                      </xsl:element>
                   </xsl:when>
