@@ -1,32 +1,119 @@
 ﻿Metadata(en-US, Question, Label)
 
-WhenResult "" info;
-WhereResult "" info;
-WhatResult"" info;
-HowMuchResult "" info; 
-PictureResult "" info;
-SummaryPage Page "" (WhenResult, WhereResult, WhatResult, HowMuchResult, PictureResult);
+Summary "" 
+style(zIndex=-40)
+categorical[1]
+{
+when "WHEN",
+where "LOCATION",
+what "WHAT",
+howmuch "HOW MUCH",
+picture "PICTURE"
+};
+
+ProgressJSON "{ProgressJSON}" 
+style(zIndex=-10)
+info;
+
+Progress "" block fields
+(
+Status "Progress Status" style(zIndex=-20, width="50%") text[..20];
+When "Progress When" style(zIndex=-20, width="50%") date;
+What "Progress What" style(zIndex=-20, width="50%") text[..300];
+json "" style(zIndex=-20, width="90%") text[..400];
+);
+
+
+
+'-------------------
+'  Survey Questions
+'===================
+   
+When "Indicate the time when you finished consumption" 
+style(zIndex=-20, width="75%")
+DATE;
+
+Where "Where you were" 
+style(zIndex=-40)
+categorical[1]
+{
+Home "My Home",
+otherhome "Someone Else's Home",
+Bar "Bar/Lounge/Club incl. Sports Bar",
+Restaurant,
+unLicensed "Cottage/Chalet/Vacation Home/Camp",
+Licensed "Hotel/Motel/Banquet Hall",
+OtherPlace "Other location"
+};
+
+Category "Select the type of container from which you consumed your drink" 
+style(zIndex=-40)
+categorical[1]
+{
+Beer "Beer",
+Wine "Wine",
+Spirits "Spirits (cocktail or straight",
+Cider "Cider",
+Coolers "Flavored alcoholic beverages",
+premixed "Pre-mixed or ready-to-drink cocktails",
+hard "Hard Seltzer or Hard Soda",
+othertype "Other alcoholic beverages"
+};
+
+What "Describe the product consumed or scan the product’s barcode" 
+style(zIndex=-20, width="75%")
+text[..500]
+Codes ({NoManual "" NA});
+
+Barcode "Scan the barcode of the product you consumed" 
+style(zIndex=-20, width="75%")
+text[..25]
+Codes ({NoScan "" NA});
+
+Container "" 
+style(zIndex-20, width="75%")
+text[..500]
+codes ({NoContainer "" NA});
+
+Picture "Take a photo of the brand of product you consumed" 
+style(zIndex=-20, width="75%")
+text[..500]
+Codes ({
+RefusedPicture "I don't want to provide a picture" exclusive,
+UnablePicture "I cannot provide a picture" exclusive, 
+NoPicture "" NA
+});
+
+QTY "" 
+style(zIndex=-20, width="5em")
+long[0..100]; 
+
+WhichWhat "" 
+style(zIndex=-40)
+categorical[1]
+{
+barcode "Scan",
+what "Enter"
+};
+
+HowMuchPage "" Page (Category, Qty);
+
+    SummaryPage ""
+    page(
+        Summary,
+        Progress
+    );
+    
+WhatPage "" Page (WhichWhat,What,Barcode);
 End Metadata
 Routing(Web)
 
 dim templateLocation
-dim progressJSON
-dim progressJSONarray[11]
 dim visibilityRule
-dim currentTemplate, layoutTemplate
-dim askAgain
-dim focusQuestion, focusControl, focusBalance
-dim isPWA, isPaste, isJump
+dim stayinLoop
 
-templateLocation = ""
-layoutTemplate = ""
-askAgain = true
-focusQuestion = "true"
-focusControl = "true"
-focusBalance = ""
-isPWA = "false"
-isPaste = "false"
-isJump = "false"
+
+stayinLoop = true
 
 IOM.LayoutTemplate = "formal.htm"
 
@@ -34,19 +121,44 @@ IOM.QuestionTemplate = templateLocation + "question.htm"
 
 IOM.Banners.AddNew("PageName", "")
 IOM.Banners.AddNew("PageCustomProperties", "")
-IOM.Banners.AddNew("Contactushtml", "<a href='mailto:contactus@healthcare.ipsos.com' window='new'>Contact Us</a>")
 
+ProgressJSON.Response = JSONSerialize(Progress_Create())
 
-IOM.Info.EstimatedPages = 4
+While stayinLoop
+ProgressJSON.Response = Progress_Update(ProgressJSON.Response, Progress)
+SummaryPage.Ask()
+select case Summary.Response.value
+case {when}
+	when.Ask()
+case {where}
+	where.Ask() 
+case {what}
+	WhatPage.ask()
+case {howmuch}
+	container.Ask()
+	qty.Ask()
+case {picture}
+	Picture.Ask()
+end select 
 
-WhenResult.banners.AddNew("subprompt", "")
-WhenResult.banners.addnew("response", "")
+Function Progress_Create()
+dim newJSON
+	newJSON = JsonDeserialize("{}")
+	newJSON.status = ""
+	newJSON.when = ""
+	newJSON.what = 0
+	Progress_Create = newJSON
+end function
 
-'WhereResult "" info;
-'WhatResult"" info;
-'HowMuchResult "" info; 
-'PictureResult "" info;
-'SummaryPage.Show()
+Function Progress_Update(theJSON, theQuestion)
+dim stringDayofWeek, stringMonth
+dim newJSON
+	newJSON = JsonDeserialize(theJSON)
+	newJSON.status = theQuestion.status.response 
+	newJSON.what = theQuestion.what
+	newJSON.when = LocalToUTCTime(theQuestion.When)
+	Progress_Update = theJSON
+end function
 
 function FindBanner(theQuestion, theBannerName)
 dim numberOfBanners
