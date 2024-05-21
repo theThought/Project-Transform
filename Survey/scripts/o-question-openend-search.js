@@ -1,4 +1,13 @@
 define(['o-question'], function (oQuestion) {
+
+        /**
+         * Organism: Question Class
+         *
+         * @constructor
+         * @param {String} id - element id
+         * @param {String} group - question group
+         */
+
     function oQuestionOpenendSearch(id, group) {
         oQuestion.call(this, id, group);
 
@@ -145,14 +154,10 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    // Temp style change via js.
     oQuestionOpenendSearch.prototype.widthChange = function () {
-        console.log('temp width change');
         if (this.element) {
             var width = this.calculateWidth();
             this.element.style.width = width;
-            console.log('widthssss');
-            console.log(width);
         }
     
         var self = this;
@@ -161,8 +166,6 @@ define(['o-question'], function (oQuestion) {
             if (self.element) {
                 var width = self.calculateWidth();
                 self.element.style.width = width;
-                console.log(self.calculateWidth());
-                console.log(width);
             }
         });
     };
@@ -178,8 +181,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-    
-
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
         if (this.hiddenelement.value === event.detail.itemValue) {
             this.clearEntries();
@@ -245,37 +246,62 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
+    // oQuestionOpenendSearch.prototype.createButtonElement = function () {
+    //     var buttonElement = document.createElement('button');
+    //     buttonElement.id = 'a-button-word-match';
+    //     buttonElement.disabled = true;
+
+    //     this.element.insertAdjacentElement('afterend', buttonElement);
+
+    //     this.buttonElement = buttonElement;
+    //     buttonElement.setAttribute('data-checked', 'true');
+
+    //     var self = this;
+    //     buttonElement.addEventListener('click', function (event) {
+    //         event.preventDefault();
+    //         if (self.matchedWord) {
+    //             self.element.value = self.matchedWord;
+    //             console.log('Inserted word: ', self.matchedWord);
+    //             self.element.classList.add('list-visible');
+    //             self.droplist.classList.add('visible');
+    //         }
+    //     });
+    // };
+
     oQuestionOpenendSearch.prototype.createButtonElement = function () {
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
         buttonElement.disabled = true;
-
+    
         this.element.insertAdjacentElement('afterend', buttonElement);
-
+    
         this.buttonElement = buttonElement;
         buttonElement.setAttribute('data-checked', 'true');
-
+    
         var self = this;
         buttonElement.addEventListener('click', function (event) {
             event.preventDefault();
-            if (self.matchedWord) {
-                self.element.value = self.matchedWord;
-                console.log('Inserted word: ', self.matchedWord);
-                self.element.classList.add('list-visible');
-                self.droplist.classList.add('visible');
+    
+            var inputValue = self.element.value.trim();
+            if (inputValue.length > 0) {
+                // If input value does not match any item, add it as a new tag
+                self.addTag(inputValue);
+                self.element.value = ''; // Clear the input field
+                self.hideList(); // Hide the dropdown list
             }
         });
     };
+    
 
+    //internal script
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
 
         var html = '';
-
+        
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
-            // console.log(item);
-            html += '<li class="a-option-list">' + item.name + '</li>';
+            html += '<li class="a-option-list" id="' + this.id + '" data-list-position="' + [i] + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">' + item.name + '</li>';
         }
 
         listElement.innerHTML = html;
@@ -312,7 +338,7 @@ define(['o-question'], function (oQuestion) {
         var matchingWords = wordsArray.filter(function (word) {
             return word.includes(inputstring);
         });
-        console.log('Matching words: ', matchingWords);
+        //console.log('Matching words: ', matchingWords);
 
         // Enable or disable the button based on matching words
         if (matchingWords.length > 0) {
@@ -324,13 +350,45 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
+    // oQuestionOpenendSearch.prototype.wordMatching = function () {
+    //     var inputElement = this.element;
+    //     if (inputElement) {
+    //         var self = this;
+    //         inputElement.addEventListener('input', function (event) {
+    //             var inputValue = event.target.value;
+
+    //             if (inputValue.length >= 2) {
+    //                 console.log('User typed: ', inputValue);
+    //                 self.filterWordContains(inputValue);
+    //             } else {
+    //                 // Disable button if input is less than 2 characters
+    //                 self.matchedWord = null;
+    //                 self.buttonElement.disabled = true;
+    //             }
+
+    //             // Check if the input value matches any list item
+    //             var matches = Array.from(self.list).some(function (item) {
+    //                 return item.innerText.toLowerCase() === inputValue.toLowerCase();
+    //             });
+
+    //             if (!matches) {
+    //                 self.buttonElement.disabled = false;
+    //             } else {
+    //                 self.buttonElement.disabled = true;
+    //             }
+    //         });
+    //     } else {
+    //         console.error('Input element not found or not an INPUT element');
+    //     }
+    // };
+
     oQuestionOpenendSearch.prototype.wordMatching = function () {
         var inputElement = this.element;
         if (inputElement) {
             var self = this;
             inputElement.addEventListener('input', function (event) {
                 var inputValue = event.target.value;
-
+    
                 if (inputValue.length >= 2) {
                     console.log('User typed: ', inputValue);
                     self.filterWordContains(inputValue);
@@ -339,22 +397,20 @@ define(['o-question'], function (oQuestion) {
                     self.matchedWord = null;
                     self.buttonElement.disabled = true;
                 }
-
+    
                 // Check if the input value matches any list item
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-
-                if (!matches) {
-                    self.buttonElement.disabled = false;
-                } else {
-                    self.buttonElement.disabled = true;
-                }
+    
+                // Enable the button if there are no matches or if there are matching words
+                self.buttonElement.disabled = matches && inputValue.length === 0;
             });
         } else {
             console.error('Input element not found or not an INPUT element');
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
@@ -734,10 +790,7 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.showList = function () {
         this.setDropListDirection();
-
-        // Do not need to show the list at this stage
         this.element.classList.add('list-visible');
-        // Updated these styles
         this.droplist.classList.add('visible');
         this.repositionItemCount();
     };
@@ -976,6 +1029,34 @@ define(['o-question'], function (oQuestion) {
         this.wrapper.insertBefore(container, inputElement);
     };
 
+    // oQuestionOpenendSearch.prototype.addTag = function (label) {
+    //     if (typeof label === 'undefined' || label === null) {
+    //         return;
+    //     } else {
+    //         var container = document.querySelector('.o-question-selected');
+    //         var tag = document.createElement('div');
+    //         tag.className = 'm-tag-answer';
+    //         tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
+    //         container.appendChild(tag);
+
+    //         var deleteButton = tag.querySelector('.delete-tag');
+    //         deleteButton.addEventListener('click', function () {
+    //             this.removeTag(tag);
+    //             this.buttonElement.disabled = true;
+                
+    //             //When this button is clicked this removes the selected class and attribute.
+    //             for (var i = 0; i < this.list.length; i++) {
+    //                 var item = this.list[i];
+    //                 item.classList.remove('selected');
+    //                 item.removeAttribute('data-selected');
+    //             }
+    //             //and also removes the exact class.
+    //             this.element.classList.remove('exact');
+
+    //         }.bind(this));
+    //     }
+    // };
+
     oQuestionOpenendSearch.prototype.addTag = function (label) {
         if (typeof label === 'undefined' || label === null) {
             return;
@@ -985,11 +1066,20 @@ define(['o-question'], function (oQuestion) {
             tag.className = 'm-tag-answer';
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
-
+    
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.removeTag(tag);
                 this.buttonElement.disabled = true;
+    
+                // When this button is clicked this removes the selected class and attribute.
+                for (var i = 0; i < this.list.length; i++) {
+                    var item = this.list[i];
+                    item.classList.remove('selected');
+                    item.removeAttribute('data-selected');
+                }
+                // and also removes the exact class.
+                this.element.classList.remove('exact');
             }.bind(this));
         }
     };

@@ -10,10 +10,14 @@
     }
 }
 
+
+//This is to stop the 'bobbing' effect we are currently having.
 .o-question-selected {
     display: flex;
     align-items: center;
     gap: 10px;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
 .m-tag-answer {

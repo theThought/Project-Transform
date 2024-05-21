@@ -2165,6 +2165,8 @@ html[dir=rtl] .o-dropdown ul li {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 .m-tag-answer {

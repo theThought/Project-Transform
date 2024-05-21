@@ -52,18 +52,24 @@
 				<div class="o-question-container">
 					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qbarcodelist');</script>
                     <script type="text/javascript">app.RegisterProperties("_Qbarcodelist",
-                    {"displayicon":false,"listsize":15,
-                    "list":{
-						"location":"internal",
-						"source":"a-list",
-						"valuefrom":"UPC",
-						"descriptionfrom":"name"
-						},
-						"showanswers":true,
-						"mincharactersforlist":3,
-						"notenoughcharacters":"type at least 3 characters to see a list of products containing what has been typed.",
-						"filtertype":"contains","placeholder":"Describe your drink, include the brand if you know it","noitemsinlist":"There are no drinks of that name in the list, you can accept this answer by tapping the tick",
-						"prompts":{"selection":"Brand Identified","listcount":"beverages found"}});</script>
+                    {
+						"displayicon":false,
+						"listsize":15,
+						"list":{
+								"location":"internal",
+								"source":"a-list",
+								"valuefrom":"UPC",
+								"descriptionfrom":"name"
+								},
+								"showanswers":true,
+								"mincharactersforlist":3,
+								"notenoughcharacters":"type at least 3 characters to see a list of products containing what has been typed.",
+								"filtertype":"contains",
+								"placeholder":"Describe your drink, include the brand if you know it",
+								"noitemsinlist":"There are no drinks of that name in the list, you can accept this answer by tapping the tick",
+								"prompts":{"selection":"Brand Identified","listcount":"beverages found"}
+							}
+						);</script>
 						<div class="m-question-cover"><!-- cover --></div>
 					<div class="m-message-error">
 					</div>

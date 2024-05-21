@@ -44,7 +44,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             break;
         case 'moptionbase':
             requirejs(['m-option-base'], function (mOptionBase) {
-                console.log('Registering moptionbase');
                 app.preinitcomponents.unshift(new mOptionBase(id, group));
             });
             break;
@@ -63,6 +62,12 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oOpenendSearch(id, group));
             });
             break;
+        // case 'mlistexternal':
+        //     requirejs(['m-list-external'], function (mListExternal) {
+        //         console.log('m-list-external');
+        //         app.preinitcomponents.unshift(new mListExternal(id, group));
+        //     });
+        //     break;    
         case 'odropdown':
             requirejs(['o-dropdown'], function (oDropdown) {
                 app.preinitcomponents.unshift(new oDropdown(id, group));
