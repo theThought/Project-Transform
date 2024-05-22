@@ -162,7 +162,6 @@ define(['o-question'], function (oQuestion) {
     
         var self = this;
         window.addEventListener('resize', function () {
-            console.log('Window is resized');
             if (self.element) {
                 var width = self.calculateWidth();
                 self.element.style.width = width;
@@ -215,6 +214,7 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
         this.mincharacters = prop;
+        
     };
 
     oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
@@ -246,8 +246,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-
-
     oQuestionOpenendSearch.prototype.createButtonElement = function () {
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
@@ -272,8 +270,6 @@ define(['o-question'], function (oQuestion) {
         });
     };
     
-
-    //internal script
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
 
@@ -318,7 +314,6 @@ define(['o-question'], function (oQuestion) {
         var matchingWords = wordsArray.filter(function (word) {
             return word.includes(inputstring);
         });
-        //console.log('Matching words: ', matchingWords);
 
         // Enable or disable the button based on matching words
         if (matchingWords.length > 0) {
@@ -338,7 +333,6 @@ define(['o-question'], function (oQuestion) {
                 var inputValue = event.target.value;
     
                 if (inputValue.length >= 2) {
-                    console.log('User typed: ', inputValue);
                     self.filterWordContains(inputValue);
                 } else {
                     // Disable button if input is less than 2 characters
@@ -359,7 +353,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
         this.element.placeholder = this.defaultplaceholder;
@@ -516,6 +509,9 @@ define(['o-question'], function (oQuestion) {
                 break;
             default:
                 this.keybuffer += String.fromCharCode(this.keypressed).toLowerCase();
+                if (this.keypressed === 8 || this.keypressed === 46) {
+                    this.clearKeyBuffer();
+                }
         }
     };
 
@@ -817,12 +813,6 @@ define(['o-question'], function (oQuestion) {
                 this.filterList();
             }
         }
-
-        if (!this.element.value.length && this.mincharacters > 0) {
-            this.droplist.classList.add('charrestriction');
-
-            this.filterListStarts('');
-        }
     };
 
     oQuestionOpenendSearch.prototype.filterList = function () {
@@ -830,15 +820,11 @@ define(['o-question'], function (oQuestion) {
         this.list = this.buildList();
 
         var inputstring = this.element.value;
-
-        if (inputstring.length < 2) {
+     
+        if (inputstring.length < this.mincharacters) {
             this.showList();
             this.notenoughcharacters(this.properties.notenoughcharacters);
-            this.updateItemCount(0);
-            return;
-        } else if (inputstring.length < this.mincharacters) {
-            this.showList();
-            this.notenoughcharacters(this.properties.notenoughcharacters);
+            this.droplist.classList.add('charrestriction');
             this.updateItemCount(0);
             return;
         } else {
@@ -859,15 +845,6 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.filterListStarts = function (inputstring) {
-        if (inputstring.length < this.mincharacters) {
-            this.clearOptions();
-            this.droplist.classList.add('charrestriction');
-            this.updateItemCount(0);
-            this.togglePlaceholderVisibility(true);
-            return;
-        }
-
-        this.droplist.classList.remove('charrestriction');
         var exactmatch = false;
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
@@ -892,15 +869,6 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.filterListContains = function (inputstring) {
-        if (inputstring.length < this.mincharacters) {
-            this.clearOptions();
-            this.droplist.classList.add('charrestriction');
-            this.updateItemCount(0);
-            this.togglePlaceholderVisibility(true);
-            return;
-        }
-
-        this.droplist.classList.remove('charrestriction');
         var exactmatch = false;
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
