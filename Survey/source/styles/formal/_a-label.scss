@@ -504,6 +504,140 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     }
 }
 
+.o-question-dateslider-horizontal-control,
+.o-question-dateslider-vertical-control {
+    .a-label-outer-prelabel,
+    .a-label-outer-postlabel {
+        position: relative;
+        top: .9em;
+        color: globals.$theme-primary;
+    }
+
+    .a-label-prelabel {
+        position: absolute;
+        left: 0;
+        bottom: -.8em;
+        color: globals.$theme-primary;
+    }
+
+    .a-label-postlabel {
+        position: absolute;
+        right: 0;
+        bottom: -.8em;
+        color: globals.$theme-primary;
+    }
+
+    .a-label-thumbvalue {
+        box-sizing: border-box;
+        color: globals.$titles;
+        position: absolute;
+        top: 3em;
+        visibility: hidden;
+        transform: translateX(-50%);
+    }
+
+    &.active.has-value.has-thumb-value .a-label-thumbvalue {
+        visibility: visible;
+    }
+
+    .m-style-slidermarks {
+        box-sizing: border-box;
+        position: absolute;
+        z-index: 3;
+        width: calc(100% - 12px);
+        left: 6px;
+        top: 14px;
+        display: flex;
+        justify-content: space-between;
+        color: globals.$borders;
+
+        & > i {
+            text-align: center;
+            flex: 0 1 40px;
+            display: block;
+            font-style: normal;
+        }
+    }
+
+    .m-label-ticklabels {
+        position: absolute;
+        top: -1em;
+        left: 6px;
+        box-sizing: border-box;
+        width: calc(100% - 12px);
+        display: flex;
+        justify-content: space-between;
+        color: globals.$borders;
+
+        & > span {
+            text-align: center;
+            flex: 0 1 40px;
+            display: block;
+        }
+
+    }
+
+}
+
+.o-question-dateslider-vertical-control {
+    .m-style-slidermarks {
+        width: calc(100% - 31px);
+        left: 15px;
+    }
+
+    .a-label-outer-prelabel,
+    .a-label-outer-postlabel {
+        transform: rotate(90deg);
+    }
+}
+
+html[dir="rtl"] .o-question-dateslider-horizontal-control,
+html[dir="rtl"] .o-question-dateslider-vertical-control {
+
+    .a-label-prelabel {
+        left: auto;
+        right: 0;
+    }
+
+    .a-label-postlabel {
+        right: auto;
+        left: 0;
+    }
+
+    .a-label-thumbvalue {
+        transform: translateX(50%);
+    }
+
+    .m-style-slidermarks {
+        left: auto;
+        right: 6px;
+    }
+
+    .m-label-ticklabels {
+        left: auto;
+        right: 6px;
+    }
+}
+
+.o-question-dateslider-vertical-control {
+    .m-label-ticklabels {
+        left: 16px;
+        top: 0;
+        width: calc(100% - 29px);
+
+        span {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.o-question-dateslider-vertical-control {
+    .a-label-thumbvalue {
+        top: -1.5em;
+        transform: translateX(-50%) rotate(90deg);
+    }
+}
+
 div[data-readonly="true"] .m-option-base .a-label-option {
     color: globals.$borders !important;
 }

@@ -1164,6 +1164,144 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
           transform: translateX(-50%) rotate(90deg);
 }
 
+.o-question-dateslider-horizontal-control .a-label-outer-prelabel,
+.o-question-dateslider-horizontal-control .a-label-outer-postlabel,
+.o-question-dateslider-vertical-control .a-label-outer-prelabel,
+.o-question-dateslider-vertical-control .a-label-outer-postlabel {
+  position: relative;
+  top: 12px;
+  color: #E8BE5D;
+}
+.o-question-dateslider-horizontal-control .a-label-prelabel,
+.o-question-dateslider-vertical-control .a-label-prelabel {
+  position: absolute;
+  left: 0;
+  bottom: -0.8em;
+  color: #E8BE5D;
+}
+.o-question-dateslider-horizontal-control .a-label-postlabel,
+.o-question-dateslider-vertical-control .a-label-postlabel {
+  position: absolute;
+  right: 0;
+  bottom: -0.8em;
+  color: #E8BE5D;
+}
+.o-question-dateslider-horizontal-control .a-label-time,
+.o-question-dateslider-horizontal-control .a-label-date,
+.o-question-dateslider-vertical-control .a-label-time,
+.o-question-dateslider-vertical-control .a-label-date {
+  font-size: 17px;
+}
+.o-question-dateslider-horizontal-control .a-label-thumbvalue,
+.o-question-dateslider-vertical-control .a-label-thumbvalue {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #212C4C;
+  position: absolute;
+  top: 2.5em;
+  visibility: hidden;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.o-question-dateslider-horizontal-control.active.has-value.has-thumb-value .a-label-thumbvalue,
+.o-question-dateslider-vertical-control.active.has-value.has-thumb-value .a-label-thumbvalue {
+  visibility: visible;
+}
+.o-question-dateslider-horizontal-control .m-style-slidermarks,
+.o-question-dateslider-vertical-control .m-style-slidermarks {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  width: calc(100% - 12px);
+  left: 6px;
+  top: 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #DEC7E8;
+  font-size: 16px;
+}
+.o-question-dateslider-horizontal-control .m-style-slidermarks > i,
+.o-question-dateslider-vertical-control .m-style-slidermarks > i {
+  text-align: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40px;
+          flex: 0 1 40px;
+  display: block;
+  font-style: normal;
+}
+.o-question-dateslider-horizontal-control .m-label-ticklabels,
+.o-question-dateslider-vertical-control .m-label-ticklabels {
+  position: absolute;
+  top: -1em;
+  left: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: calc(100% - 12px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #8797C8;
+}
+.o-question-dateslider-horizontal-control .m-label-ticklabels > span,
+.o-question-dateslider-vertical-control .m-label-ticklabels > span {
+  text-align: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40px;
+          flex: 0 1 40px;
+  display: block;
+  font-size: 17px;
+}
+
+html[dir=rtl] .o-question-dateslider-horizontal-control .a-label-prelabel,
+html[dir=rtl] .o-question-dateslider-vertical-control .a-label-prelabel {
+  left: auto;
+  right: 0;
+}
+html[dir=rtl] .o-question-dateslider-horizontal-control .a-label-postlabel,
+html[dir=rtl] .o-question-dateslider-vertical-control .a-label-postlabel {
+  right: auto;
+  left: 0;
+}
+html[dir=rtl] .o-question-dateslider-horizontal-control .a-label-thumbvalue,
+html[dir=rtl] .o-question-dateslider-vertical-control .a-label-thumbvalue {
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+html[dir=rtl] .o-question-dateslider-horizontal-control .m-style-slidermarks,
+html[dir=rtl] .o-question-dateslider-vertical-control .m-style-slidermarks {
+  left: auto;
+  right: 6px;
+}
+html[dir=rtl] .o-question-dateslider-horizontal-control .m-label-ticklabels,
+html[dir=rtl] .o-question-dateslider-vertical-control .m-label-ticklabels {
+  left: auto;
+  right: 6px;
+}
+
+.o-question-dateslider-vertical-control .m-label-ticklabels {
+  left: 12px;
+  top: 0;
+  width: calc(100% - 22px);
+}
+.o-question-dateslider-vertical-control .m-label-ticklabels span {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.o-question-dateslider-vertical-control .a-label-thumbvalue {
+  top: -1.5em;
+  -webkit-transform: translateX(-50%) rotate(90deg);
+          transform: translateX(-50%) rotate(90deg);
+}
+
 .m-option-base input:checked + label::after {
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -1925,6 +2063,296 @@ input[type=range]:focus::-ms-fill-lower {
     margin: 0;
   }
 }
+:root {
+  --track-background-fill: rgba(212, 170, 73, 0.15);
+  --track-thumb-image: url("../../images/informal/range-thumb-default.svg");
+  --track-thumb-width: 40px;
+  --track-thumb-height: 45px;
+}
+
+.o-question-dateslider-horizontal,
+.o-question-dateslider-vertical {
+  overflow: visible;
+}
+
+.o-question-dateslider-vertical {
+  display: table;
+}
+.o-question-dateslider-vertical .o-dateslider-rotate {
+  padding: 50% 0;
+  height: 0;
+}
+
+.o-question-dateslider-vertical-control {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.o-question-dateslider-horizontal-control,
+.o-question-dateslider-vertical-control {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 0.5em;
+  min-width: 343px;
+}
+.o-question-dateslider-horizontal-control.has-value input[type=range]::-webkit-slider-thumb,
+.o-question-dateslider-vertical-control.has-value input[type=range]::-webkit-slider-thumb {
+  visibility: visible;
+}
+.o-question-dateslider-horizontal-control.has-value input[type=range]::-moz-range-thumb,
+.o-question-dateslider-vertical-control.has-value input[type=range]::-moz-range-thumb {
+  visibility: visible;
+}
+.o-question-dateslider-horizontal-control.has-value input[type=range]::-ms-thumb,
+.o-question-dateslider-vertical-control.has-value input[type=range]::-ms-thumb {
+  visibility: visible;
+}
+.o-question-dateslider-horizontal-control.has-thumb-value,
+.o-question-dateslider-vertical-control.has-thumb-value {
+  padding-top: 1em;
+}
+.o-question-dateslider-horizontal-control.has-pre-label, .o-question-dateslider-horizontal-control.has-post-label,
+.o-question-dateslider-vertical-control.has-pre-label,
+.o-question-dateslider-vertical-control.has-post-label {
+  padding-bottom: 0.8em;
+}
+.o-question-dateslider-horizontal-control.has-tick-labels,
+.o-question-dateslider-vertical-control.has-tick-labels {
+  padding-bottom: 0.8em;
+}
+.o-question-dateslider-horizontal-control.inactive .a-style-sliderclickablearea,
+.o-question-dateslider-vertical-control.inactive .a-style-sliderclickablearea {
+  display: block;
+}
+.o-question-dateslider-horizontal-control > div,
+.o-question-dateslider-vertical-control > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.m-dateslider-horizontal,
+.m-dateslider-vertical {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.m-dateslider-horizontal[style*=width],
+.m-dateslider-vertical[style*=width] {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.a-style-sliderborder {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 24px;
+  border: 1px solid #E8BE5D;
+  border-radius: 5px;
+  top: 12px;
+  background: white;
+}
+
+.a-style-sliderclickablearea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: none;
+}
+
+input[type=range] {
+  position: relative;
+  z-index: 3;
+  width: calc(100% - 12px);
+  left: 6px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  border: none;
+}
+
+html[dir=rtl] input[type=range] {
+  left: auto;
+  right: 6px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 16px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--track-thumb-width);
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: -15px;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: var(--track-thumb-width);
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: none;
+  z-index: 4;
+  visibility: hidden;
+}
+
+input[type=range]::-ms-thumb {
+  width: 40px;
+  width: var(--track-thumb-width);
+  height: 45px;
+  height: var(--track-thumb-height);
+  border: none;
+  background-color: transparent;
+  background-image: url("../../images/informal/range-thumb-default.svg");
+  background-image: var(--track-thumb-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: none;
+  margin-top: 0px;
+  z-index: 4;
+  visibility: hidden;
+}
+
+.has-value .flood-to-value::-webkit-slider-runnable-track {
+  background: var(--track-background-fill);
+}
+
+input[type=range]::-moz-range-track {
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 16px;
+}
+
+.has-value .flood-to-value::-moz-range-track {
+  background: var(--track-background-fill);
+  height: 16px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+html[dir=rtl] .has-value .flood-to-value::-moz-range-track {
+  border-radius: 0 5px 5px 0;
+}
+
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 5px 0;
+  color: transparent;
+  width: 100%;
+  height: 16px;
+  border-radius: 5px;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.has-value .flood-to-value::-ms-fill-lower {
+  background-color: rgba(212, 170, 73, 0.15) !important;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+html[dir=rtl] .has-value .flood-to-value::-ms-fill-lower {
+  border-radius: 0 5px 5px 0;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+html[dir=rtl] input[type=range]::-ms-fill-upper {
+  border-radius: 5px 0 0 5px;
+}
+
+input[type=range]:focus {
+  border: none;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: transparent;
+}
+
+.has-value .flood-to-value:focus::-ms-fill-lower {
+  background: rgba(212, 170, 73, 0.15) !important;
+}
+
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from https://stackoverflow.com/a/32202953/7077589 */
+  /* Edge starts the margin from the thumb, not the track as other browsers do*/
+  input[type=range] {
+    margin: 0;
+  }
+}
+.m-dateslider-thumb {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #212C4C;
+  position: absolute;
+  top: 2.5em;
+  visibility: hidden;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #8797C8;
+  border-radius: 5px;
+  background-color: #FAFAFA;
+}
+
+.active.has-value.has-thumb-value .m-dateslider-thumb {
+  visibility: visible;
+}
+
 .o-combobox, .o-dropdown {
   position: relative;
 }
