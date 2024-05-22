@@ -1,13 +1,4 @@
 define(['o-question'], function (oQuestion) {
-
-        /**
-         * Organism: Question Class
-         *
-         * @constructor
-         * @param {String} id - element id
-         * @param {String} group - question group
-         */
-
     function oQuestionOpenendSearch(id, group) {
         oQuestion.call(this, id, group);
 
@@ -15,11 +6,10 @@ define(['o-question'], function (oQuestion) {
         this.droplist = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
         this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
         this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-        
+
         this.itemCountElement = document.querySelector('.m-openend-search-count');
         this.itemPlaceHolderEmpty = document.querySelector('.a-list-placeholder-empty');
 
-        
         this.isOpenendSearch = document.querySelector('ul.m-list-external');
         this.hiddenelement = null;
         this.mincharacters = 0;
@@ -80,7 +70,7 @@ define(['o-question'], function (oQuestion) {
         this.filterWordContains();
         this.wordMatching();
         this.updateItemCount();
-        
+
         this.configureTagContainer();
         this.addTag();
         this.removeTag();
@@ -160,7 +150,7 @@ define(['o-question'], function (oQuestion) {
             var width = this.calculateWidth();
             this.element.style.width = width;
         }
-    
+
         var self = this;
         window.addEventListener('resize', function () {
             if (self.element) {
@@ -169,7 +159,7 @@ define(['o-question'], function (oQuestion) {
             }
         });
     };
-    
+
     oQuestionOpenendSearch.prototype.calculateWidth = function () {
         var windowWidth = window.innerWidth;
         if (windowWidth < 768) {
@@ -180,7 +170,7 @@ define(['o-question'], function (oQuestion) {
             return '84vw';  
         }
     };
-    
+
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
         if (this.hiddenelement.value === event.detail.itemValue) {
             this.clearEntries();
@@ -252,31 +242,30 @@ define(['o-question'], function (oQuestion) {
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
         buttonElement.disabled = true;
-    
+
         this.element.insertAdjacentElement('afterend', buttonElement);
-    
+
         this.buttonElement = buttonElement;
         buttonElement.setAttribute('data-checked', 'true');
-    
+
         var self = this;
         buttonElement.addEventListener('click', function (event) {
             event.preventDefault();
-    
+
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
-                // If input value does not match any item, add it as a new tag
                 self.addTag(inputValue);
                 self.element.value = ''; // Clear the input field
                 self.hideList(); // Hide the dropdown list
             }
         });
     };
-    
+
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
 
         var html = '';
-        
+
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             html += '<li class="a-option-list" id="' + this.id + '" data-list-position="' + [i] + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">' + item.name + '</li>';
@@ -328,25 +317,25 @@ define(['o-question'], function (oQuestion) {
             var self = this;
             inputElement.addEventListener('input', function (event) {
                 var inputValue = event.target.value;
-    
+
                 if (inputValue.length >= 2) {
                     self.filterWordContains(inputValue);
                 } else {
                     self.matchedWord = null;
                     self.buttonElement.disabled = true;
                 }
-    
+
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-    
+
                 self.buttonElement.disabled = matches && inputValue.length === 0;
             });
         } else {
             console.error('Input element not found or not an INPUT element');
         }
     };
-    
+
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
         this.element.placeholder = this.defaultplaceholder;
@@ -635,6 +624,7 @@ define(['o-question'], function (oQuestion) {
 
         if (event.target.classList.contains('a-option-list')) {
             this.addTag(event.target.innerText);
+            this.element.value = ''; // Clear the input field when selecting an item from the list
             this.hideList();
         }
     };
@@ -679,6 +669,7 @@ define(['o-question'], function (oQuestion) {
         }
 
         this.setSelectedOption(selectedOption);
+        this.element.value = ''; // Clear the input field when selecting an item
         this.hideList();
         this.onFocusIn();
         this.onChange(event);
@@ -814,7 +805,7 @@ define(['o-question'], function (oQuestion) {
         this.list = this.buildList();
 
         var inputstring = this.element.value;
-     
+
         if (inputstring.length < this.mincharacters) {
             this.showList();
             this.notenoughcharacters(this.properties.notenoughcharacters);
@@ -875,8 +866,14 @@ define(['o-question'], function (oQuestion) {
             if (itemlabel.includes(inputstring)) {
                 item.classList.remove('filter-hidden');
                 visibleitems++;
+                if (itemlabel === inputstring) {
+                    item.classList.add('selected');
+                    item.setAttribute('data-selected', 'selected');
+                }
             } else {
                 item.classList.add('filter-hidden');
+                item.classList.remove('selected');
+                item.removeAttribute('data-selected');
             }
         }.bind(this));
 
@@ -899,7 +896,7 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.updateItemCount = function (count) {    
         var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
         var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
-          
+
         if (itemCountElement && itemPromptElement) {
             if (count > 0) {
                 if (this.properties && this.properties.prompts && this.properties.prompts.listcount) {
@@ -934,8 +931,12 @@ define(['o-question'], function (oQuestion) {
             var container = document.querySelector('.o-question-selected');
             var tag = document.createElement('div');
             tag.className = 'm-tag-answer';
+            // Set the data-value attribute with the user-entered value and not from the list!
+            tag.setAttribute('data-value', label); 
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
+    
+            console.log('User-entered value:', label); 
     
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
@@ -951,6 +952,8 @@ define(['o-question'], function (oQuestion) {
             }.bind(this));
         }
     };
+    
+    
 
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
@@ -959,15 +962,15 @@ define(['o-question'], function (oQuestion) {
             } else {
                 console.error('Parent node not found for tag');
             }
-    
+
             if (this.element) {
                 this.element.value = '';
             }
-    
+
             if (this.hiddenelement) {
                 this.hiddenelement.value = '';
             }
-    
+
             if (this.itemCountElement) {
                 this.itemCountElement.textContent = "No matches found";
                 this.itemCountElement.classList.remove('hidden');
