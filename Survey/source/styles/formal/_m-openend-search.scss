@@ -1,8 +1,10 @@
 // These are the styles for the openend search 
 .m-openend-search-count{
-    width: 100%;
+    width: 90%;
     border-top: 2px solid globals.$darkest;
-    margin: 30px 0;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-top: 30px;
     padding: 10px 0;
     text-align: right;
     .hidden {
@@ -10,8 +12,6 @@
     }
 }
 
-
-//This is to stop the 'bobbing' effect we are currently having.
 .o-question-selected {
     display: flex;
     align-items: center;
