@@ -527,6 +527,11 @@ html[dir="rtl"] .o-question-slider-vertical-control {
         color: globals.$theme-primary;
     }
 
+    .a-label-time {
+        color: globals.$success;
+        border-bottom: globals.$border-thickness solid globals.$light4;
+    }
+
     .a-label-thumbvalue {
         box-sizing: border-box;
         color: globals.$titles;

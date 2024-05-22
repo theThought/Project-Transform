@@ -1251,6 +1251,11 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   bottom: -0.8em;
   color: #455B97;
 }
+.o-question-dateslider-horizontal-control .a-label-time,
+.o-question-dateslider-vertical-control .a-label-time {
+  color: #469B9B;
+  border-bottom: 1px solid #8797C8;
+}
 .o-question-dateslider-horizontal-control .a-label-thumbvalue,
 .o-question-dateslider-vertical-control .a-label-thumbvalue {
   -webkit-box-sizing: border-box;
@@ -2362,7 +2367,7 @@ input[type=range]:focus::-ms-fill-lower {
           box-sizing: border-box;
   color: #212C4C;
   position: absolute;
-  top: 2.5em;
+  top: 3em;
   visibility: hidden;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

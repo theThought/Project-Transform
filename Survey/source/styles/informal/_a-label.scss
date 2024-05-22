@@ -511,6 +511,11 @@ html[dir="rtl"] .o-question-slider-vertical-control {
         color: globals.$theme-primary;
     }
 
+    .a-label-time {
+        color: globals.$success;
+        border-bottom: globals.$border-thickness solid globals.$other2;
+    }
+
     .a-label-time,
     .a-label-date {
         font-size: 17px;

@@ -1187,6 +1187,11 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   color: #E8BE5D;
 }
 .o-question-dateslider-horizontal-control .a-label-time,
+.o-question-dateslider-vertical-control .a-label-time {
+  color: #469B9B;
+  border-bottom: 1px solid #6A646F;
+}
+.o-question-dateslider-horizontal-control .a-label-time,
 .o-question-dateslider-horizontal-control .a-label-date,
 .o-question-dateslider-vertical-control .a-label-time,
 .o-question-dateslider-vertical-control .a-label-date {
