@@ -23,10 +23,26 @@
    <xsl:template match="Questions">
       <xsl:element name="root">
          <xsl:element name="Questions">
+            <xsl:attribute name="data-position">
+               <xsl:text>below</xsl:text>
+            </xsl:attribute>
             <xsl:for-each select="*">
                <xsl:choose>
                   <xsl:when test="name()='Question'">
                      <xsl:element name="Question">
+                        <xsl:attribute name="data-position">
+                           <xsl:choose>
+                              <xsl:when test="Style/@ElementAlign='NewLine'">
+                                 <xsl:text>below</xsl:text>
+                              </xsl:when>
+                              <xsl:when test="Style/@ElementAlign='Right'">
+                                 <xsl:text>side</xsl:text>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                 <xsl:text>below</xsl:text>
+                              </xsl:otherwise>
+                           </xsl:choose>
+                        </xsl:attribute>
                         <xsl:call-template name="Question" />
                      </xsl:element>
                   </xsl:when>
@@ -1264,9 +1280,43 @@
                   <xsl:text>;</xsl:text>
                </xsl:attribute>
             </xsl:if>
-            <xsl:comment>
-               <!-- external list goes here -->
-            </xsl:comment>
+            <xsl:for-each select="Category">
+               <xsl:element name="li">
+                  <xsl:attribute name="class">a-option-list</xsl:attribute>
+                  <xsl:attribute name="data-questionid">
+                     <xsl:value-of select="$qElementID" />
+                     <xsl:value-of select="@CategoryID" />
+                  </xsl:attribute>
+                  <xsl:attribute name="data-questiongroup">
+                     <xsl:value-of select="$qGroup_Name" />
+                  </xsl:attribute>
+                  <xsl:if test="$bShowOnly != false() or ../Style/Control/@ReadOnly != 'false'">
+                     <xsl:attribute name="data-readonly">
+                        <xsl:text>true</xsl:text>
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:attribute name="data-value">
+                     <xsl:value-of select="@Name" />
+                  </xsl:attribute>
+                  <xsl:if test="@Alt != ''">
+                     <xsl:attribute name="Alt">
+                        <xsl:value-of select="@Alt" />
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:if test="$bIncludeElementIds">
+                     <xsl:attribute name="id">
+                        <xsl:value-of select="$qElementID" />
+                        <xsl:value-of select="@CategoryID" />
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:if test="@Checked = 'true'">
+                     <xsl:attribute name="data-selected">
+                        <xsl:text>true</xsl:text>
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:value-of select="Label/Text" />
+               </xsl:element>
+            </xsl:for-each>
          </xsl:element>
       </xsl:element>
    </xsl:template>
@@ -2094,7 +2144,7 @@
             <xsl:value-of select="$lElementID" />
          </xsl:attribute>
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'oDropdown'" />
+            <xsl:with-param name="ComponentName" select="'oOpenend-search'" />
             <xsl:with-param name="qElementID" select='$lElementID' />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
@@ -2165,6 +2215,17 @@
                   <xsl:value-of select="Label/Text" />
                </xsl:element>
             </xsl:for-each>
+         </xsl:element>
+         <xsl:element name="div">
+            <xsl:attribute name="class">m-openend-search-count</xsl:attribute>
+            <xsl:element name="span">
+               <xsl:attribute name="class">a-label-counter</xsl:attribute>
+               <xsl:comment>item count goes here</xsl:comment>
+            </xsl:element>
+            <xsl:element name="span">
+               <xsl:attribute name="class">a-label-counter-prompt</xsl:attribute>
+               <xsl:comment>item count prompt goes here</xsl:comment>
+            </xsl:element>
          </xsl:element>
       </xsl:element>  
    </xsl:template>
@@ -2408,7 +2469,26 @@
          <xsl:for-each select="*">
             <xsl:choose>
                <xsl:when test="name() = 'Question'">
-                  <xsl:call-template name="CellQuestion" />
+                  <xsl:variable name="shouldGo">
+                     <xsl:choose>
+                        <xsl:when test="position() &lt; 2">
+                           <xsl:value-of select="true()" />
+                        </xsl:when>
+                        <xsl:otherwise>
+                           <xsl:choose>
+                              <xsl:when test="name(../*[1]) != 'Control'">
+                                 <xsl:value-of select="true()" />
+                              </xsl:when>
+                              <xsl:otherwise>
+                                 <xsl:value-of select="false()" />
+                              </xsl:otherwise>
+                           </xsl:choose>
+                        </xsl:otherwise>
+                     </xsl:choose>
+                  </xsl:variable>
+                  <xsl:if test="$shouldGo='true'">
+                     <xsl:call-template name="CellQuestion" />
+                  </xsl:if>
                </xsl:when>
                <xsl:when test="name() = 'Label'">
                   <xsl:call-template name="Label">
@@ -2731,7 +2811,7 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-25'">
-            <xsl:value-of select="'true'" />
+            <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'false'" />
