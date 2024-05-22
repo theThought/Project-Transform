@@ -2775,6 +2775,12 @@
          <xsl:when test="$theID = '-70'">
             <xsl:value-of select="'combobox'" />
          </xsl:when>
+         <xsl:when test="$theID = '-80'">
+            <xsl:value-of select="'calendar'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-81'">
+            <xsl:value-of select="'openend-date-recent'" />
+         </xsl:when>
          <xsl:when test="$theID = '-55'">
             <xsl:value-of select="'scale-horizontal'" />
          </xsl:when>
@@ -2836,6 +2842,12 @@
          </xsl:when>
          <xsl:when test="$theID = '-70'">
             <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-80'">
+            <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-81'">
+            <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-1100'">
             <xsl:value-of select="'false'" />
