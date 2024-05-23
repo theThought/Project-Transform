@@ -70,7 +70,6 @@ define(['o-question'], function (oQuestion) {
         this.filterWordContains();
         this.wordMatching();
         this.updateItemCount();
-
         this.configureTagContainer();
         this.addTag();
         this.removeTag();
