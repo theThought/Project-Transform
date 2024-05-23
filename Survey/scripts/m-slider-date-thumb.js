@@ -9,17 +9,17 @@ define(['component'],
          * @param {String} group - question group
          */
 
-        function mDateSliderThumb(id, group) {
+        function mSliderDateThumb(id, group) {
             component.call(this, id, group);
 
-            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] div.m-dateslider-thumb');
+            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] div.m-slider-date-thumb');
             this.slider = document.querySelector('div[data-questiongroup=' + this.group + '] input[type=range]');
         }
 
-        mDateSliderThumb.prototype = Object.create(component.prototype);
-        mDateSliderThumb.prototype.constructor = mDateSliderThumb;
+        mSliderDateThumb.prototype = Object.create(component.prototype);
+        mSliderDateThumb.prototype.constructor = mSliderDateThumb;
 
-        mDateSliderThumb.prototype.init = function () {
+        mSliderDateThumb.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
 
@@ -28,12 +28,12 @@ define(['component'],
             this.configurationComplete();
         }
 
-        mDateSliderThumb.prototype.configureIncomingEventListeners = function () {
+        mSliderDateThumb.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener(this.group + '_updateValue', this, false);
         }
 
-        mDateSliderThumb.prototype.handleEvent = function (event) {
+        mSliderDateThumb.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case this.group + '_updateValue':
                     this.updateValue(event.detail);
@@ -41,7 +41,7 @@ define(['component'],
             }
         }
 
-        mDateSliderThumb.prototype.updatePosition = function (eventDetail) {
+        mSliderDateThumb.prototype.updatePosition = function (eventDetail) {
             var direction = (document.dir === 'rtl') ? 'rtl' : 'ltr';
             var value = eventDetail.element.value;
 
@@ -61,26 +61,26 @@ define(['component'],
             }
         }
 
-        mDateSliderThumb.prototype.updateValue = function (eventDetail) {
+        mSliderDateThumb.prototype.updateValue = function (eventDetail) {
             this.updatePosition(eventDetail);
             this.updateDate(eventDetail);
             this.updateTime(eventDetail);
         }
 
-        mDateSliderThumb.prototype.updateDate = function (eventDetail) {
+        mSliderDateThumb.prototype.updateDate = function (eventDetail) {
             var selectedDate = new Date(eventDetail.dateelement.value);
             var options = { weekday: "long" };
             var dayOfWeek = new Intl.DateTimeFormat("en-GB", options).format(selectedDate);
             this.element.querySelector('.a-label-date').innerHTML = dayOfWeek;
         }
 
-        mDateSliderThumb.prototype.updateTime = function (eventDetail) {
+        mSliderDateThumb.prototype.updateTime = function (eventDetail) {
             var hours = new Date(eventDetail.dateelement.value).getHours();
             var minutes = '0' + new Date(eventDetail.dateelement.value).getMinutes();
             var time = hours + ':' + minutes.slice(-2);
             this.element.querySelector('.a-label-time').innerHTML = time;
         }
 
-        return mDateSliderThumb;
+        return mSliderDateThumb;
 
     });

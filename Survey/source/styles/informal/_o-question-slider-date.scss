@@ -8,27 +8,27 @@
 }
 
 // question response-level container
-.o-question-dateslider-horizontal,
-.o-question-dateslider-vertical {
+.o-question-slider-date-horizontal,
+.o-question-slider-date-vertical {
     overflow: visible;
 }
 
-.o-question-dateslider-vertical {
+.o-question-slider-date-vertical {
     display: table;
 
-    .o-dateslider-rotate {
+    .o-slider-date-rotate {
         padding: 50% 0;
         height: 0;
     }
 }
 
-.o-question-dateslider-vertical-control {
+.o-question-slider-date-vertical-control {
     transform: rotate(270deg);
     transform-origin: top;
 }
 
-.o-question-dateslider-horizontal-control,
-.o-question-dateslider-vertical-control{
+.o-question-slider-date-horizontal-control,
+.o-question-slider-date-vertical-control{
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -73,14 +73,14 @@
     }
 }
 
-.m-dateslider-horizontal,
-.m-dateslider-vertical {
+.m-slider-date-horizontal,
+.m-slider-date-vertical {
     position: relative;
     flex: 1 0 auto;
 }
 
-.m-dateslider-horizontal[style*="width"],
-.m-dateslider-vertical[style*="width"] {
+.m-slider-date-horizontal[style*="width"],
+.m-slider-date-vertical[style*="width"] {
     flex: 0 0 auto;
 }
 
@@ -284,7 +284,7 @@ input[type=range]:focus::-ms-fill-lower {
     }
 }
 
-.m-dateslider-thumb {
+.m-slider-date-thumb {
     box-sizing: border-box;
     color: globals.$titles;
     position: absolute;
@@ -298,6 +298,6 @@ input[type=range]:focus::-ms-fill-lower {
     background-color: globals.$white;
 }
 
-.active.has-value.has-thumb-value .m-dateslider-thumb {
+.active.has-value.has-thumb-value .m-slider-date-thumb {
     visibility: visible;
 }

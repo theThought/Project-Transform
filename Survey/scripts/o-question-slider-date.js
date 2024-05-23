@@ -2,23 +2,25 @@ define(['o-question'],
     function (oQuestion) {
 
         /**
-         * Organism: Number Slider
+         * Organism: Date Slider
          *
          * @constructor
          * @param {String} id - element id
          * @param {String} group - question group
          */
 
-        function oQuestionDateSlider(id, group) {
+        function oQuestionSliderDate(id, group) {
             oQuestion.call(this, id, group);
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
-            this.wrapper = this.container.querySelector('div[class^="m-dateslider-"]');
+            this.wrapper = this.container.querySelector('div[class^="m-slider-date-"]');
             this.organism = this.container.querySelector('div[class*="-control"]');
             this.hiddenelement = null;
             this.dateelement = null;
             this.clickablearea = null;
+            this.max = '';
+            this.min = '';
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
             this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
             this.range = 0;
@@ -26,10 +28,10 @@ define(['o-question'],
             this.isRTL = document.dir === 'rtl';
         }
 
-        oQuestionDateSlider.prototype = Object.create(oQuestion.prototype);
-        oQuestionDateSlider.prototype.constructor = oQuestionDateSlider;
+        oQuestionSliderDate.prototype = Object.create(oQuestion.prototype);
+        oQuestionSliderDate.prototype.constructor = oQuestionSliderDate;
 
-        oQuestionDateSlider.prototype.init = function () {
+        oQuestionSliderDate.prototype.init = function () {
             oQuestion.prototype.init.call(this);
 
             this.cloneInputElement();
@@ -42,7 +44,7 @@ define(['o-question'],
             this.configurationComplete();
         }
 
-        oQuestionDateSlider.prototype.configureIncomingEventListeners = function () {
+        oQuestionSliderDate.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('input', this, false);
             document.addEventListener('change', this, false);
@@ -56,7 +58,7 @@ define(['o-question'],
             document.addEventListener(this.group + '_decrementValue', this, false);
         }
 
-        oQuestionDateSlider.prototype.handleEvent = function (event) {
+        oQuestionSliderDate.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'clearEntries':
                     this.clearEntriesFromExternal(event);
@@ -87,7 +89,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.cloneInputElement = function () {
+        oQuestionSliderDate.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
             newelement.id = '';
             newelement.name = '';
@@ -97,7 +99,7 @@ define(['o-question'],
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionDateSlider.prototype.createDateElement = function () {
+        oQuestionSliderDate.prototype.createDateElement = function () {
             var newelement = document.createElement('INPUT');
             newelement.type = 'datetime-local';
             newelement.style.display = 'none';
@@ -107,18 +109,18 @@ define(['o-question'],
             this.dateelement = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionDateSlider.prototype.getInitialValue = function () {
+        oQuestionSliderDate.prototype.getInitialValue = function () {
             if (typeof this.hiddenelement.value !== 'undefined' && this.hiddenelement.value.length) {
                 this.initialValue = this.hiddenelement.getAttribute('value');
                 this.element.value = this.hiddenelement.getAttribute('value');
             }
         }
 
-        oQuestionDateSlider.prototype.setHiddenValue = function (valuestring) {
+        oQuestionSliderDate.prototype.setHiddenValue = function (valuestring) {
             this.hiddenelement.value = valuestring;
         }
 
-        oQuestionDateSlider.prototype.clearEntries = function () {
+        oQuestionSliderDate.prototype.clearEntries = function () {
             // do not clear items that are still initialising
             if (this.isInitialising) {
                 return;
@@ -134,7 +136,7 @@ define(['o-question'],
             this.broadcastChange();
         }
 
-        oQuestionDateSlider.prototype.restoreEntries = function (event) {
+        oQuestionSliderDate.prototype.restoreEntries = function (event) {
             if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
                 return;
             }
@@ -149,24 +151,24 @@ define(['o-question'],
         }
 
         // Parse date in YYYY-MM-DD format as local date
-        oQuestionDateSlider.prototype.parseISODate = function (dateString) {
+        oQuestionSliderDate.prototype.parseISODate = function (dateString) {
             return new Date(dateString);
         }
 
         // Format date as YYYY-MM-DD
-        oQuestionDateSlider.prototype.dateToISOLocal = function (date) {
+        oQuestionSliderDate.prototype.dateToISOLocal = function (date) {
             var localDate = new Date(date - date.getTimezoneOffset()*60000);
             return localDate.toISOString().slice(0, -1);
         }
 
         // Convert range slider value to date string
-        oQuestionDateSlider.prototype.rangeToDate = function () {
+        oQuestionSliderDate.prototype.rangeToDate = function () {
             var newDate = this.parseISODate(this.dateelement.defaultValue);
             newDate.setMinutes(newDate.getMinutes() + Number(this.value));
             this.dateelement.value = this.dateToISOLocal(newDate);
         }
 
-        oQuestionDateSlider.prototype.setThumbVisibility = function () {
+        oQuestionSliderDate.prototype.setThumbVisibility = function () {
             if (this.element.getAttribute('value').length) {
                 this.organism.classList.add('active');
                 this.organism.classList.add('has-value');
@@ -174,11 +176,11 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.updateFloodFill = function () {
+        oQuestionSliderDate.prototype.updateFloodFill = function () {
             var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
             var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
             var val = Number(this.hiddenelement.value);
-            var orientation = (this.container.classList.contains('o-question-dateslider-vertical') ? 'vertical' : 'horizontal');
+            var orientation = (this.container.classList.contains('o-question-slider-date-vertical') ? 'vertical' : 'horizontal');
 
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
             var paddingadjustmentinpixels = (orientation === 'horizontal') ? 20 : 16;
@@ -194,7 +196,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.createClickableArea = function () {
+        oQuestionSliderDate.prototype.createClickableArea = function () {
             var clickableElement = document.createElement('div');
             clickableElement.className = 'a-style-sliderclickablearea';
             clickableElement.onclick = function () {
@@ -202,16 +204,20 @@ define(['o-question'],
             this.clickablearea = this.wrapper.insertBefore(clickableElement, this.element);
         }
 
-        oQuestionDateSlider.prototype.values = function (props) {
+        oQuestionSliderDate.prototype.values = function (props) {
+            this.max = new Date(props.max);
+            this.min = new Date(props.min);
+
             var diffMs = (new Date(props.max) - new Date(props.min)); // milliseconds between now & Christmas
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs) / 3600000); // hours
             var diffMins = Math.round((diffMs) / 60000); // minutes
+
             this.element.min = 0 - diffMins;
             this.element.max = 0;
         }
 
-        oQuestionDateSlider.prototype.show = function (props) {
+        oQuestionSliderDate.prototype.show = function (props) {
             if (props.marks === true) {
                 this.showMarks();
             }
@@ -225,7 +231,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.showMarks = function () {
+        oQuestionSliderDate.prototype.showMarks = function () {
             var marksElement = document.querySelector('div[data-questiongroup="' + this.group + '"] div.m-style-slidermarks');
 
             var min = this.element.min ? parseInt(this.element.min) : 0;
@@ -242,7 +248,7 @@ define(['o-question'],
 
         }
 
-        oQuestionDateSlider.prototype.ticklabels = function () {
+        oQuestionSliderDate.prototype.ticklabels = function () {
             // add a class to the parent which adds additional space for the thumb
             this.organism.classList.add('has-tick-labels');
 
@@ -266,31 +272,31 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.showValue = function () {
+        oQuestionSliderDate.prototype.showValue = function () {
             this.organism.classList.add('has-thumb-value');
         }
 
-        oQuestionDateSlider.prototype.updateValue = function () {
+        oQuestionSliderDate.prototype.updateValue = function () {
             var updateEvent = new CustomEvent(this.group + '_updateValue', {bubbles: true, detail: this});
             this.element.dispatchEvent(updateEvent);
             this.broadcastChange();
         }
 
-        oQuestionDateSlider.prototype.showTerminators = function () {
+        oQuestionSliderDate.prototype.showTerminators = function () {
             this.organism.classList.add('has-terminators');
         }
 
-        oQuestionDateSlider.prototype.floodtovalue = function (val) {
+        oQuestionSliderDate.prototype.floodtovalue = function (val) {
             if (val === true) {
                 this.element.classList.add('flood-to-value');
             }
         }
 
-        oQuestionDateSlider.prototype.step = function (prop) {
+        oQuestionSliderDate.prototype.step = function (prop) {
             this.element.step = prop;
         }
 
-        oQuestionDateSlider.prototype.labels = function (props) {
+        oQuestionSliderDate.prototype.labels = function (props) {
             if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-outer-prelabel';
@@ -312,7 +318,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.thumb = function (props) {
+        oQuestionSliderDate.prototype.thumb = function (props) {
             if (props.image) {
                 this.setThumbImage(props.image);
             }
@@ -326,19 +332,19 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateSlider.prototype.setThumbImage = function (prop) {
+        oQuestionSliderDate.prototype.setThumbImage = function (prop) {
             this.element.style.setProperty('--track-thumb-image', 'url(' + prop + ')');
         }
 
-        oQuestionDateSlider.prototype.setThumbWidth = function (prop) {
+        oQuestionSliderDate.prototype.setThumbWidth = function (prop) {
             this.element.style.setProperty('--track-thumb-width', prop + 'px');
         }
 
-        oQuestionDateSlider.prototype.setThumbHeight = function (prop) {
+        oQuestionSliderDate.prototype.setThumbHeight = function (prop) {
             this.element.style.setProperty('--track-thumb-height', prop + 'px');
         }
 
-        oQuestionDateSlider.prototype.onInput = function (event) {
+        oQuestionSliderDate.prototype.onInput = function (event) {
 
             if (event.target === this.element || event.target === this.clickablearea || event === true) {
                 var thumbimage = getComputedStyle(this.element).getPropertyValue('--track-thumb-image');
@@ -371,7 +377,7 @@ define(['o-question'],
 
         }
 
-        oQuestionDateSlider.prototype.incrementValue = function () {
+        oQuestionSliderDate.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var max = this.element.max ? parseInt(this.element.max) : 100;
 
@@ -382,7 +388,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionDateSlider.prototype.decrementValue = function () {
+        oQuestionSliderDate.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var min = this.element.min ? parseInt(this.element.min) : 0;
 
@@ -393,7 +399,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionDateSlider.prototype.onEnableExclusive = function () {
+        oQuestionSliderDate.prototype.onEnableExclusive = function () {
             this.organism.classList.remove('active');
             this.organism.classList.add('inactive');
             this.value = this.element.value;
@@ -405,7 +411,7 @@ define(['o-question'],
 
         }
 
-        oQuestionDateSlider.prototype.onDismissExclusive = function () {
+        oQuestionSliderDate.prototype.onDismissExclusive = function () {
             this.organism.classList.remove('inactive');
             this.organism.classList.add('active');
             this.element.disabled = false;
@@ -416,6 +422,6 @@ define(['o-question'],
             this.element.style.setProperty('--track-thumb-image', thumbimage);
         }
 
-        return oQuestionDateSlider;
+        return oQuestionSliderDate;
 
     });

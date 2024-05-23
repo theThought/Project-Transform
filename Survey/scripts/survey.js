@@ -112,9 +112,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oQuestionSlider(id, group));
             });
             break;
-        case 'oquestiondateslider-horizontal':
-            requirejs(['o-question-dateslider'], function (oQuestionDateSlider) {
-                app.preinitcomponents.unshift(new oQuestionDateSlider(id, group));
+        case 'oquestionsliderdate-horizontal':
+            requirejs(['o-question-slider-date'], function (oQuestionSliderDate) {
+                app.preinitcomponents.unshift(new oQuestionSliderDate(id, group));
             });
             break;
         case 'oquestionopenend-search':
@@ -137,9 +137,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new aLabelThumbValue(id, group));
             });
             break;
-        case 'mdatesliderthumb':
-            requirejs(['m-dateslider-thumb'], function (mDateSliderThumb) {
-                app.preinitcomponents.unshift(new mDateSliderThumb(id, group));
+        case 'msliderdatethumb':
+            requirejs(['m-slider-date-thumb'], function (mSliderDateThumb) {
+                app.preinitcomponents.unshift(new mSliderDateThumb(id, group));
             });
             break;
         case 'oquestionscale':

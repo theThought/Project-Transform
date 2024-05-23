@@ -504,8 +504,8 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     }
 }
 
-.o-question-dateslider-horizontal-control,
-.o-question-dateslider-vertical-control {
+.o-question-slider-date-horizontal-control,
+.o-question-slider-date-vertical-control {
     .a-label-outer-prelabel,
     .a-label-outer-postlabel {
         position: relative;
@@ -584,7 +584,7 @@ html[dir="rtl"] .o-question-slider-vertical-control {
 
 }
 
-.o-question-dateslider-vertical-control {
+.o-question-slider-date-vertical-control {
     .m-style-slidermarks {
         width: calc(100% - 31px);
         left: 15px;
@@ -596,8 +596,8 @@ html[dir="rtl"] .o-question-slider-vertical-control {
     }
 }
 
-html[dir="rtl"] .o-question-dateslider-horizontal-control,
-html[dir="rtl"] .o-question-dateslider-vertical-control {
+html[dir="rtl"] .o-question-slider-date-horizontal-control,
+html[dir="rtl"] .o-question-slider-date-vertical-control {
 
     .a-label-prelabel {
         left: auto;
@@ -624,7 +624,7 @@ html[dir="rtl"] .o-question-dateslider-vertical-control {
     }
 }
 
-.o-question-dateslider-vertical-control {
+.o-question-slider-date-vertical-control {
     .m-label-ticklabels {
         left: 16px;
         top: 0;
@@ -636,7 +636,7 @@ html[dir="rtl"] .o-question-dateslider-vertical-control {
     }
 }
 
-.o-question-dateslider-vertical-control {
+.o-question-slider-date-vertical-control {
     .a-label-thumbvalue {
         top: -1.5em;
         transform: translateX(-50%) rotate(90deg);
