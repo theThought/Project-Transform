@@ -53,7 +53,7 @@ define(['o-question'], function (oQuestion) {
         this.configureProperties();
         this.getInitialValue();
 
-        this.setWidth();
+        // this.setWidth();
         this.setPosition();
         this.setTabIndex();
         this.setWrapperType();
@@ -63,7 +63,7 @@ define(['o-question'], function (oQuestion) {
         this.configureIncomingEventListeners();
         this.configureLocalEventListeners();
         this.configurationComplete();
-        this.widthChange();
+        // this.widthChange();
         this.createButtonElement();
         this.getDataFromSource();
         this.gettingWords();
@@ -105,7 +105,7 @@ define(['o-question'], function (oQuestion) {
                 break;
             case 'restoreEntries':
                 this.restoreEntries(event);
-                this.setWidth();
+                //this.setWidth();
                 this.restoreSelection();
                 break;
             case this.group + '_optionVisibility':
@@ -144,31 +144,31 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    oQuestionOpenendSearch.prototype.widthChange = function () {
-        if (this.element) {
-            var width = this.calculateWidth();
-            this.element.style.width = width;
-        }
+    // oQuestionOpenendSearch.prototype.widthChange = function () {
+    //     if (this.element) {
+    //         var width = this.calculateWidth();
+    //         this.element.style.width = width;
+    //     }
 
-        var self = this;
-        window.addEventListener('resize', function () {
-            if (self.element) {
-                var width = self.calculateWidth();
-                self.element.style.width = width;
-            }
-        });
-    };
+    //     var self = this;
+    //     window.addEventListener('resize', function () {
+    //         if (self.element) {
+    //             var width = self.calculateWidth();
+    //             self.element.style.width = width;
+    //         }
+    //     });
+    // };
 
-    oQuestionOpenendSearch.prototype.calculateWidth = function () {
-        var windowWidth = window.innerWidth;
-        if (windowWidth < 768) {
-            return '68vw'; 
-        } else if (windowWidth <= 900) {
-            return '74vw';  
-        } else {
-            return '84vw';  
-        }
-    };
+    // oQuestionOpenendSearch.prototype.calculateWidth = function () {
+    //     var windowWidth = window.innerWidth;
+    //     if (windowWidth < 768) {
+    //         return '68vw'; 
+    //     } else if (windowWidth <= 900) {
+    //         return '74vw';  
+    //     } else {
+    //         return '84vw';  
+    //     }
+    // };
 
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
         if (this.hiddenelement.value === event.detail.itemValue) {
@@ -952,8 +952,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-    
-
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
             if (tag.parentNode) {

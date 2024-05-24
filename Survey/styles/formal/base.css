@@ -2642,6 +2642,106 @@ html[dir=rtl] .o-dropdown ul li {
   font-size: 16px;
 }
 
+/* Container Styling */
+.o-question-response {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Input Fields */
+.a-input-openend-search {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.a-input-openend-search::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.a-input-openend-search::-moz-placeholder {
+  color: #aaa;
+}
+
+.a-input-openend-search:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.a-input-openend-search::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.a-input-openend-search::placeholder {
+  color: #aaa;
+}
+
+/* Button Styling */
+#a-button-word-match {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#a-button-word-match:enabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* List Styling */
+.m-list-external {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff;
+}
+
+.a-option-list {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.a-option-list:hover {
+  background-color: #f1f1f1;
+}
+
+.filter-hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .o-question-response {
+    padding: 5px;
+  }
+  .a-input-openend-search {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .m-list-external {
+    max-height: 200px;
+  }
+  .a-option-list {
+    padding: 8px;
+  }
+}
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
