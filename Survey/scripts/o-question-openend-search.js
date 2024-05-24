@@ -932,10 +932,12 @@ define(['o-question'], function (oQuestion) {
             tag.className = 'm-tag-answer';
             // Set the data-value attribute with the user-entered value and not from the list!
             tag.setAttribute('data-value', label); 
+            tag.setAttribute('value', label); 
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
     
             console.log('User-entered value:', label); 
+            console.log(setAttribute);
     
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
