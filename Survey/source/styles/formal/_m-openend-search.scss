@@ -1,46 +1,102 @@
-// These are the styles for the openend search 
-.m-openend-search-count{
-    width: 90%;
-    border-top: 2px solid globals.$darkest;
-    margin: 0 auto;
-    margin-top: 0px;
-    margin-top: 30px;
-    padding: 10px 0;
-    text-align: right;
-    .hidden {
+    .m-openend-search-count{
+        height: 37px;
+        background: white;
+        text-align: right;
+        position: fixed;
+        border-top: 2px solid #212C4C;
+        padding-top: 20px;
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+        visibility: hidden;
+    }
+    //only show with this class
+    .m-openend-search-count.visible{
+        visibility: visible;
+    }
+
+    .a-label-counter-prompt {
+        margin-right: 20px;
+    }
+
+    .o-question-selected {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .m-tag-answer {
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        padding: 5px 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 5px;
+        margin: 20px 0;
+    }
+
+    .m-tag-answer span {
+        font-size: 16px;
+    }
+
+    .delete-tag {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+    }
+
+    .m-openend-search-count.hidden {
         display: none;
+    }
+
+
+    /* Default style for larger screens */
+.o-question-openend-search .o-combobox input[type=text] {
+    max-width: 65%;
+}
+
+/* Desktops and laptops */
+@media (max-width: 1200px) {
+    .o-question-openend-search .o-combobox input[type=text] {
+        max-width: 70%;
     }
 }
 
-.o-question-selected {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    height: 50px;
-    margin-bottom: 10px;
+/* Tablets (landscape and portrait) */
+@media (max-width: 992px) {
+    .o-question-openend-search .o-combobox input[type=text] {
+        max-width: 75%;
+    }
 }
 
-.m-tag-answer {
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 5px 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: 5px;
-    margin: 20px 0;
+/* Small tablets and large smartphones (landscape) */
+@media (max-width: 768px) {
+    .o-question-openend-search .o-combobox input[type=text] {
+        max-width: 80%;
+    }
 }
 
-.m-tag-answer span {
-    font-size: 16px;
+/* Small tablets and large smartphones (portrait) */
+@media (max-width: 576px) {
+    .o-question-openend-search .o-combobox input[type=text] {
+        max-width: 90%;
+    }
 }
 
-.delete-tag {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    font-size: 16px;
+/* Small smartphones */
+@media (max-width: 480px) {
+    .o-question-openend-search .o-combobox input[type=text] {
+        max-width: 80%;
+    }
 }
+
+
+    

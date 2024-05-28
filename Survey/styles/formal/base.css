@@ -2593,16 +2593,26 @@ html[dir=rtl] .o-dropdown ul li {
 }
 
 .m-openend-search-count {
-  width: 90%;
-  border-top: 2px solid #212C4C;
-  margin: 0 auto;
-  margin-top: 0px;
-  margin-top: 30px;
-  padding: 10px 0;
+  height: 37px;
+  background: white;
   text-align: right;
+  position: fixed;
+  border-top: 2px solid #212C4C;
+  padding-top: 20px;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+  visibility: hidden;
 }
-.m-openend-search-count .hidden {
-  display: none;
+
+.m-openend-search-count.visible {
+  visibility: visible;
+}
+
+.a-label-counter-prompt {
+  margin-right: 20px;
 }
 
 .o-question-selected {
@@ -2642,6 +2652,45 @@ html[dir=rtl] .o-dropdown ul li {
   font-size: 16px;
 }
 
+.m-openend-search-count.hidden {
+  display: none;
+}
+
+/* Default style for larger screens */
+.o-question-openend-search .o-combobox input[type=text] {
+  max-width: 65%;
+}
+
+/* Desktops and laptops */
+@media (max-width: 1200px) {
+  .o-question-openend-search .o-combobox input[type=text] {
+    max-width: 70%;
+  }
+}
+/* Tablets (landscape and portrait) */
+@media (max-width: 992px) {
+  .o-question-openend-search .o-combobox input[type=text] {
+    max-width: 75%;
+  }
+}
+/* Small tablets and large smartphones (landscape) */
+@media (max-width: 768px) {
+  .o-question-openend-search .o-combobox input[type=text] {
+    max-width: 80%;
+  }
+}
+/* Small tablets and large smartphones (portrait) */
+@media (max-width: 576px) {
+  .o-question-openend-search .o-combobox input[type=text] {
+    max-width: 90%;
+  }
+}
+/* Small smartphones */
+@media (max-width: 480px) {
+  .o-question-openend-search .o-combobox input[type=text] {
+    max-width: 80%;
+  }
+}
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {

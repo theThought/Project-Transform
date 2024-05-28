@@ -53,7 +53,7 @@ define(['o-question'], function (oQuestion) {
         this.configureProperties();
         this.getInitialValue();
 
-        // this.setWidth();
+        
         this.setPosition();
         this.setTabIndex();
         this.setWrapperType();
@@ -63,7 +63,7 @@ define(['o-question'], function (oQuestion) {
         this.configureIncomingEventListeners();
         this.configureLocalEventListeners();
         this.configurationComplete();
-        // this.widthChange();
+        this.calculateDroplistHeight();
         this.createButtonElement();
         this.getDataFromSource();
         this.gettingWords();
@@ -144,32 +144,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    // oQuestionOpenendSearch.prototype.widthChange = function () {
-    //     if (this.element) {
-    //         var width = this.calculateWidth();
-    //         this.element.style.width = width;
-    //     }
-
-    //     var self = this;
-    //     window.addEventListener('resize', function () {
-    //         if (self.element) {
-    //             var width = self.calculateWidth();
-    //             self.element.style.width = width;
-    //         }
-    //     });
-    // };
-
-    // oQuestionOpenendSearch.prototype.calculateWidth = function () {
-    //     var windowWidth = window.innerWidth;
-    //     if (windowWidth < 768) {
-    //         return '68vw'; 
-    //     } else if (windowWidth <= 900) {
-    //         return '74vw';  
-    //     } else {
-    //         return '84vw';  
-    //     }
-    // };
-
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
         if (this.hiddenelement.value === event.detail.itemValue) {
             this.clearEntries();
@@ -199,7 +173,6 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.listsize = function (prop) {
         var height = (27 * prop);
         this.userspecifiedheight = height;
-        this.droplist.style.maxHeight = height + 'px';
     };
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
@@ -208,24 +181,36 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
         this.clearPlaceholderMessages();
+        
+        // Create and configure the placeholder element
         var placeholderelement = document.createElement('li');
         placeholderelement.classList.add('a-list-placeholder-restriction');
         placeholderelement.innerHTML = prop;
-
+        
+        // Append the placeholder element to the droplist
         this.droplist.appendChild(placeholderelement);
+        
+        // Append the item count element to the droplist right after the placeholder element
         this.droplist.appendChild(this.itemCountElement);
-    };
 
+        
+    };
+    
     oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
         this.clearPlaceholderMessages();
+    
+        // Create and configure the placeholder element
         var placeholderelement = document.createElement('li');
         placeholderelement.classList.add('a-list-placeholder-empty');
         placeholderelement.innerHTML = prop;
-
+        
+        // Append the placeholder element to the droplist
         this.droplist.appendChild(placeholderelement);
+            
+        // Append the item count element to the droplist right after the placeholder element
         this.droplist.appendChild(this.itemCountElement);
     };
-
+    
     oQuestionOpenendSearch.prototype.clearPlaceholderMessages = function () {
         var restrictionMessage = this.droplist.querySelector('.a-list-placeholder-restriction');
         if (restrictionMessage) {
@@ -246,6 +231,7 @@ define(['o-question'], function (oQuestion) {
 
         this.buttonElement = buttonElement;
         buttonElement.setAttribute('data-checked', 'true');
+        buttonElement.setAttribute('data-value', 'true');
 
         var self = this;
         buttonElement.addEventListener('click', function (event) {
@@ -308,32 +294,52 @@ define(['o-question'], function (oQuestion) {
             this.matchedWord = null;
             this.buttonElement.disabled = true;
         }
+        
+        // Return the array of matching words for further use
+        return matchingWords;
     };
-
+    
     oQuestionOpenendSearch.prototype.wordMatching = function () {
         var inputElement = this.element;
         if (inputElement) {
             var self = this;
             inputElement.addEventListener('input', function (event) {
-                var inputValue = event.target.value;
+                    var inputValue = event.target.value;
+                    var filteredWords = self.filterWordContains(inputValue);
+                    
+                    console.log('height only');
+                    console.log(self.isOpenendSearch.style.maxHeight);
+                    
+                
 
-                if (inputValue.length >= 2) {
-                    self.filterWordContains(inputValue);
-                } else {
-                    self.matchedWord = null;
-                    self.buttonElement.disabled = true;
-                }
-
+                    if (filteredWords.length > 1 ) {
+                        self.filterWordContains(inputValue);
+                        self.itemCountElement.style.visibility = 'visible';
+                        self.itemCountElement.style.top = '419px';                        
+                        self.itemCountElement.style.width = self.isOpenendSearch.style.width;                        
+                    } else if (filteredWords.length < 1 ){
+                        
+                        
+                        self.matchedWord = null;
+                        self.buttonElement.disabled = true;  
+                        
+                    } else {
+                        
+                    }
+                
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-
+    
                 self.buttonElement.disabled = matches && inputValue.length === 0;
             });
         } else {
             console.error('Input element not found or not an INPUT element');
         }
     };
+    
+
+
 
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
@@ -719,8 +725,7 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.showList = function () {
         this.setDropListDirection();
         this.element.classList.add('list-visible');
-        this.droplist.classList.add('visible');
-        
+        this.droplist.classList.add('visible');        
     };
 
     oQuestionOpenendSearch.prototype.hideList = function () {
@@ -737,7 +742,9 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
         this.wrapper.classList.remove('direction-up');
         this.wrapper.classList.add('direction-down');
-        this.droplist.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
+        // this.droplist.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
+        // fixing the height so I can use this on mobile too. 
+        this.droplist.style.maxHeight = '200px';
         this.droplist.style.removeProperty('bottom');
         var paddingAllowance = 10;
 
@@ -906,10 +913,6 @@ define(['o-question'], function (oQuestion) {
                     itemPromptElement.textContent = "items";
                 }
                 itemCountElement.parentNode.classList.remove('hidden');
-            } else if (count === 0) {
-                itemCountElement.textContent = "";
-                itemPromptElement.textContent = "No matches found";
-                itemCountElement.parentNode.classList.remove('hidden');
             } else {
                 itemCountElement.parentNode.classList.add('hidden');
             }
@@ -937,8 +940,7 @@ define(['o-question'], function (oQuestion) {
             container.appendChild(tag);
     
             console.log('User-entered value:', label); 
-            console.log(setAttribute);
-    
+        
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.removeTag(tag);
@@ -978,6 +980,93 @@ define(['o-question'], function (oQuestion) {
             }
         }
     };
+
+    /*
+
+So what I need to do is the follow:
+
+1, determine the height of the screen
+2, if a certain height then give a class like keyboard-visiable
+3, then I will need to half the dropdown scroll height based on the viewport
+
+
+See these links:
+https://medium.com/@krutilin.sergey.ks/fixing-the-safari-mobile-resizing-bug-a-developers-guide-6568f933cde0
+
+
+
+https://www.geeksforgeeks.org/how-to-detect-virtual-keyboard-using-javascript/
+https://css-tricks.com/newsletter/232-scroll-story/
+
+*/
+
+
+oQuestionOpenendSearch.prototype.calculateDroplistHeight = function() {
+    var self = this;
+    var initialHeight = window.innerHeight;  // Capture the initial window height
+
+    function handleScrollToTop() {
+        window.scrollTo(0, 0);
+    }
+
+    function checkKeyboard() {
+        var currentHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        var isKeyboardVisible = initialHeight - currentHeight > 200;  
+        var currentWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+        console.log("Current device width:", currentWidth);
+
+
+
+
+        if (isKeyboardVisible) {
+            // self.droplist.style.backgroundColor = 'yellow';
+            self.droplist.style.height = "100px";
+            self.itemCountElement.style.top = '320px';
+        } else if (currentHeight < 900) {
+            self.droplist.style.height = "200px";
+            // self.droplist.style.backgroundColor = 'pink';
+            self.itemCountElement.style.top = '419px';
+        } else {
+            self.droplist.style.height = "800px";
+            // self.droplist.style.backgroundColor = 'gray';
+            self.itemCountElement.style.top = '419px';
+        }
+    }
+
+    // Initial check when the function is first called
+    checkKeyboard();
+
+    const visualViewport = window.visualViewport;
+
+    if (visualViewport) {
+        let viewportWidth = window.innerWidth;
+        let viewportHeight = window.innerHeight;
+
+        visualViewport.addEventListener("resize", function(event) {
+            const target = event.target;
+            if (viewportWidth !== target.width) {
+                viewportWidth = window.innerWidth;
+                viewportHeight = window.innerHeight;
+            }
+
+            if (viewportHeight - target.height > 10) {
+                handleScrollToTop();
+            }
+
+            checkKeyboard();
+        });
+    }
+
+    document.addEventListener("touchend", handleScrollToTop);
+
+    window.addEventListener('resize', function() {
+        checkKeyboard();
+    });
+}
+
+
+
+
 
     return oQuestionOpenendSearch;
 });
