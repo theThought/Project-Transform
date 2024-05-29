@@ -981,5 +981,67 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
+    oQuestionOpenendSearch.prototype.calculateDroplistHeight = function() {
+        var self = this;
+        var initialHeight = window.innerHeight;  // Capture the initial window height
+    
+        function handleScrollToTop() {
+            window.scrollTo(0, 0);
+        }
+    
+        function checkKeyboard() {
+            var currentHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            var isKeyboardVisible = initialHeight - currentHeight > 200;  
+            var currentWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+            console.log("Current device width:", currentWidth);
+    
+    
+    
+    
+            if (isKeyboardVisible) {
+                // self.droplist.style.backgroundColor = 'yellow';
+                self.droplist.style.height = "100px";
+                self.itemCountElement.style.top = '320px';
+            } else if (currentHeight < 900) {
+                self.droplist.style.height = "200px";
+                // self.droplist.style.backgroundColor = 'pink';
+                self.itemCountElement.style.top = '419px';
+            } else {
+                self.droplist.style.height = "800px";
+                // self.droplist.style.backgroundColor = 'gray';
+                self.itemCountElement.style.top = '419px';
+            }
+        }
+    
+        // Initial check when the function is first called
+        checkKeyboard();
+    
+        const visualViewport = window.visualViewport;
+    
+        if (visualViewport) {
+            let viewportWidth = window.innerWidth;
+            let viewportHeight = window.innerHeight;
+    
+            visualViewport.addEventListener("resize", function(event) {
+                const target = event.target;
+                if (viewportWidth !== target.width) {
+                    viewportWidth = window.innerWidth;
+                    viewportHeight = window.innerHeight;
+                }
+    
+                if (viewportHeight - target.height > 10) {
+                    handleScrollToTop();
+                }
+    
+                checkKeyboard();
+            });
+        }
+    
+        document.addEventListener("touchend", handleScrollToTop);
+    
+        window.addEventListener('resize', function() {
+            checkKeyboard();
+        });
+    }
     return oQuestionOpenendSearch;
 });
