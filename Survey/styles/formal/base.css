@@ -2652,45 +2652,6 @@ html[dir=rtl] .o-dropdown ul li {
   font-size: 16px;
 }
 
-.m-openend-search-count.hidden {
-  display: none;
-}
-
-/* Default style for larger screens */
-.o-question-openend-search .o-combobox input[type=text] {
-  max-width: 65%;
-}
-
-/* Desktops and laptops */
-@media (max-width: 1200px) {
-  .o-question-openend-search .o-combobox input[type=text] {
-    max-width: 70%;
-  }
-}
-/* Tablets (landscape and portrait) */
-@media (max-width: 992px) {
-  .o-question-openend-search .o-combobox input[type=text] {
-    max-width: 75%;
-  }
-}
-/* Small tablets and large smartphones (landscape) */
-@media (max-width: 768px) {
-  .o-question-openend-search .o-combobox input[type=text] {
-    max-width: 80%;
-  }
-}
-/* Small tablets and large smartphones (portrait) */
-@media (max-width: 576px) {
-  .o-question-openend-search .o-combobox input[type=text] {
-    max-width: 90%;
-  }
-}
-/* Small smartphones */
-@media (max-width: 480px) {
-  .o-question-openend-search .o-combobox input[type=text] {
-    max-width: 80%;
-  }
-}
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
