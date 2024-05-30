@@ -2174,43 +2174,6 @@
                      <xsl:text>;</xsl:text>
                   </xsl:attribute>
                </xsl:if>
-               <xsl:for-each select="Category">
-                  <xsl:element name="li">
-                     <xsl:attribute name="class">a-option-list</xsl:attribute>
-                     <xsl:attribute name="data-questionid">
-                        <xsl:value-of select="$qElementID" />
-                        <xsl:value-of select="@CategoryID" />
-                     </xsl:attribute>
-                     <xsl:attribute name="data-questiongroup">
-                        <xsl:value-of select="$qGroup_Name" />
-                     </xsl:attribute>
-                     <xsl:if test="$bShowOnly != false() or ../Style/Control/@ReadOnly != 'false'">
-                        <xsl:attribute name="data-readonly">
-                           <xsl:text>true</xsl:text>
-                        </xsl:attribute>
-                     </xsl:if>
-                     <xsl:attribute name="data-value">
-                        <xsl:value-of select="@Name" />
-                     </xsl:attribute>
-                     <xsl:if test="@Alt != ''">
-                        <xsl:attribute name="Alt">
-                           <xsl:value-of select="@Alt" />
-                        </xsl:attribute>
-                     </xsl:if>
-                     <xsl:if test="$bIncludeElementIds">
-                        <xsl:attribute name="id">
-                           <xsl:value-of select="$qElementID" />
-                           <xsl:value-of select="@CategoryID" />
-                        </xsl:attribute>
-                     </xsl:if>
-                     <xsl:if test="@Checked = 'true'">
-                        <xsl:attribute name="data-selected">
-                           <xsl:text>true</xsl:text>
-                        </xsl:attribute>
-                     </xsl:if>
-                     <xsl:value-of select="Label/Text" />
-                  </xsl:element>
-               </xsl:for-each>
             </xsl:element>
             <xsl:element name="div">
                <xsl:attribute name="class">m-list-messages</xsl:attribute>
