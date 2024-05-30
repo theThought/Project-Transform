@@ -412,6 +412,15 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="$qCustomType='slider-date'">
+            <xsl:call-template name="SliderDateControl">
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
@@ -2194,7 +2203,7 @@
       </xsl:element>  
    </xsl:template>
 
-   <xsl:template name='slider-date-horizontal'>
+   <xsl:template name='SliderDateControl'>
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
