@@ -2898,6 +2898,9 @@
          <xsl:when test="$theID = '-22'">
             <xsl:value-of select="'decimal'" />
          </xsl:when>
+         <xsl:when test="$theID = '-25'">
+            <xsl:value-of select="'openend-search'" />
+         </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'multilineedit'" />
          </xsl:when>
@@ -2911,7 +2914,13 @@
             <xsl:value-of select="'slider-vertical'" />
          </xsl:when>
          <xsl:when test="$theID = '-52'">
-            <xsl:value-of select="'slider-date-horizontal'" />
+            <xsl:value-of select="'slider-date'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-55'">
+            <xsl:value-of select="'scale-horizontal'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-56'">
+            <xsl:value-of select="'scale-vertical'" />
          </xsl:when>
          <xsl:when test="$theID = '-60'">
             <xsl:value-of select="'dropdown'" />
@@ -2921,15 +2930,6 @@
          </xsl:when>
          <xsl:when test="$theID = '-80'">
             <xsl:value-of select="'calendar'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-81'">
-            <xsl:value-of select="'openend-date-recent'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-55'">
-            <xsl:value-of select="'scale-horizontal'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-56'">
-            <xsl:value-of select="'scale-vertical'" />
          </xsl:when>
          <xsl:when test="$theID = '-1100'">
             <xsl:value-of select="'vprogressive'" />
@@ -2960,6 +2960,9 @@
          <xsl:when test="$theID = '-22'">
             <xsl:value-of select="'false'" />
          </xsl:when>
+         <xsl:when test="$theID = '-25'">
+            <xsl:value-of select="'false'" />
+         </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'false'" />
          </xsl:when>
@@ -2970,9 +2973,6 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-51'">
-            <xsl:value-of select="'true'" />
-         </xsl:when>
-         <xsl:when test="$theID = '-52'">
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-55'">
