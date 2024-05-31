@@ -180,7 +180,7 @@ define(
 
         page.prototype.scrollToError = function () {
             if (this.focuserror) {
-                var firsterror = document.querySelector('.a-label-error[data-questionid]');
+                var firsterror = document.querySelector('.a-label-error');
 
                 if (firsterror === null) {
                     return;
@@ -189,12 +189,14 @@ define(
                 var erroritem = firsterror.getAttribute('data-questionid');
                 var errorelement = document.getElementById(erroritem);
 
+                this.focusonfirstinput = false;
+
                 if (errorelement === null) {
                     console.warn('An error message was displayed but no corresponding input could be found for focus.');
+                    firsterror.scrollIntoView({'block': 'center'});
                     return;
                 }
 
-                this.focusonfirstinput = false;
                 errorelement.scrollIntoView({'block': 'center'});
                 errorelement.focus();
             }
