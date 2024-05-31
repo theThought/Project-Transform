@@ -134,7 +134,7 @@ define(
             if (this.isInitialising) {
                 return;
             }
-            
+
             // do not broadcast a change when the value has not altered
             if (!this.hasChangedValue()) {
                 return;
@@ -186,7 +186,15 @@ define(
 
         component.prototype.clearEntriesFromExternal = function (event) {
             if (event.detail.element.contains(this.element)) {
-                this.clearEntries();
+
+                if (event.detail.available === false) {
+                    // if the parent element has become unavailable the same should be applied to the current element
+                    this.makeUnavailable();
+                } else {
+                    // clear entries is handled by makeUnavailable in the other branch of this logic
+                    this.clearEntries();
+                }
+
                 this.manageContentClass();
             }
         }
