@@ -10,7 +10,7 @@
 					<script type="text/javascript">
 						var scriptTag = document.scripts[document.scripts.length - 1];
 						var parentTag = scriptTag.parentNode;
-						console.log("ErrorTag:"  + parentTag.getAttribute("class"))
+						parentTag.setAttribute("data-questionId", '<mrData QuestionElement="Parameter" Type="FullQuestionName"/>')
 					</script>
 					QuestionName: <mrData QuestionElement="Parameter" Type="FullQuestionName"/>
 					<mrData QuestionElement="Error" ShowErrors='TopMost' />
