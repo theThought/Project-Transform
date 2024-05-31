@@ -730,10 +730,10 @@
                   </xsl:apply-templates>
                </xsl:when>
                <xsl:when test="name() = 'Error'">
-                  <xsl:apply-templates select=".">
-                     <xsl:with-param name="sLabelClass" select="'a-label-error'" />
-                     <xsl:with-param name="bWithinTable" select="true()" />
-                  </xsl:apply-templates>
+                  <xsl:call-template name="Error">
+                     <xsl:with-param name="SubQuestion" select="false()" />
+                     <xsl:with-param name="qElementID" select="$qElementID" />
+                  </xsl:call-template>
                </xsl:when>
                <xsl:when test="name() = 'Question'">
                </xsl:when>
