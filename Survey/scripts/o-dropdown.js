@@ -226,14 +226,18 @@ define(['component'],
                 inputwidth = 0;
             }
 
-            var padding = 64; // the droplist does not have padding included
+            var inputpadding = 64; // the drop list has 32px of padding, the input has 64px
+            var droplistpadding = 32; // the drop list has 32px of padding, the input has 64px
             var errormargin = 4; // element.size is font-specific and needs a little safety margin
 
-            var droplistdims = getComputedStyle(this.droplist);
-            var droplistwidth = parseFloat(droplistdims.width);
+            var containerstyle = getComputedStyle(this.container);
+            var maxavailablewidth = parseFloat(containerstyle.width) - inputpadding;
 
-            this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-            this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
+            var droplistdims = getComputedStyle(this.droplist);
+            var droplistwidth = parseFloat(droplistdims.width) + (inputpadding - droplistpadding);
+
+            this.element.style.width = Math.min(Math.max(droplistwidth, inputwidth) - inputpadding + errormargin, maxavailablewidth) + 'px';
+            this.droplist.style.width = Math.min(Math.max(droplistwidth, inputwidth) + errormargin, maxavailablewidth) + 'px';
 
             this.manualWidth = true;
         }
