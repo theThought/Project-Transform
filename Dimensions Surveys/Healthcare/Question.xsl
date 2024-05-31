@@ -763,7 +763,7 @@
                   <xsl:element name="span">
                      <xsl:attribute name="class">a-label-error</xsl:attribute>
                      <xsl:attribute name="data-questionid">
-                        <xsl:value-of select="../Control/@ElementID" />
+                        <xsl:value-of select="$qElementID" />
                      </xsl:attribute>
                      <xsl:for-each select="Text">
                         <xsl:value-of select="." />
