@@ -120,6 +120,7 @@
                   <xsl:when test="name() = 'Error'">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
+                        <xsl:with-param name="qElementID" select="$qElementID" />
                      </xsl:call-template>
                   </xsl:when>
                   <xsl:when test="name() = 'Label'">
@@ -355,6 +356,7 @@
          <xsl:when test="name() = 'Error'">
             <xsl:call-template name="Error">
                <xsl:with-param name="SubQuestion" select="false()" />
+               <xsl:with-param name="qElementID" select="$qElementID" />
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="name() = 'Table'">
@@ -727,7 +729,7 @@
                      <xsl:with-param name="bWithinTable" select="true()" />
                   </xsl:apply-templates>
                </xsl:when>
-               <xsl:when test="name() = 'ErrorStopped'">
+               <xsl:when test="name() = 'Error'">
                   <xsl:apply-templates select=".">
                      <xsl:with-param name="sLabelClass" select="'a-label-error'" />
                      <xsl:with-param name="bWithinTable" select="true()" />
@@ -742,6 +744,7 @@
    <!--- CONTROL -->
    <xsl:template name="Error">
       <xsl:param name="SubQuestion" select="false()" />
+      <xsl:param name="qElementID" />
       <xsl:choose>
          <xsl:when test="name() = 'Error'">
             <xsl:choose>
@@ -749,7 +752,7 @@
                   <xsl:element name="div">
                      <xsl:attribute name="class">a-label-error</xsl:attribute>
                      <xsl:attribute name="data-questionid">
-                        <xsl:value-of select="../Control/@ElementID" />
+                        <xsl:value-of select="$qElementID" />
                      </xsl:attribute>
                      <xsl:for-each select="Text">
                         <xsl:value-of select="." />
@@ -2479,7 +2482,9 @@
          <xsl:call-template name="CountErrors" />
       </xsl:variable>
       <xsl:if test="$ErrorCount>0">
-         <xsl:call-template name="StructureError" />
+         <xsl:call-template name="StructureError">
+            <xsl:with-param name="qElementID" select="$qElementID" />
+         </xsl:call-template>
       </xsl:if>
 
       <xsl:element name="tr">
@@ -2717,6 +2722,7 @@
       </xsl:element>
    </xsl:template>
    <xsl:template name="StructureError">
+      <xsl:param name="qElementID" />
       <xsl:element name="tr">
          <xsl:attribute name="class">
             <xsl:text>m-structure-row-error</xsl:text>
@@ -2730,11 +2736,13 @@
                   <xsl:for-each select="Question/Error">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
+                        <xsl:with-param name="qElementID" select="$qElementID" />
                      </xsl:call-template>
                   </xsl:for-each>
                   <xsl:for-each select="Error">
                      <xsl:call-template name="Error">
                         <xsl:with-param name="SubQuestion" select="true()" />
+                        <xsl:with-param name="qElementID" select="$qElementID" />
                      </xsl:call-template>
                   </xsl:for-each>
                </xsl:if>
