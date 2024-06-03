@@ -2,15 +2,15 @@ define(['o-question'], function (oQuestion) {
     function oQuestionOpenendSearch(id, group) {
         oQuestion.call(this, id, group);
 
-        this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
-        this.droplist = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"] + ul');
+        this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');    
+        this.droplistwrapper = document.querySelector('.o-list');
+        this.droplist = document.querySelector('.o-list ul[data-questiongroup="' + this.group + '"]');
         this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
         this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-
         this.itemCountElement = document.querySelector('.m-openend-search-count');
-        this.itemPlaceHolderEmpty = document.querySelector('.a-list-placeholder-empty');
-
         this.isOpenendSearch = document.querySelector('ul.m-list-external');
+        this.messages = document.querySelector('.m-list-messages');
+        console.log(this.isOpenendSearch);
         this.hiddenelement = null;
         this.mincharacters = 0;
         this.keypressed = null;
@@ -53,7 +53,6 @@ define(['o-question'], function (oQuestion) {
         this.configureProperties();
         this.getInitialValue();
 
-        
         this.setPosition();
         this.setTabIndex();
         this.setWrapperType();
@@ -63,7 +62,7 @@ define(['o-question'], function (oQuestion) {
         this.configureIncomingEventListeners();
         this.configureLocalEventListeners();
         this.configurationComplete();
-        this.calculateDroplistHeight();
+     
         this.createButtonElement();
         this.getDataFromSource();
         this.gettingWords();
@@ -105,7 +104,6 @@ define(['o-question'], function (oQuestion) {
                 break;
             case 'restoreEntries':
                 this.restoreEntries(event);
-                //this.setWidth();
                 this.restoreSelection();
                 break;
             case this.group + '_optionVisibility':
@@ -182,43 +180,35 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
         this.clearPlaceholderMessages();
         
-        // Create and configure the placeholder element
-        var placeholderelement = document.createElement('li');
+        var placeholderelement = document.createElement('b');
         placeholderelement.classList.add('a-list-placeholder-restriction');
         placeholderelement.innerHTML = prop;
         
-        // Append the placeholder element to the droplist
-        this.droplist.appendChild(placeholderelement);
-        
-        // Append the item count element to the droplist right after the placeholder element
-        this.droplist.appendChild(this.itemCountElement);
-
-        
+        this.messages.appendChild(placeholderelement);
+        this.messages.appendChild(this.itemCountElement);
     };
     
     oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
         this.clearPlaceholderMessages();
     
-        // Create and configure the placeholder element
-        var placeholderelement = document.createElement('li');
+        var placeholderelement = document.createElement('b');
         placeholderelement.classList.add('a-list-placeholder-empty');
         placeholderelement.innerHTML = prop;
         
-        // Append the placeholder element to the droplist
-        this.droplist.appendChild(placeholderelement);
-            
-        // Append the item count element to the droplist right after the placeholder element
-        this.droplist.appendChild(this.itemCountElement);
+        this.messages.appendChild(placeholderelement);
+        this.messages.appendChild(this.itemCountElement);
     };
     
     oQuestionOpenendSearch.prototype.clearPlaceholderMessages = function () {
-        var restrictionMessage = this.droplist.querySelector('.a-list-placeholder-restriction');
+        var restrictionMessage = this.messages.querySelector('.a-list-placeholder-restriction');
+        console.log('restrictionMessage');
+        console.log(restrictionMessage);
         if (restrictionMessage) {
-            this.droplist.removeChild(restrictionMessage);
+            this.messages.removeChild(restrictionMessage);
         }
-        var emptyMessage = this.droplist.querySelector('.a-list-placeholder-empty');
+        var emptyMessage = this.messages.querySelector('.a-list-placeholder-empty');
         if (emptyMessage) {
-            this.droplist.removeChild(emptyMessage);
+            this.messages.removeChild(emptyMessage);
         }
     };
 
@@ -240,8 +230,8 @@ define(['o-question'], function (oQuestion) {
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
-                self.element.value = ''; // Clear the input field
-                self.hideList(); // Hide the dropdown list
+                self.element.value = ''; 
+                self.hideList(); 
             }
         });
     };
@@ -295,7 +285,6 @@ define(['o-question'], function (oQuestion) {
             this.buttonElement.disabled = true;
         }
         
-        // Return the array of matching words for further use
         return matchingWords;
     };
     
@@ -304,42 +293,29 @@ define(['o-question'], function (oQuestion) {
         if (inputElement) {
             var self = this;
             inputElement.addEventListener('input', function (event) {
-                    var inputValue = event.target.value;
-                    var filteredWords = self.filterWordContains(inputValue);
-                    
-                    console.log('height only');
-                    console.log(self.isOpenendSearch.style.maxHeight);
-                    
+                var inputValue = event.target.value;
+                var filteredWords = self.filterWordContains(inputValue);
                 
-
-                    if (filteredWords.length > 1 ) {
-                        self.filterWordContains(inputValue);
-                        self.itemCountElement.style.visibility = 'visible';
-                        self.itemCountElement.style.top = '419px';                        
-                        self.itemCountElement.style.width = self.isOpenendSearch.style.width;                        
-                    } else if (filteredWords.length < 1 ){
-                        
-                        
-                        self.matchedWord = null;
-                        self.buttonElement.disabled = true;  
-                        
-                    } else {
-                        
-                    }
+                if (filteredWords.length > 1 ) {
+                    self.filterWordContains(inputValue);
+                    self.itemCountElement.style.visibility = 'visible';
+                    self.itemCountElement.style.top = '419px';                        
+                    self.itemCountElement.style.width = self.isOpenendSearch.style.width;                        
+                } else if (filteredWords.length < 1 ){
+                    self.matchedWord = null;
+                    self.buttonElement.disabled = true;  
+                }
                 
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-    
+
                 self.buttonElement.disabled = matches && inputValue.length === 0;
             });
         } else {
             console.error('Input element not found or not an INPUT element');
         }
     };
-    
-
-
 
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
@@ -416,7 +392,7 @@ define(['o-question'], function (oQuestion) {
         newelement.name = '';
         this.element.type = 'hidden';
         this.hiddenelement = this.element;
-        this.element = this.wrapper.insertBefore(newelement, this.droplist);
+        this.element = this.wrapper.insertBefore(newelement, this.droplistwrapper);
     };
 
     oQuestionOpenendSearch.prototype.buildList = function () {
@@ -674,7 +650,7 @@ define(['o-question'], function (oQuestion) {
         }
 
         this.setSelectedOption(selectedOption);
-        this.element.value = ''; // Clear the input field when selecting an item
+        this.element.value = ''; 
         this.hideList();
         this.onFocusIn();
         this.onChange(event);
@@ -742,8 +718,6 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
         this.wrapper.classList.remove('direction-up');
         this.wrapper.classList.add('direction-down');
-        // this.droplist.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
-        // fixing the height so I can use this on mobile too. 
         this.droplist.style.maxHeight = '200px';
         this.droplist.style.removeProperty('bottom');
         var paddingAllowance = 10;
@@ -815,11 +789,11 @@ define(['o-question'], function (oQuestion) {
         if (inputstring.length < this.mincharacters) {
             this.showList();
             this.notenoughcharacters(this.properties.notenoughcharacters);
-            this.droplist.classList.add('charrestriction');
+            this.messages.classList.add('charrestriction');
             this.updateItemCount(0);
             return;
         } else {
-            this.droplist.classList.remove('charrestriction');
+            this.messages.classList.remove('charrestriction');
         }
 
         switch (this.filtermethod) {
@@ -840,8 +814,8 @@ define(['o-question'], function (oQuestion) {
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
 
-        var droplistparentnode = this.droplist.parentNode;
-        droplistparentnode.removeChild(this.droplist);
+        var droplistparentnode = this.droplistwrapper.parentNode;
+        droplistparentnode.removeChild(this.droplistwrapper);
 
         this.list.forEach(function (item) {
             var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
@@ -864,8 +838,8 @@ define(['o-question'], function (oQuestion) {
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
 
-        var droplistparentnode = this.droplist.parentNode;
-        droplistparentnode.removeChild(this.droplist);
+        var droplistparentnode = this.droplistwrapper.parentNode;
+        droplistparentnode.removeChild(this.droplistwrapper);
 
         this.list.forEach(function (item) {
             var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
@@ -883,7 +857,7 @@ define(['o-question'], function (oQuestion) {
             }
         }.bind(this));
 
-        droplistparentnode.appendChild(this.droplist);
+        droplistparentnode.appendChild(this.droplistwrapper);
         this.updateItemCount(visibleitems);
         if (visibleitems === 0) {
             this.noitemsinlist(this.properties.noitemsinlist);
@@ -893,9 +867,9 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.togglePlaceholderVisibility = function (visibility) {
         if (visibility) {
-            this.droplist.classList.add('empty');
+            this.droplistwrapper.classList.add('empty');
         } else {
-            this.droplist.classList.remove('empty');
+            this.droplistwrapper.classList.remove('empty');
         }
     };
 
@@ -933,14 +907,11 @@ define(['o-question'], function (oQuestion) {
             var container = document.querySelector('.o-question-selected');
             var tag = document.createElement('div');
             tag.className = 'm-tag-answer';
-            // Set the data-value attribute with the user-entered value and not from the list!
             tag.setAttribute('data-value', label); 
             tag.setAttribute('value', label); 
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
     
-            console.log('User-entered value:', label); 
-        
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.removeTag(tag);
@@ -981,67 +952,5 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    oQuestionOpenendSearch.prototype.calculateDroplistHeight = function() {
-        var self = this;
-        var initialHeight = window.innerHeight;  // Capture the initial window height
-    
-        function handleScrollToTop() {
-            window.scrollTo(0, 0);
-        }
-    
-        function checkKeyboard() {
-            var currentHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-            var isKeyboardVisible = initialHeight - currentHeight > 200;  
-            var currentWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            console.log("Current device width:", currentWidth);
-    
-    
-    
-    
-            if (isKeyboardVisible) {
-                // self.droplist.style.backgroundColor = 'yellow';
-                self.droplist.style.height = "100px";
-                self.itemCountElement.style.top = '320px';
-            } else if (currentHeight < 900) {
-                self.droplist.style.height = "200px";
-                // self.droplist.style.backgroundColor = 'pink';
-                self.itemCountElement.style.top = '419px';
-            } else {
-                self.droplist.style.height = "800px";
-                // self.droplist.style.backgroundColor = 'gray';
-                self.itemCountElement.style.top = '419px';
-            }
-        }
-    
-        // Initial check when the function is first called
-        checkKeyboard();
-    
-        const visualViewport = window.visualViewport;
-    
-        if (visualViewport) {
-            let viewportWidth = window.innerWidth;
-            let viewportHeight = window.innerHeight;
-    
-            visualViewport.addEventListener("resize", function(event) {
-                const target = event.target;
-                if (viewportWidth !== target.width) {
-                    viewportWidth = window.innerWidth;
-                    viewportHeight = window.innerHeight;
-                }
-    
-                if (viewportHeight - target.height > 10) {
-                    handleScrollToTop();
-                }
-    
-                checkKeyboard();
-            });
-        }
-    
-        document.addEventListener("touchend", handleScrollToTop);
-    
-        window.addEventListener('resize', function() {
-            checkKeyboard();
-        });
-    }
     return oQuestionOpenendSearch;
 });
