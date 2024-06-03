@@ -2189,7 +2189,14 @@
             </xsl:element>
             <xsl:element name="div">
                <xsl:attribute name="class">m-list-messages</xsl:attribute>
-               <xsl:comment>list messages here</xsl:comment>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">a-list-message</xsl:attribute>
+                  <xsl:attribute name="data-id">notenoughcharacters</xsl:attribute>
+               </xsl:element>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">a-list-message</xsl:attribute>
+                  <xsl:attribute name="data-id">noitemsinlist</xsl:attribute>
+               </xsl:element>
             </xsl:element>
          </xsl:element>
          <xsl:element name="div">
