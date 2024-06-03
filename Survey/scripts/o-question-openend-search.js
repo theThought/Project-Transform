@@ -271,14 +271,15 @@ define(['o-question'], function (oQuestion) {
                 }
             }
         }
-
+    
         return wordsArray;
     };
     
     oQuestionOpenendSearch.prototype.filterWordContains = function (inputstring) {
         var wordsArray = this.gettingWords();
+        var lowerCaseInput = inputstring.toLowerCase(); // Convert inputstring to lowercase
         var matchingWords = wordsArray.filter(function (word) {
-            return word.includes(inputstring);
+            return word.includes(lowerCaseInput);
         });
     
         if (matchingWords.length > 0 && inputstring.length >= 3) {
@@ -294,7 +295,7 @@ define(['o-question'], function (oQuestion) {
        
         return matchingWords;
     };
-
+    
     oQuestionOpenendSearch.prototype.wordMatching = function () {
         var inputElement = this.element;
         if (inputElement) {
@@ -302,15 +303,15 @@ define(['o-question'], function (oQuestion) {
             inputElement.addEventListener('input', function (event) {
                 var inputValue = event.target.value;
                 var filteredWords = self.filterWordContains(inputValue);
-                
+    
                 if (filteredWords.length > 1) {
                     self.filterWordContains(inputValue);
-                    
+    
                 } else if (filteredWords.length < 1) {
                     self.matchedWord = null;
                     self.buttonElement.disabled = true;
                 }
-                
+    
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
@@ -321,6 +322,7 @@ define(['o-question'], function (oQuestion) {
             console.error('Input element not found or not an INPUT element');
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
