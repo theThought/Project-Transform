@@ -2612,7 +2612,7 @@ html[dir=rtl] .o-dropdown ul li {
     padding-top: 10px;
   }
   .m-openend-search-count {
-    text-align: left;
+    text-align: right;
     margin-top: 10px;
     padding-top: 5px;
   }
@@ -2659,6 +2659,8 @@ html[dir=rtl] .o-dropdown ul li {
   border: none;
   background-color: transparent;
   font-size: 16px;
+  color: #002554;
+  margin-top: 0.1em;
 }
 
 .o-list.empty ul {
