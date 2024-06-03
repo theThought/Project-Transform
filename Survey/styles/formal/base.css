@@ -2592,7 +2592,7 @@ html[dir=rtl] .o-dropdown ul li {
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
-.m-openend-search-count {
+.m-list-messages {
   height: 37px;
   background: white;
   text-align: right;
@@ -2604,11 +2604,6 @@ html[dir=rtl] .o-dropdown ul li {
   border-bottom: 1px solid;
   -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
-  visibility: hidden;
-}
-
-.m-openend-search-count.visible {
-  visibility: visible;
 }
 
 .a-label-counter-prompt {
@@ -2650,6 +2645,20 @@ html[dir=rtl] .o-dropdown ul li {
   border: none;
   background-color: transparent;
   font-size: 16px;
+}
+
+.o-list.empty ul {
+  display: none;
+}
+
+.o-list {
+  position: absolute;
+  background-color: green;
+}
+
+.o-list .o-combobox ul,
+.o-combobox ul.visible {
+  position: relative !important;
 }
 
 /* MOTE: the separator color used within tables is defined

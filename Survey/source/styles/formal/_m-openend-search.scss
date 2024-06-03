@@ -1,4 +1,5 @@
-    .m-openend-search-count{
+
+    .m-list-messages{
         height: 37px;
         background: white;
         text-align: right;
@@ -9,12 +10,9 @@
         border-right: 1px solid;
         border-bottom: 1px solid;
         box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
-        visibility: hidden;
+        
     }
-    //only show with this class
-    .m-openend-search-count.visible{
-        visibility: visible;
-    }
+ 
 
     .a-label-counter-prompt {
         margin-right: 20px;
@@ -51,4 +49,18 @@
     border: none;
     background-color: transparent;
     font-size: 16px;
+}
+
+.o-list.empty ul {
+    display: none;
+}
+
+.o-list{
+    position: absolute;
+    background-color: green;
+}
+
+.o-list .o-combobox ul,
+.o-combobox ul.visible{
+    position: relative !important;
 }

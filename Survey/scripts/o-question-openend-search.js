@@ -180,7 +180,7 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
         this.clearPlaceholderMessages();
         
-        var placeholderelement = document.createElement('b');
+        var placeholderelement = document.createElement('div');
         placeholderelement.classList.add('a-list-placeholder-restriction');
         placeholderelement.innerHTML = prop;
         
@@ -191,7 +191,7 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
         this.clearPlaceholderMessages();
     
-        var placeholderelement = document.createElement('b');
+        var placeholderelement = document.createElement('div');
         placeholderelement.classList.add('a-list-placeholder-empty');
         placeholderelement.innerHTML = prop;
         
@@ -887,9 +887,7 @@ define(['o-question'], function (oQuestion) {
                     itemPromptElement.textContent = "items";
                 }
                 itemCountElement.parentNode.classList.remove('hidden');
-            } else {
-                itemCountElement.parentNode.classList.add('hidden');
-            }
+            } 
         }
     };
 
