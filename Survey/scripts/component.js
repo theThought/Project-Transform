@@ -407,6 +407,14 @@ define(
             }
         }
 
+        component.prototype.processAvailability = function (event) {
+            if (event.detail.available) {
+                this.makeAvailable();
+            } else {
+                this.makeUnavailable();
+            }
+        }
+
         component.prototype.makeAvailable = function () {
             if (this.available) {
                 return;
@@ -417,6 +425,9 @@ define(
             this.resetValues();
             this.liftCover();
             this.available = true;
+
+            var broadcastAvailability = new CustomEvent('broadcastAvailability', {bubbles: true, detail: this});
+            this.element.dispatchEvent(broadcastAvailability);
         }
 
         component.prototype.makeUnavailable = function () {
@@ -425,10 +436,11 @@ define(
             }
 
             this.element.classList.add('unavailable');
+            this.available = false;
+
             this.cover();
             this.clearEntries();
             this.clearChildren();
-            this.available = false;
         }
 
         component.prototype.resetValues = function () {

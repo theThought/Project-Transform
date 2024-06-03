@@ -66,6 +66,7 @@ define(['component'],
             document.addEventListener("restoreEntries", this, false);
             document.addEventListener(this.group + "_enableExclusive", this, false);
             document.addEventListener("broadcastChange", this, false);
+            document.addEventListener("broadcastAvailability", this, false);
             document.addEventListener(this.group + '_optionVisibility', this, false);
         }
 
@@ -125,6 +126,9 @@ define(['component'],
                     break;
                 case 'scroll':
                     this.updateDroplistPosition(event);
+                    break;
+                case 'broadcastAvailability':
+                    this.processAvailability(event);
                     break;
             }
         }
