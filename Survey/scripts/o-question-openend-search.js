@@ -66,7 +66,7 @@ define(['o-question'], function (oQuestion) {
         this.createButtonElement();
         this.getDataFromSource();
         this.wordMatching();
-        this.updateItemCount(0);
+        
         this.configureTagContainer();
         this.filterList();
     };
@@ -894,7 +894,7 @@ define(['o-question'], function (oQuestion) {
                     itemCountElement.textContent = count;
                     itemPromptElement.textContent = "items";
                 }
-            } else {
+            } else if (count === 0){
                 itemCountElement.textContent = '';
                 itemPromptElement.textContent = "";
             }
@@ -920,19 +920,19 @@ define(['o-question'], function (oQuestion) {
             this.element.style.cursor = 'not-allowed';
             var tag = document.createElement('div');
             tag.className = 'm-tag-answer';
-            tag.setAttribute('data-value', label);
-            this.itemCountElement.textContent = ""; 
+            tag.setAttribute('data-value', label); 
             tag.setAttribute('value', label); 
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
-    
+            this.updateItemCount(0);
+
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
+                this.updateItemCount(0);
                 this.removeTag(tag);
                 this.element.disabled = false;
                 this.element.style.cursor = '';
-                
-    
+
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];
                     item.classList.remove('selected');
@@ -957,13 +957,6 @@ define(['o-question'], function (oQuestion) {
 
             if (this.hiddenelement) {
                 this.hiddenelement.value = '';
-            }
-
-            if (this.itemCountElement) {
-                this.itemCountElement.textContent = "";
-                this.itemCountElement.classList.remove('hidden');
-            } else {    
-                console.error('Item count element not found');
             }
         }
     };
