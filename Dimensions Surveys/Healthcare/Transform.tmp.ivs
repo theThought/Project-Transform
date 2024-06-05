@@ -1624,14 +1624,17 @@ Coke "Coca Cola" define
     ' -20 SingleLineEdit
     ' -21 ReadWriteEdit 
     ' -22 Decimal
+    ' -22 openend-Search
     ' -30 MultiLineEdit
     ' -40 Choice
     ' -50 Slider (Horizontal)
     ' -51 Slider (Vertical)
+    ' -52 Slider (date-recent)
     ' -55 Scale (Horizontal)
     ' -56 Scale (Vertical)
     ' -60 DropDown
     ' -70 Combobox
+    
     ' -1100 Progressive (V) Grid
     ' -1110 Progressive (H) Grid
     ' -1400 Navigation - Tabstrip
@@ -1681,14 +1684,16 @@ Coke "Coca Cola" define
         Buttons "Button questions",
         Instructions "Instructions",
         ReadWrite "Read/Write hidden inputs",
+        SideBySide "Complex questions",
+        SpecialOnes "Unusual question combinations"
+    };
+    TypesList_Scales "Sliders and Scales" define
+    {
         SliderH "Slider (Horizontal)",
         SliderV "Slider (Vertical)",
         ScaleH "Scale (Horizontal)",
         ScaleV "Scale (Vertical)",
-        SideBySide "Complex questions",
-        longlist "Long Lists",
-        ImageList "Image Lists",
-        SpecialOnes "Unusual question combinations"
+        Recent "Date (Recent)"
     };
     TypesList_Special "Special functions" define
     {
@@ -1750,7 +1755,9 @@ Coke "Coca Cola" define
         GridDrop "Dropdown (Grid)",
         Combobox "Combo-box (single)",
         GridCombo "Combo-box (Grid)",
-        OtherSpecifyLists "Lists with other specify options"
+        OtherSpecifyLists "Lists with other specify options",
+        longlist "Long Lists",
+        ImageList "Image Lists"
     };
     TypesList_Navigation "Implementing alternative navigation techniques" define
     {
@@ -1910,6 +1917,7 @@ Coke "Coca Cola" define
     categorical [1..1]
     {
         use TypesList_Simple sublist -,
+        use TypesList_Scales sublist -,
         use TypesList_Dropdowns sublist -,
         use TypesList_Grids sublist -,
         use TypesList_Rotated sublist -,
@@ -2445,7 +2453,8 @@ Coke "Coca Cola" define
 
     HowManyMissedV_Car "How many of the last 10 visits did you miss"
         style(
-            ZIndex = -51
+            ZIndex = -51,
+            width="125%"
         )
     long [0 .. 100];
 
@@ -2606,6 +2615,25 @@ Coke "Coca Cola" define
 
     );
 
+
+    '----------------------------------------
+    ' slider-date-recent
+    '----------------------------------------
+    lastpayment "Indicate the date/time in the last 24 hours that you made a payment for goods or services" 
+	style(zIndex=-52)
+	date;
+
+    lastdrink "Indicate the date/time in the last 3 days that you had a drink of alcohol or a non-alcoholic equivalent" 
+	style(zIndex=-52)
+	date;
+    
+    lastwithdrawal "Indicate the date/time in the last week that you made a cash withdrawal"
+    
+    recentpage "" Page (lastpayment, lastdrink, lastwithdrawal);
+	style(zIndex=-52)
+	date
+	codes({Nowithdrawal "I did not withdraw cash in the last week" NA});
+    
     '----------------------------------------
     ' scales (horizontal)
     '----------------------------------------
@@ -5495,9 +5523,9 @@ Coke "Coca Cola" define
 
     );
 
-    WrappedInputOptionsBlock "" block fields
+    WrappedInputOptionsBlock "How many of the following did you provide?<br />input how many and select the related drug" block fields
     (
-        HowMany "How many of the following did you provide?<br />input how many and select the related drug"
+        HowMany ""
             style(
                 ZIndex = -20
             )
@@ -5520,8 +5548,10 @@ Coke "Coca Cola" define
     );
 
     PostCodeBlockSideBySide "Post code"
-    style(zIndex=-2000)
-    block fields "is there text here?"
+        style(
+            ZIndex = -2000
+        )
+    block fields
     (
         PostCodeLeft ""
             style(
@@ -5539,7 +5569,35 @@ Coke "Coca Cola" define
 
     );
 
-    WeightandMeasureblock "" block fields
+    WeightandMeasureblock "How many of the following did you provide?<br />input how many and select the related drug" block fields
+    (
+        weight ""
+            style(
+                ElementAlign = "Right",
+                ZIndex = -20,
+                Width = "3em"
+            )
+        text [0..5];
+
+        measure ""
+            style(
+                ElementAlign = "Right",
+                ZIndex = -60,
+                Width = "4em",
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [1..1]
+        {
+            gram "g",
+            floz "fl oz",
+            ounce "oz"
+        };
+
+    );
+
+    WeightandMeasureblockSidebySide "How many of the following did you provide?<br />input how many and select the related drug" block fields
     (
         weight "How much content"
             style(
@@ -5567,37 +5625,9 @@ Coke "Coca Cola" define
 
     );
 
-    WeightandMeasureblockSidebySide "" block fields
+    OtherandSpecifyblock "Pick one of these options" block fields
     (
-        weight "How much content"
-            style(
-                ElementAlign = "Right",
-                ZIndex = -20,
-                Width = "3em"
-            )
-        text [0..5];
-
-        measure ""
-            style(
-                ElementAlign = "Right",
-                ZIndex = -60,
-                Width = "4em",
-                Control(
-                    Type = "DropList"
-                )
-            )
-        categorical [1..1]
-        {
-            gram "g",
-            floz "fl oz",
-            ounce "oz"
-        };
-
-    );
-
-    OtherandSpecifyblock "" block fields
-    (
-        pickanoption "Pick one of these options"
+        pickanoption ""
             style(
                 ZIndex = -60,
                 Control(
@@ -5788,7 +5818,8 @@ Coke "Coca Cola" define
             )
         categorical [1..1]
         {
-            FullNewspapersSubList use \\.FullNewspapersSubList - ran
+            FullNewspapersSubList use \\.FullNewspapersSubList -
+            ran
         };
 
     ) expand;
@@ -6341,6 +6372,34 @@ Coke "Coca Cola" define
         no "No"
     };
 
+    dateoftreatmentgrid "When" loop [1] fields -
+    (
+        monthoftreatment "year"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [..1]
+        {
+            MonthList use \\.MonthList -
+        };
+
+        yearoftreatment "year"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [..1]
+        {
+            shortyearlist use \\.shortyearlist -
+        };
+
+    ) expand;
+
     yearoftreatment "year"
         style(
             ZIndex = -60,
@@ -6379,6 +6438,11 @@ Coke "Coca Cola" define
 
     );
 
+    PageofRelapseGrid ""
+    page(
+        relapse,
+        dateoftreatmentgrid
+    );
     PageOfRelapse ""
     page(
         relapse,
@@ -6399,10 +6463,16 @@ Coke "Coca Cola" define
         CustomList_SetJump,
         ChooseType
     );
+    ComplexQuetionPageJustPostCode ""
+    page(
+        PostCodeBlockSideBySide
+    );
     ComplexQuestionPage ""
     page(
         PostCodeBlockSideBySide,
-        WeightandMeasureblockSidebySide
+        WeightandMeasureblockSidebySide,
+        OtherandSpecifyblock,
+        WrappedInputOptionsBlock
     );
     ResetVisibilityPage ""
     page(
@@ -6728,10 +6798,15 @@ isPaste = "false"
 isJump = "false"
 
 mediaAssetsURL = "https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/"
-IOM.LayoutTemplate = "page (simple).htm"
-'IOM.LayoutTemplate = "pageoutput-label.htm"
-'IOM.LayoutTemplate = "page (complex).htm"
-'IOM.LayoutTemplate = "page (middle).htm"
+if iom.Info.IsDebug then 
+	'IOM.LayoutTemplate = "pageoutput-label.htm"
+	IOM.LayoutTemplate = "local-formal.htm"
+else
+	IOM.LayoutTemplate = "formal.htm"
+	'IOM.LayoutTemplate = "page (complex).htm"
+	'IOM.LayoutTemplate = "page (middle).htm"
+end if
+
 
 IOM.QuestionTemplate = templateLocation + "question.htm"
 
@@ -6788,7 +6863,7 @@ CustomList_SetInstruction.Response.Initial = {below}
 CustomList_SetPaste1.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
-'PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':false}")
+PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':false}")
 
 CustomList_SetBalance.MustAnswer = false
 CustomList_SetBalance.Response = 30
@@ -6847,9 +6922,17 @@ If CustomList_SetLayout.response.containsAny({Vertical}) then
 end if
 
 If CustomList_SetTheme.response.ContainsAny({Formal}) then
-	layoutTemplate = templateLocation + "page"
+	if iom.info.IsDebug then
+		layoutTemplate = templateLocation + "local-formal"
+	else
+		layoutTemplate = templateLocation + "formal"
+	end if
 else
-	layoutTemplate = templateLocation + "informal"
+	if iom.Info.IsDebug then
+		layoutTemplate = templatelocation + "local-informal"
+	else
+		layoutTemplate = templateLocation + "informal"
+	end if
 end if
 
 If CustomList_SetDirection.response.containsAny({LTR}) then
@@ -7149,7 +7232,7 @@ AddCustomProperties(HowManyMissedV, "HowManyMissedV", "{'values':{'min':0,'max':
 HowManyMissedV.ask()
 
 AddCustomProperties(HowManyMissedV, "HowManyMissedV", "{'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
-AddCustomProperties(HowManyMissedV_Car, "HowManyMissedV_Car", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+AddCustomProperties(HowManyMissedV_Car, "HowManyMissedV_Car", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-transparent.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':25,'floodtovalue':false}", "add")
 AddCustomProperties(HowManyMissedV_Heart, "HowManyMissedV_Heart", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-heart.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
 HowManyMissedVPage.ask()
 
@@ -7179,6 +7262,21 @@ PercentageTreatmentsPrePostV.Ask()
 case {gridSlider}
 AddCustomProperties(vacinate, "percentright", "{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
 vacinate.ask()
+
+case {recent}
+dim dateToday
+dateToday = datenow()
+
+AddCustomProperties(lastpayment, "PercentageTreatmentsV", "{'values':[{'date':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+
+lastpayment.ask()
+lastdrink.ask()
+
+lastwithdrawal.mustanswer = false
+lastwithdrawal.ask()
+
+recentpage.ask()
+
 
 case {scaleh}
 dim passive10visibility
@@ -8090,27 +8188,23 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	
 '	IOM.LayoutTemplate = "pageoutput-label.htm"	
 
+
 	WrappedInputOptionsBlock.Drug.Categories.Filter = {moderna, cansinoBiologics}
 	addCustomProperties(WrappedInputOptionsBlock.Drug, "Drug", "{'balance':{'state':false},'onesize':{'state':true}}", "replace")
 	WrappedInputOptionsBlock.Drug.Style.ElementAlign = elementalignments.eaRight
 	WrappedInputOptionsBlock.HowMany.Style.ElementAlign = elementalignments.eaRight
-	WrappedInputOptionsBlock.ask()
+'	WrappedInputOptionsBlock.ask()
+	ComplexQuestionPage.QuestionFilter = "WrappedInputOptionsBlock"
+	ComplexQuestionPage.Ask()
 
 	WrappedInputOptionsBlock.Drug.Categories.Filter = {moderna, cansinoBiologics}
 	addCustomProperties(WrappedInputOptionsBlock.Drug, "Drug", "{'balance':{'state':true}}", "replace")
 	WrappedInputOptionsBlock.Drug.Style.ElementAlign = elementalignments.eaRight
 	WrappedInputOptionsBlock.HowMany.Style.ElementAlign = elementalignments.eaRight
 '	WrappedInputOptionsBlock.ask()
+	ComplexQuestionPage.QuestionFilter = "WrappedInputOptionsBlock"
+	ComplexQuestionPage.Ask()
 	
-	addCustomProperties(PostCodeBlockII.PostCodeLeft, "PostCodeLeft", "{'separator':false}","replace")
-	PostCodeBlockII.PostCodeLeft.Style.ElementAlign = elementalignments.eaRight	
-	PostCodeBlockII.PostCodeRight.Style.ElementAlign = elementalignments.eaRight
-'	PostCodeBlockII.ask()
-
-	addCustomProperties(WeightandMeasureblock.weight, "Weight", "{'separator':false}","replace")	
-	AddCustomProperties(WeightandMeasureblock.measure, "measure", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select an option'}", "replace")
-'	WeightandMeasureblock.ask()
-
 	OtherandSpecifyblock.theotheroption.MustAnswer = false
 	AddCustomProperties(OtherandSpecifyblock.pickanoption, "pickanoption", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select one'}", "replace")
 	AddCustomProperties(OtherandSpecifyblock.theotheroption, "theotheroption", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("OtherandSpecifyblock_Qpickanoption.containsAny('otheroption')"), "'}}"), "replace")
@@ -8118,15 +8212,25 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	OtherandSpecifyblock.pickanoption.Style.ElementAlign = elementalignments.eaRight	
 	OtherandSpecifyblock.theotheroption.Style.ElementAlign = elementalignments.eaRight	
  '   OtherandSpecifyblock.Ask()
-IOM.LayoutTemplate = "pageoutput-label.htm"
+	ComplexQuestionPage.QuestionFilter = "OtherandSpecifyblock"
+ 	ComplexQuestionPage.Ask()
 	
 	PostCodeBlockSideBySide.Style.ElementAlign = elementalignments.eaNewLine
 	PostCodeBlockSideBySide.PostCodeLeft.Style.ElementAlign = elementalignments.eaRight
 	PostCodeBlockSideBySide.PostCodeRight.Style.ElementAlign = elementalignments.eaRight
+	ComplexQuestionPage.QuestionFilter = "PostCodeBlockSideBySide"
+	ComplexQuestionPage.Ask()
 	
+	addCustomProperties(WeightandMeasureblockSidebySide, "WeightandMeasureblockSidebySide_Qweight", "{'separator':false}","add")	
+	AddCustomProperties(WeightandMeasureblockSidebySide, "WeightandMeasureblockSidebySide_Qmeasure", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select an option'}", "add")
+
 	WeightandMeasureblockSidebySide.Style.ElementAlign = elementalignments.eaNewLine
 	WeightandMeasureblockSidebySide.weight.Style.ElementAlign = elementalignments.eaRight
 	WeightandMeasureblockSidebySide.measure.Style.ElementAlign = elementalignments.eaRight
+	ComplexQuestionPage.QuestionFilter = "WeightandMeasureblockSidebySide"
+	ComplexQuestionPage.Ask()
+	
+	ComplexQuestionPage.QuestionFilter = null
 	ComplexQuestionPage.ask()
 	
 	
@@ -8450,6 +8554,11 @@ case {RotatedHiddenCells}
     '----------------------------------------
     ' Long Lists
     '----------------------------------------
+
+	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':8,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+    brandlist.QuestionTemplate = "question-database-brandlist.htm"
+    brandlist.Ask()
+
 	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'internal','source':'a-list','valuefrom':'UPC','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
     barcodelist.QuestionTemplate = "question-database.htm"
     barcodelist.Ask()
@@ -8458,8 +8567,6 @@ case {RotatedHiddenCells}
     barcodelist.QuestionTemplate = null
     barcodelist.Ask()
 
-	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':15,'list':{'source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\brandlistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':2,'notenoughcharacters':'product descriptions will start to appear when you type at least 2 characters','filtertype':'contains','placeholder':'Describe your brand of drink you consumed','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
-    brandlist.Ask()
 
 	case {SpecialOnes}
 	
@@ -8474,7 +8581,57 @@ case {RotatedHiddenCells}
 	yearfilter = ""
 	yearfilterrule = CreateVisibilityRule("relapse.containsAny('yes')")
 	
+	AddCustomProperties(dateoftreatmentgrid, "yearoftreatment", "{'resettonull':false,'listsize':5,'showanswers':false,'placeholder':'select a year'}", "replace")
+	AddCustomProperties(dateoftreatmentgrid, "monthoftreatment", "{'resettonull':false,'listsize':12,'showanswers':false,'placeholder':'select a Month'}", "add")
+	AddCustomProperties(dateoftreatmentgrid, "monthoftreatment", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
+	AddCustomProperties(dateoftreatmentgrid, "yearoftreatment", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
+	
+	for yearlistcounter = 0  to yearofdiagnosis.Categories.Count - 1
+		if chosenyear <= clong(yearoftreatment.Categories[yearlistcounter].Label) then
+			if yearfilter <> "" then yearfilter = yearfilter + ","
+			yearfilter = yearfilter + yearoftreatment.Categories[yearlistcounter].FullName
+		end if
+	next
+	
+	If yearfilter <> "" then 
+		yearfilter = "{" + yearfilter + "}"
+		dateoftreatmentgrid[1].yearoftreatment.Categories.Filter = ccategorical(yearfilter)
+	end if
+		
+	if dateoftreatmentgrid[1].yearoftreatment.Categories.Count > 0 and dateoftreatmentgrid[1].yearoftreatment.Categories.Count < 2 then
+		dateoftreatmentgrid[1].yearoftreatment.Response = yearofdiagnosis.Response
+	end if
+	
+	PageOfRelapseGrid.ask()
+
+	chosenyear = clong(format(yearofdiagnosis.Response, "b"))
+	yearfilter = ""
+	yearfilterrule = CreateVisibilityRule("relapse.containsAny('yes')")
+	
+	AddCustomProperties(dateoftreatmentgrid, "yearoftreatment", "{'resettonull':false,'listsize':5,'showanswers':false,'placeholder':'select a year'}", "replace")
+	AddCustomProperties(dateoftreatmentgrid, "monthoftreatment", "{'resettonull':false,'listsize':12,'showanswers':false,'placeholder':'select a Month'}", "add")
+	AddCustomProperties(dateoftreatmentgrid, "dateoftreatmentgrid", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
+	
+	for yearlistcounter = 0  to yearofdiagnosis.Categories.Count - 1
+		if chosenyear <= clong(yearoftreatment.Categories[yearlistcounter].Label) then
+			if yearfilter <> "" then yearfilter = yearfilter + ","
+			yearfilter = yearfilter + yearoftreatment.Categories[yearlistcounter].FullName
+		end if
+	next
+	
+	If yearfilter <> "" then 
+		yearfilter = "{" + yearfilter + "}"
+		dateoftreatmentgrid[1].yearoftreatment.Categories.Filter = ccategorical(yearfilter)
+	end if
+		
+	if dateoftreatmentgrid[1].yearoftreatment.Categories.Count > 0 and dateoftreatmentgrid[1].yearoftreatment.Categories.Count < 2 then
+		dateoftreatmentgrid[1].yearoftreatment.Response = yearofdiagnosis.Response
+	end if
+	PageOfRelapseGrid.ask()
+
 	AddCustomProperties(yearoftreatment, "yearoftreatment", "{'resettonull':false,'listsize':5,'showanswers':false,'placeholder':'select a year'}", "replace")
+'	AddCustomProperties(monthoftreatment, "monthoftreatment", "{'resettonull':false,'listsize':12,'showanswers':false,'placeholder':'select a Month'}", "add")
+'	AddCustomProperties(monthoftreatment, "monthoftreatment", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
 	AddCustomProperties(yearoftreatment, "yearoftreatment", MakeString("{'visible':{'collapse':true,'rules':'", yearfilterrule, "'}}"), "add")
 	
 	for yearlistcounter = 0  to yearofdiagnosis.Categories.Count - 1
@@ -8492,7 +8649,7 @@ case {RotatedHiddenCells}
 	if yearoftreatment.Categories.Count > 0 and yearoftreatment.Categories.Count < 2 then
 	yearoftreatment.Response = yearofdiagnosis.Response
 	end if
-	
+
 	PageOfRelapse.ask()
 	
 	yearfilter = ""
