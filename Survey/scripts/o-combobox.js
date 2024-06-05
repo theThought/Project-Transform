@@ -529,7 +529,7 @@ define(['component'],
         oCombobox.prototype.setSelectedOption = function (selectedOption) {
             selectedOption.classList.add('selected');
             selectedOption.setAttribute('data-selected', 'selected');
-            this.element.value = this.sanitiseText(selectedOption.innerText);
+            this.element.value = this.sanitiseText(selectedOption.textContent);
             this.element.classList.add('exact');
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
         }
