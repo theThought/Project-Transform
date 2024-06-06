@@ -442,8 +442,8 @@ define(
             this.clearEntries();
             this.clearChildren();
 
-            var broadcastAvailability = new CustomEvent('broadcastAvailability', {bubbles: true, detail: this});
-            this.element.dispatchEvent(broadcastAvailability);
+            //var broadcastAvailability = new CustomEvent('broadcastAvailability', {bubbles: true, detail: this});
+            //this.element.dispatchEvent(broadcastAvailability);
         }
 
         component.prototype.resetValues = function () {
