@@ -916,8 +916,8 @@ define(['o-question'], function (oQuestion) {
         } else {
             var container = document.querySelector('.o-question-selected');
             this.buttonElement.disabled = true;
-            this.element.disabled = true;
-            this.element.style.cursor = 'not-allowed';
+            // this.element.disabled = true;
+            // this.element.style.cursor = 'not-allowed';
             var tag = document.createElement('div');
             tag.className = 'm-tag-answer';
             tag.setAttribute('data-value', label); 
@@ -930,8 +930,8 @@ define(['o-question'], function (oQuestion) {
             deleteButton.addEventListener('click', function () {
                 this.updateItemCount(0);
                 this.removeTag(tag);
-                this.element.disabled = false;
-                this.element.style.cursor = '';
+                // this.element.disabled = false;
+                // this.element.style.cursor = '';
 
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];
