@@ -2186,6 +2186,7 @@
                      <xsl:text>;</xsl:text>
                   </xsl:attribute>
                </xsl:if>
+               <xsl:comment> --- list items --- </xsl:comment>
             </xsl:element>
             <xsl:element name="div">
                <xsl:attribute name="class">m-list-messages</xsl:attribute>
