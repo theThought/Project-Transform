@@ -277,25 +277,23 @@ define(['o-question'], function (oQuestion) {
     
     oQuestionOpenendSearch.prototype.filterWordContains = function (inputstring) {
         var wordsArray = this.gettingWords();
-        var lowerCaseInput = inputstring.toLowerCase(); // Convert inputstring to lowercase
+        var lowerCaseInput = inputstring.toLowerCase(); 
         var matchingWords = wordsArray.filter(function (word) {
             return word.includes(lowerCaseInput);
         });
     
         if (matchingWords.length > 0 && inputstring.length >= 3) {
             this.matchedWord = matchingWords[0];
-            this.buttonElement.disabled = false;
             this.showList();
         } else {
             this.matchedWord = null;
-            this.buttonElement.disabled = true;
             this.hideList();
             this.updateItemCount(0);
         }
        
         return matchingWords;
     };
-    
+
     oQuestionOpenendSearch.prototype.wordMatching = function () {
         var inputElement = this.element;
         if (inputElement) {
@@ -304,26 +302,28 @@ define(['o-question'], function (oQuestion) {
                 var inputValue = event.target.value;
                 var filteredWords = self.filterWordContains(inputValue);
     
-                if (filteredWords.length > 1) {
-                    self.filterWordContains(inputValue);
-    
+                if (filteredWords.length > 0 && inputValue.length >= 3) {
+                    self.buttonElement.disabled = true;
                 } else if (filteredWords.length < 1) {
                     self.matchedWord = null;
-                    self.buttonElement.disabled = true;
+                    self.buttonElement.disabled = false;
+                } else {
+                    self.buttonElement.disabled = false;
                 }
     
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
     
-                self.buttonElement.disabled = matches && inputValue.length === 0;
+                if (matches && inputValue.length === 0) {
+                    self.buttonElement.disabled = true;
+                }
             });
         } else {
             console.error('Input element not found or not an INPUT element');
         }
     };
     
-
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
         this.element.placeholder = this.defaultplaceholder;
@@ -916,8 +916,6 @@ define(['o-question'], function (oQuestion) {
         } else {
             var container = document.querySelector('.o-question-selected');
             this.buttonElement.disabled = true;
-            // this.element.disabled = true;
-            // this.element.style.cursor = 'not-allowed';
             var tag = document.createElement('div');
             tag.className = 'm-tag-answer';
             tag.setAttribute('data-value', label); 
