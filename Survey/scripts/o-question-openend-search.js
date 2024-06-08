@@ -8,9 +8,8 @@ define(['o-question'], function (oQuestion) {
         this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
         this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
         this.itemCountElement = document.querySelector('.m-openend-search-count');
-        this.isOpenendSearch = document.querySelector('ul.m-list-external');
         this.messages = document.querySelector('.m-list-messages');
-
+    
         this.hiddenelement = null;
         this.mincharacters = 0;
         this.keypressed = null;
@@ -71,7 +70,60 @@ define(['o-question'], function (oQuestion) {
         this.filterList();
     };
 
-    // Event listener configurations
+    // Add the method to get the computed height and set padding-top
+    oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
+        if (this.droplist) {
+            var computedStyle = window.getComputedStyle(this.droplist);
+            console.log('Droplist height:', computedStyle.height);
+            this.setMessagePaddingTop(computedStyle.height);
+        } else {
+            console.log('Droplist not found');
+        }
+    };
+
+    // Add the method to set the padding-top of m-list-messages
+    oQuestionOpenendSearch.prototype.setMessagePaddingTop = function (height) {
+        if (this.messages) {
+            this.messages.style.paddingTop = height;
+        }
+    };
+
+    // Add the method to reset the padding-top of m-list-messages
+    oQuestionOpenendSearch.prototype.resetMessagePaddingTop = function () {
+        if (this.messages) {
+            this.messages.style.paddingTop = '20px';
+        }
+    };
+
+    oQuestionOpenendSearch.prototype.setDropListDirection = function () {
+        this.wrapper.classList.remove('direction-up');
+        this.wrapper.classList.add('direction-down');
+        this.droplist.style.removeProperty('bottom');
+        var paddingAllowance = 10;
+
+        var footer = document.getElementsByClassName('footer')[0];
+        var viewportBounds = this.checkViewportBounds(this.droplist);
+        var footerCollision = this.checkCollision(this.droplist, footer);
+
+        var distanceToTop = this.element.getBoundingClientRect().top;
+        var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
+
+        if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
+            this.wrapper.classList.remove('direction-down');
+            this.wrapper.classList.add('direction-up');
+
+            if (distanceToTop < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
+                this.droplist.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+            }
+
+        } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
+            this.droplist.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
+        }
+
+        // Log the computed height
+        this.getDroplistHeight();
+    };
+
     oQuestionOpenendSearch.prototype.configureIncomingEventListeners = function () {
         document.addEventListener('mousedown', this.handleEvent.bind(this), false);
         document.addEventListener("clearEntries", this.handleEvent.bind(this), false);
@@ -187,8 +239,6 @@ define(['o-question'], function (oQuestion) {
         this.messages.appendChild(placeholderelement);
         this.messages.appendChild(this.itemCountElement);
     };
-    
-
 
     oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
         this.clearPlaceholderMessages();
@@ -200,7 +250,7 @@ define(['o-question'], function (oQuestion) {
         this.messages.appendChild(placeholderelement);
         this.messages.appendChild(this.itemCountElement);
     };
-    
+
     oQuestionOpenendSearch.prototype.clearPlaceholderMessages = function () {
         var restrictionMessage = this.messages.querySelector('.a-list-placeholder-restriction');
         
@@ -274,7 +324,7 @@ define(['o-question'], function (oQuestion) {
     
         return wordsArray;
     };
-    
+
     oQuestionOpenendSearch.prototype.filterWordContains = function (inputstring) {
         var wordsArray = this.gettingWords();
         var lowerCaseInput = inputstring.toLowerCase(); 
@@ -323,7 +373,7 @@ define(['o-question'], function (oQuestion) {
             console.error('Input element not found or not an INPUT element');
         }
     };
-    
+
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
         this.element.placeholder = this.defaultplaceholder;
@@ -706,12 +756,18 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.showList = function () {
         this.setDropListDirection();
         this.element.classList.add('list-visible');
-        this.droplist.classList.add('visible');        
+        this.droplist.classList.add('visible');
+        
+        // Calculate droplist height and set padding-top
+        this.getDroplistHeight();
     };
 
     oQuestionOpenendSearch.prototype.hideList = function () {
         this.element.classList.remove('list-visible');
         this.droplist.classList.remove('visible');
+        
+        // Reset the padding-top when the droplist is hidden
+        this.resetMessagePaddingTop();
     };
 
     oQuestionOpenendSearch.prototype.toggleList = function () {
@@ -722,7 +778,6 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
         this.wrapper.classList.remove('direction-up');
         this.wrapper.classList.add('direction-down');
-        this.droplist.style.maxHeight = '200px';
         this.droplist.style.removeProperty('bottom');
         var paddingAllowance = 10;
 
@@ -928,8 +983,6 @@ define(['o-question'], function (oQuestion) {
             deleteButton.addEventListener('click', function () {
                 this.updateItemCount(0);
                 this.removeTag(tag);
-                // this.element.disabled = false;
-                // this.element.style.cursor = '';
 
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];

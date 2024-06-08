@@ -2671,19 +2671,6 @@ html[dir=rtl] .o-dropdown ul li {
   min-height: 150px;
 }
 
-.o-list .o-combobox ul,
-.o-combobox ul.visible {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  position: relative !important;
-}
-
-.m-list-external.visible {
-  margin-top: 20px;
-  margin-bottom: 0px;
-}
-
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {
