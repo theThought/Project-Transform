@@ -2569,6 +2569,125 @@ html[dir=rtl] .o-dropdown ul li {
   text-align: inherit;
 }
 
+.m-list-messages {
+  height: 70px;
+  width: 37%;
+  padding-top: 20px;
+}
+@media (max-width: 768px) {
+  .m-list-messages {
+    width: 100%;
+    padding-top: 10px;
+  }
+}
+
+.m-openend-search-count {
+  border-top: 2px solid;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: right;
+  margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+  .m-openend-search-count {
+    text-align: right;
+    margin-top: 10px;
+    padding-top: 5px;
+  }
+}
+
+.o-question-openend-search input[type=text] {
+  width: 80%;
+}
+
+.a-label-counter-prompt {
+  margin-right: 20px;
+}
+
+.o-question-selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.m-tag-answer {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  margin: 20px 0;
+}
+.m-tag-answer span {
+  font-size: 16px;
+}
+
+.delete-tag {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: #002554;
+  margin-top: 0.1em;
+}
+
+.o-list {
+  min-height: 150px;
+}
+.o-list.empty ul {
+  display: none;
+}
+.o-list .o-combobox ul,
+.o-list .o-combobox ul.visible {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  position: relative !important;
+}
+
+:dir(rtl) .m-openend-search-count,
+:dir(rtl) .m-list-messages {
+  text-align: left;
+}
+:dir(rtl) .a-label-counter-prompt {
+  margin-left: 20px;
+  margin-right: 0;
+}
+:dir(rtl) .o-question-selected {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+:dir(rtl) #a-button-word-match {
+  margin-right: 10px;
+}
+:dir(rtl) .m-tag-answer {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 20px 0 20px auto;
+}
+:dir(rtl) .delete-tag {
+  margin-left: 0.1em;
+  margin-right: 0;
+}
+
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {

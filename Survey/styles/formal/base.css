@@ -2671,6 +2671,43 @@ html[dir=rtl] .o-dropdown ul li {
   min-height: 150px;
 }
 
+.o-list ul,
+.o-list ul.visible {
+  padding: 0 32px 0 0px;
+}
+
+:dir(rtl) .m-openend-search-count,
+:dir(rtl) .m-list-messages {
+  text-align: left;
+}
+:dir(rtl) .a-label-counter-prompt {
+  margin-left: 20px;
+  margin-right: 0;
+}
+:dir(rtl) .o-question-selected {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+:dir(rtl) #a-button-word-match {
+  margin-right: 10px;
+}
+:dir(rtl) .m-tag-answer {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 20px 0 20px auto;
+}
+:dir(rtl) .delete-tag {
+  margin-left: 0.1em;
+  margin-right: 0;
+}
+
 /* MOTE: the separator color used within tables is defined
  * in JavaScript - o-question-grid.js */
 .o-structure-table {

@@ -1,4 +1,24 @@
 
+  
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .m-list-messages{
     height: 70px;
     width: 37%;
@@ -76,15 +96,41 @@ display: none;
 min-height: 150px;
 }
 
-// .o-list .o-combobox ul,
-// .o-combobox ul.visible{
-// border: none;
-// box-shadow: none;
-// position: relative !important;
-// }
+.o-list ul,
+.o-list ul.visible{
+  padding: 0 32px 0 0px;
+}
 
-// .m-list-external.visible{
-// margin-top: 20px;
-// margin-bottom: 0px;
-// }
 
+
+ // RTL Styles
+ :dir(rtl) {
+  .m-openend-search-count,
+  .m-list-messages {
+    text-align: left;
+  }
+
+  .a-label-counter-prompt {
+    margin-left: 20px;
+    margin-right: 0;
+  }
+
+  .o-question-selected {
+    flex-direction: row-reverse;
+  }
+  
+  #a-button-word-match {
+      margin-right: 10px;
+    }
+
+  .m-tag-answer {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 20px 0 20px auto; // Align to the right
+  }
+
+  .delete-tag {
+    margin-left: 0.1em;
+    margin-right: 0;
+  }
+}
