@@ -21,7 +21,6 @@
 
 .m-list-messages{
     height: 70px;
-    width: 37%;
     padding-top: 20px;
 }
 
@@ -31,10 +30,10 @@
     padding-top: 10px;
     text-align: right;
     margin-bottom: 30px;
-}
-@media (max-width: 768px) {
-    .m-list-messages {
-        width: 100%;
+    }
+    @media (max-width: 768px) {
+      .m-list-messages {
+        
         padding-top: 10px;
     }
 

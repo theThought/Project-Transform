@@ -51,7 +51,7 @@ define(['o-question'], function (oQuestion) {
         this.updateScrollPosition(this.getCurrentListPosition());
         this.configureProperties();
         this.getInitialValue();
-
+        
         this.setPosition();
         this.setTabIndex();
         this.setWrapperType();
@@ -70,7 +70,7 @@ define(['o-question'], function (oQuestion) {
         this.filterList();
     };
 
-    // Add the method to get the computed height and set padding-top
+
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
         if (this.droplist) {
             var computedStyle = window.getComputedStyle(this.droplist);
@@ -221,8 +221,9 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.listsize = function (prop) {
-        var height = (27 * prop);
+        var height = (30 * prop);
         this.userspecifiedheight = height;
+        this.droplist.style.maxHeight = height + 'px';
     };
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
@@ -418,6 +419,7 @@ define(['o-question'], function (oQuestion) {
 
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
         this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
+        this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
 
         this.manualWidth = true;
     };
@@ -776,6 +778,8 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
+        console.log("this.wrapper");
+        console.log(this.wrapper);
         this.wrapper.classList.remove('direction-up');
         this.wrapper.classList.add('direction-down');
         this.droplist.style.removeProperty('bottom');
@@ -1011,6 +1015,8 @@ define(['o-question'], function (oQuestion) {
             }
         }
     };
+
+    
 
     return oQuestionOpenendSearch;
 });

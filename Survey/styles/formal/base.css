@@ -2594,7 +2594,6 @@ html[dir=rtl] .o-dropdown ul li {
 
 .m-list-messages {
   height: 70px;
-  width: 37%;
   padding-top: 20px;
 }
 
@@ -2608,7 +2607,6 @@ html[dir=rtl] .o-dropdown ul li {
 
 @media (max-width: 768px) {
   .m-list-messages {
-    width: 100%;
     padding-top: 10px;
   }
   .m-openend-search-count {
