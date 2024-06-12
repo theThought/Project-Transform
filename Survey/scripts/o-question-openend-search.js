@@ -974,6 +974,12 @@ define(['o-question'], function (oQuestion) {
             return;
         } else {
             var container = document.querySelector('.o-question-selected');
+            
+            // Remove existing tags before adding a new one
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+    
             this.buttonElement.disabled = true;
             var tag = document.createElement('div');
             tag.className = 'm-tag-answer';
@@ -982,12 +988,12 @@ define(['o-question'], function (oQuestion) {
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
             this.updateItemCount(0);
-
+    
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.updateItemCount(0);
                 this.removeTag(tag);
-
+    
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];
                     item.classList.remove('selected');
@@ -997,8 +1003,12 @@ define(['o-question'], function (oQuestion) {
             }.bind(this));
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
+
+        console.log('tag???');
+        console.log(tag);
         if (tag) {
             if (tag.parentNode) {
                 tag.parentNode.removeChild(tag);
