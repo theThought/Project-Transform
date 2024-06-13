@@ -2594,11 +2594,10 @@ html[dir=rtl] .o-dropdown ul li {
 
 .m-list-messages {
   height: 70px;
-  padding-top: 20px;
+  padding: 0 32px 0 0px;
 }
 
 .m-openend-search-count {
-  border-top: 2px solid;
   margin-top: 20px;
   padding-top: 10px;
   text-align: right;
@@ -2618,10 +2617,6 @@ html[dir=rtl] .o-dropdown ul li {
     width: 80%;
   }
 }
-.a-label-counter-prompt {
-  margin-right: 20px;
-}
-
 .o-question-selected {
   display: -webkit-box;
   display: -ms-flexbox;

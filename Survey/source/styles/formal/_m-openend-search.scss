@@ -1,31 +1,10 @@
-
-  
- 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .m-list-messages{
     height: 70px;
-    padding-top: 20px;
+    padding: 0 32px 0 0px;
 }
 
 .m-openend-search-count {
-    border-top: 2px solid;
+    // border-top: 2px solid;
     margin-top: 20px;
     padding-top: 10px;
     text-align: right;
@@ -33,7 +12,6 @@
     }
     @media (max-width: 768px) {
       .m-list-messages {
-        
         padding-top: 10px;
     }
 
@@ -48,9 +26,7 @@
     }
 }
 
-.a-label-counter-prompt {
-    margin-right: 20px;
-}
+
 
 .o-question-selected {
     display: flex;
