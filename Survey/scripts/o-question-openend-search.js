@@ -325,15 +325,27 @@ define(['o-question'], function (oQuestion) {
     
         return wordsArray;
     };
-
+    
     oQuestionOpenendSearch.prototype.filterWordContains = function (inputstring) {
         var wordsArray = this.gettingWords();
         var lowerCaseInput = inputstring.toLowerCase(); 
-        var matchingWords = wordsArray.filter(function (word) {
-            return word.includes(lowerCaseInput);
-        });
+        var inputWords = lowerCaseInput.split(' ');
+        var matchingWords = [];
     
-        if (matchingWords.length > 0 && inputstring.length >= 3) {
+        for (var i = 0; i < barcodelist.list.length; i++) {
+            var item = barcodelist.list[i];
+            if (item && typeof item.name === 'string') {
+                var itemName = item.name.toLowerCase();
+                var allMatch = inputWords.every(function (word) {
+                    return itemName.includes(word);
+                });
+                if (allMatch) {
+                    matchingWords.push(item.name);
+                }
+            }
+        }
+    
+        if (matchingWords.length > 0 && lowerCaseInput.length >= 3) {
             this.matchedWord = matchingWords[0];
             this.showList();
         } else {
@@ -344,7 +356,7 @@ define(['o-question'], function (oQuestion) {
        
         return matchingWords;
     };
-
+    
     oQuestionOpenendSearch.prototype.wordMatching = function () {
         var inputElement = this.element;
         if (inputElement) {
@@ -352,7 +364,7 @@ define(['o-question'], function (oQuestion) {
             inputElement.addEventListener('input', function (event) {
                 var inputValue = event.target.value;
                 var filteredWords = self.filterWordContains(inputValue);
-
+    
                 if (filteredWords.length > 0 && inputValue.length >= 3) {
                     self.buttonElement.disabled = true;
                 } else if (filteredWords.length < 1) {
@@ -361,11 +373,11 @@ define(['o-question'], function (oQuestion) {
                 } else {
                     self.buttonElement.disabled = false;
                 }
-
+    
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-
+    
                 if (matches && inputValue.length === 0) {
                     self.buttonElement.disabled = true;
                 }
@@ -374,6 +386,7 @@ define(['o-question'], function (oQuestion) {
             console.error('Input element not found or not an INPUT element');
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
@@ -761,7 +774,6 @@ define(['o-question'], function (oQuestion) {
         this.element.classList.add('list-visible');
         this.droplist.classList.add('visible');
         
-        // Calculate droplist height and set padding-top
         this.getDroplistHeight();
     };
 
@@ -769,7 +781,6 @@ define(['o-question'], function (oQuestion) {
         this.element.classList.remove('list-visible');
         this.droplist.classList.remove('visible');
         
-        // Reset the padding-top when the droplist is hidden
         this.resetMessagePaddingTop();
     };
 
