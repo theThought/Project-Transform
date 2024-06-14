@@ -37,10 +37,8 @@ define(['o-question'], function (oQuestion) {
         this.buttonElement = null;
         this.matchedWord = null;
 
-        // New properties for the 'I don't know the brand' option
-        this.dontKnowOption = document.querySelector('input[name="' + this.group + '"]');
-        this.dontKnowOptionLabel = document.querySelector('label[for="' + this.id + '"]');
-        this.configureDontKnowOption();
+       
+        
     }
 
     oQuestionOpenendSearch.prototype = Object.create(oQuestion.prototype);
@@ -1037,22 +1035,6 @@ define(['o-question'], function (oQuestion) {
         this.buttonElement.disabled = true;
     };
 
-    oQuestionOpenendSearch.prototype.configureDontKnowOption = function () { 
-        var self = this;
-        if (this.dontKnowOption && this.dontKnowOptionLabel) {
-            this.dontKnowOption.addEventListener('change', function () {
-                if (self.dontKnowOption.checked) {
-                    self.clearTags();
-                }
-            });
-
-            this.element.addEventListener('input', function () {
-                if (self.dontKnowOption.checked) {
-                    self.dontKnowOption.checked = false;
-                }
-            });
-        }
-    };
 
     return oQuestionOpenendSearch;
 });
