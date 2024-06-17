@@ -1,5 +1,5 @@
-define(['component', 'pikaday'],
-    function (component, datepicker) {
+define(['component'],
+    function (component) {
 
         /**
          * Atom: Single line input, text or date
@@ -126,24 +126,23 @@ define(['component', 'pikaday'],
             this.wrapper.classList.add('read-only');
         }
 
-        aInputSingleLineEdit.prototype.type = function (val) {
-            switch (val) {
+        aInputSingleLineEdit.prototype.type = function (type) {
+            switch (type) {
                 case 'month':
                 case 'date':
-                    this.configureDateInput(val);
-                    val = 'text';
+                    type = 'date';
                     break;
                 case 'number':
                     this.configureNumericInput('integer');
                     break;
                 case 'double':
                     this.configureNumericInput('double');
-                    val = 'number';
+                    type = 'number';
                     break;
             }
 
             try {
-                this.element.type = val;
+                this.element.type = type;
             } catch (e) {
                 this.element.type = 'text';
             }
@@ -181,30 +180,6 @@ define(['component', 'pikaday'],
             } else {
                 this.step(1);
             }
-        }
-
-        aInputSingleLineEdit.prototype.configureDateInput = function (val) {
-            var outputformat = (val === 'month') ? 'MMMM' : 'DD [/] MM [/] YYYY';
-
-            var datemin = [2000, 1, 1];
-            var datemax = [3000, 12, 31];
-
-            if (this.element.getAttribute('min') !== null) {
-                datemin = this.element.getAttribute('min').split('-');
-            }
-
-            if (this.element.getAttribute('max') !== null) {
-                datemax = this.element.getAttribute('max').split('-');
-            }
-
-            var picker = new datepicker(
-                {
-                    field: this.element,
-                    firstDay: 1,
-                    format: outputformat,
-                    minDate: new Date(datemin[0], datemin[1], datemin[2]),
-                    maxDate: new Date(datemax[0], datemax[1], datemax[2])
-                });
         }
 
         aInputSingleLineEdit.prototype.configureNumericInput = function (numberformat) {
