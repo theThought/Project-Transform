@@ -219,7 +219,9 @@ define(['component'],
 
                 if (this.textInput !== null) {
                     if (this.checkbox.checked) {
-                        this.textInput.focus();
+                        if (event.target !== this.textInput) {
+                            this.textInput.focus();
+                        }
                     } else {
                         if (this.textInput.value.length) {
                             this.textInput.placeholder = this.textInput.value;
