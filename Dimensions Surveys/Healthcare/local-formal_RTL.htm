@@ -7,17 +7,15 @@
 	<meta http-equiv="Expires" content="0" />
 	<link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/formal/base.css" title="Formal" />
 	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js"><!-- Require Script --></script>
-	<script type="text/javascript">
-		require.config({
-			baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts'
-		});
-	</script>
 	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
 	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
 	<script type="text/javascript">
 		require(['main'], function() {});
+		require.config({
+		baseUrl: '../../scripts',
+	 waitSeconds: 0
+	});
 	</script>
-
 	<title>Ipsos Healthcare Research</title>
 	<link rel="apple-touch-icon" sizes="57x57" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-60x60.png" />
