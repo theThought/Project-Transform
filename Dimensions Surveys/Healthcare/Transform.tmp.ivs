@@ -1,4 +1,4 @@
-﻿Metadata(en-US, Question, Label)
+﻿bMetadata(en-US, Question, Label)
 Coke "Coca Cola" define
     {
         regular "Original",
@@ -1634,7 +1634,6 @@ Coke "Coca Cola" define
     ' -56 Scale (Vertical)
     ' -60 DropDown
     ' -70 Combobox
-    
     ' -1100 Progressive (V) Grid
     ' -1110 Progressive (H) Grid
     ' -1400 Navigation - Tabstrip
@@ -2361,7 +2360,11 @@ Coke "Coca Cola" define
             dorevitch "Dorevitch",
             qml "QML",
             abbott_pathology "Abbott Pathology",
-            other_please_specify_primary "Other (please specify)" other
+            other_please_specify_primary "Other (please specify)"
+                style(
+                    ZIndex = -20
+                )
+            other
         },
         private_reference_lab_sonic "Private reference lab: Sonic"
         {
@@ -2369,12 +2372,20 @@ Coke "Coca Cola" define
             melbourne_pathology "Melbourne Pathology",
             sullivan_nicolaides "Sullivan Nicolaides",
             clinpath "Clinpath",
-            other_please_specify_sonic "Other (please specify)" other
+            other_please_specify_sonic "Other (please specify)"
+                style(
+                    ZIndex = -20
+                )
+            other
         },
         private_ref_lab_healthscope "Private reference lab: Australian Clinical Labs (formerly Healthscope)" fix,
         private_reference_lab_other "Private reference lab: other" fix,
         public_reference_lab "Public reference lab" fix,
-        other_specify "Other (specify):" other fix
+        other_specify "Other (specify):"
+            style(
+                ZIndex = -20
+            )
+        other fix
     } asc;
 
     Age "How old are you?"
@@ -2454,7 +2465,7 @@ Coke "Coca Cola" define
     HowManyMissedV_Car "How many of the last 10 visits did you miss"
         style(
             ZIndex = -51,
-            width="125%"
+            Width = "125%"
         )
     long [0 .. 100];
 
@@ -2615,25 +2626,31 @@ Coke "Coca Cola" define
 
     );
 
-
     '----------------------------------------
     ' slider-date-recent
     '----------------------------------------
-    lastpayment "Indicate the date/time in the last 24 hours that you made a payment for goods or services" 
-	style(zIndex=-52)
-	date;
+    lastpayment "Indicate the date/time in the last 24 hours that you made a payment for goods or services"
+        style(
+            ZIndex = -52
+        )
+    date;
 
-    lastdrink "Indicate the date/time in the last 3 days that you had a drink of alcohol or a non-alcoholic equivalent" 
-	style(zIndex=-52)
-	date;
-    
+    lastdrink "Indicate the date/time in the last 3 days that you had a drink of alcohol or a non-alcoholic equivalent"
+        style(
+            ZIndex = -52
+        )
+    date;
+
     lastwithdrawal "Indicate the date/time in the last week that you made a cash withdrawal"
-    
-    recentpage "" Page (lastpayment, lastdrink, lastwithdrawal);
-	style(zIndex=-52)
-	date
-	codes({Nowithdrawal "I did not withdraw cash in the last week" NA});
-    
+        style(
+            ZIndex = -52
+        )
+    date
+    codes(
+    {
+        Nowithdrawal "I did not withdraw cash in the last week" NA
+    } );
+
     '----------------------------------------
     ' scales (horizontal)
     '----------------------------------------
@@ -6374,7 +6391,7 @@ Coke "Coca Cola" define
 
     dateoftreatmentgrid "When" loop [1] fields -
     (
-        monthoftreatment "year"
+        monthoftreatment "month"
             style(
                 ZIndex = -60,
                 Control(
@@ -6438,6 +6455,12 @@ Coke "Coca Cola" define
 
     );
 
+    recentpage ""
+    page(
+        lastpayment,
+        lastdrink,
+        lastwithdrawal
+    );
     PageofRelapseGrid ""
     page(
         relapse,
@@ -6863,7 +6886,7 @@ CustomList_SetInstruction.Response.Initial = {below}
 CustomList_SetPaste1.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
-PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':false}")
+PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':true}")
 
 CustomList_SetBalance.MustAnswer = false
 CustomList_SetBalance.Response = 30
@@ -7085,6 +7108,7 @@ CustomPage.Show()
 
 case {choice}
 
+ChoicePage.Ask()
 'IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 
 'AddCustomProperties(Daily, "Daily", "{'balance':{'state':true}, 'onesize':{'state':false}}", "replace")
@@ -7138,6 +7162,7 @@ DrinksRandom.categories.fire.Style.Control.ReadOnly = true
 DrinksRandom.Categories.OtherDrink.Style.Control.ReadOnly = true
 
 
+ChoicePage.Ask()
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 DrinksRandom.Ask()
 
@@ -7264,10 +7289,19 @@ AddCustomProperties(vacinate, "percentright", "{'values':{'min':0,'max':100},'sh
 vacinate.ask()
 
 case {recent}
-dim dateToday
-dateToday = datenow()
+dim dateToday, dateTodayFormat
+dim dateYesterday, dateYesterdayFormat
+dim timeCurrent, numberTime
 
-AddCustomProperties(lastpayment, "PercentageTreatmentsV", "{'values':[{'date':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'labels':{'pre':'0%','post':'100%'},'floodtovalue':false}", "replace") 
+dateToday = datenow()
+dateTodayFormat = format(dateToday,"d")
+dateYesterday = dateadd(dateToday,"d",-1)
+dateYesterdayFormat = format(dateYesterday,"d")
+timeCurrent = timeOnly(timenow())
+numberTime = (Hour(timeCurrent) * 60) + minute(timeCurrent)
+
+lastpayment.Response.Initial = now()
+AddCustomProperties(lastpayment, "lastpayment", Makestring("{'values':[{'date':'", dateTodayFormat, "','label':'Today','min':0,'max':", numberTime, "},{'date':'", dateYesterdayFormat, "','label':'Yesterday','min':", numberTime + 1, ",'max':1439}],'show':{'marks':true,'value':true,'terminators':true},'ticklabels':120,'floodtovalue':false}"), "replace") 
 
 lastpayment.ask()
 lastdrink.ask()
@@ -8555,7 +8589,7 @@ case {RotatedHiddenCells}
     ' Long Lists
     '----------------------------------------
 
-	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':8,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
     brandlist.QuestionTemplate = "question-database-brandlist.htm"
     brandlist.Ask()
 
@@ -8924,4 +8958,5 @@ end function
 sub RotateGrid(theGrid, theOrientation)
       theGrid.style.orientation = theOrientation
 end sub
+
 End Routing

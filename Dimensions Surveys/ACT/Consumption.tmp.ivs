@@ -1,145 +1,305 @@
 ﻿Metadata(en-US, Question, Label)
-
-Summary "" 
-style(zIndex=-40)
-categorical[1]
+FixedTextsList "" define
 {
-when "WHEN",
-where "LOCATION",
-what "WHAT",
-howmuch "HOW MUCH",
-picture "PICTURE"
+NoWhat "No details given"
 };
 
-ProgressJSON "{ProgressJSON}" 
-style(zIndex=-10)
-info;
-
-Progress "" block fields
-(
-Status "Progress Status" style(zIndex=-20, width="50%") text[..20];
-When "Progress When" style(zIndex=-20, width="50%") date;
-What "Progress What" style(zIndex=-20, width="50%") text[..300];
-json "" style(zIndex=-20, width="90%") text[..400];
-);
-
-
-
-'-------------------
-'  Survey Questions
-'===================
-   
-When "Indicate the time when you finished consumption" 
-style(zIndex=-20, width="75%")
-DATE;
-
-Where "Where you were" 
-style(zIndex=-40)
-categorical[1]
+FixedTexts "" categorical[1]
 {
-Home "My Home",
-otherhome "Someone Else's Home",
-Bar "Bar/Lounge/Club incl. Sports Bar",
-Restaurant,
-unLicensed "Cottage/Chalet/Vacation Home/Camp",
-Licensed "Hotel/Motel/Banquet Hall",
-OtherPlace "Other location"
+use FixedTextsList
 };
 
-Category "Select the type of container from which you consumed your drink" 
-style(zIndex=-40)
-categorical[1]
-{
-Beer "Beer",
-Wine "Wine",
-Spirits "Spirits (cocktail or straight",
-Cider "Cider",
-Coolers "Flavored alcoholic beverages",
-premixed "Pre-mixed or ready-to-drink cocktails",
-hard "Hard Seltzer or Hard Soda",
-othertype "Other alcoholic beverages"
-};
+Summary ""
+        style(
+            ZIndex = -40
+        )
+    categorical [..1]
+    {
+        when "WHEN",
+        where "LOCATION",
+        what "WHAT",
+        howmuch "HOW MUCH",
+        picture "PICTURE"
+    };
 
-What "Describe the product consumed or scan the product’s barcode" 
-style(zIndex=-20, width="75%")
-text[..500]
-Codes ({NoManual "" NA});
+    ScriptSource "PostMessage Script source"
+    text [..100]
+    codes(
+    {
+        nosource "" NA
+    } );
 
-Barcode "Scan the barcode of the product you consumed" 
-style(zIndex=-20, width="75%")
-text[..25]
-Codes ({NoScan "" NA});
+    ProgressJSON "{#Progress.json}"
+        style(
+            ZIndex = -10
+        )
+    info;
 
-Container "" 
-style(zIndex-20, width="75%")
-text[..500]
-codes ({NoContainer "" NA});
+    Progress "" block fields
+    (
+        Status "Progress Status"
+            style(
+                ZIndex = -20,
+                Width = "50%"
+            )
+        text [..20];
 
-Picture "Take a photo of the brand of product you consumed" 
-style(zIndex=-20, width="75%")
-text[..500]
-Codes ({
-RefusedPicture "I don't want to provide a picture" exclusive,
-UnablePicture "I cannot provide a picture" exclusive, 
-NoPicture "" NA
-});
+        When "Progress When"
+            style(
+                ZIndex = -20,
+                Width = "50%"
+            )
+        date;
 
-QTY "" 
-style(zIndex=-20, width="5em")
-long[0..100]; 
+        What "Progress What"
+            style(
+                ZIndex = -20,
+                Width = "50%"
+            )
+        text [..300];
 
-WhichWhat "" 
-style(zIndex=-40)
-categorical[1]
-{
-barcode "Scan",
-what "Enter"
-};
+        json ""
+            style(
+                ZIndex = -20,
+                Width = "90%"
+            )
+        text [..400];
 
-HowMuchPage "" Page (Category, Qty);
+    );
 
+    '-------------------
+    '  Survey Questions
+    '===================
+    When "Indicate the time when you finished consumption"
+        style(
+            ZIndex = -20,
+            Width = "75%"
+        )
+    date;
+
+    Where "Where you were"
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        Home "My Home",
+        otherhome "Someone Else's Home",
+        Bar "Bar/Lounge/Club incl. Sports Bar",
+        Restaurant "Restaurant",
+        unLicensed "Cottage/Chalet/Vacation Home/Camp",
+        Licensed "Hotel/Motel/Banquet Hall",
+        OtherPlace "Other location"
+    };
+
+    Category "Select the type of container from which you consumed your drink"
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        Beer "Beer",
+        Wine "Wine",
+        Spirits "Spirits (cocktail or straight",
+        Cider "Cider",
+        Coolers "Flavored alcoholic beverages",
+        premixed "Pre-mixed or ready-to-drink cocktails",
+        hard "Hard Seltzer or Hard Soda",
+        othertype "Other alcoholic beverages"
+    };
+
+    What "Describe the product consumed or scan the product’s barcode"
+        style(
+            ZIndex = -25,
+            Width = "75%",
+            control(type="singlelineedit"
+        )
+    text [..500]
+    codes(
+    {
+        NoManual "" NA
+    } );
+
+    Barcode "Scan the barcode of the product you consumed"
+        style(
+            ZIndex = -20,
+            Width = "75%"
+        )
+    text [..25]
+    codes(
+    {
+        NoScan "" NA
+    } );
+
+    Container ""
+        style(
+            ZIndex = -20,
+            Width = "75%"
+        )
+    text [..500]
+    codes(
+    {
+        NoContainer "" NA
+    } );
+
+    Picture "Take a photo of the brand of product you consumed"
+        style(
+            ZIndex = -20,
+            Width = "75%"
+        )
+    text [..500]
+    codes(
+    {
+        RefusedPicture "I don't want to provide a picture" exclusive,
+        UnablePicture "I cannot provide a picture" exclusive,
+        NoPicture "" NA
+    } );
+
+    QTY ""
+        style(
+            ZIndex = -20,
+            Width = "5em"
+        )
+    long [0 .. 100];
+
+    WhichWhat ""
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        barcode "Scan",
+        what "Enter"
+    };
+
+    HowMuchPage ""
+    page(
+        Category,
+        QTY
+    );
     SummaryPage ""
     page(
         Summary,
-        Progress
+        ProgressJSON
     );
-    
-WhatPage "" Page (WhichWhat,What,Barcode);
+    WhatPage ""
+    page(
+        WhichWhat,
+        What,
+        Barcode
+    );
 End Metadata
 Routing(Web)
+
+'Change progress question to a banner
+'Add Banner to final-summary
+'Ensure completed and finished have the banner
+'make sure the banner shows the right answer
+'react to i.user1 (staging, development, production)
 
 dim templateLocation
 dim visibilityRule
 dim stayinLoop
+dim postMessageScript
+dim statusBanner
 
-
+	if scriptsource.response is null then
+		if iom.Info.User1 <> "" then
+			select case iom.Info.User1.LCase()
+			case "development"
+			scriptsource.response = "https://d11as4oy583d1f.cloudfront.net/iframe-script.js"
+			case "staging"
+			scriptsource.response = "https://d2cgld9eorebye.cloudfront.net/iframe-script.js"
+			case "production"
+			scriptsource.response = "https://thediary.ipsos.com/iframe-script.js"
+			case "localhost"
+			scriptsource.response = "http://localhost:3000/iframe-script.js"			
+			end select
+		else
+			scriptsource.response = "https://thediary.ipsos.com/iframe-script.js"
+		end if
+	end if
+	
+	if scriptSource.response <> "" then
+		postMessageScript = MakeString("<script type='application/javascript' src='", scriptSource.response, "'>//Post message Script</script>")
+	else
+		postMessageScript = ""
+	end if
 stayinLoop = true
 
 IOM.LayoutTemplate = "formal.htm"
 
 IOM.QuestionTemplate = templateLocation + "question.htm"
+Summary.LayoutTemplate = templateLocation + "formal-summary.htm"
+'Summary.QuestionTemplate = templateLocation + "question-summary.htm"
 
 IOM.Banners.AddNew("PageName", "")
 IOM.Banners.AddNew("PageCustomProperties", "")
+IOM.Banners.AddNew("PostMessage", postMessageScript)
+set statusBanner = IOM.Banners.AddNew("Status", "")
 
-ProgressJSON.Response = JSONSerialize(Progress_Create())
+Progress.json.Response = JSONSerialize(Progress_Create())
+
+barcode.mustanswer = false
+what.mustanswer = false
+container.MustAnswer = false
+picture.MustAnswer = false
+
+AddCustomProperties(what, "what", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+what.QuestionTemplate = "question-database-brandlist.htm"
+
+
+'debug.Log("now" + now())
+if when.Response is null then
+	when.Response = utctolocaltime(now())
+	progress.When.Response = Localtoutctime(when.response)
+end if
+
+if what.response is null then
+	what.Response.Value = fixedtexts.Categories.NoWhat.label.text
+	progress.What.Response = What.response
+end if
+
+Progress.Status.Response = "Draft"
+Progress_Update(Progress, statusBanner)
+'Summary.Validation.Function = "CheckAllDetailsEntered"
 
 While stayinLoop
-ProgressJSON.Response = Progress_Update(ProgressJSON.Response, Progress)
-SummaryPage.Ask()
-select case Summary.Response.value
-case {when}
-	when.Ask()
-case {where}
-	where.Ask() 
-case {what}
-	WhatPage.ask()
-case {howmuch}
-	container.Ask()
-	qty.Ask()
-case {picture}
-	Picture.Ask()
-end select 
+	Summary.Response = null
+	
+	Summary.Ask()
+	select case Summary.Response.value
+	case {when}
+		AddCustomProperties(when, "when", "{'values':[{'date':'23/05/2024','label':'Today','min':'00:00','max':'18:15'},{'date':'22/05/2024','label':'Yesterday','min':'00:00','max':'23:59'},{'date':'21/05/2024','label':'Tuesday','min':'00:00','max':'23:59'},{'date':'20/05/2024','label':'Monday','min':'18:16','max':'23:59'}]},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':180,'floodtovalue':false}", "replace")
+		when.Response = "23/5/2024 18:15"
+		when.Ask()
+		Progress.When.response = Localtoutctime(when.response)
+		Progress_Update(Progress, statusBanner)
+	case {where}
+		where.Ask() 
+	case {what}
+		AddCustomProperties(What, "What", "{'displayicon':false,'listsize':8,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+	    What.QuestionTemplate = "question-database-brandlist.htm"
+	    
+		What.ask()
+		Progress.What = what.response
+		Progress_Update(Progress, statusBanner)
+		
+	case {howmuch}
+		AddCustomProperties(container, "container", "{'displayicon':false,'listsize':8,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+	    container.QuestionTemplate = "question-database-containerlist.htm"
+	
+		container.Ask()
+		qty.Ask()
+	case {picture}
+		Picture.Ask()
+	end select 
+	stayinLoop = (summary.Response <> {})
+		
+end while
+Progress.Status.Response = "Complete"
+Progress_Update(Progress, statusBanner)
+IOM.LayoutTemplate = "Finished.htm"
 
 Function Progress_Create()
 dim newJSON
@@ -150,15 +310,16 @@ dim newJSON
 	Progress_Create = newJSON
 end function
 
-Function Progress_Update(theJSON, theQuestion)
+sub Progress_Update(theQuestion,theBanner)
 dim stringDayofWeek, stringMonth
 dim newJSON
-	newJSON = JsonDeserialize(theJSON)
+	newJSON = JsonDeserialize(theQuestion.json)
 	newJSON.status = theQuestion.status.response 
 	newJSON.what = theQuestion.what
 	newJSON.when = LocalToUTCTime(theQuestion.When)
-	Progress_Update = theJSON
-end function
+	theQuestion.Json.response = JSONSerialize(newJSON)
+	theBanner.text = theQuestion.json.response 
+end sub
 
 function FindBanner(theQuestion, theBannerName)
 dim numberOfBanners
@@ -406,5 +567,31 @@ end function
 sub RotateGrid(theGrid, theOrientation)
       theGrid.style.orientation = theOrientation
 end sub
+
+
+'----------------------------
+' Project specific functions
+'============================
+
+function CheckAllDetailsEntered(theQuestion, theIOM, theAttempt)
+dim boolWhen, boolWhat, boolLocation, boolVolume, boolPicture
+
+	if theQuestion.response <> {} then 
+		CheckAllDetailsEntered = true
+		exit function
+	end if
+	
+	boolWhen = (theIOM.Questions["When"].response is not null)
+	boolWhat = ((theIOM.Questions["What"].response is not null) or (theIOM.Questions["barcode"].response is not null))
+	boolLocation = (theIOM.Questions["Where"].response <> {})
+	boolVolume = ((theIOM.Questions["Container"].response is not null) or (theIOM.Questions["Container"].response.coded <> {}))
+	boolPicture = ((theIOM.Questions["Picture"].response is not null) or (theIOM.Questions["Picture"].response.coded <> {}))
+	
+	if not boolWhen or not boolWhat or not boolLocation or not boolVolume or not boolPicture then 
+	CheckAllDetailsEntered = false
+	else
+	CheckAllDetailsEntered = true
+	end if
+end function
 
 End Routing

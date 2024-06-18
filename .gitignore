@@ -9,3 +9,5 @@ node_modules
 *.ivs
 *.ivs
 Dimensions Surveys/Healthcare/Transform.tmp.ivs
+*.ivs
+*.ivs
