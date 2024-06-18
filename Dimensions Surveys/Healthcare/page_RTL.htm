@@ -6,15 +6,14 @@
 		<meta http-equiv="Expires" content="0" />
 		<link rel="stylesheet" type="text/css" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/formal/base.css" title="Formal" />
 		<script type="text/javascript" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js"><!-- Require Script --></script>
-		<script type="text/javascript">
-			require.config({
-				baseUrl: 'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts'
-			});
-		</script>
 		<script type="text/javascript" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
 		<script type="text/javascript" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
 		<script type="text/javascript">
 			require(['main'], function() {});
+			require.config({
+			baseUrl: '../../scripts',
+		 waitSeconds: 0
+		});
 		</script>
 	
 		<title>Ipsos Healthcare Research</title>
