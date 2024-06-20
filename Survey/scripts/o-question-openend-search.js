@@ -9,6 +9,8 @@ define(['o-question'], function (oQuestion) {
         this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
         this.itemCountElement = document.querySelector('.m-openend-search-count');
         this.messages = document.querySelector('.m-list-messages');
+        this.special = document.querySelector('.m-option-base');
+        
 
         this.hiddenelement = null;
         this.mincharacters = 0;
@@ -72,6 +74,8 @@ define(['o-question'], function (oQuestion) {
         this.configureTagContainer();
         this.filterList();
     };
+
+    
 
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
         if (this.droplist) {
@@ -993,12 +997,12 @@ define(['o-question'], function (oQuestion) {
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
             this.updateItemCount(0);
-
+    
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.updateItemCount(0);
-                this.removeTag(tag);
-
+                container.removeChild(tag);
+    
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];
                     item.classList.remove('selected');
@@ -1006,8 +1010,78 @@ define(['o-question'], function (oQuestion) {
                 }
                 this.element.classList.remove('exact');
             }.bind(this));
+            
+            // If the checkbox is clicked then remove tag.
+            if (this.special) {
+                console.log(this.special);
+                // Find the checkbox within the .m-option-base element
+                var checkbox = this.special.querySelector('input[type="checkbox"]');
+            
+                // Check if the checkbox is checked initially
+                if (checkbox && checkbox.checked) {
+                    container.removeChild(tag);
+                }
+                
+                // Set up a MutationObserver to observe changes in the data-checked attribute
+                var observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
+                            var isChecked = this.special.getAttribute('data-checked') === 'true';
+                            if (isChecked) {
+                                container.removeChild(tag);
+                            }
+                        }
+                    }.bind(this));
+                }.bind(this));
+                
+                // Start observing the .m-option-base element
+                observer.observe(this.special, { attributes: true });
+            }
         }
     };
+    
+    // Polyfill for MutationObserver for older browsers
+    (function () {
+        if (!window.MutationObserver) {
+            window.MutationObserver = function (callback) {
+                this.callback = callback;
+            };
+            MutationObserver.prototype.observe = function (element, options) {
+                var observer = this;
+                var config = {
+                    attributes: !!options.attributes,
+                    attributeOldValue: !!options.attributeOldValue,
+                    attributeFilter: options.attributeFilter,
+                    subtree: !!options.subtree,
+                    childList: !!options.childList,
+                    characterData: !!options.characterData,
+                    characterDataOldValue: !!options.characterDataOldValue
+                };
+    
+                function mutationHandler(event) {
+                    var mutation = {
+                        type: event.type,
+                        target: event.target,
+                        addedNodes: [],
+                        removedNodes: [],
+                        previousSibling: event.target.previousSibling,
+                        nextSibling: event.target.nextSibling,
+                        attributeName: event.attributeName,
+                        oldValue: event.target.getAttribute(event.attributeName)
+                    };
+                    observer.callback([mutation]);
+                }
+    
+                if (config.attributes) {
+                    element.addEventListener('DOMAttrModified', mutationHandler, false);
+                }
+            };
+            MutationObserver.prototype.disconnect = function () {
+                // No-op for polyfill
+            };
+        }
+    })();
+    
 
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {

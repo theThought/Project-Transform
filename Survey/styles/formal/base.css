@@ -2638,7 +2638,7 @@ html[dir=rtl] .o-dropdown ul li {
 
 .m-list-messages {
   height: 70px;
-  padding: 0 32px 0 0px;
+  padding: 20px 32px 0 0px;
 }
 
 .m-openend-search-count {
@@ -2706,6 +2706,12 @@ html[dir=rtl] .o-dropdown ul li {
 
 .o-list {
   min-height: 150px;
+}
+.o-list .m-list-external {
+  border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  margin-top: 20px;
 }
 
 .o-list ul,

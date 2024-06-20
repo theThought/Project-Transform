@@ -1,6 +1,7 @@
 .m-list-messages{
     height: 70px;
-    padding: 0 32px 0 0px;
+    padding: 20px 32px 0 0px;
+    
 }
 
 .m-openend-search-count {
@@ -69,6 +70,11 @@ display: none;
 
 .o-list{
 min-height: 150px;
+.m-list-external {
+  border:none;    
+  box-shadow: none !important;
+  margin-top: 20px;
+}
 }
 
 .o-list ul,
