@@ -73,6 +73,7 @@ define(['o-question'], function (oQuestion) {
         
         this.configureTagContainer();
         this.filterList();
+        this.displaySavedTag();
     };
 
     
@@ -997,11 +998,14 @@ define(['o-question'], function (oQuestion) {
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
             this.updateItemCount(0);
+
+            localStorage.setItem('selectedTag', label);
     
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.updateItemCount(0);
                 container.removeChild(tag);
+                localStorage.removeItem('selectedTag'); 
     
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];
@@ -1011,18 +1015,15 @@ define(['o-question'], function (oQuestion) {
                 this.element.classList.remove('exact');
             }.bind(this));
             
-            // If the checkbox is clicked then remove tag.
             if (this.special) {
                 console.log(this.special);
-                // Find the checkbox within the .m-option-base element
+            
                 var checkbox = this.special.querySelector('input[type="checkbox"]');
             
-                // Check if the checkbox is checked initially
                 if (checkbox && checkbox.checked) {
                     container.removeChild(tag);
                 }
                 
-                // Set up a MutationObserver to observe changes in the data-checked attribute
                 var observer = new MutationObserver(function(mutations) {
                     mutations.forEach(function(mutation) {
                         if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
@@ -1040,49 +1041,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-    // Polyfill for MutationObserver for older browsers
-    (function () {
-        if (!window.MutationObserver) {
-            window.MutationObserver = function (callback) {
-                this.callback = callback;
-            };
-            MutationObserver.prototype.observe = function (element, options) {
-                var observer = this;
-                var config = {
-                    attributes: !!options.attributes,
-                    attributeOldValue: !!options.attributeOldValue,
-                    attributeFilter: options.attributeFilter,
-                    subtree: !!options.subtree,
-                    childList: !!options.childList,
-                    characterData: !!options.characterData,
-                    characterDataOldValue: !!options.characterDataOldValue
-                };
-    
-                function mutationHandler(event) {
-                    var mutation = {
-                        type: event.type,
-                        target: event.target,
-                        addedNodes: [],
-                        removedNodes: [],
-                        previousSibling: event.target.previousSibling,
-                        nextSibling: event.target.nextSibling,
-                        attributeName: event.attributeName,
-                        oldValue: event.target.getAttribute(event.attributeName)
-                    };
-                    observer.callback([mutation]);
-                }
-    
-                if (config.attributes) {
-                    element.addEventListener('DOMAttrModified', mutationHandler, false);
-                }
-            };
-            MutationObserver.prototype.disconnect = function () {
-                // No-op for polyfill
-            };
-        }
-    })();
-    
-
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
             if (tag.parentNode) {
@@ -1101,6 +1059,12 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
+    oQuestionOpenendSearch.prototype.displaySavedTag = function () {
+        var savedTag = localStorage.getItem('selectedTag');
+        if (savedTag) {
+            this.addTag(savedTag);
+        }
+    };
     oQuestionOpenendSearch.prototype.clearTags = function () {
         var container = document.querySelector('.o-question-selected');
         while (container.firstChild) {
