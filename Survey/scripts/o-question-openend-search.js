@@ -11,7 +11,6 @@ define(['o-question'], function (oQuestion) {
         this.messages = document.querySelector('.m-list-messages');
         this.special = document.querySelector('.m-option-base');
         
-
         this.hiddenelement = null;
         this.mincharacters = 0;
         this.keypressed = null;
@@ -37,10 +36,7 @@ define(['o-question'], function (oQuestion) {
         this.keytimerlimit = 500; 
 
         this.buttonElement = null;
-        this.matchedWord = null;
-
-       
-        
+        this.matchedWord = null; 
     }
 
     oQuestionOpenendSearch.prototype = Object.create(oQuestion.prototype);
@@ -293,18 +289,58 @@ define(['o-question'], function (oQuestion) {
         });
     };
 
-    oQuestionOpenendSearch.prototype.getDataFromSource = function () {
-        var listElement = document.querySelector('#' + this.droplist.id);
+//Pre -image
+    // oQuestionOpenendSearch.prototype.getDataFromSource = function () {
+    //     var listElement = document.querySelector('#' + this.droplist.id);
 
-        var html = '';
+    //     var html = '';
 
-        for (var i = 0; i < barcodelist.list.length; i++) {
-            var item = barcodelist.list[i];
-            html += '<li class="a-option-list" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">' + item.name + '</li>';
+    //     for (var i = 0; i < barcodelist.list.length; i++) {
+    //         var item = barcodelist.list[i];
+    //         html += '<li class="a-option-list" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">' + item.name + '</li>';
+    //     }
+
+    //     listElement.innerHTML = html;
+    // };
+
+// with image
+
+oQuestionOpenendSearch.prototype.getDataFromSource = function () {
+    var listElement = document.querySelector('#' + this.droplist.id);
+
+    var html = '';
+    var hasImage = false;
+
+    for (var i = 0; i < barcodelist.list.length; i++) {
+        var item = barcodelist.list[i];
+        var flexClass = item.image ? 'flex-container' : '';
+        var uniqueId = 'checkbox-' + i; 
+
+        if (item.image) {
+            hasImage = true;
         }
 
-        listElement.innerHTML = html;
-    };
+        html += '<li class="a-option-list ' + flexClass + '" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">';
+        
+        if (item.image) {
+            html += '<input type="checkbox" id="' +  item.name + '" class="list-checkbox" data-value="' + item.name + '">';
+            html += '<label for="' +  item.name + '" class="flex-label" data-value="' + item.name + '">';
+            html += '<img src="' + item.image + '" alt="' + item.name + '" class="list-image" data-value="' + item.name + '">';
+            html += item.name + '</label>';
+        } else {
+            html += item.name;
+        }
+
+        html += '</li>';
+    }
+
+    listElement.innerHTML = html;
+
+    if (hasImage) {
+        listElement.style.display = 'flex';
+        listElement.style.flexWrap = 'wrap';
+    }
+};
 
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];

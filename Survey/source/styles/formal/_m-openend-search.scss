@@ -1,7 +1,6 @@
 .m-list-messages{
     height: 70px;
     padding: 20px 32px 0 0px;
-    
 }
 
 .m-openend-search-count {
@@ -80,6 +79,34 @@ min-height: 150px;
 .o-list ul,
 .o-list ul.visible{
   padding: 0 32px 0 0px;
+}
+
+// Openended search for the images
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  min-height: 100px;
+  
+}
+
+.list-checkbox {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.list-image {
+  margin-right: 10px;
+  cursor: pointer; 
+  // width: 50%;
+  align-self: center;
+}
+
+.flex-label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 
