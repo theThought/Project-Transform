@@ -423,7 +423,7 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
-         <xsl:when test="@Type = 'choice-summary'">
+         <xsl:when test="$qCustomType='choice-summary'">
             <xsl:call-template name="ChoiceSummaryControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
