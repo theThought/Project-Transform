@@ -2445,7 +2445,7 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:attribute name="class">
-            <xsl:text>m-option-base </xsl:text>
+            <xsl:text>m-option-summary </xsl:text>
             <xsl:choose>
                <xsl:when test="Style/@ElementAlign='NewLine'">
                   <xsl:text> below </xsl:text>
@@ -2464,7 +2464,7 @@
          </xsl:attribute>
          <xsl:if test=".//Category[1]/@CategoryID">
             <xsl:call-template name="appComponentScript">
-               <xsl:with-param name="ComponentName" select="'mOptionBase'" />
+               <xsl:with-param name="ComponentName" select="'mOptionSummary'" />
                <xsl:with-param name="qElementID" select="$qCategoryID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
@@ -2525,25 +2525,14 @@
             <xsl:attribute name="for">
                <xsl:value-of select="$qCategoryID" />
             </xsl:attribute>
-            <xsl:element name="span">
-               <xsl:attribute name="class">a-icon-multistate</xsl:attribute>
-               <xsl:attribute name="data-icontype">single</xsl:attribute>
-               <xsl:comment>This is a comment!</xsl:comment>
-            </xsl:element>
+            <xsl:for-each select="Category[1]/Label">
+               <xsl:call-template name="optionsummary">
+               </xsl:call-template>
+            </xsl:for-each>
             <xsl:apply-templates select="Category[1]/Label">
                <xsl:with-param name="labelType" select="'option'" />
             </xsl:apply-templates>
          </xsl:element>
-         <xsl:for-each select="../Question">
-            <xsl:call-template name="Question">
-               <xsl:with-param name="bWithinTable" select="true()" />
-               <xsl:with-param name="SubQuestion" select="true()" />
-               <xsl:with-param name="Parent" select="$qGroup_Name" />
-               <xsl:with-param name="SubElement">
-                  <xsl:value-of select=".//Control[1]/@ElementID" />
-               </xsl:with-param>
-            </xsl:call-template>
-         </xsl:for-each>
       </xsl:element>
    </xsl:template>
    <!--- Style Templates -->
