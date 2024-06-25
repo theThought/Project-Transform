@@ -89,7 +89,7 @@ define(['component'],
                     this.onFocusOut();
                     break;
                 case this.group + '_enableExclusive':
-                    this.onEnableExclusive();
+                    this.onEnableExclusive(event);
                     break;
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
@@ -298,7 +298,11 @@ define(['component'],
             this.wrapper.classList.remove('focused');
         }
 
-        aInputSingleLineEdit.prototype.onEnableExclusive = function () {
+        aInputSingleLineEdit.prototype.onEnableExclusive = function (event) {
+            if (this.container === event.target) {
+                return;
+            }
+
             if (this.element.value) {
                 this.element.placeholder = this.element.value;
                 this.element.value = '';
