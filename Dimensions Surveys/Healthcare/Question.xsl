@@ -585,6 +585,7 @@
          <xsl:call-template name="LabelText" />
       </xsl:element>
    </xsl:template>
+   
    <xsl:template name="LabelText">
       <xsl:choose>
          <xsl:when test="Text/@WellFormed = 'false'">
@@ -595,6 +596,14 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
+
+   <xsl:template name="label-summary">
+      <xsl:element name="div">
+         <xsl:attribute name="class">a-label-option-summary</xsl:attribute>
+         <xsl:call-template name="LabelText" />
+      </xsl:element>
+   </xsl:template>
+
    <!--- TABLE -->
    <xsl:template match="Table">
       <xsl:param name="qElementID" />
@@ -2526,7 +2535,7 @@
                <xsl:value-of select="$qCategoryID" />
             </xsl:attribute>
             <xsl:for-each select="Category[1]/Label">
-               <xsl:call-template name="optionsummary">
+               <xsl:call-template name="label-summary">
                </xsl:call-template>
             </xsl:for-each>
             <xsl:apply-templates select="Category[1]/Label">
