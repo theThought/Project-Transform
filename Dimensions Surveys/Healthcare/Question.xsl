@@ -2479,10 +2479,11 @@
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
          </xsl:if>
+         <xsl:text>hERE</xsl:text>
          <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
-            <xsl:attribute name="type">radio</xsl:attribute>
+            <xsl:attribute name="type">submit</xsl:attribute>
             <!--- Input name -->
             <xsl:attribute name="name">
                <xsl:value-of select="$qLocal_Name" />
@@ -2529,18 +2530,15 @@
             <xsl:if test="Category[1]/@Checked = 'true'">
                <xsl:attribute name="checked" />
             </xsl:if>
-         </xsl:element>
-         <xsl:element name="label">
-            <xsl:attribute name="for">
-               <xsl:value-of select="$qCategoryID" />
-            </xsl:attribute>
-            <xsl:for-each select="Category[1]/Label">
-               <xsl:call-template name="label-summary">
-               </xsl:call-template>
-            </xsl:for-each>
-            <xsl:apply-templates select="Category[1]/Label">
-               <xsl:with-param name="labelType" select="'option'" />
-            </xsl:apply-templates>
+            <xsl:element name="label">
+               <xsl:attribute name="for">
+                  <xsl:value-of select="$qCategoryID" />
+               </xsl:attribute>
+               <xsl:for-each select="Category[1]/Label">
+                  <xsl:call-template name="label-summary">
+                  </xsl:call-template>
+               </xsl:for-each>
+            </xsl:element>
          </xsl:element>
       </xsl:element>
    </xsl:template>
@@ -3082,7 +3080,7 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'choice'" />
          </xsl:when>
-         <xsl:when test="$theID = '-41'">
+         <xsl:when test="$theID = '-45'">
             <xsl:value-of select="'choice-summary'" />
          </xsl:when>
          <xsl:when test="$theID = '-50'">
@@ -3147,7 +3145,7 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'true'" />
          </xsl:when>
-         <xsl:when test="$theID = '-41'">
+         <xsl:when test="$theID = '-45'">
             <xsl:value-of select="'true'" />
          </xsl:when>         
          <xsl:when test="$theID = '-50'">
