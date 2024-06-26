@@ -92,13 +92,12 @@ min-height: 150px;
 }
 
 .list-checkbox {
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 10px; 
 }
 
 .list-image {
   margin-right: 10px;
   cursor: pointer; 
-  // width: 50%;
   align-self: center;
 }
 
@@ -108,8 +107,6 @@ min-height: 150px;
   flex-direction: column;
   text-align: center;
 }
-
-
 
  // RTL Styles
  :dir(rtl) {

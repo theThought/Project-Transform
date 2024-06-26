@@ -69,7 +69,7 @@ define(['o-question'], function (oQuestion) {
         
         this.configureTagContainer();
         this.filterList();
-        this.displaySavedTag();
+      //  this.displaySavedTag();
     };
 
     
@@ -288,21 +288,6 @@ define(['o-question'], function (oQuestion) {
             }
         });
     };
-
-//Pre -image
-    // oQuestionOpenendSearch.prototype.getDataFromSource = function () {
-    //     var listElement = document.querySelector('#' + this.droplist.id);
-
-    //     var html = '';
-
-    //     for (var i = 0; i < barcodelist.list.length; i++) {
-    //         var item = barcodelist.list[i];
-    //         html += '<li class="a-option-list" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">' + item.name + '</li>';
-    //     }
-
-    //     listElement.innerHTML = html;
-    // };
-
 // with image
 
 oQuestionOpenendSearch.prototype.getDataFromSource = function () {
@@ -493,11 +478,19 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
     };
 
     oQuestionOpenendSearch.prototype.getInitialValue = function () {
-        if (typeof this.hiddenelement.value !== 'undefined') {
+        if (this.hiddenelement && typeof this.hiddenelement.value !== 'undefined') {
             this.initialValue = this.hiddenelement.value;
+    
+            if (this.hiddenelement.value) {
+                this.addTag(this.hiddenelement.value);
+                this.element.value = '';
+            } else {
+                console.log('Hidden input is empty');
+            }
         }
+        this.element.placeholder = this.defaultplaceholder;
     };
-
+    
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
         var newelement = this.element.cloneNode();
         newelement.id = '';
@@ -1006,8 +999,7 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
                 itemCountElement.textContent = '';
                 itemPromptElement.textContent = "";
             }
-            itemCountElement.parentNode.classList.remove('hidden');
-            
+            itemCountElement.parentNode.classList.remove('hidden');   
         }
     };
 
@@ -1034,14 +1026,11 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
             tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
             container.appendChild(tag);
             this.updateItemCount(0);
-
-            localStorage.setItem('selectedTag', label);
     
             var deleteButton = tag.querySelector('.delete-tag');
             deleteButton.addEventListener('click', function () {
                 this.updateItemCount(0);
                 container.removeChild(tag);
-                localStorage.removeItem('selectedTag'); 
     
                 for (var i = 0; i < this.list.length; i++) {
                     var item = this.list[i];
@@ -1050,12 +1039,10 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
                 }
                 this.element.classList.remove('exact');
             }.bind(this));
-            
+    
             if (this.special) {
-                console.log(this.special);
-            
                 var checkbox = this.special.querySelector('input[type="checkbox"]');
-            
+    
                 if (checkbox && checkbox.checked) {
                     container.removeChild(tag);
                 }
@@ -1071,7 +1058,6 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
                     }.bind(this));
                 }.bind(this));
                 
-                // Start observing the .m-option-base element
                 observer.observe(this.special, { attributes: true });
             }
         }
@@ -1095,12 +1081,6 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         }
     };
 
-    oQuestionOpenendSearch.prototype.displaySavedTag = function () {
-        var savedTag = localStorage.getItem('selectedTag');
-        if (savedTag) {
-            this.addTag(savedTag);
-        }
-    };
     oQuestionOpenendSearch.prototype.clearTags = function () {
         var container = document.querySelector('.o-question-selected');
         while (container.firstChild) {
