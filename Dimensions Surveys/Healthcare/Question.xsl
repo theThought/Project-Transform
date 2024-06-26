@@ -2479,10 +2479,11 @@
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
          </xsl:if>
-         <xsl:element name="button">
+         <xsl:text>hERE</xsl:text>
+         <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
-            <xsl:attribute name="type">radio</xsl:attribute>
+            <xsl:attribute name="type">submit</xsl:attribute>
             <!--- Input name -->
             <xsl:attribute name="name">
                <xsl:value-of select="$qLocal_Name" />
@@ -3079,7 +3080,7 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'choice'" />
          </xsl:when>
-         <xsl:when test="$theID = '-41'">
+         <xsl:when test="$theID = '-45'">
             <xsl:value-of select="'choice-summary'" />
          </xsl:when>
          <xsl:when test="$theID = '-50'">
@@ -3144,7 +3145,7 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'true'" />
          </xsl:when>
-         <xsl:when test="$theID = '-41'">
+         <xsl:when test="$theID = '-45'">
             <xsl:value-of select="'true'" />
          </xsl:when>         
          <xsl:when test="$theID = '-50'">
