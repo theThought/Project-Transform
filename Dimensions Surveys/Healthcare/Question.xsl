@@ -2538,10 +2538,6 @@
                <xsl:call-template name="label-summary">
                </xsl:call-template>
             </xsl:for-each>
-            <xsl:apply-templates select="Category[1]/Label">
-               <xsl:with-param name="labelType" select="'option'" />
-            </xsl:apply-templates>
-         </xsl:element>
       </xsl:element>
    </xsl:template>
    <!--- Style Templates -->
