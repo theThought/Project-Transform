@@ -495,6 +495,7 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
     };
     
     
+    
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
         var newelement = this.element.cloneNode();
         newelement.id = '';
@@ -1018,23 +1019,25 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         if (typeof label === 'undefined' || label === null) {
             return;
         }
-        
+    
         var container = document.querySelector('.o-question-selected');
         if (!container) {
-            console.error('Container element not found');
-            return;
+            container = document.createElement('div');
+            container.className = 'o-question-selected';
+            var inputElement = this.wrapper.querySelector('input');
+            this.wrapper.insertBefore(container, inputElement);
         }
-        
+    
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-        
+    
         this.buttonElement.disabled = true;
-        
+    
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
-        tag.setAttribute('data-value', label); 
-        tag.setAttribute('value', label); 
+        tag.setAttribute('data-value', label);
+        tag.setAttribute('value', label);
         tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
         this.updateItemCount(0);
@@ -1060,9 +1063,9 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
             if (checkbox && checkbox.checked) {
                 container.removeChild(tag);
             }
-            
-            var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
+    
+            var observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
                         var isChecked = this.special.getAttribute('data-checked') === 'true';
                         if (isChecked) {
@@ -1071,11 +1074,11 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
                     }
                 }.bind(this));
             }.bind(this));
-            
-            // Start observing the .m-option-base element
+    
             observer.observe(this.special, { attributes: true });
         }
     };
+    
     
     
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
