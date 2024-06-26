@@ -423,6 +423,15 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="$qCustomType='choice-summary'">
+            <xsl:call-template name="ChoiceSummaryControl">
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
@@ -576,6 +585,7 @@
          <xsl:call-template name="LabelText" />
       </xsl:element>
    </xsl:template>
+   
    <xsl:template name="LabelText">
       <xsl:choose>
          <xsl:when test="Text/@WellFormed = 'false'">
@@ -586,6 +596,14 @@
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
+
+   <xsl:template name="label-summary">
+      <xsl:element name="div">
+         <xsl:attribute name="class">a-label-option-summary</xsl:attribute>
+         <xsl:call-template name="LabelText" />
+      </xsl:element>
+   </xsl:template>
+
    <!--- TABLE -->
    <xsl:template match="Table">
       <xsl:param name="qElementID" />
@@ -2394,6 +2412,136 @@
       </xsl:element>
    </xsl:template>
 
+   <xsl:template name="ChoiceSummaryControl">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:variable name="qCategoryID">
+         <xsl:value-of select="$qElementID" />
+         <xsl:value-of select=".//Category[1]/@CategoryID" />
+      </xsl:variable>
+      <!--- Control Label -->
+      <xsl:element name="div">
+         <xsl:attribute name="data-exclusive">
+            <xsl:text>true</xsl:text>
+         </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$qCategoryID" />
+         </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qGroup_Name" />
+         </xsl:attribute>
+         <xsl:attribute name="data-position">
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text>below</xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text>side</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name='data-hidden'>
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>true</xsl:text>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:text>false</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="class">
+            <xsl:text>m-option-summary </xsl:text>
+            <xsl:choose>
+               <xsl:when test="Style/@ElementAlign='NewLine'">
+                  <xsl:text> below </xsl:text>
+               </xsl:when>
+               <xsl:when test="Style/@ElementAlign='Right'">
+                  <xsl:text> side </xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:attribute name="style">
+            <xsl:choose>
+               <xsl:when test="Style/@Hidden='true'">
+                  <xsl:text>visibility:hidden</xsl:text>
+               </xsl:when>
+            </xsl:choose>
+         </xsl:attribute>
+         <xsl:if test=".//Category[1]/@CategoryID">
+            <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'mOptionSummary'" />
+               <xsl:with-param name="qElementID" select="$qCategoryID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
+         </xsl:if>
+         <xsl:text>hERE</xsl:text>
+         <xsl:element name="input">
+            <xsl:attribute name="class">hiddencontrol</xsl:attribute>
+            <!--- Set Control Type -->
+            <xsl:attribute name="type">submit</xsl:attribute>
+            <!--- Input name -->
+            <xsl:attribute name="name">
+               <xsl:value-of select="$qLocal_Name" />
+               <xsl:if test="Category[1]/@Name">
+                  <xsl:value-of select="Category[1]/@Name" />
+               </xsl:if>
+            </xsl:attribute>
+            <!--- ID -->
+            <xsl:if test="$bIncludeElementIds">
+               <xsl:attribute name="id">
+                  <xsl:value-of select="$qCategoryID" />
+               </xsl:attribute>
+            </xsl:if>
+            <!--- Alt -->
+            <xsl:if test="@Alt != ''">
+               <xsl:attribute name="Alt">
+                  <xsl:value-of select="@Alt" />
+               </xsl:attribute>
+            </xsl:if>
+            <!--- CSS Class -->
+            <!--- Show Only -->
+            <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or ../Style/Control/@ReadOnly != 'false'">
+               <xsl:attribute name="data-readonly">
+                  <xsl:text>true</xsl:text>
+               </xsl:attribute>
+            </xsl:if>
+            <!--- Accelerator access key -->
+            <xsl:if test="Style/Control/@Accelerator != ''">
+               <xsl:attribute name="accesskey">
+                  <xsl:value-of select="Style/Control/@Accelerator" />
+               </xsl:attribute>
+            </xsl:if>
+            <!--- Set Control Style -->
+            <xsl:attribute name="style">
+               <xsl:call-template name="ControlStyle" />
+            </xsl:attribute>
+            <!--- Button Category -->
+            <xsl:attribute name="value">
+               <xsl:if test="Category[1]/@Name">
+                  <xsl:value-of select="Category[1]/@Name" />
+               </xsl:if>
+            </xsl:attribute>
+            <!--- Is Button Checked -->
+            <xsl:if test="Category[1]/@Checked = 'true'">
+               <xsl:attribute name="checked" />
+            </xsl:if>
+            <xsl:element name="label">
+               <xsl:attribute name="for">
+                  <xsl:value-of select="$qCategoryID" />
+               </xsl:attribute>
+               <xsl:for-each select="Category[1]/Label">
+                  <xsl:call-template name="label-summary">
+                  </xsl:call-template>
+               </xsl:for-each>
+            </xsl:element>
+         </xsl:element>
+      </xsl:element>
+   </xsl:template>
    <!--- Style Templates -->
    <xsl:template name="LabelStyle">
       <xsl:param name="IgnoreWidth" select="'false'" />
@@ -2932,6 +3080,9 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'choice'" />
          </xsl:when>
+         <xsl:when test="$theID = '-45'">
+            <xsl:value-of select="'choice-summary'" />
+         </xsl:when>
          <xsl:when test="$theID = '-50'">
             <xsl:value-of select="'slider-horizontal'" />
          </xsl:when>
@@ -2994,6 +3145,9 @@
          <xsl:when test="$theID = '-40'">
             <xsl:value-of select="'true'" />
          </xsl:when>
+         <xsl:when test="$theID = '-45'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>         
          <xsl:when test="$theID = '-50'">
             <xsl:value-of select="'true'" />
          </xsl:when>
