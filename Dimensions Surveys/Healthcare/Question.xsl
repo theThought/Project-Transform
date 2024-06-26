@@ -2538,6 +2538,7 @@
                <xsl:call-template name="label-summary">
                </xsl:call-template>
             </xsl:for-each>
+         </xsl:element>
       </xsl:element>
    </xsl:template>
    <!--- Style Templates -->
