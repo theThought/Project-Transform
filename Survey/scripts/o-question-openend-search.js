@@ -478,18 +478,22 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
     };
 
     oQuestionOpenendSearch.prototype.getInitialValue = function () {
-        if (this.hiddenelement && typeof this.hiddenelement.value !== 'undefined') {
-            this.initialValue = this.hiddenelement.value;
-    
-            if (this.hiddenelement.value) {
-                this.addTag(this.hiddenelement.value);
-                this.element.value = '';
-            } else {
-                console.log('Hidden input is empty');
+        if (this.hiddenelement) {
+            const hiddenValue = this.hiddenelement.value;
+            if (typeof hiddenValue !== 'undefined') {
+                this.initialValue = hiddenValue;
+                if (hiddenValue) {
+                    console.log('Hidden input has a value: ', hiddenValue);
+                    this.addTag(hiddenValue);
+                    this.element.value = '';
+                } else {
+                    console.log('Hidden input is empty');
+                }
             }
         }
         this.element.placeholder = this.defaultplaceholder;
     };
+    
     
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
         var newelement = this.element.cloneNode();
@@ -1013,55 +1017,66 @@ oQuestionOpenendSearch.prototype.getDataFromSource = function () {
     oQuestionOpenendSearch.prototype.addTag = function (label) {
         if (typeof label === 'undefined' || label === null) {
             return;
-        } else {
-            var container = document.querySelector('.o-question-selected');
-            while (container.firstChild) {
-                container.removeChild(container.firstChild);
-            }
-            this.buttonElement.disabled = true;
-            var tag = document.createElement('div');
-            tag.className = 'm-tag-answer';
-            tag.setAttribute('data-value', label); 
-            tag.setAttribute('value', label); 
-            tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
-            container.appendChild(tag);
+        }
+        
+        var container = document.querySelector('.o-question-selected');
+        if (!container) {
+            console.error('Container element not found');
+            return;
+        }
+        
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+        
+        this.buttonElement.disabled = true;
+        
+        var tag = document.createElement('div');
+        tag.className = 'm-tag-answer';
+        tag.setAttribute('data-value', label); 
+        tag.setAttribute('value', label); 
+        tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
+        container.appendChild(tag);
+        this.updateItemCount(0);
+    
+        var deleteButton = tag.querySelector('.delete-tag');
+        deleteButton.addEventListener('click', function () {
             this.updateItemCount(0);
+            container.removeChild(tag);
     
-            var deleteButton = tag.querySelector('.delete-tag');
-            deleteButton.addEventListener('click', function () {
-                this.updateItemCount(0);
-                container.removeChild(tag);
-    
-                for (var i = 0; i < this.list.length; i++) {
-                    var item = this.list[i];
-                    item.classList.remove('selected');
-                    item.removeAttribute('data-selected');
-                }
-                this.element.classList.remove('exact');
-            }.bind(this));
-    
-            if (this.special) {
-                var checkbox = this.special.querySelector('input[type="checkbox"]');
-    
-                if (checkbox && checkbox.checked) {
-                    container.removeChild(tag);
-                }
-                
-                var observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mutation) {
-                        if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
-                            var isChecked = this.special.getAttribute('data-checked') === 'true';
-                            if (isChecked) {
-                                container.removeChild(tag);
-                            }
-                        }
-                    }.bind(this));
-                }.bind(this));
-                
-                observer.observe(this.special, { attributes: true });
+            for (var i = 0; i < this.list.length; i++) {
+                var item = this.list[i];
+                item.classList.remove('selected');
+                item.removeAttribute('data-selected');
             }
+            this.element.classList.remove('exact');
+        }.bind(this));
+    
+        if (this.special) {
+            console.log(this.special);
+    
+            var checkbox = this.special.querySelector('input[type="checkbox"]');
+    
+            if (checkbox && checkbox.checked) {
+                container.removeChild(tag);
+            }
+            
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
+                        var isChecked = this.special.getAttribute('data-checked') === 'true';
+                        if (isChecked) {
+                            container.removeChild(tag);
+                        }
+                    }
+                }.bind(this));
+            }.bind(this));
+            
+            // Start observing the .m-option-base element
+            observer.observe(this.special, { attributes: true });
         }
     };
+    
     
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
