@@ -209,16 +209,13 @@ define(['component'],
         }
 
         oDropdown.prototype.setWidth = function () {
-            // respect manual width if set - 48px + 16px accounts for element padding
+            // respect manual width if set: 48px + 16px accounts for element padding
             if (this.manualWidth) {
                 this.element.classList.add('manual-width');
                 this.droplist.classList.add('manual-width');
                 this.droplist.style.width = 'calc(' + this.element.style.width + ' + 48px + 16px)';
                 return;
             }
-
-            // set the initial size based on the placeholder
-            this.element.size = Math.max(this.defaultplaceholder.length, 1);
 
             // get the computed dimensions
             var inputdims = this.element.getBoundingClientRect();
@@ -227,6 +224,16 @@ define(['component'],
             if (isNaN(inputwidth)) {
                 inputwidth = 0;
             }
+
+            // set the initial size based on the placeholder
+            // or the longest item
+            var entries = this.droplist.getElementsByTagName('LI');
+            var entrycount = entries.length;
+            var maxentrylength = Math.max(this.defaultplaceholder.length, 1);
+            for (var i = 0; i < entrycount; i++) {
+                maxentrylength = Math.max(maxentrylength, entries[i].textContent.length);
+            }
+            this.element.size = maxentrylength;
 
             var inputpadding = 64; // the drop list has 32px of padding, the input has 64px
             var droplistpadding = 32; // the drop list has 32px of padding, the input has 64px
