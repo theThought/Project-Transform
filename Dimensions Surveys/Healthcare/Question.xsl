@@ -2479,7 +2479,6 @@
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
          </xsl:if>
-         <xsl:text>hERE</xsl:text>
          <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
