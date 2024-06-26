@@ -2479,7 +2479,7 @@
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
          </xsl:if>
-         <xsl:element name="input">
+         <xsl:element name="button">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
             <xsl:attribute name="type">radio</xsl:attribute>
@@ -2529,15 +2529,15 @@
             <xsl:if test="Category[1]/@Checked = 'true'">
                <xsl:attribute name="checked" />
             </xsl:if>
-         </xsl:element>
-         <xsl:element name="label">
-            <xsl:attribute name="for">
-               <xsl:value-of select="$qCategoryID" />
-            </xsl:attribute>
-            <xsl:for-each select="Category[1]/Label">
-               <xsl:call-template name="label-summary">
-               </xsl:call-template>
-            </xsl:for-each>
+            <xsl:element name="label">
+               <xsl:attribute name="for">
+                  <xsl:value-of select="$qCategoryID" />
+               </xsl:attribute>
+               <xsl:for-each select="Category[1]/Label">
+                  <xsl:call-template name="label-summary">
+                  </xsl:call-template>
+               </xsl:for-each>
+            </xsl:element>
          </xsl:element>
       </xsl:element>
    </xsl:template>
