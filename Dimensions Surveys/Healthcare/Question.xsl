@@ -2700,9 +2700,52 @@
    </xsl:template>
 
    <xsl:template name="DateTimeRecentInput">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
       <xsl:comment>Interactive Input goes here</xsl:comment>
+      <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xsl:text>a-input-date-recent</xsl:text>
+         </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qGroup_Name" />
+         </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$qElementID" />
+            <xsl:text>_input</xsl:text>
+         </xsl:attribute>
+
+         <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'aInputDateRecent'" />
+            <xsl:with-param name="qElementID">
+               <xsl:value-of select="$qElementID" />
+               <xsl:text>_Postterm</xsl:text>
+            </xsl:with-param>
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+         </xsl:call-template>
+
+         <xsl:call-template name="MakeInputControl">
+            <xsl:with-param name="qElementID">
+               <xsl:value-of select="$qElementID" />
+               <xsl:text>_input</xsl:text>
+            </xsl:with-param>
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+            <xsl:with-param name="qCustomType" select="$qCustomType" />
+         </xsl:call-template>
+      </xsl:element>
    </xsl:template>
    <xsl:template name="DateTimeRecentPicker">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
       <xsl:comment>Interactive Picker goes here</xsl:comment>
    </xsl:template>
 
