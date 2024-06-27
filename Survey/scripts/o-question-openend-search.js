@@ -52,7 +52,7 @@ define(['o-question'], function (oQuestion) {
         this.updateScrollPosition(this.getCurrentListPosition());
         this.configureProperties();
 
-        this.createButtonElement(); // Create button element before getInitialValue
+        this.createButtonElement(); 
         this.getInitialValue();
 
         this.setPosition();
@@ -268,17 +268,17 @@ define(['o-question'], function (oQuestion) {
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
         buttonElement.disabled = true;
-
+    
         this.element.insertAdjacentElement('afterend', buttonElement);
-
-        this.buttonElement = buttonElement; // Assign to this.buttonElement
+    
+        this.buttonElement = buttonElement; 
         buttonElement.setAttribute('data-checked', 'true');
         buttonElement.setAttribute('data-value', 'true');
-
+    
         var self = this;
         buttonElement.addEventListener('click', function (event) {
             event.preventDefault();
-
+    
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
@@ -287,6 +287,7 @@ define(['o-question'], function (oQuestion) {
             }
         });
     };
+    
 
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
@@ -1014,27 +1015,29 @@ define(['o-question'], function (oQuestion) {
         if (typeof label === 'undefined' || label === null) {
             return;
         }
-        
+    
         var container = document.querySelector('.o-question-selected');
         if (!container) {
-            console.error('Container element not found');
-            return;
+            container = document.createElement('div');
+            container.className = 'o-question-selected';
+            var inputElement = this.wrapper.querySelector('input');
+            this.wrapper.insertBefore(container, inputElement);
         }
-        
+    
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-        
+    
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
         } else {
             console.error('Button element not found');
         }
-        
+    
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
-        tag.setAttribute('data-value', label); 
-        tag.setAttribute('value', label); 
+        tag.setAttribute('data-value', label);
+        tag.setAttribute('value', label);
         tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
         this.updateItemCount(0);
@@ -1053,16 +1056,15 @@ define(['o-question'], function (oQuestion) {
         }.bind(this));
     
         if (this.special) {
-            console.log(this.special);
-    
+            
             var checkbox = this.special.querySelector('input[type="checkbox"]');
     
             if (checkbox && checkbox.checked) {
                 container.removeChild(tag);
             }
-            
-            var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
+    
+            var observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
                         var isChecked = this.special.getAttribute('data-checked') === 'true';
                         if (isChecked) {
@@ -1071,11 +1073,11 @@ define(['o-question'], function (oQuestion) {
                     }
                 }.bind(this));
             }.bind(this));
-            
-            // Start observing the .m-option-base element
+    
             observer.observe(this.special, { attributes: true });
         }
     };
+    
     
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
