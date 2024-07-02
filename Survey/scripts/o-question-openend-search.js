@@ -71,6 +71,7 @@ define(['o-question'], function (oQuestion) {
         this.configureTagContainer();
         this.filterList();
         // this.displaySavedTag();
+        this.setupSpecialListener();
     };
 
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
@@ -484,9 +485,7 @@ define(['o-question'], function (oQuestion) {
                     console.log('Hidden input has a value: ', hiddenValue);
                     this.addTag(hiddenValue);
                     this.element.value = '';
-                } else {
-                    console.log('Hidden input is empty');
-                }
+                } 
             }
         }
         this.element.placeholder = this.defaultplaceholder;
@@ -1104,6 +1103,30 @@ define(['o-question'], function (oQuestion) {
         }
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
+        }
+    };
+
+    oQuestionOpenendSearch.prototype.setupSpecialListener = function () {
+      
+        if (this.special) {
+            
+            var checkbox = this.special.querySelector('input[type="checkbox"]');
+    
+    
+            var observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
+                        var isChecked = this.special.getAttribute('data-checked') === 'true';
+                        if (isChecked) {
+                        
+                            
+                            this.itemCountElement.textContent = '';
+                        }
+                    }
+                }.bind(this));
+            }.bind(this));
+    
+            observer.observe(this.special, { attributes: true });
         }
     };
 

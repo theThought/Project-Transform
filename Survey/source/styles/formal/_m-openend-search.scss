@@ -68,18 +68,23 @@ display: none;
 }
 
 .o-list{
-min-height: 150px;
-.m-list-external {
-  border:none;    
-  box-shadow: none !important;
-  margin-top: 20px;
-}
+border: globals.$border-thickness solid globals.$theme-primary;
+background-color: globals.$input-background;
+
+padding: 0 0 10px;
+  .m-list-external {
+    border:none;    
+    box-shadow: none !important;
+    margin-top: 20px;
+  }
 }
 
 .o-list ul,
 .o-list ul.visible{
   padding: 0 32px 0 0px;
 }
+
+
 
 // Openended search for the images
 

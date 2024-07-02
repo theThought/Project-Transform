@@ -2705,7 +2705,9 @@ html[dir=rtl] .o-dropdown ul li {
 }
 
 .o-list {
-  min-height: 150px;
+  border: 1px solid #455B97;
+  background-color: #FFFFFF;
+  padding: 0 0 10px;
 }
 .o-list .m-list-external {
   border: none;
