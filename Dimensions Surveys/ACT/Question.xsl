@@ -432,6 +432,15 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="$qCustomType='datetime-recent'">
+            <xsl:call-template name="DateTimeRecentSlider">
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
@@ -2479,7 +2488,6 @@
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
          </xsl:if>
-         <xsl:text>hERE</xsl:text>
          <xsl:element name="input">
             <xsl:attribute name="class">hiddencontrol</xsl:attribute>
             <!--- Set Control Type -->
@@ -2542,6 +2550,205 @@
          </xsl:element>
       </xsl:element>
    </xsl:template>
+
+   <xsl:template name="DateTimeRecentSlider">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:element name="div">
+         <xsl:comment> --- rotation div --- </xsl:comment>
+         <xsl:element name="div">
+            <xsl:attribute name="class">
+               <xsl:text>o-question-</xsl:text>
+               <xsl:value-of select="$qCustomType" />
+               <xsl:text>-slider</xsl:text>
+            </xsl:attribute>
+            <xsl:element name="button">
+               <xsl:attribute name="type">Button</xsl:attribute>
+               <xsl:attribute name="class">
+                  <xsl:text>a-button-preterminator</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questionid">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Preterm</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qGroup_Name" />
+               </xsl:attribute>
+               <xsl:comment>
+                  <xsl:value-of select="$qCustomType" />
+                  <xsl:text>pre terminator</xsl:text>
+               </xsl:comment>
+            </xsl:element>
+            <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+               <xsl:with-param name="qElementID">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Preterm</xsl:text>
+               </xsl:with-param>
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
+            <xsl:element name="div">
+               <xsl:attribute name="style">
+                  <xsl:if test="Style/@Width != ''">
+                     <xsl:text>width:</xsl:text>
+                     <xsl:value-of select="Style/@Width" />
+                  </xsl:if>
+               </xsl:attribute>
+               <xsl:attribute name="class">m-slider-horizontal</xsl:attribute>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">
+                     <xsl:text>a-style-sliderborder</xsl:text>
+                  </xsl:attribute>
+                  <xsl:comment>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text> slider border</xsl:text>
+                  </xsl:comment>
+               </xsl:element>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">
+                     <xsl:text>m-style-slidermarks</xsl:text>
+                  </xsl:attribute>
+                  <xsl:comment>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text> tick marks</xsl:text>
+                  </xsl:comment>
+               </xsl:element>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">
+                     <xsl:text>m-slider-thumb-interactive</xsl:text>
+                  </xsl:attribute>
+                  <xsl:call-template name="DateTimeRecentPicker">
+                     <xsl:with-param name="qElementID" select="$qElementID" />
+                     <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                     <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                     <xsl:with-param name="qCustomType" select="$qCustomType" />
+                  </xsl:call-template>
+                  
+                   <xsl:call-template name="DateTimeRecentInput">
+                     <xsl:with-param name="qElementID" select="$qElementID" />
+                     <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                     <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                     <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                     <xsl:with-param name="qCustomType" select="$qCustomType" />
+                  </xsl:call-template>
+               </xsl:element>
+               
+               <xsl:call-template name="MakeInputControl">
+                  <xsl:with-param name="qElementID" select="$qElementID" />
+                  <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                  <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                  <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+                  <xsl:with-param name="qCustomType" select="$qCustomType" />
+               </xsl:call-template>
+               <xsl:element name="div">
+                  <xsl:attribute name="data-questiongroup">
+                     <xsl:value-of select="$qGroup_Name" />
+                  </xsl:attribute>
+                  <xsl:attribute name="class">
+                     <xsl:text>m-label-ticklabels</xsl:text>
+                  </xsl:attribute>
+                  <xsl:comment>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text> tick labels</xsl:text>
+                  </xsl:comment>
+               </xsl:element>
+            </xsl:element>
+            <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName">
+                  <xsl:text>aInput</xsl:text>
+                  <xsl:call-template name="CamelCaseWord">
+                     <xsl:with-param name="text" select="$qCustomType" />
+                  </xsl:call-template>
+               </xsl:with-param>
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
+            <xsl:element name="button">
+               <xsl:attribute name="type">Button</xsl:attribute>
+               <xsl:attribute name="class">
+                  <xsl:text>a-button-postterminator</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questionid">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Postterm</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qGroup_Name" />
+               </xsl:attribute>
+               <xsl:comment>
+                  <xsl:value-of select="$qCustomType" />
+                  <xsl:text> post terminator</xsl:text>
+               </xsl:comment>
+            </xsl:element>
+            <xsl:call-template name="appComponentScript">
+               <xsl:with-param name="ComponentName" select="'aButtonPostTerminator'" />
+               <xsl:with-param name="qElementID">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Postterm</xsl:text>
+               </xsl:with-param>
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            </xsl:call-template>
+         </xsl:element>
+      </xsl:element>
+   </xsl:template>
+
+   <xsl:template name="DateTimeRecentInput">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:comment>Interactive Input goes here</xsl:comment>
+      <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xsl:text>a-input-date-recent</xsl:text>
+         </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qGroup_Name" />
+         </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$qElementID" />
+            <xsl:text>_input</xsl:text>
+         </xsl:attribute>
+
+         <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'aInputDateRecent'" />
+            <xsl:with-param name="qElementID">
+               <xsl:value-of select="$qElementID" />
+               <xsl:text>_Postterm</xsl:text>
+            </xsl:with-param>
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+         </xsl:call-template>
+
+         <xsl:call-template name="MakeInputControl">
+            <xsl:with-param name="qElementID">
+               <xsl:value-of select="$qElementID" />
+               <xsl:text>_input</xsl:text>
+            </xsl:with-param>
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+            <xsl:with-param name="qCustomType" select="$qCustomType" />
+         </xsl:call-template>
+      </xsl:element>
+   </xsl:template>
+   <xsl:template name="DateTimeRecentPicker">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:comment>Interactive Picker goes here</xsl:comment>
+   </xsl:template>
+
    <!--- Style Templates -->
    <xsl:template name="LabelStyle">
       <xsl:param name="IgnoreWidth" select="'false'" />
@@ -3107,6 +3314,9 @@
          <xsl:when test="$theID = '-80'">
             <xsl:value-of select="'calendar'" />
          </xsl:when>
+         <xsl:when test="$theID = '-91'">
+            <xsl:value-of select="'datetime-recent'" />
+         </xsl:when>
          <xsl:when test="$theID = '-1100'">
             <xsl:value-of select="'vprogressive'" />
          </xsl:when>
@@ -3170,6 +3380,9 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-81'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-91'">
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-1100'">

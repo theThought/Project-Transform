@@ -11,15 +11,15 @@ use FixedTextsList
 
 Summary ""
         style(
-            ZIndex = -40
+            ZIndex = -41
         )
     categorical [..1]
     {
-        when "WHEN",
-        where "LOCATION",
-        what "WHAT",
-        howmuch "HOW MUCH",
-        picture "PICTURE"
+        when "{#contentWHEN}",
+        where "{#contentWHERE}",
+        what "{#contentWHAT}",
+        howmuch "{#contentHOWMUCH}",
+        picture "{#contentPICTURE}"
     };
 
     ScriptSource "PostMessage Script source"
@@ -77,6 +77,10 @@ Summary ""
         )
     date;
 
+	When_MinDate "Earliest possible date/time" text[..25] nocasedata;
+	When_MaxDate "Lastest possible date/time" text[..25] nocasedata;
+	When_Entry "When did you start your journey" text[..25] nocasedata;
+	
     Where "Where you were"
         style(
             ZIndex = -40
@@ -112,7 +116,7 @@ Summary ""
         style(
             ZIndex = -25,
             Width = "75%",
-            control(type="singlelineedit"
+            control(type="singlelineedit")
         )
     text [..500]
     codes(
@@ -130,6 +134,17 @@ Summary ""
     {
         NoScan "" NA
     } );
+    
+    WhatInfo "Info for how to capture what" info;
+    
+    WhatTabStrip "" categorical[1]
+    {
+    barcode,
+    what,
+    whatinfo
+    };
+    
+    WhatPage "" 
 
     Container ""
         style(
@@ -202,7 +217,78 @@ dim visibilityRule
 dim stayinLoop
 dim postMessageScript
 dim statusBanner
+dim htmlWHEN[13], htmlWHERE[13], htmlWHAT[13], htmlHOWMUCH[13], htmlPICTURE[13]
+dim contentWHEN, contentWHERE, contentWHAT, contentHOWMUCH, contentPICTURE
 
+htmlWHEN[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlWHEN[1] = "<div class='l-summary-questionname'>"
+htmlWHEN[2] = "WHEN"
+htmlWHEN[3] = "</div>"
+htmlWHEN[4] = "<div class='l-summary-questionprompt'>"
+htmlWHEN[5] = "Date and time of consumption" 
+htmlWHEN[6] = "</div>"
+htmlWHEN[7] = "<div class='l-summary-response'>"
+htmlWHEN[8] = ""
+htmlWHEN[9] = "</div>"
+htmlWHEN[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlWHEN[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlWHEN[12] = "</div>"
+
+htmlWHERE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlWHERE[1] = "<div class='l-summary-questionname'>"
+htmlWHERE[2] = "LOCATION"
+htmlWHERE[3] = "</div>"
+htmlWHERE[4] = "<div class='l-summary-questionprompt'>"
+htmlWHERE[5] = "Where you were" 
+htmlWHERE[6] = "</div>"
+htmlWHERE[7] = "<div class='l-summary-response'>"
+htmlWHERE[8] = ""
+htmlWHERE[9] = "</div>"
+htmlWHERE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlWHERE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlWHERE[12] = "</div>"
+
+htmlWHAT[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlWHAT[1] = "<div class='l-summary-questionname'>"
+htmlWHAT[2] = "WHAT"
+htmlWHAT[3] = "</div>"
+htmlWHAT[4] = "<div class='l-summary-questionprompt'>"
+htmlWHAT[5] = "Brand of the drink" 
+htmlWHAT[6] = "</div>"
+htmlWHAT[7] = "<div class='l-summary-response'>"
+htmlWHAT[8] = ""
+htmlWHAT[9] = "</div>"
+htmlWHAT[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlWHAT[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlWHAT[12] = "</div>"
+
+htmlHOWMUCH[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlHOWMUCH[1] = "<div class='l-summary-questionname'>"
+htmlHOWMUCH[2] = "HOW MUCH"
+htmlHOWMUCH[3] = "</div>"
+htmlHOWMUCH[4] = "<div class='l-summary-questionprompt'>"
+htmlHOWMUCH[5] = "Amount you consumed" 
+htmlHOWMUCH[6] = "</div>"
+htmlHOWMUCH[7] = "<div class='l-summary-response'>"
+htmlHOWMUCH[8] = ""
+htmlHOWMUCH[9] = "</div>"
+htmlHOWMUCH[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlHOWMUCH[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlHOWMUCH[12] = "</div>"
+
+htmlPICTURE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlPICTURE[1] = "<div class='l-summary-questionname'>"
+htmlPICTURE[2] = "PICTURE"
+htmlPICTURE[3] = "</div>"
+htmlPICTURE[4] = "<div class='l-summary-questionprompt'>"
+htmlPICTURE[5] = "Photo of the brand of drink" 
+htmlPICTURE[6] = "</div>"
+htmlPICTURE[7] = "<div class='l-summary-response'>"
+htmlPICTURE[8] = ""
+htmlPICTURE[9] = "</div>"
+htmlPICTURE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlPICTURE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlPICTURE[12] = "</div>"
 	if scriptsource.response is null then
 		if iom.Info.User1 <> "" then
 			select case iom.Info.User1.LCase()
@@ -227,7 +313,11 @@ dim statusBanner
 	end if
 stayinLoop = true
 
-IOM.LayoutTemplate = "formal.htm"
+if iom.Info.IsDebug then
+	IOM.LayoutTemplate = "local-formal.htm"
+else
+	IOM.LayoutTemplate = "formal.htm"
+end if
 
 IOM.QuestionTemplate = templateLocation + "question.htm"
 Summary.LayoutTemplate = templateLocation + "formal-summary.htm"
@@ -245,6 +335,7 @@ what.mustanswer = false
 container.MustAnswer = false
 picture.MustAnswer = false
 
+AddCustomProperties(when, "when", "{'values':[{'date':'23/05/2024','label':'Today','min':'00:00','max':'18:15'},{'date':'22/05/2024','label':'Yesterday','min':'00:00','max':'23:59'},{'date':'21/05/2024','label':'Tuesday','min':'00:00','max':'23:59'},{'date':'20/05/2024','label':'Monday','min':'18:16','max':'23:59'}]},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':180,'floodtovalue':false}", "replace")
 AddCustomProperties(what, "what", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
 what.QuestionTemplate = "question-database-brandlist.htm"
 
@@ -267,10 +358,24 @@ Progress_Update(Progress, statusBanner)
 While stayinLoop
 	Summary.Response = null
 	
+	contentWHAT = BuildContent(htmlWHAT, null)
+	contentWHERE = BuildContent(htmlWHERE, null)
+	contentHOWMUCH = BuildContent(htmlHOWMUCH, null)
+	contentWHEN = BuildContent(htmlWHEN, null)
+	contentPICTURE = BuildContent(htmlPICTURE, null)
+	
 	Summary.Ask()
 	select case Summary.Response.value
 	case {when}
-		AddCustomProperties(when, "when", "{'values':[{'date':'23/05/2024','label':'Today','min':'00:00','max':'18:15'},{'date':'22/05/2024','label':'Yesterday','min':'00:00','max':'23:59'},{'date':'21/05/2024','label':'Tuesday','min':'00:00','max':'23:59'},{'date':'20/05/2024','label':'Monday','min':'18:16','max':'23:59'}]},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':180,'floodtovalue':false}", "replace")
+		WHEN_MinDate.response = UTCFormat(Now() - 4)
+		WHEN_MinDate.response = UTCFormat(Now())
+		WHEN_Entry.response.initial = UTCFormat(Now())
+	
+		WHEN_Entry.validation.function = "StartTravel_Validate"
+		AddCustomProperties(WHEN_Entry, "WHEN_Entry", MakeString("{'validation':{'min':'", WHEN_MinDate, "','max':'",WHEN_MinDate,"'}"), "replace")
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+		WHEN_Entry.Ask()
+
 		when.Response = "23/5/2024 18:15"
 		when.Ask()
 		Progress.When.response = Localtoutctime(when.response)
@@ -278,10 +383,9 @@ While stayinLoop
 	case {where}
 		where.Ask() 
 	case {what}
-		AddCustomProperties(What, "What", "{'displayicon':false,'listsize':8,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
-	    What.QuestionTemplate = "question-database-brandlist.htm"
-	    
+	    what.Response = null
 		What.ask()
+		htmlWHAT[8] = what.Response 
 		Progress.What = what.response
 		Progress_Update(Progress, statusBanner)
 		
@@ -594,4 +698,21 @@ dim boolWhen, boolWhat, boolLocation, boolVolume, boolPicture
 	end if
 end function
 
+function BuildContent(theHTML, theResponse)
+dim stringContent 
+dim quote
+	stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
+	if theResponse is null then
+		stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
+	else
+		stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
+	end if
+	'not required for ACT
+	stringContent = MakeString(stringContent, theHTML[10], theHTML[11])
+	
+	'finish is off
+	stringContent = MakeString(stringContent, theHTML[12])	
+	quote = ChrW(34)	
+	BuildContent = stringContent.Replace("'", quote)
+end function
 End Routing
