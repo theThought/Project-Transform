@@ -1,22 +1,30 @@
-.option-container {
+.m-option-summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
+
+    label{
+       
+        font-size: 16px;
+        color: #333;
+
+        .l-summary-questionname{
+            font-weight: bold;
+        }
+    }
+
+    
+    
 }
 
-.option-container:hover {
+.m-option-summary:hover {
     background-color: #f9f9f9;
 }
 
-.question-title {
-    font-weight: bold;
-    font-size: 16px;
-    color: #333;
-}
-
+.question-title 
 .question-description, .question-answer {
     font-size: 14px;
     color: #666;
@@ -27,12 +35,12 @@
     color: #00a;
 }
 
-.option-container.answered .question-answer {
+.m-option-summary.answered .question-answer {
     font-size: 14px;
     color: #000;
 }
 
-.option-container[data-last-answered="true"] {
+.m-option-summary[data-last-answered="true"] {
     background-color: rgba(232, 190, 93, 0.2);
 
 }
