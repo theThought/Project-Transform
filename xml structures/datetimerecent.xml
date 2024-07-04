@@ -3,7 +3,7 @@
         <Style ElementAlign="NewLine" Indent="1" ZIndex="-91">
             <Control Type="DateTime"></Control>
         </Style>
-        <Control Type="Edit" QuestionName="_QStartTravel" ElementID="_Q0" Value="6/27/2024 8:10:39 PM" Length="40">
+        <Control Type="Edit" QuestionName="_QWhen" ElementID="_Q0" Value="2024-06-27T08:10:00Z" Length="40">
             <Style ElementAlign="NewLine" Indent="1" ZIndex="-91">
                 <Control Type="DateTime"></Control>
             </Style>

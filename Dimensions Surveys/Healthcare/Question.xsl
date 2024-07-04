@@ -2609,6 +2609,19 @@
                   </xsl:comment>
                </xsl:element>
                <xsl:element name="div">
+                  <xsl:attribute name="data-questiongroup">
+                     <xsl:value-of select="$qGroup_Name" />
+                  </xsl:attribute>
+                  <xsl:attribute name="class">
+                     <xsl:text>m-label-ticklabels</xsl:text>
+                  </xsl:attribute>
+                  <xsl:comment>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text> tick labels</xsl:text>
+                  </xsl:comment>
+               </xsl:element>
+
+               <xsl:element name="div">
                   <xsl:attribute name="class">
                      <xsl:text>m-style-slidermarks</xsl:text>
                   </xsl:attribute>
@@ -2645,18 +2658,6 @@
                   <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                   <xsl:with-param name="qCustomType" select="$qCustomType" />
                </xsl:call-template>
-               <xsl:element name="div">
-                  <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qGroup_Name" />
-                  </xsl:attribute>
-                  <xsl:attribute name="class">
-                     <xsl:text>m-label-ticklabels</xsl:text>
-                  </xsl:attribute>
-                  <xsl:comment>
-                     <xsl:value-of select="$qCustomType" />
-                     <xsl:text> tick labels</xsl:text>
-                  </xsl:comment>
-               </xsl:element>
             </xsl:element>
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName">
@@ -3383,7 +3384,7 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-91'">
-            <xsl:value-of select="'true'" />
+            <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-1100'">
             <xsl:value-of select="'false'" />
