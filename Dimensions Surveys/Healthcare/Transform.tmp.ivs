@@ -1,4 +1,4 @@
-﻿bMetadata(en-US, Question, Label)
+﻿Metadata(en-US, Question, Label)
 Coke "Coca Cola" define
     {
         regular "Original",
@@ -1627,6 +1627,7 @@ Coke "Coca Cola" define
     ' -22 openend-Search
     ' -30 MultiLineEdit
     ' -40 Choice
+    ' -45 Choice - summary
     ' -50 Slider (Horizontal)
     ' -51 Slider (Vertical)
     ' -52 Slider (date-recent)
@@ -1754,13 +1755,19 @@ Coke "Coca Cola" define
         GridDrop "Dropdown (Grid)",
         Combobox "Combo-box (single)",
         GridCombo "Combo-box (Grid)",
-        OtherSpecifyLists "Lists with other specify options",
-        longlist "Long Lists",
-        ImageList "Image Lists"
+        OtherSpecifyLists "Lists with other specify options"
+    };
+    TypesList_LAQuestions "Little&Always questions" define
+    {
+    	longlist "Long Lists",
+        ImageList "Image Lists",
+        datetimerecent "Date/Time Recent"
+        
     };
     TypesList_Navigation "Implementing alternative navigation techniques" define
     {
-        TabStripOnly "Tab Strip only"
+        TabStripOnly "Tab Strip only",
+        summary "Summary"
     };
     '----------------------------------------
     ' Grids of solo questions Definitions
@@ -1923,6 +1930,7 @@ Coke "Coca Cola" define
         use TypesList_Progressive sublist -,
         use TypesList_Visible sublist -,
         use TypesList_Navigation sublist -,
+        use TypesList_LAQuestions sublist,
         use TypesList_Special sublist -
     };
 
@@ -2364,7 +2372,11 @@ Coke "Coca Cola" define
                 style(
                     ZIndex = -20
                 )
-            other
+            other other (otherreference_lab_primary ""
+            style(
+                ZIndex = -20
+            )
+        text [0..200] )
         },
         private_reference_lab_sonic "Private reference lab: Sonic"
         {
@@ -2373,10 +2385,12 @@ Coke "Coca Cola" define
             sullivan_nicolaides "Sullivan Nicolaides",
             clinpath "Clinpath",
             other_please_specify_sonic "Other (please specify)"
-                style(
-                    ZIndex = -20
-                )
-            other
+                
+            other (otherreference_lab_sonic ""
+            style(
+                ZIndex = -20
+            )
+        text [0..200] )
         },
         private_ref_lab_healthscope "Private reference lab: Australian Clinical Labs (formerly Healthscope)" fix,
         private_reference_lab_other "Private reference lab: other" fix,
@@ -2385,7 +2399,11 @@ Coke "Coca Cola" define
             style(
                 ZIndex = -20
             )
-        other fix
+        other (othergeneral ""
+            style(
+                ZIndex = -20
+            )
+        text [0..200] ) fix
     } asc;
 
     Age "How old are you?"
@@ -6471,6 +6489,39 @@ Coke "Coca Cola" define
         relapse,
         yearoftreatment
     );
+    
+    
+    '----------------------------------------
+    ' Summary Question
+    '----------------------------------------
+    
+    Summary ""
+        style(
+            ZIndex = -45
+        )
+    categorical [..1]
+    {
+        when "{#contentWHEN}",
+        where "{#contentWHERE}",
+        what "{#contentWHAT}",
+        howmuch "{#contentHOWMUCH}",
+        picture "{#contentPICTURE}"
+    };
+    
+    '----------------------------------------
+    ' Date/Time recent Question
+    '----------------------------------------
+
+	StartTravel_MinDate "Earliest possible date/time" text[..25];
+	StartTravel_MaxDate "Lastest possible date/time" text[..25];
+	StartTravel_Entry = "When did you start your journey"
+	style(zIndex=-91)
+	text[..25]
+	
+	StartTravel "When did you start your journey"
+	date;
+
+    
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -6899,7 +6950,7 @@ do until not askAgain
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 'TypesVsBroadsheetsSingle.Ask()
 
-    
+IOM.Title = "Question type selection"
 MenuPage.Ask()
 
 if CustomList_SetPaste1.Response.containsAny("allow") then
@@ -6976,6 +7027,7 @@ Hello.Errors.AddNew("Error", "If there was an error message generated for the qu
 FirstName.Banners.AddNew("Instruction", "Enter just your first name.")
 AddCustomProperties(hospital_days, "Qty", "{'type':'number'}", "replace")
 
+IOM.Title = "Test for Paste: Default Settings"
 BasicPage.Ask()
 
 AddCustomProperties(Firstname, "Firstname", "{'paste':true}", "replace")
@@ -6983,6 +7035,7 @@ AddCustomProperties(FirstLine, "FirstLine", "{'paste':true}", "replace")
 AddCustomProperties(hospital_days, "hospital_days", "{'paste':true}", "replace")
 
 AddCustomProperties(Comments, "Comments", "{'paste':true}", "replace")
+IOM.Title = "Test for Paste: Paste Allowed"
 BasicPage.Ask()
 
 AddCustomProperties(Firstname, "Firstname", "{'paste':false}", "replace")
@@ -6990,6 +7043,7 @@ AddCustomProperties(FirstLine, "FirstLine", "{'paste':false}", "replace")
 AddCustomProperties(hospital_days, "hospital_days", "{'paste':false}", "replace")
 
 AddCustomProperties(Comments, "Comments", "{'paste':false}", "replace")
+IOM.Title = "Test for Paste: Paste NOT Allowed"
 BasicPage.Ask()
 
 case {basic}
@@ -7107,6 +7161,10 @@ CustomPage.Ask()
 CustomPage.Show()
 
 case {choice}
+
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+test_location.ask()
+GenderReal.Ask()
 
 ChoicePage.Ask()
 'IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
@@ -8708,10 +8766,199 @@ case {RotatedHiddenCells}
 	
 	RelapseBlock.ask()
 
+    case {summary}
+        
+    '----------------------------------------
+    ' Summary Question
+    '----------------------------------------
     
+    dim htmlWHEN[13], htmlWHERE[13], htmlWHAT[13], htmlHOWMUCH[13], htmlPICTURE[13]
+dim contentWHEN, contentWHERE, contentWHAT, contentHOWMUCH, contentPICTURE
+
+htmlWHEN[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlWHEN[1] = "<div class='l-summary-questionname'>"
+htmlWHEN[2] = "WHEN"
+htmlWHEN[3] = "</div>"
+htmlWHEN[4] = "<div class='l-summary-questionprompt'>"
+htmlWHEN[5] = "Date and time of consumption" 
+htmlWHEN[6] = "</div>"
+htmlWHEN[7] = "<div class='l-summary-response'>"
+htmlWHEN[8] = ""
+htmlWHEN[9] = "</div>"
+htmlWHEN[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlWHEN[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlWHEN[12] = "</div>"
+
+htmlWHERE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlWHERE[1] = "<div class='l-summary-questionname'>"
+htmlWHERE[2] = "LOCATION"
+htmlWHERE[3] = "</div>"
+htmlWHERE[4] = "<div class='l-summary-questionprompt'>"
+htmlWHERE[5] = "Where you were" 
+htmlWHERE[6] = "</div>"
+htmlWHERE[7] = "<div class='l-summary-response'>"
+htmlWHERE[8] = ""
+htmlWHERE[9] = "</div>"
+htmlWHERE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlWHERE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlWHERE[12] = "</div>"
+
+htmlWHAT[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlWHAT[1] = "<div class='l-summary-questionname'>"
+htmlWHAT[2] = "WHAT"
+htmlWHAT[3] = "</div>"
+htmlWHAT[4] = "<div class='l-summary-questionprompt'>"
+htmlWHAT[5] = "Brand of the drink" 
+htmlWHAT[6] = "</div>"
+htmlWHAT[7] = "<div class='l-summary-response'>"
+htmlWHAT[8] = ""
+htmlWHAT[9] = "</div>"
+htmlWHAT[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlWHAT[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlWHAT[12] = "</div>"
+
+htmlHOWMUCH[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlHOWMUCH[1] = "<div class='l-summary-questionname'>"
+htmlHOWMUCH[2] = "HOW MUCH"
+htmlHOWMUCH[3] = "</div>"
+htmlHOWMUCH[4] = "<div class='l-summary-questionprompt'>"
+htmlHOWMUCH[5] = "Amount you consumed" 
+htmlHOWMUCH[6] = "</div>"
+htmlHOWMUCH[7] = "<div class='l-summary-response'>"
+htmlHOWMUCH[8] = ""
+htmlHOWMUCH[9] = "</div>"
+htmlHOWMUCH[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlHOWMUCH[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlHOWMUCH[12] = "</div>"
+
+htmlPICTURE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlPICTURE[1] = "<div class='l-summary-questionname'>"
+htmlPICTURE[2] = "PICTURE"
+htmlPICTURE[3] = "</div>"
+htmlPICTURE[4] = "<div class='l-summary-questionprompt'>"
+htmlPICTURE[5] = "Photo of the brand of drink" 
+htmlPICTURE[6] = "</div>"
+htmlPICTURE[7] = "<div class='l-summary-response'>"
+htmlPICTURE[8] = ""
+htmlPICTURE[9] = "</div>"
+htmlPICTURE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlPICTURE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlPICTURE[12] = "</div>"
+
+	Summary.Response = null
+	
+	contentWHAT = BuildContent(htmlWHAT, null)
+	contentWHERE = BuildContent(htmlWHERE, null)
+	contentHOWMUCH = BuildContent(htmlHOWMUCH, null)
+	contentWHEN = BuildContent(htmlWHEN, null)
+	contentPICTURE = BuildContent(htmlPICTURE, null)
+	
+	'IOM.LayoutTemplate = "pageoutput-label.htm"
+	Summary.Ask()
+	debug.Log(format(summary.response,"b"))
+
+
+case {datetimerecent}
+    '----------------------------------------
+    ' Date/Time recent Question
+    '----------------------------------------
+
+		StartTravel_MinDate.response = UTCFormat(Now() - 4)
+		StartTravel_MaxDate.response = UTCFormat(Now())
+		StartTravel_Entry.response.initial = UTCFormat(Now())
+	
+	StartTravel.validation.function = "StartTravel_Validate"
+	AddCustomProperties(StartTravel, "StartTravel", MakeString("{'validation':{'min':'", StartTravel_MinDate, "','max':'",StartTravel_MaxDate,"'}"), "replace")
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+	StartTravel.Ask()
 end select
 
 loop
+
+        
+    '----------------------------------------
+    ' Question Type specific functions
+    '----------------------------------------
+    
+	'    Summary Question
+	'----------------------------------------
+	function BuildContent(theHTML, theResponse)
+	dim stringContent 
+	dim quote
+		stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
+		if theResponse is null then
+			stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
+		else
+			stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
+		end if
+		'not required for ACT
+		stringContent = MakeString(stringContent, theHTML[10], theHTML[11])
+		
+		'finish is off
+		stringContent = MakeString(stringContent, theHTML[12])	
+		quote = ChrW(34)	
+		BuildContent = stringContent.Replace("'", quote)
+	end function
+
+	function StartTravel_Validate (theQuestion, theIOM, theAttempt)
+	if theQuestion.response < theIOM.Questions["StartTravel_MinDate"].response then 
+		theQuestion.Errors.AddNew("Invalid date", "Date too long ago")
+		StartTravel_Validate = false
+		exit function
+	end if
+	
+	if theQuestion.response > theIOM.Questions["StartTravel_MaxDate"].response then
+		theQuestion.Errors.AddNew("Invalid date", "Date in the future")
+		StartTravel_Validate = false
+	end if
+	
+	StartTravel_Validate = true
+	
+	end function
+	
+	function UTCFormat(theDate)
+	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
+	dim strYear, strMonth, strDay, strHour, stringMinute, strSecond
+	digitYear = YEar(theDate)
+	digitMonth = Month(theDate)
+	digitDay = day(theDate)
+	digitHouse = hour(theDate)
+	digitMinute = minute(theDate)
+	digitSecond  = second(theDate)
+	strYear = ctext(digitYear)
+	if digitMonth<10 then 
+		strMonth = "0" + ctext(digitMonth)
+	else
+		strMonth = ctext(digitMonth)
+	end if
+	
+	if digitDay<10 then 
+		strDay = "0" + ctext(digitDay)
+	else
+		strDay = ctext(digitDay)
+	end if
+	
+	if digitHour<10 then 
+		strHour = "0" + ctext(digitHour)
+	else
+		strHour = ctext(digitHour)
+	end if	
+
+	
+	if digitMinute<10 then 
+		strMinute = "0" + ctext(digitMinute)
+	else
+		strMinute = ctext(digitMinute)
+	end if		
+	
+	UTCFormat = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
+	end function
+	
+	
+    '----------------------------------------
+    ' General functions
+    '----------------------------------------
+	
 function FindBanner(theQuestion, theBannerName)
 dim numberOfBanners
 dim bannerFound
