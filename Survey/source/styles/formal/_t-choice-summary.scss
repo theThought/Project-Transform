@@ -7,40 +7,11 @@
     cursor: pointer;
 
     label{
-       
         font-size: 16px;
         color: #333;
 
         .l-summary-questionname{
             font-weight: bold;
         }
-    }
-
-    
-    
-}
-
-.m-option-summary:hover {
-    background-color: #f9f9f9;
-}
-
-.question-title 
-.question-description, .question-answer {
-    font-size: 14px;
-    color: #666;
-}
-
-.question-answer {
-    font-size: 14px;
-    color: #00a;
-}
-
-.m-option-summary.answered .question-answer {
-    font-size: 14px;
-    color: #000;
-}
-
-.m-option-summary[data-last-answered="true"] {
-    background-color: rgba(232, 190, 93, 0.2);
-
+    }   
 }
