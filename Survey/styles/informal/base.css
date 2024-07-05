@@ -1164,41 +1164,33 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
           transform: translateX(-50%) rotate(90deg);
 }
 
-.o-question-slider-date-horizontal-control .a-label-outer-prelabel,
-.o-question-slider-date-horizontal-control .a-label-outer-postlabel,
-.o-question-slider-date-vertical-control .a-label-outer-prelabel,
-.o-question-slider-date-vertical-control .a-label-outer-postlabel {
+.o-question-datetime-recent-slider .a-label-outer-prelabel,
+.o-question-datetime-recent-slider .a-label-outer-postlabel {
   position: relative;
   top: 12px;
   color: #E8BE5D;
 }
-.o-question-slider-date-horizontal-control .a-label-prelabel,
-.o-question-slider-date-vertical-control .a-label-prelabel {
+.o-question-datetime-recent-slider .a-label-prelabel {
   position: absolute;
   left: 0;
   bottom: -0.8em;
   color: #E8BE5D;
 }
-.o-question-slider-date-horizontal-control .a-label-postlabel,
-.o-question-slider-date-vertical-control .a-label-postlabel {
+.o-question-datetime-recent-slider .a-label-postlabel {
   position: absolute;
   right: 0;
   bottom: -0.8em;
   color: #E8BE5D;
 }
-.o-question-slider-date-horizontal-control .a-label-time,
-.o-question-slider-date-vertical-control .a-label-time {
+.o-question-datetime-recent-slider .a-label-time {
   color: #469B9B;
   border-bottom: 1px solid #6A646F;
 }
-.o-question-slider-date-horizontal-control .a-label-time,
-.o-question-slider-date-horizontal-control .a-label-date,
-.o-question-slider-date-vertical-control .a-label-time,
-.o-question-slider-date-vertical-control .a-label-date {
+.o-question-datetime-recent-slider .a-label-time,
+.o-question-datetime-recent-slider .a-label-date {
   font-size: 17px;
 }
-.o-question-slider-date-horizontal-control .a-label-thumbvalue,
-.o-question-slider-date-vertical-control .a-label-thumbvalue {
+.o-question-datetime-recent-slider .a-label-thumbvalue {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #212C4C;
@@ -1208,12 +1200,10 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-.o-question-slider-date-horizontal-control.active.has-value.has-thumb-value .a-label-thumbvalue,
-.o-question-slider-date-vertical-control.active.has-value.has-thumb-value .a-label-thumbvalue {
+.o-question-datetime-recent-slider.active.has-value.has-thumb-value .a-label-thumbvalue {
   visibility: visible;
 }
-.o-question-slider-date-horizontal-control .m-style-slidermarks,
-.o-question-slider-date-vertical-control .m-style-slidermarks {
+.o-question-datetime-recent-slider .m-style-slidermarks {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
@@ -1230,8 +1220,7 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   color: #DEC7E8;
   font-size: 16px;
 }
-.o-question-slider-date-horizontal-control .m-style-slidermarks > i,
-.o-question-slider-date-vertical-control .m-style-slidermarks > i {
+.o-question-datetime-recent-slider .m-style-slidermarks > i {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -1239,8 +1228,7 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
   display: block;
   font-style: normal;
 }
-.o-question-slider-date-horizontal-control .m-label-ticklabels,
-.o-question-slider-date-vertical-control .m-label-ticklabels {
+.o-question-datetime-recent-slider .m-label-ticklabels {
   position: absolute;
   top: -1em;
   left: 6px;
@@ -1255,8 +1243,7 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
           justify-content: space-between;
   color: #8797C8;
 }
-.o-question-slider-date-horizontal-control .m-label-ticklabels > span,
-.o-question-slider-date-vertical-control .m-label-ticklabels > span {
+.o-question-datetime-recent-slider .m-label-ticklabels > span {
   text-align: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40px;
@@ -2075,28 +2062,11 @@ input[type=range]:focus::-ms-fill-lower {
   --track-thumb-height: 45px;
 }
 
-.o-question-slider-date-horizontal,
-.o-question-slider-date-vertical {
+.o-question-datetime-recent {
   overflow: visible;
 }
 
-.o-question-slider-date-vertical {
-  display: table;
-}
-.o-question-slider-date-vertical .o-slider-date-rotate {
-  padding: 50% 0;
-  height: 0;
-}
-
-.o-question-slider-date-vertical-control {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-  -webkit-transform-origin: top;
-          transform-origin: top;
-}
-
-.o-question-slider-date-horizontal-control,
-.o-question-slider-date-vertical-control {
+.o-question-datetime-recent-slider {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2107,52 +2077,41 @@ input[type=range]:focus::-ms-fill-lower {
   margin-bottom: 0.5em;
   min-width: 343px;
 }
-.o-question-slider-date-horizontal-control.has-value input[type=range]::-webkit-slider-thumb,
-.o-question-slider-date-vertical-control.has-value input[type=range]::-webkit-slider-thumb {
+.o-question-datetime-recent-slider.has-value input[type=range]::-webkit-slider-thumb {
   visibility: visible;
 }
-.o-question-slider-date-horizontal-control.has-value input[type=range]::-moz-range-thumb,
-.o-question-slider-date-vertical-control.has-value input[type=range]::-moz-range-thumb {
+.o-question-datetime-recent-slider.has-value input[type=range]::-moz-range-thumb {
   visibility: visible;
 }
-.o-question-slider-date-horizontal-control.has-value input[type=range]::-ms-thumb,
-.o-question-slider-date-vertical-control.has-value input[type=range]::-ms-thumb {
+.o-question-datetime-recent-slider.has-value input[type=range]::-ms-thumb {
   visibility: visible;
 }
-.o-question-slider-date-horizontal-control.has-thumb-value,
-.o-question-slider-date-vertical-control.has-thumb-value {
+.o-question-datetime-recent-slider.has-thumb-value {
   padding-top: 1em;
 }
-.o-question-slider-date-horizontal-control.has-pre-label, .o-question-slider-date-horizontal-control.has-post-label,
-.o-question-slider-date-vertical-control.has-pre-label,
-.o-question-slider-date-vertical-control.has-post-label {
+.o-question-datetime-recent-slider.has-pre-label, .o-question-datetime-recent-slider.has-post-label {
   padding-bottom: 0.8em;
 }
-.o-question-slider-date-horizontal-control.has-tick-labels,
-.o-question-slider-date-vertical-control.has-tick-labels {
-  padding-bottom: 0.8em;
+.o-question-datetime-recent-slider.has-tick-labels {
+  padding-top: 1.8em;
 }
-.o-question-slider-date-horizontal-control.inactive .a-style-sliderclickablearea,
-.o-question-slider-date-vertical-control.inactive .a-style-sliderclickablearea {
+.o-question-datetime-recent-slider.inactive .a-style-sliderclickablearea {
   display: block;
 }
-.o-question-slider-date-horizontal-control > div,
-.o-question-slider-date-vertical-control > div {
+.o-question-datetime-recent-slider > div {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 
-.m-slider-date-horizontal,
-.m-slider-date-vertical {
+.m-slider-horizontal {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
 
-.m-slider-date-horizontal[style*=width],
-.m-slider-date-vertical[style*=width] {
+.m-slider-horizontal[style*=width] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -2338,7 +2297,7 @@ input[type=range]:focus::-ms-fill-lower {
     margin: 0;
   }
 }
-.m-slider-date-thumb {
+.m-slider-thumb-interactive {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #212C4C;
@@ -2351,11 +2310,75 @@ input[type=range]:focus::-ms-fill-lower {
   padding: 8px;
   border: 1px solid #8797C8;
   border-radius: 5px;
-  background-color: #FAFAFA;
+  background-color: white;
+  z-index: 1;
 }
 
-.active.has-value.has-thumb-value .m-slider-date-thumb {
+.active.has-value .m-slider-thumb-interactive {
   visibility: visible;
+}
+
+.a-input-time-recent {
+  /* This following rule shouldn't be necessary, as ready-only elements shouldn't get focus,
+   * however I have observed Firefox adding an outline and this prevents that behaviour  */
+}
+.a-input-time-recent input {
+  padding-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid #4A444E;
+  text-align: center;
+  color: #7A3996;
+  margin: 0 0 0.4em 0;
+  width: 120px;
+  background-color: #FFFFFF;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  font-size: 18px;
+  line-height: 24px;
+}
+.a-input-time-recent input.read-only:focus-visible {
+  outline: none;
+}
+.a-input-time-recent input:-moz-read-only:focus-visible {
+  outline: none;
+}
+.a-input-time-recent input:read-only:focus-visible {
+  outline: none;
+}
+.a-input-time-recent input[readonly]:focus-visible {
+  outline: none;
+}
+.a-input-time-recent.has-content {
+  border-color: transparent;
+  background-color: rgba(232, 190, 93, 0.2);
+}
+.a-input-time-recent:not([readonly]):focus {
+  outline: none;
+  border: 1px solid #E8BE5D;
+}
+
+.a-input-date-recent select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: 18px;
+  cursor: inherit;
+  line-height: inherit;
+  background-image: url("../../images/informal/chevron-open.svg");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+}
+.a-input-date-recent select::-ms-expand {
+  display: none;
+}
+.a-input-date-recent select::after {
+  content: "P";
 }
 
 .o-combobox, .o-dropdown {

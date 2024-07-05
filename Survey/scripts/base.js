@@ -1,7 +1,9 @@
 // custom events polyfill
 (function () {
 
-    if (typeof window.CustomEvent === "function") return false;
+    if (typeof window.CustomEvent === "function") {
+        return false;
+    }
 
     function CustomEvent(event, params) {
         params = params || {bubbles: false, cancelable: false, detail: undefined};
@@ -28,7 +30,9 @@ if (!Element.prototype.closest) {
         var el = this;
 
         do {
-            if (Element.prototype.matches.call(el, s)) return el;
+            if (Element.prototype.matches.call(el, s)) {
+                return el;
+            }
             el = el.parentElement || el.parentNode;
         } while (el !== null && el.nodeType === 1);
         return null;
@@ -36,12 +40,12 @@ if (!Element.prototype.closest) {
 }
 
 // Object.assign polyfill
-if (typeof Object.assign != 'function') {
+if (typeof Object.assign !== 'function') {
     // Must be writable: true, enumerable: false, configurable: true
     Object.defineProperty(Object, "assign", {
         value: function assign(target, varArgs) { // .length of function is 2
             'use strict';
-            if (target == null) { // TypeError if undefined or null
+            if (target === null) { // TypeError if undefined or null
                 throw new TypeError('Cannot convert undefined or null to object');
             }
 
@@ -50,7 +54,7 @@ if (typeof Object.assign != 'function') {
             for (var index = 1; index < arguments.length; index++) {
                 var nextSource = arguments[index];
 
-                if (nextSource != null) { // Skip over if undefined or null
+                if (nextSource !== null) { // Skip over if undefined or null
                     for (var nextKey in nextSource) {
                         // Avoid bugs when hasOwnProperty is shadowed
                         if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
@@ -64,6 +68,12 @@ if (typeof Object.assign != 'function') {
         writable: true,
         configurable: true
     });
+}
+
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
 }
 
 // remove duplicate values from arrays

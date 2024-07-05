@@ -69,6 +69,7 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         //     });
         //     break;    
         case 'odropdown':
+        case 'osliderdatethumbdate':
             requirejs(['o-dropdown'], function (oDropdown) {
                 app.preinitcomponents.unshift(new oDropdown(id, group));
             });
@@ -112,11 +113,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oQuestionSlider(id, group));
             });
             break;
-        case 'oquestionsliderdate-horizontal':
-            requirejs(['o-question-slider-date'], function (oQuestionSliderDate) {
-                app.preinitcomponents.unshift(new oQuestionSliderDate(id, group));
-            });
-            break;
         case 'oquestionopenend-search':
             requirejs(['o-question-openend-search'], function (oQuestionOpenendSearch) {
                 app.preinitcomponents.unshift(new oQuestionOpenendSearch(id, group));
@@ -137,9 +133,25 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new aLabelThumbValue(id, group));
             });
             break;
-        case 'msliderdatethumb':
-            requirejs(['m-slider-date-thumb'], function (mSliderDateThumb) {
-                app.preinitcomponents.unshift(new mSliderDateThumb(id, group));
+
+        case 'oquestiondatetime-recent':
+            requirejs(['o-question-datetime-recent'], function (oQuestionDateTimeRecent) {
+                app.preinitcomponents.unshift(new oQuestionDateTimeRecent(id, group));
+            });
+            break;
+        case 'msliderthumbinteractive':
+            requirejs(['m-slider-thumb-interactive'], function (mSliderThumbInteractive) {
+                app.preinitcomponents.unshift(new mSliderThumbInteractive(id, group));
+            });
+            break;
+        case 'ainputtimerecent':
+            requirejs(['a-input-time-recent'], function (aInputTimeRecent) {
+                app.preinitcomponents.unshift(new aInputTimeRecent(id, group));
+            });
+            break;
+        case 'ainputdaterecent':
+            requirejs(['a-input-date-recent'], function (aInputDateRecent) {
+                app.preinitcomponents.unshift(new aInputDateRecent(id, group));
             });
             break;
         case 'oquestionscale':

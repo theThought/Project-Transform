@@ -8,27 +8,11 @@
 }
 
 // question response-level container
-.o-question-slider-date-horizontal,
-.o-question-slider-date-vertical {
+.o-question-datetime-recent {
     overflow: visible;
 }
 
-.o-question-slider-date-vertical {
-    display: table;
-
-    .o-slider-date-rotate {
-        padding: 50% 0;
-        height: 0;
-    }
-}
-
-.o-question-slider-date-vertical-control {
-    transform: rotate(270deg);
-    transform-origin: top;
-}
-
-.o-question-slider-date-horizontal-control,
-.o-question-slider-date-vertical-control{
+.o-question-datetime-recent-slider {
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -59,7 +43,7 @@
     }
 
     &.has-tick-labels {
-        padding-bottom: 0.8em;
+        padding-top: 1.8em;
     }
 
     &.inactive {
@@ -73,14 +57,12 @@
     }
 }
 
-.m-slider-date-horizontal,
-.m-slider-date-vertical {
+.m-slider-horizontal {
     position: relative;
     flex: 1 0 auto;
 }
 
-.m-slider-date-horizontal[style*="width"],
-.m-slider-date-vertical[style*="width"] {
+.m-slider-horizontal[style*="width"] {
     flex: 0 0 auto;
 }
 
@@ -284,7 +266,7 @@ input[type=range]:focus::-ms-fill-lower {
     }
 }
 
-.m-slider-date-thumb {
+.m-slider-thumb-interactive {
     box-sizing: border-box;
     color: globals.$titles;
     position: absolute;
@@ -295,9 +277,10 @@ input[type=range]:focus::-ms-fill-lower {
     padding: 8px;
     border: globals.$border-thickness solid globals.$borders;
     border-radius: globals.$border-radius;
-    background-color: globals.$white;
+    background-color: white;
+    z-index: 1;
 }
 
-.active.has-value.has-thumb-value .m-slider-date-thumb {
+.active.has-value .m-slider-thumb-interactive {
     visibility: visible;
 }

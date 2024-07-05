@@ -1,0 +1,27 @@
+@use 'globals';
+
+.a-input-date-recent {
+    select {
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        padding: 0 1em 0 0;
+        margin: 0;
+        width: 100%;
+        font-family: inherit;
+        font-size: globals.$option-font-size;
+        cursor: inherit;
+        line-height: inherit;
+        background-image: url("/Survey/images/informal/chevron-open.svg");
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+
+    select::after {
+        content: 'P';
+    }
+}

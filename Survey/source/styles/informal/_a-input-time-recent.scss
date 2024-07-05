@@ -1,0 +1,50 @@
+@use 'globals';
+
+$default-text-width: 120px;
+
+.a-input-time-recent {
+    input {
+        padding-bottom: 4px;
+        border: none;
+        border-bottom: globals.$border-thickness solid globals.$other1;
+        text-align: center;
+        color: globals.$input-text;
+        margin: 0 0 .4em 0;
+        width: $default-text-width;
+        background-color: globals.$input-background;
+        box-sizing: content-box;
+        font-size: globals.$option-font-size;
+        line-height: globals.$instruction-line-height;
+    }
+
+    input.read-only:focus-visible {
+        outline: none;
+    }
+
+    /* This following rule shouldn't be necessary, as ready-only elements shouldn't get focus,
+     * however I have observed Firefox adding an outline and this prevents that behaviour  */
+    input:read-only:focus-visible {
+        outline: none;
+    }
+
+    input[readonly]:focus-visible {
+        outline: none;
+    }
+
+    &.has-content {
+        border-color: transparent;
+        background-color: globals.$input-background-has-content;
+    }
+
+    &:not([readonly]):hover,
+    &:not([readonly]):focus {
+        //color: globals.$borders-active;
+    }
+
+    &:not([readonly]):focus {
+        outline: none;
+        border: globals.$border-thickness solid globals.$theme-primary;
+    }
+}
+
+

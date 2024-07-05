@@ -9,42 +9,49 @@ define(['o-question'],
          * @param {String} group - question group
          */
 
-        function oQuestionSliderDate(id, group) {
+        function oQuestionDateTimeRecent(id, group) {
             oQuestion.call(this, id, group);
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
-            this.wrapper = this.container.querySelector('div[class^="m-slider-date-"]');
-            this.organism = this.container.querySelector('div[class*="-control"]');
+            this.wrapper = this.container.querySelector('div[class^="m-slider-horizontal"]');
+            this.organism = this.container.querySelector('div[class*="-slider"]');
             this.hiddenelement = null;
             this.dateelement = null;
             this.clickablearea = null;
-            this.max = '';
-            this.min = '';
+            this.date = '';
+            this.mindate = '';
+            this.maxdate = '';
+            this.ranges = [];
+            this.currentRange = 0;
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
-            this.value = (this.element.getAttribute('value').length) ? this.element.getAttribute('value') : 0;
+            this.value = 0;
             this.range = 0;
             this.floodtovaluecolor = getComputedStyle(document.documentElement).getPropertyValue('--track-background-fill');
             this.isRTL = document.dir === 'rtl';
         }
 
-        oQuestionSliderDate.prototype = Object.create(oQuestion.prototype);
-        oQuestionSliderDate.prototype.constructor = oQuestionSliderDate;
+        oQuestionDateTimeRecent.prototype = Object.create(oQuestion.prototype);
+        oQuestionDateTimeRecent.prototype.constructor = oQuestionDateTimeRecent;
 
-        oQuestionSliderDate.prototype.init = function () {
+        oQuestionDateTimeRecent.prototype.init = function () {
             oQuestion.prototype.init.call(this);
 
-            this.cloneInputElement();
+            this.ranges = this.buildRanges();
+            this.hideOriginalInputElement();
+            this.createTimeRangeElement();
             this.createDateElement();
             this.getInitialValue();
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
+            this.buildMarks();
+            this.buildTickLabels();
             this.updateFloodFill();
             this.configurationComplete();
         }
 
-        oQuestionSliderDate.prototype.configureIncomingEventListeners = function () {
+        oQuestionDateTimeRecent.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener('input', this, false);
             document.addEventListener('change', this, false);
@@ -52,13 +59,15 @@ define(['o-question'],
             document.addEventListener('restoreEntries', this, false);
             document.addEventListener('click', this, false);
             document.addEventListener('broadcastChange', this, false);
+            document.addEventListener(this.group + '_broadcastTimeChange', this, false);
+            document.addEventListener(this.group + '_broadcastDateChange', this, false);
             document.addEventListener(this.group + '_enableExclusive', this, false);
             document.addEventListener(this.group + '_dismissExclusive', this, false);
             document.addEventListener(this.group + '_incrementValue', this, false);
             document.addEventListener(this.group + '_decrementValue', this, false);
         }
 
-        oQuestionSliderDate.prototype.handleEvent = function (event) {
+        oQuestionDateTimeRecent.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case 'clearEntries':
                     this.clearEntriesFromExternal(event);
@@ -86,41 +95,97 @@ define(['o-question'],
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
                     break;
+                case this.group + '_broadcastTimeChange':
+                    this.receiveTimeChange(event);
+                    break;
+                case this.group + '_broadcastDateChange':
+                    this.receiveDateChange(event);
+                    break;
             }
         }
 
-        oQuestionSliderDate.prototype.cloneInputElement = function () {
+        oQuestionDateTimeRecent.prototype.hideOriginalInputElement = function () {
+            this.element.type = 'hidden';
+            this.hiddenelement = this.element;
+        }
+
+        oQuestionDateTimeRecent.prototype.createTimeRangeElement = function () {
             var newelement = this.element.cloneNode();
+            newelement.value = '';
+            newelement.type = 'range';
             newelement.id = '';
             newelement.name = '';
-            this.element.type = 'hidden';
-            this.element.value = this.element.getAttribute('data-value');
-            this.hiddenelement = this.element;
+            newelement.max = 0;
+            newelement.min = 0 - this.ranges[this.currentRange].minutes;
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionSliderDate.prototype.createDateElement = function () {
+        oQuestionDateTimeRecent.prototype.buildRanges = function () {
+            var dateArray = [];
+            var maxDate = new Date(this.maxdate);
+            var minDate = new Date(this.mindate);
+            var dateObject = {};
+
+            if (maxDate.toDateString() === minDate.toDateString()) {
+                dateObject.minutes = this.dateToMinutes(maxDate) - this.dateToMinutes(minDate);
+                dateObject.endpoint = maxDate;
+                dateArray.push(dateObject);
+                return dateArray;
+            }
+
+            while (maxDate >= minDate) {
+                dateObject = {};
+                var dateStart = new Date(maxDate.toDateString());
+
+                if (dateStart < minDate) {
+                    dateObject.minutes = this.dateToMinutes(minDate);
+                    minDate.setHours(23, 59);
+                    dateObject.endpoint = minDate;
+                    dateArray.push(dateObject);
+                    break;
+                }
+
+                dateObject.minutes = this.dateToMinutes(maxDate);
+                dateObject.endpoint = maxDate;
+                dateArray.push(dateObject);
+
+                var nextDate = maxDate.addDays(-1);
+                nextDate.setHours(23, 59);
+                maxDate = nextDate;
+            }
+
+            return dateArray;
+        }
+
+        oQuestionDateTimeRecent.prototype.createDateElement = function () {
             var newelement = document.createElement('INPUT');
-            newelement.type = 'datetime-local';
+            newelement.type = 'text';
             newelement.style.display = 'none';
-            newelement.min = this.properties.values.min;
-            newelement.max = this.properties.values.max;
-            newelement.defaultValue = this.properties.values.max;
+            newelement.min = this.ranges[this.currentRange].endpoint;
+            newelement.max = this.ranges[this.currentRange].endpoint;
+            newelement.defaultValue = this.ranges[this.currentRange].endpoint;
             this.dateelement = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionSliderDate.prototype.getInitialValue = function () {
-            if (typeof this.hiddenelement.value !== 'undefined' && this.hiddenelement.value.length) {
-                this.initialValue = this.hiddenelement.getAttribute('value');
-                this.element.value = this.hiddenelement.getAttribute('value');
+        oQuestionDateTimeRecent.prototype.getInitialValue = function () {
+            if (typeof this.hiddenelement.value === 'undefined' || this.hiddenelement.value.length === 0) {
+                return;
             }
+
+            this.initialValue = this.hiddenelement.getAttribute('value');
+            var initialDate = new Date(this.initialValue);
+
+            this.processDateChange(initialDate);
+
+            this.element.value = 0 - (this.dateToMinutes(new Date(this.ranges[this.currentRange].endpoint)) - this.dateToMinutes(initialDate));
+            this.onInput(true);
         }
 
-        oQuestionSliderDate.prototype.setHiddenValue = function (valuestring) {
+        oQuestionDateTimeRecent.prototype.setHiddenValue = function (valuestring) {
             this.hiddenelement.value = valuestring;
         }
 
-        oQuestionSliderDate.prototype.clearEntries = function () {
+        oQuestionDateTimeRecent.prototype.clearEntries = function () {
             // do not clear items that are still initialising
             if (this.isInitialising) {
                 return;
@@ -136,7 +201,7 @@ define(['o-question'],
             this.broadcastChange();
         }
 
-        oQuestionSliderDate.prototype.restoreEntries = function (event) {
+        oQuestionDateTimeRecent.prototype.restoreEntries = function (event) {
             if (event.detail.questionName !== this.questionName || !this.restoreValues || this.initialValue === null) {
                 return;
             }
@@ -150,25 +215,25 @@ define(['o-question'],
             this.broadcastChange();
         }
 
-        // Parse date in YYYY-MM-DD format as local date
-        oQuestionSliderDate.prototype.parseISODate = function (dateString) {
-            return new Date(dateString);
-        }
-
         // Format date as YYYY-MM-DD
-        oQuestionSliderDate.prototype.dateToISOLocal = function (date) {
-            var localDate = new Date(date - date.getTimezoneOffset()*60000);
+        oQuestionDateTimeRecent.prototype.dateToISOLocal = function (date) {
+            var localDate = new Date(date - date.getTimezoneOffset() * 60000);
             return localDate.toISOString().slice(0, -1);
         }
 
+        oQuestionDateTimeRecent.prototype.dateToMinutes = function (date) {
+            // hours are worth 60 minutes
+            return (+date.getHours()) * 60 + (+date.getMinutes());
+        }
+
         // Convert range slider value to date string
-        oQuestionSliderDate.prototype.rangeToDate = function () {
-            var newDate = this.parseISODate(this.dateelement.defaultValue);
-            newDate.setMinutes(newDate.getMinutes() + Number(this.value));
+        oQuestionDateTimeRecent.prototype.rangeToDate = function () {
+            var newDate = new Date(this.dateelement.defaultValue);
+            newDate.setMinutes(newDate.getMinutes() + Number(this.element.value));
             this.dateelement.value = this.dateToISOLocal(newDate);
         }
 
-        oQuestionSliderDate.prototype.setThumbVisibility = function () {
+        oQuestionDateTimeRecent.prototype.setThumbVisibility = function () {
             if (this.element.getAttribute('value').length) {
                 this.organism.classList.add('active');
                 this.organism.classList.add('has-value');
@@ -176,10 +241,74 @@ define(['o-question'],
             }
         }
 
-        oQuestionSliderDate.prototype.updateFloodFill = function () {
-            var min = this.hiddenelement.min ? parseInt(this.element.min) : 0;
-            var max = this.hiddenelement.max ? parseInt(this.element.max) : 100;
-            var val = Number(this.hiddenelement.value);
+        oQuestionDateTimeRecent.prototype.validation = function (props) {
+            this.min(props.min);
+            this.max(props.max);
+        }
+
+        oQuestionDateTimeRecent.prototype.min = function (prop) {
+            this.mindate = prop;
+        }
+
+        oQuestionDateTimeRecent.prototype.max = function (prop) {
+            this.maxdate = prop;
+        }
+
+        oQuestionDateTimeRecent.prototype.receiveTimeChange = function (eventDetail) {
+            var time = eventDetail.detail.element.value;
+            this.processTimeChange(time);
+        }
+
+        oQuestionDateTimeRecent.prototype.processTimeChange = function (time) {
+            // convert time into minutes
+            var date = new Date(this.dateelement.value);
+            time = time.split(':');
+            var hours = parseInt(time[0]);
+            var minutes = parseInt(time[1]);
+            date.setHours(hours);
+            date.setMinutes(minutes);
+            var diffMinutes = 0 - (this.dateToMinutes(new Date(this.dateelement.max)) - this.dateToMinutes(date));
+            // check whether minutes are within the range
+            if (diffMinutes >= this.element.min && diffMinutes <= this.element.max) {
+                this.element.value = diffMinutes;
+                this.onInput(true);
+            } else {
+                console.log('We cannot set the value.');
+            }
+        }
+
+        oQuestionDateTimeRecent.prototype.receiveDateChange = function (eventDetail) {
+            var date = new Date(eventDetail.detail.element.value);
+            this.processDateChange(date);
+        }
+
+        oQuestionDateTimeRecent.prototype.processDateChange = function (date) {
+            for (var i = 0; i < this.ranges.length; i++) {
+                var rangeDate = this.ranges[i].endpoint.toDateString();
+                if (rangeDate === date.toDateString()) {
+                    this.currentRange = i;
+                    break;
+                }
+            }
+
+            this.dateelement.min = this.ranges[this.currentRange].endpoint;
+            this.dateelement.max = this.ranges[this.currentRange].endpoint;
+            this.dateelement.defaultValue = this.ranges[this.currentRange].endpoint;
+            this.element.min = 0 - this.ranges[this.currentRange].minutes;
+
+            if (this.element.value < this.element.min) {
+                this.element.value = this.element.min;
+            }
+
+            this.buildMarks();
+            this.buildTickLabels();
+            this.onInput(true);
+        }
+
+        oQuestionDateTimeRecent.prototype.updateFloodFill = function () {
+            var min = this.element.min ? parseInt(this.element.min) : 0;
+            var max = this.element.max ? parseInt(this.element.max) : 100;
+            var val = Number(this.element.value);
             var orientation = (this.container.classList.contains('o-question-slider-date-vertical') ? 'vertical' : 'horizontal');
 
             var percentage = (Math.abs(val - min) / Math.abs(max - min)) * 100;
@@ -196,7 +325,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionSliderDate.prototype.createClickableArea = function () {
+        oQuestionDateTimeRecent.prototype.createClickableArea = function () {
             var clickableElement = document.createElement('div');
             clickableElement.className = 'a-style-sliderclickablearea';
             clickableElement.onclick = function () {
@@ -204,99 +333,100 @@ define(['o-question'],
             this.clickablearea = this.wrapper.insertBefore(clickableElement, this.element);
         }
 
-        oQuestionSliderDate.prototype.values = function (props) {
-            this.max = new Date(props.max);
-            this.min = new Date(props.min);
-
-            var diffMs = (new Date(props.max) - new Date(props.min)); // milliseconds between now & Christmas
-            var diffDays = Math.floor(diffMs / 86400000); // days
-            var diffHrs = Math.floor((diffMs) / 3600000); // hours
-            var diffMins = Math.round((diffMs) / 60000); // minutes
-
-            this.element.min = 0 - diffMins;
-            this.element.max = 0;
-        }
-
-        oQuestionSliderDate.prototype.show = function (props) {
-            if (props.marks === true) {
-                this.showMarks();
-            }
-
-            if (props.value === true) {
-                this.showValue();
-            }
-
+        oQuestionDateTimeRecent.prototype.show = function (props) {
             if (props.terminators === true) {
                 this.showTerminators();
             }
         }
 
-        oQuestionSliderDate.prototype.showMarks = function () {
-            var marksElement = document.querySelector('div[data-questiongroup="' + this.group + '"] div.m-style-slidermarks');
+        oQuestionDateTimeRecent.prototype.buildMarks = function () {
+            if (!this.properties.show.marks) {
+                return;
+            }
 
-            var min = this.element.min ? parseInt(this.element.min) : 0;
-            var max = this.element.max ? parseInt(this.element.max) : 100;
+            var marksElement = document.querySelector('div[data-questiongroup="' + this.group + '"] div.m-style-slidermarks');
+            marksElement.innerHTML = '';
+
+            var min = this.element.min ? parseInt(this.element.min) : (0 - 1440);
+            var max = this.element.max ? parseInt(this.element.max) : 0;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
 
             if (step === 0) {
                 step = Math.floor(((max - min) / 100) * 10);
             }
 
-            for (var i = min; i <= max; i = i + step) {
+            for (var i = min; i < max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
             }
 
+            marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
         }
 
-        oQuestionSliderDate.prototype.ticklabels = function () {
+        oQuestionDateTimeRecent.prototype.buildTickLabels = function () {
+            if (!this.properties.ticklabels) {
+                return;
+            }
+
             // add a class to the parent which adds additional space for the thumb
             this.organism.classList.add('has-tick-labels');
 
             var labelsElement = document.querySelector('div[data-questiongroup="' + this.group + '"] div.m-label-ticklabels');
+            labelsElement.innerHTML = '';
 
-            var min = this.element.min ? parseInt(this.element.min) : 0;
-            var max = this.element.max ? parseInt(this.element.max) : 100;
+            var min = this.element.min ? parseInt(this.element.min) : (0 - 1440);
+            var max = this.element.max ? parseInt(this.element.max) : 0;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 60 : parseInt(this.properties.ticklabels);
+
+            var newDate = new Date();
+            var hours = '';
+            var minutes = '';
+            var timelabel = '';
 
             if (step === 0) {
                 step = Math.floor(((max - min) / 100) * 10);
             }
 
-            for (var i = min; i <= max; i = i + step) {
-                var newDate = this.parseISODate(this.properties.values.max);
+            for (var i = min; i < max; i = i + step) {
+                newDate = new Date(this.ranges[this.currentRange].endpoint);
                 newDate.setMinutes(newDate.getMinutes() + Number(i));
-                var hours = newDate.getHours();
-                var minutes = '0' + newDate.getMinutes();
-                var timelabel = hours + ':' + minutes.slice(-2);
+                hours = '0' + newDate.getHours();
+                minutes = '0' + newDate.getMinutes();
+                timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
                 labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
             }
+
+            newDate = new Date(this.ranges[this.currentRange].endpoint);
+            hours = '0' + newDate.getHours();
+            minutes = '0' + newDate.getMinutes();
+            timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
+            labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
         }
 
-        oQuestionSliderDate.prototype.showValue = function () {
+        oQuestionDateTimeRecent.prototype.showValue = function () {
             this.organism.classList.add('has-thumb-value');
         }
 
-        oQuestionSliderDate.prototype.updateValue = function () {
+        oQuestionDateTimeRecent.prototype.updateValue = function () {
             var updateEvent = new CustomEvent(this.group + '_updateValue', {bubbles: true, detail: this});
             this.element.dispatchEvent(updateEvent);
             this.broadcastChange();
         }
 
-        oQuestionSliderDate.prototype.showTerminators = function () {
+        oQuestionDateTimeRecent.prototype.showTerminators = function () {
             this.organism.classList.add('has-terminators');
         }
 
-        oQuestionSliderDate.prototype.floodtovalue = function (val) {
+        oQuestionDateTimeRecent.prototype.floodtovalue = function (val) {
             if (val === true) {
                 this.element.classList.add('flood-to-value');
             }
         }
 
-        oQuestionSliderDate.prototype.step = function (prop) {
+        oQuestionDateTimeRecent.prototype.step = function (prop) {
             this.element.step = prop;
         }
 
-        oQuestionSliderDate.prototype.labels = function (props) {
+        oQuestionDateTimeRecent.prototype.labels = function (props) {
             if (props.pre) {
                 var preElement = document.createElement('span');
                 preElement.className = 'a-label-outer-prelabel';
@@ -318,7 +448,7 @@ define(['o-question'],
             }
         }
 
-        oQuestionSliderDate.prototype.thumb = function (props) {
+        oQuestionDateTimeRecent.prototype.thumb = function (props) {
             if (props.image) {
                 this.setThumbImage(props.image);
             }
@@ -332,19 +462,19 @@ define(['o-question'],
             }
         }
 
-        oQuestionSliderDate.prototype.setThumbImage = function (prop) {
+        oQuestionDateTimeRecent.prototype.setThumbImage = function (prop) {
             this.element.style.setProperty('--track-thumb-image', 'url(' + prop + ')');
         }
 
-        oQuestionSliderDate.prototype.setThumbWidth = function (prop) {
+        oQuestionDateTimeRecent.prototype.setThumbWidth = function (prop) {
             this.element.style.setProperty('--track-thumb-width', prop + 'px');
         }
 
-        oQuestionSliderDate.prototype.setThumbHeight = function (prop) {
+        oQuestionDateTimeRecent.prototype.setThumbHeight = function (prop) {
             this.element.style.setProperty('--track-thumb-height', prop + 'px');
         }
 
-        oQuestionSliderDate.prototype.onInput = function (event) {
+        oQuestionDateTimeRecent.prototype.onInput = function (event) {
 
             if (event.target === this.element || event.target === this.clickablearea || event === true) {
                 var thumbimage = getComputedStyle(this.element).getPropertyValue('--track-thumb-image');
@@ -377,7 +507,7 @@ define(['o-question'],
 
         }
 
-        oQuestionSliderDate.prototype.incrementValue = function () {
+        oQuestionDateTimeRecent.prototype.incrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var max = this.element.max ? parseInt(this.element.max) : 100;
 
@@ -388,7 +518,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionSliderDate.prototype.decrementValue = function () {
+        oQuestionDateTimeRecent.prototype.decrementValue = function () {
             var currentValue = parseInt(this.element.value);
             var min = this.element.min ? parseInt(this.element.min) : 0;
 
@@ -399,7 +529,7 @@ define(['o-question'],
             this.onInput(true);
         }
 
-        oQuestionSliderDate.prototype.onEnableExclusive = function () {
+        oQuestionDateTimeRecent.prototype.onEnableExclusive = function () {
             this.organism.classList.remove('active');
             this.organism.classList.add('inactive');
             this.value = this.element.value;
@@ -408,10 +538,9 @@ define(['o-question'],
             var thumbimage = getComputedStyle(this.element).getPropertyValue('--track-thumb-image');
             thumbimage = thumbimage.replace('.svg', '-readonly.svg')
             this.element.style.setProperty('--track-thumb-image', thumbimage);
-
         }
 
-        oQuestionSliderDate.prototype.onDismissExclusive = function () {
+        oQuestionDateTimeRecent.prototype.onDismissExclusive = function () {
             this.organism.classList.remove('inactive');
             this.organism.classList.add('active');
             this.element.disabled = false;
@@ -422,6 +551,6 @@ define(['o-question'],
             this.element.style.setProperty('--track-thumb-image', thumbimage);
         }
 
-        return oQuestionSliderDate;
+        return oQuestionDateTimeRecent;
 
     });
