@@ -4,7 +4,6 @@
 }
 
 .m-openend-search-count {
-    // border-top: 2px solid;
     margin-top: 20px;
     padding-top: 10px;
     text-align: right;
@@ -26,6 +25,20 @@
     }
 }
 
+.o-openend-search.list-combobox.o-combobox {
+  margin-bottom: 60px;
+}
+
+.o-question-openend-search .m-option-base {
+  border-top: 1px solid #000066;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+  position: relative;
+}
 
 
 .o-question-selected {
@@ -55,35 +68,33 @@
 }
 
 .delete-tag {
-cursor: pointer;
-border: none;
-background-color: transparent;
-font-size: 16px;
-color: #002554;
-margin-top: 0.1em;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: #002554;
+  margin-top: 0.1em;
 }
 
 .o-list.empty ul {
-display: none;
+  display: none;
 }
 
 .o-list{
-border: globals.$border-thickness solid globals.$theme-primary;
-background-color: globals.$input-background;
+  // border: globals.$border-thickness solid globals.$theme-primary;
+  background-color: globals.$input-background;
+  padding: 0 0 10px;
 
-padding: 0 0 10px;
-  .m-list-external {
-    border:none;    
-    box-shadow: none !important;
-    margin-top: 20px;
-  }
+    .m-list-external {
+      border:none;    
+      box-shadow: none !important;
+    }
 }
 
-.o-list ul,
-.o-list ul.visible{
-  padding: 0 32px 0 0px;
+.o-question-openend-search .o-combobox ul, 
+.o-question-openend-search .o-dropdown ul {
+  background-color: transparent !important;
 }
-
 
 
 // Openended search for the images

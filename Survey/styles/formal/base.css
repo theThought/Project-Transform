@@ -2660,6 +2660,22 @@ html[dir=rtl] .o-dropdown ul li {
     width: 80%;
   }
 }
+.o-openend-search.list-combobox.o-combobox {
+  margin-bottom: 60px;
+}
+
+.o-question-openend-search .m-option-base {
+  border-top: 1px solid #000066;
+  -webkit-box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+  position: relative;
+}
+
 .o-question-selected {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2704,7 +2720,6 @@ html[dir=rtl] .o-dropdown ul li {
 }
 
 .o-list {
-  border: 1px solid #455B97;
   background-color: #FFFFFF;
   padding: 0 0 10px;
 }
@@ -2712,12 +2727,11 @@ html[dir=rtl] .o-dropdown ul li {
   border: none;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-  margin-top: 20px;
 }
 
-.o-list ul,
-.o-list ul.visible {
-  padding: 0 32px 0 0px;
+.o-question-openend-search .o-combobox ul,
+.o-question-openend-search .o-dropdown ul {
+  background-color: transparent !important;
 }
 
 .flex-container {

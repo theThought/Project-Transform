@@ -70,8 +70,9 @@ define(['o-question'], function (oQuestion) {
 
         this.configureTagContainer();
         this.filterList();
-        // this.displaySavedTag();
+        
         this.setupSpecialListener();
+        this.ensureSpecialOrder();
     };
 
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
@@ -178,6 +179,7 @@ define(['o-question'], function (oQuestion) {
             case 'focusin':
             case 'input':
                 this.onFocusIn(event);
+                this.ensureSpecialOrder(); 
                 break;
             case 'focusout':
                 this.onFocusOut(event);
@@ -223,6 +225,8 @@ define(['o-question'], function (oQuestion) {
         this.userspecifiedheight = height;
         this.droplist.style.maxHeight = height + 'px';
         this.droplist.style.minHeight = height + 'px';
+        this.droplistwrapper.style.maxHeight = height + 'px';
+        this.droplistwrapper.style.minHeight = height + 'px';
     };
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
@@ -453,10 +457,14 @@ define(['o-question'], function (oQuestion) {
         var padding = 32;
         var errormargin = 4;
         var messagePadding = 0;
+        var droplistWrapperPadding = 35
 
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-        this.droplist.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
+        
+        this.droplistwrapper.style.width = Math.max(droplistwidth, inputwidth) + droplistWrapperPadding - padding + 'px';
+        this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
         this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
+
 
         this.manualWidth = true;
     };
@@ -807,6 +815,7 @@ define(['o-question'], function (oQuestion) {
         this.droplist.classList.add('visible');
         
         this.getDroplistHeight();
+        this.updateItemCount(this.buildVisibleList().length); 
     };
 
     oQuestionOpenendSearch.prototype.hideList = function () {
@@ -814,6 +823,7 @@ define(['o-question'], function (oQuestion) {
         this.droplist.classList.remove('visible');
         
         this.resetMessagePaddingTop();
+        this.updateItemCount(0);
     };
 
     oQuestionOpenendSearch.prototype.toggleList = function () {
@@ -890,7 +900,7 @@ define(['o-question'], function (oQuestion) {
         this.list = this.buildList();
         var inputstring = this.element.value;
     
-        if (inputstring.length < 3 ) { 
+        if (inputstring.length < 3 ) {
             this.notenoughcharacters(this.properties.notenoughcharacters);
             this.messages.classList.add('charrestriction');
             return;
@@ -910,14 +920,16 @@ define(['o-question'], function (oQuestion) {
                 break;
         }
     
-        // Check if there are visible items after filtering
+        
         var visibleItems = this.buildVisibleList();
         if (visibleItems.length > 0) {
             this.clearPlaceholderMessages();
         } else {
             this.noitemsinlist(this.properties.noitemsinlist);
         }
+        this.updateItemCount(visibleItems.length); // Update the count after filtering
     };
+
         
     oQuestionOpenendSearch.prototype.filterListStarts = function (inputstring) {
         var visibleitems = 0;
@@ -982,26 +994,32 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.updateItemCount = function (count) {
-
         var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
         var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
-    
+        
         if (itemCountElement && itemPromptElement) {
-            if (typeof count === 'number' && count > 0) {
-                if (this.properties && this.properties.prompts && this.properties.prompts.listcount) {
-                    itemCountElement.textContent = count;
-                    itemPromptElement.textContent = this.properties.prompts.listcount;
-                } else {
-                    itemCountElement.textContent = count;
-                    itemPromptElement.textContent = "items";
+            if (this.droplist.classList.contains('visible')) {
+                if (typeof count === 'number' && count > 0) {
+                    if (this.properties && this.properties.prompts && this.properties.prompts.listcount) {
+                        itemCountElement.textContent = count;
+                        itemPromptElement.textContent = this.properties.prompts.listcount;
+                    } else {
+                        itemCountElement.textContent = count;
+                        itemPromptElement.textContent = "items";
+                    }
+                } else if (count === 0) {
+                    itemCountElement.textContent = '';
+                    itemPromptElement.textContent = "";
                 }
-            } else if (count === 0){
+                itemCountElement.parentNode.classList.remove('hidden');
+            } else {
                 itemCountElement.textContent = '';
-                itemPromptElement.textContent = "";
+                itemPromptElement.textContent = '';
+                itemCountElement.parentNode.classList.add('hidden');
             }
-            itemCountElement.parentNode.classList.remove('hidden');   
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.configureTagContainer = function () {
         var container = document.createElement('div');
@@ -1129,6 +1147,35 @@ define(['o-question'], function (oQuestion) {
             observer.observe(this.special, { attributes: true });
         }
     };
+
+    oQuestionOpenendSearch.prototype.ensureSpecialOrder = function () {
+        if (this.special) {
+            const parentNode = this.wrapper.parentNode;
+            
+            if (parentNode) {
+                // Always move this.special outside of .droplistwrapper and .droplist
+                parentNode.insertBefore(this.special, this.wrapper.nextSibling);
+    
+                // Check for the .m-list-external class and if it has the .visible class
+                const mListExternal = document.querySelector('.m-list-external');
+                if (mListExternal && mListExternal.classList.contains('visible')) { 
+                    console.log('test');
+                    // Ensure this.special is still below this.wrapper
+                    parentNode.insertBefore(this.special, this.wrapper.nextSibling);
+                    // this.special.style.background = 'green';
+                }
+                
+    
+                // Set z-index to ensure it is above the droplist
+                this.special.style.zIndex = 2000;
+                // this.special.style.background = 'blue';
+                this.droplistwrapper.style.zIndex = 1;
+            }
+        }
+    };
+    
+    
+    
 
     return oQuestionOpenendSearch;
 });
