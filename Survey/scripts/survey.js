@@ -144,14 +144,14 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new mSliderThumbInteractive(id, group));
             });
             break;
-        case 'ainputtimerecent':
-            requirejs(['a-input-time-recent'], function (aInputTimeRecent) {
-                app.preinitcomponents.unshift(new aInputTimeRecent(id, group));
+        case 'ainputthumbtop':
+            requirejs(['a-input-thumb-top'], function (aInputThumbTop) {
+                app.preinitcomponents.unshift(new aInputThumbTop(id, group));
             });
             break;
-        case 'ainputdaterecent':
-            requirejs(['a-input-date-recent'], function (aInputDateRecent) {
-                app.preinitcomponents.unshift(new aInputDateRecent(id, group));
+        case 'ainputthumbbottom':
+            requirejs(['a-input-thumb-bottom'], function (aInputThumbBottom) {
+                app.preinitcomponents.unshift(new aInputThumbBottom(id, group));
             });
             break;
         case 'oquestionscale':

@@ -1,6 +1,6 @@
 @use 'globals';
 
-.a-input-date-recent {
+.a-input-thumbbottom {
     select {
         appearance: none;
         background-color: transparent;
@@ -9,17 +9,19 @@
         margin: 0;
         width: 100%;
         font-family: inherit;
-        font-size: inherit;
+        font-size: globals.$option-font-size;
         cursor: inherit;
         line-height: inherit;
-        background-image: url("/Survey/images/formal/chevron-open.svg");
+        background-image: url("/Survey/images/informal/chevron-open.svg");
         background-repeat: no-repeat;
         background-position-x: 100%;
-        background-position-y: -2px;
     }
 
     select::-ms-expand {
         display: none;
     }
 
+    select::after {
+        content: 'P';
+    }
 }
