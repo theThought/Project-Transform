@@ -71,7 +71,7 @@ details[open] summary:after {
     padding: 8px 16px 8px 32px;
     background-color: #E4EBF4;
     color: globals.$information;
-    z-index: 2;
+    z-index: 99; // expectation is that these messages should appear above everything bar a question cover
 
     &::before {
         position: absolute;

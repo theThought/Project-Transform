@@ -1743,7 +1743,7 @@ details[open] summary:after {
   padding: 8px 16px 8px 32px;
   background-color: #E4EBF4;
   color: #4B79B6;
-  z-index: 2;
+  z-index: 99;
 }
 .m-message-instruction.has-content div::before,
 .o-message-information.has-content::before {
