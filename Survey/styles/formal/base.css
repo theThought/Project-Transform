@@ -2613,38 +2613,65 @@ html[dir=rtl] .o-dropdown ul li {
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
-.m-option-summary {
+.o-question-choice-summary {
+  width: 40%;
+}
+.o-question-choice-summary .m-option-summary {
+  padding: 20px 0;
+  width: 100%;
+  border-bottom: 2px solid #ECEFF5;
+}
+.o-question-choice-summary .m-option-summary .l-summary-questionname {
+  font-weight: 800;
+  font-size: 20px;
+}
+.o-question-choice-summary .m-option-summary label {
+  display: block;
+}
+.o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
+  width: 100%;
+  /*Text Response*/
 }
-.m-option-summary label {
+.o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail .l-summary-questionprompt {
+  margin-top: 10px;
+}
+.o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail .l-summary-response {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: -20px;
+}
+.o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail .l-summary-response .l-summary-response-text {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background-color: #ECEFF5;
+  border-radius: 4px;
+  padding: 5px 10px;
   font-size: 16px;
-  color: #333;
-}
-.m-option-summary label .l-summary-questionname {
-  font-weight: bold;
+  color: #007675;
 }
 
+@media only screen and (max-width: 768px) {
+  .o-question-choice-summary {
+    width: 90%;
+  }
+}
 .m-list-messages {
   height: 70px;
   padding: 20px 32px 0 0px;
-}
-
-.m-openend-search-count {
-  margin-top: 20px;
-  padding-top: 10px;
-  text-align: right;
-  margin-bottom: 30px;
 }
 
 @media (max-width: 768px) {
@@ -2664,10 +2691,16 @@ html[dir=rtl] .o-dropdown ul li {
   margin-bottom: 60px;
 }
 
-.o-question-openend-search .m-option-base {
+.m-openend-search-count {
   border-top: 1px solid #000066;
-  -webkit-box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: right;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.o-question-openend-search .m-option-base {
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;

@@ -3,12 +3,6 @@
     padding: 20px 32px 0 0px;
 }
 
-.m-openend-search-count {
-    margin-top: 20px;
-    padding-top: 10px;
-    text-align: right;
-    margin-bottom: 30px;
-    }
     @media (max-width: 768px) {
       .m-list-messages {
         padding-top: 10px;
@@ -29,9 +23,20 @@
   margin-bottom: 60px;
 }
 
-.o-question-openend-search .m-option-base {
+
+.m-openend-search-count {
   border-top: 1px solid #000066;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: right;
+  margin-bottom: 30px;
+  position: relative;
+  }
+
+
+.o-question-openend-search .m-option-base {
+  
+  
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;

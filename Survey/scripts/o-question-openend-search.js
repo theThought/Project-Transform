@@ -79,9 +79,7 @@ define(['o-question'], function (oQuestion) {
         if (this.droplist) {
             var computedStyle = window.getComputedStyle(this.droplist);
             this.setMessagePaddingTop(computedStyle.height);
-        } else {
-            console.log('Droplist not found');
-        }
+        } 
     };
 
     oQuestionOpenendSearch.prototype.setMessagePaddingTop = function (height) {
@@ -490,7 +488,6 @@ define(['o-question'], function (oQuestion) {
             if (typeof hiddenValue !== 'undefined') {
                 this.initialValue = hiddenValue;
                 if (hiddenValue) {
-                    console.log('Hidden input has a value: ', hiddenValue);
                     this.addTag(hiddenValue);
                     this.element.value = '';
                 } 
@@ -1152,24 +1149,13 @@ define(['o-question'], function (oQuestion) {
         if (this.special) {
             const parentNode = this.wrapper.parentNode;
             
-            if (parentNode) {
-                // Always move this.special outside of .droplistwrapper and .droplist
+            if (parentNode) {            
                 parentNode.insertBefore(this.special, this.wrapper.nextSibling);
     
-                // Check for the .m-list-external class and if it has the .visible class
                 const mListExternal = document.querySelector('.m-list-external');
                 if (mListExternal && mListExternal.classList.contains('visible')) { 
-                    console.log('test');
-                    // Ensure this.special is still below this.wrapper
                     parentNode.insertBefore(this.special, this.wrapper.nextSibling);
-                    // this.special.style.background = 'green';
                 }
-                
-    
-                // Set z-index to ensure it is above the droplist
-                this.special.style.zIndex = 2000;
-                // this.special.style.background = 'blue';
-                this.droplistwrapper.style.zIndex = 1;
             }
         }
     };
