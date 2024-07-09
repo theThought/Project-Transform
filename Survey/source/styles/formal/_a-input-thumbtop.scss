@@ -2,19 +2,17 @@
 
 $default-text-width: 120px;
 
-.a-input-time-recent {
+.a-input-thumbtop {
     input {
-        padding-bottom: 4px;
+        padding-bottom: 8px;
         border: none;
-        border-bottom: globals.$border-thickness solid globals.$other1;
+        border-bottom: globals.$border-thickness solid globals.$borders;
         text-align: center;
         color: globals.$input-text;
         margin: 0 0 .4em 0;
         width: $default-text-width;
         background-color: globals.$input-background;
         box-sizing: content-box;
-        font-size: globals.$option-font-size;
-        line-height: globals.$instruction-line-height;
     }
 
     input.read-only:focus-visible {
@@ -31,11 +29,6 @@ $default-text-width: 120px;
         outline: none;
     }
 
-    &.has-content {
-        border-color: transparent;
-        background-color: globals.$input-background-has-content;
-    }
-
     &:not([readonly]):hover,
     &:not([readonly]):focus {
         //color: globals.$borders-active;
@@ -47,4 +40,9 @@ $default-text-width: 120px;
     }
 }
 
-
+/* IE10 does not support :read-only selector */
+.read-only .a-input-thumbtop,
+.a-input-thumbtop.read-only {
+    border-color: globals.$borders-light !important;
+    cursor: default;
+}

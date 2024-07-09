@@ -1,32 +1,32 @@
 define(['component'],
     function (component) {
 
-        function aInputTimeRecent(id, group) {
+        function aInputThumbTop(id, group) {
             component.call(this, id, group);
 
-            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] .a-input-time-recent input');
+            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] .a-input-thumbtop input');
         }
 
-        aInputTimeRecent.prototype = Object.create(component.prototype);
-        aInputTimeRecent.prototype.constructor = aInputTimeRecent;
+        aInputThumbTop.prototype = Object.create(component.prototype);
+        aInputThumbTop.prototype.constructor = aInputThumbTop;
 
-        aInputTimeRecent.prototype.init = function () {
+        aInputThumbTop.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
         }
 
-        aInputTimeRecent.prototype.configureIncomingEventListeners = function () {
+        aInputThumbTop.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener(this.group + '_updateValue', this, false);
         }
 
-        aInputTimeRecent.prototype.configureLocalEventListeners = function () {
+        aInputThumbTop.prototype.configureLocalEventListeners = function () {
             this.element.addEventListener('keyup', this, false);
         }
 
-        aInputTimeRecent.prototype.handleEvent = function (event) {
+        aInputThumbTop.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case this.group + '_updateValue':
                     this.updateValue(event.detail);
@@ -37,7 +37,7 @@ define(['component'],
             }
         }
 
-        aInputTimeRecent.prototype.onChange = function () {
+        aInputThumbTop.prototype.onChange = function () {
             var broadcastTimeChange = new CustomEvent(this.group + '_broadcastTimeChange', {
                 bubbles: true,
                 detail: this
@@ -45,12 +45,12 @@ define(['component'],
             this.element.dispatchEvent(broadcastTimeChange);
         }
 
-        aInputTimeRecent.prototype.updateValue = function (eventDetail) {
+        aInputThumbTop.prototype.updateValue = function (eventDetail) {
             var hours = '0' + new Date(eventDetail.dateelement.value).getHours();
             var minutes = '0' + new Date(eventDetail.dateelement.value).getMinutes();
             this.element.value = hours.slice(-2) + ':' + minutes.slice(-2);
         }
 
-        return aInputTimeRecent;
+        return aInputThumbTop;
 
     });

@@ -1737,7 +1737,7 @@ details[open] summary:after {
   padding: 8px 16px 8px 42px;
   background-color: #E4EBF4;
   color: #4B79B6;
-  z-index: 2;
+  z-index: 99;
 }
 .m-message-instruction.has-content div::before,
 .o-message-information.has-content::before {
@@ -2318,11 +2318,11 @@ input[type=range]:focus::-ms-fill-lower {
   visibility: visible;
 }
 
-.a-input-time-recent {
+.a-input-thumbtop {
   /* This following rule shouldn't be necessary, as ready-only elements shouldn't get focus,
    * however I have observed Firefox adding an outline and this prevents that behaviour  */
 }
-.a-input-time-recent input {
+.a-input-thumbtop input {
   padding-bottom: 4px;
   border: none;
   border-bottom: 1px solid #4A444E;
@@ -2336,28 +2336,28 @@ input[type=range]:focus::-ms-fill-lower {
   font-size: 18px;
   line-height: 24px;
 }
-.a-input-time-recent input.read-only:focus-visible {
+.a-input-thumbtop input.read-only:focus-visible {
   outline: none;
 }
-.a-input-time-recent input:-moz-read-only:focus-visible {
+.a-input-thumbtop input:-moz-read-only:focus-visible {
   outline: none;
 }
-.a-input-time-recent input:read-only:focus-visible {
+.a-input-thumbtop input:read-only:focus-visible {
   outline: none;
 }
-.a-input-time-recent input[readonly]:focus-visible {
+.a-input-thumbtop input[readonly]:focus-visible {
   outline: none;
 }
-.a-input-time-recent.has-content {
+.a-input-thumbtop.has-content {
   border-color: transparent;
   background-color: rgba(232, 190, 93, 0.2);
 }
-.a-input-time-recent:not([readonly]):focus {
+.a-input-thumbtop:not([readonly]):focus {
   outline: none;
   border: 1px solid #E8BE5D;
 }
 
-.a-input-date-recent select {
+.a-input-thumbbottom select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -2374,10 +2374,10 @@ input[type=range]:focus::-ms-fill-lower {
   background-repeat: no-repeat;
   background-position-x: 100%;
 }
-.a-input-date-recent select::-ms-expand {
+.a-input-thumbbottom select::-ms-expand {
   display: none;
 }
-.a-input-date-recent select::after {
+.a-input-thumbbottom select::after {
   content: "P";
 }
 
