@@ -89,7 +89,13 @@ define(['o-question'],
             });
             var value = parseInt(event.target.getAttribute('data-value'));
             this.placeholder = value;
+
             this.setValue(value);
+
+            // dismiss exclusive items within group
+            var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
+            this.element.dispatchEvent(clickedEvent);
+
         }
 
         oQuestionScale.prototype.configureWidth = function () {
