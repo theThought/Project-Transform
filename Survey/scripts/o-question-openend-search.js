@@ -140,6 +140,9 @@ define(['o-question'], function (oQuestion) {
         this.element.addEventListener('focusout', this.handleEvent.bind(this), false);
         this.element.addEventListener('cut', this.handleEvent.bind(this), false);
         this.container.addEventListener('scroll', this.handleEvent.bind(this), false);
+
+        //added for keyboard to be hidden if using and iOS / apple device. 
+        this.droplist.addEventListener('scroll', this.hideKeyboard.bind(this), false);
     };
 
     oQuestionOpenendSearch.prototype.handleEvent = function (event) {
@@ -537,6 +540,7 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.onFocusIn = function () {
         var focusEvent = new CustomEvent(this.group + '_textFocus', { bubbles: true, detail: this });
         this.element.dispatchEvent(focusEvent);
+        this.showList();
     };
 
     oQuestionOpenendSearch.prototype.onFocusOut = function (event) {
@@ -1091,8 +1095,7 @@ define(['o-question'], function (oQuestion) {
             observer.observe(this.special, { attributes: true });
         }
     };
-    
-    
+       
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
             if (tag.parentNode) {
@@ -1160,7 +1163,12 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-    
+
+    //Hide that keyboard!
+    oQuestionOpenendSearch.prototype.hideKeyboard = function () {
+        // Blur the input element to hide the keyboard
+        this.element.blur();
+    };
     
 
     return oQuestionOpenendSearch;
