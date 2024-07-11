@@ -76,7 +76,7 @@ define(['o-question'],
             }
 
             this.placeholder = this.element.value;
-            this.setValue();
+            this.setValue('');
         }
 
         oQuestionScale.prototype.onDismissExclusive = function () {
