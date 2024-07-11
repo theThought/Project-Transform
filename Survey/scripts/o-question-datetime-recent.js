@@ -113,10 +113,10 @@ define(['o-question'],
             var newelement = this.element.cloneNode();
             newelement.value = '';
             newelement.type = 'range';
-            newelement.id = '';
             newelement.name = '';
             newelement.max = 0;
             newelement.min = 0 - this.ranges[this.currentRange].minutes;
+            this.element.id = '';
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 

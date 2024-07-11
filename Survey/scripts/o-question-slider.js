@@ -86,11 +86,11 @@ define(['o-question'],
 
         oQuestionSlider.prototype.cloneInputElement = function () {
             var newelement = this.element.cloneNode();
-            newelement.id = '';
             newelement.name = '';
             this.element.type = 'hidden';
             this.element.value = this.element.getAttribute('data-value');
             this.hiddenelement = this.element;
+            this.element.id = '';
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
