@@ -13,6 +13,7 @@ define(['o-question'],
             oQuestion.call(this, id, group);
 
             this.element = document.querySelector('div[class~="o-question-container"][data-questionid="' + this.id + '"]');
+            this.layouttype = '';
         }
 
         oQuestionContainer.prototype = Object.create(oQuestion.prototype);
@@ -23,6 +24,7 @@ define(['o-question'],
 
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.setLayoutType();
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.processAlternativeVisibilityRules();
@@ -35,6 +37,7 @@ define(['o-question'],
             document.addEventListener("configComplete", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener("focusin", this, false);
+            document.addEventListener("widthEvent", this, false);
         }
 
         oQuestionContainer.prototype.handleEvent = function (event) {
@@ -50,10 +53,17 @@ define(['o-question'],
                 case 'focusin':
                     this.onFocusIn(event);
                     break;
+                case "widthEvent":
+                    this.onWidthEvent(event);
+                    break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
                     break;
             }
+        }
+
+        oQuestionContainer.prototype.setLayoutType = function () {
+            this.layouttype = this.element.classList.contains('sidebyside') ? 'horizontal' : 'vertical';
         }
 
         oQuestionContainer.prototype.messageinformation = function (prop) {
@@ -86,6 +96,35 @@ define(['o-question'],
                 // deduct 36px to allow for margins/padding at larger screen sizes
                 // add 14-18px scrollbar width for smaller screen sizes - impossible to calculate on macOS
                 this.element.style.minWidth = (this.element.scrollWidth) + 'px';
+            }
+        }
+
+        oQuestionContainer.prototype.onWidthEvent = function (event) {
+            if (this.element.contains(event.target)) {
+                // fix current width of question text column if this is a side-by-side layout
+                var aggregateWidth = 0;
+                var maxWidth = 0;
+                var questioncolumncontainer = this.element.querySelectorAll('.o-question-core>div');
+
+                for (var i = 0; i < questioncolumncontainer.length; i++) {
+                    var style = window.getComputedStyle(questioncolumncontainer[i]);
+                    var width = questioncolumncontainer[i].scrollWidth;
+                    var margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
+                    var border = parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth);
+
+                    aggregateWidth += (width + margin + border);
+                    maxWidth = Math.max(maxWidth, (width + margin + border));
+
+                    if (this.layouttype === 'horizontal' && i === 0 && questioncolumncontainer[i].style.maxWidth === '') {
+                        questioncolumncontainer[i].style.maxWidth = width + 'px';
+                    }
+                }
+
+                if (this.layouttype === 'horizontal') {
+                    this.element.style.minWidth = aggregateWidth + 'px';
+                } else {
+                    this.element.style.minWidth = maxWidth + 'px';
+                }
             }
         }
 

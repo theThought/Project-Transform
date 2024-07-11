@@ -209,6 +209,16 @@ define(['component'],
             return this.element.style.width.length > 0;
         }
 
+        oCombobox.prototype.getWidthOfText = function (text) {
+            var tmp = document.createElement("span");
+            tmp.style.whiteSpace = 'nowrap';
+            tmp.innerHTML = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            this.container.appendChild(tmp);
+            var width = parseFloat(tmp.getBoundingClientRect().width);
+            this.container.removeChild(tmp);
+            return width;
+        }
+
         oCombobox.prototype.setWidth = function () {
             // respect manual width if set: 16px + 16px accounts for element padding
             if (this.manualWidth) {
@@ -218,36 +228,44 @@ define(['component'],
                 return;
             }
 
-            // get the computed dimensions
-            var inputdims = this.element.getBoundingClientRect();
-            var inputwidth = parseFloat(inputdims.width);
-
-            if (isNaN(inputwidth)) {
-                inputwidth = 0;
-            }
+            var initialWidth = this.element.style.width;
 
             // set the initial size based on the placeholder
             // or the longest item
             var entries = this.droplist.getElementsByTagName('LI');
             var entrycount = entries.length;
-            var maxentrylength = Math.max(this.defaultplaceholder.length, 1);
+            var longestentry = this.defaultplaceholder;
+            var maxentrylength = Math.max(longestentry.length, 1);
+
             for (var i = 0; i < entrycount; i++) {
-                maxentrylength = Math.max(maxentrylength, entries[i].textContent.length);
+                if (entries[i].textContent.length > maxentrylength) {
+                    if (entries[i].classList.contains('a-placeholder-empty')) {
+                        continue;
+                    }
+                    longestentry = entries[i].textContent;
+                    maxentrylength = entries[i].textContent.length;
+                }
             }
-            this.element.size = maxentrylength;
+
+            // get the approximate text width
+            var inputwidth = this.getWidthOfText(longestentry);
 
             var inputpadding = 64; // the drop list has 32px of padding, the input has 64px
             var droplistpadding = 32; // the drop list has 32px of padding, the input has 64px
-            var errormargin = 4; // element.size is font-specific and needs a little safety margin
 
-            var containerstyle = getComputedStyle(this.container);
-            var maxavailablewidth = parseFloat(containerstyle.width) - inputpadding;
+            var containerstyles = getComputedStyle(this.container.closest('question'));
+            var maxavailablewidth = parseFloat(containerstyles.width) - inputpadding;
 
             var droplistdims = getComputedStyle(this.droplist);
             var droplistwidth = parseFloat(droplistdims.width) + (inputpadding - droplistpadding);
 
-            this.element.style.width = Math.min(Math.max(droplistwidth, inputwidth) - inputpadding + errormargin, maxavailablewidth) + 'px';
-            this.droplist.style.width = Math.min(Math.max(droplistwidth, inputwidth) + errormargin, maxavailablewidth) + 'px';
+            var newWidth = Math.min(Math.max(droplistwidth, inputwidth), maxavailablewidth)+ 'px';
+
+            if (newWidth !== initialWidth) {
+                this.element.style.width = newWidth;
+                this.droplist.style.width = newWidth;
+                this.notifyWidthChange()
+            }
 
             this.manualWidth = true;
         }
@@ -304,6 +322,11 @@ define(['component'],
         oCombobox.prototype.onChange = function (event) {
             event.stopImmediatePropagation();
             this.broadcastChange();
+        }
+
+        oCombobox.prototype.notifyWidthChange = function () {
+            var widthEvent = new CustomEvent('widthEvent', {bubbles: true, detail: this});
+            this.element.dispatchEvent(widthEvent);
         }
 
         oCombobox.prototype.onFocusIn = function () {
