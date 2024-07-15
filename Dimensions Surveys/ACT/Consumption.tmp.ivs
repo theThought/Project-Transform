@@ -1,17 +1,18 @@
 ﻿Metadata(en-US, Question, Label)
 FixedTextsList "" define
-{
-NoWhat "No details given"
-};
+    {
+        NoWhat "No details given"
+    };
 
-FixedTexts "" categorical[1]
-{
-use FixedTextsList
-};
+    FixedTexts ""
+    categorical [1..1]
+    {
+        use FixedTextsList -
+    }nocasedata;
 
-Summary ""
+    Summary ""
         style(
-            ZIndex = -41
+            ZIndex = -45
         )
     categorical [..1]
     {
@@ -20,14 +21,14 @@ Summary ""
         what "{#contentWHAT}",
         howmuch "{#contentHOWMUCH}",
         picture "{#contentPICTURE}"
-    };
+    } nocasedata;
 
     ScriptSource "PostMessage Script source"
     text [..100]
     codes(
     {
         nosource "" NA
-    } );
+    } )nocasedata;
 
     ProgressJSON "{#Progress.json}"
         style(
@@ -65,7 +66,7 @@ Summary ""
             )
         text [..400];
 
-    );
+    )nocasedata;
 
     '-------------------
     '  Survey Questions
@@ -77,10 +78,21 @@ Summary ""
         )
     date;
 
-	When_MinDate "Earliest possible date/time" text[..25] nocasedata;
-	When_MaxDate "Lastest possible date/time" text[..25] nocasedata;
-	When_Entry "When did you start your journey" text[..25] nocasedata;
-	
+    When_MinDate "Earliest possible date/time"
+    text [..25]
+    nocasedata;
+
+    When_MaxDate "Lastest possible date/time"
+    text [..25]
+    nocasedata;
+
+    When_Entry "When did you start your journey"
+        style(
+            ZIndex = -91
+        )
+    text [..25]
+    nocasedata;
+
     Where "Where you were"
         style(
             ZIndex = -40
@@ -116,7 +128,9 @@ Summary ""
         style(
             ZIndex = -25,
             Width = "75%",
-            control(type="singlelineedit")
+            Control(
+                Type = "SingleLineEdit"
+            )
         )
     text [..500]
     codes(
@@ -134,17 +148,17 @@ Summary ""
     {
         NoScan "" NA
     } );
-    
-    WhatInfo "Info for how to capture what" info;
-    
-    WhatTabStrip "" categorical[1]
+
+    WhatInfo "Info for how to capture what"
+    info;
+
+    WhatTabStrip ""
+    categorical [1..1]
     {
-    barcode,
-    what,
-    whatinfo
-    };
-    
-    WhatPage "" 
+        barcode "barcode",
+        what "what",
+        whatinfo "whatinfo"
+    }nocasedata;
 
     Container ""
         style(
@@ -342,8 +356,13 @@ what.QuestionTemplate = "question-database-brandlist.htm"
 
 'debug.Log("now" + now())
 if when.Response is null then
-	when.Response = utctolocaltime(now())
-	progress.When.Response = Localtoutctime(when.response)
+	When_MinDate.response = UTCFormat(Now() - 4)
+	When_MaxDate.response = UTCFormat(Now())
+	When_Entry.response.initial = UTCFormat(Now())
+	When_Entry.validation.function = "When_Validate"
+	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate,"'}}"), "replace")
+	
+	progress.When.Response = Localtoutctime(When_Entry.response)
 end if
 
 if what.response is null then
@@ -367,17 +386,9 @@ While stayinLoop
 	Summary.Ask()
 	select case Summary.Response.value
 	case {when}
-		WHEN_MinDate.response = UTCFormat(Now() - 4)
-		WHEN_MinDate.response = UTCFormat(Now())
-		WHEN_Entry.response.initial = UTCFormat(Now())
-	
-		WHEN_Entry.validation.function = "StartTravel_Validate"
-		AddCustomProperties(WHEN_Entry, "WHEN_Entry", MakeString("{'validation':{'min':'", WHEN_MinDate, "','max':'",WHEN_MinDate,"'}"), "replace")
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 		WHEN_Entry.Ask()
-
-		when.Response = "23/5/2024 18:15"
-		when.Ask()
+		When.Response = When_Entry.Response 
 		Progress.When.response = Localtoutctime(when.response)
 		Progress_Update(Progress, statusBanner)
 	case {where}
@@ -698,21 +709,81 @@ dim boolWhen, boolWhat, boolLocation, boolVolume, boolPicture
 	end if
 end function
 
-function BuildContent(theHTML, theResponse)
-dim stringContent 
-dim quote
-	stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
-	if theResponse is null then
-		stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
-	else
-		stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
-	end if
-	'not required for ACT
-	stringContent = MakeString(stringContent, theHTML[10], theHTML[11])
+   '----------------------------------------
+    ' Question Type specific functions
+    '----------------------------------------
+    
+	'    Summary Question
+	'----------------------------------------
+	function BuildContent(theHTML, theResponse)
+	dim stringContent 
+	dim quote
+		stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
+		if theResponse is null then
+			stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
+		else
+			stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
+		end if
+		'not required for ACT
+		stringContent = MakeString(stringContent, theHTML[10], theHTML[11])
+		
+		'finish is off
+		stringContent = MakeString(stringContent, theHTML[12])	
+		quote = ChrW(34)	
+		BuildContent = stringContent.Replace("'", quote)
+	end function
 	
-	'finish is off
-	stringContent = MakeString(stringContent, theHTML[12])	
-	quote = ChrW(34)	
-	BuildContent = stringContent.Replace("'", quote)
-end function
+	function When_Validate (theQuestion, theIOM, theAttempt)
+	if theQuestion.response < theIOM.Questions["When_MinDate"].response then 
+		theQuestion.Errors.AddNew("Invalid date", "Date too long ago")
+		When_Validate = false
+		exit function
+	end if
+	
+	if theQuestion.response > theIOM.Questions["When_MaxDate"].response then
+		theQuestion.Errors.AddNew("Invalid date", "Date in the future")
+		When_Validate = false
+	end if
+	
+	When_Validate = true
+	
+	end function
+	
+	function UTCFormat(theDate)
+	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
+	dim strYear, strMonth, strDay, strHour, strMinute, strSecond
+	digitYear = YEar(theDate)
+	digitMonth = Month(theDate)
+	digitDay = day(theDate)
+	digitHour = hour(theDate)
+	digitMinute = minute(theDate)
+	digitSecond  = second(theDate)
+	strYear = ctext(digitYear)
+	if digitMonth<10 then 
+		strMonth = "0" + ctext(digitMonth)
+	else
+		strMonth = ctext(digitMonth)
+	end if
+	
+	if digitDay<10 then 
+		strDay = "0" + ctext(digitDay)
+	else
+		strDay = ctext(digitDay)
+	end if
+	
+	if digitHour<10 then 
+		strHour = "0" + ctext(digitHour)
+	else
+		strHour = ctext(digitHour)
+	end if	
+
+	
+	if digitMinute<10 then 
+		strMinute = "0" + ctext(digitMinute)
+	else
+		strMinute = ctext(digitMinute)
+	end if		
+	
+	UTCFormat = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
+	end function
 End Routing

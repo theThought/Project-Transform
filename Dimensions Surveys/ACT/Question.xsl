@@ -2609,6 +2609,18 @@
                   </xsl:comment>
                </xsl:element>
                <xsl:element name="div">
+                  <xsl:attribute name="data-questiongroup">
+                     <xsl:value-of select="$qGroup_Name" />
+                  </xsl:attribute>
+                  <xsl:attribute name="class">
+                     <xsl:text>m-label-ticklabels</xsl:text>
+                  </xsl:attribute>
+                  <xsl:comment>
+                     <xsl:value-of select="$qCustomType" />
+                     <xsl:text> tick labels</xsl:text>
+                  </xsl:comment>
+               </xsl:element>
+               <xsl:element name="div">
                   <xsl:attribute name="class">
                      <xsl:text>m-style-slidermarks</xsl:text>
                   </xsl:attribute>
@@ -2621,6 +2633,16 @@
                   <xsl:attribute name="class">
                      <xsl:text>m-slider-thumb-interactive</xsl:text>
                   </xsl:attribute>
+                  <xsl:call-template name="appComponentScript">
+                     <xsl:with-param name="ComponentName" select="'mSliderThumbInteractive'" />
+                     <xsl:with-param name="qElementID">
+                        <xsl:value-of select="$qElementID" />
+                        <xsl:text>_Thumb</xsl:text>
+                     </xsl:with-param>
+                     <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+                     <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                  </xsl:call-template>
+
                   <xsl:call-template name="DateTimeRecentPicker">
                      <xsl:with-param name="qElementID" select="$qElementID" />
                      <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -2645,18 +2667,6 @@
                   <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                   <xsl:with-param name="qCustomType" select="$qCustomType" />
                </xsl:call-template>
-               <xsl:element name="div">
-                  <xsl:attribute name="data-questiongroup">
-                     <xsl:value-of select="$qGroup_Name" />
-                  </xsl:attribute>
-                  <xsl:attribute name="class">
-                     <xsl:text>m-label-ticklabels</xsl:text>
-                  </xsl:attribute>
-                  <xsl:comment>
-                     <xsl:value-of select="$qCustomType" />
-                     <xsl:text> tick labels</xsl:text>
-                  </xsl:comment>
-               </xsl:element>
             </xsl:element>
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName">
@@ -2722,7 +2732,7 @@
             <xsl:with-param name="ComponentName" select="'aInputDateRecent'" />
             <xsl:with-param name="qElementID">
                <xsl:value-of select="$qElementID" />
-               <xsl:text>_Postterm</xsl:text>
+               <xsl:text>_Thumb_Input</xsl:text>
             </xsl:with-param>
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
@@ -2731,7 +2741,7 @@
          <xsl:call-template name="MakeInputControl">
             <xsl:with-param name="qElementID">
                <xsl:value-of select="$qElementID" />
-               <xsl:text>_input</xsl:text>
+               <xsl:text>_topinput</xsl:text>
             </xsl:with-param>
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
@@ -3383,7 +3393,7 @@
             <xsl:value-of select="'true'" />
          </xsl:when>
          <xsl:when test="$theID = '-91'">
-            <xsl:value-of select="'true'" />
+            <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-1100'">
             <xsl:value-of select="'false'" />

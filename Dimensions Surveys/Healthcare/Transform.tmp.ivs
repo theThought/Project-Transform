@@ -1759,10 +1759,9 @@ Coke "Coca Cola" define
     };
     TypesList_LAQuestions "Little&Always questions" define
     {
-    	longlist "Long Lists",
+        longlist "Long Lists",
         ImageList "Image Lists",
         datetimerecent "Date/Time Recent"
-        
     };
     TypesList_Navigation "Implementing alternative navigation techniques" define
     {
@@ -1930,7 +1929,7 @@ Coke "Coca Cola" define
         use TypesList_Progressive sublist -,
         use TypesList_Visible sublist -,
         use TypesList_Navigation sublist -,
-        use TypesList_LAQuestions sublist,
+        use TypesList_LAQuestions sublist -,
         use TypesList_Special sublist -
     };
 
@@ -2372,11 +2371,11 @@ Coke "Coca Cola" define
                 style(
                     ZIndex = -20
                 )
-            other other (otherreference_lab_primary ""
-            style(
-                ZIndex = -20
-            )
-        text [0..200] )
+            other(otherreference_lab_primary ""
+                style(
+                    ZIndex = -20
+                )
+            text [0..200] )
         },
         private_reference_lab_sonic "Private reference lab: Sonic"
         {
@@ -2384,13 +2383,11 @@ Coke "Coca Cola" define
             melbourne_pathology "Melbourne Pathology",
             sullivan_nicolaides "Sullivan Nicolaides",
             clinpath "Clinpath",
-            other_please_specify_sonic "Other (please specify)"
-                
-            other (otherreference_lab_sonic ""
-            style(
-                ZIndex = -20
-            )
-        text [0..200] )
+            other_please_specify_sonic "Other (please specify)" other(otherreference_lab_sonic ""
+                style(
+                    ZIndex = -20
+                )
+            text [0..200] )
         },
         private_ref_lab_healthscope "Private reference lab: Australian Clinical Labs (formerly Healthscope)" fix,
         private_reference_lab_other "Private reference lab: other" fix,
@@ -2399,7 +2396,7 @@ Coke "Coca Cola" define
             style(
                 ZIndex = -20
             )
-        other (othergeneral ""
+        other(othergeneral ""
             style(
                 ZIndex = -20
             )
@@ -6388,6 +6385,15 @@ Coke "Coca Cola" define
         nobrand "I don't know the brand" DK
     } );
 
+    containerlist "Describe the container you used to hold the drink you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200]);
+    
     YearofDiagnosis "What was the year of diagnosis?"
         style(
             ZIndex = -40
@@ -6473,6 +6479,40 @@ Coke "Coca Cola" define
 
     );
 
+    '----------------------------------------
+    ' Summary Question
+    '----------------------------------------
+    Summary ""
+        style(
+            ZIndex = -45
+        )
+    categorical [..1]
+    {
+        when "{#contentWHEN}",
+        where "{#contentWHERE}",
+        what "{#contentWHAT}",
+        howmuch "{#contentHOWMUCH}",
+        picture "{#contentPICTURE}"
+    };
+
+    '----------------------------------------
+    ' Date/Time recent Question
+    '----------------------------------------
+    When_MinDate "Earliest possible date/time"
+    text [..25];
+
+    When_MaxDate "Lastest possible date/time"
+    text [..25];
+
+    When_Entry "When did you start your journey"
+        style(
+            ZIndex = -91
+        )
+    text [..25];
+
+    When "When did you start your journey"
+    date;
+
     recentpage ""
     page(
         lastpayment,
@@ -6489,39 +6529,6 @@ Coke "Coca Cola" define
         relapse,
         yearoftreatment
     );
-    
-    
-    '----------------------------------------
-    ' Summary Question
-    '----------------------------------------
-    
-    Summary ""
-        style(
-            ZIndex = -45
-        )
-    categorical [..1]
-    {
-        when "{#contentWHEN}",
-        where "{#contentWHERE}",
-        what "{#contentWHAT}",
-        howmuch "{#contentHOWMUCH}",
-        picture "{#contentPICTURE}"
-    };
-    
-    '----------------------------------------
-    ' Date/Time recent Question
-    '----------------------------------------
-
-	StartTravel_MinDate "Earliest possible date/time" text[..25];
-	StartTravel_MaxDate "Lastest possible date/time" text[..25];
-	StartTravel_Entry = "When did you start your journey"
-	style(zIndex=-91)
-	text[..25]
-	
-	StartTravel "When did you start your journey"
-	date;
-
-    
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -7274,6 +7281,7 @@ ChoicePage.Ask()
 case {sliderh}
 
 'AddCustomProperties(HowManyMissed, "HowManyMissed", "{'values':{'min':0,'max':10},'floodtovalue':true}", "replace") 
+CreateInformationPopup(HowManyMissed, "Summary", "Sliders have a lot of configurable parts. There is no part of the slider that cannot be made invisible.<br />Values defines the scale of the slider by providing the min and max values, these can be negatve as long as the max is larger than the min<br />The thumb can be transformed into any shape by creating an svg file and holding it on a server, the url of the image can be included in the configuration.")
 AddCustomProperties(HowManyMissed, "HowManyMissed", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
 HowManyMissed.ask()
 
@@ -8659,6 +8667,11 @@ case {RotatedHiddenCells}
     barcodelist.QuestionTemplate = null
     barcodelist.Ask()
 
+	case {ImageList}
+	AddCustomProperties(containerlist, "containerlist", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'a-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+    containerlist.QuestionTemplate = "question-database-containerlist.htm"
+    containerlist.Ask()
+
 
 	case {SpecialOnes}
 	
@@ -8847,30 +8860,38 @@ htmlPICTURE[12] = "</div>"
 
 	Summary.Response = null
 	
-	contentWHAT = BuildContent(htmlWHAT, null)
-	contentWHERE = BuildContent(htmlWHERE, null)
-	contentHOWMUCH = BuildContent(htmlHOWMUCH, null)
-	contentWHEN = BuildContent(htmlWHEN, null)
-	contentPICTURE = BuildContent(htmlPICTURE, null)
+	contentWHAT = BuildContent(htmlWHAT, false, false)
+	contentWHERE = BuildContent(htmlWHERE, false, false)
+	contentHOWMUCH = BuildContent(htmlHOWMUCH, false, false)
+	contentWHEN = BuildContent(htmlWHEN, false, false)
+	contentPICTURE = BuildContent(htmlPICTURE, false, false)
 	
 	'IOM.LayoutTemplate = "pageoutput-label.htm"
 	Summary.Ask()
 	debug.Log(format(summary.response,"b"))
 
-
+	htmlWHEN[8] = "<div class='l-summary-response-text'>Today</div><div class='l-summary-response-text'>18:30</div>"
+	contentWHEN = BuildContent(htmlWHEN, true, true)
+	Summary.Ask()
+	contentWHEN = BuildContent(htmlWHEN, true, false)
+	
+	htmlWHAT[8] = "<div class='l-summary-response-text'>Stellas Artois</div>"
+	contentWHAT = BuildContent(htmlWHAT, true, true)
+	Summary.Ask()
+	
 case {datetimerecent}
     '----------------------------------------
     ' Date/Time recent Question
     '----------------------------------------
 
-		StartTravel_MinDate.response = UTCFormat(Now() - 4)
-		StartTravel_MaxDate.response = UTCFormat(Now())
-		StartTravel_Entry.response.initial = UTCFormat(Now())
+		When_MinDate.response = UTCFormat(Now() - 4)
+		When_MaxDate.response = UTCFormat(Now())
+		When_Entry.response.initial = UTCFormat(Now())
 	
-	StartTravel.validation.function = "StartTravel_Validate"
-	AddCustomProperties(StartTravel, "StartTravel", MakeString("{'validation':{'min':'", StartTravel_MinDate, "','max':'",StartTravel_MaxDate,"'}"), "replace")
+	When_Entry.validation.function = "When_Validate"
+	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate,"'}}"), "replace")
 'IOM.LayoutTemplate = "pageoutput-label.htm"
-	StartTravel.Ask()
+	When_Entry.Ask()
 end select
 
 loop
@@ -8882,17 +8903,19 @@ loop
     
 	'    Summary Question
 	'----------------------------------------
-	function BuildContent(theHTML, theResponse)
+	function BuildContent(theHTML, theResponse, theLastChange)
 	dim stringContent 
 	dim quote
 		stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
-		if theResponse is null then
+		if not theResponse then
 			stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
 		else
 			stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
 		end if
 		'not required for ACT
-		stringContent = MakeString(stringContent, theHTML[10], theHTML[11])
+		if theLastChange Then stringContent = MakeString(stringContent, theHTML[10])
+		
+		if theHTML[11] <> "" then stringContent = MakeString(stringContent, theHTML[11])
 		
 		'finish is off
 		stringContent = MakeString(stringContent, theHTML[12])	
@@ -8900,29 +8923,29 @@ loop
 		BuildContent = stringContent.Replace("'", quote)
 	end function
 
-	function StartTravel_Validate (theQuestion, theIOM, theAttempt)
-	if theQuestion.response < theIOM.Questions["StartTravel_MinDate"].response then 
+	function When_Validate (theQuestion, theIOM, theAttempt)
+	if theQuestion.response < theIOM.Questions["When_MinDate"].response then 
 		theQuestion.Errors.AddNew("Invalid date", "Date too long ago")
-		StartTravel_Validate = false
+		When_Validate = false
 		exit function
 	end if
 	
-	if theQuestion.response > theIOM.Questions["StartTravel_MaxDate"].response then
+	if theQuestion.response > theIOM.Questions["When_MaxDate"].response then
 		theQuestion.Errors.AddNew("Invalid date", "Date in the future")
-		StartTravel_Validate = false
+		When_Validate = false
 	end if
 	
-	StartTravel_Validate = true
+	When_Validate = true
 	
 	end function
 	
 	function UTCFormat(theDate)
 	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
-	dim strYear, strMonth, strDay, strHour, stringMinute, strSecond
+	dim strYear, strMonth, strDay, strHour, strMinute, strSecond
 	digitYear = YEar(theDate)
 	digitMonth = Month(theDate)
 	digitDay = day(theDate)
-	digitHouse = hour(theDate)
+	digitHour = hour(theDate)
 	digitMinute = minute(theDate)
 	digitSecond  = second(theDate)
 	strYear = ctext(digitYear)
