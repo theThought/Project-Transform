@@ -3369,6 +3369,9 @@
          <xsl:when test="$theID = '-1400'">
             <xsl:value-of select="'tabstrip'" />
          </xsl:when>
+         <xsl:when test="$theID = '-1510'">
+            <xsl:value-of select="'media-external'" />
+         </xsl:when>
          <xsl:otherwise>
             <xsl:value-of select="theID" />
          </xsl:otherwise>
@@ -3437,6 +3440,10 @@
          <xsl:when test="$theID = '-1400'">
             <xsl:value-of select="'false'" />
          </xsl:when>
+         <xsl:when test="$theID = '-1510'">
+            <xsl:value-of select="'true'" />
+         </xsl:when>
+
          <xsl:otherwise>
             <xsl:value-of select="'true'" />
          </xsl:otherwise>
