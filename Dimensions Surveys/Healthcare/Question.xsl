@@ -2642,16 +2642,15 @@
                      <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                      <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                   </xsl:call-template>
-                  <xsl:comment> --- input above picker below --</xsl:comment>
-                  <xsl:call-template name="DateTimeRecentPicker">
+                  <xsl:call-template name="DateTimeRecentInput">
                      <xsl:with-param name="qElementID" select="$qElementID" />
                      <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                      <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                      <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                      <xsl:with-param name="qCustomType" select="$qCustomType" />
                   </xsl:call-template>
-                  
-                  <xsl:call-template name="DateTimeRecentInput">
+                  <xsl:comment> --- input above picker below --</xsl:comment>                  
+                  <xsl:call-template name="DateTimeRecentPicker">
                      <xsl:with-param name="qElementID" select="$qElementID" />
                      <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                      <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
