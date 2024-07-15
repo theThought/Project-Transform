@@ -2792,6 +2792,31 @@
       </xsl:element>      
    </xsl:template>
    
+   <xsl:template name="MediaExternalControl">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+
+      <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xsl:text>o-question-</xsl:text>
+            <xsl:value-of select="$qCustomType" />
+            <xsl:text>-wrapper</xsl:text>
+         </xsl:attribute>
+         <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+            <xsl:with-param name="qElementID">
+               <xsl:value-of select="$qElementID" />
+               <xsl:text>_Wrapper</xsl:text>
+            </xsl:with-param>
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+         </xsl:call-template>
+      </xsl:element>
+   </xsl:template>
+   
    <!--- Style Templates -->
    <xsl:template name="LabelStyle">
       <xsl:param name="IgnoreWidth" select="'false'" />
