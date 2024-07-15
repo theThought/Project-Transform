@@ -23,7 +23,6 @@
    <xsl:template match="Questions">
       <xsl:element name="root">
          <xsl:element name="Questions">
-            <xsl:attribute name="data-position">
                <xsl:text>below</xsl:text>
             </xsl:attribute>
             <xsl:for-each select="*">
@@ -2729,7 +2728,7 @@
          </xsl:attribute>
 
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'aInputDateRecent'" />
+            <xsl:with-param name="ComponentName" select="'aInputThumbTop'" />
             <xsl:with-param name="qElementID">
                <xsl:value-of select="$qElementID" />
                <xsl:text>_Thumb_Input</xsl:text>
@@ -2770,7 +2769,7 @@
          </xsl:attribute>
 
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'aInputDateRecent'" />
+            <xsl:with-param name="ComponentName" select="'aInputThumbBottom'" />
             <xsl:with-param name="qElementID">
                <xsl:value-of select="$qElementID" />
                <xsl:text>_Thumb_Picker</xsl:text>
