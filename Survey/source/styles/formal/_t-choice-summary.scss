@@ -1,49 +1,75 @@
 @use 'globals';
-.o-question-choice-summary{
+
+.o-question-choice-summary {
     width: 40%;
-    .m-option-summary{
+
+    .m-option-summary {
         padding: 20px 0;
         width: 100%;
         border-bottom: 2px solid #ECEFF5;
-        
-        .l-summary-questionname{
+
+        .l-summary-questionname {
             font-weight: 800;
-            font-size:20px;
+            font-size: 20px;
         }
 
-        label{
+        label {
             display: block;
 
-            .a-label-option-summary .l-summary-detail{
+            .a-label-option-summary .l-summary-detail {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 width: 100%;
 
-                .l-summary-questionprompt{
+                .l-summary-questionprompt {
                     margin-top: 10px;
                 }
 
-                 /*Text Response*/   
-                .l-summary-response{
+                /* Text Response */
+                .l-summary-response {
                     display: flex;
                     justify-content: flex-end;
                     margin-top: -20px;
-                    
-                    .l-summary-response-text{
+
+                    .l-summary-response-text {
                         align-self: flex-end;
                         background-color: globals.$light1;
-                        border-radius: globals.$border-radius;
+                        border-radius: globals.$border-radius-small;
                         padding: 5px 10px;
                         font-size: globals.$standard-font-size;
-                        color:#007675;
+                        color: #007675;
+
+                        // Apply styles for the first child
+                        &:first-of-type {
+                            border-top-left-radius: 2px;
+                            border-bottom-left-radius: 2px;
+                            border-top-right-radius: 0;
+                            border-bottom-right-radius: 0;
+                            border-right: 1px solid #c0c0c0;
+                            padding-right: 10px;
+                        }
+
+                        // Apply styles for the second child
+                        &:nth-of-type(2) {
+                            border-top-right-radius: 2px;
+                            border-bottom-right-radius: 2px;
+                            border-top-left-radius: 0;
+                            border-bottom-left-radius: 0;
+                            border-left: 1px solid #c0c0c0;
+                            padding-left: 10px;
+                        }
+
+                        // Remove borders when it's the only child
+                        &:only-of-type {
+                            border: none;
+                        }
                     }
                 }
             }
         }
     }
 }
-
 
 @media only screen and (max-width: 768px) {
     .o-question-choice-summary {

@@ -70,7 +70,7 @@ define(['o-question'], function (oQuestion) {
         this.configurationComplete();
 
         this.fetchList();
-        // this.getDataFromSource();
+        this.getDataFromSource();
         this.wordMatching();
 
         this.configureTagContainer();
@@ -309,42 +309,42 @@ define(['o-question'], function (oQuestion) {
     };
     
 
-    // oQuestionOpenendSearch.prototype.getDataFromSource = function () {
-    //     var listElement = document.querySelector('#' + this.droplist.id);
+    oQuestionOpenendSearch.prototype.getDataFromSource = function () {
+        var listElement = document.querySelector('#' + this.droplist.id);
 
-    //     var html = '';
-    //     var hasImage = false;
+        var html = '';
+        var hasImage = false;
 
-    //     for (var i = 0; i < barcodelist.list.length; i++) {
-    //         var item = barcodelist.list[i];
-    //         var flexClass = item.image ? 'flex-container' : '';
-    //         var uniqueId = 'checkbox-' + i; 
+        for (var i = 0; i < barcodelist.list.length; i++) {
+            var item = barcodelist.list[i];
+            var flexClass = item.image ? 'flex-container' : '';
+            var uniqueId = 'checkbox-' + i; 
 
-    //         if (item.image) {
-    //             hasImage = true;
-    //         }
+            if (item.image) {
+                hasImage = true;
+            }
 
-    //         html += '<li class="a-option-list ' + flexClass + '" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">';
+            html += '<li class="a-option-list ' + flexClass + '" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">';
             
-    //         if (item.image) {
-    //             html += '<input type="checkbox" id="' +  item.name + '" class="list-checkbox" data-value="' + item.name + '">';
-    //             html += '<label for="' +  item.name + '" class="flex-label" data-value="' + item.name + '">';
-    //             html += '<img src="' + item.image + '" alt="' + item.name + '" class="list-image" data-value="' + item.name + '">';
-    //             html += item.name + '</label>';
-    //         } else {
-    //             html += item.name;
-    //         }
+            if (item.image) {
+                html += '<input type="checkbox" id="' +  item.name + '" class="list-checkbox" data-value="' + item.name + '">';
+                html += '<label for="' +  item.name + '" class="flex-label" data-value="' + item.name + '">';
+                html += '<img src="' + item.image + '" alt="' + item.name + '" class="list-image" data-value="' + item.name + '">';
+                html += item.name + '</label>';
+            } else {
+                html += item.name;
+            }
 
-    //         html += '</li>';
-    //     }
+            html += '</li>';
+        }
 
-    //     listElement.innerHTML = html;
+        listElement.innerHTML = html;
 
-    //     if (hasImage) {
-    //         listElement.style.display = 'flex';
-    //         listElement.style.flexWrap = 'wrap';
-    //     }
-    // };
+        if (hasImage) {
+            listElement.style.display = 'flex';
+            listElement.style.flexWrap = 'wrap';
+        }
+    };
 
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];
