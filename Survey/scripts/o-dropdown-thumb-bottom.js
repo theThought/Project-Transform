@@ -1,20 +1,20 @@
 define(['component'],
     function (component) {
 
-        function aInputThumbBottom(id, group) {
+        function oDropdownThumbBottom(id, group) {
             component.call(this, id, group);
 
-            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] .a-input-thumbbottom input');
+            this.element = document.querySelector('div[data-questiongroup=' + this.group + '] .o-dropdown-thumbbottom input');
             this.hiddenelement = null;
             this.mindate = '';
             this.maxdate = '';
             this.ranges = [];
         }
 
-        aInputThumbBottom.prototype = Object.create(component.prototype);
-        aInputThumbBottom.prototype.constructor = aInputThumbBottom;
+        oDropdownThumbBottom.prototype = Object.create(component.prototype);
+        oDropdownThumbBottom.prototype.constructor = oDropdownThumbBottom;
 
-        aInputThumbBottom.prototype.init = function () {
+        oDropdownThumbBottom.prototype.init = function () {
             this.configureProperties();
             this.ranges = this.buildRanges();
             this.hideOriginalInputElement();
@@ -24,16 +24,16 @@ define(['component'],
             this.configurationComplete();
         }
 
-        aInputThumbBottom.prototype.configureIncomingEventListeners = function () {
+        oDropdownThumbBottom.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
             document.addEventListener(this.group + '_updateValue', this, false);
         }
 
-        aInputThumbBottom.prototype.configureLocalEventListeners = function () {
+        oDropdownThumbBottom.prototype.configureLocalEventListeners = function () {
             this.element.addEventListener('change', this, false);
         }
 
-        aInputThumbBottom.prototype.handleEvent = function (event) {
+        oDropdownThumbBottom.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case this.group + '_updateValue':
                     this.updateValue(event.detail);
@@ -44,7 +44,7 @@ define(['component'],
             }
         }
 
-        aInputThumbBottom.prototype.onChange = function () {
+        oDropdownThumbBottom.prototype.onChange = function () {
             var broadcastDateChange = new CustomEvent(this.group + '_broadcastDateChange', {
                 bubbles: true,
                 detail: this
@@ -52,7 +52,7 @@ define(['component'],
             this.element.dispatchEvent(broadcastDateChange);
         }
 
-        aInputThumbBottom.prototype.buildRanges = function () {
+        oDropdownThumbBottom.prototype.buildRanges = function () {
             var dateArray = [];
             var maxDate = new Date(this.maxdate);
             maxDate = new Date(maxDate.toDateString());
@@ -71,12 +71,12 @@ define(['component'],
             return dateArray;
         }
 
-        aInputThumbBottom.prototype.hideOriginalInputElement = function () {
+        oDropdownThumbBottom.prototype.hideOriginalInputElement = function () {
             this.element.type = 'hidden';
             this.hiddenelement = this.element;
         }
 
-        aInputThumbBottom.prototype.createList = function () {
+        oDropdownThumbBottom.prototype.createList = function () {
             var newelement = document.createElement('SELECT');
             var datelist = '';
 
@@ -88,24 +88,24 @@ define(['component'],
             this.element = this.element.parentNode.insertBefore(newelement, this.element);
         }
 
-        aInputThumbBottom.prototype.validation = function (props) {
+        oDropdownThumbBottom.prototype.validation = function (props) {
             this.min(props.min);
             this.max(props.max);
         }
 
-        aInputThumbBottom.prototype.min = function (prop) {
+        oDropdownThumbBottom.prototype.min = function (prop) {
             this.mindate = prop;
         }
 
-        aInputThumbBottom.prototype.max = function (prop) {
+        oDropdownThumbBottom.prototype.max = function (prop) {
             this.maxdate = prop;
         }
 
-        aInputThumbBottom.prototype.updateValue = function (eventDetail) {
+        oDropdownThumbBottom.prototype.updateValue = function (eventDetail) {
             var selectedDate = new Date(eventDetail.dateelement.value);
             this.element.value = selectedDate.toDateString();
         }
 
-        return aInputThumbBottom;
+        return oDropdownThumbBottom;
 
     });

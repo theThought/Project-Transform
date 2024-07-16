@@ -154,9 +154,9 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new aInputThumbTop(id, group));
             });
             break;
-        case 'ainputthumbbottom':
-            requirejs(['a-input-thumb-bottom'], function (aInputThumbBottom) {
-                app.preinitcomponents.unshift(new aInputThumbBottom(id, group));
+        case 'odropdownthumbbottom':
+            requirejs(['o-dropdown-thumb-bottom'], function (oDropdownThumbBottom) {
+                app.preinitcomponents.unshift(new oDropdownThumbBottom(id, group));
             });
             break;
         case 'oquestionscale':

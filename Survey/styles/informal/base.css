@@ -2357,7 +2357,7 @@ input[type=range]:focus::-ms-fill-lower {
   border: 1px solid #E8BE5D;
 }
 
-.a-input-thumbbottom select {
+.o-dropdown-thumbbottom select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -2374,10 +2374,10 @@ input[type=range]:focus::-ms-fill-lower {
   background-repeat: no-repeat;
   background-position-x: 100%;
 }
-.a-input-thumbbottom select::-ms-expand {
+.o-dropdown-thumbbottom select::-ms-expand {
   display: none;
 }
-.a-input-thumbbottom select::after {
+.o-dropdown-thumbbottom select::after {
   content: "P";
 }
 

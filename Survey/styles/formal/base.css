@@ -2382,7 +2382,7 @@ input[type=range]:focus::-ms-fill-lower {
   cursor: default;
 }
 
-.a-input-thumbbottom select {
+.o-dropdown-thumbbottom select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -2400,7 +2400,7 @@ input[type=range]:focus::-ms-fill-lower {
   background-position-x: 100%;
   background-position-y: -2px;
 }
-.a-input-thumbbottom select::-ms-expand {
+.o-dropdown-thumbbottom select::-ms-expand {
   display: none;
 }
 

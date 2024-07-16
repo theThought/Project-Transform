@@ -340,7 +340,7 @@ define(['o-question'],
         }
 
         oQuestionDateTimeRecent.prototype.buildMarks = function () {
-            if (!this.properties.show.marks) {
+            if (!this.properties.show || !this.properties.show.marks) {
                 return;
             }
 
