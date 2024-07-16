@@ -118,6 +118,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oQuestionOpenendSearch(id, group));
             });
             break;
+        case 'oquestionchoice-summary':
+            requirejs(['oQuestionChoice-summary'], function (oQuestionChoiceSummary) {
+                app.preinitcomponents.unshift(new oQuestionChoiceSummary(id, group));
+            });
+            break;
         case 'abuttonpreterminator':
             requirejs(['a-input-button-dec'], function (aInputButtonDec) {
                 app.preinitcomponents.unshift(new aInputButtonDec(id, group));
