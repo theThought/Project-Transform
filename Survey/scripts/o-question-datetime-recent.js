@@ -482,8 +482,8 @@ define(['o-question'],
                 this.element.style.setProperty('--track-thumb-image', thumbimage);
 
                 this.organism.classList.add('has-value');
-                this.setHiddenValue(this.element.value);
                 this.rangeToDate();
+                this.setHiddenValue(this.dateelement.value);
 
                 // handle self-generated events
                 var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
