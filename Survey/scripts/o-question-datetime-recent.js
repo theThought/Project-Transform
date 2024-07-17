@@ -104,22 +104,6 @@ define(['o-question'],
             }
         }
 
-        oQuestionDateTimeRecent.prototype.hideOriginalInputElement = function () {
-            this.element.type = 'hidden';
-            this.hiddenelement = this.element;
-        }
-
-        oQuestionDateTimeRecent.prototype.createTimeRangeElement = function () {
-            var newelement = this.element.cloneNode();
-            newelement.value = '';
-            newelement.type = 'range';
-            newelement.name = '';
-            newelement.max = 0;
-            newelement.min = 0 - this.ranges[this.currentRange].minutes;
-            this.element.id = '';
-            this.element = this.wrapper.insertBefore(newelement, this.element);
-        }
-
         oQuestionDateTimeRecent.prototype.buildRanges = function () {
             var dateArray = [];
             var maxDate = new Date(this.maxdate);
@@ -155,6 +139,22 @@ define(['o-question'],
             }
 
             return dateArray;
+        }
+
+        oQuestionDateTimeRecent.prototype.hideOriginalInputElement = function () {
+            this.element.type = 'hidden';
+            this.hiddenelement = this.element;
+        }
+
+        oQuestionDateTimeRecent.prototype.createTimeRangeElement = function () {
+            var newelement = this.element.cloneNode();
+            newelement.value = '';
+            newelement.type = 'range';
+            newelement.name = '';
+            newelement.max = 0;
+            newelement.min = 0 - this.ranges[this.currentRange].minutes;
+            this.element.id = '';
+            this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
         oQuestionDateTimeRecent.prototype.createDateElement = function () {

@@ -13,9 +13,6 @@ define(['component'],
         mSliderThumbInteractive.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
-
-            // initialise the value - cannot be called as we don't know the thumbvalue element is ready
-            this.updatePosition({element: this.element});
             this.configurationComplete();
         }
 

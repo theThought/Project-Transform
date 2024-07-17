@@ -18,7 +18,7 @@ define(['component'],
             this.configureProperties();
             this.ranges = this.buildRanges();
             this.hideOriginalInputElement();
-            this.createList();
+            this.createDateList();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
@@ -42,14 +42,6 @@ define(['component'],
                     this.onChange();
                     break;
             }
-        }
-
-        oDropdownThumbBottom.prototype.onChange = function () {
-            var broadcastDateChange = new CustomEvent(this.group + '_broadcastDateChange', {
-                bubbles: true,
-                detail: this
-            });
-            this.element.dispatchEvent(broadcastDateChange);
         }
 
         oDropdownThumbBottom.prototype.buildRanges = function () {
@@ -76,16 +68,15 @@ define(['component'],
             this.hiddenelement = this.element;
         }
 
-        oDropdownThumbBottom.prototype.createList = function () {
-            var newelement = document.createElement('SELECT');
-            var datelist = '';
+        oDropdownThumbBottom.prototype.createDateList = function () {
+            var dateselectdropdown = document.createElement('SELECT');
+            dateselectdropdown.innerHTML = '';
 
             for (var i = 0; i < this.ranges.length; i++) {
-                datelist += '<option value="' + this.ranges[i].endpoint + '">' + this.ranges[i].dayname + '</option>';
+                dateselectdropdown.innerHTML += '<option value="' + this.ranges[i].endpoint + '">' + this.ranges[i].dayname + '</option>';
             }
-            newelement.innerHTML = datelist;
 
-            this.element = this.element.parentNode.insertBefore(newelement, this.element);
+            this.element = this.element.parentNode.insertBefore(dateselectdropdown, this.element);
         }
 
         oDropdownThumbBottom.prototype.validation = function (props) {
@@ -99,6 +90,14 @@ define(['component'],
 
         oDropdownThumbBottom.prototype.max = function (prop) {
             this.maxdate = prop;
+        }
+
+        oDropdownThumbBottom.prototype.onChange = function () {
+            var broadcastDateChange = new CustomEvent(this.group + '_broadcastDateChange', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(broadcastDateChange);
         }
 
         oDropdownThumbBottom.prototype.updateValue = function (eventDetail) {
