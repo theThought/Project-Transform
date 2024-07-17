@@ -354,7 +354,14 @@ define(['o-question'],
 
             var min = this.element.min ? parseInt(this.element.min) : (0 - 1440);
             var max = this.element.max ? parseInt(this.element.max) : 0;
-            var step = isNaN(parseInt(this.properties.ticklabels)) ? 1 : parseInt(this.properties.ticklabels);
+            var step = isNaN(parseInt(this.properties.ticklabels)) ? 60 : parseInt(this.properties.ticklabels);
+
+            // check whether requested tick label range works with available times
+            var check = min / step;
+
+            if (parseInt(check) !== check) {
+                step = Math.round(min / Math.round(check));
+            }
 
             if (step === 0) {
                 step = Math.floor(((max - min) / 100) * 10);
@@ -382,6 +389,13 @@ define(['o-question'],
             var max = this.element.max ? parseInt(this.element.max) : 0;
             var step = isNaN(parseInt(this.properties.ticklabels)) ? 60 : parseInt(this.properties.ticklabels);
 
+            // check whether requested tick label range works with available times
+            var check = min / step;
+
+            if (parseInt(check) !== check) {
+                step = Math.round(min / Math.round(check));
+            }
+
             var newDate = new Date();
             var hours = '';
             var minutes = '';
@@ -405,6 +419,29 @@ define(['o-question'],
             minutes = '0' + newDate.getMinutes();
             timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
             labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
+        }
+
+        // function to find the number closest to n and divisible by m
+        oQuestionDateTimeRecent.prototype.closestNumber = function (n, m) {
+            // find the quotient
+            var q = parseInt(n / m);
+
+            // 1st possible closest number
+            var n1 = m * q;
+
+            // 2nd possible closest number
+            var n2 = (n * m) > 0 ?
+                (m * (q + 1)) : (m * (q - 1));
+
+            // if true, then n1 is the
+            // required closest number
+            if (Math.abs(n - n1) < Math.abs(n - n2)) {
+                return n1;
+            }
+
+            // else n2 is the required
+            // closest number
+            return n2;
         }
 
         oQuestionDateTimeRecent.prototype.showValue = function () {
