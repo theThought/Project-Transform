@@ -283,6 +283,9 @@ define(['o-question'],
         }
 
         oQuestionDateTimeRecent.prototype.processDateChange = function (date) {
+            // get the time currently set on the element
+            var currentDate = new Date(this.dateelement.value);
+
             for (var i = 0; i < this.ranges.length; i++) {
                 var rangeDate = this.ranges[i].endpoint.toDateString();
                 if (rangeDate === date.toDateString()) {
@@ -294,10 +297,12 @@ define(['o-question'],
             this.dateelement.min = this.ranges[this.currentRange].endpoint;
             this.dateelement.max = this.ranges[this.currentRange].endpoint;
             this.dateelement.defaultValue = this.ranges[this.currentRange].endpoint;
+
+            var convertedValue = 0 - (this.dateToMinutes(new Date(this.dateelement.max)) - this.dateToMinutes(currentDate));
             this.element.min = 0 - this.ranges[this.currentRange].minutes;
 
-            if (this.element.value < this.element.min) {
-                this.element.value = this.element.min;
+            if (convertedValue >= this.element.min && convertedValue <= this.element.max) {
+                this.element.value = convertedValue;
             }
 
             this.buildMarks();
