@@ -2770,7 +2770,7 @@
          </xsl:attribute>
          
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'aInputThumbBottom'" />
+            <xsl:with-param name="ComponentName" select="'oDropdownThumbBottom'" />
             <xsl:with-param name="qElementID">
                <xsl:value-of select="$qElementID" />
                <xsl:text>_Thumb_Picker</xsl:text>
