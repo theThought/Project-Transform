@@ -38,6 +38,10 @@ define(['component'],
         }
 
         aInputThumbTop.prototype.onChange = function () {
+            if (this.element.value.length < 5) {
+                return;
+            }
+
             var broadcastTimeChange = new CustomEvent(this.group + '_broadcastTimeChange', {
                 bubbles: true,
                 detail: this
