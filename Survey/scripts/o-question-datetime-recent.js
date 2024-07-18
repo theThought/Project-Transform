@@ -391,6 +391,7 @@ define(['o-question'],
             }
 
             step = (Math.abs(min) / 100) * step;
+            step = Math.round(step);
 
             for (var i = min; i < max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
@@ -455,7 +456,6 @@ define(['o-question'],
             labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
         }
 
-
         oQuestionDateTimeRecent.prototype.buildTickLabelsAsPercent = function (labelsElement, min, max, step) {
             step = isNaN(parseFloat(step)) ? 25 : parseFloat(step);
 
@@ -469,6 +469,7 @@ define(['o-question'],
             }
 
             step = (Math.abs(min) / 100) * step;
+            step = Math.round(step);
 
             for (var i = min; i < max; i = i + step) {
                 newDate = new Date(this.ranges[this.currentRange].endpoint);
@@ -484,30 +485,6 @@ define(['o-question'],
             minutes = '0' + newDate.getMinutes();
             timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
             labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
-        }
-
-
-        // function to find the number closest to n and divisible by m
-        oQuestionDateTimeRecent.prototype.closestNumber = function (n, m) {
-            // find the quotient
-            var q = parseInt(n / m);
-
-            // 1st possible closest number
-            var n1 = m * q;
-
-            // 2nd possible closest number
-            var n2 = (n * m) > 0 ?
-                (m * (q + 1)) : (m * (q - 1));
-
-            // if true, then n1 is the
-            // required closest number
-            if (Math.abs(n - n1) < Math.abs(n - n2)) {
-                return n1;
-            }
-
-            // else n2 is the required
-            // closest number
-            return n2;
         }
 
         oQuestionDateTimeRecent.prototype.showValue = function () {
