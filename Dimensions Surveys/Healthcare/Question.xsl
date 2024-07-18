@@ -2742,7 +2742,6 @@
                <xsl:value-of select="$qElementID" />
                <xsl:text>__thumbinput</xsl:text>
             </xsl:with-param>
-            <xsl:with-param name="qLocal_Name" select="" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             <xsl:with-param name="qIsCustom" select="$qIsCustom" />
             <xsl:with-param name="qCustomType" select="$qCustomType" />
@@ -2775,7 +2774,6 @@
                <xsl:value-of select="$qElementID" />
                <xsl:text>_Thumb_Picker</xsl:text>
             </xsl:with-param>
-            <xsl:with-param name="qLocal_Name" select="" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
          </xsl:call-template>
          
