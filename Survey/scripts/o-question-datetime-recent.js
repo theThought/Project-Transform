@@ -354,7 +354,16 @@ define(['o-question'],
 
             var min = this.element.min ? parseInt(this.element.min) : (0 - 1440);
             var max = this.element.max ? parseInt(this.element.max) : 0;
-            var step = isNaN(parseInt(this.properties.ticklabels)) ? 60 : parseInt(this.properties.ticklabels);
+
+            if (parseInt(this.properties.ticklabels) === this.properties.ticklabels) {
+                this.buildMarksInMinutes(marksElement, min, max, this.properties.ticklabels);
+            } else {
+                this.buildMarksAsPercent(marksElement, min, max, this.properties.ticklabels);
+            }
+        }
+
+        oQuestionDateTimeRecent.prototype.buildMarksInMinutes = function (marksElement, min, max, step) {
+            step = isNaN(parseInt(step)) ? 60 : parseInt(step);
 
             // check whether requested tick label range works with available times
             var check = min / step;
@@ -366,6 +375,22 @@ define(['o-question'],
             if (step === 0) {
                 step = Math.floor(((max - min) / 100) * 10);
             }
+
+            for (var i = min; i < max; i = i + step) {
+                marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
+            }
+
+            marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
+        }
+
+        oQuestionDateTimeRecent.prototype.buildMarksAsPercent = function (marksElement, min, max, step) {
+            step = isNaN(parseFloat(step)) ? 60 : parseFloat(step);
+
+            if (step === 0) {
+                step = 25;
+            }
+
+            step = (Math.abs(min) / 100) * step;
 
             for (var i = min; i < max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
@@ -387,7 +412,16 @@ define(['o-question'],
 
             var min = this.element.min ? parseInt(this.element.min) : (0 - 1440);
             var max = this.element.max ? parseInt(this.element.max) : 0;
-            var step = isNaN(parseInt(this.properties.ticklabels)) ? 60 : parseInt(this.properties.ticklabels);
+
+            if (parseInt(this.properties.ticklabels) === this.properties.ticklabels) {
+                this.buildTickLabelsInMinutes(labelsElement, min, max, this.properties.ticklabels);
+            } else {
+                this.buildTickLabelsAsPercent(labelsElement, min, max, this.properties.ticklabels);
+            }
+        }
+
+        oQuestionDateTimeRecent.prototype.buildTickLabelsInMinutes = function (labelsElement, min, max, step) {
+            step = isNaN(parseInt(step)) ? 60 : parseInt(step);
 
             // check whether requested tick label range works with available times
             var check = min / step;
@@ -420,6 +454,38 @@ define(['o-question'],
             timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
             labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
         }
+
+
+        oQuestionDateTimeRecent.prototype.buildTickLabelsAsPercent = function (labelsElement, min, max, step) {
+            step = isNaN(parseFloat(step)) ? 25 : parseFloat(step);
+
+            var newDate = new Date();
+            var hours = '';
+            var minutes = '';
+            var timelabel = '';
+
+            if (step === 0) {
+                step = 25
+            }
+
+            step = (Math.abs(min) / 100) * step;
+
+            for (var i = min; i < max; i = i + step) {
+                newDate = new Date(this.ranges[this.currentRange].endpoint);
+                newDate.setMinutes(newDate.getMinutes() + Number(i));
+                hours = '0' + newDate.getHours();
+                minutes = '0' + newDate.getMinutes();
+                timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
+                labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
+            }
+
+            newDate = new Date(this.ranges[this.currentRange].endpoint);
+            hours = '0' + newDate.getHours();
+            minutes = '0' + newDate.getMinutes();
+            timelabel = hours.slice(-2) + ':' + minutes.slice(-2);
+            labelsElement.innerHTML = labelsElement.innerHTML + '<span>' + timelabel + '</span>';
+        }
+
 
         // function to find the number closest to n and divisible by m
         oQuestionDateTimeRecent.prototype.closestNumber = function (n, m) {
