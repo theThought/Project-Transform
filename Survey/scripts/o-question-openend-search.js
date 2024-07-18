@@ -2,7 +2,7 @@ define(['o-question'], function (oQuestion) {
     function oQuestionOpenendSearch(id, group) {
         oQuestion.call(this, id, group);
 
-        this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');    
+        this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
         this.droplistwrapper = document.querySelector('.o-list');
         this.droplist = document.querySelector('.o-list ul[data-questiongroup="' + this.group + '"]');
         this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
@@ -11,9 +11,7 @@ define(['o-question'], function (oQuestion) {
         this.messages = document.querySelector('.m-list-messages');
         this.special = document.querySelector('.m-option-base');
         this.getListItems = document.querySelector('.a-list');
-        console.log("this.getListItems");
-        console.log(this.getListItems);
-        
+
         this.hiddenelement = null;
         this.mincharacters = 0;
         this.keypressed = null;
@@ -36,10 +34,13 @@ define(['o-question'], function (oQuestion) {
         this.manualWidth = false;
         this.userspecifiedheight = 0;
         this.keytimer = null;
-        this.keytimerlimit = 500; 
+        this.keytimerlimit = 500;
 
         this.buttonElement = null;
-        this.matchedWord = null; 
+        this.matchedWord = null;
+        this.tabPressed = false;
+        
+        this.mousePressed = false;
     }
 
     oQuestionOpenendSearch.prototype = Object.create(oQuestion.prototype);
@@ -56,7 +57,7 @@ define(['o-question'], function (oQuestion) {
         this.updateScrollPosition(this.getCurrentListPosition());
         this.configureProperties();
 
-        this.createButtonElement(); 
+        this.createButtonElement();
         this.getInitialValue();
 
         this.setPosition();
@@ -75,26 +76,34 @@ define(['o-question'], function (oQuestion) {
 
         this.configureTagContainer();
         this.filterList();
-        
+
         this.setupSpecialListener();
         this.ensureSpecialOrder();
-
-        console.log('this.list');
-        console.log(this.list);
-
-        // console.log('this.getDataFromSource');
-        // console.log(this.getDataFromSource);
     };
+    oQuestionOpenendSearch.prototype.onFocusIn = function (event) {
+        if (this.tabPressed) {
+            console.log('Input field focused via Tab key');
+            this.tabPressed = false; // Reset the flag
+        } else if (this.mousePressed) {
+            console.log('Input field focused via mouse click');
+            this.mousePressed = false; // Reset the flag
+        }
+    
+        var focusEvent = new CustomEvent(this.group + '_textFocus', { bubbles: true, detail: this });
+        this.element.dispatchEvent(focusEvent);
+    };
+    
+
     oQuestionOpenendSearch.prototype.fetchList = function () {
-    var listElement = document.querySelector('#' + this.droplist.id);
-    console.log(listElement);
-    }
+        var listElement = document.querySelector('#' + this.droplist.id);
+        console.log(listElement);
+    };
 
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
         if (this.droplist) {
             var computedStyle = window.getComputedStyle(this.droplist);
             this.setMessagePaddingTop(computedStyle.height);
-        } 
+        }
     };
 
     oQuestionOpenendSearch.prototype.setMessagePaddingTop = function (height) {
@@ -149,16 +158,18 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.configureLocalEventListeners = function () {
         this.element.addEventListener('input', this.handleEvent.bind(this), false);
         this.element.addEventListener('keydown', this.handleEvent.bind(this), false);
+        this.element.addEventListener('mousedown', this.handleEvent.bind(this), false);
         this.element.addEventListener('keyup', this.handleEvent.bind(this), false);
         this.element.addEventListener('change', this.handleEvent.bind(this), false);
         this.element.addEventListener('focusin', this.handleEvent.bind(this), false);
         this.element.addEventListener('focusout', this.handleEvent.bind(this), false);
         this.element.addEventListener('cut', this.handleEvent.bind(this), false);
         this.container.addEventListener('scroll', this.handleEvent.bind(this), false);
-        //added for keyboard to be hidden if using and iOS / apple device. 
+        //added for keyboard to be hidden if using and iOS / apple device.
         this.droplist.addEventListener('scroll', this.hideKeyboard.bind(this), false);
     };
-
+    
+    
     oQuestionOpenendSearch.prototype.handleEvent = function (event) {
         switch (event.type) {
             case 'cut':
@@ -181,10 +192,10 @@ define(['o-question'], function (oQuestion) {
                 this.onEnableExclusive(event);
                 break;
             case 'mousedown':
+                this.onMousedown(event);
                 this.onClick(event);
                 break;
             case 'keydown':
-                this.getKeyPressed(event);
                 this.onKeydown(event);
                 break;
             case 'keyup':
@@ -194,7 +205,7 @@ define(['o-question'], function (oQuestion) {
             case 'focusin':
             case 'input':
                 this.onFocusIn(event);
-                this.ensureSpecialOrder(); 
+                this.ensureSpecialOrder();
                 break;
             case 'focusout':
                 this.onFocusOut(event);
@@ -207,6 +218,8 @@ define(['o-question'], function (oQuestion) {
                 break;
         }
     };
+    
+    
 
     // Define necessary methods
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
@@ -245,40 +258,40 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
-        this.mincharacters = prop; 
+        this.mincharacters = prop;
     };
 
     oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
         this.clearPlaceholderMessages();
-        
+
         var placeholderelement = document.createElement('div');
         placeholderelement.classList.add('a-list-placeholder-restriction');
         placeholderelement.innerHTML = prop;
-        
+
         this.messages.appendChild(placeholderelement);
         this.messages.appendChild(this.itemCountElement);
     };
 
     oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
         this.clearPlaceholderMessages();
-    
+
         var placeholderelement = document.createElement('div');
         placeholderelement.classList.add('a-list-placeholder-empty');
         placeholderelement.innerHTML = prop;
-    
+
         this.messages.appendChild(placeholderelement);
         this.messages.appendChild(this.itemCountElement);
     };
 
     oQuestionOpenendSearch.prototype.clearPlaceholderMessages = function () {
         var restrictionMessage = this.messages.querySelector('.a-list-placeholder-restriction');
-        
+
         if (restrictionMessage) {
             this.messages.removeChild(restrictionMessage);
         }
-        
+
         var emptyMessage = this.messages.querySelector('.a-list-placeholder-empty');
-        
+
         if (emptyMessage) {
             this.messages.removeChild(emptyMessage);
         }
@@ -288,26 +301,25 @@ define(['o-question'], function (oQuestion) {
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
         buttonElement.disabled = true;
-    
+
         this.element.insertAdjacentElement('afterend', buttonElement);
-    
-        this.buttonElement = buttonElement; 
+
+        this.buttonElement = buttonElement;
         buttonElement.setAttribute('data-checked', 'true');
         buttonElement.setAttribute('data-value', 'true');
-    
+
         var self = this;
         buttonElement.addEventListener('click', function (event) {
             event.preventDefault();
-    
+
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
-                self.element.value = ''; 
-                self.hideList(); 
+                self.element.value = '';
+                self.hideList();
             }
         });
     };
-    
 
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
@@ -318,17 +330,17 @@ define(['o-question'], function (oQuestion) {
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             var flexClass = item.image ? 'flex-container' : '';
-            var uniqueId = 'checkbox-' + i; 
+            var uniqueId = 'checkbox-' + i;
 
             if (item.image) {
                 hasImage = true;
             }
 
             html += '<li class="a-option-list ' + flexClass + '" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + item.name + '">';
-            
+
             if (item.image) {
-                html += '<input type="checkbox" id="' +  item.name + '" class="list-checkbox" data-value="' + item.name + '">';
-                html += '<label for="' +  item.name + '" class="flex-label" data-value="' + item.name + '">';
+                html += '<input type="checkbox" id="' + item.name + '" class="list-checkbox" data-value="' + item.name + '">';
+                html += '<label for="' + item.name + '" class="flex-label" data-value="' + item.name + '">';
                 html += '<img src="' + item.image + '" alt="' + item.name + '" class="list-image" data-value="' + item.name + '">';
                 html += item.name + '</label>';
             } else {
@@ -349,13 +361,13 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];
         var seenWords = {};
-    
+
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
-    
+
             if (item && typeof item.name === 'string') {
                 var words = item.name.split(' ');
-    
+
                 for (var j = 0; j < words.length; j++) {
                     var word = words[j].toLowerCase();
                     if (word.length > 3 && !seenWords[word]) {
@@ -365,16 +377,16 @@ define(['o-question'], function (oQuestion) {
                 }
             }
         }
-    
+
         return wordsArray;
     };
-    
+
     oQuestionOpenendSearch.prototype.filterWordContains = function (inputstring) {
         var wordsArray = this.gettingWords();
-        var lowerCaseInput = inputstring.toLowerCase(); 
+        var lowerCaseInput = inputstring.toLowerCase();
         var inputWords = lowerCaseInput.split(' ');
         var matchingWords = [];
-    
+
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             if (item && typeof item.name === 'string') {
@@ -387,7 +399,7 @@ define(['o-question'], function (oQuestion) {
                 }
             }
         }
-    
+
         if (matchingWords.length > 0 && lowerCaseInput.length >= 3) {
             this.matchedWord = matchingWords[0];
             this.showList();
@@ -396,10 +408,10 @@ define(['o-question'], function (oQuestion) {
             this.hideList();
             this.updateItemCount(0);
         }
-       
+
         return matchingWords;
     };
-    
+
     oQuestionOpenendSearch.prototype.wordMatching = function () {
         var inputElement = this.element;
         if (inputElement) {
@@ -407,7 +419,7 @@ define(['o-question'], function (oQuestion) {
             inputElement.addEventListener('input', function (event) {
                 var inputValue = event.target.value;
                 var filteredWords = self.filterWordContains(inputValue);
-    
+
                 if (filteredWords.length > 0 && inputValue.length >= 3) {
                     self.buttonElement.disabled = true;
                 } else if (filteredWords.length < 1) {
@@ -416,11 +428,11 @@ define(['o-question'], function (oQuestion) {
                 } else {
                     self.buttonElement.disabled = false;
                 }
-    
+
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-    
+
                 if (matches && inputValue.length === 0) {
                     self.buttonElement.disabled = true;
                 }
@@ -472,14 +484,13 @@ define(['o-question'], function (oQuestion) {
         var padding = 32;
         var errormargin = 4;
         var messagePadding = 0;
-        var droplistWrapperPadding = 35
+        var droplistWrapperPadding = 35;
 
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-        
+
         this.droplistwrapper.style.width = Math.max(droplistwidth, inputwidth) + droplistWrapperPadding - padding + 'px';
         this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
         this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
-
 
         this.manualWidth = true;
     };
@@ -507,12 +518,12 @@ define(['o-question'], function (oQuestion) {
                 if (hiddenValue) {
                     this.addTag(hiddenValue);
                     this.element.value = '';
-                } 
+                }
             }
         }
         this.element.placeholder = this.defaultplaceholder;
     };
-    
+
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
         var newelement = this.element.cloneNode();
         newelement.id = '';
@@ -551,22 +562,23 @@ define(['o-question'], function (oQuestion) {
         this.broadcastChange();
     };
 
-    oQuestionOpenendSearch.prototype.onFocusIn = function () {
-        var focusEvent = new CustomEvent(this.group + '_textFocus', { bubbles: true, detail: this });
-        this.element.dispatchEvent(focusEvent);
-        // this.showList();
-    };
-
     oQuestionOpenendSearch.prototype.onFocusOut = function (event) {
         if (event.relatedTarget === null) {
             return;
         }
-
+    
         if (!this.wrapper.contains(event.relatedTarget)) {
             event.stopImmediatePropagation();
             this.hideList();
         }
+    
+        this.tabPressed = false; // Reset the flag on focus out
+        this.mousePressed = false; // Reset the flag on focus out
     };
+    
+    
+    
+    
 
     oQuestionOpenendSearch.prototype.onCut = function (event) {
         this.selectOption(event);
@@ -585,16 +597,25 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.onKeydown = function (event) {
+        this.getKeyPressed(event);
+        
+        if (this.keypressed === 9) { // Tab key
+            this.showList();
+            this.messages.style.display = 'none'
+            this.tabPressed = true;
+            this.mousePressed = false; 
+        }
+    
         switch (this.keypressed) {
-            case 9: // tab key
+            case 9: // Tab key
+                this.tabPressed = true;
                 this.clearKeyBuffer();
-                this.hideList();
                 break;
-            case 38: // up arrow
-            case 40: // down arrow
+            case 38: // Up arrow
+            case 40: // Down arrow
                 event.preventDefault(); // prevent caret from moving
                 break;
-            case 13: // enter key
+            case 13: // Enter key
                 event.stopImmediatePropagation();
                 event.preventDefault();
                 this.selectOption(event);
@@ -606,11 +627,21 @@ define(['o-question'], function (oQuestion) {
                 }
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.onKeyup = function (event) {
+        if (this.keypressed === 9) { // Tab key
+            this.messages.style.display = 'none'
+            this.showList();
+            this.tabPressed = true;
+            this.mousePressed = false; 
+        }
+
+
         switch (this.keypressed) {
             case 27: // escape key
-                this.toggleList();
+
+                this.hideList();
                 return;
             case 38: // up arrow
                 this.clearKeyBuffer();
@@ -621,6 +652,8 @@ define(['o-question'], function (oQuestion) {
                 this.navigateDown();
                 break;
             case 9: // tab key
+                this.toggleList();
+                break;
             case null:
                 break;
             case 13: // enter key
@@ -634,6 +667,11 @@ define(['o-question'], function (oQuestion) {
                 this.filterList();
                 break;
         }
+    };
+
+    oQuestionOpenendSearch.prototype.onMousedown = function (event) {
+        this.mousePressed = true; // Mouse click flag
+        this.tabPressed = false; // Ensure tab flag is not set
     };
 
     oQuestionOpenendSearch.prototype.clearKeyBuffer = function () {
@@ -685,7 +723,7 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.updateScrollPosition = function (position) {
-        this.droplist.scrollTop = 0; 
+        this.droplist.scrollTop = 0;
         var currentitem = this.buildVisibleList()[position];
 
         if (typeof currentitem === "undefined") {
@@ -731,7 +769,7 @@ define(['o-question'], function (oQuestion) {
 
         if (event.target.classList.contains('a-option-list')) {
             this.addTag(event.target.innerText);
-            this.element.value = ''; 
+            this.element.value = '';
             this.hideList();
         }
     };
@@ -776,7 +814,7 @@ define(['o-question'], function (oQuestion) {
         }
 
         this.setSelectedOption(selectedOption);
-        this.element.value = ''; 
+        this.element.value = '';
         this.hideList();
         this.onFocusIn();
         this.onChange(event);
@@ -828,20 +866,22 @@ define(['o-question'], function (oQuestion) {
         this.setDropListDirection();
         this.element.classList.add('list-visible');
         this.droplist.classList.add('visible');
-        
+
         this.getDroplistHeight();
-        this.updateItemCount(this.buildVisibleList().length); 
+        this.updateItemCount(this.buildVisibleList().length);
     };
 
     oQuestionOpenendSearch.prototype.hideList = function () {
         this.element.classList.remove('list-visible');
         this.droplist.classList.remove('visible');
-        
+
         this.resetMessagePaddingTop();
         this.updateItemCount(0);
+        // console.log('hideList');
     };
 
     oQuestionOpenendSearch.prototype.toggleList = function () {
+      
         this.setDropListDirection();
         this.element.classList.toggle('list-visible');
     };
@@ -914,15 +954,15 @@ define(['o-question'], function (oQuestion) {
         this.setCurrentListPosition();
         this.list = this.buildList();
         var inputstring = this.element.value;
-    
-        if (inputstring.length < 3 ) {
+
+        if (inputstring.length < 3) {
             this.notenoughcharacters(this.properties.notenoughcharacters);
             this.messages.classList.add('charrestriction');
             return;
         } else {
             this.messages.classList.remove('charrestriction');
         }
-    
+
         switch (this.filtermethod) {
             case 'starts':
                 this.filterListStarts(inputstring);
@@ -934,8 +974,7 @@ define(['o-question'], function (oQuestion) {
                 this.filterWordContains(inputstring);
                 break;
         }
-    
-        
+
         var visibleItems = this.buildVisibleList();
         if (visibleItems.length > 0) {
             this.clearPlaceholderMessages();
@@ -945,14 +984,13 @@ define(['o-question'], function (oQuestion) {
         this.updateItemCount(visibleItems.length); // Update the count after filtering
     };
 
-        
     oQuestionOpenendSearch.prototype.filterListStarts = function (inputstring) {
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
-    
+
         var droplistparentnode = this.droplistwrapper.parentNode;
         droplistparentnode.removeChild(this.droplistwrapper);
-    
+
         this.list.forEach(function (item) {
             var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
             if (itemlabel.startsWith(inputstring)) {
@@ -962,7 +1000,7 @@ define(['o-question'], function (oQuestion) {
                 item.classList.add('filter-hidden');
             }
         }.bind(this));
-    
+
         droplistparentnode.appendChild(this.droplistwrapper);
         this.updateItemCount(visibleitems);
         this.togglePlaceholderVisibility(visibleitems === 0);
@@ -972,10 +1010,10 @@ define(['o-question'], function (oQuestion) {
         var exactmatch = false;
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
-    
+
         var droplistparentnode = this.droplistwrapper.parentNode;
         droplistparentnode.removeChild(this.droplistwrapper);
-    
+
         this.list.forEach(function (item) {
             var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
             if (itemlabel.includes(inputstring)) {
@@ -991,7 +1029,7 @@ define(['o-question'], function (oQuestion) {
                 item.removeAttribute('data-selected');
             }
         }.bind(this));
-    
+
         droplistparentnode.appendChild(this.droplistwrapper);
         this.updateItemCount(visibleitems);
         if (visibleitems === 0) {
@@ -1011,7 +1049,7 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.updateItemCount = function (count) {
         var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
         var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
-        
+
         if (itemCountElement && itemPromptElement) {
             if (this.droplist.classList.contains('visible')) {
                 if (typeof count === 'number' && count > 0) {
@@ -1034,7 +1072,6 @@ define(['o-question'], function (oQuestion) {
             }
         }
     };
-    
 
     oQuestionOpenendSearch.prototype.configureTagContainer = function () {
         var container = document.createElement('div');
@@ -1047,7 +1084,7 @@ define(['o-question'], function (oQuestion) {
         if (typeof label === 'undefined' || label === null) {
             return;
         }
-    
+
         var container = document.querySelector('.o-question-selected');
         if (!container) {
             container = document.createElement('div');
@@ -1055,17 +1092,17 @@ define(['o-question'], function (oQuestion) {
             var inputElement = this.wrapper.querySelector('input');
             this.wrapper.insertBefore(container, inputElement);
         }
-    
+
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-    
+
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
         } else {
             console.error('Button element not found');
         }
-    
+
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
         tag.setAttribute('data-value', label);
@@ -1073,12 +1110,12 @@ define(['o-question'], function (oQuestion) {
         tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
         this.updateItemCount(0);
-    
+
         var deleteButton = tag.querySelector('.delete-tag');
         deleteButton.addEventListener('click', function () {
             this.updateItemCount(0);
             container.removeChild(tag);
-    
+
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');
@@ -1086,15 +1123,15 @@ define(['o-question'], function (oQuestion) {
             }
             this.element.classList.remove('exact');
         }.bind(this));
-    
+
         if (this.special) {
-            
+
             var checkbox = this.special.querySelector('input[type="checkbox"]');
-    
+
             if (checkbox && checkbox.checked) {
                 container.removeChild(tag);
             }
-    
+
             var observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
@@ -1105,12 +1142,11 @@ define(['o-question'], function (oQuestion) {
                     }
                 }.bind(this));
             }.bind(this));
-    
+
             observer.observe(this.special, { attributes: true });
         }
     };
-    
-    
+
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
             if (tag.parentNode) {
@@ -1140,25 +1176,25 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.setupSpecialListener = function () {
-      
+
         if (this.special) {
-            
+
             var checkbox = this.special.querySelector('input[type="checkbox"]');
-    
-    
+
+
             var observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
                         var isChecked = this.special.getAttribute('data-checked') === 'true';
                         if (isChecked) {
-                        
-                            
+
+
                             this.itemCountElement.textContent = '';
                         }
                     }
                 }.bind(this));
             }.bind(this));
-    
+
             observer.observe(this.special, { attributes: true });
         }
     };
@@ -1166,18 +1202,18 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.ensureSpecialOrder = function () {
         if (this.special) {
             const parentNode = this.wrapper.parentNode;
-            
-            if (parentNode) {            
+
+            if (parentNode) {
                 parentNode.insertBefore(this.special, this.wrapper.nextSibling);
-    
+
                 const mListExternal = document.querySelector('.m-list-external');
-                if (mListExternal && mListExternal.classList.contains('visible')) { 
+                if (mListExternal && mListExternal.classList.contains('visible')) {
                     parentNode.insertBefore(this.special, this.wrapper.nextSibling);
                 }
             }
         }
     };
-    
+
     //Hide that keyboard!
     oQuestionOpenendSearch.prototype.hideKeyboard = function () {
         // Blur the input element to hide the keyboard

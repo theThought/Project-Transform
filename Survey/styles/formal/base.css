@@ -2616,6 +2616,9 @@ html[dir=rtl] .o-dropdown ul li {
 .o-question-choice-summary {
   width: 40%;
 }
+.o-question-choice-summary img.l-summary-response-image {
+  margin-top: -18px;
+}
 .o-question-choice-summary .m-option-summary {
   padding: 20px 0;
   width: 100%;
@@ -2710,10 +2713,10 @@ html[dir=rtl] .o-dropdown ul li {
   margin-bottom: 60px;
 }
 
-.m-openend-search-count {
+.o-question-openend-search .m-openend-search-count {
   border-top: 1px solid #000066;
-  margin-top: 20px;
-  padding-top: 10px;
+  margin-top: 60px;
+  padding-top: 11px;
   text-align: right;
   margin-bottom: 30px;
   position: relative;
