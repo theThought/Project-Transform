@@ -346,7 +346,7 @@ define(
                 this.ruleParsingComplete = true;
             }
 
-            if (this.expandedVisibilityRule === '') {
+            if (typeof this.expandedVisibilityRule === 'undefined' || this.expandedVisibilityRule === '') {
                 return;
             }
 
@@ -363,6 +363,10 @@ define(
         }
 
         component.prototype.parseVisibilityRules = function (ruleString) {
+            if (!ruleString) {
+                return;
+            }
+
             // regular expression that searches for a string followed by an operator
             // operators are = < > <> .containsNone .containsNone .containsAll
             var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%)/ig;
@@ -391,7 +395,7 @@ define(
                 this.ruleParsingComplete = true;
             }
 
-            if (this.expandedVisibilityRule === '') {
+            if (typeof this.expandedVisibilityRule === 'undefined' || this.expandedVisibilityRule === '') {
                 return;
             }
 
