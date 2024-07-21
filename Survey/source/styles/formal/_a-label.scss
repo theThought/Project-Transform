@@ -223,7 +223,8 @@ html[dir="rtl"] {
     }
 }
 
-.o-question-scale-horizontal {
+.o-question-scale-horizontal,
+.o-question-scale-vertical {
     div.a-label-prelabel,
     div.a-label-postlabel {
         margin-top: 1em;
@@ -232,7 +233,8 @@ html[dir="rtl"] {
     }
 }
 
-html[dir="rtl"] .o-question-scale-horizontal {
+html[dir="rtl"] .o-question-scale-horizontal,
+html[dir="rtl"] .o-question-scale-vertical {
     div.a-label-prelabel,
     div.a-label-postlabel {
         border: none !important;

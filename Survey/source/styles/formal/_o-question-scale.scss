@@ -1,11 +1,13 @@
 @use 'globals';
 
-.o-question-scale-horizontal {
+.o-question-scale-horizontal,
+.o-question-scale-vertical {
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-.o-question-scale-horizontal-control {
+.o-question-scale-horizontal-control,
+.o-question-scale-vertical-control {
     position: relative;
 }
 
@@ -20,6 +22,10 @@
     max-width: 100%;
     border-radius: globals.$text-border-radius;
     border: 1px solid globals.$light4;
+}
+
+.o-question-scale-vertical .o-scale-unitcontainer {
+    flex-direction: column-reverse;
 }
 
 .o-label-container {
@@ -40,6 +46,10 @@
     align-content: center;
     background-repeat: no-repeat;
     background-position: left center;
+}
+
+.o-question-scale-vertical .m-scale-unit {
+    flex-basis: auto;
 }
 
 .has-unit-background .m-scale-unit {

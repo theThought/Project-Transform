@@ -3,7 +3,7 @@ define(['o-question'],
         function oQuestionScale(id, group) {
             oQuestion.call(this, id, group);
 
-            this.container = document.querySelector('.o-question-scale-horizontal[data-questiongroup="' + this.group + '"]');
+            this.container = document.querySelector('.o-question-response[data-questiongroup="' + this.group + '"]');
             this.unitContainer = this.container.querySelector('.o-scale-unitcontainer');
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
             this.min = 1;
