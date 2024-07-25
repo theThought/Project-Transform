@@ -90,6 +90,11 @@ define(['o-question'], function (oQuestion) {
 
         var focusEvent = new CustomEvent(this.group + '_textFocus', { bubbles: true, detail: this });
         this.element.dispatchEvent(focusEvent);
+        
+        // Show the list immediately on focus
+        if (this.element.value.length === 0 && this.mincharacters === 0) {
+            this.showList();
+        }
     };
 
     oQuestionOpenendSearch.prototype.fetchList = function () {
@@ -389,10 +394,7 @@ define(['o-question'], function (oQuestion) {
             }
         }.bind(this));
     };
-    
-    
-    
-    
+
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];
         var seenWords = {};
@@ -952,7 +954,7 @@ define(['o-question'], function (oQuestion) {
         this.list = this.buildList();
         var inputstring = this.element.value;
 
-        if (inputstring.length < 3) {
+        if (inputstring.length < 3 && this.mincharacters > 0) {
             this.notenoughcharacters(this.properties.notenoughcharacters);
             this.messages.classList.add('charrestriction');
             return;
