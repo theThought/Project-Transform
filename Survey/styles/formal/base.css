@@ -2714,7 +2714,7 @@ html[dir=rtl] .o-dropdown ul li {
   }
 }
 .o-openend-search.list-combobox.o-combobox {
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 .o-question-openend-search .m-openend-search-count {
@@ -2793,41 +2793,77 @@ html[dir=rtl] .o-dropdown ul li {
   background-color: transparent !important;
 }
 
-.flex-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 40%;
-  min-height: 100px;
+.vertical-list {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 32% !important;
 }
-
-.list-checkbox {
-  margin-right: 10px;
+.vertical-list li {
+  width: 30%;
+  padding: 10px 12px !important;
+  margin: 10px;
 }
-
-.list-image {
-  margin-right: 10px;
+.vertical-list .flex-container label {
   cursor: pointer;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.flex-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
+}
+.vertical-list .flex-container label img {
+  margin-bottom: 10px;
+}
+
+.horizontal-list {
+  width: 22% !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0px !important;
+  margin: 10px !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.horizontal-list li {
+  padding: 20px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.horizontal-list .flex-container label {
+  cursor: pointer;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 :dir(rtl) .m-openend-search-count,

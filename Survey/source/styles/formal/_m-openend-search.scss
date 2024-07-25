@@ -20,7 +20,7 @@
 }
 
 .o-openend-search.list-combobox.o-combobox {
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 
@@ -104,30 +104,60 @@
 
 // Openended search for the images
 
-.flex-container {
-  display: flex;
+// Images vertical 
+.vertical-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 32% !important;
+  li{
+    width: 30%;
+    padding: 10px 12px !important;
+    margin: 10px;
+  }
+
+  .flex-container label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    img{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// Images horizontal 
+.horizontal-list {
+  width: 22% !important;
+  display: flex !important;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0px !important;
+  margin: 10px !important;
   align-items: center;
-  width: 40%;
-  min-height: 100px;
-  
+  justify-content: space-around;
+
+  li{
+    padding: 20px !important;
+    display: flex;
+    // background-color: bisque; 
+  }
+
+  .flex-container label {
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.list-checkbox {
-  margin-right: 10px; 
-}
 
-.list-image {
-  margin-right: 10px;
-  cursor: pointer; 
-  align-self: center;
-}
 
-.flex-label {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
+
 
  // RTL Styles
  :dir(rtl) {

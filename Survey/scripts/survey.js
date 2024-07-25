@@ -118,6 +118,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oQuestionOpenendSearch(id, group));
             });
             break;
+        case 'oquestionopenendsearch-images':
+            requirejs(['o-question-openend-search-images'], function (oQuestionOpenendSearchImages) {
+                app.preinitcomponents.unshift(new oQuestionOpenendSearchImages(id, group));
+            });
+            break;
         case 'oquestionchoice-summary':
             requirejs(['oQuestionChoice-summary'], function (oQuestionChoiceSummary) {
                 app.preinitcomponents.unshift(new oQuestionChoiceSummary(id, group));
