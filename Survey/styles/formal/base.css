@@ -2620,9 +2620,6 @@ html[dir=rtl] .o-dropdown ul li {
 .o-question-choice-summary {
   width: 40%;
 }
-.o-question-choice-summary img.l-summary-response-image {
-  margin-top: -18px;
-}
 .o-question-choice-summary .m-option-summary {
   padding: 20px 0;
   width: 100%;

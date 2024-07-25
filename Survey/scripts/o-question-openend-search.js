@@ -875,7 +875,7 @@ define(['o-question'], function (oQuestion) {
 
         this.resetMessagePaddingTop();
         this.updateItemCount(0);
-        // console.log('hideList');
+        
     };
 
     oQuestionOpenendSearch.prototype.toggleList = function () {
