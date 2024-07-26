@@ -2621,7 +2621,6 @@ html[dir=rtl] .o-dropdown ul li {
   width: 40%;
 }
 .o-question-choice-summary .m-option-summary {
-  padding: 20px 0;
   width: 100%;
   border-bottom: 2px solid #ECEFF5;
 }
@@ -2633,6 +2632,7 @@ html[dir=rtl] .o-dropdown ul li {
   display: block;
 }
 .o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail {
+  padding: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2685,6 +2685,9 @@ html[dir=rtl] .o-dropdown ul li {
 }
 .o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail .l-summary-response .l-summary-response-text:only-of-type {
   border: none;
+}
+.o-question-choice-summary .m-option-summary label .l-summary-answered {
+  background-color: rgba(232, 190, 93, 0.2);
 }
 
 @media only screen and (max-width: 768px) {

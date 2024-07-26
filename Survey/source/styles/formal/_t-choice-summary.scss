@@ -9,7 +9,7 @@
     // }
 
     .m-option-summary {
-        padding: 20px 0;
+        
         width: 100%;
         border-bottom: 2px solid #ECEFF5;
 
@@ -20,8 +20,8 @@
 
         label {
             display: block;
-
             .a-label-option-summary .l-summary-detail {
+                padding: 20px 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -71,6 +71,10 @@
                         }
                     }
                 }
+            }
+
+            .l-summary-answered{
+                background-color: rgba(232, 190, 93, 0.2)   ;
             }
         }
     }
