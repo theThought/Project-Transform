@@ -2827,6 +2827,30 @@ html[dir=rtl] .o-dropdown ul li {
 .vertical-list .flex-container label img {
   margin-bottom: 10px;
 }
+@media (max-width: 1200px) {
+  .vertical-list {
+    width: 45% !important;
+  }
+}
+@media (max-width: 992px) {
+  .vertical-list {
+    width: 60% !important;
+  }
+}
+@media (max-width: 768px) {
+  .vertical-list {
+    width: 60% !important;
+  }
+  .vertical-list li {
+    background-color: aqua;
+    width: 35%;
+  }
+}
+@media (max-width: 576px) {
+  .vertical-list li {
+    width: 100%;
+  }
+}
 
 .horizontal-list {
   width: 22% !important;
@@ -2864,6 +2888,28 @@ html[dir=rtl] .o-dropdown ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (max-width: 1200px) {
+  .horizontal-list {
+    width: 30% !important;
+  }
+}
+@media (max-width: 992px) {
+  .horizontal-list {
+    width: 40% !important;
+  }
+}
+@media (max-width: 768px) {
+  .horizontal-list {
+    width: 60% !important;
+    background-color: yellow;
+    height: 50px;
+  }
+}
+@media (max-width: 576px) {
+  .horizontal-list {
+    width: 100% !important;
+  }
 }
 
 :dir(rtl) .m-openend-search-count,
