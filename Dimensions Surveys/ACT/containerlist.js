@@ -55,16 +55,10 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Dessert_wine_glass.svg"
         },
         {
-            "id": "Dessert_wine_glass",
-            "caption": "Dessert wine glass",
-            "category": "glass",
-            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Dessert_wine_glass.svg"
-        },
-        {
             "id": "Gin_Bottle",
             "caption": "Gin bottle",
             "category": "bottle",
-            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Gin_Bottle.svg"
+            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Gin.svg"
         },
         {
             "id": "Highball_glass",
@@ -118,7 +112,7 @@ var barcodelist = {
             "id": "Spirits_bottle",
             "caption": "Spirits bottle",
             "category": "bottle",
-            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Spirits_bottle.svg"
+            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Spirits.svg"
         },
         {
             "id": "Table_wine_glass",
@@ -130,7 +124,7 @@ var barcodelist = {
             "id": "Tequila_bottle",
             "caption": "Tequila bottle",
             "category": "bottle",
-            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Tequila_bottle.svg"
+            "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Tequila.svg"
         },
         {
             "id": "Vodka_glass",
