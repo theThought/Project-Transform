@@ -73,13 +73,13 @@
                 }
             }
 
-            .l-summary-answered{
-                background-color: rgba(232, 190, 93, 0.2)   ;
-            }
         }
     }
 }
 
+.l-summary-lastchange{
+    background-color: rgba(232, 190, 93, 0.2)   ;
+}
 @media only screen and (max-width: 768px) {
     .o-question-choice-summary {
         width: 90%;

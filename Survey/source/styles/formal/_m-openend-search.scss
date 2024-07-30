@@ -140,31 +140,36 @@
   @media (max-width: 768px) {
     width: 60% !important;
     li {
-      background-color: aqua;
+    
       width: 35%;
     }
   }
 
   @media (max-width: 576px) {
+    width: 80% !important;
+    margin: -1px 0px 5px -10px !important;
     li {
-      width: 100%;
+      width: 40%;
+      // background: cadetblue;
+      padding: 0px !important;
     }
   }
 }
 
 // Images horizontal 
 .horizontal-list {
-  width: 22% !important;
   display: flex !important;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden; // Ensure no vertical scrolling
   gap: 20px;
   padding: 20px 0px !important;
   margin: 10px !important;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start; // Ensure items align to the start
 
   li {
+    flex: 0 0 auto; // Prevent items from shrinking or growing
     padding: 20px !important;
     display: flex;
   }
@@ -192,7 +197,6 @@
   }
   
   @media (max-width: 576px) {
-    
     width: 100% !important;
   }
 }

@@ -814,15 +814,63 @@ define(['o-question'], function (oQuestion) {
             return;
         }
     
+        // Ensure we are getting the parent li element if a nested element was clicked
+        while (selectedOption && selectedOption.tagName !== 'LI') {
+            selectedOption = selectedOption.parentElement;
+        }
+    
+        if (!selectedOption) {
+            return;
+        }
+    
         this.setSelectedOption(selectedOption);
         this.element.value = '';
         this.hideList();
         this.onFocusIn();
         this.onChange(event);
     
+        // Hide non-selected items if the selected item contains an image
+        var image = selectedOption.querySelector('img');
+        if (image) {
+            var visibleItemCount = 1; // Only the selected item is visible
+            this.list.forEach(function (item) {
+                if (item !== selectedOption && item.querySelector('img')) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = ''; // Ensure the selected item is visible
+                }
+            });
+    
+            // Ensure the necessary classes are added to input and ul elements
+            this.element.classList.add('list-visible');
+            this.droplist.classList.add('visible');
+    
+            // Ensure the necessary class is added to m-list-external
+            document.querySelector('.m-list-external').classList.add('visible');
+    
+            // Update the item count to show only one visible item
+            this.updateItemCount(visibleItemCount);
+        }
+    
         // Log the selected item
         console.log('Selected item:', selectedOption.getAttribute('data-value') || selectedOption.innerText);
     };
+    
+    
+    
+    
+    
+    oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
+        selectedOption.classList.add('selected');
+        selectedOption.setAttribute('data-selected', 'selected');
+        this.element.value = this.sanitiseText(selectedOption.innerText);
+        this.element.classList.add('exact');
+        this.setHiddenValue(selectedOption.getAttribute('data-value'));
+        this.addTag(selectedOption.innerText);
+    };
+    
+    
+    
     
     oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
         selectedOption.classList.add('selected');
@@ -1120,6 +1168,9 @@ define(['o-question'], function (oQuestion) {
             this.updateItemCount(0);
             container.removeChild(tag);
     
+            // Show all items again and add necessary classes
+            this.showAllImageItems();
+    
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');
@@ -1149,6 +1200,30 @@ define(['o-question'], function (oQuestion) {
             observer.observe(this.special, { attributes: true });
         }
     };
+        
+    oQuestionOpenendSearch.prototype.showAllImageItems = function () {
+        var visibleItemCount = 0;
+
+        this.list.forEach(function (item) {
+            if (item.querySelector('img')) {
+                item.style.display = '';
+                visibleItemCount++;
+            }
+        });
+
+        // Add necessary classes to the input and ul elements
+        this.element.classList.add('list-visible');
+        this.droplist.classList.add('visible');
+
+        // Ensure the necessary class is added to m-list-external
+        document.querySelector('.m-list-external').classList.add('visible');
+
+        // Update the item count
+        this.updateItemCount(visibleItemCount);
+
+        // Ensure the context of getDroplistHeight is correct
+        this.getDroplistHeight();
+    };
 
     oQuestionOpenendSearch.prototype.removeTag = function (tag) {
         if (tag) {
@@ -1157,16 +1232,23 @@ define(['o-question'], function (oQuestion) {
             } else {
                 console.error('Parent node not found for tag');
             }
-
+    
             if (this.element) {
                 this.element.value = '';
             }
-
+    
             if (this.hiddenelement) {
                 this.hiddenelement.value = '';
             }
+    
+            // Show all list items again and add necessary classes
+            this.showAllImageItems();
         }
     };
+    
+
+    
+    
 
     oQuestionOpenendSearch.prototype.clearTags = function () {
         var container = document.querySelector('.o-question-selected');
