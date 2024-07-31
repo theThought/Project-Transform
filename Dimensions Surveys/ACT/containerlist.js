@@ -19,7 +19,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Beer_mug.svg"
         },
         {
-            "id": "beer_bottle",
+            "id": "beer",
             "caption": "Beer bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Beer.svg"
@@ -31,7 +31,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Champagne_glass.svg"
         },
         {
-            "id": "Champagne_bottle",
+            "id": "Champagne",
             "caption": "Champagne bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Champagne.svg"
@@ -43,7 +43,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Cognac_glass.svg"
         },
         {
-            "id": "Cognac_bottle",
+            "id": "Cognac",
             "caption": "Cognac bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Cognac.svg"
@@ -55,7 +55,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Dessert_wine_glass.svg"
         },
         {
-            "id": "Gin_Bottle",
+            "id": "Gin",
             "caption": "Gin bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Gin.svg"
@@ -109,7 +109,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Snifter.svg"
         },
         {
-            "id": "Spirits_bottle",
+            "id": "Spirits",
             "caption": "Spirits bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Spirits.svg"
@@ -121,7 +121,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Table_wine_glass.svg"
         },
         {
-            "id": "Tequila_bottle",
+            "id": "Tequila",
             "caption": "Tequila bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Tequila.svg"
@@ -133,7 +133,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Vodka_glass.svg"
         },
         {
-            "id": "Vodka_bottle",
+            "id": "Vodka",
             "caption": "Vodka bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Vodka.svg"
@@ -145,7 +145,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Whiskey_glass.svg"
         },
         {
-            "id": "Whiskey_bottle",
+            "id": "Whiskey",
             "caption": "Whiskey bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Whiskey.svg"
@@ -163,7 +163,7 @@ var barcodelist = {
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Wine_box.svg"
         },
         {
-            "id": "Wine_bottle",
+            "id": "Wine",
             "caption": "Wine bottle",
             "category": "bottle",
             "image": "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/containers/Wine.svg"
