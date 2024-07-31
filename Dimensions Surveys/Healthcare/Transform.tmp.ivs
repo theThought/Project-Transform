@@ -1761,7 +1761,9 @@ Coke "Coca Cola" define
     {
         longlist "Long Lists",
         ImageList "Image Lists",
-        datetimerecent "Date/Time Recent"
+        datetimerecent "Date/Time Recent",
+        barcodescan "Barcode Scan",
+        CameraCapture "Camera Capture"
     };
     TypesList_Navigation "Implementing alternative navigation techniques" define
     {
@@ -6392,7 +6394,7 @@ Coke "Coca Cola" define
                 Type = "SingleLineEdit"
             )
         )
-    text [..200]);
+    text [..200];
     
     YearofDiagnosis "What was the year of diagnosis?"
         style(
@@ -6513,6 +6515,43 @@ Coke "Coca Cola" define
     When "When did you start your journey"
     date;
 
+    
+    '----------------------------------------
+    ' Camera Questions
+    '----------------------------------------
+    
+    LABarcode "Scan Barcode" 
+    style(zIndex=-1510)
+    text[..24]
+    codes (
+    {
+    noproduct "no matching product found" exclusive,
+    noanswer "no answer provided" NA
+    });
+    
+    LAProduct "" 
+    style(zIndex=-20)
+    text[..100]
+    codes{(NoProduct "" NA});
+    
+    LACategory ""
+    style(zIndex=-40)
+    categorical[1]
+    {
+    	Beer "Beer",
+        Wine "Wine",
+        Spirits "Spirits (cocktail or straight",
+        Cider "Cider",
+        Coolers "Flavored alcoholic beverages",
+        premixed "Pre-mixed or ready-to-drink cocktails",
+        hard "Hard Seltzer or Hard Soda",
+        othertype "Other alcoholic beverages"
+    };
+    LABarcode_Page Page(LABarcode, LAProduct, LACategory);
+    
+    '----------------------------------------
+    ' Page Definitions
+    '----------------------------------------
     recentpage ""
     page(
         lastpayment,
@@ -6529,9 +6568,7 @@ Coke "Coca Cola" define
         relapse,
         yearoftreatment
     );
-    '----------------------------------------
-    ' Page Definitions
-    '----------------------------------------
+    
     MenuPage "MenuPage"
     page(
         CustomList_SetLayout,
@@ -8668,7 +8705,7 @@ case {RotatedHiddenCells}
     barcodelist.Ask()
 
 	case {ImageList}
-	AddCustomProperties(containerlist, "containerlist", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'a-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+	AddCustomProperties(containerlist, "containerlist", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
     containerlist.QuestionTemplate = "question-database-containerlist.htm"
     containerlist.Ask()
 
@@ -8892,6 +8929,13 @@ case {datetimerecent}
 	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate,"'}}"), "replace")
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 	When_Entry.Ask()
+	
+case {barcodescan}
+    '----------------------------------------
+    ' Barcode scan Question
+    '----------------------------------------
+	AddCustomProperties(LABarcode, "LABarcode", MakeString("{'caption':{'start':'Scan Barcode'},'action':'Barcode','inputs':{'code':'LABarcode','product':'LAProduct','category':'LACategory']}"), "replace")
+	LABarcode.ask()
 end select
 
 loop

@@ -1,14 +1,95 @@
 ﻿Metadata(en-US, Question, Label)
 FixedTextsList "" define
     {
-        NoWhat "No details given"
+        NoWhat "No details given",
+        NoPicture "No picture taken",
+        Picture "Photo of",
+        StartPrevious "I had another"
     };
+
+	sizes "" define
+	{
+	size44 "44ml" factor(44),
+	size90 "90ml" factor(90),
+	size100 "100ml" factor(100),
+	size125 "125ml" factor(125),
+	size150 "150ml" factor(150),
+	size180 "180ml" factor(180),
+	size200 "200ml" factor(200),
+	size220 "220ml" factor(220),
+	size240 "240ml" factor(240),
+	size250 "250ml" factor(250),
+	size270 "267ml" factor(270),
+	size300 "300ml" factor(300),
+	size310 "310ml" factor(310),
+	size320 "320ml" factor(320),
+	size330 "330ml" factor(330),
+	size355 "355ml" factor(355),
+	size375 "375ml" factor(375),
+	size400 "400ml" factor(400),
+	size415 "415ml" factor(415),
+	size440 "440ml" factor(440),
+	size458 "458ml" factor(458),
+	size473 "473ml" factor(473),
+	size500 "500ml" factor(500),
+	size550 "550ml" factor(550),
+	size560 "560ml" factor(560),
+	size568 "568ml" factor(568),
+	size650 "650ml" factor(650),
+	size750 "750ml" factor(750),
+	size900 "900ml" factor(900),
+	size1000 "1 litre" factor(1000),
+	size1140 "1,140ml" factor(1410),
+	size1500 "1.5 litres" factor(1500),
+	size1700 "1.7 litres" factor(1700),
+	size1750 "1,750ml" factor(1750),
+	size3000 "3 litres" factor(3000),
+	size4000 "4 litres" factor(4000),
+	size4500 "4.5 litres" factor(4500),
+	size6000 "6 litres" factor(6000)
+	};
+	
+	
+	ContainerList "" define
+	{
+	beer "size330,size355,size500,size750",
+	beer_can "size355,size440,size473,size500,size568",
+	beer_glass "size250,size500,size750,size1000",
+	cider "size250,size270,size330,size400,size500,size1000,size1700",
+	cider_can "size355,size440,size458,size473,size500,size568",
+	beer_mug "size473,size568,size415,size560",
+	Whisky "size125,size200,size375,size750,size1140,size1750",
+	Vodka "size125,size200,size375,size750,size1140,size1750",
+	Tequilla "size125,size200,size375,size750,size1140,size1750",
+	Gin "size125,size200,size375,size750,size1140,size1750",
+	Rum "size125,size200,size375,size750,size1140,size1750",
+	Spirits "size125,size200,size375,size750,size1140,size1750",
+	Cognac "size125,size200,size375,size750,size1140,size175",
+	Cognac_glass "size200,size320,size473,size550",
+	White_wine_glass "size240,size355",
+	Dessert_wine_glass "size250, size400",
+	Highball_glass "size310",
+	Juice_glass "size100,size250,size300,size400",
+	Martini_glass "size150,size240,size300",
+	red_wine_glass "size650,size900",
+	rum_glass "220ml",
+	short_glass "size44",
+	snifter "size180,size240",
+	Spirits "size125,size200,size375,size750,size1140,size1750",
+	Table_wine_glass "size150,size200",
+	Tequila_glass "size44",
+	Vodka_glass "size44,size90",
+	Whiskey_glass "size200,size250",
+	Wine "size200,size375,size750,size1500,size300,size4000,size4500,size6000",
+	Wine_box "size1500,size3000",
+	Champagne_glass "size220,size260"
+	};
 
     FixedTexts ""
     categorical [1..1]
     {
         use FixedTextsList -
-    }nocasedata;
+    } nocasedata;
 
     Summary ""
         style(
@@ -25,11 +106,13 @@ FixedTextsList "" define
 
     ScriptSource "PostMessage Script source"
     text [..100]
-    codes(
+    nocasedata codes(
     {
         nosource "" NA
-    } )nocasedata;
+    } );
 
+	PreviousEntry "" text[..100] nocasedata;
+	
     ProgressJSON "{#Progress.json}"
         style(
             ZIndex = -10
@@ -43,30 +126,34 @@ FixedTextsList "" define
                 ZIndex = -20,
                 Width = "50%"
             )
-        text [..20];
+        text [..20]
+        nocasedata;
 
         When "Progress When"
             style(
                 ZIndex = -20,
                 Width = "50%"
             )
-        date;
+        text [..26]
+        nocasedata;
 
         What "Progress What"
             style(
                 ZIndex = -20,
                 Width = "50%"
             )
-        text [..300];
+        text [..300]
+        nocasedata;
 
         json ""
             style(
                 ZIndex = -20,
                 Width = "90%"
             )
-        text [..400];
+        text [..400]
+        nocasedata;
 
-    )nocasedata;
+    );
 
     '-------------------
     '  Survey Questions
@@ -79,11 +166,11 @@ FixedTextsList "" define
     date;
 
     When_MinDate "Earliest possible date/time"
-    text [..25]
+    text [..26]
     nocasedata;
 
     When_MaxDate "Lastest possible date/time"
-    text [..25]
+    text [..26]
     nocasedata;
 
     When_Entry "When did you start your journey"
@@ -135,6 +222,7 @@ FixedTextsList "" define
     text [..500]
     codes(
     {
+    	Previous "{#PreviousEntry}" exclusive,
         NoManual "" NA
     } );
 
@@ -158,7 +246,7 @@ FixedTextsList "" define
         barcode "barcode",
         what "what",
         whatinfo "whatinfo"
-    }nocasedata;
+    } nocasedata;
 
     Container ""
         style(
@@ -201,6 +289,26 @@ FixedTextsList "" define
         what "Enter"
     };
 
+    PickContainer "Describe the container you used to hold the drink you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200];
+
+	WhichContainerText "" 
+	text[..100];
+	
+	WhichSize "" categorical[1]
+	{
+	};
+	
+	AmountConsumed "" long[1..5];
+	
+	HowMuch "" long[..6000];
+	
     HowMuchPage ""
     page(
         Category,
@@ -233,6 +341,9 @@ dim postMessageScript
 dim statusBanner
 dim htmlWHEN[13], htmlWHERE[13], htmlWHAT[13], htmlHOWMUCH[13], htmlPICTURE[13]
 dim contentWHEN, contentWHERE, contentWHAT, contentHOWMUCH, contentPICTURE
+dim sampleMinDate, sampleMaxDate, samplePrevious
+dim lastQuestion
+dim calcDate
 
 htmlWHEN[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
 htmlWHEN[1] = "<div class='l-summary-questionname'>"
@@ -327,6 +438,36 @@ htmlPICTURE[12] = "</div>"
 	end if
 stayinLoop = true
 
+if IOM.SampleRecord["MinDate"] is null then
+	sampleMinDate = (Now() - 3)
+	When_MinDate = sampleMinDate
+else
+	sampleMinDate = UnFormatUTC(IOM.SampleRecord["MinDate"])
+	When_MinDate.response = sampleMinDate
+	debug.Log("When_MinDate: " + when_MinDate.Response)
+end if
+
+if IOM.SampleRecord["MaxDate"] is null then
+	sampleMaxDate = Now()
+	When_MaxDate.response = sampleMaxDate
+else
+	sampleMaxDate = UnFormatUTC(IOM.SampleRecord["MaxDate"])
+	When_MaxDate.response = sampleMaxDate
+	debug.Log("When_MaxDate: " + when_MaxDate.Response)
+end if
+
+
+
+if IOM.SampleRecord["Previous"] is null then
+	samplePrevious = ""
+	What.Codes.Filter = {NoManual}
+else
+	samplePrevious = IOM.SampleRecord["Previous"]
+	PreviousEntry.response = FixedTExts.Categories["StartPrevious"].Label.Text  + " " + samplePrevious
+	What.Codes.Filter = null
+	
+end if
+
 if iom.Info.IsDebug then
 	IOM.LayoutTemplate = "local-formal.htm"
 else
@@ -349,65 +490,105 @@ what.mustanswer = false
 container.MustAnswer = false
 picture.MustAnswer = false
 
-AddCustomProperties(when, "when", "{'values':[{'date':'23/05/2024','label':'Today','min':'00:00','max':'18:15'},{'date':'22/05/2024','label':'Yesterday','min':'00:00','max':'23:59'},{'date':'21/05/2024','label':'Tuesday','min':'00:00','max':'23:59'},{'date':'20/05/2024','label':'Monday','min':'18:16','max':'23:59'}]},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':180,'floodtovalue':false}", "replace")
+AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", FormatUTC(When_MinDate.response,false), "','max':'", FormatUTC(When_MaxDate.response, false), "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':180,'floodtovalue':false}"), "replace")
 AddCustomProperties(what, "what", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
 what.QuestionTemplate = "question-database-brandlist.htm"
 
-
-'debug.Log("now" + now())
-if when.Response is null then
-	When_MinDate.response = UTCFormat(Now() - 4)
-	When_MaxDate.response = UTCFormat(Now())
-	When_Entry.response.initial = UTCFormat(Now())
-	When_Entry.validation.function = "When_Validate"
-	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate,"'}}"), "replace")
-	
-	progress.When.Response = Localtoutctime(When_Entry.response)
-end if
 
 if what.response is null then
 	what.Response.Value = fixedtexts.Categories.NoWhat.label.text
 	progress.What.Response = What.response
 end if
 
+If When.Response is null then 
+	when.Response = When_MaxDate.Response
+	Progress.When = FormatUTC(When_MaxDate.Response, true)
+end if
+
 Progress.Status.Response = "Draft"
 Progress_Update(Progress, statusBanner)
 'Summary.Validation.Function = "CheckAllDetailsEntered"
 
+lastQuestion = "NONE"
 While stayinLoop
+
 	Summary.Response = null
+
+	if When.Response is null or When.Response = 0 then
+		htmlWHEN[8] = MakeWhen(When_Entry.response) 
+	else
+		When_Entry.response = When.response
+		htmlWHEN[8] = MakeWhen(When.response)
+	end if
 	
-	contentWHAT = BuildContent(htmlWHAT, null)
-	contentWHERE = BuildContent(htmlWHERE, null)
-	contentHOWMUCH = BuildContent(htmlHOWMUCH, null)
-	contentWHEN = BuildContent(htmlWHEN, null)
-	contentPICTURE = BuildContent(htmlPICTURE, null)
+	if where.Response is  null then 
+		contentWHERE = BuildContent(htmlWHERE, false, false)
+	else
+		htmlWHERE[8] = MakeString("<div class='l-summary-response-text'>", format(where.Response, "b"), "</div>")
+		contentWHERE = BuildContent(htmlWHERE, true, (lastQuestion = "WHERE"))
+	end if
+	
+	if what.Response is null then
+		contentWHAT = BuildContent(htmlWHAT, false, false)
+	else
+		htmlWHAT[8] = MakeString("<div class='l-summary-response-text'>", WHAT.Response, "</div>")
+		contentWHAT = BuildContent(htmlWHAT, true, (lastQuestion = "WHAT"))
+	end if
+	
+	if picture.response is null or picture.Response = "" then
+		htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='64px' height='64px' src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' alt='", FixedTexts.Categories["NoPicture"].Label.text ,"'/>")
+	else
+		htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='64px' height='64px' src='", WHAT.Response, "' alt='", FixedTexts.Categories["Picture"].Label.text, " ", What.Response ,"'/>")
+	end if
+	
+	contentHOWMUCH = BuildContent(htmlHOWMUCH, false, (lastQuestion = "HOWMUCH"))
+	contentWHEN = 	BuildContent(htmlWHEN, true, (lastQuestion = "WHEN"))
+	contentPICTURE = BuildContent(htmlPICTURE, true, (lastQuestion = "PICTURE"))
 	
 	Summary.Ask()
 	select case Summary.Response.value
 	case {when}
 'IOM.LayoutTemplate = "pageoutput-label.htm"
+		debug.log("Before:" + When_Entry.response)
 		WHEN_Entry.Ask()
-		When.Response = When_Entry.Response 
-		Progress.When.response = Localtoutctime(when.response)
+		debug.log("After:" + When_Entry.response)
+		When.Response = unformatUTC(When_Entry.Response)
+		Progress.When.response = FormatUTC(when.response, true)
 		Progress_Update(Progress, statusBanner)
+		lastQuestion = "WHEN"
+		
 	case {where}
-		where.Ask() 
+		where.Ask()
+		lastQuestion = "WHERE"
+		
 	case {what}
 	    what.Response = null
 		What.ask()
-		htmlWHAT[8] = what.Response 
 		Progress.What = what.response
 		Progress_Update(Progress, statusBanner)
+		lastQuestion = "WHAT"
 		
 	case {howmuch}
-		AddCustomProperties(container, "container", "{'displayicon':false,'listsize':8,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
-	    container.QuestionTemplate = "question-database-containerlist.htm"
 	
-		container.Ask()
-		qty.Ask()
+		AddCustomProperties(PickContainer, "PickContainer", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+	    PickContainer.QuestionTemplate = "question-database-containerlist.htm"
+	    PickContainer.Ask()
+
+		
+		debug.Log("container: " + PickContainer.response)
+		
+		AddCustomProperties(container, "container", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+		containerSize.ask()
+
+		AddCustomProperties(container, "container", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+		containerConsumed.ask()
+
+		lastQuestion = "HWOMUCH"
+		
 	case {picture}
 		Picture.Ask()
+		lastQuestion = "PICTURE"
+				
 	end select 
 	stayinLoop = (summary.Response <> {})
 		
@@ -431,10 +612,24 @@ dim newJSON
 	newJSON = JsonDeserialize(theQuestion.json)
 	newJSON.status = theQuestion.status.response 
 	newJSON.what = theQuestion.what
-	newJSON.when = LocalToUTCTime(theQuestion.When)
+	newJSON.when = theQuestion.When
 	theQuestion.Json.response = JSONSerialize(newJSON)
 	theBanner.text = theQuestion.json.response 
 end sub
+
+function MakeWhen(theDate)
+dim stringDay, stringDate, stringMonth, stringHour, stringMinute
+	stringDay = WeekDayName(dateonly(theDate), true)
+	stringDate = cText(DatePart(theDate, "d"))
+	stringMonth = MonthName(DatePart(theDate,"m"),true)
+	stringHour = cText(DatePart(theDate, "h"))
+	stringMinute = cText(DatePart(theDate, "n"))
+	
+	if stringHour.Len() < 2 then stringHour = "0" + stringHour
+	if stringMinute.Len() < 2 then stringMinute = "0" + stringMinute
+	
+MakeWhen = MakeString("<div class='l-summary-response-text'>", stringDay, " ", stringDate, "-", stringMonth ,"</div><div class='l-summary-response-text'>", stringHour, ":", stringMinute, "</div>")
+end function
 
 function FindBanner(theQuestion, theBannerName)
 dim numberOfBanners
@@ -715,17 +910,19 @@ end function
     
 	'    Summary Question
 	'----------------------------------------
-	function BuildContent(theHTML, theResponse)
+	function BuildContent(theHTML, theResponse, theLastChange)
 	dim stringContent 
 	dim quote
 		stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
-		if theResponse is null then
+		if not theResponse then
 			stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
 		else
 			stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
 		end if
 		'not required for ACT
-		stringContent = MakeString(stringContent, theHTML[10], theHTML[11])
+		if theLastChange Then stringContent = MakeString(stringContent, theHTML[10])
+		
+		if theHTML[11] <> "" then stringContent = MakeString(stringContent, theHTML[11])
 		
 		'finish is off
 		stringContent = MakeString(stringContent, theHTML[12])	
@@ -749,7 +946,7 @@ end function
 	
 	end function
 	
-	function UTCFormat(theDate)
+	function FormatUTC(theDate, theZIncluded)
 	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
 	dim strYear, strMonth, strDay, strHour, strMinute, strSecond
 	digitYear = YEar(theDate)
@@ -783,7 +980,43 @@ end function
 	else
 		strMinute = ctext(digitMinute)
 	end if		
+	if theZIncluded then
+		FormatUTC = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
+	else
+		FormatUTC = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00")
+	end if	
+	end function
 	
-	UTCFormat = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
+	function UnFormatUTC(theString)
+	dim findDate, findEnd, findDecimal
+	dim stringDate, stringTime
+	dim convertedDate, convertedTime
+		findDate = theString.Find("T")
+		findEnd = theString.Find("Z")
+		debug.Log("FindDate:" + ctext(findDate))
+		debug.Log("FindEnd:" + ctext(findEnd))
+		
+		if findEnd > -1 then
+			theString = theString.Left(findEnd)
+		end if
+		
+		findDecimal = theString.Find(".",, true)
+		if findDecimal > -1 then
+			theString = theString.Left(findDecimal)
+		end if
+		
+		if findDate > -1 then
+			stringDate = theString.Left(findDate)
+			stringTime = theString.Mid(findDate+1,theString.Len() - findDate)
+			debug.Log("stringDate: " + cText(stringDate))
+			debug.Log("stringTime: " + cText(stringTime))
+		else
+			UnFormatUTC = -1
+			exit function
+		end if
+		
+		convertedDate = cdate(stringDate + " " + stringTime)
+'		convertedTime = cdate(stringTime)
+		UnFormatUTC = convertedDate
 	end function
 End Routing
