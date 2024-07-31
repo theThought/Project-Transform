@@ -1,7 +1,6 @@
 define(['o-question'], function (oQuestion) {
     function oQuestionOpenendSearch(id, group) {
         oQuestion.call(this, id, group);
-
         this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
         this.droplistwrapper = document.querySelector('.o-list');
         this.droplist = document.querySelector('.o-list ul[data-questiongroup="' + this.group + '"]');
@@ -11,38 +10,30 @@ define(['o-question'], function (oQuestion) {
         this.messages = document.querySelector('.m-list-messages');
         this.special = document.querySelector('.m-option-base');
         this.getListItems = document.querySelector('.a-list');
-
         this.hiddenelement = null;
         this.mincharacters = 0;
         this.keypressed = null;
         this.keybuffer = '';
         this.searchableNames = [];
-
         this.list = null;
         this.location = null;
         this.source = null;
         this.valuefrom = null;
         this.descriptionfrom = null;
-
         this.currentlistposition = -1;
         this.isExact = true;
         this.filtermethod = 'contains';
         this.listtype = 'openendsearch';
-
         this.defaultplaceholder = 'Select';
         this.isjumpingtoletter = false;
         this.manualWidth = false;
         this.userspecifiedheight = 0;
         this.keytimer = null;
         this.keytimerlimit = 500;
-
         this.buttonElement = null;
         this.matchedWord = null;
         this.tabPressed = false;
-
         this.mousePressed = false;
-
-
     }
 
     oQuestionOpenendSearch.prototype = Object.create(oQuestion.prototype);
@@ -50,7 +41,6 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.init = function () {
         this.list = this.buildList();
-
         this.indexList();
         this.manualWidth = this.checkManualWidth();
         this.cloneInputElement();
@@ -58,10 +48,8 @@ define(['o-question'], function (oQuestion) {
         this.setCurrentListPosition();
         this.updateScrollPosition(this.getCurrentListPosition());
         this.configureProperties();
-
         this.createButtonElement();
         this.getInitialValue();
-
         this.setPosition();
         this.setTabIndex();
         this.setWrapperType();
@@ -71,29 +59,23 @@ define(['o-question'], function (oQuestion) {
         this.configureIncomingEventListeners();
         this.configureLocalEventListeners();
         this.configurationComplete();
-
         this.fetchList();
         this.getDataFromSource();
         this.wordMatching();
-
         this.configureTagContainer();
         this.filterList();
-
         this.setupSpecialListener();
         this.ensureSpecialOrder();
     };
 
     oQuestionOpenendSearch.prototype.onFocusIn = function (event) {
         if (this.tabPressed) {
-            this.tabPressed = false; // Reset the flag
+            this.tabPressed = false;
         } else if (this.mousePressed) {
-            this.mousePressed = false; // Reset the flag
+            this.mousePressed = false;
         }
-
         var focusEvent = new CustomEvent(this.group + '_textFocus', { bubbles: true, detail: this });
         this.element.dispatchEvent(focusEvent);
-        
-        // Show the list immediately on focus
         if (this.element.value.length === 0 && this.mincharacters === 0) {
             this.showList();
         }
@@ -127,26 +109,21 @@ define(['o-question'], function (oQuestion) {
         this.wrapper.classList.add('direction-down');
         this.droplist.style.removeProperty('bottom');
         var paddingAllowance = 10;
-
         var footer = document.getElementsByClassName('footer')[0];
         var viewportBounds = this.checkViewportBounds(this.droplist);
         var footerCollision = this.checkCollision(this.droplist, footer);
-
         var distanceToTop = this.element.getBoundingClientRect().top;
         var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
         if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
             this.wrapper.classList.remove('direction-down');
             this.wrapper.classList.add('direction-up');
-
             if (distanceToTop < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
                 this.droplist.style.maxHeight = distanceToTop - paddingAllowance + 'px';
             }
-
         } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
             this.droplist.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
         }
-
         this.getDroplistHeight();
     };
 
@@ -169,7 +146,6 @@ define(['o-question'], function (oQuestion) {
         this.element.addEventListener('focusout', this.handleEvent.bind(this), false);
         this.element.addEventListener('cut', this.handleEvent.bind(this), false);
         this.container.addEventListener('scroll', this.handleEvent.bind(this), false);
-        //added for keyboard to be hidden if using and iOS / apple device.
         this.droplist.addEventListener('scroll', this.hideKeyboard.bind(this), false);
     };
 
@@ -222,7 +198,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    // Define necessary methods
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
         if (this.hiddenelement.value === event.detail.itemValue) {
             this.clearEntries();
@@ -264,22 +239,18 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.notenoughcharacters = function (prop) {
         this.clearPlaceholderMessages();
-
         var placeholderelement = document.createElement('div');
         placeholderelement.classList.add('a-list-placeholder-restriction');
         placeholderelement.innerHTML = prop;
-
         this.messages.appendChild(placeholderelement);
         this.messages.appendChild(this.itemCountElement);
     };
 
     oQuestionOpenendSearch.prototype.noitemsinlist = function (prop) {
         this.clearPlaceholderMessages();
-
         var placeholderelement = document.createElement('div');
         placeholderelement.classList.add('a-list-placeholder-empty');
         placeholderelement.innerHTML = prop;
-
         this.messages.appendChild(placeholderelement);
         this.messages.appendChild(this.itemCountElement);
     };
@@ -289,7 +260,6 @@ define(['o-question'], function (oQuestion) {
         if (restrictionMessage) {
             this.messages.removeChild(restrictionMessage);
         }
-
         var emptyMessage = this.messages.querySelector('.a-list-placeholder-empty');
         if (emptyMessage) {
             this.messages.removeChild(emptyMessage);
@@ -300,17 +270,13 @@ define(['o-question'], function (oQuestion) {
         var buttonElement = document.createElement('button');
         buttonElement.id = 'a-button-word-match';
         buttonElement.disabled = true;
-
         this.element.insertAdjacentElement('afterend', buttonElement);
-
         this.buttonElement = buttonElement;
         buttonElement.setAttribute('data-checked', 'true');
         buttonElement.setAttribute('data-value', 'true');
-
         var self = this;
         buttonElement.addEventListener('click', function (event) {
             event.preventDefault();
-
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
@@ -322,11 +288,7 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
-    
-        // Read the direction property
         var direction = this.properties.direction || 'standard-list';
-    
-        // Apply the appropriate class based on the direction
         if (direction === 'horizontal') {
             listElement.classList.add('horizontal-list');
             listElement.classList.remove('vertical-list');
@@ -338,17 +300,12 @@ define(['o-question'], function (oQuestion) {
             listElement.classList.remove('horizontal-list');
             listElement.classList.add('standard-list');
         }
-    
         var html = '';
-    
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
-            
             var flexClass = item.image ? 'flex-container' : '';
             var uniqueId = 'checkbox-' + i;
-    
-            html += '<li class="a-option-list ' + flexClass + '" id="' + this.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + (item.name || item.caption) + '" tabindex="0">';
-            
+            html += '<li class="a-option-list ' + flexClass + '" id="' + item.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + (item.name || item.caption) + '" tabindex="0">';
             if (item.image) {
                 html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
                 html += '<img src="' + item.image + '" alt="' + item.caption + '" class="list-image" data-value="' + (item.name || item.caption) + '">';
@@ -357,22 +314,16 @@ define(['o-question'], function (oQuestion) {
                 html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
                 html += item.name + '</label>';
             }
-            
             html += '</li>';
         }
-    
         listElement.innerHTML = html;
-    
-        // Add event listeners to list items, images, and labels for tagging
         var listItems = listElement.querySelectorAll('li');
-    
         listItems.forEach(function (item) {
             item.addEventListener('click', function (e) {
                 e.stopPropagation();
                 var value = item.getAttribute('data-value');
                 this.addTag(value);
             }.bind(this));
-    
             var label = item.querySelector('label');
             if (label) {
                 label.addEventListener('click', function (e) {
@@ -381,7 +332,6 @@ define(['o-question'], function (oQuestion) {
                     this.addTag(value);
                 }.bind(this));
             }
-    
             var img = item.querySelector('img');
             if (img) {
                 img.addEventListener('click', function (e) {
@@ -390,7 +340,6 @@ define(['o-question'], function (oQuestion) {
                     if (!value) {
                         value = img.parentElement.getAttribute('data-value');
                     }
-
                     this.addTag(value);
                 }.bind(this));
             }
@@ -400,14 +349,11 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];
         var seenWords = {};
-
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             var text = item.caption || item.name;
-
             if (item && typeof text === 'string') {
                 var words = text.split(' ');
-
                 for (var j = 0; j < words.length; j++) {
                     var word = words[j].toLowerCase();
                     if (word.length > 3 && !seenWords[word]) {
@@ -425,11 +371,9 @@ define(['o-question'], function (oQuestion) {
         var lowerCaseInput = inputstring.toLowerCase();
         var inputWords = lowerCaseInput.split(' ');
         var matchingWords = [];
-
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             var itemName = (item.caption || item.name).toLowerCase();
-
             if (item && typeof itemName === 'string') {
                 var allMatch = inputWords.every(function (word) {
                     return itemName.includes(word);
@@ -439,13 +383,11 @@ define(['o-question'], function (oQuestion) {
                 }
             }
         }
-
         if (matchingWords.length > 0 && lowerCaseInput.length >= 3) {
             this.matchedWord = matchingWords[0];
             this.showList();
         } else {
             this.matchedWord = null;
-            // this.hideList();
             this.updateItemCount(0);
         }
         return matchingWords;
@@ -458,7 +400,6 @@ define(['o-question'], function (oQuestion) {
             inputElement.addEventListener('input', function (event) {
                 var inputValue = event.target.value;
                 var filteredWords = self.filterWordContains(inputValue);
-
                 if (filteredWords.length > 0 && inputValue.length >= 3) {
                     self.buttonElement.disabled = true;
                 } else if (filteredWords.length < 1) {
@@ -467,17 +408,13 @@ define(['o-question'], function (oQuestion) {
                 } else {
                     self.buttonElement.disabled = false;
                 }
-
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-
                 if (matches && inputValue.length === 0) {
                     self.buttonElement.disabled = true;
                 }
             });
-        } else {
-            console.error('Input element not found or not an INPUT element');
         }
     };
 
@@ -511,7 +448,6 @@ define(['o-question'], function (oQuestion) {
             this.droplist.style.width = 'calc(' + this.element.style.width + ' + 16px + 16px)';
             return;
         }
-
         this.element.size = Math.max(this.defaultplaceholder.length, 1);
         var inputdims = getComputedStyle(this.element);
         var inputwidth = parseFloat(inputdims.width);
@@ -524,23 +460,18 @@ define(['o-question'], function (oQuestion) {
         var errormargin = 4;
         var messagePadding = 0;
         var droplistWrapperPadding = 35;
-
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-        // vertical-list 
         this.droplistwrapper.style.width = Math.max(droplistwidth, inputwidth) + droplistWrapperPadding - padding + 'px';
         this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
         this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
-
         this.manualWidth = true;
     };
 
     oQuestionOpenendSearch.prototype.restoreSelection = function () {
         var currentselection = this.droplist.querySelector('[data-value="' + this.element.value + '"]');
-
         if (currentselection === null) {
             return;
         }
-
         this.setSelectedOption(currentselection);
     };
 
@@ -575,9 +506,9 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.buildList = function () {
         var listItems = this.droplist.querySelectorAll('li');
         listItems.forEach(function(item, index) {
-            item.setAttribute('data-value', item.innerText); 
+            item.setAttribute('data-value', item.id); 
         });
-    return listItems;
+        return listItems;
     };
 
     oQuestionOpenendSearch.prototype.buildListFromHtml = function () {
@@ -609,14 +540,12 @@ define(['o-question'], function (oQuestion) {
         if (event.relatedTarget === null) {
             return;
         }
-
         if (!this.wrapper.contains(event.relatedTarget)) {
             event.stopImmediatePropagation();
             this.hideList();
         }
-
-        this.tabPressed = false; // Reset the flag on focus out
-        this.mousePressed = false; // Reset the flag on focus out
+        this.tabPressed = false;
+        this.mousePressed = false;
     };
 
     oQuestionOpenendSearch.prototype.onCut = function (event) {
@@ -637,21 +566,20 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.onKeydown = function (event) {
         this.getKeyPressed(event);
-
         switch (this.keypressed) {
-            case 9: // Tab key
+            case 9:
                 this.tabPressed = true;
                 this.clearKeyBuffer();
                 break;
-            case 38: // Up arrow
-                event.preventDefault(); // prevent caret from moving
+            case 38:
+                event.preventDefault();
                 this.navigateUp();
                 break;
-            case 40: // Down arrow
-                event.preventDefault(); // prevent caret from moving
+            case 40:
+                event.preventDefault();
                 this.navigateDown();
                 break;
-            case 13: // Enter key
+            case 13:
                 event.stopImmediatePropagation();
                 event.preventDefault();
                 this.selectOption(event);
@@ -665,31 +593,30 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.onKeyup = function (event) {
-        if (this.keypressed === 9) { // Tab key
+        if (this.keypressed === 9) {
             this.messages.style.display = 'none'
             this.showList();
             this.tabPressed = true;
             this.mousePressed = false;
         }
-
         switch (this.keypressed) {
-            case 27: // escape key
+            case 27:
                 this.hideList();
                 return;
-            case 38: // up arrow
+            case 38:
                 this.clearKeyBuffer();
                 this.navigateUp();
                 break;
-            case 40: // down arrow
+            case 40:
                 this.clearKeyBuffer();
                 this.navigateDown();
                 break;
-            case 9: // tab key
+            case 9:
                 this.toggleList();
                 break;
             case null:
                 break;
-            case 13: // enter key
+            case 13:
                 return;
             default:
                 clearInterval(this.keytimer);
@@ -703,8 +630,8 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.onMousedown = function (event) {
-        this.mousePressed = true; // Mouse click flag
-        this.tabPressed = false; // Ensure tab flag is not set
+        this.mousePressed = true;
+        this.tabPressed = false;
     };
 
     oQuestionOpenendSearch.prototype.clearKeyBuffer = function () {
@@ -732,18 +659,15 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.updateScrollPosition = function (position) {
         this.droplist.scrollTop = 0;
         var currentitem = this.buildVisibleList()[position];
-
         if (typeof currentitem === "undefined") {
             return;
         }
-
         var scrollposition = currentitem.offsetTop - this.droplist.clientHeight;
         this.droplist.scrollTop = scrollposition + 100;
     };
 
     oQuestionOpenendSearch.prototype.updateSelectedEntry = function (position) {
         var currentvisiblelist = this.buildVisibleList();
-
         for (var i = 0; i < currentvisiblelist.length; i++) {
             if (i === position) {
                 currentvisiblelist[i].classList.add('selected');
@@ -761,17 +685,14 @@ define(['o-question'], function (oQuestion) {
             this.toggleList();
             return;
         }
-
         if (!this.droplist.classList.contains('visible')) {
             return;
         }
-
         if (this.droplist.contains(event.target)) {
             event.stopImmediatePropagation();
             this.selectOption(event);
             return;
         }
-
         this.hideList();
     };
 
@@ -787,91 +708,54 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.selectOption = function (event) {
         this.keybuffer = '';
         var selectedOption = event.target;
-    
         if (!this.element.classList.contains('list-visible')) {
             return;
         }
-    
         if (event.type === 'keydown') {
             selectedOption = this.list[this.currentlistposition];
         }
-    
         if (event.target === this.droplist) {
             return;
         }
-    
         if (typeof selectedOption === 'undefined') {
             return;
         }
-    
         if (selectedOption.classList.contains('a-list-placeholder-restriction')) {
             this.hideList();
             return;
         }
-    
         if (selectedOption.classList.contains('a-list-placeholder-empty')) {
             this.hideList();
             return;
         }
-    
-        // Ensure we are getting the parent li element if a nested element was clicked
         while (selectedOption && selectedOption.tagName !== 'LI') {
             selectedOption = selectedOption.parentElement;
         }
-    
         if (!selectedOption) {
             return;
         }
-    
         this.setSelectedOption(selectedOption);
         this.element.value = '';
         this.hideList();
         this.onFocusIn();
         this.onChange(event);
-    
-        // Hide non-selected items if the selected item contains an image
         var image = selectedOption.querySelector('img');
         if (image) {
-            var visibleItemCount = 1; // Only the selected item is visible
+            var visibleItemCount = 1;
             this.list.forEach(function (item) {
                 if (item !== selectedOption && item.querySelector('img')) {
                     item.style.display = 'none';
                 } else {
-                    item.style.display = ''; // Ensure the selected item is visible
+                    item.style.display = '';
                 }
             });
-    
-            // Ensure the necessary classes are added to input and ul elements
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
-    
-            // Ensure the necessary class is added to m-list-external
             document.querySelector('.m-list-external').classList.add('visible');
-    
-            // Update the item count to show only one visible item
             this.updateItemCount(visibleItemCount);
         }
-    
-        // Log the selected item
-        console.log('Selected item:', selectedOption.getAttribute('data-value') || selectedOption.innerText);
     };
-    
-    
-    
-    
-    
-    oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
-        selectedOption.classList.add('selected');
-        selectedOption.setAttribute('data-selected', 'selected');
-        this.element.value = this.sanitiseText(selectedOption.innerText);
-        this.element.classList.add('exact');
-        this.setHiddenValue(selectedOption.getAttribute('data-value'));
-        this.addTag(selectedOption.innerText);
-    };
-    
-    
-    
-    
+
     oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
         selectedOption.classList.add('selected');
         selectedOption.setAttribute('data-selected', 'selected');
@@ -885,7 +769,6 @@ define(['o-question'], function (oQuestion) {
         if (this.isInitialising) {
             return;
         }
-
         oQuestion.prototype.clearEntries.call(this);
         this.clearOptions();
         this.filterList();
@@ -895,15 +778,12 @@ define(['o-question'], function (oQuestion) {
         if (this.isInitialising) {
             return;
         }
-
         for (var i = 0; i < this.list.length; i++) {
             var item = this.list[i];
             item.classList.remove('selected');
             item.removeAttribute('data-selected');
         }
-
         this.element.classList.remove('exact');
-
         if (this.hiddenelement.value) {
             this.setHiddenValue('');
             this.broadcastChange();
@@ -943,22 +823,18 @@ define(['o-question'], function (oQuestion) {
         this.wrapper.classList.add('direction-down');
         this.droplist.style.removeProperty('bottom');
         var paddingAllowance = 10;
-
         var footer = document.getElementsByClassName('footer')[0];
         var viewportBounds = this.checkViewportBounds(this.droplist);
         var footerCollision = this.checkCollision(this.droplist, footer);
-
         var distanceToTop = this.element.getBoundingClientRect().top;
         var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
         if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
             this.wrapper.classList.remove('direction-down');
             this.wrapper.classList.add('direction-up');
-
             if (distanceToTop < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
                 this.droplist.style.maxHeight = distanceToTop - paddingAllowance + 'px';
             }
-
         } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.droplist.getBoundingClientRect().height)) {
             this.droplist.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
         }
@@ -969,15 +845,12 @@ define(['o-question'], function (oQuestion) {
             this.currentlistposition = parseInt(position);
             return;
         }
-
         var selectedpos = null;
-
         for (var i = 0; i < this.list.length; i++) {
             if (this.list[i].classList.contains('selected')) {
                 selectedpos = i;
             }
         }
-
         if (selectedpos === null) {
             this.currentlistposition = -1;
         } else {
@@ -994,7 +867,6 @@ define(['o-question'], function (oQuestion) {
             var item = this.list[i];
             if (item.getAttribute('data-selected')) {
                 this.element.value = this.sanitiseText(item.innerText);
-
                 item.setAttribute('data-selected', 'selected');
                 item.classList.add('selected');
                 this.filterList();
@@ -1003,24 +875,20 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.filterList = function (prop) {
-        // Ensure the list stays visible if it has the required class
         if (!document.querySelector('.horizontal-list, .vertical-list, .standard-list')) {
-            return; // Exit the function if none of the classes are present
+            return;
         }
-
         this.setCurrentListPosition();
         this.list = this.buildList();
         var inputstring = this.element.value;
-
         if (inputstring.length < 3 && this.mincharacters > 0) {
             this.notenoughcharacters(this.properties.notenoughcharacters);
             this.messages.classList.add('charrestriction');
-            this.hideList(); // Hide the list if not enough characters
+            this.hideList();
             return;
         } else {
             this.messages.classList.remove('charrestriction');
         }
-
         switch (this.filtermethod) {
             case 'starts':
                 this.filterListStarts(inputstring);
@@ -1032,22 +900,20 @@ define(['o-question'], function (oQuestion) {
                 this.filterWordContains(inputstring);
                 break;
         }
-
         var visibleItems = this.buildVisibleList();
         if (visibleItems.length > 0) {
             this.clearPlaceholderMessages();
-            this.showList(); 
+            this.showList();
         } else {
             this.noitemsinlist(this.properties.noitemsinlist);
-            this.hideList(); // Hide the list if no items match
+            this.hideList();
         }
-        this.updateItemCount(visibleItems.length); // Update the count after filtering
+        this.updateItemCount(visibleItems.length);
     };
 
     oQuestionOpenendSearch.prototype.filterListStarts = function (inputstring) {
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
-
         this.list.forEach(function (item) {
             var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
             if (itemlabel.startsWith(inputstring)) {
@@ -1057,7 +923,6 @@ define(['o-question'], function (oQuestion) {
                 item.classList.add('filter-hidden');
             }
         }.bind(this));
-
         this.updateItemCount(visibleitems);
         this.togglePlaceholderVisibility(visibleitems === 0);
     };
@@ -1066,7 +931,6 @@ define(['o-question'], function (oQuestion) {
         var exactmatch = false;
         var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
-
         this.list.forEach(function (item) {
             var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
             if (itemlabel.includes(inputstring)) {
@@ -1082,7 +946,6 @@ define(['o-question'], function (oQuestion) {
                 item.removeAttribute('data-selected');
             }
         }.bind(this));
-
         this.updateItemCount(visibleitems);
         if (visibleitems === 0) {
             this.noitemsinlist(this.properties.noitemsinlist);
@@ -1101,7 +964,6 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.updateItemCount = function (count) {
         var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
         var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
-
         if (itemCountElement && itemPromptElement) {
             if (this.droplist.classList.contains('visible')) {
                 if (typeof count === 'number' && count > 0) {
@@ -1136,7 +998,6 @@ define(['o-question'], function (oQuestion) {
         if (typeof label === 'undefined' || label === null) {
             return;
         }
-    
         var container = document.querySelector('.o-question-selected');
         if (!container) {
             container = document.createElement('div');
@@ -1144,17 +1005,12 @@ define(['o-question'], function (oQuestion) {
             var inputElement = this.wrapper.querySelector('input');
             this.wrapper.insertBefore(container, inputElement);
         }
-    
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-    
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
-        } else {
-            console.error('Button element not found');
         }
-    
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
         tag.setAttribute('data-value', label);
@@ -1162,15 +1018,11 @@ define(['o-question'], function (oQuestion) {
         tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
         this.updateItemCount(0);
-    
         var deleteButton = tag.querySelector('.delete-tag');
         deleteButton.addEventListener('click', function () {
             this.updateItemCount(0);
             container.removeChild(tag);
-    
-            // Show all items again and add necessary classes
             this.showAllImageItems();
-    
             for (var i = 0; i < this.list.length; i++) {
                 var item = this.list[i];
                 item.classList.remove('selected');
@@ -1178,14 +1030,11 @@ define(['o-question'], function (oQuestion) {
             }
             this.element.classList.remove('exact');
         }.bind(this));
-    
         if (this.special) {
             var checkbox = this.special.querySelector('input[type="checkbox"]');
-    
             if (checkbox && checkbox.checked) {
                 container.removeChild(tag);
             }
-    
             var observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
@@ -1196,32 +1045,22 @@ define(['o-question'], function (oQuestion) {
                     }
                 }.bind(this));
             }.bind(this));
-    
             observer.observe(this.special, { attributes: true });
         }
     };
-        
+
     oQuestionOpenendSearch.prototype.showAllImageItems = function () {
         var visibleItemCount = 0;
-
         this.list.forEach(function (item) {
             if (item.querySelector('img')) {
                 item.style.display = '';
                 visibleItemCount++;
             }
         });
-
-        // Add necessary classes to the input and ul elements
         this.element.classList.add('list-visible');
         this.droplist.classList.add('visible');
-
-        // Ensure the necessary class is added to m-list-external
         document.querySelector('.m-list-external').classList.add('visible');
-
-        // Update the item count
         this.updateItemCount(visibleItemCount);
-
-        // Ensure the context of getDroplistHeight is correct
         this.getDroplistHeight();
     };
 
@@ -1229,23 +1068,17 @@ define(['o-question'], function (oQuestion) {
         if (tag) {
             if (tag.parentNode) {
                 tag.parentNode.removeChild(tag);
-            } else {
-                console.error('Parent node not found for tag');
             }
-    
             if (this.element) {
                 this.element.value = '';
             }
-    
             if (this.hiddenelement) {
                 this.hiddenelement.value = '';
             }
-    
-            // Show all list items again and add necessary classes
             this.showAllImageItems();
         }
     };
-    
+
     oQuestionOpenendSearch.prototype.clearTags = function () {
         var container = document.querySelector('.o-question-selected');
         while (container.firstChild) {
@@ -1257,10 +1090,8 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.setupSpecialListener = function () {
-
         if (this.special) {
             var checkbox = this.special.querySelector('input[type="checkbox"]');
-
             var observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
@@ -1271,7 +1102,6 @@ define(['o-question'], function (oQuestion) {
                     }
                 }.bind(this));
             }.bind(this));
-
             observer.observe(this.special, { attributes: true });
         }
     };
@@ -1279,10 +1109,8 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.ensureSpecialOrder = function () {
         if (this.special) {
             const parentNode = this.wrapper.parentNode;
-
             if (parentNode) {
                 parentNode.insertBefore(this.special, this.wrapper.nextSibling);
-
                 const mListExternal = document.querySelector('.m-list-external');
                 if (mListExternal && mListExternal.classList.contains('visible')) {
                     parentNode.insertBefore(this.special, this.wrapper.nextSibling);
@@ -1291,9 +1119,7 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    //Hide that keyboard!
     oQuestionOpenendSearch.prototype.hideKeyboard = function () {
-        // Blur the input element to hide the keyboard
         this.element.blur();
     };
 
