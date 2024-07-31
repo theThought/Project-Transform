@@ -1246,10 +1246,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-
-    
-    
-
     oQuestionOpenendSearch.prototype.clearTags = function () {
         var container = document.querySelector('.o-question-selected');
         while (container.firstChild) {

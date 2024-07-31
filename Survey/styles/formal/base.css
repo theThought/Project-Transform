@@ -2630,9 +2630,9 @@ html[dir=rtl] .o-dropdown ul li {
 }
 .o-question-choice-summary .m-option-summary label {
   display: block;
+  padding: 20px 0;
 }
 .o-question-choice-summary .m-option-summary label .a-label-option-summary .l-summary-detail {
-  padding: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2689,6 +2689,15 @@ html[dir=rtl] .o-dropdown ul li {
 
 .l-summary-lastchange {
   background-color: rgba(232, 190, 93, 0.2);
+  position: relative;
+  height: 100px;
+  margin-top: -50px;
+  z-index: 1;
+}
+
+.l-summary-questionname,
+.l-summary-response {
+  z-index: 2;
 }
 
 @media only screen and (max-width: 768px) {
