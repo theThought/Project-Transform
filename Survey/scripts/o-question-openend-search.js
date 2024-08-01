@@ -5,6 +5,7 @@ define(['o-question'], function (oQuestion) {
         this.droplistwrapper = document.querySelector('.o-list');
         this.droplist = document.querySelector('.o-list ul[data-questiongroup="' + this.group + '"]');
         this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
+        
         this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
         this.itemCountElement = document.querySelector('.m-openend-search-count');
         this.messages = document.querySelector('.m-list-messages');
@@ -502,15 +503,22 @@ define(['o-question'], function (oQuestion) {
         this.hiddenelement = this.element;
         this.element = this.wrapper.insertBefore(newelement, this.droplistwrapper);
     };
-
+    
     oQuestionOpenendSearch.prototype.buildList = function () {
         var listItems = this.droplist.querySelectorAll('li');
-        listItems.forEach(function(item, index) {
-            item.setAttribute('data-value', item.id); 
-        });
+        var listClass = this.droplist.classList;
+    
+        for (var i = 0; i < listItems.length; i++) {
+            var item = listItems[i];
+            if (listClass.contains('vertical-list') || listClass.contains('horizontal-list')) {
+                item.setAttribute('data-value', item.id);
+            } else if (listClass.contains('standard-list')) {
+                item.setAttribute('data-value', item.innerText);
+            }
+        }
         return listItems;
     };
-
+    
     oQuestionOpenendSearch.prototype.buildListFromHtml = function () {
         return this.droplist.querySelector('li');
     };
