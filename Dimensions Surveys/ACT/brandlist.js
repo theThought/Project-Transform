@@ -147,12 +147,12 @@ var barcodelist = {
         },
         {
             "UPC": 101011,
-            "name": "Beck's",
+            "name": "Beck&apos;s",
             "Category": "Beer"
         },
         {
             "UPC": 101292,
-            "name": "Beck's Sapphire",
+            "name": "Beck&apos;s Sapphire",
             "Category": "Beer"
         },
         {
@@ -162,7 +162,7 @@ var barcodelist = {
         },
         {
             "UPC": 101012,
-            "name": "Bell's",
+            "name": "Bell&apos;s",
             "Category": "Beer"
         },
         {
@@ -187,7 +187,7 @@ var barcodelist = {
         },
         {
             "UPC": 101427,
-            "name": "BJ's",
+            "name": "BJ&apos;s",
             "Category": "Beer"
         },
         {
@@ -227,7 +227,7 @@ var barcodelist = {
         },
         {
             "UPC": 101019,
-            "name": "Boddington's",
+            "name": "Boddington&apos;s",
             "Category": "Beer"
         },
         {
@@ -262,7 +262,7 @@ var barcodelist = {
         },
         {
             "UPC": 101025,
-            "name": "Bud Light & Clamato (Chelada)",
+            "name": "Bud Light &amp; Clamato (Chelada)",
             "Category": "Beer"
         },
         {
@@ -317,7 +317,7 @@ var barcodelist = {
         },
         {
             "UPC": 101030,
-            "name": "Budweiser & Clamato (Chelada)",
+            "name": "Budweiser &amp; Clamato (Chelada)",
             "Category": "Beer"
         },
         {
@@ -467,7 +467,7 @@ var barcodelist = {
         },
         {
             "UPC": 101352,
-            "name": "Crabbie's Ginger Beer",
+            "name": "Crabbie&apos;s Ginger Beer",
             "Category": "Beer"
         },
         {
@@ -477,7 +477,7 @@ var barcodelist = {
         },
         {
             "UPC": 101213,
-            "name": "Devil's Backbone",
+            "name": "Devil&apos;s Backbone",
             "Category": "Beer"
         },
         {
@@ -502,7 +502,7 @@ var barcodelist = {
         },
         {
             "UPC": 101827,
-            "name": "Dos Equis Lime & Salt",
+            "name": "Dos Equis Lime &amp; Salt",
             "Category": "Beer"
         },
         {
@@ -727,7 +727,7 @@ var barcodelist = {
         },
         {
             "UPC": 101063,
-            "name": "Hamm's",
+            "name": "Hamm&apos;s",
             "Category": "Beer"
         },
         {
@@ -757,27 +757,27 @@ var barcodelist = {
         },
         {
             "UPC": 101068,
-            "name": "Henry Weinhard's",
+            "name": "Henry Weinhard&apos;s",
             "Category": "Beer"
         },
         {
             "UPC": 101606,
-            "name": "Henry's Hard Soda - Ginger Ale",
+            "name": "Henry&apos;s Hard Soda - Ginger Ale",
             "Category": "Beer"
         },
         {
             "UPC": 101607,
-            "name": "Henry's Hard Soda - Grape",
+            "name": "Henry&apos;s Hard Soda - Grape",
             "Category": "Beer"
         },
         {
             "UPC": 101608,
-            "name": "Henry's Hard Soda - Lemon / Lime",
+            "name": "Henry&apos;s Hard Soda - Lemon / Lime",
             "Category": "Beer"
         },
         {
             "UPC": 101609,
-            "name": "Henry's Hard Soda - Orange",
+            "name": "Henry&apos;s Hard Soda - Orange",
             "Category": "Beer"
         },
         {
@@ -812,7 +812,7 @@ var barcodelist = {
         },
         {
             "UPC": 101458,
-            "name": "Jed's",
+            "name": "Jed&apos;s",
             "Category": "Beer"
         },
         {
@@ -832,7 +832,7 @@ var barcodelist = {
         },
         {
             "UPC": 101078,
-            "name": "Killian's Irish Red",
+            "name": "Killian&apos;s Irish Red",
             "Category": "Beer"
         },
         {
@@ -947,7 +947,7 @@ var barcodelist = {
         },
         {
             "UPC": 101858,
-            "name": "Lagunitas Little Sumpin' Sumpin'",
+            "name": "Lagunitas Little Sumpin&apos; Sumpin&apos;",
             "Category": "Beer"
         },
         {
@@ -987,52 +987,52 @@ var barcodelist = {
         },
         {
             "UPC": 101861,
-            "name": "Leinenkugel's Berry Weiss",
+            "name": "Leinenkugel&apos;s Berry Weiss",
             "Category": "Beer"
         },
         {
             "UPC": 101862,
-            "name": "Leinenkugel's Canoe Paddle Kolsch",
+            "name": "Leinenkugel&apos;s Canoe Paddle Kolsch",
             "Category": "Beer"
         },
         {
             "UPC": 101863,
-            "name": "Leinenkugel's Dark Lager",
+            "name": "Leinenkugel&apos;s Dark Lager",
             "Category": "Beer"
         },
         {
             "UPC": 101864,
-            "name": "Leinenkugel's Lemon Haze IPA",
+            "name": "Leinenkugel&apos;s Lemon Haze IPA",
             "Category": "Beer"
         },
         {
             "UPC": 101865,
-            "name": "Leinenkugel's Honey Weiss",
+            "name": "Leinenkugel&apos;s Honey Weiss",
             "Category": "Beer"
         },
         {
             "UPC": 101866,
-            "name": "Leinenkugel's Northwoods Amber",
+            "name": "Leinenkugel&apos;s Northwoods Amber",
             "Category": "Beer"
         },
         {
             "UPC": 101092,
-            "name": "Leinenkugel's Original",
+            "name": "Leinenkugel&apos;s Original",
             "Category": "Beer"
         },
         {
             "UPC": 101737,
-            "name": "Leinenkugel's Spritzen",
+            "name": "Leinenkugel&apos;s Spritzen",
             "Category": "Beer"
         },
         {
             "UPC": 101093,
-            "name": "Leinenkugel's Summer Shandy",
+            "name": "Leinenkugel&apos;s Summer Shandy",
             "Category": "Beer"
         },
         {
             "UPC": 101094,
-            "name": "Leinenkugel's Seasonal",
+            "name": "Leinenkugel&apos;s Seasonal",
             "Category": "Beer"
         },
         {
@@ -1057,7 +1057,7 @@ var barcodelist = {
         },
         {
             "UPC": 101530,
-            "name": "Mac & Jack's ",
+            "name": "Mac &amp; Jack&apos;s ",
             "Category": "Beer"
         },
         {
@@ -1107,17 +1107,17 @@ var barcodelist = {
         },
         {
             "UPC": 101105,
-            "name": "Mickey's",
+            "name": "Mickey&apos;s",
             "Category": "Beer"
         },
         {
             "UPC": 101597,
-            "name": "Mike's Hard ",
+            "name": "Mike&apos;s Hard ",
             "Category": "Beer"
         },
         {
             "UPC": 101368,
-            "name": "Mike's Hard Smashed Apple Ale",
+            "name": "Mike&apos;s Hard Smashed Apple Ale",
             "Category": "Beer"
         },
         {
@@ -1162,22 +1162,22 @@ var barcodelist = {
         },
         {
             "UPC": 101113,
-            "name": "Milwaukee's Best",
+            "name": "Milwaukee&apos;s Best",
             "Category": "Beer"
         },
         {
             "UPC": 101114,
-            "name": "Milwaukee's Best Ice",
+            "name": "Milwaukee&apos;s Best Ice",
             "Category": "Beer"
         },
         {
             "UPC": 101115,
-            "name": "Milwaukee's Best Light",
+            "name": "Milwaukee&apos;s Best Light",
             "Category": "Beer"
         },
         {
             "UPC": 101293,
-            "name": "Mike's Shandy",
+            "name": "Mike&apos;s Shandy",
             "Category": "Beer"
         },
         {
@@ -1337,7 +1337,7 @@ var barcodelist = {
         },
         {
             "UPC": 101412,
-            "name": "Not Your Father's Root Beer",
+            "name": "Not Your Father&apos;s Root Beer",
             "Category": "Beer"
         },
         {
@@ -1577,7 +1577,7 @@ var barcodelist = {
         },
         {
             "UPC": 101393,
-            "name": "Schell's",
+            "name": "Schell&apos;s",
             "Category": "Beer"
         },
         {
@@ -1612,7 +1612,7 @@ var barcodelist = {
         },
         {
             "UPC": 101890,
-            "name": "Shiner Brewer's Pride",
+            "name": "Shiner Brewer&apos;s Pride",
             "Category": "Beer"
         },
         {
@@ -1627,7 +1627,7 @@ var barcodelist = {
         },
         {
             "UPC": 101892,
-            "name": "Shiner Sea Salt & Lime",
+            "name": "Shiner Sea Salt &amp; Lime",
             "Category": "Beer"
         },
         {
@@ -1642,7 +1642,7 @@ var barcodelist = {
         },
         {
             "UPC": 101894,
-            "name": "Shiner Weisse 'N' Easy",
+            "name": "Shiner Weisse &apos;N&apos; Easy",
             "Category": "Beer"
         },
         {
@@ -1722,7 +1722,7 @@ var barcodelist = {
         },
         {
             "UPC": 101162,
-            "name": "Smithwick's",
+            "name": "Smithwick&apos;s",
             "Category": "Beer"
         },
         {
@@ -1867,7 +1867,7 @@ var barcodelist = {
         },
         {
             "UPC": 101335,
-            "name": "Trader Joe's",
+            "name": "Trader Joe&apos;s",
             "Category": "Beer"
         },
         {
@@ -1947,7 +1947,7 @@ var barcodelist = {
         },
         {
             "UPC": 101557,
-            "name": "Yuengling Black & Tan",
+            "name": "Yuengling Black &amp; Tan",
             "Category": "Beer"
         },
         {
@@ -2077,7 +2077,7 @@ var barcodelist = {
         },
         {
             "UPC": 202010,
-            "name": "Doc's Draft ",
+            "name": "Doc&apos;s Draft ",
             "Category": "Cider"
         },
         {
@@ -2187,12 +2187,12 @@ var barcodelist = {
         },
         {
             "UPC": 202048,
-            "name": "Mike's Hard ",
+            "name": "Mike&apos;s Hard ",
             "Category": "Cider"
         },
         {
             "UPC": 202054,
-            "name": "Newton's Folly",
+            "name": "Newton&apos;s Folly",
             "Category": "Cider"
         },
         {
@@ -2222,22 +2222,22 @@ var barcodelist = {
         },
         {
             "UPC": 202060,
-            "name": "Redd's Green Apple Ale",
+            "name": "Redd&apos;s Green Apple Ale",
             "Category": "Cider"
         },
         {
             "UPC": 202077,
-            "name": "Redd's Peach Ale",
+            "name": "Redd&apos;s Peach Ale",
             "Category": "Cider"
         },
         {
             "UPC": 202059,
-            "name": "Redd's Wicked Apple",
+            "name": "Redd&apos;s Wicked Apple",
             "Category": "Cider"
         },
         {
             "UPC": 202034,
-            "name": "Samuel Smith's",
+            "name": "Samuel Smith&apos;s",
             "Category": "Cider"
         },
         {
@@ -2262,7 +2262,7 @@ var barcodelist = {
         },
         {
             "UPC": 202050,
-            "name": "Smith & Forge",
+            "name": "Smith &amp; Forge",
             "Category": "Cider"
         },
         {
@@ -2347,7 +2347,7 @@ var barcodelist = {
         },
         {
             "UPC": 202046,
-            "name": "Wyder's ",
+            "name": "Wyder&apos;s ",
             "Category": "Cider"
         },
         {
@@ -2442,7 +2442,7 @@ var barcodelist = {
         },
         {
             "UPC": 202713,
-            "name": "Arnie's Spiked Lemonade",
+            "name": "Arnie&apos;s Spiked Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2487,12 +2487,12 @@ var barcodelist = {
         },
         {
             "UPC": 202726,
-            "name": "Bacardi Lime & Soda",
+            "name": "Bacardi Lime &amp; Soda",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202796,
-            "name": "Bacardi Limon & Lemonade",
+            "name": "Bacardi Limon &amp; Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2522,22 +2522,22 @@ var barcodelist = {
         },
         {
             "UPC": 202731,
-            "name": "Bartles & Jaymes Cucumber & Lime",
+            "name": "Bartles &amp; Jaymes Cucumber &amp; Lime",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202732,
-            "name": "Bartles & Jaymes Ginger & Lemon",
+            "name": "Bartles &amp; Jaymes Ginger &amp; Lemon",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202733,
-            "name": "Bartles & Jaymes Grapefruit & Green Tea",
+            "name": "Bartles &amp; Jaymes Grapefruit &amp; Green Tea",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202734,
-            "name": "Bartles & Jaymes Watermelon & Mint",
+            "name": "Bartles &amp; Jaymes Watermelon &amp; Mint",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2582,7 +2582,7 @@ var barcodelist = {
         },
         {
             "UPC": 202649,
-            "name": "Bon & Viv Seltzer",
+            "name": "Bon &amp; Viv Seltzer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2657,7 +2657,7 @@ var barcodelist = {
         },
         {
             "UPC": 202650,
-            "name": "Cape Line Sparkling Cocktails - Don't Know Flavor",
+            "name": "Cape Line Sparkling Cocktails - Don&apos;t Know Flavor",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2772,7 +2772,7 @@ var barcodelist = {
         },
         {
             "UPC": 202721,
-            "name": "Crown Royal Whisky & Cola",
+            "name": "Crown Royal Whisky &amp; Cola",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2787,7 +2787,7 @@ var barcodelist = {
         },
         {
             "UPC": 202602,
-            "name": "Crabbie's Ginger Beer",
+            "name": "Crabbie&apos;s Ginger Beer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2912,32 +2912,32 @@ var barcodelist = {
         },
         {
             "UPC": 202594,
-            "name": "Henry's Hard Soda - Ginger Ale",
+            "name": "Henry&apos;s Hard Soda - Ginger Ale",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202646,
-            "name": "Henry's Hard Soda - Grape",
+            "name": "Henry&apos;s Hard Soda - Grape",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202647,
-            "name": "Henry's Hard Soda - Lemon / Lime",
+            "name": "Henry&apos;s Hard Soda - Lemon / Lime",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202595,
-            "name": "Henry's Hard Soda - Orange",
+            "name": "Henry&apos;s Hard Soda - Orange",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202619,
-            "name": "Henry's Hard Sparkling Seltzer",
+            "name": "Henry&apos;s Hard Sparkling Seltzer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202662,
-            "name": "High Noon Vodka & Soda",
+            "name": "High Noon Vodka &amp; Soda",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2952,7 +2952,7 @@ var barcodelist = {
         },
         {
             "UPC": 202913,
-            "name": "Jefferson's Manhattan",
+            "name": "Jefferson&apos;s Manhattan",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2982,7 +2982,7 @@ var barcodelist = {
         },
         {
             "UPC": 202846,
-            "name": "Jack Daniel's Lynchburg Lemonade",
+            "name": "Jack Daniel&apos;s Lynchburg Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -2992,7 +2992,7 @@ var barcodelist = {
         },
         {
             "UPC": 202915,
-            "name": "Jameson Ginger & Lime Canned Cocktail",
+            "name": "Jameson Ginger &amp; Lime Canned Cocktail",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3007,7 +3007,7 @@ var barcodelist = {
         },
         {
             "UPC": 202606,
-            "name": "Jed's",
+            "name": "Jed&apos;s",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3087,17 +3087,17 @@ var barcodelist = {
         },
         {
             "UPC": 202918,
-            "name": "Ketel One Botanical Vodka Spritz Cucumber & Mint",
+            "name": "Ketel One Botanical Vodka Spritz Cucumber &amp; Mint",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202790,
-            "name": "Ketel One Botanical Vodka Spritz Grapefruit & Rosa",
+            "name": "Ketel One Botanical Vodka Spritz Grapefruit &amp; Rosa",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202919,
-            "name": "Ketel One Botanical Vodka Spritz Peach & Orange Blossom",
+            "name": "Ketel One Botanical Vodka Spritz Peach &amp; Orange Blossom",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3132,7 +3132,7 @@ var barcodelist = {
         },
         {
             "UPC": 202678,
-            "name": "Leinenkugel's Spritzen",
+            "name": "Leinenkugel&apos;s Spritzen",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3177,27 +3177,27 @@ var barcodelist = {
         },
         {
             "UPC": 202831,
-            "name": "Malibu Splash Lime & Coconut",
+            "name": "Malibu Splash Lime &amp; Coconut",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202832,
-            "name": "Malibu Splash Pineapple & Coconut",
+            "name": "Malibu Splash Pineapple &amp; Coconut",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202833,
-            "name": "Malibu Splash Passion Fruit & Coconut",
+            "name": "Malibu Splash Passion Fruit &amp; Coconut",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202834,
-            "name": "Malibu Splash Strawberry & Coconut",
+            "name": "Malibu Splash Strawberry &amp; Coconut",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202835,
-            "name": "Malibu Splash Watermelon & Coconut",
+            "name": "Malibu Splash Watermelon &amp; Coconut",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3227,77 +3227,77 @@ var barcodelist = {
         },
         {
             "UPC": 202545,
-            "name": "Mike's Cocktails ",
+            "name": "Mike&apos;s Cocktails ",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202758,
-            "name": "Mike's Hard Lemonade",
+            "name": "Mike&apos;s Hard Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202882,
-            "name": "Mike's Hard Lemonade Zero Sugar",
+            "name": "Mike&apos;s Hard Lemonade Zero Sugar",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202759,
-            "name": "Mike's Hard Black Cherry Lemonade",
+            "name": "Mike&apos;s Hard Black Cherry Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202760,
-            "name": "Mike's Hard Cranberry Lemonade",
+            "name": "Mike&apos;s Hard Cranberry Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202761,
-            "name": "Mike's Hard Mango Lemonade",
+            "name": "Mike&apos;s Hard Mango Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202762,
-            "name": "Mike's Hard Peach Lemonade",
+            "name": "Mike&apos;s Hard Peach Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202763,
-            "name": "Mike's Hard Pineapple Lemonade",
+            "name": "Mike&apos;s Hard Pineapple Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202764,
-            "name": "Mike's Hard Pineapple Strawberry Lemonda",
+            "name": "Mike&apos;s Hard Pineapple Strawberry Lemonda",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202765,
-            "name": "Mike's Hard Raspberry Lemonade",
+            "name": "Mike&apos;s Hard Raspberry Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202766,
-            "name": "Mike's Hard Strawberry Lemonade",
+            "name": "Mike&apos;s Hard Strawberry Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202767,
-            "name": "Mike's Hard Lemonade Seltzer",
+            "name": "Mike&apos;s Hard Lemonade Seltzer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202581,
-            "name": "Mike's Harder",
+            "name": "Mike&apos;s Harder",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202877,
-            "name": "Mike's Harder Lemonade",
+            "name": "Mike&apos;s Harder Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202582,
-            "name": "Mike's Shandy",
+            "name": "Mike&apos;s Shandy",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3352,12 +3352,12 @@ var barcodelist = {
         },
         {
             "UPC": 202603,
-            "name": "Not Your Father's Root Beer",
+            "name": "Not Your Father&apos;s Root Beer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202699,
-            "name": "Not Your Mom's Iced Tea",
+            "name": "Not Your Mom&apos;s Iced Tea",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3377,7 +3377,7 @@ var barcodelist = {
         },
         {
             "UPC": 202681,
-            "name": "O&A Hard Seltzer",
+            "name": "O&amp;A Hard Seltzer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3432,67 +3432,67 @@ var barcodelist = {
         },
         {
             "UPC": 202579,
-            "name": "Redd's Apple Ale",
+            "name": "Redd&apos;s Apple Ale",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202608,
-            "name": "Redd's Blueberry Ale",
+            "name": "Redd&apos;s Blueberry Ale",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202592,
-            "name": "Redd's Green Apple Ale",
+            "name": "Redd&apos;s Green Apple Ale",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202637,
-            "name": "Redd's Peach Ale",
+            "name": "Redd&apos;s Peach Ale",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202583,
-            "name": "Redd's Strawberry Ale",
+            "name": "Redd&apos;s Strawberry Ale",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202806,
-            "name": "Redd's Hard Apple",
+            "name": "Redd&apos;s Hard Apple",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202807,
-            "name": "Redd's Hard Apple - Black Cherry",
+            "name": "Redd&apos;s Hard Apple - Black Cherry",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202808,
-            "name": "Redd's Hard Apple - Peach ",
+            "name": "Redd&apos;s Hard Apple - Peach ",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202809,
-            "name": "Redd's Hard Apple - Strawberry",
+            "name": "Redd&apos;s Hard Apple - Strawberry",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202590,
-            "name": "Redd's Wicked Apple",
+            "name": "Redd&apos;s Wicked Apple",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202638,
-            "name": "Redd's Wicked Black Cherry",
+            "name": "Redd&apos;s Wicked Black Cherry",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202639,
-            "name": "Redd's Wicked Lemonade",
+            "name": "Redd&apos;s Wicked Lemonade",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202810,
-            "name": "Redd's Wicked Sour Apple",
+            "name": "Redd&apos;s Wicked Sour Apple",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3567,7 +3567,7 @@ var barcodelist = {
         },
         {
             "UPC": 202768,
-            "name": "Seagram's Hard Seltzer",
+            "name": "Seagram&apos;s Hard Seltzer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3747,7 +3747,7 @@ var barcodelist = {
         },
         {
             "UPC": 202840,
-            "name": "Stewart's Spiked Seltzer",
+            "name": "Stewart&apos;s Spiked Seltzer",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3777,12 +3777,12 @@ var barcodelist = {
         },
         {
             "UPC": 202924,
-            "name": "The Glenlivet Twist & Mix Cocktails New Manhattan",
+            "name": "The Glenlivet Twist &amp; Mix Cocktails New Manhattan",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
             "UPC": 202925,
-            "name": "The Glenlivet Twist & Mix Cocktails Old Fashioned",
+            "name": "The Glenlivet Twist &amp; Mix Cocktails Old Fashioned",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3837,7 +3837,7 @@ var barcodelist = {
         },
         {
             "UPC": 202776,
-            "name": "Twisted Tea Hard Iced Tea Half & Half",
+            "name": "Twisted Tea Hard Iced Tea Half &amp; Half",
             "Category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
@@ -3967,12 +3967,12 @@ var barcodelist = {
         },
         {
             "UPC": 307200,
-            "name": "19 Crimes Martha's Chard",
+            "name": "19 Crimes Martha&apos;s Chard",
             "Category": "Wine"
         },
         {
             "UPC": 307225,
-            "name": "19 Crimes Martha's Lighter",
+            "name": "19 Crimes Martha&apos;s Lighter",
             "Category": "Wine"
         },
         {
@@ -4077,7 +4077,7 @@ var barcodelist = {
         },
         {
             "UPC": 307057,
-            "name": "Barefoot Bright & Breezy",
+            "name": "Barefoot Bright &amp; Breezy",
             "Category": "Wine"
         },
         {
@@ -4162,7 +4162,7 @@ var barcodelist = {
         },
         {
             "UPC": 303569,
-            "name": "Beringer Main & Vine",
+            "name": "Beringer Main &amp; Vine",
             "Category": "Wine"
         },
         {
@@ -4457,7 +4457,7 @@ var barcodelist = {
         },
         {
             "UPC": 303278,
-            "name": "Cooper's Hawk",
+            "name": "Cooper&apos;s Hawk",
             "Category": "Wine"
         },
         {
@@ -4762,7 +4762,7 @@ var barcodelist = {
         },
         {
             "UPC": 307086,
-            "name": "Harvey & Harriet",
+            "name": "Harvey &amp; Harriet",
             "Category": "Wine"
         },
         {
@@ -4792,7 +4792,7 @@ var barcodelist = {
         },
         {
             "UPC": 303881,
-            "name": "J Vineyards & Winery",
+            "name": "J Vineyards &amp; Winery",
             "Category": "Wine"
         },
         {
@@ -5002,7 +5002,7 @@ var barcodelist = {
         },
         {
             "UPC": 303126,
-            "name": "Martini & Rossi",
+            "name": "Martini &amp; Rossi",
             "Category": "Wine"
         },
         {
@@ -5047,7 +5047,7 @@ var barcodelist = {
         },
         {
             "UPC": 307217,
-            "name": "Mind & Body",
+            "name": "Mind &amp; Body",
             "Category": "Wine"
         },
         {
@@ -5067,7 +5067,7 @@ var barcodelist = {
         },
         {
             "UPC": 303133,
-            "name": "Moet & Chandon Imperial",
+            "name": "Moet &amp; Chandon Imperial",
             "Category": "Wine"
         },
         {
@@ -5542,7 +5542,7 @@ var barcodelist = {
         },
         {
             "UPC": 303216,
-            "name": "Trader Joe's",
+            "name": "Trader Joe&apos;s",
             "Category": "Wine"
         },
         {
@@ -5967,12 +5967,12 @@ var barcodelist = {
         },
         {
             "UPC": 404934,
-            "name": "Baileys S'mores",
+            "name": "Baileys S&apos;mores",
             "Category": "Spirits"
         },
         {
             "UPC": 404591,
-            "name": "Baileys Strawberries & Cream",
+            "name": "Baileys Strawberries &amp; Cream",
             "Category": "Spirits"
         },
         {
@@ -5982,47 +5982,47 @@ var barcodelist = {
         },
         {
             "UPC": 404330,
-            "name": "Ballantine's",
+            "name": "Ballantine&apos;s",
             "Category": "Spirits"
         },
         {
             "UPC": 404594,
-            "name": "Ballantine's 7 Bourbon Finish Whisky",
+            "name": "Ballantine&apos;s 7 Bourbon Finish Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 404595,
-            "name": "Ballantine's 12 Year Old Whisky",
+            "name": "Ballantine&apos;s 12 Year Old Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 404596,
-            "name": "Ballantine's Barrel Smooth Whisky",
+            "name": "Ballantine&apos;s Barrel Smooth Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 404597,
-            "name": "Ballantine's Brasil Spirit Drink",
+            "name": "Ballantine&apos;s Brasil Spirit Drink",
             "Category": "Spirits"
         },
         {
             "UPC": 404598,
-            "name": "Ballantine's Finest Blended Scotch Whisky",
+            "name": "Ballantine&apos;s Finest Blended Scotch Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 404599,
-            "name": "Ballantine's Light",
+            "name": "Ballantine&apos;s Light",
             "Category": "Spirits"
         },
         {
             "UPC": 404600,
-            "name": "Ballantine's Passion Spirit Drink",
+            "name": "Ballantine&apos;s Passion Spirit Drink",
             "Category": "Spirits"
         },
         {
             "UPC": 404601,
-            "name": "Ballantine's Single Malt Scotch Whisky Collection",
+            "name": "Ballantine&apos;s Single Malt Scotch Whisky Collection",
             "Category": "Spirits"
         },
         {
@@ -6092,32 +6092,32 @@ var barcodelist = {
         },
         {
             "UPC": 404199,
-            "name": "Bowman's",
+            "name": "Bowman&apos;s",
             "Category": "Spirits"
         },
         {
             "UPC": 404022,
-            "name": "Buchanan's De Luxe 12Yrs",
+            "name": "Buchanan&apos;s De Luxe 12Yrs",
             "Category": "Spirits"
         },
         {
             "UPC": 404603,
-            "name": "Buchanan's Master",
+            "name": "Buchanan&apos;s Master",
             "Category": "Spirits"
         },
         {
             "UPC": 404979,
-            "name": "Buchanan's Pineapple",
+            "name": "Buchanan&apos;s Pineapple",
             "Category": "Spirits"
         },
         {
             "UPC": 404604,
-            "name": "Buchanan's Red Seal",
+            "name": "Buchanan&apos;s Red Seal",
             "Category": "Spirits"
         },
         {
             "UPC": 404605,
-            "name": "Buchanan's Special Reserve 18 Yrs",
+            "name": "Buchanan&apos;s Special Reserve 18 Yrs",
             "Category": "Spirits"
         },
         {
@@ -6642,7 +6642,7 @@ var barcodelist = {
         },
         {
             "UPC": 404946,
-            "name": "Dr McGillicuddy's Mentholmint",
+            "name": "Dr McGillicuddy&apos;s Mentholmint",
             "Category": "Spirits"
         },
         {
@@ -6652,32 +6652,32 @@ var barcodelist = {
         },
         {
             "UPC": 404633,
-            "name": "E&J Apple",
+            "name": "E&amp;J Apple",
             "Category": "Spirits"
         },
         {
             "UPC": 404634,
-            "name": "E&J Peach",
+            "name": "E&amp;J Peach",
             "Category": "Spirits"
         },
         {
             "UPC": 404635,
-            "name": "E&J Vanilla",
+            "name": "E&amp;J Vanilla",
             "Category": "Spirits"
         },
         {
             "UPC": 404636,
-            "name": "E&J VS",
+            "name": "E&amp;J VS",
             "Category": "Spirits"
         },
         {
             "UPC": 404637,
-            "name": "E&J VSOP Grand Blue",
+            "name": "E&amp;J VSOP Grand Blue",
             "Category": "Spirits"
         },
         {
             "UPC": 404638,
-            "name": "E&J XO",
+            "name": "E&amp;J XO",
             "Category": "Spirits"
         },
         {
@@ -6862,7 +6862,7 @@ var barcodelist = {
         },
         {
             "UPC": 404555,
-            "name": "Founder's Reserve",
+            "name": "Founder&apos;s Reserve",
             "Category": "Spirits"
         },
         {
@@ -6892,17 +6892,17 @@ var barcodelist = {
         },
         {
             "UPC": 404649,
-            "name": "Grey Goose Essences Peach & Rosemary",
+            "name": "Grey Goose Essences Peach &amp; Rosemary",
             "Category": "Spirits"
         },
         {
             "UPC": 404650,
-            "name": "Grey Goose Essences Strawberry & Lemongrass",
+            "name": "Grey Goose Essences Strawberry &amp; Lemongrass",
             "Category": "Spirits"
         },
         {
             "UPC": 404651,
-            "name": "Grey Goose Essences Watermelon & Basil",
+            "name": "Grey Goose Essences Watermelon &amp; Basil",
             "Category": "Spirits"
         },
         {
@@ -6912,7 +6912,7 @@ var barcodelist = {
         },
         {
             "UPC": 404653,
-            "name": "Grey Goose L'Orange",
+            "name": "Grey Goose L&apos;Orange",
             "Category": "Spirits"
         },
         {
@@ -6947,7 +6947,7 @@ var barcodelist = {
         },
         {
             "UPC": 404657,
-            "name": "Hennessy Master Blender's Selection",
+            "name": "Hennessy Master Blender&apos;s Selection",
             "Category": "Spirits"
         },
         {
@@ -7017,7 +7017,7 @@ var barcodelist = {
         },
         {
             "UPC": 404096,
-            "name": "J & B Rare",
+            "name": "J &amp; B Rare",
             "Category": "Spirits"
         },
         {
@@ -7027,37 +7027,37 @@ var barcodelist = {
         },
         {
             "UPC": 404665,
-            "name": "Jack Daniel's Old No. 7 Tennessee Whiskey ",
+            "name": "Jack Daniel&apos;s Old No. 7 Tennessee Whiskey ",
             "Category": "Spirits"
         },
         {
             "UPC": 404666,
-            "name": "Jack Daniel's Tennessee Apple",
+            "name": "Jack Daniel&apos;s Tennessee Apple",
             "Category": "Spirits"
         },
         {
             "UPC": 404667,
-            "name": "Jack Daniel's Tennessee Fire",
+            "name": "Jack Daniel&apos;s Tennessee Fire",
             "Category": "Spirits"
         },
         {
             "UPC": 404532,
-            "name": "Jack Daniel's Tennessee Honey",
+            "name": "Jack Daniel&apos;s Tennessee Honey",
             "Category": "Spirits"
         },
         {
             "UPC": 404669,
-            "name": "Jack Daniel's Tennessee Rye",
+            "name": "Jack Daniel&apos;s Tennessee Rye",
             "Category": "Spirits"
         },
         {
             "UPC": 404498,
-            "name": "Jack Daniel's Tennessee Single Barral",
+            "name": "Jack Daniel&apos;s Tennessee Single Barral",
             "Category": "Spirits"
         },
         {
             "UPC": 404671,
-            "name": "Jack Daniel's Tennessee Sinatra Select",
+            "name": "Jack Daniel&apos;s Tennessee Sinatra Select",
             "Category": "Spirits"
         },
         {
@@ -7102,17 +7102,17 @@ var barcodelist = {
         },
         {
             "UPC": 404679,
-            "name": "Jameson Cooper's Croze",
+            "name": "Jameson Cooper&apos;s Croze",
             "Category": "Spirits"
         },
         {
             "UPC": 404680,
-            "name": "Jameson Blender's Dog",
+            "name": "Jameson Blender&apos;s Dog",
             "Category": "Spirits"
         },
         {
             "UPC": 404681,
-            "name": "Jameson Distiller's Safe",
+            "name": "Jameson Distiller&apos;s Safe",
             "Category": "Spirits"
         },
         {
@@ -7122,7 +7122,7 @@ var barcodelist = {
         },
         {
             "UPC": 404354,
-            "name": "Jefferson's",
+            "name": "Jefferson&apos;s",
             "Category": "Spirits"
         },
         {
@@ -7142,7 +7142,7 @@ var barcodelist = {
         },
         {
             "UPC": 404427,
-            "name": "Jim Beam Devil's Cut",
+            "name": "Jim Beam Devil&apos;s Cut",
             "Category": "Spirits"
         },
         {
@@ -7202,22 +7202,22 @@ var barcodelist = {
         },
         {
             "UPC": 404684,
-            "name": "John Walker & Sons King George V",
+            "name": "John Walker &amp; Sons King George V",
             "Category": "Spirits"
         },
         {
             "UPC": 404685,
-            "name": "John Walker & Sons Odyssey",
+            "name": "John Walker &amp; Sons Odyssey",
             "Category": "Spirits"
         },
         {
             "UPC": 404686,
-            "name": "John Walker & Sons The John Walker",
+            "name": "John Walker &amp; Sons The John Walker",
             "Category": "Spirits"
         },
         {
             "UPC": 404687,
-            "name": "John Walker & Sons XR 21",
+            "name": "John Walker &amp; Sons XR 21",
             "Category": "Spirits"
         },
         {
@@ -7347,17 +7347,17 @@ var barcodelist = {
         },
         {
             "UPC": 408005,
-            "name": "Ketel One Botanical Cucumber & Mint",
+            "name": "Ketel One Botanical Cucumber &amp; Mint",
             "Category": "Spirits"
         },
         {
             "UPC": 408006,
-            "name": "Ketel One Botanical Grapefruit & Rose",
+            "name": "Ketel One Botanical Grapefruit &amp; Rose",
             "Category": "Spirits"
         },
         {
             "UPC": 408007,
-            "name": "Ketel One Botanical Peach & Orange Blossom",
+            "name": "Ketel One Botanical Peach &amp; Orange Blossom",
             "Category": "Spirits"
         },
         {
@@ -7442,37 +7442,37 @@ var barcodelist = {
         },
         {
             "UPC": 404704,
-            "name": "Maker's Mark 46",
+            "name": "Maker&apos;s Mark 46",
             "Category": "Spirits"
         },
         {
             "UPC": 408008,
-            "name": "Maker's Mark 101",
+            "name": "Maker&apos;s Mark 101",
             "Category": "Spirits"
         },
         {
             "UPC": 404705,
-            "name": "Maker's Mark Whisky",
+            "name": "Maker&apos;s Mark Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 404706,
-            "name": "Maker's Mark Cask Strength Whisky",
+            "name": "Maker&apos;s Mark Cask Strength Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 408009,
-            "name": "Maker's Mark Cellar Aged",
+            "name": "Maker&apos;s Mark Cellar Aged",
             "Category": "Spirits"
         },
         {
             "UPC": 404707,
-            "name": "Maker's Mark Private Selection Whisky",
+            "name": "Maker&apos;s Mark Private Selection Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 408010,
-            "name": "Maker's Mark Wood Finishing Series",
+            "name": "Maker&apos;s Mark Wood Finishing Series",
             "Category": "Spirits"
         },
         {
@@ -7867,12 +7867,12 @@ var barcodelist = {
         },
         {
             "UPC": 408015,
-            "name": "Pinnacle Light & Ripe Guava Lime",
+            "name": "Pinnacle Light &amp; Ripe Guava Lime",
             "Category": "Spirits"
         },
         {
             "UPC": 408016,
-            "name": "Pinnacle Light & Ripe Apricot Honeysuckle",
+            "name": "Pinnacle Light &amp; Ripe Apricot Honeysuckle",
             "Category": "Spirits"
         },
         {
@@ -7957,7 +7957,7 @@ var barcodelist = {
         },
         {
             "UPC": 404190,
-            "name": "Potter's",
+            "name": "Potter&apos;s",
             "Category": "Spirits"
         },
         {
@@ -8042,7 +8042,7 @@ var barcodelist = {
         },
         {
             "UPC": 404206,
-            "name": "Ryan's",
+            "name": "Ryan&apos;s",
             "Category": "Spirits"
         },
         {
@@ -8072,102 +8072,102 @@ var barcodelist = {
         },
         {
             "UPC": 404151,
-            "name": "Seagram's 7 Crown Whiskey",
+            "name": "Seagram&apos;s 7 Crown Whiskey",
             "Category": "Spirits"
         },
         {
             "UPC": 404764,
-            "name": "Seagram's Extra Dry Gin",
+            "name": "Seagram&apos;s Extra Dry Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404765,
-            "name": "Seagram's Apple Twisted Gin",
+            "name": "Seagram&apos;s Apple Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 408018,
-            "name": "Seagram's Distiller's Reserve Gin",
+            "name": "Seagram&apos;s Distiller&apos;s Reserve Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404766,
-            "name": "Seagram's Grape Twisted Gin",
+            "name": "Seagram&apos;s Grape Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404767,
-            "name": "Seagram's Lime Twisted Gin",
+            "name": "Seagram&apos;s Lime Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404768,
-            "name": "Seagram's Melon Twisted Gin",
+            "name": "Seagram&apos;s Melon Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404769,
-            "name": "Seagram's Peach Twisted Gin",
+            "name": "Seagram&apos;s Peach Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404770,
-            "name": "Seagram's Pineapple Twisted Gin",
+            "name": "Seagram&apos;s Pineapple Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404771,
-            "name": "Seagram's Red Berry Twisted Gin",
+            "name": "Seagram&apos;s Red Berry Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404772,
-            "name": "Seagram's Watermelon Twisted Gin",
+            "name": "Seagram&apos;s Watermelon Twisted Gin",
             "Category": "Spirits"
         },
         {
             "UPC": 404152,
-            "name": "Seagram's V O Canadian Whisky",
+            "name": "Seagram&apos;s V O Canadian Whisky",
             "Category": "Spirits"
         },
         {
             "UPC": 404153,
-            "name": "Seagram's Extra Smooth Vodka",
+            "name": "Seagram&apos;s Extra Smooth Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404773,
-            "name": "Seagram's 100 Proof Platinum Vodka",
+            "name": "Seagram&apos;s 100 Proof Platinum Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404774,
-            "name": "Seagram's Apple Flavored Vodka",
+            "name": "Seagram&apos;s Apple Flavored Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404775,
-            "name": "Seagram's Grapefruit Flavored Vodka",
+            "name": "Seagram&apos;s Grapefruit Flavored Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404776,
-            "name": "Seagram's Lime Flavored Vodka",
+            "name": "Seagram&apos;s Lime Flavored Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404777,
-            "name": "Seagram's Peach Flavored Vodka",
+            "name": "Seagram&apos;s Peach Flavored Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404778,
-            "name": "Seagram's Pineapple Flavored Vodka",
+            "name": "Seagram&apos;s Pineapple Flavored Vodka",
             "Category": "Spirits"
         },
         {
             "UPC": 404779,
-            "name": "Seagram's Sweet Tea Vodka",
+            "name": "Seagram&apos;s Sweet Tea Vodka",
             "Category": "Spirits"
         },
         {
@@ -8287,7 +8287,7 @@ var barcodelist = {
         },
         {
             "UPC": 408024,
-            "name": "Smirnoff Red, White & Berry",
+            "name": "Smirnoff Red, White &amp; Berry",
             "Category": "Spirits"
         },
         {
@@ -8342,22 +8342,22 @@ var barcodelist = {
         },
         {
             "UPC": 408026,
-            "name": "Smirnoff Zero Sugar Infusions Cucumber & Lime ",
+            "name": "Smirnoff Zero Sugar Infusions Cucumber &amp; Lime ",
             "Category": "Spirits"
         },
         {
             "UPC": 408027,
-            "name": "Smirnoff Zero Sugar Infusions Lemon & Elderflower ",
+            "name": "Smirnoff Zero Sugar Infusions Lemon &amp; Elderflower ",
             "Category": "Spirits"
         },
         {
             "UPC": 408028,
-            "name": "Smirnoff Zero Sugar Infusions Strawberry & Rosa ",
+            "name": "Smirnoff Zero Sugar Infusions Strawberry &amp; Rosa ",
             "Category": "Spirits"
         },
         {
             "UPC": 408029,
-            "name": "Smirnoff Zero Sugar Infusions Watermelon & Mint ",
+            "name": "Smirnoff Zero Sugar Infusions Watermelon &amp; Mint ",
             "Category": "Spirits"
         },
         {
@@ -8562,7 +8562,7 @@ var barcodelist = {
         },
         {
             "UPC": 404180,
-            "name": "Tito's",
+            "name": "Tito&apos;s",
             "Category": "Spirits"
         },
         {
@@ -8622,22 +8622,22 @@ var barcodelist = {
         },
         {
             "UPC": 550001,
-            "name": "Beckett's Non-Alcoholic Gin & Tonic",
+            "name": "Beckett&apos;s Non-Alcoholic Gin &amp; Tonic",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550002,
-            "name": "Beckett's Non-Alcoholic La Paloma",
+            "name": "Beckett&apos;s Non-Alcoholic La Paloma",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550003,
-            "name": "Beckett's Non-Alcoholic Lime Margarita",
+            "name": "Beckett&apos;s Non-Alcoholic Lime Margarita",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550004,
-            "name": "Beckett's Non-Alcoholic Moscow Mule",
+            "name": "Beckett&apos;s Non-Alcoholic Moscow Mule",
             "Category": "Non-Alcoholic_PMC"
         },
         {
@@ -8677,12 +8677,12 @@ var barcodelist = {
         },
         {
             "UPC": 550012,
-            "name": "Fauxmosa Cranberry Hibiscus & Ginger Non-Alcoholic Mimosa",
+            "name": "Fauxmosa Cranberry Hibiscus &amp; Ginger Non-Alcoholic Mimosa",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550013,
-            "name": "Fauxmosa Grapefruit Raspberry & Holy Basil Non-Alcoholic Mimosa",
+            "name": "Fauxmosa Grapefruit Raspberry &amp; Holy Basil Non-Alcoholic Mimosa",
             "Category": "Non-Alcoholic_PMC"
         },
         {
@@ -8692,12 +8692,12 @@ var barcodelist = {
         },
         {
             "UPC": 550015,
-            "name": "Fauxmosa Pineapple Lemon & Mint Non-Alcoholic Mimosa",
+            "name": "Fauxmosa Pineapple Lemon &amp; Mint Non-Alcoholic Mimosa",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550016,
-            "name": "Improv Cocktails Non-Alcoholic Cucumber G&T",
+            "name": "Improv Cocktails Non-Alcoholic Cucumber G&amp;T",
             "Category": "Non-Alcoholic_PMC"
         },
         {
@@ -8722,32 +8722,32 @@ var barcodelist = {
         },
         {
             "UPC": 550021,
-            "name": "Lyre's Non-Alcoholic Amalfi Spritz",
+            "name": "Lyre&apos;s Non-Alcoholic Amalfi Spritz",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550022,
-            "name": "Lyre's Non-Alcoholic American Malt & Cola",
+            "name": "Lyre&apos;s Non-Alcoholic American Malt &amp; Cola",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550023,
-            "name": "Lyre's Non-Alcoholic Dark N' Spicy Cocktail",
+            "name": "Lyre&apos;s Non-Alcoholic Dark N&apos; Spicy Cocktail",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550024,
-            "name": "Lyre's Non-Alcoholic G &T",
+            "name": "Lyre&apos;s Non-Alcoholic G &amp;T",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550025,
-            "name": "Martini & Rossi Floreale Non Alcoholic",
+            "name": "Martini &amp; Rossi Floreale Non Alcoholic",
             "Category": "Non-Alcoholic_PMC"
         },
         {
             "UPC": 550026,
-            "name": "Martini & Rossi Vibrante Non Alcoholic",
+            "name": "Martini &amp; Rossi Vibrante Non Alcoholic",
             "Category": "Non-Alcoholic_PMC"
         },
         {
@@ -8812,7 +8812,7 @@ var barcodelist = {
         },
         {
             "UPC": 600007,
-            "name": "Athletic Wit's Peak Non-Alcoholic ",
+            "name": "Athletic Wit&apos;s Peak Non-Alcoholic ",
             "Category": "Non-Alcoholic_Beer"
         },
         {
@@ -8832,7 +8832,7 @@ var barcodelist = {
         },
         {
             "UPC": 600011,
-            "name": "Beck's Beer Non-Alcoholic",
+            "name": "Beck&apos;s Beer Non-Alcoholic",
             "Category": "Non-Alcoholic_Beer"
         },
         {
@@ -8942,7 +8942,7 @@ var barcodelist = {
         },
         {
             "UPC": 600033,
-            "name": "Busty Lush Non-Alcoholic She's Divine Oatmeal Dark",
+            "name": "Busty Lush Non-Alcoholic She&apos;s Divine Oatmeal Dark",
             "Category": "Non-Alcoholic_Beer"
         },
         {
@@ -8997,7 +8997,7 @@ var barcodelist = {
         },
         {
             "UPC": 600114,
-            "name": "Dos Equis Lime & Salt Zero Non-Alcoholic",
+            "name": "Dos Equis Lime &amp; Salt Zero Non-Alcoholic",
             "Category": "Non-Alcoholic_Beer"
         },
         {
@@ -9142,12 +9142,12 @@ var barcodelist = {
         },
         {
             "UPC": 600071,
-            "name": "O'Doul's Amber Non-Alcoholic Beer",
+            "name": "O&apos;Doul&apos;s Amber Non-Alcoholic Beer",
             "Category": "Non-Alcoholic_Beer"
         },
         {
             "UPC": 600072,
-            "name": "O'Doul's Non-Alcoholic ",
+            "name": "O&apos;Doul&apos;s Non-Alcoholic ",
             "Category": "Non-Alcoholic_Beer"
         },
         {
@@ -9217,7 +9217,7 @@ var barcodelist = {
         },
         {
             "UPC": 600086,
-            "name": "Penn's Best Lager Non-Alcoholic ",
+            "name": "Penn&apos;s Best Lager Non-Alcoholic ",
             "Category": "Non-Alcoholic_Beer"
         },
         {
@@ -9377,7 +9377,7 @@ var barcodelist = {
         },
         {
             "UPC": 700005,
-            "name": "Lyre's Classico Non-Alcoholic ",
+            "name": "Lyre&apos;s Classico Non-Alcoholic ",
             "Category": "Non-Alcoholic_Wine"
         },
         {
@@ -9392,22 +9392,22 @@ var barcodelist = {
         },
         {
             "UPC": 800001,
-            "name": "Beckett's '27 Non-Alcoholic Amaretto",
+            "name": "Beckett&apos;s &apos;27 Non-Alcoholic Amaretto",
             "Category": "Non-Alcoholic_Spirits"
         },
         {
             "UPC": 800002,
-            "name": "Beckett's '27 Non-Alcoholic Cinnamon Whiskey",
+            "name": "Beckett&apos;s &apos;27 Non-Alcoholic Cinnamon Whiskey",
             "Category": "Non-Alcoholic_Spirits"
         },
         {
             "UPC": 800003,
-            "name": "Beckett's '27 Non-Alcoholic Coconut Rum",
+            "name": "Beckett&apos;s &apos;27 Non-Alcoholic Coconut Rum",
             "Category": "Non-Alcoholic_Spirits"
         },
         {
             "UPC": 800004,
-            "name": "Beckett's '27 Non-Alcoholic Coffee Liqueur",
+            "name": "Beckett&apos;s &apos;27 Non-Alcoholic Coffee Liqueur",
             "Category": "Non-Alcoholic_Spirits"
         },
         {
@@ -9542,12 +9542,12 @@ var barcodelist = {
         },
         {
             "UPC": 8,
-            "name": "Bee's Knees",
+            "name": "Bee&apos;s Knees",
             "Category": "Cocktails"
         },
         {
             "UPC": 9,
-            "name": "Blood & Sand",
+            "name": "Blood &amp; Sand",
             "Category": "Cocktails"
         },
         {
@@ -9677,7 +9677,7 @@ var barcodelist = {
         },
         {
             "UPC": 35,
-            "name": "Gin & Juice",
+            "name": "Gin &amp; Juice",
             "Category": "Cocktails"
         },
         {
@@ -9727,7 +9727,7 @@ var barcodelist = {
         },
         {
             "UPC": 45,
-            "name": "Jameson Ginger & Lime",
+            "name": "Jameson Ginger &amp; Lime",
             "Category": "Cocktails"
         },
         {
@@ -9892,7 +9892,7 @@ var barcodelist = {
         },
         {
             "UPC": 78,
-            "name": "PB&J shot",
+            "name": "PB&amp;J shot",
             "Category": "Cocktails"
         },
         {
@@ -9902,7 +9902,7 @@ var barcodelist = {
         },
         {
             "UPC": 80,
-            "name": "Pimm's Cup",
+            "name": "Pimm&apos;s Cup",
             "Category": "Cocktails"
         },
         {
@@ -9942,7 +9942,7 @@ var barcodelist = {
         },
         {
             "UPC": 88,
-            "name": "Rum & Coke",
+            "name": "Rum &amp; Coke",
             "Category": "Cocktails"
         },
         {
@@ -9972,7 +9972,7 @@ var barcodelist = {
         },
         {
             "UPC": 94,
-            "name": "Scotch & Soda Highball",
+            "name": "Scotch &amp; Soda Highball",
             "Category": "Cocktails"
         },
         {
@@ -10087,7 +10087,7 @@ var barcodelist = {
         },
         {
             "UPC": 117,
-            "name": "Vodka & Coke",
+            "name": "Vodka &amp; Coke",
             "Category": "Cocktails"
         },
         {
@@ -10107,12 +10107,12 @@ var barcodelist = {
         },
         {
             "UPC": 121,
-            "name": "Whiskey & Coke",
+            "name": "Whiskey &amp; Coke",
             "Category": "Cocktails"
         },
         {
             "UPC": 122,
-            "name": "Whiskey & Lemon Lime Soda",
+            "name": "Whiskey &amp; Lemon Lime Soda",
             "Category": "Cocktails"
         },
         {
@@ -10172,12 +10172,12 @@ var barcodelist = {
         },
         {
             "UPC": 10008,
-            "name": "Virgin Bee's Knees",
+            "name": "Virgin Bee&apos;s Knees",
             "Category": "Mocktails"
         },
         {
             "UPC": 10009,
-            "name": "Virgin Blood & Sand",
+            "name": "Virgin Blood &amp; Sand",
             "Category": "Mocktails"
         },
         {
@@ -10307,7 +10307,7 @@ var barcodelist = {
         },
         {
             "UPC": 10035,
-            "name": "Virgin Gin & Juice",
+            "name": "Virgin Gin &amp; Juice",
             "Category": "Mocktails"
         },
         {
@@ -10357,7 +10357,7 @@ var barcodelist = {
         },
         {
             "UPC": 10045,
-            "name": "Virgin Jameson Ginger & Lime",
+            "name": "Virgin Jameson Ginger &amp; Lime",
             "Category": "Mocktails"
         },
         {
@@ -10522,7 +10522,7 @@ var barcodelist = {
         },
         {
             "UPC": 10078,
-            "name": "Virgin PB&J shot",
+            "name": "Virgin PB&amp;J shot",
             "Category": "Mocktails"
         },
         {
@@ -10532,7 +10532,7 @@ var barcodelist = {
         },
         {
             "UPC": 10080,
-            "name": "Virgin Pimm's Cup",
+            "name": "Virgin Pimm&apos;s Cup",
             "Category": "Mocktails"
         },
         {
@@ -10572,7 +10572,7 @@ var barcodelist = {
         },
         {
             "UPC": 10088,
-            "name": "Virgin Rum & Coke",
+            "name": "Virgin Rum &amp; Coke",
             "Category": "Mocktails"
         },
         {
@@ -10602,7 +10602,7 @@ var barcodelist = {
         },
         {
             "UPC": 10094,
-            "name": "Virgin Scotch & Soda Highball",
+            "name": "Virgin Scotch &amp; Soda Highball",
             "Category": "Mocktails"
         },
         {
@@ -10717,7 +10717,7 @@ var barcodelist = {
         },
         {
             "UPC": 10117,
-            "name": "Virgin Vodka & Coke",
+            "name": "Virgin Vodka &amp; Coke",
             "Category": "Mocktails"
         },
         {
@@ -10737,12 +10737,12 @@ var barcodelist = {
         },
         {
             "UPC": 10121,
-            "name": "Virgin Whiskey & Coke",
+            "name": "Virgin Whiskey &amp; Coke",
             "Category": "Mocktails"
         },
         {
             "UPC": 10122,
-            "name": "Virgin Whiskey & Lemon Lime Soda",
+            "name": "Virgin Whiskey &amp; Lemon Lime Soda",
             "Category": "Mocktails"
         },
         {
