@@ -278,17 +278,27 @@ define(['o-question'], function (oQuestion) {
         this.buttonElement = buttonElement;
         buttonElement.setAttribute('data-checked', 'true');
         buttonElement.setAttribute('data-value', 'true');
+        
         var self = this;
+    
+        // Add an input event listener to store the reference to the current item
+        this.element.addEventListener('input', function () {
+            self.currentInputValue = self.element.value.trim();
+        });
+    
         buttonElement.addEventListener('click', function (event) {
             event.preventDefault();
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
+                self.hiddenelement.setAttribute('value', inputValue);
+                self.hiddenelement.setAttribute('data-value', inputValue);
                 self.element.value = '';
                 self.hideList();
             }
         });
     };
+    
 
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
