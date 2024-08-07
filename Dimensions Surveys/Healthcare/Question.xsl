@@ -441,7 +441,8 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
-         <xsl:when test="$qCustomType='Media-External'">
+         <xsl:when test="$qCustomType='media-external'">
+         <xsl:text>Media-External</xsl:text>
             <xsl:call-template name="MediaExternalControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
