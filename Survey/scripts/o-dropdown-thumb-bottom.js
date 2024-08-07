@@ -54,7 +54,7 @@ define(['component'],
 
             while (maxDate >= minDate) {
                 dateObject = {};
-                dateObject.dayname = maxDate.toLocaleDateString(navigator.language, { weekday: 'long' });
+                dateObject.dayname = maxDate.toLocaleDateString(navigator.language, { weekday: 'short' });
                 dateObject.endpoint = maxDate.toDateString();
                 dateArray.push(dateObject);
                 maxDate = maxDate.addDays(-1);
