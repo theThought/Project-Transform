@@ -766,13 +766,14 @@ oQuestionOpenendSearch.prototype.processKeyup = function(event) {
         var image = selectedOption.querySelector('img');
         if (image) {
             var visibleItemCount = 1;
-            this.list.forEach(function (item) {
-                if (item !== selectedOption && item.querySelector('img')) {
-                    item.style.display = 'none';
-                } else {
-                    item.style.display = '';
-                }
-            });
+            // I could use this for an active state of the image?
+            // this.list.forEach(function (item) {
+            //     if (item !== selectedOption && item.querySelector('img')) {
+            //         item.style.display = 'none';
+            //     } else {
+            //         item.style.display = '';
+            //     }
+            // });
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
             document.querySelector('.m-list-external').classList.add('visible');
