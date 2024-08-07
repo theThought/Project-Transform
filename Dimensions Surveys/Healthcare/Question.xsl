@@ -2814,7 +2814,7 @@
             <xsl:text>-wrapper</xsl:text>
          </xsl:attribute>
          <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'aButtonPreTerminator'" />
+            <xsl:with-param name="ComponentName" select="'oMediaExternal'" />
             <xsl:with-param name="qElementID">
                <xsl:value-of select="$qElementID" />
                <xsl:text>_Wrapper</xsl:text>
