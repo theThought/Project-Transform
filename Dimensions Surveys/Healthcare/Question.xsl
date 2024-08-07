@@ -2812,20 +2812,28 @@
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
          </xsl:call-template>
+         <xsl:element name="div">
+            <xsl:attribute name="class" value="o-label-message-error external-warning" />
+            <xsl:comment> --- warnings generated from interaction with external capability --- </xsl:comment>
+         </xsl:element>
+         <xsl:element name="div" class="o-media-frame">
+            <xsl:element name="input">
+               <xsl:attribute name="type">button</xsl:attribute>
+               <xsl:attribute name="class">
+                  <xsl:text>a-button-primary start_external</xsl:text>
+               </xsl:attribute>
+            </xsl:element>
+         </xsl:element>
+      
+         <xsl:call-template name="SingleLineEditControl">
+            <xsl:with-param name="qElementID" select="$qElementID" />
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+            <xsl:with-param name="qCustomType" select="$qCustomType" />
+         </xsl:call-template>
       </xsl:element>
-      <xsl:element name="input">
-         <xsl:attribute name="type">button</xsl:attribute>
-         <xsl:attribute name="class">
-            <xsl:text>a-button</xsl:text>
-         </xsl:attribute>
-      </xsl:element>
-      <xsl:call-template name="SingleLineEditControl">
-         <xsl:with-param name="qElementID" select="$qElementID" />
-         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-         <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-         <xsl:with-param name="qIsCustom" select="$qIsCustom" />
-         <xsl:with-param name="qCustomType" select="$qCustomType" />
-      </xsl:call-template>
+      
    </xsl:template>
 
    <!--- Style Templates -->
