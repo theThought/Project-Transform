@@ -441,6 +441,15 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="$qCustomType='Media-External'">
+            <xsl:call-template name="MediaExternalControl">
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>
          <xsl:when test="@Type = 'Static'">
             <xsl:call-template name="StaticControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
