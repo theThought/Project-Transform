@@ -166,6 +166,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oQuestionScale(id, group));
             });
             break;
+        case 'oquestionmedia-external':
+            requirejs(['o-question-media'], function (oQuestionMedia) {
+                app.preinitcomponents.unshift(new oQuestionMedia(id, group));
+            });
+            break;
         default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }
