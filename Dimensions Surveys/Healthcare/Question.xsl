@@ -2813,10 +2813,11 @@
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
          </xsl:call-template>
          <xsl:element name="div">
-            <xsl:attribute name="class" value="o-label-message-error external-warning" />
+            <xsl:attribute name="class">o-label-message-error external-warning</xsl:attribute>
             <xsl:comment> --- warnings generated from interaction with external capability --- </xsl:comment>
          </xsl:element>
-         <xsl:element name="div" class="o-media-frame">
+         <xsl:element name="div">
+            <xsl:attribute name="class">o-media-frame</xsl:attribute>
             <xsl:element name="input">
                <xsl:attribute name="type">button</xsl:attribute>
                <xsl:attribute name="class">
