@@ -3062,6 +3062,24 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   color: #FAFAFA;
 }
 
+.o-question-media-external .o-media-frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  min-height: 200px;
+  background: linear-gradient(to right, #8797C8 3px, transparent 3px) 0 0, linear-gradient(to right, #8797C8 3px, transparent 3px) 0 100%, linear-gradient(to left, #8797C8 3px, transparent 3px) 100% 0, linear-gradient(to left, #8797C8 3px, transparent 3px) 100% 100%, linear-gradient(to bottom, #8797C8 3px, transparent 3px) 0 0, linear-gradient(to bottom, #8797C8 3px, transparent 3px) 100% 0, linear-gradient(to top, #8797C8 3px, transparent 3px) 0 100%, linear-gradient(to top, #8797C8 3px, transparent 3px) 100% 100%;
+  background-color: #B4BDDB;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
 html {
   height: 95vh;
   width: auto;

@@ -1,0 +1,23 @@
+@use 'globals';
+
+.o-question-media-external {
+    .o-media-frame {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 200px;
+
+        background: linear-gradient(to right, globals.$borders 3px, transparent 3px) 0 0,
+        linear-gradient(to right, globals.$borders 3px, transparent 3px) 0 100%,
+        linear-gradient(to left, globals.$borders 3px, transparent 3px) 100% 0,
+        linear-gradient(to left, globals.$borders 3px, transparent 3px) 100% 100%,
+        linear-gradient(to bottom, globals.$borders 3px, transparent 3px) 0 0,
+        linear-gradient(to bottom, globals.$borders 3px, transparent 3px) 100% 0,
+        linear-gradient(to top, globals.$borders 3px, transparent 3px) 0 100%,
+        linear-gradient(to top, globals.$borders 3px, transparent 3px) 100% 100%;
+        background-color: globals.$light3;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+    }
+}
