@@ -2357,7 +2357,7 @@ input[type=range]:focus::-ms-fill-lower {
   text-align: center;
   color: #449B9B;
   margin: 0 0 0.4em 0;
-  width: 120px;
+  width: 60px;
   background-color: #FFFFFF;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
