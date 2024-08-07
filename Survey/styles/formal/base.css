@@ -2689,15 +2689,16 @@ html[dir=rtl] .o-dropdown ul li {
 
 .l-summary-lastchange {
   background-color: rgba(232, 190, 93, 0.2);
-  position: relative;
-  height: 100px;
+  height: 80px;
   margin-top: -50px;
   z-index: 1;
 }
 
 .l-summary-questionname,
-.l-summary-response {
+.l-summary-response,
+.l-summary-questionprompt {
   z-index: 2;
+  margin: 0 10px;
 }
 
 @media only screen and (max-width: 768px) {
