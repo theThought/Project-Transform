@@ -2754,6 +2754,78 @@ Coke "Coca Cola" define
 
     ) expand;
 
+    '----------------------------------------
+    ' scales (vertical)
+    '----------------------------------------
+    Passive10ScaleV "Indicate your satisfaction with this wash"
+        style(
+            ZIndex = -56,
+            Width = "80%"
+        )
+    long [1 .. 10];
+
+	BottleContainer1 "Indicate how much of the container you consumed"
+        style(
+        ZIndex = -56,
+        Width = "80%"
+    )
+    long [1 .. 5];
+
+	GlassContainer1 "Indicate how much of the container you consumed"
+        style(
+        ZIndex = -56,
+        Width = "80%"
+    )
+    long [1 .. 5];
+    
+    Passive10FeedbackV "Please provide some detail as to why you scored your wash with a rating"
+        style(
+            ZIndex = -30
+        )
+    text [..400]
+    codes(
+    {
+        noasnwer "" NA
+    } );
+
+    tenpointfeedbackV "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -56,
+            Width = "15em"
+        )
+    long [1 .. 10];
+
+    sevenpointfeedbackV "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -56,
+            Width = "50%"
+        )
+    long [1 .. 7];
+
+    fivepointfeedbackV "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -56
+        )
+    long [1 .. 5]
+    codes(
+    {
+        noscent "I did not use a scent booster" NA
+    } );
+
+    fivepointfeedbackbythesideV "Based on your last wash indicate your satisfaction with your detergent"
+        style(
+            ZIndex = -56
+        )
+    long [1 .. 5]
+    codes(
+    {
+        noscent "I did not use a scent booster"
+            style(
+                ElementAlign = "Right"
+            )
+        NA
+    } );
+
     sizes "Which of the odd options works for you"
         [
             json = "{'balance':{'state':false},'onesize':{'state':false}}"
@@ -6395,6 +6467,15 @@ Coke "Coca Cola" define
             )
         )
     text [..200];
+
+    containerlistII "Describe the container you used to hold the drink you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200];
     
     YearofDiagnosis "What was the year of diagnosis?"
         style(
@@ -6515,30 +6596,37 @@ Coke "Coca Cola" define
     When "When did you start your journey"
     date;
 
-    
     '----------------------------------------
     ' Camera Questions
     '----------------------------------------
-    
-    LABarcode "Scan Barcode" 
-    style(zIndex=-1510)
-    text[..24]
-    codes (
+    LAScan "Scan Barcode"
+        style(
+            ZIndex = -1510
+        )
+    text [..24]
+    codes(
     {
-    noproduct "no matching product found" exclusive,
-    noanswer "no answer provided" NA
-    });
-    
-    LAProduct "" 
-    style(zIndex=-20)
-    text[..100]
-    codes{(NoProduct "" NA});
-    
-    LACategory ""
-    style(zIndex=-40)
-    categorical[1]
+        noproduct "no matching product found" exclusive,
+        noanswer "no answer provided" NA
+    } );
+	LABarcode "Barcode: "
+    LAProduct "Product Description: "
+        style(
+            ZIndex = -20
+        )
+    text [..100]
+    codes(
     {
-    	Beer "Beer",
+        NoProduct "" NA
+    } );
+
+    LACategory "Product Category: "
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        Beer "Beer",
         Wine "Wine",
         Spirits "Spirits (cocktail or straight",
         Cider "Cider",
@@ -6547,8 +6635,14 @@ Coke "Coca Cola" define
         hard "Hard Seltzer or Hard Soda",
         othertype "Other alcoholic beverages"
     };
-    LABarcode_Page Page(LABarcode, LAProduct, LACategory);
-    
+
+    LABarcode_Page "LABarcode_Page"
+    page(
+    	LAScan,
+        LABarcode,
+        LAProduct,
+        LACategory
+    );
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -6568,7 +6662,6 @@ Coke "Coca Cola" define
         relapse,
         yearoftreatment
     );
-    
     MenuPage "MenuPage"
     page(
         CustomList_SetLayout,
@@ -6892,6 +6985,11 @@ Coke "Coca Cola" define
     page(
         Passive10Scale,
         Passive10Feedback
+    );
+    Passive10PageV "Passive10Page"
+    page(
+        Passive10ScaleV,
+        Passive10FeedbackV
     );
 End Metadata
 Routing(Web)
@@ -7446,6 +7544,30 @@ AddCustomProperties(LaundryScales, "Passive5Scale", "{'values':{'min':1,'max':5,
 LaundryScales.ask()
 
 case {scalev}
+dim passive10visibilityV
+AddCustomProperties(Passive10ScaleV, "Passive10ScaleV", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+passive10visibilityV = CreateVisibilityRule("Passive10ScaleV < 9")
+Passive10ScaleV.ask()
+
+AddCustomProperties(BottleContainer1, "BottleContainer1", "{'values':{'min':1,'max':5,'position':'none'},'background':{'image':{'url':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/container_bg/Vodka.svg','width':'372px','height':'450px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+BottleContainer1.ask()
+
+AddCustomProperties(Passive10ScaleV, "Passive10ScaleV", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+passive10visibilityV = CreateVisibilityRule("Passive10ScaleV < 9")
+Passive10ScaleV.ask()
+
+Passive10FeedbackV.MustAnswer = false
+addCustomProperties(Passive10FeedbackV, "Passive10FeedbackV", MakeString("{'visible':{'collapse':true,'rules':'", passive10visibility, "'}}"), "replace")
+
+Passive10PageV.ask()
+'AddCustomProperties(tenpointfeedback, "tenpointfeedback", "'{'values':{'min':1,'max':10},'unit':{'image':{'url':'../../images/formal/unit_default.svg','width':'32px','height':'32px'},'caption':'Score of ','offset':{'x':0,'y':0}},'background':{'image':{'url':'../../images/formal/background_default.svg','width':'','height':''},'caption':'scale background','offset':{'x':0,'y':0}},'values':{'position':'inside'},'show':{'terminators':true},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+
+AddCustomProperties(fivepointfeedbackV, "fivepointfeedbackV", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(fivepointfeedbackV, "fivepointfeedbackV", "{'balance':{'state':true}, 'onesize':{'state':true}}", "add")
+
+fivepointfeedbackV.Ask()
+
+
 case {Instructions}
 
 AddCustomProperties(new_products, "new_products", "{'balance':{'state':false}, 'onesize':{'state':false}}", "replace")
@@ -8709,6 +8831,9 @@ case {RotatedHiddenCells}
     containerlist.QuestionTemplate = "question-database-containerlist.htm"
     containerlist.Ask()
 
+	AddCustomProperties(containerlistII, "containerlistII", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+    containerlistII.QuestionTemplate = "question-database-containerlistII.htm"
+    containerlistII.Ask()
 
 	case {SpecialOnes}
 	
@@ -8916,26 +9041,37 @@ htmlPICTURE[12] = "</div>"
 	contentWHAT = BuildContent(htmlWHAT, true, true)
 	Summary.Ask()
 	
+	htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='48px' height='48px' src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' alt='No Picture taken'/>")
+	contentWHAT = BuildContent(htmlWHAT, true, false)
+	contentPICTURE = BuildContent(htmlPICTURE, true, true)
+	Summary.Ask()
+	
 case {datetimerecent}
     '----------------------------------------
     ' Date/Time recent Question
     '----------------------------------------
-
-		When_MinDate.response = UTCFormat(Now() - 4)
-		When_MaxDate.response = UTCFormat(Now())
-		When_Entry.response.initial = UTCFormat(Now())
+		dim dateIsNow 
+		dateIsNow = Now()
+		When_MinDate.response = FormatUTC(LocaltoUTCTime(dateIsNow - 4), false)
+		When_MaxDate.response = FormatUTC(LocaltoUTCTime(dateIsNow), false)
+		When_Entry.response.initial = FormatUTC(LocaltoUTCTime(dateIsNow), false)
+		
 	
 	When_Entry.validation.function = "When_Validate"
-	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate,"'}}"), "replace")
+	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate, "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':'20%','floodtovalue':false}"), "replace")
+
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 	When_Entry.Ask()
-	
+
+	When_Entry.Ask()	
 case {barcodescan}
     '----------------------------------------
     ' Barcode scan Question
     '----------------------------------------
-	AddCustomProperties(LABarcode, "LABarcode", MakeString("{'caption':{'start':'Scan Barcode'},'action':'Barcode','inputs':{'code':'LABarcode','product':'LAProduct','category':'LACategory']}"), "replace")
-	LABarcode.ask()
+	AddCustomProperties(LABarcode, "LABarcode", MakeString("{'captions':[{'type':'start','text':'Scan Barcode'}],'action':'Barcode','inputs':[{'variable':'code','input':'LABarcode'},{'variable':'product','input':'LAProduct'},{'variable':'category','field':'LACategory'}]}"), "replace")
+	AddCustomProperties(LAProduct, "LAProduct", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+	AddCustomProperties(LACategory, "LACategory", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+	LABarcode_Page.ask()
 end select
 
 loop
@@ -8983,43 +9119,6 @@ loop
 	
 	end function
 	
-	function UTCFormat(theDate)
-	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
-	dim strYear, strMonth, strDay, strHour, strMinute, strSecond
-	digitYear = YEar(theDate)
-	digitMonth = Month(theDate)
-	digitDay = day(theDate)
-	digitHour = hour(theDate)
-	digitMinute = minute(theDate)
-	digitSecond  = second(theDate)
-	strYear = ctext(digitYear)
-	if digitMonth<10 then 
-		strMonth = "0" + ctext(digitMonth)
-	else
-		strMonth = ctext(digitMonth)
-	end if
-	
-	if digitDay<10 then 
-		strDay = "0" + ctext(digitDay)
-	else
-		strDay = ctext(digitDay)
-	end if
-	
-	if digitHour<10 then 
-		strHour = "0" + ctext(digitHour)
-	else
-		strHour = ctext(digitHour)
-	end if	
-
-	
-	if digitMinute<10 then 
-		strMinute = "0" + ctext(digitMinute)
-	else
-		strMinute = ctext(digitMinute)
-	end if		
-	
-	UTCFormat = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
-	end function
 	
 	
     '----------------------------------------
@@ -9273,4 +9372,77 @@ sub RotateGrid(theGrid, theOrientation)
       theGrid.style.orientation = theOrientation
 end sub
 
+function FormatUTC(theDate, theZIncluded)
+	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
+	dim strYear, strMonth, strDay, strHour, strMinute, strSecond
+	digitYear = YEar(theDate)
+	digitMonth = Month(theDate)
+	digitDay = day(theDate)
+	digitHour = hour(theDate)
+	digitMinute = minute(theDate)
+	digitSecond  = second(theDate)
+	strYear = ctext(digitYear)
+	if digitMonth<10 then 
+		strMonth = "0" + ctext(digitMonth)
+	else
+		strMonth = ctext(digitMonth)
+	end if
+	
+	if digitDay<10 then 
+		strDay = "0" + ctext(digitDay)
+	else
+		strDay = ctext(digitDay)
+	end if
+	
+	if digitHour<10 then 
+		strHour = "0" + ctext(digitHour)
+	else
+		strHour = ctext(digitHour)
+	end if	
+
+	
+	if digitMinute<10 then 
+		strMinute = "0" + ctext(digitMinute)
+	else
+		strMinute = ctext(digitMinute)
+	end if		
+	if theZIncluded then
+		FormatUTC = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
+	else
+		FormatUTC = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00")
+	end if	
+	end function
+	
+function UnFormatUTC(theString)
+	dim findDate, findEnd, findDecimal
+	dim stringDate, stringTime
+	dim convertedDate, convertedTime
+		findDate = theString.Find("T")
+		findEnd = theString.Find("Z")
+		debug.Log("FindDate:" + ctext(findDate))
+		debug.Log("FindEnd:" + ctext(findEnd))
+		
+		if findEnd > -1 then
+			theString = theString.Left(findEnd)
+		end if
+		
+		findDecimal = theString.Find(".",, true)
+		if findDecimal > -1 then
+			theString = theString.Left(findDecimal)
+		end if
+		
+		if findDate > -1 then
+			stringDate = theString.Left(findDate)
+			stringTime = theString.Mid(findDate+1,theString.Len() - findDate)
+			debug.Log("stringDate: " + cText(stringDate))
+			debug.Log("stringTime: " + cText(stringTime))
+		else
+			UnFormatUTC = -1
+			exit function
+		end if
+		
+		convertedDate = cdate(stringDate + " " + stringTime)
+'		convertedTime = cdate(stringTime)
+		UnFormatUTC = convertedDate
+	end function	
 End Routing

@@ -7,6 +7,22 @@ FixedTextsList "" define
         StartPrevious "I had another"
     };
 
+	Monthlist "" define
+	{
+	M01 "Jan"
+	M02 "Feb"
+	M03 "Mar"
+	M04 "Apr"
+	M05 "May"
+	M06 "Jun"
+	M07 "Jul"
+	M08 "Aug"
+	M09 "Sep"
+	M10 "Oct"
+	M11 "Nov"
+	M12 "Dec"
+	};
+	
 	sizes "" define
 	{
 	size44 "44ml" factor(44),
@@ -19,6 +35,7 @@ FixedTextsList "" define
 	size220 "220ml" factor(220),
 	size240 "240ml" factor(240),
 	size250 "250ml" factor(250),
+	size260 "260ml" factor(260),
 	size270 "267ml" factor(270),
 	size300 "300ml" factor(300),
 	size310 "310ml" factor(310),
@@ -50,7 +67,7 @@ FixedTextsList "" define
 	};
 	
 	
-	ContainerList "" define
+	ContainerSizesList "" define
 	{
 	beer "size330,size355,size500,size750",
 	beer_can "size355,size440,size473,size500,size568",
@@ -60,7 +77,7 @@ FixedTextsList "" define
 	beer_mug "size473,size568,size415,size560",
 	Whisky "size125,size200,size375,size750,size1140,size1750",
 	Vodka "size125,size200,size375,size750,size1140,size1750",
-	Tequilla "size125,size200,size375,size750,size1140,size1750",
+	Tequila "size125,size200,size375,size750,size1140,size1750",
 	Gin "size125,size200,size375,size750,size1140,size1750",
 	Rum "size125,size200,size375,size750,size1140,size1750",
 	Spirits "size125,size200,size375,size750,size1140,size1750",
@@ -75,7 +92,6 @@ FixedTextsList "" define
 	rum_glass "220ml",
 	short_glass "size44",
 	snifter "size180,size240",
-	Spirits "size125,size200,size375,size750,size1140,size1750",
 	Table_wine_glass "size150,size200",
 	Tequila_glass "size44",
 	Vodka_glass "size44,size90",
@@ -85,6 +101,40 @@ FixedTextsList "" define
 	Champagne_glass "size220,size260"
 	};
 
+	ContainerTransformList "" define
+	{
+	beer "Beer bottle",
+	beer_can "Beer can",
+	beer_glass "Beer Glass",
+	cider "Cider bottle",
+	cider_can "cider can",
+	beer_mug "Beer mug",
+	Whisky "Whisky bottle",
+	Vodka "Vodka Bottle",
+	Tequila "Tequilla bottle",
+	Gin "Gin bottle",
+	Rum "Rum bottle",
+	Spirits "Spirits bottle",
+	Cognac "Cognac bottle",
+	Cognac_glass "Cognac glass",
+	White_wine_glass "White wine glass",
+	Dessert_wine_glass "Dessert wine glass",
+	Highball_glass "Highball glass",
+	Juice_glass "Juice glass",
+	Martini_glass "Martini glass",
+	red_wine_glass "Red wine glass",
+	rum_glass "Rum glass",
+	short_glass "Short glass",
+	snifter "Snifter",
+	Table_wine_glass "Table wine glass",
+	Tequila_glass "Tequila glass",
+	Vodka_glass "Vodka glass",
+	Whiskey_glass "Whiskey glass",
+	Wine "Wine bottle",
+	Wine_box "Wine box",
+	Champagne_glass "Champagne glass"
+	};
+	
     FixedTexts ""
     categorical [1..1]
     {
@@ -101,9 +151,18 @@ FixedTextsList "" define
         where "{#contentWHERE}",
         what "{#contentWHAT}",
         howmuch "{#contentHOWMUCH}",
-        picture "{#contentPICTURE}"
+        picture "{#contentPICTURE}",
+        done "{#contentDONE}"
     } nocasedata;
 
+	Confirm "Please confirm that this event can be recorded" 
+	style(zIndex=-40)
+	categorical[1]
+	{
+	Yes "Record this entry",
+	No "Go back so I can make changes"
+	};
+	
     ScriptSource "PostMessage Script source"
     text [..100]
     nocasedata codes(
@@ -154,7 +213,12 @@ FixedTextsList "" define
         nocasedata;
 
     );
-
+    
+    GetMonthList "" categorical[1]
+    {
+    use monthlist
+    } nocasedata;
+	
     '-------------------
     '  Survey Questions
     '===================
@@ -298,16 +362,33 @@ FixedTextsList "" define
         )
     text [..200];
 
+	PickContainerLookup "" categorical[1]
+	{
+	use ContainerTransformList
+	} nocasedata;
+
+	PickContainerSizes "" categorical[1]
+	{
+	use ContainerSizesList
+	} nocasedata;
+	
 	WhichContainerText "" 
 	text[..100];
 	
-	WhichSize "" categorical[1]
+	WhichSize "Select the size of your container." 
+	style(zIndex=-40)
+	categorical[1]
 	{
+	use sizes
 	};
 	
-	AmountConsumed "" long[1..5];
+	AmountConsumed "Indicate how much of the container's drink was consumed." 
+	style(zIndex=-56)
+	long[1..5];
 	
 	HowMuch "" long[..6000];
+	
+	SizeandAmountPage "" Page (WhichSize, AmountConsumed);
 	
     HowMuchPage ""
     page(
@@ -338,12 +419,52 @@ dim templateLocation
 dim visibilityRule
 dim stayinLoop
 dim postMessageScript
-dim statusBanner
-dim htmlWHEN[13], htmlWHERE[13], htmlWHAT[13], htmlHOWMUCH[13], htmlPICTURE[13]
-dim contentWHEN, contentWHERE, contentWHAT, contentHOWMUCH, contentPICTURE
+dim htmlWHEN[13], htmlWHERE[13], htmlWHAT[13], htmlHOWMUCH[13], htmlPICTURE[13], htmlDONE[13]
+dim contentWHEN, contentWHERE, contentWHAT, contentHOWMUCH, contentPICTURE, ContentDone
 dim sampleMinDate, sampleMaxDate, samplePrevious
+dim statusBanner
 dim lastQuestion
 dim calcDate
+dim progressBar
+dim isItInComplete
+
+IOM.OffPathDataMode = offpathdatamodes.dmClearOnComplete
+IOM.Info.EstimatedPages = 5
+progressBar = 0
+isItInComplete = false
+
+debug.Log("-------- BEFORE -----------")
+debug.Log(MakeString("WHEN: ", When.Response, " - ", When.Info.IsOnPath, " -- ", When.info.Offpathresponse))
+debug.Log(MakeString("WHEN ENTRY: ", When_Entry.Response, " - ", When_Entry.Info.IsOnPath, " -- ", When_Entry.Info.Offpathresponse))
+debug.Log(MakeString("WHAT: ", WHAT.Response, " - ", WHAT.Info.IsOnPath, " -- ", WHAT.Info.Offpathresponse))
+debug.Log(MakeString("WHERE: ", WHERE.Response, " - ", WHERE.Info.IsOnPath, " -- ", WHERE.Info.Offpathresponse))
+debug.Log(MakeString("HOWMUCH: ", HOWMUCH.Response, " - ", HOWMUCH.Info.IsOnPath, " -- ", HOWMUCH.Info.Offpathresponse))
+debug.Log("-------- BEFORE -----------")
+
+
+'if not Progress.Info.IsOnPath then Progress.Status.Response = Progress.Status.Info.OffPathResponse
+'if not Progress.Info.IsOnPath then Progress.When.Response = Progress.When.Info.OffPathResponse
+'if not Progress.Info.IsOnPath then Progress.What.Response = Progress.What.Info.OffPathResponse
+
+
+if not When.Info.IsOnPath then 
+	When.Response = When.Info.OffPathResponse
+	if when.response = null or when.Response = "" then  
+		When.Response = unformatUTC(IOM.SampleRecord["MaxDate"])
+	end if
+end if
+
+if not What.Info.IsOnPath then What.Response = What.Info.OffPathResponse
+if not Where.Info.IsOnPath then Where.Response = Where.Info.OffPathResponse
+if not Category.Info.IsOnPath then Category.Response = Category.Info.OffPathResponse
+
+if not Howmuch.Info.IsOnPath then Howmuch.Response = howmuch.Info.OffPathResponse
+if not WhichContainerText.Info.IsOnPath then WhichContainerText.Response = WhichContainerText.Info.OffPathResponse
+if not WhichSize.Info.IsOnPath then WhichSize.Response = WhichSize.Info.OffPathResponse
+if not AmountConsumed.Info.IsOnPath then AmountConsumed.Response = AmountConsumed.Info.OffPathResponse
+if not Container.Info.IsOnPath then Container.Response = Container.Info.OffPathResponse
+
+
 
 htmlWHEN[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
 htmlWHEN[1] = "<div class='l-summary-questionname'>"
@@ -414,6 +535,22 @@ htmlPICTURE[9] = "</div>"
 htmlPICTURE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
 htmlPICTURE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
 htmlPICTURE[12] = "</div>"
+
+htmlDONE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+htmlDONE[1] = "<div class='l-summary-questionname'>"
+htmlDONE[2] = "CONFIRMATION"
+htmlDONE[3] = "</div>"
+htmlDONE[4] = "<div class='l-summary-questionprompt'>"
+htmlDONE[5] = "Confirm you are happy with the entry" 
+htmlDONE[6] = "</div>"
+htmlDONE[7] = "<div class='l-summary-response'>"
+htmlDONE[8] = ""
+htmlDONE[9] = "</div>"
+htmlDONE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+htmlDONE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+htmlDONE[12] = "</div>"
+
+
 	if scriptsource.response is null then
 		if iom.Info.User1 <> "" then
 			select case iom.Info.User1.LCase()
@@ -441,6 +578,7 @@ stayinLoop = true
 if IOM.SampleRecord["MinDate"] is null then
 	sampleMinDate = (Now() - 3)
 	When_MinDate = sampleMinDate
+	sampleRecMinDate.response = sampleMinDate
 else
 	sampleMinDate = UnFormatUTC(IOM.SampleRecord["MinDate"])
 	When_MinDate.response = sampleMinDate
@@ -458,7 +596,7 @@ end if
 
 
 
-if IOM.SampleRecord["Previous"] is null then
+if IOM.SampleRecord["Previous"] is null or IOM.SampleRecord["Previous"] = "" then
 	samplePrevious = ""
 	What.Codes.Filter = {NoManual}
 else
@@ -476,6 +614,7 @@ end if
 
 IOM.QuestionTemplate = templateLocation + "question.htm"
 Summary.LayoutTemplate = templateLocation + "formal-summary.htm"
+
 'Summary.QuestionTemplate = templateLocation + "question-summary.htm"
 
 IOM.Banners.AddNew("PageName", "")
@@ -490,20 +629,30 @@ what.mustanswer = false
 container.MustAnswer = false
 picture.MustAnswer = false
 
-AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", FormatUTC(When_MinDate.response,false), "','max':'", FormatUTC(When_MaxDate.response, false), "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':180,'floodtovalue':false}"), "replace")
+AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", FormatUTC(When_MinDate.response,false), "','max':'", FormatUTC(When_MaxDate.response, false), "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':'20%','floodtovalue':false}"), "replace")
 AddCustomProperties(what, "what", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
 what.QuestionTemplate = "question-database-brandlist.htm"
 
+AddCustomProperties(PickContainer, "PickContainer", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
+PickContainer.QuestionTemplate = "question-database-containerlist.htm"
+
 
 if what.response is null then
+debug.Log("what response is null")
 	what.Response.Value = fixedtexts.Categories.NoWhat.label.text
 	progress.What.Response = What.response
-end if
+else
+	Progress.When.response = FormatUTC(when.response, true)
+	Progress_Update(Progress, statusBanner)
+end if		
 
 If When.Response is null then 
+debug.Log("what response is null")
 	when.Response = When_MaxDate.Response
-	Progress.When = FormatUTC(When_MaxDate.Response, true)
+	Progress.When = FormatUTC(When_MaxDate.Response, true)	
 end if
+
+
 
 Progress.Status.Response = "Draft"
 Progress_Update(Progress, statusBanner)
@@ -511,14 +660,29 @@ Progress_Update(Progress, statusBanner)
 
 lastQuestion = "NONE"
 While stayinLoop
+isItInComplete = (When.Response is null) or (What.Response is null) or (howmuch.Response is null) or (where.Response = {})
+Summary.Categories.Filter = {when,where,what,howmuch}
+if not isItIncomplete then
+	Summary.Categories.Filter = Summary.Categories.Filter + {done}
+end if
+
+debug.Log("-------- LOOP -----------")
+debug.Log(MakeString("WHEN: ", When.Response, " - ", When.Info.IsOnPath, " -- ", When.info.Offpathresponse))
+debug.Log(MakeString("WHEN ENTRY: ", When_Entry.Response, " - ", When_Entry.Info.IsOnPath, " -- ", When_Entry.Info.Offpathresponse))
+debug.Log(MakeString("WHAT: ", WHAT.Response, " - ", WHAT.Info.IsOnPath, " -- ", WHAT.Info.Offpathresponse))
+debug.Log(MakeString("WHERE: ", WHERE.Response, " - ", WHERE.Info.IsOnPath, " -- ", WHERE.Info.Offpathresponse))
+debug.Log(MakeString("HOWMUCH: ", HOWMUCH.Response, " - ", HOWMUCH.Info.IsOnPath, " -- ", HOWMUCH.Info.Offpathresponse))
+debug.Log("-------- LOOP -----------")
 
 	Summary.Response = null
 
 	if When.Response is null or When.Response = 0 then
-		htmlWHEN[8] = MakeWhen(When_Entry.response) 
+		htmlWHEN[8] = MakeWhen(When_Entry.response)
+		ProgressBar = 1
 	else
 		When_Entry.response = When.response
 		htmlWHEN[8] = MakeWhen(When.response)
+		progressBar = 1
 	end if
 	
 	if where.Response is  null then 
@@ -526,6 +690,7 @@ While stayinLoop
 	else
 		htmlWHERE[8] = MakeString("<div class='l-summary-response-text'>", format(where.Response, "b"), "</div>")
 		contentWHERE = BuildContent(htmlWHERE, true, (lastQuestion = "WHERE"))
+		progressBar = progressBar + 1
 	end if
 	
 	if what.Response is null then
@@ -533,15 +698,36 @@ While stayinLoop
 	else
 		htmlWHAT[8] = MakeString("<div class='l-summary-response-text'>", WHAT.Response, "</div>")
 		contentWHAT = BuildContent(htmlWHAT, true, (lastQuestion = "WHAT"))
+		if What.Response <> fixedTexts.Categories.NoWhat.Label.Text then
+			progressBar = progressBar + 1
+		end if
+	end if
+
+	if howmuch.Response is null then
+		contentHOWMUCH = BuildContent(htmlHOWMUCH, false, false)
+	else
+		htmlHOWMUCH[8] = MakeString("<div class='l-summary-response-text'>", HOWMUCH.Response, "ml", "</div>")
+		contentHOWMUCH = BuildContent(htmlHOWMUCH, true, (lastQuestion = "HOWMUCH"))
+		progressBar = progressBar + 1
 	end if
 	
-	if picture.response is null or picture.Response = "" then
+	if picture.response is null or picture.Response = {No} then
+		htmlDONE[8] = MakeString("<div class='l-summary-response-text'></div>")
+		contentDone = BuildContent(htmlDONE, false, false)
+	else
+		htmlPICTURE[8] = MakeString("<div class='l-summary-response-text'>", format(Confirm.Response, "b"), "</div>")
+		progressBar = progressBar + 1
+	end if
+	
+	if confirm.response is null or confirm.Response = "{No}" then
 		htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='64px' height='64px' src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' alt='", FixedTexts.Categories["NoPicture"].Label.text ,"'/>")
 	else
 		htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='64px' height='64px' src='", WHAT.Response, "' alt='", FixedTexts.Categories["Picture"].Label.text, " ", What.Response ,"'/>")
+		progressBar = progressBar + 1
 	end if
+	IOM.Info.EstimatedProgress = progressBar
 	
-	contentHOWMUCH = BuildContent(htmlHOWMUCH, false, (lastQuestion = "HOWMUCH"))
+	'contentHOWMUCH = BuildContent(htmlHOWMUCH, false, (lastQuestion = "HOWMUCH"))
 	contentWHEN = 	BuildContent(htmlWHEN, true, (lastQuestion = "WHEN"))
 	contentPICTURE = BuildContent(htmlPICTURE, true, (lastQuestion = "PICTURE"))
 	
@@ -553,6 +739,7 @@ While stayinLoop
 		WHEN_Entry.Ask()
 		debug.log("After:" + When_Entry.response)
 		When.Response = unformatUTC(When_Entry.Response)
+		debug.Log(MakeString("WHEN: ", when.Response))
 		Progress.When.response = FormatUTC(when.response, true)
 		Progress_Update(Progress, statusBanner)
 		lastQuestion = "WHEN"
@@ -564,38 +751,107 @@ While stayinLoop
 	case {what}
 	    what.Response = null
 		What.ask()
+		if what.Response.Coded then
+			What.Response.coded = null
+			What.Response = IOM.SampleRecord["Previous"]
+		end if
+		what.Response = what.response.replace("&", "&#38;").replace("'","&#39;")
 		Progress.What = what.response
 		Progress_Update(Progress, statusBanner)
+		debug.Log(MakeString("WHAT: ", what.Response))
 		lastQuestion = "WHAT"
 		
 	case {howmuch}
-	
-		AddCustomProperties(PickContainer, "PickContainer", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
-	    PickContainer.QuestionTemplate = "question-database-containerlist.htm"
+		Dim PickedItem
+		Dim sizeArray
 	    PickContainer.Ask()
-
+		PickedItem = PickContainer.Response.LCase()
+		debug.Log("container: " + PickedItem)
 		
-		debug.Log("container: " + PickContainer.response)
-		
-		AddCustomProperties(container, "container", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
-		containerSize.ask()
+		dim itemCounter, curItem
+'		for itemCounter = 0 to PickContainerLookup.categories.Len() - 1
+'			curitem = PickContainerLookup.categories[itemCounter].label.text.lCase() 
+'			debug.Log("check: " + curItem + "::length: " + ctext(curItem.len()) + ", " + ctext(PickedItem.len()))
+'			if curItem = PickedItem then 
+'				WhichContainerText.Response = PickContainerLookup.Categories[itemCounter].fullname
+'				PickContainersizes.response = PickContainerSizes.categories[WhichContainerText.response]
+'				WhichSize.categories.filter = ccategorical("{" + format(PickContainerSizes.response,"b") + "}")
+'			end if
+'		Next
 
-		AddCustomProperties(container, "container", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
-		containerConsumed.ask()
+		WhichContainerText.Response = PickContainer.response
+		PickContainersizes.response = PickContainerSizes.categories[PickContainer.response]
+		WhichSize.categories.filter = ccategorical(MakeString("{", PickContainerSizes.categories[PickContainer.response].label, "}"))
+		
+		Debug.Log("Container result: " + WhichContainerText.response)
+
+		AddCustomProperties(AmountConsumed, "AmountConsumed", "{'values':{'min':1,'max':5,'position':'none'},'unit':{'image':{'width':'32px','height':'32px'}}}", "replace") 
+
+		SizeandAmountPage.ask()
+
+		HowMuch.Response = WhichSize.Categories[WhichSize.Response].Factor / 5 * AmountConsumed.Response 
+		debug.Log("how much: " + ctext(Howmuch.Response))
 
 		lastQuestion = "HWOMUCH"
 		
 	case {picture}
 		Picture.Ask()
 		lastQuestion = "PICTURE"
-				
+			
+	case {done}
+		Confirm.Ask()
+		lastQuestion = "DONE"
+		
 	end select 
-	stayinLoop = (summary.Response <> {})
+	stayinLoop = (confirm.Response <> {Yes})
 		
 end while
-Progress.Status.Response = "Complete"
-Progress_Update(Progress, statusBanner)
-IOM.LayoutTemplate = "Finished.htm"
+
+
+debug.Log("-------- AFTER -----------")
+debug.Log(MakeString("WHEN: ", When.Response, " - ", When.Info.IsOnPath, " -- ", When.info.Offpathresponse))
+debug.Log(MakeString("WHEN ENTRY: ", When_Entry.Response, " - ", When_Entry.Info.IsOnPath, " -- ", When_Entry.Info.Offpathresponse))
+debug.Log(MakeString("WHAT: ", WHAT.Response, " - ", WHAT.Info.IsOnPath, " -- ", WHAT.Info.Offpathresponse))
+debug.Log(MakeString("WHERE: ", WHERE.Response, " - ", WHERE.Info.IsOnPath, " -- ", WHERE.Info.Offpathresponse))
+debug.Log(MakeString("HOWMUCH: ", HOWMUCH.Response, " - ", HOWMUCH.Info.IsOnPath, " -- ", HOWMUCH.Info.Offpathresponse))
+debug.Log("-------- AFTER -----------")
+
+isItInComplete = (When.Response is null) or (What.Response is null) or (howmuch.Response is null) or (where.Response = {})
+
+if NOT isItInComplete then
+	Progress.Status.Response = "Complete"
+	IOM.LayoutTemplate = "Finished.htm"
+	Progress_Update(Progress, statusBanner)
+	IOM.Terminate(signals.sigCompleted)
+else
+	Progress.Status.Response = "Stopped"
+	IOM.LayoutTemplate = "Stopped.htm"
+	Progress_Update(Progress, statusBanner)
+	IOM.Terminate(signals.sigStopped)
+end if
+
+
+function onInterviewEnd(theIOM)
+dim statusBanner
+dim isItInComplete
+	set statusBanner = theIOM.Banners["Status"]
+	isItInComplete = (TheIOM.Questions["When"].Response is null) or (theIOM.Questions["What"].Response is null) or (theIOM.Questions["howmuch"].Response is null) or (theIOM.Questions["where"].Response = {})
+
+	if NOT isItInComplete then
+		theIOM.Questions["Progress"].Status.Response = "Complete"
+		theIOM.LayoutTemplate = "Finished.htm"
+		Progress_Update(theIOM.Questions["Progress"], statusBanner)
+		debug.Log("completed survey")
+		theIOM.Terminate(signals.sigCompleted)
+	else
+		theIOM.Questions["Progress"].Status.Response = "Stopped"
+		theIOM.LayoutTemplate = "Stopped.htm"
+		Progress_Update(theIOM.Questions["Progress"], statusBanner)
+		debug.Log("stopped survey")
+		theIOM.Terminate(signals.sigStopped)
+	end if
+	
+end function
 
 Function Progress_Create()
 dim newJSON
@@ -989,34 +1245,34 @@ end function
 	
 	function UnFormatUTC(theString)
 	dim findDate, findEnd, findDecimal
-	dim stringDate, stringTime
+	dim stringDate, stringTime, baseDate
 	dim convertedDate, convertedTime
-		findDate = theString.Find("T")
-		findEnd = theString.Find("Z")
-		debug.Log("FindDate:" + ctext(findDate))
-		debug.Log("FindEnd:" + ctext(findEnd))
-		
-		if findEnd > -1 then
-			theString = theString.Left(findEnd)
-		end if
-		
-		findDecimal = theString.Find(".",, true)
-		if findDecimal > -1 then
-			theString = theString.Left(findDecimal)
-		end if
-		
-		if findDate > -1 then
-			stringDate = theString.Left(findDate)
-			stringTime = theString.Mid(findDate+1,theString.Len() - findDate)
-			debug.Log("stringDate: " + cText(stringDate))
-			debug.Log("stringTime: " + cText(stringTime))
-		else
-			UnFormatUTC = -1
-			exit function
-		end if
-		
-		convertedDate = cdate(stringDate + " " + stringTime)
-'		convertedTime = cdate(stringTime)
+	dim stringYear, stringMonth, stringDay, stringHour, stringMinute, stringMonthName
+	dim monthList[13]
+	dim stringMilitary
+	monthList[1] = "Jan"
+	monthList[2] = "Feb"
+	monthList[3] = "Mar"
+	monthList[4] = "Apr"
+	monthList[5] = "May"
+	monthList[6] = "Jun"
+	monthList[7] = "Jul"
+	monthList[8] = "Aug"
+	monthList[9] = "Sep"
+	monthList[10] = "Oct"
+	monthList[11] = "Nov"
+	monthList[12] = "Dec"
+	
+	debug.Log(Makestring("first date:", theString))
+		stringYear = left(theString, 4)
+		stringMonth = mid(thestring, 5,2)
+		stringDay = mid(theString, 8,2)
+		stringHour = mid(theString, 11,2)
+		stringMinute = mid(theString,14,2)
+		stringMonthName = monthList[clong(stringMonth)]
+		stringMilitary = MakeString(stringDay, "-", stringMonthName, "-", stringYear, " ", stringHour, ":", stringMinute)
+
+		convertedDate = cdate(stringMilitary)
 		UnFormatUTC = convertedDate
 	end function
 End Routing
