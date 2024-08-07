@@ -18,17 +18,17 @@
 		<SampleField>
 			<name>MinDate</name>
 			<type>8</type>
-			<value>2024-07-14T10:30:00</value>
+			<value>2024-08-03T15:22</value>
 		</SampleField>
 		<SampleField>
 			<name>MaxDate</name>
 			<type>8</type>
-			<value>2024-07-16T10:30:00</value>
+			<value>2024-08-06T15:22</value>
 		</SampleField>		
 		<SampleField>
 			<name>Previous</name>
 			<type>8</type>
-			<value>Moet &amp; Chandon</value>
+			<value>Ballantine's 12 Year Old Whisky</value>
 		</SampleField>
 		<SampleField>
 			<name>Language</name>
