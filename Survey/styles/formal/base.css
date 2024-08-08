@@ -2689,8 +2689,6 @@ html[dir=rtl] .o-dropdown ul li {
 
 .l-summary-lastchange {
   background-color: rgba(232, 190, 93, 0.2);
-  height: 80px;
-  margin-top: -50px;
   z-index: 1;
 }
 
