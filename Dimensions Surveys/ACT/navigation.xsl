@@ -26,7 +26,7 @@ The source code for this program is not published or otherwise divested of its t
                     <xsl:attribute name="style">display:flex;place-item:center</xsl:attribute>
                     <xsl:element name="div">
                         <xsl:attribute name="class">a-label-button-caption-left</xsl:attribute>
-                        <xsl:attribute name="style">padding-top:4px;padding-right:4px</xsl:attribute>
+                        <xsl:attribute name="style">padding-top:6px;padding-right:4px</xsl:attribute>
                         <xsl:value-of select="Label/Text"/>
                     </xsl:element>
                     <!--- Image nav buttons -->
