@@ -24,6 +24,9 @@ The source code for this program is not published or otherwise divested of its t
             </xsl:if>
             <xsl:choose>
                 <xsl:when test="Style/@Image != ''">
+                <xsl:element name="div" class="a-label-button-caption-left">
+                    <xsl:value-of select="Label/Text"/>
+                </xsl:element>
                     <!--- Image nav buttons -->
                     <xsl:element name="input">
                         <xsl:attribute name="type">image</xsl:attribute>
