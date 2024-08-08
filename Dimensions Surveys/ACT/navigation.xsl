@@ -19,14 +19,16 @@ The source code for this program is not published or otherwise divested of its t
 
     <xsl:template match="Navigation">
         <navigation>
-            <xsl:if test="Style/@ElementAlign = 'NewLine'">
-                <div></div>
-            </xsl:if>
             <xsl:choose>
                 <xsl:when test="Style/@Image != ''">
                 <xsl:element name="div">
-                    <xsl:attribute name="class">a-label-button-caption-left</xsl:attribute>
-                    <xsl:value-of select="Label/Text"/>
+                    <xsl:attribute name="class">o-navigation-save</xsl:attribute>
+                    <xsl:attribute name="style">place-item:center</xsl:attribute>
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">a-label-button-caption-left</xsl:attribute>
+                        <xsl:attribute name="style">padding-right:4px</xsl:attribute>
+                        <xsl:value-of select="Label/Text"/>
+                    </xsl:element>
                     <!--- Image nav buttons -->
                     <xsl:element name="input">
                         <xsl:attribute name="type">image</xsl:attribute>
