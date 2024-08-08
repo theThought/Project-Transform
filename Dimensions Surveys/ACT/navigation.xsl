@@ -27,7 +27,6 @@ The source code for this program is not published or otherwise divested of its t
                 <xsl:element name="div">
                     <xsl:attribute name="class">a-label-button-caption-left</xsl:attribute>
                     <xsl:value-of select="Label/Text"/>
-                </xsl:element>
                     <!--- Image nav buttons -->
                     <xsl:element name="input">
                         <xsl:attribute name="type">image</xsl:attribute>
@@ -56,6 +55,7 @@ The source code for this program is not published or otherwise divested of its t
                             <xsl:value-of select="Style/@Image"/>
                         </xsl:attribute>
                     </xsl:element>
+                 </xsl:element>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:element name="input">
