@@ -35,29 +35,16 @@ define(['component'],
             }
         }
 
-        oQuestionMedia.prototype.onClick = function () {
-            this.callAPI()
-                .then( this.apiSuccess, this.apiFail );
-
-        }
-
-        oQuestionMedia.prototype.callAPI = async function () {
+        oQuestionMedia.prototype.onClick = async function () {
             try {
                 const input = document.getElementById('_Q1');
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
                 const {barcode, file, meta, product} = data;
-                this.hiddenelement.value = barcode;
+                this.hiddenelement.value = data;
+                console.log(data);
             } catch (error) {
                 alert(error.message)
             }
-        }
-
-        oQuestionMedia.prototype.apiSuccess = function () {
-            console.log('API Success');
-        }
-
-        oQuestionMedia.prototype.apiFail = function () {
-            console.log('API fail');
         }
 
         return oQuestionMedia;

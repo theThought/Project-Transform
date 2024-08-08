@@ -3079,6 +3079,9 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   background-repeat: no-repeat;
   background-size: 20px 20px;
 }
+.o-question-media-external .o-media-frame input[type=button] {
+  margin: 0;
+}
 
 html {
   height: 95vh;
