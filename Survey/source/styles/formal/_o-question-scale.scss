@@ -28,13 +28,19 @@
     flex-direction: column-reverse;
 }
 
-.o-label-container {
-    display: flex;
+.a-label-prelabel, 
+.a-label-postlabel {
+    text-align: center;
+    margin: 10px 0;
+    width: 100%;
 }
 
-.o-label-container {
-    width: 400px;
-    justify-content: space-between;
+.a-label-postlabel {
+    margin-bottom: 20px;
+}
+
+.a-label-prelabel {
+    margin-top: 20px;
 }
 
 .m-scale-unit {
@@ -83,7 +89,7 @@
 .a-image-multistate {
     display: block;
     margin: 0 auto;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .a-label-datavalue {
@@ -93,7 +99,7 @@
 .a-label-datavalue.showValue {
     visibility: visible;
     position: absolute;
-    top:32px;
+    top: 32px;
     left: 30px;
     color: globals.$dark1;
 }

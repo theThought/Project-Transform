@@ -3229,17 +3229,19 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
           flex-direction: column-reverse;
 }
 
-.o-label-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.a-label-prelabel,
+.a-label-postlabel {
+  text-align: center;
+  margin: 10px 0;
+  width: 100%;
 }
 
-.o-label-container {
-  width: 400px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.a-label-postlabel {
+  margin-bottom: 20px;
+}
+
+.a-label-prelabel {
+  margin-top: 20px;
 }
 
 .m-scale-unit {

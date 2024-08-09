@@ -1,8 +1,7 @@
 define(['o-question'],
-    function (oQuestion) {
-        function oQuestionScale(id, group) {
+    function (oQuestion) {  
+        function oQuestionScale(id, group) { 
             oQuestion.call(this, id, group);
-
             this.container = document.querySelector('.o-question-response[data-questiongroup="' + this.group + '"]');
             this.unitContainer = this.container.querySelector('.o-scale-unitcontainer');
             this.element = this.container.querySelector('input[data-questionid="' + this.id + '"]');
@@ -41,7 +40,6 @@ define(['o-question'],
 
         oQuestionScale.prototype.configureLocalEventListeners = function () {
             var self = this;
-
             this.unitContainer.querySelectorAll('.m-scale-unit').forEach(function (unit) {
                 unit.addEventListener('click', self, false);
             });
@@ -74,7 +72,6 @@ define(['o-question'],
             if (event.target === this.element) {
                 return;
             }
-
             this.placeholder = this.element.value;
             this.setValue('');
         }
@@ -89,13 +86,9 @@ define(['o-question'],
             });
             var value = parseInt(event.target.getAttribute('data-value'));
             this.placeholder = value;
-
             this.setValue(value);
-
-            // dismiss exclusive items within group
             var clickedEvent = new CustomEvent(this.group + '_textFocus', {bubbles: true, detail: this});
             this.element.dispatchEvent(clickedEvent);
-
         }
 
         oQuestionScale.prototype.configureWidth = function () {
@@ -112,7 +105,6 @@ define(['o-question'],
 
         oQuestionScale.prototype.createUnits = function () {
             for (var i = this.min; i <= this.max; i = i + this.step) {
-
                 var scaleItem = document.createElement('div');
                 var scaleLabel = document.createElement('span');
                 scaleItem.classList.add('m-scale-unit');
@@ -122,7 +114,6 @@ define(['o-question'],
                 scaleLabel.innerHTML = i;
                 scaleItem.appendChild(scaleLabel);
                 this.unitContainer.appendChild(scaleItem);
-
                 if (this.element.value === i) {
                     this.setValue(i);
                 }
@@ -218,72 +209,74 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.labels = function (labelProperties) {
-            var preLabel = labelProperties.pre;
-            var postLabel = labelProperties.post;
-
-            if (typeof preLabel === 'undefined' && typeof postLabel === 'undefined') {
+            var preLabel = labelProperties.pre || '';
+            var postLabel = labelProperties.post || '';
+        
+            if (!preLabel && !postLabel) {
                 return;
             }
+        
+            var unitContainerWidth = this.unitContainer.offsetWidth + 'px';
+            var isVertical = this.container.classList.contains('o-question-scale-vertical');
+        
+            if (isVertical) {
+                if (postLabel) {
+                    var postElement = document.createElement('div');
+                    postElement.className = 'a-label-postlabel';
+                    postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
+                    postElement.style.width = unitContainerWidth;
+                    this.container.insertBefore(postElement, this.container.firstChild);
+                }
 
-            var labelContainer = document.createElement('div');
-            labelContainer.classList.add('o-label-container');
-
-            if (this.element.style.width) {
-                labelContainer.style.maxWidth = this.element.style.width;
+                if (preLabel) {
+                    var preElement = document.createElement('div');
+                    preElement.className = 'a-label-prelabel';
+                    preElement.innerHTML = preLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
+                    preElement.style.width = unitContainerWidth;
+                    this.container.appendChild(preElement);
+                }
+            } else {
+                var labelContainer = document.createElement('div');
+                labelContainer.classList.add('o-label-container');
+                
+                if (postLabel) {
+                    var postElement = document.createElement('div');
+                    postElement.className = 'a-label-postlabel';
+                    postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
+                    postElement.style.width = unitContainerWidth; 
+                    labelContainer.appendChild(postElement);
+                }
+        
+                if (preLabel) {
+                    var preElement = document.createElement('div');
+                    preElement.className = 'a-label-prelabel';
+                    preElement.innerHTML = preLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
+                    preElement.style.width = unitContainerWidth; 
+                    labelContainer.insertBefore(preElement, labelContainer.firstChild);
+                }
+                this.container.appendChild(labelContainer);
             }
-
-            if (preLabel.length) {
-                var preElement = document.createElement('div');
-                preElement.className = 'a-label-prelabel';
-                var preContentText = preLabel;
-                preContentText = preContentText.replace(/%lt%/g, '<');
-                preContentText = preContentText.replace(/%gt%/g, '>');
-                preElement.innerHTML = preContentText;
-
-                labelContainer.append(preElement);
-            }
-
-            if (postLabel.length) {
-                var postElement = document.createElement('div');
-                postElement.className = 'a-label-postlabel';
-                var postContentText = postLabel;
-                postContentText = postContentText.replace(/%lt%/g, '<');
-                postContentText = postContentText.replace(/%gt%/g, '>');
-                postElement.innerHTML = postContentText;
-
-                labelContainer.appendChild(postElement);
-            }
-
-            this.container.appendChild(labelContainer);
         }
-
+        
         oQuestionScale.prototype.background = function (backgroundProperties) {
             var imageProperties = backgroundProperties.image;
-
             if (typeof imageProperties === 'undefined') {
                 return;
             }
-
             var imageURL = imageProperties.url;
-
             if (typeof imageURL === "undefined") {
                 return;
             }
-
             var imageWidth = (typeof imageProperties.width === 'undefined') ? '' : imageProperties.width;
             var imageHeight = (typeof imageProperties.height === 'undefined') ? '' : imageProperties.height;
             var imageOffsetX = '0';
             var imageOffsetY = '0';
-
             var caption = (typeof imageProperties.caption === 'undefined') ? '' : backgroundProperties.caption;
-
             if (typeof imageProperties.offset !== 'undefined') {
                 imageOffsetX = (typeof imageProperties.offset.x === 'undefined') ? '0' : backgroundProperties.offset.x;
                 imageOffsetY = (typeof imageProperties.offset.y === 'undefined') ? '0' : backgroundProperties.offset.y;
             }
-
             this.container.classList.add('has-container-background');
-
             this.container.style.height = imageHeight;
             this.container.style.width = imageWidth;
             this.container.style.backgroundImage = 'url("' + imageURL + '")';
