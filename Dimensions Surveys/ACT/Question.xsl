@@ -2161,6 +2161,49 @@
       </xsl:element>
    </xsl:template>
    
+
+   <xsl:template name="OpenendSearch-Answer">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+         -answer
+      </xsl:variable>   
+   </xsl:template>
+   
+   <xsl:template name="OpenendSearch-Scan">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+         -scan
+      </xsl:variable>   
+   </xsl:template>
+
+   <xsl:template name="OpenendSearch-Control">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+         -control
+      </xsl:variable>   
+   </xsl:template>
+
    <xsl:template name="OpenendSearchControl">
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
@@ -3429,6 +3472,9 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-25'">
+            <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-26'">
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-30'">
