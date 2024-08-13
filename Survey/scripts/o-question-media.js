@@ -5,6 +5,8 @@ define(['component'],
             component.call(this, id, group);
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
+            this.wrapper = this.container.querySelector('.o-question-media-external-wrapper');
+            this.errorcontainer = this.container.querySelector('.o-label-message-error.external-warning');
             this.element = this.container.querySelector('input[type=button]');
             this.hiddenelement = document.querySelector('input#' + this.id);
         }
@@ -36,15 +38,25 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.onClick = async function () {
+            this.errorcontainer.innerHTML = '';
             try {
-                const input = document.getElementById('_Q1');
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
                 const {barcode, file, meta, product} = data;
-                this.hiddenelement.value = data;
-                console.log(data);
+                this.hiddenelement.value = JSON.stringify(data);
+                this.displayData(data);
             } catch (error) {
-                alert(error.message)
+                this.errorcontainer.innerHTML = error.message;
             }
+        }
+
+        oQuestionMedia.prototype.displayData = function (data) {
+            const barcodeinput = document.getElementById('_Q1');
+            const descriptioninput = document.getElementById('_Q2');
+            const productinput = document.getElementById('_Q3');
+            barcodeinput.value = descriptioninput.value = '';
+            barcodeinput.value = data.barcode ?? '';
+            descriptioninput.value = data.product.description ?? '';
+            productinput.value = data.product.category ?? '';
         }
 
         return oQuestionMedia;
