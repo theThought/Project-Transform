@@ -6,135 +6,130 @@ FixedTextsList "" define
         Picture "Photo of",
         StartPrevious "I had another"
     };
+    Monthlist "" define
+    {
+        M01 "Jan",
+        M02 "Feb",
+        M03 "Mar",
+        M04 "Apr",
+        M05 "May",
+        M06 "Jun",
+        M07 "Jul",
+        M08 "Aug",
+        M09 "Sep",
+        M10 "Oct",
+        M11 "Nov",
+        M12 "Dec"
+    };
+    sizes "" define
+    {
+        size44 "44ml" factor(44),
+        size90 "90ml" factor(90),
+        size100 "100ml" factor(100),
+        size125 "125ml" factor(125),
+        size150 "150ml" factor(150),
+        size180 "180ml" factor(180),
+        size200 "200ml" factor(200),
+        size220 "220ml" factor(220),
+        size240 "240ml" factor(240),
+        size250 "250ml" factor(250),
+        size260 "260ml" factor(260),
+        size270 "267ml" factor(270),
+        size300 "300ml" factor(300),
+        size310 "310ml" factor(310),
+        size320 "320ml" factor(320),
+        size330 "330ml" factor(330),
+        size355 "355ml" factor(355),
+        size375 "375ml" factor(375),
+        size400 "400ml" factor(400),
+        size415 "415ml" factor(415),
+        size440 "440ml" factor(440),
+        size458 "458ml" factor(458),
+        size473 "473ml" factor(473),
+        size500 "500ml" factor(500),
+        size550 "550ml" factor(550),
+        size560 "560ml" factor(560),
+        size568 "568ml" factor(568),
+        size650 "650ml" factor(650),
+        size750 "750ml" factor(750),
+        size900 "900ml" factor(900),
+        size1000 "1 litre" factor(1000),
+        size1140 "1,140ml" factor(1410),
+        size1500 "1.5 litres" factor(1500),
+        size1700 "1.7 litres" factor(1700),
+        size1750 "1,750ml" factor(1750),
+        size3000 "3 litres" factor(3000),
+        size4000 "4 litres" factor(4000),
+        size4500 "4.5 litres" factor(4500),
+        size6000 "6 litres" factor(6000)
+    };
+    ContainerSizesList "" define
+    {
+        beer "size330,size355,size500,size750",
+        beer_can "size355,size440,size473,size500,size568",
+        beer_glass "size250,size500,size750,size1000",
+        cider "size250,size270,size330,size400,size500,size1000,size1700",
+        cider_can "size355,size440,size458,size473,size500,size568",
+        beer_mug "size473,size568,size415,size560",
+        Whisky "size125,size200,size375,size750,size1140,size1750",
+        Vodka "size125,size200,size375,size750,size1140,size1750",
+        Tequila "size125,size200,size375,size750,size1140,size1750",
+        Gin "size125,size200,size375,size750,size1140,size1750",
+        Rum "size125,size200,size375,size750,size1140,size1750",
+        Spirits "size125,size200,size375,size750,size1140,size1750",
+        Cognac "size125,size200,size375,size750,size1140,size175",
+        Cognac_glass "size200,size320,size473,size550",
+        White_wine_glass "size240,size355",
+        Dessert_wine_glass "size250, size400",
+        Highball_glass "size310",
+        Juice_glass "size100,size250,size300,size400",
+        Martini_glass "size150,size240,size300",
+        red_wine_glass "size650,size900",
+        rum_glass "220ml",
+        short_glass "size44",
+        snifter "size180,size240",
+        Table_wine_glass "size150,size200",
+        Tequila_glass "size44",
+        Vodka_glass "size44,size90",
+        Whiskey_glass "size200,size250",
+        Wine "size200,size375,size750,size1500,size300,size4000,size4500,size6000",
+        Wine_box "size1500,size3000",
+        Champagne_glass "size220,size260"
+    };
+    ContainerTransformList "" define
+    {
+        beer "Beer bottle",
+        beer_can "Beer can",
+        beer_glass "Beer Glass",
+        cider "Cider bottle",
+        cider_can "cider can",
+        beer_mug "Beer mug",
+        Whisky "Whisky bottle",
+        Vodka "Vodka Bottle",
+        Tequila "Tequilla bottle",
+        Gin "Gin bottle",
+        Rum "Rum bottle",
+        Spirits "Spirits bottle",
+        Cognac "Cognac bottle",
+        Cognac_glass "Cognac glass",
+        White_wine_glass "White wine glass",
+        Dessert_wine_glass "Dessert wine glass",
+        Highball_glass "Highball glass",
+        Juice_glass "Juice glass",
+        Martini_glass "Martini glass",
+        red_wine_glass "Red wine glass",
+        rum_glass "Rum glass",
+        short_glass "Short glass",
+        snifter "Snifter",
+        Table_wine_glass "Table wine glass",
+        Tequila_glass "Tequila glass",
+        Vodka_glass "Vodka glass",
+        Whiskey_glass "Whiskey glass",
+        Wine "Wine bottle",
+        Wine_box "Wine box",
+        Champagne_glass "Champagne glass"
+    };
 
-	Monthlist "" define
-	{
-	M01 "Jan"
-	M02 "Feb"
-	M03 "Mar"
-	M04 "Apr"
-	M05 "May"
-	M06 "Jun"
-	M07 "Jul"
-	M08 "Aug"
-	M09 "Sep"
-	M10 "Oct"
-	M11 "Nov"
-	M12 "Dec"
-	};
-	
-	sizes "" define
-	{
-	size44 "44ml" factor(44),
-	size90 "90ml" factor(90),
-	size100 "100ml" factor(100),
-	size125 "125ml" factor(125),
-	size150 "150ml" factor(150),
-	size180 "180ml" factor(180),
-	size200 "200ml" factor(200),
-	size220 "220ml" factor(220),
-	size240 "240ml" factor(240),
-	size250 "250ml" factor(250),
-	size260 "260ml" factor(260),
-	size270 "267ml" factor(270),
-	size300 "300ml" factor(300),
-	size310 "310ml" factor(310),
-	size320 "320ml" factor(320),
-	size330 "330ml" factor(330),
-	size355 "355ml" factor(355),
-	size375 "375ml" factor(375),
-	size400 "400ml" factor(400),
-	size415 "415ml" factor(415),
-	size440 "440ml" factor(440),
-	size458 "458ml" factor(458),
-	size473 "473ml" factor(473),
-	size500 "500ml" factor(500),
-	size550 "550ml" factor(550),
-	size560 "560ml" factor(560),
-	size568 "568ml" factor(568),
-	size650 "650ml" factor(650),
-	size750 "750ml" factor(750),
-	size900 "900ml" factor(900),
-	size1000 "1 litre" factor(1000),
-	size1140 "1,140ml" factor(1410),
-	size1500 "1.5 litres" factor(1500),
-	size1700 "1.7 litres" factor(1700),
-	size1750 "1,750ml" factor(1750),
-	size3000 "3 litres" factor(3000),
-	size4000 "4 litres" factor(4000),
-	size4500 "4.5 litres" factor(4500),
-	size6000 "6 litres" factor(6000)
-	};
-	
-	
-	ContainerSizesList "" define
-	{
-	beer "size330,size355,size500,size750",
-	beer_can "size355,size440,size473,size500,size568",
-	beer_glass "size250,size500,size750,size1000",
-	cider "size250,size270,size330,size400,size500,size1000,size1700",
-	cider_can "size355,size440,size458,size473,size500,size568",
-	beer_mug "size473,size568,size415,size560",
-	Whisky "size125,size200,size375,size750,size1140,size1750",
-	Vodka "size125,size200,size375,size750,size1140,size1750",
-	Tequila "size125,size200,size375,size750,size1140,size1750",
-	Gin "size125,size200,size375,size750,size1140,size1750",
-	Rum "size125,size200,size375,size750,size1140,size1750",
-	Spirits "size125,size200,size375,size750,size1140,size1750",
-	Cognac "size125,size200,size375,size750,size1140,size175",
-	Cognac_glass "size200,size320,size473,size550",
-	White_wine_glass "size240,size355",
-	Dessert_wine_glass "size250, size400",
-	Highball_glass "size310",
-	Juice_glass "size100,size250,size300,size400",
-	Martini_glass "size150,size240,size300",
-	red_wine_glass "size650,size900",
-	rum_glass "220ml",
-	short_glass "size44",
-	snifter "size180,size240",
-	Table_wine_glass "size150,size200",
-	Tequila_glass "size44",
-	Vodka_glass "size44,size90",
-	Whiskey_glass "size200,size250",
-	Wine "size200,size375,size750,size1500,size300,size4000,size4500,size6000",
-	Wine_box "size1500,size3000",
-	Champagne_glass "size220,size260"
-	};
-
-	ContainerTransformList "" define
-	{
-	beer "Beer bottle",
-	beer_can "Beer can",
-	beer_glass "Beer Glass",
-	cider "Cider bottle",
-	cider_can "cider can",
-	beer_mug "Beer mug",
-	Whisky "Whisky bottle",
-	Vodka "Vodka Bottle",
-	Tequila "Tequilla bottle",
-	Gin "Gin bottle",
-	Rum "Rum bottle",
-	Spirits "Spirits bottle",
-	Cognac "Cognac bottle",
-	Cognac_glass "Cognac glass",
-	White_wine_glass "White wine glass",
-	Dessert_wine_glass "Dessert wine glass",
-	Highball_glass "Highball glass",
-	Juice_glass "Juice glass",
-	Martini_glass "Martini glass",
-	red_wine_glass "Red wine glass",
-	rum_glass "Rum glass",
-	short_glass "Short glass",
-	snifter "Snifter",
-	Table_wine_glass "Table wine glass",
-	Tequila_glass "Tequila glass",
-	Vodka_glass "Vodka glass",
-	Whiskey_glass "Whiskey glass",
-	Wine "Wine bottle",
-	Wine_box "Wine box",
-	Champagne_glass "Champagne glass"
-	};
-	
     FixedTexts ""
     categorical [1..1]
     {
@@ -152,17 +147,18 @@ FixedTextsList "" define
         what "{#contentWHAT}",
         howmuch "{#contentHOWMUCH}",
         picture "{#contentPICTURE}",
-        done "{#contentDONE}"
     } nocasedata;
 
-	Confirm "Please confirm that this event can be recorded" 
-	style(zIndex=-40)
-	categorical[1]
-	{
-	Yes "Record this entry",
-	No "Go back so I can make changes"
-	};
-	
+    Confirm "Please confirm that this event can be recorded"
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        Yes "Record this entry",
+        No "Go back so I can make changes"
+    };
+
     ScriptSource "PostMessage Script source"
     text [..100]
     nocasedata codes(
@@ -170,8 +166,10 @@ FixedTextsList "" define
         nosource "" NA
     } );
 
-	PreviousEntry "" text[..100] nocasedata;
-	
+    PreviousEntry ""
+    text [..100]
+    nocasedata;
+
     ProgressJSON "{#Progress.json}"
         style(
             ZIndex = -10
@@ -213,12 +211,13 @@ FixedTextsList "" define
         nocasedata;
 
     );
-    
-    GetMonthList "" categorical[1]
+
+    GetMonthName ""
+    categorical [1..1]
     {
-    use monthlist
+        use Monthlist -
     } nocasedata;
-	
+
     '-------------------
     '  Survey Questions
     '===================
@@ -286,7 +285,7 @@ FixedTextsList "" define
     text [..500]
     codes(
     {
-    	Previous "{#PreviousEntry}" exclusive,
+        Previous "{#PreviousEntry}" exclusive,
         NoManual "" NA
     } );
 
@@ -362,34 +361,44 @@ FixedTextsList "" define
         )
     text [..200];
 
-	PickContainerLookup "" categorical[1]
-	{
-	use ContainerTransformList
-	} nocasedata;
+    PickContainerLookup ""
+    categorical [1..1]
+    {
+        use ContainerTransformList -
+    } nocasedata;
 
-	PickContainerSizes "" categorical[1]
-	{
-	use ContainerSizesList
-	} nocasedata;
-	
-	WhichContainerText "" 
-	text[..100];
-	
-	WhichSize "Select the size of your container." 
-	style(zIndex=-40)
-	categorical[1]
-	{
-	use sizes
-	};
-	
-	AmountConsumed "Indicate how much of the container's drink was consumed." 
-	style(zIndex=-56)
-	long[1..5];
-	
-	HowMuch "" long[..6000];
-	
-	SizeandAmountPage "" Page (WhichSize, AmountConsumed);
-	
+    PickContainerSizes ""
+    categorical [1..1]
+    {
+        use ContainerSizesList -
+    } nocasedata;
+
+    WhichContainerText ""
+    text [..100];
+
+    WhichSize "Select the size of your container."
+        style(
+            ZIndex = -40
+        )
+    categorical [1..1]
+    {
+        use sizes -
+    };
+
+    AmountConsumed "Indicate how much of the container's drink was consumed."
+        style(
+            ZIndex = -56
+        )
+    long [1 .. 5];
+
+    HowMuch ""
+    long [ .. 6000];
+
+    SizeandAmountPage ""
+    page(
+        WhichSize,
+        AmountConsumed
+    );
     HowMuchPage ""
     page(
         Category,
@@ -428,8 +437,9 @@ dim calcDate
 dim progressBar
 dim isItInComplete
 
+
 IOM.OffPathDataMode = offpathdatamodes.dmClearOnComplete
-IOM.Info.EstimatedPages = 5
+IOM.Info.EstimatedPages = 4
 progressBar = 0
 isItInComplete = false
 
@@ -450,7 +460,7 @@ debug.Log("-------- BEFORE -----------")
 if not When.Info.IsOnPath then 
 	When.Response = When.Info.OffPathResponse
 	if when.response = null or when.Response = "" then  
-		When.Response = unformatUTC(IOM.SampleRecord["MaxDate"])
+		When.Response = unformatUTC(IOM.SampleRecord["MaxDate"], GetMonthName)
 	end if
 end if
 
@@ -536,19 +546,19 @@ htmlPICTURE[10] = "<div class='l-summary-lastchange'><!-- visible if last change
 htmlPICTURE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
 htmlPICTURE[12] = "</div>"
 
-htmlDONE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
-htmlDONE[1] = "<div class='l-summary-questionname'>"
-htmlDONE[2] = "CONFIRMATION"
-htmlDONE[3] = "</div>"
-htmlDONE[4] = "<div class='l-summary-questionprompt'>"
-htmlDONE[5] = "Confirm you are happy with the entry" 
-htmlDONE[6] = "</div>"
-htmlDONE[7] = "<div class='l-summary-response'>"
-htmlDONE[8] = ""
-htmlDONE[9] = "</div>"
-htmlDONE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
-htmlDONE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
-htmlDONE[12] = "</div>"
+'htmlDONE[0] = "<div class='l-summary-detail'><!-- content under the lastchange layer -->"
+'htmlDONE[1] = "<div class='l-summary-questionname'>"
+'htmlDONE[2] = "CONFIRMATION"
+'htmlDONE[3] = "</div>"
+'htmlDONE[4] = "<div class='l-summary-questionprompt'>"
+'htmlDONE[5] = "Confirm you are happy with the entry" 
+'htmlDONE[6] = "</div>"
+'htmlDONE[7] = "<div class='l-summary-response'>"
+'htmlDONE[8] = ""
+'htmlDONE[9] = "</div>"
+'htmlDONE[10] = "<div class='l-summary-lastchange'><!-- visible if last changed record --></div>"
+'htmlDONE[11] = "<div class='l-summary-background'><!-- content under the lastchange layer --></div>"
+'htmlDONE[12] = "</div>"
 
 
 	if scriptsource.response is null then
@@ -578,9 +588,8 @@ stayinLoop = true
 if IOM.SampleRecord["MinDate"] is null then
 	sampleMinDate = (Now() - 3)
 	When_MinDate = sampleMinDate
-	sampleRecMinDate.response = sampleMinDate
 else
-	sampleMinDate = UnFormatUTC(IOM.SampleRecord["MinDate"])
+	sampleMinDate = IOM.SampleRecord["MinDate"]
 	When_MinDate.response = sampleMinDate
 	debug.Log("When_MinDate: " + when_MinDate.Response)
 end if
@@ -589,7 +598,7 @@ if IOM.SampleRecord["MaxDate"] is null then
 	sampleMaxDate = Now()
 	When_MaxDate.response = sampleMaxDate
 else
-	sampleMaxDate = UnFormatUTC(IOM.SampleRecord["MaxDate"])
+	sampleMaxDate = IOM.SampleRecord["MaxDate"]
 	When_MaxDate.response = sampleMaxDate
 	debug.Log("When_MaxDate: " + when_MaxDate.Response)
 end if
@@ -629,7 +638,7 @@ what.mustanswer = false
 container.MustAnswer = false
 picture.MustAnswer = false
 
-AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", FormatUTC(When_MinDate.response,false), "','max':'", FormatUTC(When_MaxDate.response, false), "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':'20%','floodtovalue':false}"), "replace")
+AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate.response, "','max':'", When_MaxDate.response, "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':'25%','floodtovalue':false}"), "replace")
 AddCustomProperties(what, "what", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
 what.QuestionTemplate = "question-database-brandlist.htm"
 
@@ -639,20 +648,18 @@ PickContainer.QuestionTemplate = "question-database-containerlist.htm"
 
 if what.response is null then
 debug.Log("what response is null")
-	what.Response.Value = fixedtexts.Categories.NoWhat.label.text
-	progress.What.Response = What.response
+	progress.What.Response = fixedtexts.Categories.NoWhat.label.text
 else
-	Progress.When.response = FormatUTC(when.response, true)
-	Progress_Update(Progress, statusBanner)
+	Progress.What.response = What.response
 end if		
 
 If When.Response is null then 
 debug.Log("what response is null")
-	when.Response = When_MaxDate.Response
-	Progress.When = FormatUTC(When_MaxDate.Response, true)	
+	when.Response = unformatUTC(When_MaxDate.Response, GetMonthName)
+	Progress.When = When_MaxDate.Response
+else
+	Progress.When.Response = formatUTC(When.Response, false)
 end if
-
-
 
 Progress.Status.Response = "Draft"
 Progress_Update(Progress, statusBanner)
@@ -662,10 +669,10 @@ lastQuestion = "NONE"
 While stayinLoop
 isItInComplete = (When.Response is null) or (What.Response is null) or (howmuch.Response is null) or (where.Response = {})
 Summary.Categories.Filter = {when,where,what,howmuch}
-if not isItIncomplete then
-	Summary.Categories.Filter = Summary.Categories.Filter + {done}
-end if
-
+'if not isItIncomplete then
+'	Summary.Categories.Filter = Summary.Categories.Filter + {done}
+'end if
+'
 debug.Log("-------- LOOP -----------")
 debug.Log(MakeString("WHEN: ", When.Response, " - ", When.Info.IsOnPath, " -- ", When.info.Offpathresponse))
 debug.Log(MakeString("WHEN ENTRY: ", When_Entry.Response, " - ", When_Entry.Info.IsOnPath, " -- ", When_Entry.Info.Offpathresponse))
@@ -693,10 +700,11 @@ debug.Log("-------- LOOP -----------")
 		progressBar = progressBar + 1
 	end if
 	
-	if what.Response is null then
+	if what.Response is null and not what.response.coded.ContainsAny({Previous}) then
+		htmlWHAT[8] = ""
 		contentWHAT = BuildContent(htmlWHAT, false, false)
 	else
-		htmlWHAT[8] = MakeString("<div class='l-summary-response-text'>", WHAT.Response, "</div>")
+		htmlWHAT[8] = MakeString("<div class='l-summary-response-text'>", FixSpecialCharacters(WHAT.Response, false), "</div>")
 		contentWHAT = BuildContent(htmlWHAT, true, (lastQuestion = "WHAT"))
 		if What.Response <> fixedTexts.Categories.NoWhat.Label.Text then
 			progressBar = progressBar + 1
@@ -711,13 +719,13 @@ debug.Log("-------- LOOP -----------")
 		progressBar = progressBar + 1
 	end if
 	
-	if picture.response is null or picture.Response = {No} then
-		htmlDONE[8] = MakeString("<div class='l-summary-response-text'></div>")
-		contentDone = BuildContent(htmlDONE, false, false)
-	else
-		htmlPICTURE[8] = MakeString("<div class='l-summary-response-text'>", format(Confirm.Response, "b"), "</div>")
-		progressBar = progressBar + 1
-	end if
+'	if picture.response is null or picture.Response = {No} then
+'		htmlDONE[8] = MakeString("<div class='l-summary-response-text'></div>")
+'		contentDone = BuildContent(htmlDONE, false, false)
+'	else
+'		htmlDONE[8] = MakeString("<div class='l-summary-response-text'>", format(Confirm.Response, "b"), "</div>")
+'		progressBar = progressBar + 1
+'	end if
 	
 	if confirm.response is null or confirm.Response = "{No}" then
 		htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='64px' height='64px' src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' alt='", FixedTexts.Categories["NoPicture"].Label.text ,"'/>")
@@ -732,79 +740,92 @@ debug.Log("-------- LOOP -----------")
 	contentPICTURE = BuildContent(htmlPICTURE, true, (lastQuestion = "PICTURE"))
 	
 	Summary.Ask()
-	select case Summary.Response.value
-	case {when}
-'IOM.LayoutTemplate = "pageoutput-label.htm"
-		debug.log("Before:" + When_Entry.response)
-		WHEN_Entry.Ask()
-		debug.log("After:" + When_Entry.response)
-		When.Response = unformatUTC(When_Entry.Response)
-		debug.Log(MakeString("WHEN: ", when.Response))
-		Progress.When.response = FormatUTC(when.response, true)
-		Progress_Update(Progress, statusBanner)
-		lastQuestion = "WHEN"
-		
-	case {where}
-		where.Ask()
-		lastQuestion = "WHERE"
-		
-	case {what}
-	    what.Response = null
-		What.ask()
-		if what.Response.Coded then
-			What.Response.coded = null
-			What.Response = IOM.SampleRecord["Previous"]
-		end if
-		what.Response = what.response.replace("&", "&#38;").replace("'","&#39;")
-		Progress.What = what.response
-		Progress_Update(Progress, statusBanner)
-		debug.Log(MakeString("WHAT: ", what.Response))
-		lastQuestion = "WHAT"
-		
-	case {howmuch}
-		Dim PickedItem
-		Dim sizeArray
-	    PickContainer.Ask()
-		PickedItem = PickContainer.Response.LCase()
-		debug.Log("container: " + PickedItem)
-		
-		dim itemCounter, curItem
-'		for itemCounter = 0 to PickContainerLookup.categories.Len() - 1
-'			curitem = PickContainerLookup.categories[itemCounter].label.text.lCase() 
-'			debug.Log("check: " + curItem + "::length: " + ctext(curItem.len()) + ", " + ctext(PickedItem.len()))
-'			if curItem = PickedItem then 
-'				WhichContainerText.Response = PickContainerLookup.Categories[itemCounter].fullname
-'				PickContainersizes.response = PickContainerSizes.categories[WhichContainerText.response]
-'				WhichSize.categories.filter = ccategorical("{" + format(PickContainerSizes.response,"b") + "}")
-'			end if
-'		Next
-
-		WhichContainerText.Response = PickContainer.response
-		PickContainersizes.response = PickContainerSizes.categories[PickContainer.response]
-		WhichSize.categories.filter = ccategorical(MakeString("{", PickContainerSizes.categories[PickContainer.response].label, "}"))
-		
-		Debug.Log("Container result: " + WhichContainerText.response)
-
-		AddCustomProperties(AmountConsumed, "AmountConsumed", "{'values':{'min':1,'max':5,'position':'none'},'unit':{'image':{'width':'32px','height':'32px'}}}", "replace") 
-
-		SizeandAmountPage.ask()
-
-		HowMuch.Response = WhichSize.Categories[WhichSize.Response].Factor / 5 * AmountConsumed.Response 
-		debug.Log("how much: " + ctext(Howmuch.Response))
-
-		lastQuestion = "HWOMUCH"
-		
-	case {picture}
-		Picture.Ask()
-		lastQuestion = "PICTURE"
+	if Summary.Response.len() > 0 then 
+		select case Summary.Response.value
+		case {when}
+	'IOM.LayoutTemplate = "pageoutput-label.htm"
+			debug.log("Before:" + When_Entry.response)
+			WHEN_Entry.Ask()
+			debug.log("After:" + When_Entry.response)
+			When.Response = unformatUTC(When_Entry.Response,GetMonthName)
+			debug.Log(MakeString("WHEN: ", when.Response))
+			Progress.When.response = When_Entry.Response
+			Progress_Update(Progress, statusBanner)
+			lastQuestion = "WHEN"
 			
-	case {done}
-		Confirm.Ask()
-		lastQuestion = "DONE"
-		
-	end select 
-	stayinLoop = (confirm.Response <> {Yes})
-		
+		case {where}
+			where.Ask()
+			lastQuestion = "WHERE"
+			
+		case {what}
+			if ucase(What.Response) = ucase(FixedTexts.Categories["NoWhat"].Label.text) then 
+				what.Response = null
+			else
+				what.Response = FixSpecialCharacters(what.response, false) '.replace("'#39;","&").replace("&#38;", "&")
+			end if
+			
+			What.ask()
+			
+			if what.Response = null AND NOT what.Response.Coded.ContainsAny({Previous}) then
+				Progress.What = FixedTexts.Categories["NoWhat"].Label.Text
+			else
+				if what.Response.Coded.ContainsAny({Previous}) then
+					What.Response.coded = null
+					What.Response = FixSpecialCharacters(IOM.SampleRecord["Previous"], true) '.RegExReplace("/(['%<>~`!@#&\*\^\$|\[\]\(\)\+\{\}])/g","\\$&") '.replace("&", "&#38;").replace("'","&#39;")
+				end if
+				what.Response = FixSpecialCharacters(what.response, true) 'RegExReplace("/([.*+?^${}()|\[\]\/\\])/g", "\\$&") '.replace("&", "&#38;").replace("'","&#39;")
+				Progress.What = what.response
+			end if
+			
+			Progress_Update(Progress, statusBanner)
+			debug.Log(MakeString("WHAT: ", what.Response))
+			lastQuestion = "WHAT"
+			
+		case {howmuch}
+			Dim PickedItem
+			Dim sizeArray
+		    PickContainer.Ask()
+			PickedItem = PickContainer.Response.LCase()
+			debug.Log("container: " + PickedItem)
+			
+			dim itemCounter, curItem
+	'		for itemCounter = 0 to PickContainerLookup.categories.Len() - 1
+	'			curitem = PickContainerLookup.categories[itemCounter].label.text.lCase() 
+	'			debug.Log("check: " + curItem + "::length: " + ctext(curItem.len()) + ", " + ctext(PickedItem.len()))
+	'			if curItem = PickedItem then 
+	'				WhichContainerText.Response = PickContainerLookup.Categories[itemCounter].fullname
+	'				PickContainersizes.response = PickContainerSizes.categories[WhichContainerText.response]
+	'				WhichSize.categories.filter = ccategorical("{" + format(PickContainerSizes.response,"b") + "}")
+	'			end if
+	'		Next
+	
+			WhichContainerText.Response = PickContainer.response
+			PickContainersizes.response = PickContainerSizes.categories[PickContainer.response]
+			WhichSize.categories.filter = ccategorical(MakeString("{", PickContainerSizes.categories[PickContainer.response].label, "}"))
+			
+			Debug.Log("Container result: " + WhichContainerText.response)
+	
+			AddCustomProperties(AmountConsumed, "AmountConsumed", "{'values':{'min':1,'max':5,'position':'none'},'unit':{'image':{'width':'32px','height':'32px'}}}", "replace") 
+	
+			SizeandAmountPage.ask()
+	
+			HowMuch.Response = WhichSize.Categories[WhichSize.Response].Factor / 5 * AmountConsumed.Response 
+			debug.Log("how much: " + ctext(Howmuch.Response))
+	
+			lastQuestion = "HWOMUCH"
+			
+		case {picture}
+			Picture.Ask()
+			lastQuestion = "PICTURE"
+				
+'		case {done}
+'			Confirm.Ask()
+'			lastQuestion = "DONE"
+'		end select
+		stayinLoop = true
+	else
+		stayinLoop = false
+	end if	
 end while
 
 
@@ -1243,36 +1264,50 @@ end function
 	end if	
 	end function
 	
-	function UnFormatUTC(theString)
+	function UnFormatUTC(theString, theMonthList)
 	dim findDate, findEnd, findDecimal
 	dim stringDate, stringTime, baseDate
 	dim convertedDate, convertedTime
 	dim stringYear, stringMonth, stringDay, stringHour, stringMinute, stringMonthName
-	dim monthList[13]
 	dim stringMilitary
-	monthList[1] = "Jan"
-	monthList[2] = "Feb"
-	monthList[3] = "Mar"
-	monthList[4] = "Apr"
-	monthList[5] = "May"
-	monthList[6] = "Jun"
-	monthList[7] = "Jul"
-	monthList[8] = "Aug"
-	monthList[9] = "Sep"
-	monthList[10] = "Oct"
-	monthList[11] = "Nov"
-	monthList[12] = "Dec"
+
 	
-	debug.Log(Makestring("first date:", theString))
+	debug.Log(Makestring("unformatUTC:", theString))
 		stringYear = left(theString, 4)
 		stringMonth = mid(thestring, 5,2)
 		stringDay = mid(theString, 8,2)
 		stringHour = mid(theString, 11,2)
 		stringMinute = mid(theString,14,2)
-		stringMonthName = monthList[clong(stringMonth)]
+		stringMonthName = theMonthList.Categories[MakeString("M", stringMonth)].label.text
 		stringMilitary = MakeString(stringDay, "-", stringMonthName, "-", stringYear, " ", stringHour, ":", stringMinute)
-
+	debug.Log(MakeString("stringMilitary: " , stringMilitary))
 		convertedDate = cdate(stringMilitary)
 		UnFormatUTC = convertedDate
+	end function
+	
+	function FixSpecialCharacters(theString, theEscape)
+	dim regexEscapeTo, regexEscapeFrom1, regexEscapeFrom2
+	dim regexUnescapeTo, regexUnescapeFrom1, regexUnescapeFrom2
+	dim quote
+	dim result
+
+	quote = ChrW(34)
+
+	regexEscapeFrom1 = MakeString("/([", quote, "'%<>~`!@#&\*\^\$|\[\]\(\)\+\{\}])/g")
+	regexEscapeFrom2 = "/([.*+?^${}()|\[\]\/\\])/g"
+	regexEscapeTo = "\\$&"
+	regexUnescapeFrom1 = MakeString("/\\([", quote, "'%<>~`!@#&\*\^\$|\[\]\(\)\+\{\}])/g")
+	regexUnescapeFrom2 = "/\\([.*+?^${}()|\[\]\/\\])/g,"
+	regexUnescapeTo = "$&"
+	
+	if theEscape then
+		result = theString.RegexReplace(regexEscapeFrom1, regexEscapeTo)
+		result= result.RegexReplace(regexEscapeFrom2, regexEscapeTo)
+	else
+		result = theString.RegexReplace(regexUnescapeFrom1, regexUnescapeTo)
+		result = result.RegexReplace(regexUnescapeFrom2, regexUnescapeTo)
+	end if
+	
+	FixSpecialCharacters = result
 	end function
 End Routing

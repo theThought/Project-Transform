@@ -1624,7 +1624,8 @@ Coke "Coca Cola" define
     ' -20 SingleLineEdit
     ' -21 ReadWriteEdit 
     ' -22 Decimal
-    ' -22 openend-Search
+    ' -25 openend-Search
+    ' -26 openend-search-scan
     ' -30 MultiLineEdit
     ' -40 Choice
     ' -45 Choice - summary
@@ -1635,9 +1636,12 @@ Coke "Coca Cola" define
     ' -56 Scale (Vertical)
     ' -60 DropDown
     ' -70 Combobox
+    ' -80 Calendar (not supported)
+    ' -91 Datetime recent
     ' -1100 Progressive (V) Grid
     ' -1110 Progressive (H) Grid
-    ' -1400 Navigation - Tabstrip
+    ' -1400 Navigation - Tabstrip 
+    ' -1510 Media - external
     '---------------------------------------------
     CustomList_Layout "Layouts" define
     {
@@ -2764,20 +2768,20 @@ Coke "Coca Cola" define
         )
     long [1 .. 10];
 
-	BottleContainer1 "Indicate how much of the container you consumed"
+    BottleContainer1 "Indicate how much of the container you consumed"
         style(
-        ZIndex = -56,
-        Width = "80%"
-    )
+            ZIndex = -56,
+            Width = "80%"
+        )
     long [1 .. 5];
 
-	GlassContainer1 "Indicate how much of the container you consumed"
+    GlassContainer1 "Indicate how much of the container you consumed"
         style(
-        ZIndex = -56,
-        Width = "80%"
-    )
+            ZIndex = -56,
+            Width = "80%"
+        )
     long [1 .. 5];
-    
+
     Passive10FeedbackV "Please provide some detail as to why you scored your wash with a rating"
         style(
             ZIndex = -30
@@ -2975,6 +2979,22 @@ Coke "Coca Cola" define
 
     ) expand;
 
+    EightByGrid "Pick the drugs you are using limit is 8" loop[..8]
+    fields (
+        DrugComboSingleInGrid "1st Drug Question"
+            style(
+                Align = "Left",
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [1..1]
+        {
+            druglist use \\.druglist -
+            asc
+        };
+        
     GridDrugComboSingle "This is a test of droplists within a grid" loop
     {
         use weekdayslist -
@@ -6459,6 +6479,19 @@ Coke "Coca Cola" define
         nobrand "I don't know the brand" DK
     } );
 
+    brandlistAllDetails "Provide a description of the product you consumed so I can capture all the details"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200]
+    codes(
+    {
+        nobrand "I don't know the brand" DK
+    } );
+
     containerlist "Describe the container you used to hold the drink you consumed"
         style(
             ZIndex = -25,
@@ -6476,7 +6509,7 @@ Coke "Coca Cola" define
             )
         )
     text [..200];
-    
+
     YearofDiagnosis "What was the year of diagnosis?"
         style(
             ZIndex = -40
@@ -6603,13 +6636,25 @@ Coke "Coca Cola" define
         style(
             ZIndex = -1510
         )
-    text [..24]
+    text [..1000]
     codes(
     {
         noproduct "no matching product found" exclusive,
         noanswer "no answer provided" NA
     } );
-	LABarcode "Barcode: "
+
+    LABarcode "Barcode: "
+        style(
+            ZIndex = -20
+        )
+    text [..24];
+
+    LACode "Code: "
+        style(
+            ZIndex = -20
+        )
+    text [..24];
+
     LAProduct "Product Description: "
         style(
             ZIndex = -20
@@ -6620,11 +6665,21 @@ Coke "Coca Cola" define
         NoProduct "" NA
     } );
 
+    LACategory_Entry "Category: "
+        style(
+            ZIndex = -20
+        )
+    text [..100]
+    codes(
+    {
+        NoCategory "" NA
+    } );
+
     LACategory "Product Category: "
         style(
             ZIndex = -40
         )
-    categorical [1..1]
+    categorical [0..1]
     {
         Beer "Beer",
         Wine "Wine",
@@ -6638,7 +6693,7 @@ Coke "Coca Cola" define
 
     LABarcode_Page "LABarcode_Page"
     page(
-    	LAScan,
+        LAScan,
         LABarcode,
         LAProduct,
         LACategory
@@ -6991,6 +7046,13 @@ Coke "Coca Cola" define
         Passive10ScaleV,
         Passive10FeedbackV
     );
+    BrandlistPage ""
+    page(
+        brandlistAllDetails,
+        LACode,
+        LAProduct,
+        LACategory_Entry
+    );
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -7002,6 +7064,7 @@ dim askAgain
 dim focusQuestion, focusControl, focusBalance
 dim isPWA, isPaste, isJump
 dim mediaAssetsURL
+dim postMessageScript
 'templateLocation = "../"
 templateLocation = ""
 layoutTemplate = ""
@@ -7030,6 +7093,7 @@ IOM.Banners.AddNew("PageName", "")
 IOM.Banners.AddNew("PageCustomProperties", "")
 IOM.Banners.AddNew("CustomProgressBar", "")
 IOM.Banners.AddNew("Contactushtml", "<a href='mailto:contactus@healthcare.ipsos.com' window='new'>Contact Us</a>")
+IOM.Banners.AddNew("PostMessage", "")
 
 'IOM.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 
@@ -7093,6 +7157,7 @@ do until not askAgain
 'TypesVsBroadsheetsSingle.Ask()
 
 IOM.Title = "Question type selection"
+IOM.Banners["PostMessage"].Text = ""
 MenuPage.Ask()
 
 if CustomList_SetPaste1.Response.containsAny("allow") then
@@ -7549,7 +7614,7 @@ AddCustomProperties(Passive10ScaleV, "Passive10ScaleV", "{'values':{'min':1,'max
 passive10visibilityV = CreateVisibilityRule("Passive10ScaleV < 9")
 Passive10ScaleV.ask()
 
-AddCustomProperties(BottleContainer1, "BottleContainer1", "{'values':{'min':1,'max':5,'position':'none'},'background':{'image':{'url':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/container_bg/Vodka.svg','width':'372px','height':'450px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(BottleContainer1, "BottleContainer1", "{'scale':{'top':'225px','left':'125px','width':'120px'},'values':{'min':1,'max':5,'position':'none'},'background':{'image':{'url':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/container_bg/Vodka.svg','width':'372px','height':'450px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 BottleContainer1.ask()
 
 AddCustomProperties(Passive10ScaleV, "Passive10ScaleV", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
@@ -8818,13 +8883,24 @@ case {RotatedHiddenCells}
     brandlist.QuestionTemplate = "question-database-brandlist.htm"
     brandlist.Ask()
 
+	AddCustomProperties(brandlistAllDetails, "brandlistAllDetails", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':{'Match':[{'property':'code','from':'UPC'},{'property':'name','from':'name'},{'property':'category','from':'category'}],'NoMatch':[{'property':'name','from':'search'}]},'descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+	AddCustomProperties(LACode, "LACode", "{'calculation':{'variables':['name':'search','source':'brandlistAllDetails'}],'algorithm':'search.JSON(%%code%%)'}", "replace")
+	AddCustomProperties(LAProduct, "LACode", "{'calculation':{'variables':['name':'search','source':'brandlistAllDetails'}],'algorithm':'search.JSON(%%name%%)'}", "replace")
+	AddCustomProperties(LACategory_Entry, "LACode", "{'calculation':{'variables':['name':'search','source':'brandlistAllDetails'}],'algorithm':'search.JSON(%%category%%)'}", "replace")
+	
+    brandlistAllDetails.QuestionTemplate = "question-database-brandlist.htm"
+	LACode.MustAnswer = false
+	LAProduct.MustAnswer = false
+	LACategory_Entry.MustAnswer = false
+    BrandlistPage.Ask()
+    
 	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'internal','source':'a-list','valuefrom':'UPC','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
     barcodelist.QuestionTemplate = "question-database.htm"
     barcodelist.Ask()
 
-	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'external','source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\barcodelistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
-    barcodelist.QuestionTemplate = null
-    barcodelist.Ask()
+'	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'external','source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\barcodelistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
+'   barcodelist.QuestionTemplate = null
+'   barcodelist.Ask()
 
 	case {ImageList}
 	AddCustomProperties(containerlist, "containerlist", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
@@ -9027,7 +9103,9 @@ htmlPICTURE[12] = "</div>"
 	contentHOWMUCH = BuildContent(htmlHOWMUCH, false, false)
 	contentWHEN = BuildContent(htmlWHEN, false, false)
 	contentPICTURE = BuildContent(htmlPICTURE, false, false)
-	
+	postMessageScript = "<script type='application/javascript' src='https://d11as4oy583d1f.cloudfront.net/iframe-script.js'>//Post message Script</script>"
+	IOM.Banners["PostMessage"].Text = postMessageScript
+	Summary.LayoutTemplate = "formal-summary.htm"
 	'IOM.LayoutTemplate = "pageoutput-label.htm"
 	Summary.Ask()
 	debug.Log(format(summary.response,"b"))
@@ -9068,10 +9146,37 @@ case {barcodescan}
     '----------------------------------------
     ' Barcode scan Question
     '----------------------------------------
-	AddCustomProperties(LABarcode, "LABarcode", MakeString("{'captions':[{'type':'start','text':'Scan Barcode'}],'action':'Barcode','inputs':[{'variable':'code','input':'LABarcode'},{'variable':'product','input':'LAProduct'},{'variable':'category','field':'LACategory'}]}"), "replace")
-	AddCustomProperties(LAProduct, "LAProduct", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
-	AddCustomProperties(LACategory, "LACategory", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+	AddCustomProperties(LAScan, "LAScan", MakeString("{'captions':[{'type':'start','text':'Scan Barcode'}],'action':'Barcode'}"), "replace")
+'	AddCustomProperties(LAProduct, "LAProduct", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+'	AddCustomProperties(LACategory, "LACategory", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+	LABarcode_Page.LayoutTemplate = "formal-camera.htm"
+'	LABarcode_Page.LayoutTemplate = "pageoutput-label.htm"
+	LAScan.MustAnswer = false
+	LAProduct.MustAnswer = false
+	LABarcode.MustAnswer = false
+	LACategory.MustAnswer = false
+'	if scriptsource.response is null then
+'		if iom.Info.User1 <> "" then
+'			select case iom.Info.User1.LCase()
+'			case "development"
+'			scriptsource.response = "https://d11as4oy583d1f.cloudfrosnt.net/iframe-script.js"
+'			case "staging"
+'			scriptsource.response = "https://d2cgld9eorebye.cloudfront.net/iframe-script.js"
+'			case "production"
+'			scriptsource.response = "https://thediary.ipsos.com/iframe-script.js"
+'			case "localhost"
+'			scriptsource.response = "http://localhost:3000/iframe-script.js"			
+'			end select
+'		else
+'			scriptsource.response = "https://thediary.ipsos.com/iframe-script.js"
+'		end if
+'	end if
+	
+	postMessageScript = "<script type='application/javascript' src='https://d11as4oy583d1f.cloudfront.net/iframe-script.js'>//Post message Script</script>"
+	IOM.Banners["PostMessage"].Text = postMessageScript
+
 	LABarcode_Page.ask()
+
 end select
 
 loop
