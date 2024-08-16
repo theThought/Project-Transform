@@ -414,6 +414,15 @@
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
          </xsl:when>
+         <xsl:when test="$qCustomType='openend-search-scan'">
+            <xsl:call-template name="OpenendSearchScanControl">
+               <xsl:with-param name="qElementID" select="$qElementID" />
+               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+               <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+               <xsl:with-param name="qCustomType" select="$qCustomType" />
+            </xsl:call-template>
+         </xsl:when>         
          <xsl:when test="$qCustomType='slider-date'">
             <xsl:call-template name="SliderDateControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
@@ -2251,6 +2260,117 @@
       </xsl:element>  
    </xsl:template>
    
+      <xsl:template name="OpenendSearchScanControl">
+      <xsl:param name="qElementID" />
+      <xsl:param name="qLocal_Name" />
+      <xsl:param name="qGroup_Name" />
+      <xsl:param name="qIsCustom" />
+      <xsl:param name="qCustomType" />
+      <xsl:variable name="lElementID">
+         <xsl:call-template name="CalculateQuestionName">
+            <xsl:with-param name="QuestionName" select="$qElementID" />
+         </xsl:call-template>
+      </xsl:variable>
+      <xsl:element name="div">
+         <xsl:attribute name="class">
+            <xsl:text>o-openend-search</xsl:text>
+         </xsl:attribute>
+         <xsl:attribute name="data-questiongroup">
+            <xsl:value-of select="$qGroup_Name" />
+         </xsl:attribute>
+         <xsl:attribute name="data-questionid">
+            <xsl:value-of select="$lElementID" />
+         </xsl:attribute>
+         <xsl:call-template name="appComponentScript">
+            <xsl:with-param name="ComponentName" select="'oOpenend-search'" />
+            <xsl:with-param name="qElementID" select='$lElementID' />
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+         </xsl:call-template>
+
+         <xsl:element name='div'>
+            <xsl:attribute name='class'>o-media-external-selected</xsl:attribute>
+            <xsl:element name='div'>
+               <xsl:attribute name='class'>m-instructions-prompt</xsl:attribute>
+               <xsl:element name='div'>
+                  <xsl:attribute name='class'>a-button-scan</xsl:attribute>
+                  <xsl:comment>scan button goes here</xsl:comment>
+               </xsl:element>
+               <xsl:element name='div'>
+                  <xsl:attribute name='class'>a-label-button-prompt</xsl:attribute>
+                  <xsl:comment>prompt text goes here</xsl:comment>
+               </xsl:element>
+            </xsl:element>
+            <xsl:element name='div'>
+               <xsl:attribute name='class'>m-instructions-feedback</xsl:attribute>
+               <xsl:element name='div'>
+                  <xsl:attribute name='class'>a-instructions-empty</xsl:attribute>
+                  <xsl:comment>empty text goes here</xsl:comment>
+               </xsl:element>
+               <xsl:element name='div'>
+                  <xsl:attribute name='class'>o-longlist-taglist</xsl:attribute>
+                  <xsl:comment>tags go here</xsl:comment>
+               </xsl:element>
+               <xsl:element name='div'>
+                  <xsl:attribute name='class'>a-instructions-error</xsl:attribute>
+                  <xsl:comment>prompt error goes here</xsl:comment>
+               </xsl:element>
+            </xsl:element>
+         </xsl:element>
+
+         <xsl:call-template name="MakeInputControl">
+            <xsl:with-param name="qElementID" select="$lElementID" />
+            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+            <xsl:with-param name="qIsCustom" select="$qIsCustom" />
+            <xsl:with-param name="qCustomType" select="$qCustomType" />
+         </xsl:call-template>   
+         <xsl:element name="div"> 
+            <xsl:attribute name="class">o-list</xsl:attribute>
+            <xsl:element name="ul">
+               <xsl:attribute name="class">m-list-external</xsl:attribute>
+               <xsl:attribute name="id">
+                  <xsl:value-of select="$lElementID" />
+                  <xsl:text>_list</xsl:text>
+               </xsl:attribute>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qGroup_Name" />
+               </xsl:attribute>
+               <xsl:if test="Style/@Width">
+                  <xsl:attribute name="style">
+                     <xsl:text>width:</xsl:text>
+                     <xsl:value-of select="Style/@Width" />
+                     <xsl:text>;</xsl:text>
+                  </xsl:attribute>
+               </xsl:if>
+               <xsl:comment> --- list items --- </xsl:comment>
+            </xsl:element>
+            <xsl:element name="div">
+               <xsl:attribute name="class">m-list-messages</xsl:attribute>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">a-list-message</xsl:attribute>
+                  <xsl:attribute name="data-id">notenoughcharacters</xsl:attribute>
+               </xsl:element>
+               <xsl:element name="div">
+                  <xsl:attribute name="class">a-list-message</xsl:attribute>
+                  <xsl:attribute name="data-id">noitemsinlist</xsl:attribute>
+               </xsl:element>
+            </xsl:element>
+         </xsl:element>
+         <xsl:element name="div">
+            <xsl:attribute name="class">m-openend-search-count</xsl:attribute>
+            <xsl:element name="span">
+               <xsl:attribute name="class">a-label-counter</xsl:attribute>
+               <xsl:comment>item count goes here</xsl:comment>
+            </xsl:element>
+            <xsl:element name="span">
+               <xsl:attribute name="class">a-label-counter-prompt</xsl:attribute>
+               <xsl:comment>item count prompt goes here</xsl:comment>
+            </xsl:element>
+         </xsl:element>
+      </xsl:element>  
+   </xsl:template>
+
    <xsl:template name='SliderDateControl'>
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
@@ -3379,6 +3499,9 @@
          <xsl:when test="$theID = '-25'">
             <xsl:value-of select="'openend-search'" />
          </xsl:when>
+         <xsl:when test="$theID = '-26'">
+            <xsl:value-of select="'openend-search-scan'" />
+         </xsl:when>
          <xsl:when test="$theID = '-30'">
             <xsl:value-of select="'multilineedit'" />
          </xsl:when>
@@ -3448,6 +3571,9 @@
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-25'">
+            <xsl:value-of select="'false'" />
+         </xsl:when>
+         <xsl:when test="$theID = '-26'">
             <xsl:value-of select="'false'" />
          </xsl:when>
          <xsl:when test="$theID = '-30'">
