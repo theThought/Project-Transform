@@ -298,18 +298,11 @@ define(['o-question'], function (oQuestion) {
             }
         });
     };
-   
+    
+
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
         var direction = this.properties.direction || 'standard-list';
-        var valueFrom = this.properties.valuefrom;
-    
-        // Check if valueFrom and Match are defined
-        if (!valueFrom || !valueFrom.Match) {
-            console.error('valueFrom or valueFrom.Match is undefined');
-            return;
-        }
-    
         if (direction === 'horizontal') {
             listElement.classList.add('horizontal-list');
             listElement.classList.remove('vertical-list');
@@ -321,116 +314,51 @@ define(['o-question'], function (oQuestion) {
             listElement.classList.remove('horizontal-list');
             listElement.classList.add('standard-list');
         }
-    
         var html = '';
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             var flexClass = item.image ? 'flex-container' : '';
             var uniqueId = 'checkbox-' + i;
-            
-            // Check if Match or NoMatch is applicable
-            var isMatch = this.checkIfMatch(item, valueFrom.Match);
-            var resultData = this.mapProperties(item, isMatch ? valueFrom.Match : valueFrom.NoMatch);
-            
-            html += '<li class="a-option-list ' + flexClass + '" id="' + item.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + JSON.stringify(resultData) + '" tabindex="0">';
-            html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + resultData.name + '">';
+            html += '<li class="a-option-list ' + flexClass + '" id="' + item.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + (item.name || item.caption) + '" tabindex="0">';
             if (item.image) {
-                html += '<img src="' + item.image + '" alt="' + item.caption + '" class="list-image" data-value="' + resultData.name + '">';
+                html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
+                html += '<img src="' + item.image + '" alt="' + item.caption + '" class="list-image" data-value="' + (item.name || item.caption) + '">';
                 html += item.caption + '</label>';
             } else {
-                html += resultData.name + '</label>';
+                html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
+                html += item.name + '</label>';
             }
             html += '</li>';
         }
         listElement.innerHTML = html;
-    
-        // Attach event listeners for the list items
         var listItems = listElement.querySelectorAll('li');
-        Array.prototype.forEach.call(listItems, function (item) {
+        listItems.forEach(function (item) {
             item.addEventListener('click', function (e) {
                 e.stopPropagation();
-                var value = JSON.parse(item.getAttribute('data-value'));
+                var value = item.getAttribute('data-value');
                 this.addTag(value);
             }.bind(this));
+            var label = item.querySelector('label');
+            if (label) {
+                label.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var value = label.getAttribute('data-value');
+                    this.addTag(value);
+                }.bind(this));
+            }
+            var img = item.querySelector('img');
+            if (img) {
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var value = img.getAttribute('data-value');
+                    if (!value) {
+                        value = img.parentElement.getAttribute('data-value');
+                    }
+                    this.addTag(value);
+                }.bind(this));
+            }
         }.bind(this));
     };
-    
-    
-    oQuestionOpenendSearch.prototype.checkIfMatch = function (item, matchCriteria) {
-        // Determine if the item matches the criteria in the 'Match' array
-        return matchCriteria.every(function (criterion) {
-            return item[criterion.from] !== undefined && item[criterion.from] !== null;
-        });
-    };
-    
-    oQuestionOpenendSearch.prototype.mapProperties = function (item, criteria) {
-        var mapped = {};
-        Array.prototype.forEach.call(criteria, function (criterion) {
-            mapped[criterion.property] = item[criterion.from] || '';
-        });
-        return mapped;
-    };
-    
-
-    // oQuestionOpenendSearch.prototype.getDataFromSource = function () {
-    //     var listElement = document.querySelector('#' + this.droplist.id);
-    //     var direction = this.properties.direction || 'standard-list';
-    //     if (direction === 'horizontal') {
-    //         listElement.classList.add('horizontal-list');
-    //         listElement.classList.remove('vertical-list');
-    //     } else if (direction === 'vertical') {
-    //         listElement.classList.add('vertical-list');
-    //         listElement.classList.remove('horizontal-list');
-    //     } else {
-    //         listElement.classList.remove('vertical-list');
-    //         listElement.classList.remove('horizontal-list');
-    //         listElement.classList.add('standard-list');
-    //     }
-    //     var html = '';
-    //     for (var i = 0; i < barcodelist.list.length; i++) {
-    //         var item = barcodelist.list[i];
-    //         var flexClass = item.image ? 'flex-container' : '';
-    //         var uniqueId = 'checkbox-' + i;
-    //         html += '<li class="a-option-list ' + flexClass + '" id="' + item.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + (item.name || item.caption) + '" tabindex="0">';
-    //         if (item.image) {
-    //             html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
-    //             html += '<img src="' + item.image + '" alt="' + item.caption + '" class="list-image" data-value="' + (item.name || item.caption) + '">';
-    //             html += item.caption + '</label>';
-    //         } else {
-    //             html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
-    //             html += item.name + '</label>';
-    //         }
-    //         html += '</li>';
-    //     }
-    //     listElement.innerHTML = html;
-    //     var listItems = listElement.querySelectorAll('li');
-    //     listItems.forEach(function (item) {
-    //         item.addEventListener('click', function (e) {
-    //             e.stopPropagation();
-    //             var value = item.getAttribute('data-value');
-    //             this.addTag(value);
-    //         }.bind(this));
-    //         var label = item.querySelector('label');
-    //         if (label) {
-    //             label.addEventListener('click', function (e) {
-    //                 e.stopPropagation();
-    //                 var value = label.getAttribute('data-value');
-    //                 this.addTag(value);
-    //             }.bind(this));
-    //         }
-    //         var img = item.querySelector('img');
-    //         if (img) {
-    //             img.addEventListener('click', function (e) {
-    //                 e.stopPropagation();
-    //                 var value = img.getAttribute('data-value');
-    //                 if (!value) {
-    //                     value = img.parentElement.getAttribute('data-value');
-    //                 }
-    //                 this.addTag(value);
-    //             }.bind(this));
-    //         }
-    //     }.bind(this));
-    // };
 
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];
@@ -1013,80 +941,45 @@ oQuestionOpenendSearch.prototype.processKeyup = function(event) {
         this.updateItemCount(visibleitems);
         this.togglePlaceholderVisibility(visibleitems === 0);
     };
-
+    
     oQuestionOpenendSearch.prototype.filterListContains = function (inputstring) {
-        var visibleItems = 0;
+        var exactmatch = false;
+        var visibleitems = 0;
         inputstring = inputstring.toLowerCase();
-        var elementsToModify = [];
+        var elementsToModify = []; 
     
-        Array.prototype.forEach.call(this.list, function (item) {
-            var itemData = JSON.parse(item.getAttribute('data-value'));
-            var matches = Object.keys(itemData).some(function (key) {
-                return itemData[key].toLowerCase().indexOf(inputstring) !== -1;
-            });
-    
-            if (matches) {
-                elementsToModify.push({ item: item, hidden: false });
-                visibleItems++;
+        this.list.forEach(function (item) {
+            var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
+            if (itemlabel.includes(inputstring)) {
+                elementsToModify.push({ item: item, hidden: false, selected: itemlabel === inputstring });
+                visibleitems++;
             } else {
-                elementsToModify.push({ item: item, hidden: true });
+                elementsToModify.push({ item: item, hidden: true, selected: false });
             }
         }.bind(this));
     
-        Array.prototype.forEach.call(elementsToModify, function (elementData) {
+        elementsToModify.forEach(function (elementData) {
             if (elementData.hidden) {
                 elementData.item.classList.add('filter-hidden');
             } else {
                 elementData.item.classList.remove('filter-hidden');
             }
+            if (elementData.selected) {
+                elementData.item.classList.add('selected');
+                elementData.item.setAttribute('data-selected', 'selected');
+            } else {
+                elementData.item.classList.remove('selected');
+                elementData.item.removeAttribute('data-selected');
+            }
         });
     
-        this.updateItemCount(visibleItems);
-        if (visibleItems === 0) {
+        this.updateItemCount(visibleitems);
+        if (visibleitems === 0) {
             this.noitemsinlist(this.properties.noitemsinlist);
         }
-        this.togglePlaceholderVisibility(visibleItems === 0);
+        this.togglePlaceholderVisibility(visibleitems === 0);
+        console.log(elementsToModify);
     };
-    
-    
-    // oQuestionOpenendSearch.prototype.filterListContains = function (inputstring) {
-    //     var exactmatch = false;
-    //     var visibleitems = 0;
-    //     inputstring = inputstring.toLowerCase();
-    //     var elementsToModify = []; 
-    
-    //     this.list.forEach(function (item) {
-    //         var itemlabel = this.sanitiseText(item.innerText.toLowerCase());
-    //         if (itemlabel.includes(inputstring)) {
-    //             elementsToModify.push({ item: item, hidden: false, selected: itemlabel === inputstring });
-    //             visibleitems++;
-    //         } else {
-    //             elementsToModify.push({ item: item, hidden: true, selected: false });
-    //         }
-    //     }.bind(this));
-    
-    //     elementsToModify.forEach(function (elementData) {
-    //         if (elementData.hidden) {
-    //             elementData.item.classList.add('filter-hidden');
-    //         } else {
-    //             elementData.item.classList.remove('filter-hidden');
-    //         }
-    //         if (elementData.selected) {
-    //             elementData.item.classList.add('selected');
-    //             elementData.item.setAttribute('data-selected', 'selected');
-    //         } else {
-    //             elementData.item.classList.remove('selected');
-    //             elementData.item.removeAttribute('data-selected');
-    //         }
-    //     });
-    
-    //     this.updateItemCount(visibleitems);
-    //     if (visibleitems === 0) {
-    //         this.noitemsinlist(this.properties.noitemsinlist);
-    //     }
-    //     this.togglePlaceholderVisibility(visibleitems === 0);
-    //     console.log(elementsToModify);
-    // };
     
     oQuestionOpenendSearch.prototype.togglePlaceholderVisibility = function (visibility) {
         if (visibility) {
@@ -1129,11 +1022,10 @@ oQuestionOpenendSearch.prototype.processKeyup = function(event) {
         this.wrapper.insertBefore(container, inputElement);
     };
 
-    oQuestionOpenendSearch.prototype.addTag = function (value) {
-        if (typeof value === 'undefined' || value === null) {
+    oQuestionOpenendSearch.prototype.addTag = function (label) {
+        if (typeof label === 'undefined' || label === null) {
             return;
         }
-    
         var container = document.querySelector('.o-question-selected');
         if (!container) {
             container = document.createElement('div');
@@ -1141,28 +1033,19 @@ oQuestionOpenendSearch.prototype.processKeyup = function(event) {
             var inputElement = this.wrapper.querySelector('input');
             this.wrapper.insertBefore(container, inputElement);
         }
-    
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-    
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
         }
-    
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
-        tag.setAttribute('data-value', JSON.stringify(value));
-        tag.setAttribute('value', JSON.stringify(value));
-        
-        var displayText = Object.keys(value).map(function (key) {
-            return value[key];
-        }).join(', ');
-        tag.innerHTML = '<span> ' + displayText + '</span><button class="delete-tag">X</button>';
-    
+        tag.setAttribute('data-value', label);
+        tag.setAttribute('value', label);
+        tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
         this.updateItemCount(0);
-    
         var deleteButton = tag.querySelector('.delete-tag');
         deleteButton.addEventListener('click', function () {
             this.updateItemCount(0);
@@ -1175,63 +1058,24 @@ oQuestionOpenendSearch.prototype.processKeyup = function(event) {
             }
             this.element.classList.remove('exact');
         }.bind(this));
+        if (this.special) {
+            var checkbox = this.special.querySelector('input[type="checkbox"]');
+            if (checkbox && checkbox.checked) {
+                container.removeChild(tag);
+            }
+            var observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
+                        var isChecked = this.special.getAttribute('data-checked') === 'true';
+                        if (isChecked) {
+                            container.removeChild(tag);
+                        }
+                    }
+                }.bind(this));
+            }.bind(this));
+            observer.observe(this.special, { attributes: true });
+        }
     };
-    
-
-    // oQuestionOpenendSearch.prototype.addTag = function (label) {
-    //     if (typeof label === 'undefined' || label === null) {
-    //         return;
-    //     }
-    //     var container = document.querySelector('.o-question-selected');
-    //     if (!container) {
-    //         container = document.createElement('div');
-    //         container.className = 'o-question-selected';
-    //         var inputElement = this.wrapper.querySelector('input');
-    //         this.wrapper.insertBefore(container, inputElement);
-    //     }
-    //     while (container.firstChild) {
-    //         container.removeChild(container.firstChild);
-    //     }
-    //     if (this.buttonElement) {
-    //         this.buttonElement.disabled = true;
-    //     }
-    //     var tag = document.createElement('div');
-    //     tag.className = 'm-tag-answer';
-    //     tag.setAttribute('data-value', label);
-    //     tag.setAttribute('value', label);
-    //     tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
-    //     container.appendChild(tag);
-    //     this.updateItemCount(0);
-    //     var deleteButton = tag.querySelector('.delete-tag');
-    //     deleteButton.addEventListener('click', function () {
-    //         this.updateItemCount(0);
-    //         container.removeChild(tag);
-    //         this.showAllImageItems();
-    //         for (var i = 0; i < this.list.length; i++) {
-    //             var item = this.list[i];
-    //             item.classList.remove('selected');
-    //             item.removeAttribute('data-selected');
-    //         }
-    //         this.element.classList.remove('exact');
-    //     }.bind(this));
-    //     if (this.special) {
-    //         var checkbox = this.special.querySelector('input[type="checkbox"]');
-    //         if (checkbox && checkbox.checked) {
-    //             container.removeChild(tag);
-    //         }
-    //         var observer = new MutationObserver(function (mutations) {
-    //             mutations.forEach(function (mutation) {
-    //                 if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
-    //                     var isChecked = this.special.getAttribute('data-checked') === 'true';
-    //                     if (isChecked) {
-    //                         container.removeChild(tag);
-    //                     }
-    //                 }
-    //             }.bind(this));
-    //         }.bind(this));
-    //         observer.observe(this.special, { attributes: true });
-    //     }
-    // };
 
     oQuestionOpenendSearch.prototype.showAllImageItems = function () {
         var visibleItemCount = 0;
