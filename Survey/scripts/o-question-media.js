@@ -16,9 +16,9 @@ define(['component'],
 
         oQuestionMedia.prototype.init = function () {
             this.configureProperties();
-            this.configureIncomingEventListeners();
+            //this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.requestInitialSize();
+            //this.requestInitialSize();
             this.configurationComplete();
         }
 
