@@ -38,7 +38,7 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.onClick = async function () {
-            this.clearError()
+            this.clearError();
             this.clearValue();
 
             try {
@@ -56,6 +56,7 @@ define(['component'],
 
         oQuestionMedia.prototype.clearValue = function () {
             this.element.value = '';
+            this.broadcastChange();
         }
 
         oQuestionMedia.prototype.setError = function (message) {
