@@ -412,25 +412,27 @@ define(['o-question'], function (oQuestion) {
         if (inputElement) {
             var self = this;
             inputElement.addEventListener('input', function (event) {
-                var inputValue = event.target.value;
+                var inputValue = event.target.value.trim();
                 var filteredWords = self.filterWordContains(inputValue);
-                if (filteredWords.length > 0 && inputValue.length >= 3) {
-                    self.buttonElement.disabled = true;
-                } else if (filteredWords.length < 1) {
-                    self.matchedWord = null;
-                    self.buttonElement.disabled = false;
-                } else {
-                    self.buttonElement.disabled = false;
-                }
                 var matches = Array.from(self.list).some(function (item) {
                     return item.innerText.toLowerCase() === inputValue.toLowerCase();
                 });
-                if (matches && inputValue.length === 0) {
+    
+                // Enable the tick box if no exact match is found and input length is >= 3
+                if (!matches && inputValue.length >= 3) {
+                    self.buttonElement.disabled = false;
+                } else {
+                    self.buttonElement.disabled = true;
+                }
+    
+                // If input is empty or length is less than 3, disable the tick box
+                if (inputValue.length < 3) {
                     self.buttonElement.disabled = true;
                 }
             });
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.placeholder = function (prop) {
         this.defaultplaceholder = this.decodeHTML(prop);
