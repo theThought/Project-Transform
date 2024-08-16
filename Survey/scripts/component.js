@@ -468,8 +468,8 @@ define(
             if (typeof this.properties.calculation !== "undefined") {
                 this.debug('Processing calculation for ' + this.questionName, 3);
                 this.getQuestionValues();
-                var ruleString = this.insertJSONValuesIntoRule(this.expandedCalculation);
-                this.element.value = this.evaluateRule(ruleString);
+                this.element.value = this.insertJSONValuesIntoRule(this.expandedCalculation).trim();
+
             }
         }
 
@@ -595,7 +595,7 @@ define(
             // match 2: contains property requested
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '%%' + matches[1] + '%%.json.' + matches[2];
-                expandedString = ' (' + expandedString + ') ';
+                expandedString = ' ' + expandedString + ' ';
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
