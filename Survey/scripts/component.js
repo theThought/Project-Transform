@@ -22,6 +22,7 @@ define(
             this.questionName = app.extractQuestionName(group);
             this.complexVisibilityRule = '';
             this.expandedVisibilityRule = '';
+            this.expandedCalculation = '';
             this.ruleParsingComplete = false;
             this.sourceQuestions = {};
             this.properties = {};
@@ -369,7 +370,7 @@ define(
 
             // regular expression that searches for a string followed by an operator
             // operators are = < > <> .containsNone .containsNone .containsAll
-            var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%)/ig;
+            var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%|\.json)/ig;
             var questions = ruleString.match(questionRe);
 
             if (questions === null) {
@@ -459,6 +460,19 @@ define(
             this.element.dispatchEvent(restoreEntries);
         }
 
+        component.prototype.processCalculations = function (event) {
+            if (this.element === event.detail.element) {
+                return;
+            }
+
+            if (typeof this.properties.calculation !== "undefined") {
+                this.debug('Processing calculation for ' + this.questionName, 3);
+                this.getQuestionValues();
+                var ruleString = this.insertJSONValuesIntoRule(this.expandedCalculation);
+                this.element.value = this.evaluateRule(ruleString);
+            }
+        }
+
         component.prototype.cover = function () {
             this.element.classList.remove('cover-off');
         }
@@ -507,6 +521,29 @@ define(
             return ruleString;
         }
 
+        component.prototype.insertJSONValuesIntoRule = function (ruleString) {
+            for (var currentQuestion in this.sourceQuestions) {
+                if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
+                    var questionData = this.sourceQuestions[currentQuestion].join("','");
+                }
+
+                var re = new RegExp("%%" + currentQuestion + "%%\.json\.(\\w+)", "ig");
+                var matches;
+
+                // match 0: full string
+                // match 1: question
+                // match 2: contains property requested
+                while (null !== (matches = re.exec(ruleString))) {
+                    var data = JSON.parse(questionData);
+                    ruleString = ruleString.replace(matches[0], data[matches[1]]);
+                }
+
+                return ruleString;
+            }
+
+            return ruleString;
+        }
+
         component.prototype.evaluateRule = function (string) {
             // replace any remaining question placeholders with null --
             // a final safety net that should ultimately be unnecessary
@@ -528,6 +565,38 @@ define(
                 currentQuestion = currentQuestion.replace(questionRe, '_Q$1');
                 this.sourceQuestions[currentQuestion] = [];
                 ruleString = ruleString.replace(currentQuestionRe, "%%" + currentQuestion + "%%");
+            }
+
+            return ruleString;
+        }
+
+        component.prototype.calculation = function (prop) {
+            if (typeof prop.rule === "undefined") {
+                return;
+            }
+
+            var ruleString = prop.rule;
+
+            this.expandedCalculation = this.expandJSONRule(ruleString);
+            this.expandedCalculation = this.extractQuestionIdentifiers(this.expandedCalculation);
+        }
+
+        component.prototype.expandJSONRule = function (ruleString) {
+
+            if (ruleString.toLowerCase().indexOf('.json') === -1) {
+                return ruleString;
+            }
+
+            var re = /\s?(\w+)\.JSON\("(.*?)"\)/ig;
+            var matches;
+
+            // match 0: full string
+            // match 1: question
+            // match 2: contains property requested
+            while (null !== (matches = re.exec(ruleString))) {
+                var expandedString = '%%' + matches[1] + '%%.json.' + matches[2];
+                expandedString = ' (' + expandedString + ') ';
+                ruleString = ruleString.replace(matches[0], expandedString);
             }
 
             return ruleString;
