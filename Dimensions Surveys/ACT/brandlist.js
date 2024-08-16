@@ -1,10769 +1,10769 @@
 var barcodelist = {
     "list": [
         {
-            "UPC": 101997,
+            "upc": 101997,
             "name": "Made/Brewed at home beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101354,
+            "upc": 101354,
             "name": "10 Barrel Brewing",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101221,
+            "upc": 101221,
             "name": "21st Amendment",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101438,
+            "upc": 101438,
             "name": "4HANDS",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101363,
+            "upc": 101363,
             "name": "805 Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101001,
+            "upc": 101001,
             "name": "Alaskan",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101002,
+            "upc": 101002,
             "name": "Amstel ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101003,
+            "upc": 101003,
             "name": "Amstel Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101586,
+            "upc": 101586,
             "name": "Angry Orchard",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101004,
+            "upc": 101004,
             "name": "Abita",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101278,
+            "upc": 101278,
             "name": "Allagash",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101005,
+            "upc": 101005,
             "name": "Anchor Steam",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105071,
+            "upc": 105071,
             "name": "Anchor California Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105072,
+            "upc": 105072,
             "name": "Anchor Crisp Pilsner",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105093,
+            "upc": 105093,
             "name": "Anchor Liberty Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105073,
+            "upc": 105073,
             "name": "Anchor Porter",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105074,
+            "upc": 105074,
             "name": "Anchor San Pancho",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105094,
+            "upc": 105094,
             "name": "Anchor Tropical Hazy IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105095,
+            "upc": 105095,
             "name": "Anchor West Coast IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101006,
+            "upc": 101006,
             "name": "Anderson Valley",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101611,
+            "upc": 101611,
             "name": "AMB (Appalachian Mountain Brewery)",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101007,
+            "upc": 101007,
             "name": "Asahi",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101320,
+            "upc": 101320,
             "name": "Atwater",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101251,
+            "upc": 101251,
             "name": "Avery",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101211,
+            "upc": 101211,
             "name": "Ballast Point",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101008,
+            "upc": 101008,
             "name": "Bass ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101009,
+            "upc": 101009,
             "name": "Batch 19",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101010,
+            "upc": 101010,
             "name": "Bavaria",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101455,
+            "upc": 101455,
             "name": "Bayou Bootlegger",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101011,
+            "upc": 101011,
             "name": "Beck's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101292,
+            "upc": 101292,
             "name": "Beck's Sapphire",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101378,
+            "upc": 101378,
             "name": "Belching Beaver",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101012,
+            "upc": 101012,
             "name": "Bell's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101464,
+            "upc": 101464,
             "name": "Best Damn Cherry Cola",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101454,
+            "upc": 101454,
             "name": "Best Damn Root Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101013,
+            "upc": 101013,
             "name": "Big Sky",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101014,
+            "upc": 101014,
             "name": "Bitburger",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101427,
+            "upc": 101427,
             "name": "BJ's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101015,
+            "upc": 101015,
             "name": "Blue Moon Belgian White Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105125,
+            "upc": 105125,
             "name": "Blue Moon Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101756,
+            "upc": 101756,
             "name": "Blue Moon Light Sky",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105075,
+            "upc": 105075,
             "name": "Blue Moon Mango Wheat",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105076,
+            "upc": 105076,
             "name": "Blue Moon Moon Haze",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101016,
+            "upc": 101016,
             "name": "Blue Moon Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101018,
+            "upc": 101018,
             "name": "Blue Point",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101019,
+            "upc": 101019,
             "name": "Boddington's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101020,
+            "upc": 101020,
             "name": "Boulder Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101021,
+            "upc": 101021,
             "name": "Boulevard",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101236,
+            "upc": 101236,
             "name": "Breckenridge",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101022,
+            "upc": 101022,
             "name": "Brooklyn",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101023,
+            "upc": 101023,
             "name": "Bud Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101024,
+            "upc": 101024,
             "name": "Bud Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101025,
+            "upc": 101025,
             "name": "Bud Light & Clamato (Chelada)",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101721,
+            "upc": 101721,
             "name": "Bud Light Hard Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101824,
+            "upc": 101824,
             "name": "Bud Light Grapefruit",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101750,
+            "upc": 101750,
             "name": "Bud Light Lemonade",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101026,
+            "upc": 101026,
             "name": "Bud Light Lime",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101973,
+            "upc": 101973,
             "name": "Bud Light Next",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101548,
+            "upc": 101548,
             "name": "Bud Light Orange",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101028,
+            "upc": 101028,
             "name": "Bud Light Platinum",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101920,
+            "upc": 101920,
             "name": "Bud Light Strawberry Lemonade",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101029,
+            "upc": 101029,
             "name": "Budweiser",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101302,
+            "upc": 101302,
             "name": "Budweiser Brewmasters Project 12",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101030,
+            "upc": 101030,
             "name": "Budweiser & Clamato (Chelada)",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101825,
+            "upc": 101825,
             "name": "Budweiser Nitro Gold",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101031,
+            "upc": 101031,
             "name": "Budweiser Select",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101032,
+            "upc": 101032,
             "name": "Budweiser Select 55",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101033,
+            "upc": 101033,
             "name": "Busch",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101034,
+            "upc": 101034,
             "name": "Busch Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101035,
+            "upc": 101035,
             "name": "Busch Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101921,
+            "upc": 101921,
             "name": "Busch Light Apple",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105047,
+            "upc": 105047,
             "name": "Busch Light Peach",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101037,
+            "upc": 101037,
             "name": "Carlsberg",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101038,
+            "upc": 101038,
             "name": "Carlsberg Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101418,
+            "upc": 101418,
             "name": "Cigar City",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101238,
+            "upc": 101238,
             "name": "Cisco",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101948,
+            "upc": 101948,
             "name": "Colorado Native",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101039,
+            "upc": 101039,
             "name": "Colt 45",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101423,
+            "upc": 101423,
             "name": "Coney Island",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101040,
+            "upc": 101040,
             "name": "Coors Banquet/ Original",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101041,
+            "upc": 101041,
             "name": "Coors Extra Gold",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101042,
+            "upc": 101042,
             "name": "Coors Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101319,
+            "upc": 101319,
             "name": "Coors Light Summer Brew ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101826,
+            "upc": 101826,
             "name": "Coors Organic",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101781,
+            "upc": 101781,
             "name": "Coors Pure",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101782,
+            "upc": 101782,
             "name": "Coors Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101044,
+            "upc": 101044,
             "name": "Corona Extra",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101045,
+            "upc": 101045,
             "name": "Corona Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101226,
+            "upc": 101226,
             "name": "Corona Familiar ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101728,
+            "upc": 101728,
             "name": "Corona Hard Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101535,
+            "upc": 101535,
             "name": "Corona Premier",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101632,
+            "upc": 101632,
             "name": "Corona Refresca",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105027,
+            "upc": 105027,
             "name": "Coronita Extra",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101352,
+            "upc": 101352,
             "name": "Crabbie's Ginger Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101048,
+            "upc": 101048,
             "name": "Deschutes",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101213,
+            "upc": 101213,
             "name": "Devil's Backbone",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101049,
+            "upc": 101049,
             "name": "Dogfish Head",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101322,
+            "upc": 101322,
             "name": "Dundee",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101050,
+            "upc": 101050,
             "name": "Dos Equis Amber",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101051,
+            "upc": 101051,
             "name": "Dos Equis Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101827,
+            "upc": 101827,
             "name": "Dos Equis Lime & Salt",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105077,
+            "upc": 105077,
             "name": "Dos Equis Michelada",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101828,
+            "upc": 101828,
             "name": "Dos Equis Ranch Water Hard Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101253,
+            "upc": 101253,
             "name": "Elysian",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101829,
+            "upc": 101829,
             "name": "Estrella Jalisco",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101457,
+            "upc": 101457,
             "name": "Fitz\u2019s Hard Root Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101055,
+            "upc": 101055,
             "name": "Flying Dog",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101830,
+            "upc": 101830,
             "name": "Founders 4 Giants IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101831,
+            "upc": 101831,
             "name": "Founders All Day IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101832,
+            "upc": 101832,
             "name": "Founders Breakfast Stout",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101833,
+            "upc": 101833,
             "name": "Founders Centennial IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101254,
+            "upc": 101254,
             "name": "Founders Dirty Bastard",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101834,
+            "upc": 101834,
             "name": "Founders Porter",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101835,
+            "upc": 101835,
             "name": "Founders Premium Hard Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101836,
+            "upc": 101836,
             "name": "Founders Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101837,
+            "upc": 101837,
             "name": "Founders Solid Gold",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101838,
+            "upc": 101838,
             "name": "Founders Unraveled IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101056,
+            "upc": 101056,
             "name": "Fosters",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101839,
+            "upc": 101839,
             "name": "Four Peaks - Gilt Lifter",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101522,
+            "upc": 101522,
             "name": "Four Peaks - Kilt Lifter",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101840,
+            "upc": 101840,
             "name": "Four Peaks - Hop Knot",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101201,
+            "upc": 101201,
             "name": "Full Sail",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101057,
+            "upc": 101057,
             "name": "Genesee",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101585,
+            "upc": 101585,
             "name": "Golden Road",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101841,
+            "upc": 101841,
             "name": "Goose Island 312",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101842,
+            "upc": 101842,
             "name": "Goose Island Green Line",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101843,
+            "upc": 101843,
             "name": "Goose Island IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101844,
+            "upc": 101844,
             "name": "Goose Island Lost Palate Hazy IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101845,
+            "upc": 101845,
             "name": "Goose Island Matilda",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101846,
+            "upc": 101846,
             "name": "Goose Island Natural Vallain",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101847,
+            "upc": 101847,
             "name": "Goose Island Next Coast IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101848,
+            "upc": 101848,
             "name": "Goose Island Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101849,
+            "upc": 101849,
             "name": "Goose Island Sophie",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101850,
+            "upc": 101850,
             "name": "Goose Island SPF",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105038,
+            "upc": 105038,
             "name": "Goose Island Wild Herd",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101202,
+            "upc": 101202,
             "name": "Gordon Biersch",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101193,
+            "upc": 101193,
             "name": "Grain Belt",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101059,
+            "upc": 101059,
             "name": "Great Lakes",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101060,
+            "upc": 101060,
             "name": "Grolsch",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101851,
+            "upc": 101851,
             "name": "Guinness Baltimore Blonde",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105078,
+            "upc": 105078,
             "name": "Guinness Draught Stout",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101061,
+            "upc": 101061,
             "name": "Guinness Stout",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101062,
+            "upc": 101062,
             "name": "Guinness Extra Stout",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101852,
+            "upc": 101852,
             "name": "Guinness Foreign Extra Stout",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101853,
+            "upc": 101853,
             "name": "Guinness Nitro Cold Brew Coffee",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101063,
+            "upc": 101063,
             "name": "Hamm's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101064,
+            "upc": 101064,
             "name": "Harpoon",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101065,
+            "upc": 101065,
             "name": "Harp",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101066,
+            "upc": 101066,
             "name": "Heineken",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101067,
+            "upc": 101067,
             "name": "Heineken Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105030,
+            "upc": 105030,
             "name": "Heineken Silver",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101068,
+            "upc": 101068,
             "name": "Henry Weinhard's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101606,
+            "upc": 101606,
             "name": "Henry's Hard Soda - Ginger Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101607,
+            "upc": 101607,
             "name": "Henry's Hard Soda - Grape",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101608,
+            "upc": 101608,
             "name": "Henry's Hard Soda - Lemon / Lime",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101609,
+            "upc": 101609,
             "name": "Henry's Hard Soda - Orange",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101325,
+            "upc": 101325,
             "name": "Highland",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101069,
+            "upc": 101069,
             "name": "Hoegaarden",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101271,
+            "upc": 101271,
             "name": "Hofbr\u00e4uhaus",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101071,
+            "upc": 101071,
             "name": "Hurricane Malt Liquor",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101072,
+            "upc": 101072,
             "name": "Icehouse",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101227,
+            "upc": 101227,
             "name": "Icehouse Edge Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101458,
+            "upc": 101458,
             "name": "Jed's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101480,
+            "upc": 101480,
             "name": "Karbach Brewing Company",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101075,
+            "upc": 101075,
             "name": "Keystone Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101076,
+            "upc": 101076,
             "name": "Keystone Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101078,
+            "upc": 101078,
             "name": "Killian's Irish Red",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101079,
+            "upc": 101079,
             "name": "King Cobra",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101249,
+            "upc": 101249,
             "name": "Kirkland",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101080,
+            "upc": 101080,
             "name": "Kirin",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101081,
+            "upc": 101081,
             "name": "Kokanee",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101082,
+            "upc": 101082,
             "name": "Kona",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101083,
+            "upc": 101083,
             "name": "Kronenbourg",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101854,
+            "upc": 101854,
             "name": "Labatt 50",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101084,
+            "upc": 101084,
             "name": "Labatt Blue",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101085,
+            "upc": 101085,
             "name": "Labatt Blue Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105079,
+            "upc": 105079,
             "name": "Labatt Blue Light Apple",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105080,
+            "upc": 105080,
             "name": "Labatt Blue Light Grapefruit",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105081,
+            "upc": 105081,
             "name": "Labatt Blue Light Lime",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105082,
+            "upc": 105082,
             "name": "Labatt Blue Light Throwback Tea",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101748,
+            "upc": 101748,
             "name": "Labatt Blue Light Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101086,
+            "upc": 101086,
             "name": "Labatt Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105083,
+            "upc": 105083,
             "name": "Labatt Max Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105084,
+            "upc": 105084,
             "name": "Labatt Max Ice Black Cherry",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101087,
+            "upc": 101087,
             "name": "Land Shark",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101088,
+            "upc": 101088,
             "name": "Landshark Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101855,
+            "upc": 101855,
             "name": "Lagunitas Daytime",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101856,
+            "upc": 101856,
             "name": "Lagunitas Haze Wonder",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101857,
+            "upc": 101857,
             "name": "Lagunitas IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101858,
+            "upc": 101858,
             "name": "Lagunitas Little Sumpin' Sumpin'",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101859,
+            "upc": 101859,
             "name": "Lagunitas Maximus",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101860,
+            "upc": 101860,
             "name": "Lagunitas Super Cluster",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101991,
+            "upc": 101991,
             "name": "Lagunitas Willettized",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101090,
+            "upc": 101090,
             "name": "Leffe Blonde",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101091,
+            "upc": 101091,
             "name": "Leffe Brun",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101196,
+            "upc": 101196,
             "name": "Left Hand",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101229,
+            "upc": 101229,
             "name": "Leinenkugel Amber Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101861,
+            "upc": 101861,
             "name": "Leinenkugel's Berry Weiss",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101862,
+            "upc": 101862,
             "name": "Leinenkugel's Canoe Paddle Kolsch",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101863,
+            "upc": 101863,
             "name": "Leinenkugel's Dark Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101864,
+            "upc": 101864,
             "name": "Leinenkugel's Lemon Haze IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101865,
+            "upc": 101865,
             "name": "Leinenkugel's Honey Weiss",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101866,
+            "upc": 101866,
             "name": "Leinenkugel's Northwoods Amber",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101092,
+            "upc": 101092,
             "name": "Leinenkugel's Original",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101737,
+            "upc": 101737,
             "name": "Leinenkugel's Spritzen",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101093,
+            "upc": 101093,
             "name": "Leinenkugel's Summer Shandy",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101094,
+            "upc": 101094,
             "name": "Leinenkugel's Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101095,
+            "upc": 101095,
             "name": "Lone Star",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101096,
+            "upc": 101096,
             "name": "Long Trail",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101097,
+            "upc": 101097,
             "name": "Lowenbrau",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105054,
+            "upc": 105054,
             "name": "Lucky Streak",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101530,
+            "upc": 101530,
             "name": "Mac & Jack's ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101098,
+            "upc": 101098,
             "name": "Magic Hat",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101231,
+            "upc": 101231,
             "name": "Medalla Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101592,
+            "upc": 101592,
             "name": "Michelob AmberBock",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101101,
+            "upc": 101101,
             "name": "Michelob Golden Draft Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101102,
+            "upc": 101102,
             "name": "Michelob Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101103,
+            "upc": 101103,
             "name": "Michelob Ultra",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101563,
+            "upc": 101563,
             "name": "Michelob Ultra Pure Gold",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101564,
+            "upc": 101564,
             "name": "Michelob Ultra Lime Cactus",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101565,
+            "upc": 101565,
             "name": "Michelob Ultra Amber",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101105,
+            "upc": 101105,
             "name": "Mickey's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101597,
+            "upc": 101597,
             "name": "Mike's Hard ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101368,
+            "upc": 101368,
             "name": "Mike's Hard Smashed Apple Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101106,
+            "upc": 101106,
             "name": "Miller 64",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101107,
+            "upc": 101107,
             "name": "Miller Chill",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105126,
+            "upc": 105126,
             "name": "Miller Extra Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101303,
+            "upc": 101303,
             "name": "Miller Fortune",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101108,
+            "upc": 101108,
             "name": "Miller Genuine Draft",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101109,
+            "upc": 101109,
             "name": "Miller High Life",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101110,
+            "upc": 101110,
             "name": "Miller High Life Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101111,
+            "upc": 101111,
             "name": "Miller Lite",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101113,
+            "upc": 101113,
             "name": "Milwaukee's Best",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101114,
+            "upc": 101114,
             "name": "Milwaukee's Best Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101115,
+            "upc": 101115,
             "name": "Milwaukee's Best Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101293,
+            "upc": 101293,
             "name": "Mike's Shandy",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101117,
+            "upc": 101117,
             "name": "Modelo Especial",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101232,
+            "upc": 101232,
             "name": "Modelo Chelada",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101126,
+            "upc": 101126,
             "name": "Modelo Negra",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105055,
+            "upc": 105055,
             "name": "Modelo Oro",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101517,
+            "upc": 101517,
             "name": "Modern Times Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101118,
+            "upc": 101118,
             "name": "Molson Canadian",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101573,
+            "upc": 101573,
             "name": "Molson Canadian 67",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101957,
+            "upc": 101957,
             "name": "Molson Golden",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101119,
+            "upc": 101119,
             "name": "Molson Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101120,
+            "upc": 101120,
             "name": "Moosehead",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101121,
+            "upc": 101121,
             "name": "Moretti",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101207,
+            "upc": 101207,
             "name": "Narragansett",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101294,
+            "upc": 101294,
             "name": "Natty Daddy ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101867,
+            "upc": 101867,
             "name": "Natty Daddy Lemonade",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101124,
+            "upc": 101124,
             "name": "Natural Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101125,
+            "upc": 101125,
             "name": "Natural Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101868,
+            "upc": 101868,
             "name": "Natural Light Naturdays",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101869,
+            "upc": 101869,
             "name": "Natural Light Seltzer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101699,
+            "upc": 101699,
             "name": "New Belgium 1554",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101053,
+            "upc": 101053,
             "name": "New Belgium Fat Tire Amber Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101762,
+            "upc": 101762,
             "name": "New Belgium Fat Tire Belgium White",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101870,
+            "upc": 101870,
             "name": "New Belgium La Folie",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101871,
+            "upc": 101871,
             "name": "New Belgium Le Terrior",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101872,
+            "upc": 101872,
             "name": "New Belgium Sour IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101698,
+            "upc": 101698,
             "name": "New Belgium Trippel",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101594,
+            "upc": 101594,
             "name": "New Belgium Voodoo Ranger",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101128,
+            "upc": 101128,
             "name": "New Glarus",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101130,
+            "upc": 101130,
             "name": "Newcastle",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101131,
+            "upc": 101131,
             "name": "Newcastle Brown Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101241,
+            "upc": 101241,
             "name": "Ninkasi",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101132,
+            "upc": 101132,
             "name": "North Coast",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101412,
+            "upc": 101412,
             "name": "Not Your Father's Root Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101133,
+            "upc": 101133,
             "name": "Odell",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101134,
+            "upc": 101134,
             "name": "Old Milwaukee",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101873,
+            "upc": 101873,
             "name": "Old Milwaukee Ice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101135,
+            "upc": 101135,
             "name": "Old Milwaukee Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101136,
+            "upc": 101136,
             "name": "Old Style",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101137,
+            "upc": 101137,
             "name": "Olde English 800",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101757,
+            "upc": 101757,
             "name": "Omission",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101243,
+            "upc": 101243,
             "name": "Oskar Blues",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101138,
+            "upc": 101138,
             "name": "Otter Creek",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101139,
+            "upc": 101139,
             "name": "Pabst Blue Ribbon",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101874,
+            "upc": 101874,
             "name": "Pabst Blue Ribbon Easy",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101875,
+            "upc": 101875,
             "name": "Pabst Blue Ribbon Extra",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101140,
+            "upc": 101140,
             "name": "Pacifico",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101141,
+            "upc": 101141,
             "name": "Peroni",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101142,
+            "upc": 101142,
             "name": "Pilsner Urquell",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101618,
+            "upc": 101618,
             "name": "Platform",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101379,
+            "upc": 101379,
             "name": "Point",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101143,
+            "upc": 101143,
             "name": "Presidente",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101144,
+            "upc": 101144,
             "name": "Pyramid",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101260,
+            "upc": 101260,
             "name": "Rainier",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105066,
+            "upc": 105066,
             "name": "Red Bull",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101145,
+            "upc": 101145,
             "name": "Red Dog",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101146,
+            "upc": 101146,
             "name": "Red Stripe",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101147,
+            "upc": 101147,
             "name": "Redhook Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101332,
+            "upc": 101332,
             "name": "Revolution",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101389,
+            "upc": 101389,
             "name": "Rhinegeist",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101148,
+            "upc": 101148,
             "name": "Rolling Rock",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101149,
+            "upc": 101149,
             "name": "Russian River",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101150,
+            "upc": 101150,
             "name": "Samuel Adams Boston Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101151,
+            "upc": 101151,
             "name": "Samuel Adams Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105085,
+            "upc": 105085,
             "name": "Samuel Adams Cherry Wheat",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105086,
+            "upc": 105086,
             "name": "Samuel Adams Golden Pilsner",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101990,
+            "upc": 101990,
             "name": "Samuel Adams Octoberfest",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105044,
+            "upc": 105044,
             "name": "Samuel Adams Porch Rocker",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101752,
+            "upc": 101752,
             "name": "Samuel Adams Rebel IPA",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101152,
+            "upc": 101152,
             "name": "Samuel Adams Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101885,
+            "upc": 101885,
             "name": "Samuel Adams Wicked Double",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101886,
+            "upc": 101886,
             "name": "Samuel Adams Wicked Easy",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101887,
+            "upc": 101887,
             "name": "Samuel Adams Wicked Hazy",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101316,
+            "upc": 101316,
             "name": "Samuel Smith",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101153,
+            "upc": 101153,
             "name": "Sapporo",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105087,
+            "upc": 105087,
             "name": "Sapporo Premium",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105088,
+            "upc": 105088,
             "name": "Sapporo Pure",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105089,
+            "upc": 105089,
             "name": "Sapporo Premium Black",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105090,
+            "upc": 105090,
             "name": "Sapporo Premium Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105091,
+            "upc": 105091,
             "name": "Sapporo Reserve",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101154,
+            "upc": 101154,
             "name": "Saranac",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101393,
+            "upc": 101393,
             "name": "Schell's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101209,
+            "upc": 101209,
             "name": "Schlafly Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101155,
+            "upc": 101155,
             "name": "Schlitz Malt Liquors",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101361,
+            "upc": 101361,
             "name": "Sch\u00f6fferhofer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101888,
+            "upc": 101888,
             "name": "Shiner 1909",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101157,
+            "upc": 101157,
             "name": "Shiner Bock",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101889,
+            "upc": 101889,
             "name": "Shiner Light Blonde",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101890,
+            "upc": 101890,
             "name": "Shiner Brewer's Pride",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101891,
+            "upc": 101891,
             "name": "Shiner Premium",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105033,
+            "upc": 105033,
             "name": "Shiner Prickly Pear",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101892,
+            "upc": 101892,
             "name": "Shiner Sea Salt & Lime",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101893,
+            "upc": 101893,
             "name": "Shiner Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105034,
+            "upc": 105034,
             "name": "Shiner Strawberry Blonde",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101894,
+            "upc": 101894,
             "name": "Shiner Weisse 'N' Easy",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101159,
+            "upc": 101159,
             "name": "Shipyard",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101160,
+            "upc": 101160,
             "name": "Shock Top",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101304,
+            "upc": 101304,
             "name": "Shock Top Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101895,
+            "upc": 101895,
             "name": "Shock Top Zest",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101896,
+            "upc": 101896,
             "name": "Sierra Nevada Big Little Thing",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101989,
+            "upc": 101989,
             "name": "Sierra Nevada Celebration",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101897,
+            "upc": 101897,
             "name": "Sierra Nevada Dankful",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101898,
+            "upc": 101898,
             "name": "Sierra Nevada Fantastic Haze",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101899,
+            "upc": 101899,
             "name": "Sierra Nevada Hazy Little Thing",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101900,
+            "upc": 101900,
             "name": "Sierra Nevada Pale Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101901,
+            "upc": 101901,
             "name": "Sierra Nevada Porter",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101902,
+            "upc": 101902,
             "name": "Sierra Nevada Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101903,
+            "upc": 101903,
             "name": "Sierra Nevada Stout",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101904,
+            "upc": 101904,
             "name": "Sierra Nevada Torpedo",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101905,
+            "upc": 101905,
             "name": "Sierra Nevada Wild Little Thing",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101162,
+            "upc": 101162,
             "name": "Smithwick's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101163,
+            "upc": 101163,
             "name": "Sol",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101574,
+            "upc": 101574,
             "name": "Sol Chelada",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101219,
+            "upc": 101219,
             "name": "Spaten",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101166,
+            "upc": 101166,
             "name": "St Pauli Girl",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101167,
+            "upc": 101167,
             "name": "Staropramen",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101575,
+            "upc": 101575,
             "name": "Steel Reserve BLK Berry",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101576,
+            "upc": 101576,
             "name": "Steel Reserve Hard Pineapple",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101577,
+            "upc": 101577,
             "name": "Steel Reserve High Gravity",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101578,
+            "upc": 101578,
             "name": "Steel Reserve Spiked Blue Razz",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101579,
+            "upc": 101579,
             "name": "Steel Reserve Spiked Punch",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101580,
+            "upc": 101580,
             "name": "Steel Reserve Spiked Water Melon",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101581,
+            "upc": 101581,
             "name": "Steel Reserve Triple Export",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101169,
+            "upc": 101169,
             "name": "Stella Artois",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101906,
+            "upc": 101906,
             "name": "Stella Artois Midnight",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101907,
+            "upc": 101907,
             "name": "Stella Artois Solstice",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101171,
+            "upc": 101171,
             "name": "Stone",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101262,
+            "upc": 101262,
             "name": "Southern Tier",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101299,
+            "upc": 101299,
             "name": "Sun King",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101336,
+            "upc": 101336,
             "name": "Surly",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101172,
+            "upc": 101172,
             "name": "Sweetwater",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101173,
+            "upc": 101173,
             "name": "Tecate",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101908,
+            "upc": 101908,
             "name": "Tecate Alta",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101174,
+            "upc": 101174,
             "name": "Tecate Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101909,
+            "upc": 101909,
             "name": "Tecate Michelada",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101311,
+            "upc": 101311,
             "name": "Terrapin",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101176,
+            "upc": 101176,
             "name": "Third Shift",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101536,
+            "upc": 101536,
             "name": "Tocayo",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101537,
+            "upc": 101537,
             "name": "Toppling Goliath",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101335,
+            "upc": 101335,
             "name": "Trader Joe's",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101359,
+            "upc": 101359,
             "name": "Traveler",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101306,
+            "upc": 101306,
             "name": "Troegs",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101179,
+            "upc": 101179,
             "name": "Tsingtao",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101509,
+            "upc": 101509,
             "name": "Two Roads",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101297,
+            "upc": 101297,
             "name": "Uinta",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101183,
+            "upc": 101183,
             "name": "Victoria (Mexico)",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101184,
+            "upc": 101184,
             "name": "Victory ",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101290,
+            "upc": 101290,
             "name": "Wachusett",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101185,
+            "upc": 101185,
             "name": "Warsteiner",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101482,
+            "upc": 101482,
             "name": "Wicked Weed Brewing Craft Beer",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101224,
+            "upc": 101224,
             "name": "Widmer Brothers",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101910,
+            "upc": 101910,
             "name": "Wynwood",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101264,
+            "upc": 101264,
             "name": "Yards",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101186,
+            "upc": 101186,
             "name": "Yuengling Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101250,
+            "upc": 101250,
             "name": "Yuengling Traditional Lager",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101557,
+            "upc": 101557,
             "name": "Yuengling Black & Tan",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105092,
+            "upc": 105092,
             "name": "Yuengling Bongo Fizz",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 105016,
+            "upc": 105016,
             "name": "Yuengling Flight",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101558,
+            "upc": 101558,
             "name": "Yuengling Golden Pilsner",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101559,
+            "upc": 101559,
             "name": "Yuengling Lord Chesterfield Ale",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101560,
+            "upc": 101560,
             "name": "Yuengling Porter",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101561,
+            "upc": 101561,
             "name": "Yuengling Premium",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101911,
+            "upc": 101911,
             "name": "Yuengling Premium Light",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101912,
+            "upc": 101912,
             "name": "Yuengling Raging Eagle Mango",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101562,
+            "upc": 101562,
             "name": "Yuengling Seasonal",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101370,
+            "upc": 101370,
             "name": "Ziegenbock",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 101188,
+            "upc": 101188,
             "name": "Zywiec",
-            "Category": "Beer"
+            "category": "Beer"
         },
         {
-            "UPC": 202997,
+            "upc": 202997,
             "name": "Made/Brewed at home cider",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202001,
+            "upc": 202001,
             "name": "2 Towns ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202002,
+            "upc": 202002,
             "name": "Ace ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202003,
+            "upc": 202003,
             "name": "Angry Orchard ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202004,
+            "upc": 202004,
             "name": "Aspall ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202058,
+            "upc": 202058,
             "name": "Atlas Cider Co",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202093,
+            "upc": 202093,
             "name": "BlackBird Cider Works",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202005,
+            "upc": 202005,
             "name": "Blackthorn ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202006,
+            "upc": 202006,
             "name": "Blue Mountain Cider ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202007,
+            "upc": 202007,
             "name": "Bold Rock ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202008,
+            "upc": 202008,
             "name": "Cima ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202056,
+            "upc": 202056,
             "name": "Ciderboys",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202051,
+            "upc": 202051,
             "name": "Cider Jack",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202009,
+            "upc": 202009,
             "name": "Crispin ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202010,
+            "upc": 202010,
             "name": "Doc's Draft ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202011,
+            "upc": 202011,
             "name": "Douglas Valley ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202012,
+            "upc": 202012,
             "name": "Etienne Dupont ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202013,
+            "upc": 202013,
             "name": "Ez Orchards ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202014,
+            "upc": 202014,
             "name": "Farnum Hill ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202015,
+            "upc": 202015,
             "name": "Fatty ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202016,
+            "upc": 202016,
             "name": "Finnriver ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202017,
+            "upc": 202017,
             "name": "Fox Barrel ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202018,
+            "upc": 202018,
             "name": "Gran Sidra ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202019,
+            "upc": 202019,
             "name": "Hardcore ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202020,
+            "upc": 202020,
             "name": "Harpoon Cider ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202021,
+            "upc": 202021,
             "name": "Hornsby\u2019s",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202022,
+            "upc": 202022,
             "name": "J.K\u2019s Scrumpy",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202052,
+            "upc": 202052,
             "name": "Johnny Appleseed ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202023,
+            "upc": 202023,
             "name": "Julian ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202053,
+            "upc": 202053,
             "name": "K",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202024,
+            "upc": 202024,
             "name": "Kellys ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202025,
+            "upc": 202025,
             "name": "Kopparberg ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202026,
+            "upc": 202026,
             "name": "Leprechaun ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202027,
+            "upc": 202027,
             "name": "Magners ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202028,
+            "upc": 202028,
             "name": "Mckenzies ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202029,
+            "upc": 202029,
             "name": "Michelob Ultra Light Cider",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202048,
+            "upc": 202048,
             "name": "Mike's Hard ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202054,
+            "upc": 202054,
             "name": "Newton's Folly",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202030,
+            "upc": 202030,
             "name": "Newtown Pippin",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202031,
+            "upc": 202031,
             "name": "Oliver ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202032,
+            "upc": 202032,
             "name": "Original Sin ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202033,
+            "upc": 202033,
             "name": "Possmann ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202047,
+            "upc": 202047,
             "name": "Redd\u2019s Apple Ale",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202060,
+            "upc": 202060,
             "name": "Redd's Green Apple Ale",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202077,
+            "upc": 202077,
             "name": "Redd's Peach Ale",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202059,
+            "upc": 202059,
             "name": "Redd's Wicked Apple",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202034,
+            "upc": 202034,
             "name": "Samuel Smith's",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202035,
+            "upc": 202035,
             "name": "Sea Cider ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202036,
+            "upc": 202036,
             "name": "Sidra El ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202038,
+            "upc": 202038,
             "name": "Sir Perry ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202076,
+            "upc": 202076,
             "name": "Smirnoff Ice Smash ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202050,
+            "upc": 202050,
             "name": "Smith & Forge",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202097,
+            "upc": 202097,
             "name": "Sociable Cider Werks",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202039,
+            "upc": 202039,
             "name": "Somersby ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202070,
+            "upc": 202070,
             "name": "Sol Chelada",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202040,
+            "upc": 202040,
             "name": "Spire Mountain ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202089,
+            "upc": 202089,
             "name": "Square Mile Cider",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202071,
+            "upc": 202071,
             "name": "Steel Reserve BLK Berry",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202072,
+            "upc": 202072,
             "name": "Steel Reserve Hard Pineapple",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202073,
+            "upc": 202073,
             "name": "Steel Reserve Spiked Blue Razz",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202074,
+            "upc": 202074,
             "name": "Steel Reserve Spiked Punch",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202075,
+            "upc": 202075,
             "name": "Steel Reserve Spiked Water Melon",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202049,
+            "upc": 202049,
             "name": "Stella Artois Cidre",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202041,
+            "upc": 202041,
             "name": "Strongbow ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202042,
+            "upc": 202042,
             "name": "Tieton ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202043,
+            "upc": 202043,
             "name": "Wandering Aengus Ciderworks",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202044,
+            "upc": 202044,
             "name": "Woodchuck ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202045,
+            "upc": 202045,
             "name": "Woodpecker ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202046,
+            "upc": 202046,
             "name": "Wyder's ",
-            "Category": "Cider"
+            "category": "Cider"
         },
         {
-            "UPC": 202841,
+            "upc": 202841,
             "name": "99 Brand Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202501,
+            "upc": 202501,
             "name": "A:M ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202872,
+            "upc": 202872,
             "name": "Absolut Vodka Soda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202895,
+            "upc": 202895,
             "name": "Absolut Berry Vodkarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202896,
+            "upc": 202896,
             "name": "Absolut Grapefruit Paloma",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202897,
+            "upc": 202897,
             "name": "Absolut Mango Mule",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202898,
+            "upc": 202898,
             "name": "Absolut Pineapple Martini",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202502,
+            "upc": 202502,
             "name": "Air ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202839,
+            "upc": 202839,
             "name": "Alani Seltz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202899,
+            "upc": 202899,
             "name": "Altos Margaritas Original",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202900,
+            "upc": 202900,
             "name": "Altos Margaritas Strawberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202503,
+            "upc": 202503,
             "name": "American Vintage ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202645,
+            "upc": 202645,
             "name": "Aperol Spritz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202504,
+            "upc": 202504,
             "name": "Arbor Mist Frozen Wine Cocktails",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202692,
+            "upc": 202692,
             "name": "Arctic Summer Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202505,
+            "upc": 202505,
             "name": "Arnold Palmer ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202842,
+            "upc": 202842,
             "name": "Arizona Sunrise Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202887,
+            "upc": 202887,
             "name": "Arizona Hard Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202713,
+            "upc": 202713,
             "name": "Arnie's Spiked Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202626,
+            "upc": 202626,
             "name": "Arnold Palmer Spiked",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202670,
+            "upc": 202670,
             "name": "Avery Sparkle Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202506,
+            "upc": 202506,
             "name": "Axis ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202798,
+            "upc": 202798,
             "name": "Babe",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202722,
+            "upc": 202722,
             "name": "Bacardi Bahama Mama",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202723,
+            "upc": 202723,
             "name": "Bacardi Hurricane",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202724,
+            "upc": 202724,
             "name": "Bacardi Island Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202725,
+            "upc": 202725,
             "name": "Bacardi Island Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202726,
+            "upc": 202726,
             "name": "Bacardi Lime & Soda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202796,
+            "upc": 202796,
             "name": "Bacardi Limon & Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202727,
+            "upc": 202727,
             "name": "Bacardi Mojito",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202728,
+            "upc": 202728,
             "name": "Bacardi Rum Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202729,
+            "upc": 202729,
             "name": "Bacardi Sunset Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202901,
+            "upc": 202901,
             "name": "Bacardi Pina Colada",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202706,
+            "upc": 202706,
             "name": "Barefoot Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202731,
+            "upc": 202731,
             "name": "Bartles & Jaymes Cucumber & Lime",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202732,
+            "upc": 202732,
             "name": "Bartles & Jaymes Ginger & Lemon",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202733,
+            "upc": 202733,
             "name": "Bartles & Jaymes Grapefruit & Green Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202734,
+            "upc": 202734,
             "name": "Bartles & Jaymes Watermelon & Mint",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202599,
+            "upc": 202599,
             "name": "Bayou Bootlegger",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202671,
+            "upc": 202671,
             "name": "Beaches Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202788,
+            "upc": 202788,
             "name": "BeatBox",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202607,
+            "upc": 202607,
             "name": "Best Damn Cherry Cola",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202598,
+            "upc": 202598,
             "name": "Best Damn Root Beer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202843,
+            "upc": 202843,
             "name": "Bevy Long Drink",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202672,
+            "upc": 202672,
             "name": "Big Sky Spiked Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202512,
+            "upc": 202512,
             "name": "Bistro 8 ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202649,
+            "upc": 202649,
             "name": "Bon & Viv Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202665,
+            "upc": 202665,
             "name": "Bud Light Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202894,
+            "upc": 202894,
             "name": "Bud Light Seltzer Hard Soda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202736,
+            "upc": 202736,
             "name": "Bud Light Seltzer Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202737,
+            "upc": 202737,
             "name": "Bud Light Seltzer Iced Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202738,
+            "upc": 202738,
             "name": "Bud Light Platinum Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202513,
+            "upc": 202513,
             "name": "Bud Light Lime Pab ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202591,
+            "upc": 202591,
             "name": "Bud Light Mixxtail",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202596,
+            "upc": 202596,
             "name": "BuzzBallz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202514,
+            "upc": 202514,
             "name": "California Cooler ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202515,
+            "upc": 202515,
             "name": "Calypso Bay Spritz ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202657,
+            "upc": 202657,
             "name": "Cape Line Sparkling Cocktails - Blackberry Mojito ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202658,
+            "upc": 202658,
             "name": "Cape Line Sparkling Cocktails - Hard Strawberry Lemonade ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202659,
+            "upc": 202659,
             "name": "Cape Line Sparkling Cocktails - Margarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202740,
+            "upc": 202740,
             "name": "Cape Line Sparkling Cocktails - White Peach Sangria",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202650,
+            "upc": 202650,
             "name": "Cape Line Sparkling Cocktails - Don't Know Flavor",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202902,
+            "upc": 202902,
             "name": "Captain Morgan Tropical Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202903,
+            "upc": 202903,
             "name": "Captain Morgan Long Island Iced Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202904,
+            "upc": 202904,
             "name": "Captain Morgan Mai Tai",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202517,
+            "upc": 202517,
             "name": "Cayman Jack ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202518,
+            "upc": 202518,
             "name": "Chi Chis",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202905,
+            "upc": 202905,
             "name": "Ciroc Vodka Spritz Citrus",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202906,
+            "upc": 202906,
             "name": "Ciroc Vodka Spritz Colada",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202907,
+            "upc": 202907,
             "name": "Ciroc Vodka Spritz Kiwi",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202908,
+            "upc": 202908,
             "name": "Ciroc Vodka Spritz Passion",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202519,
+            "upc": 202519,
             "name": "Clubtails ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202520,
+            "upc": 202520,
             "name": "Coco Breve ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202521,
+            "upc": 202521,
             "name": "Cold Spring Pab ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202522,
+            "upc": 202522,
             "name": "Colt 45 Blast ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202601,
+            "upc": 202601,
             "name": "Coney Island",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202710,
+            "upc": 202710,
             "name": "Coors Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202523,
+            "upc": 202523,
             "name": "Cordina",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202524,
+            "upc": 202524,
             "name": "Core ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202667,
+            "upc": 202667,
             "name": "Corona Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202651,
+            "upc": 202651,
             "name": "Corona Refresca",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202909,
+            "upc": 202909,
             "name": "Crafthouse Moscow Mule",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202719,
+            "upc": 202719,
             "name": "Crown Royal Peach Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202720,
+            "upc": 202720,
             "name": "Crown Royal Washington Apple",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202721,
+            "upc": 202721,
             "name": "Crown Royal Whisky & Cola",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202910,
+            "upc": 202910,
             "name": "Crown Royal Whisky Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202525,
+            "upc": 202525,
             "name": "Crunk Juce ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202602,
+            "upc": 202602,
             "name": "Crabbie's Ginger Beer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202655,
+            "upc": 202655,
             "name": "Cutwater",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202526,
+            "upc": 202526,
             "name": "Dailys",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202889,
+            "upc": 202889,
             "name": "Deep Eddy Vodka Soda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202891,
+            "upc": 202891,
             "name": "Devils Backbone Smash",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202799,
+            "upc": 202799,
             "name": "Dos Equis Ranch Water Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202673,
+            "upc": 202673,
             "name": "Dry Dock Mysters Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202674,
+            "upc": 202674,
             "name": "Ficks Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202911,
+            "upc": 202911,
             "name": "Finnish Long Drink",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202701,
+            "upc": 202701,
             "name": "Fishers Island Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202605,
+            "upc": 202605,
             "name": "Fitz\u2019s Hard Root Beer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202527,
+            "upc": 202527,
             "name": "Four Loko ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202741,
+            "upc": 202741,
             "name": "Four Loko Black",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202742,
+            "upc": 202742,
             "name": "Four Loko Gold",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202743,
+            "upc": 202743,
             "name": "Four Loko Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202744,
+            "upc": 202744,
             "name": "Four Loko Pregame",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202745,
+            "upc": 202745,
             "name": "Four Loko Red",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202746,
+            "upc": 202746,
             "name": "Four Loko Sour",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202800,
+            "upc": 202800,
             "name": "Founders Premium Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202912,
+            "upc": 202912,
             "name": "Franzia Refreshers",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202876,
+            "upc": 202876,
             "name": "Fresca Mixed",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202851,
+            "upc": 202851,
             "name": "Fruit Smash Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202531,
+            "upc": 202531,
             "name": "Gran Legacy",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202675,
+            "upc": 202675,
             "name": "H2Roads Craft Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202845,
+            "upc": 202845,
             "name": "Hard Mtn Dew",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202594,
+            "upc": 202594,
             "name": "Henry's Hard Soda - Ginger Ale",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202646,
+            "upc": 202646,
             "name": "Henry's Hard Soda - Grape",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202647,
+            "upc": 202647,
             "name": "Henry's Hard Soda - Lemon / Lime",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202595,
+            "upc": 202595,
             "name": "Henry's Hard Soda - Orange",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202619,
+            "upc": 202619,
             "name": "Henry's Hard Sparkling Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202662,
+            "upc": 202662,
             "name": "High Noon Vodka & Soda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202676,
+            "upc": 202676,
             "name": "Highball Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202677,
+            "upc": 202677,
             "name": "ITZ Spritz ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202913,
+            "upc": 202913,
             "name": "Jefferson's Manhattan",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202820,
+            "upc": 202820,
             "name": "Jack Daniels Country Cocktails Cherry Limeade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202826,
+            "upc": 202826,
             "name": "Jack Daniels Country Cocktails Downhome Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202864,
+            "upc": 202864,
             "name": "Jack Daniels Country Cocktails Southern Peach",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202532,
+            "upc": 202532,
             "name": "Jack Daniels Hard Cola ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202747,
+            "upc": 202747,
             "name": "Jack Daniels Honey ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202846,
+            "upc": 202846,
             "name": "Jack Daniel's Lynchburg Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202748,
+            "upc": 202748,
             "name": "Jack Daniels Seltzer ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202915,
+            "upc": 202915,
             "name": "Jameson Ginger & Lime Canned Cocktail",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202914,
+            "upc": 202914,
             "name": "Jameson Cola Canned Cocktail",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202916,
+            "upc": 202916,
             "name": "Jameson Lemonade Canned Cocktail",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202606,
+            "upc": 202606,
             "name": "Jed's",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202534,
+            "upc": 202534,
             "name": "Jeremiah Weed ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202847,
+            "upc": 202847,
             "name": "Jim Beam Highball",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202878,
+            "upc": 202878,
             "name": "Jim Beam Kentucky Coolers",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202535,
+            "upc": 202535,
             "name": "Johny Bootlegger ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202536,
+            "upc": 202536,
             "name": "Joose ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202749,
+            "upc": 202749,
             "name": "Jose Cuervo Classic Margarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202750,
+            "upc": 202750,
             "name": "Jose Cuervo Gold Margarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202752,
+            "upc": 202752,
             "name": "Jose Cuervo Light Margarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202751,
+            "upc": 202751,
             "name": "Jose Cuervo Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202753,
+            "upc": 202753,
             "name": "Jose Cuervo Sparkling Margarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202755,
+            "upc": 202755,
             "name": "Kahlua Espresso Martini",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202865,
+            "upc": 202865,
             "name": "Kahlua Mudslide",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202756,
+            "upc": 202756,
             "name": "Kahlua Nitro Cold Brew Can",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202917,
+            "upc": 202917,
             "name": "Kahlua White Russian",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202539,
+            "upc": 202539,
             "name": "Kalima ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202918,
+            "upc": 202918,
             "name": "Ketel One Botanical Vodka Spritz Cucumber & Mint",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202790,
+            "upc": 202790,
             "name": "Ketel One Botanical Vodka Spritz Grapefruit & Rosa",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202919,
+            "upc": 202919,
             "name": "Ketel One Botanical Vodka Spritz Peach & Orange Blossom",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202540,
+            "upc": 202540,
             "name": "King 888 ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202587,
+            "upc": 202587,
             "name": "Kirkland",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202797,
+            "upc": 202797,
             "name": "Kirkland Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202801,
+            "upc": 202801,
             "name": "Kom Brew Cha",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202848,
+            "upc": 202848,
             "name": "Kona Spiked Island Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202693,
+            "upc": 202693,
             "name": "Labatt Blue Light Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202678,
+            "upc": 202678,
             "name": "Leinenkugel's Spritzen",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202849,
+            "upc": 202849,
             "name": "Loyal 9",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202541,
+            "upc": 202541,
             "name": "Mad Ballr ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202679,
+            "upc": 202679,
             "name": "Maha Organic Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202827,
+            "upc": 202827,
             "name": "Malibu Blue Hawaiian",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202828,
+            "upc": 202828,
             "name": "Malibu Cocktail Pina Colada",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202829,
+            "upc": 202829,
             "name": "Malibu Cocktail Strawberry Daiquiri",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202830,
+            "upc": 202830,
             "name": "Malibu Rum Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202920,
+            "upc": 202920,
             "name": "Malibu Cocktail Peach Rum Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202831,
+            "upc": 202831,
             "name": "Malibu Splash Lime & Coconut",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202832,
+            "upc": 202832,
             "name": "Malibu Splash Pineapple & Coconut",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202833,
+            "upc": 202833,
             "name": "Malibu Splash Passion Fruit & Coconut",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202834,
+            "upc": 202834,
             "name": "Malibu Splash Strawberry & Coconut",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202835,
+            "upc": 202835,
             "name": "Malibu Splash Watermelon & Coconut",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202921,
+            "upc": 202921,
             "name": "Malibu Cocktail Watermelon Mojito",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202922,
+            "upc": 202922,
             "name": "Malibu Cocktail Pinapple Bay Breeze",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202543,
+            "upc": 202543,
             "name": "Margaritaville ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202544,
+            "upc": 202544,
             "name": "Max ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202791,
+            "upc": 202791,
             "name": "Michelob Ultra Organic Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202545,
+            "upc": 202545,
             "name": "Mike's Cocktails ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202758,
+            "upc": 202758,
             "name": "Mike's Hard Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202882,
+            "upc": 202882,
             "name": "Mike's Hard Lemonade Zero Sugar",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202759,
+            "upc": 202759,
             "name": "Mike's Hard Black Cherry Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202760,
+            "upc": 202760,
             "name": "Mike's Hard Cranberry Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202761,
+            "upc": 202761,
             "name": "Mike's Hard Mango Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202762,
+            "upc": 202762,
             "name": "Mike's Hard Peach Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202763,
+            "upc": 202763,
             "name": "Mike's Hard Pineapple Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202764,
+            "upc": 202764,
             "name": "Mike's Hard Pineapple Strawberry Lemonda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202765,
+            "upc": 202765,
             "name": "Mike's Hard Raspberry Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202766,
+            "upc": 202766,
             "name": "Mike's Hard Strawberry Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202767,
+            "upc": 202767,
             "name": "Mike's Hard Lemonade Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202581,
+            "upc": 202581,
             "name": "Mike's Harder",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202877,
+            "upc": 202877,
             "name": "Mike's Harder Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202582,
+            "upc": 202582,
             "name": "Mike's Shandy",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202702,
+            "upc": 202702,
             "name": "Mighty Swell Spiked Spritzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202858,
+            "upc": 202858,
             "name": "Modelo",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202890,
+            "upc": 202890,
             "name": "Modelo Aguas Frescas",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202875,
+            "upc": 202875,
             "name": "Monster The Beast Unleashed",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202548,
+            "upc": 202548,
             "name": "Moskato ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202703,
+            "upc": 202703,
             "name": "Movo Wine Spritzers",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202549,
+            "upc": 202549,
             "name": "Mxologi ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202802,
+            "upc": 202802,
             "name": "Natty Daddy Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202663,
+            "upc": 202663,
             "name": "Natural Light Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202620,
+            "upc": 202620,
             "name": "Nauti Seltzer ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202603,
+            "upc": 202603,
             "name": "Not Your Father's Root Beer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202699,
+            "upc": 202699,
             "name": "Not Your Mom's Iced Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202923,
+            "upc": 202923,
             "name": "Novo Fogo",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202680,
+            "upc": 202680,
             "name": "Nude Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202852,
+            "upc": 202852,
             "name": "Nutrl",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202681,
+            "upc": 202681,
             "name": "O&A Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202792,
+            "upc": 202792,
             "name": "On The Rocks",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202803,
+            "upc": 202803,
             "name": "Pabst Blue Ribbon Hard Coffee",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202804,
+            "upc": 202804,
             "name": "Pabst Blue Ribbon Hard Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202805,
+            "upc": 202805,
             "name": "Pabst Blue Ribbon Strong Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202593,
+            "upc": 202593,
             "name": "Palm Breeze",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202550,
+            "upc": 202550,
             "name": "Parrot Bay",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202551,
+            "upc": 202551,
             "name": "Pepito ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202661,
+            "upc": 202661,
             "name": "Press Premium Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202715,
+            "upc": 202715,
             "name": "Proof Point",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202648,
+            "upc": 202648,
             "name": "Pura Still",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202579,
+            "upc": 202579,
             "name": "Redd's Apple Ale",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202608,
+            "upc": 202608,
             "name": "Redd's Blueberry Ale",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202592,
+            "upc": 202592,
             "name": "Redd's Green Apple Ale",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202637,
+            "upc": 202637,
             "name": "Redd's Peach Ale",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202583,
+            "upc": 202583,
             "name": "Redd's Strawberry Ale",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202806,
+            "upc": 202806,
             "name": "Redd's Hard Apple",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202807,
+            "upc": 202807,
             "name": "Redd's Hard Apple - Black Cherry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202808,
+            "upc": 202808,
             "name": "Redd's Hard Apple - Peach ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202809,
+            "upc": 202809,
             "name": "Redd's Hard Apple - Strawberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202590,
+            "upc": 202590,
             "name": "Redd's Wicked Apple",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202638,
+            "upc": 202638,
             "name": "Redd's Wicked Black Cherry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202639,
+            "upc": 202639,
             "name": "Redd's Wicked Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202810,
+            "upc": 202810,
             "name": "Redd's Wicked Sour Apple",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202861,
+            "upc": 202861,
             "name": "Ritas Freeze-A-Rita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202811,
+            "upc": 202811,
             "name": "Ritas Lime-A-Rita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202812,
+            "upc": 202812,
             "name": "Ritas Mang-O-Rita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202813,
+            "upc": 202813,
             "name": "Ritas Straw-Ber-Rita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202814,
+            "upc": 202814,
             "name": "Ritas Water-Melon-Rita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202642,
+            "upc": 202642,
             "name": "Ritas Pear Orange Sangria Spritz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202643,
+            "upc": 202643,
             "name": "Ritas Strawberry Blueberry Sangria Spritz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202644,
+            "upc": 202644,
             "name": "Ritas White Peach Rose Spritz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202552,
+            "upc": 202552,
             "name": "Rockstar ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202682,
+            "upc": 202682,
             "name": "Rustica Living Water Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202553,
+            "upc": 202553,
             "name": "Sangria ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202554,
+            "upc": 202554,
             "name": "Seagrams 7 Crown",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202555,
+            "upc": 202555,
             "name": "Seagrams Escapes",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202627,
+            "upc": 202627,
             "name": "Seagrams Escapes Spiked",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202768,
+            "upc": 202768,
             "name": "Seagram's Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202556,
+            "upc": 202556,
             "name": "Seagrams Smooth ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202683,
+            "upc": 202683,
             "name": "SeekOut Real Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202855,
+            "upc": 202855,
             "name": "Simply Spiked Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202558,
+            "upc": 202558,
             "name": "Skinnygirl",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202836,
+            "upc": 202836,
             "name": "Skinny Freezers",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202686,
+            "upc": 202686,
             "name": "Smirnoff Electric Apple Spirit",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202687,
+            "upc": 202687,
             "name": "Smirnoff Electric Berry Spirit",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202688,
+            "upc": 202688,
             "name": "Smirnoff Electric Berry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202689,
+            "upc": 202689,
             "name": "Smirnoff Electric Citrus",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202690,
+            "upc": 202690,
             "name": "Smirnoff Electric Orange",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202559,
+            "upc": 202559,
             "name": "Smirnoff Ice ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202821,
+            "upc": 202821,
             "name": "Smirnoff Ice Grape",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202634,
+            "upc": 202634,
             "name": "Smirnoff Ice Smash ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202867,
+            "upc": 202867,
             "name": "Smirnoff Ice Smash Peach Mango",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202560,
+            "upc": 202560,
             "name": "Smirnoff Premium Mixed Drinks ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202561,
+            "upc": 202561,
             "name": "Smirnoff Raw Tea ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202621,
+            "upc": 202621,
             "name": "Smirnoff Spiked Sparkling Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202769,
+            "upc": 202769,
             "name": "Smirnoff Sourced",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202562,
+            "upc": 202562,
             "name": "Smirnoff Twisted V ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202563,
+            "upc": 202563,
             "name": "Smirnoff Xbt ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202684,
+            "upc": 202684,
             "name": "Snow Melt Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202714,
+            "upc": 202714,
             "name": "Social Club Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202628,
+            "upc": 202628,
             "name": "Sol Chelada",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202856,
+            "upc": 202856,
             "name": "Sonic Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202565,
+            "upc": 202565,
             "name": "Southern Comfort",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202795,
+            "upc": 202795,
             "name": "Sparkling Ice Spiked Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202566,
+            "upc": 202566,
             "name": "Sparks ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202567,
+            "upc": 202567,
             "name": "Spiked Island ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202622,
+            "upc": 202622,
             "name": "Spiked Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202888,
+            "upc": 202888,
             "name": "Spindrift Spiked",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202629,
+            "upc": 202629,
             "name": "Steel Reserve BLK Berry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202630,
+            "upc": 202630,
             "name": "Steel Reserve Hard Pineapple",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202631,
+            "upc": 202631,
             "name": "Steel Reserve Spiked Blue Razz",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202632,
+            "upc": 202632,
             "name": "Steel Reserve Spiked Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202633,
+            "upc": 202633,
             "name": "Steel Reserve Spiked Water Melon",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202840,
+            "upc": 202840,
             "name": "Stewart's Spiked Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202892,
+            "upc": 202892,
             "name": "Surfside",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202660,
+            "upc": 202660,
             "name": "Svedka Spiked Premium Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202568,
+            "upc": 202568,
             "name": "Taubu ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202569,
+            "upc": 202569,
             "name": "TgifGIF",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202570,
+            "upc": 202570,
             "name": "The Club",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202924,
+            "upc": 202924,
             "name": "The Glenlivet Twist & Mix Cocktails New Manhattan",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202925,
+            "upc": 202925,
             "name": "The Glenlivet Twist & Mix Cocktails Old Fashioned",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202571,
+            "upc": 202571,
             "name": "Tiger Malt ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202572,
+            "upc": 202572,
             "name": "Tilt ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202716,
+            "upc": 202716,
             "name": "Topo Chico Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202610,
+            "upc": 202610,
             "name": "Truly Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202770,
+            "upc": 202770,
             "name": "Truly Iced Tea",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202771,
+            "upc": 202771,
             "name": "Truly Lemonade",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202869,
+            "upc": 202869,
             "name": "Truly Margarita",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202772,
+            "upc": 202772,
             "name": "Truly Punch",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202774,
+            "upc": 202774,
             "name": "Twisted Tea Hard Iced Tea Blackberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202775,
+            "upc": 202775,
             "name": "Twisted Tea Hard Iced Tea Blueberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202776,
+            "upc": 202776,
             "name": "Twisted Tea Hard Iced Tea Half & Half",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202777,
+            "upc": 202777,
             "name": "Twisted Tea Hard Iced Tea Light",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202778,
+            "upc": 202778,
             "name": "Twisted Tea Hard Iced Tea Mango",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202779,
+            "upc": 202779,
             "name": "Twisted Tea Hard Iced Tea Original",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202886,
+            "upc": 202886,
             "name": "Twisted Tea Hard Iced Tea Peach",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202780,
+            "upc": 202780,
             "name": "Twisted Tea Hard Iced Tea Raspberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202781,
+            "upc": 202781,
             "name": "Twisted Tea Hard Iced Tea Slightly Sweet",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202574,
+            "upc": 202574,
             "name": "Ultra 19Th Hole ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202575,
+            "upc": 202575,
             "name": "Verdi",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202691,
+            "upc": 202691,
             "name": "Vizzy Hard Seltzer",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202782,
+            "upc": 202782,
             "name": "White Claw Hard Seltzer Black Cherry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202871,
+            "upc": 202871,
             "name": "White Claw Hard Seltzer Lemon",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202783,
+            "upc": 202783,
             "name": "White Claw Hard Seltzer Mango",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202784,
+            "upc": 202784,
             "name": "White Claw Hard Seltzer Natural Lime",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202838,
+            "upc": 202838,
             "name": "White Claw Hard Seltzer Pinapple",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202785,
+            "upc": 202785,
             "name": "White Claw Hard Seltzer Raspberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202786,
+            "upc": 202786,
             "name": "White Claw Hard Seltzer Ruby Grapefruit",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202884,
+            "upc": 202884,
             "name": "White Claw Hard Seltzer Strawberry",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202857,
+            "upc": 202857,
             "name": "White Claw Hard Seltzer Surge",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202787,
+            "upc": 202787,
             "name": "White Claw Hard Seltzer Watermelon",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202893,
+            "upc": 202893,
             "name": "White Claw Vodka Soda",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202685,
+            "upc": 202685,
             "name": "Wild Basin Boozy Sparkling Water",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 202576,
+            "upc": 202576,
             "name": "Zima ",
-            "Category": "Coolers_HardSeltzer_ReadyToDrnk"
+            "category": "Coolers_HardSeltzer_ReadyToDrnk"
         },
         {
-            "UPC": 303997,
+            "upc": 303997,
             "name": "Made/Brewed at home wine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303001,
+            "upc": 303001,
             "name": "14 Hands",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303381,
+            "upc": 303381,
             "name": "19 Crimes",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307200,
+            "upc": 307200,
             "name": "19 Crimes Martha's Chard",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307225,
+            "upc": 307225,
             "name": "19 Crimes Martha's Lighter",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303002,
+            "upc": 303002,
             "name": "7 Deadly Zins",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303510,
+            "upc": 303510,
             "name": "7 Moons",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303003,
+            "upc": 303003,
             "name": "A By Acacia",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303490,
+            "upc": 303490,
             "name": "A to Z Wineworks",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303004,
+            "upc": 303004,
             "name": "Acacia",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307096,
+            "upc": 307096,
             "name": "AIX",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303005,
+            "upc": 303005,
             "name": "Alamos",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303006,
+            "upc": 303006,
             "name": "Alice White",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303007,
+            "upc": 303007,
             "name": "Almaden",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303260,
+            "upc": 303260,
             "name": "Anderra",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303008,
+            "upc": 303008,
             "name": "Andre",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303261,
+            "upc": 303261,
             "name": "Anew",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303009,
+            "upc": 303009,
             "name": "Antinori",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303010,
+            "upc": 303010,
             "name": "Apothic",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307243,
+            "upc": 307243,
             "name": "Apothic Inferno",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303011,
+            "upc": 303011,
             "name": "Arbor Mist",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307244,
+            "upc": 307244,
             "name": "Argiano",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303263,
+            "upc": 303263,
             "name": "Astoria",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307211,
+            "upc": 307211,
             "name": "Avaline Wines",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303012,
+            "upc": 303012,
             "name": "Ballatore",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307057,
+            "upc": 307057,
             "name": "Barefoot Bright & Breezy",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303013,
+            "upc": 303013,
             "name": "Barefoot Bubbly",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303934,
+            "upc": 303934,
             "name": "Barefoot Fruitscato",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307058,
+            "upc": 307058,
             "name": "Barefoot On Tap",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303957,
+            "upc": 303957,
             "name": "Barefoot wine-to-go",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303234,
+            "upc": 303234,
             "name": "Bartenura",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303015,
+            "upc": 303015,
             "name": "Bay Bridge Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303264,
+            "upc": 303264,
             "name": "Beach Break",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303016,
+            "upc": 303016,
             "name": "Beaulieu Vineyard Coastal Estates",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303265,
+            "upc": 303265,
             "name": "Bel Arbor",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303019,
+            "upc": 303019,
             "name": "Bella Bolle",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303018,
+            "upc": 303018,
             "name": "Bella Sera",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307220,
+            "upc": 307220,
             "name": "Bellissima",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303020,
+            "upc": 303020,
             "name": "Beringer Appellation Collection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303593,
+            "upc": 303593,
             "name": "Beringer Bros Spirit Barrel Aged Wines",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303021,
+            "upc": 303021,
             "name": "Beringer California Collection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303022,
+            "upc": 303022,
             "name": "Beringer Founders Estate",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303569,
+            "upc": 303569,
             "name": "Beringer Main & Vine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303594,
+            "upc": 303594,
             "name": "Beringer Whisper Sister",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303024,
+            "upc": 303024,
             "name": "Beviamo",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303394,
+            "upc": 303394,
             "name": "Big House",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303235,
+            "upc": 303235,
             "name": "Biltmore",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307214,
+            "upc": 307214,
             "name": "Black Box Brilliant",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303025,
+            "upc": 303025,
             "name": "Black Box Wines Box",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303027,
+            "upc": 303027,
             "name": "Black Swan",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303026,
+            "upc": 303026,
             "name": "Blackstone Winemakers Select",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307090,
+            "upc": 307090,
             "name": "Blindfold",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303028,
+            "upc": 303028,
             "name": "Bodega Elena De Mendoza",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303029,
+            "upc": 303029,
             "name": "Bogle Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303030,
+            "upc": 303030,
             "name": "Bolla",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303031,
+            "upc": 303031,
             "name": "Bonterra",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303472,
+            "upc": 303472,
             "name": "Boom Boom! Syrah",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303032,
+            "upc": 303032,
             "name": "Boones Farm",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303033,
+            "upc": 303033,
             "name": "Bota Box",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307228,
+            "upc": 307228,
             "name": "Bota Box Breeze",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303206,
+            "upc": 303206,
             "name": "Bully Hill",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303266,
+            "upc": 303266,
             "name": "Cabanero",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303315,
+            "upc": 303315,
             "name": "Cakebread Cellars",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303267,
+            "upc": 303267,
             "name": "California 37",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303497,
+            "upc": 303497,
             "name": "California Roots",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303034,
+            "upc": 303034,
             "name": "Cambria",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303498,
+            "upc": 303498,
             "name": "Campo Viejo",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303406,
+            "upc": 303406,
             "name": "Canyon Road",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303035,
+            "upc": 303035,
             "name": "Carlo Rossi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303444,
+            "upc": 303444,
             "name": "Carnivor",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303036,
+            "upc": 303036,
             "name": "Castello Di Gabbiano",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303037,
+            "upc": 303037,
             "name": "Castle Rock",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303038,
+            "upc": 303038,
             "name": "Cavit Collection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303039,
+            "upc": 303039,
             "name": "Caymus Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303042,
+            "upc": 303042,
             "name": "Cellar No 8",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307224,
+            "upc": 307224,
             "name": "Cense",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303043,
+            "upc": 303043,
             "name": "Chandon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303040,
+            "upc": 303040,
             "name": "Charles Krug",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303041,
+            "upc": 303041,
             "name": "Charles Shaw",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303421,
+            "upc": 303421,
             "name": "Chateau Minuty",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303473,
+            "upc": 303473,
             "name": "Chateau Smith",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303044,
+            "upc": 303044,
             "name": "Chateau St Jean",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307097,
+            "upc": 307097,
             "name": "Chateau St Marguerite",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303045,
+            "upc": 303045,
             "name": "Chateau Ste Michelle",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307216,
+            "upc": 307216,
             "name": "Chateau Ste Michelle Elements",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303870,
+            "upc": 303870,
             "name": "Chateau Souverain",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303046,
+            "upc": 303046,
             "name": "Chocovine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303047,
+            "upc": 303047,
             "name": "Ck Mondavi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303048,
+            "upc": 303048,
             "name": "Cline",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303049,
+            "upc": 303049,
             "name": "Clos Du Bois",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307098,
+            "upc": 307098,
             "name": "Cloud Chaser",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303268,
+            "upc": 303268,
             "name": "Cocobon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303269,
+            "upc": 303269,
             "name": "Color Block",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303050,
+            "upc": 303050,
             "name": "Columbia Crest Estates",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303052,
+            "upc": 303052,
             "name": "Columbia Crest Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303051,
+            "upc": 303051,
             "name": "Columbia Crest Two Vines",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303054,
+            "upc": 303054,
             "name": "Concannon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303055,
+            "upc": 303055,
             "name": "Concha Y Toro Casillero Del Diabl",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303056,
+            "upc": 303056,
             "name": "Concha Y Toro Frontera",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303058,
+            "upc": 303058,
             "name": "Conundrum",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303059,
+            "upc": 303059,
             "name": "Cooks",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303278,
+            "upc": 303278,
             "name": "Cooper's Hawk",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303060,
+            "upc": 303060,
             "name": "Corbett Canyon Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307091,
+            "upc": 307091,
             "name": "Cote des Roses",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303550,
+            "upc": 303550,
             "name": "Crafters Union",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303062,
+            "upc": 303062,
             "name": "Crane Lake",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303063,
+            "upc": 303063,
             "name": "Cristalino",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303064,
+            "upc": 303064,
             "name": "Cruz Garcia",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307209,
+            "upc": 307209,
             "name": "Cupcake LightHearted",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303065,
+            "upc": 303065,
             "name": "Cupcake Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303067,
+            "upc": 303067,
             "name": "Da Vinci",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303066,
+            "upc": 303066,
             "name": "Dancing Bull",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303606,
+            "upc": 303606,
             "name": "DAOU",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303369,
+            "upc": 303369,
             "name": "Dark Horse",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303068,
+            "upc": 303068,
             "name": "Decoy",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303305,
+            "upc": 303305,
             "name": "Dise\u00f1o",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303256,
+            "upc": 303256,
             "name": "Dom Perignon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303069,
+            "upc": 303069,
             "name": "Domaine Ste Michelle",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307099,
+            "upc": 307099,
             "name": "Domaines Ott",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303070,
+            "upc": 303070,
             "name": "Don Miguel Gascon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307092,
+            "upc": 307092,
             "name": "Double Diamond",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303240,
+            "upc": 303240,
             "name": "Duckhorn",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303071,
+            "upc": 303071,
             "name": "Duplin",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303072,
+            "upc": 303072,
             "name": "Ecco Domani",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303073,
+            "upc": 303073,
             "name": "Edna Valley Vineyard",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303074,
+            "upc": 303074,
             "name": "Entwine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303075,
+            "upc": 303075,
             "name": "Erath",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303076,
+            "upc": 303076,
             "name": "Estancia",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303275,
+            "upc": 303275,
             "name": "Expedition",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303077,
+            "upc": 303077,
             "name": "Fairbanks",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303270,
+            "upc": 303270,
             "name": "Fancy Pants",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307245,
+            "upc": 307245,
             "name": "Far Niente",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303078,
+            "upc": 303078,
             "name": "Ferrari Carano",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303079,
+            "upc": 303079,
             "name": "Fetzer",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303224,
+            "upc": 303224,
             "name": "Finca Flichman",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303080,
+            "upc": 303080,
             "name": "Firefly Ridge",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303081,
+            "upc": 303081,
             "name": "Fish Eye",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303655,
+            "upc": 303655,
             "name": "FitVine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303082,
+            "upc": 303082,
             "name": "Five Oaks",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307100,
+            "upc": 307100,
             "name": "Fleur de Mer",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303083,
+            "upc": 303083,
             "name": "Flipflop",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303084,
+            "upc": 303084,
             "name": "Foxhorn",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303085,
+            "upc": 303085,
             "name": "Francis Coppola Diamond Collection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303086,
+            "upc": 303086,
             "name": "Franciscan Estate",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303087,
+            "upc": 303087,
             "name": "Franzia Box",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303088,
+            "upc": 303088,
             "name": "Frei Brothers",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303089,
+            "upc": 303089,
             "name": "Freixenet",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307222,
+            "upc": 307222,
             "name": "Fresh Vine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307246,
+            "upc": 307246,
             "name": "Gallo Estate",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303090,
+            "upc": 303090,
             "name": "Gallo Family Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307247,
+            "upc": 307247,
             "name": "Gallo Signature Series",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303250,
+            "upc": 303250,
             "name": "Gato Negro",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303091,
+            "upc": 303091,
             "name": "Georges Duboeuf",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303092,
+            "upc": 303092,
             "name": "Geyser Peak",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307101,
+            "upc": 307101,
             "name": "GH Mumm",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303093,
+            "upc": 303093,
             "name": "Ghost Pines",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303095,
+            "upc": 303095,
             "name": "Glen Ellen",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303094,
+            "upc": 303094,
             "name": "Gnarly Head",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303252,
+            "upc": 303252,
             "name": "Grifone",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303209,
+            "upc": 303209,
             "name": "Hahn",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303271,
+            "upc": 303271,
             "name": "Handsome Devil",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307248,
+            "upc": 307248,
             "name": "Harlan Estates",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307086,
+            "upc": 307086,
             "name": "Harvey & Harriet",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303098,
+            "upc": 303098,
             "name": "Hess Select",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303314,
+            "upc": 303314,
             "name": "Hob Nob",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303097,
+            "upc": 303097,
             "name": "Hogue Cellars",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303099,
+            "upc": 303099,
             "name": "Inglenook Rubicon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303100,
+            "upc": 303100,
             "name": "J Lohr",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303881,
+            "upc": 303881,
             "name": "J Vineyards & Winery",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303101,
+            "upc": 303101,
             "name": "Jacobs Creek",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303102,
+            "upc": 303102,
             "name": "Joel Gott",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303103,
+            "upc": 303103,
             "name": "Jordan",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303882,
+            "upc": 303882,
             "name": "Joseph Phelps",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303272,
+            "upc": 303272,
             "name": "Josh Cellars ",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307249,
+            "upc": 307249,
             "name": "Josh Cellars Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303104,
+            "upc": 303104,
             "name": "Justin",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303105,
+            "upc": 303105,
             "name": "Kendall Jackson Avant",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303106,
+            "upc": 303106,
             "name": "Kendall Jackson Grand Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303107,
+            "upc": 303107,
             "name": "Kendall Jackson Vintners Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307219,
+            "upc": 307219,
             "name": "Kendall Jackson Low Cal",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303109,
+            "upc": 303109,
             "name": "Kenwood",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303110,
+            "upc": 303110,
             "name": "Kim Crawford",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307229,
+            "upc": 307229,
             "name": "Kim Crawford Illuminate",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303210,
+            "upc": 303210,
             "name": "Kirkland",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303111,
+            "upc": 303111,
             "name": "Korbel",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307250,
+            "upc": 307250,
             "name": "Krug",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303290,
+            "upc": 303290,
             "name": "Kung Fu Girl",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303112,
+            "upc": 303112,
             "name": "La Crema",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303113,
+            "upc": 303113,
             "name": "La Marca",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303114,
+            "upc": 303114,
             "name": "Layer Cake",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303115,
+            "upc": 303115,
             "name": "Liberty Creek",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307212,
+            "upc": 307212,
             "name": "Lifevine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303117,
+            "upc": 303117,
             "name": "Lindemans",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303518,
+            "upc": 303518,
             "name": "Line 39",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307093,
+            "upc": 307093,
             "name": "Lingua Franca",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307218,
+            "upc": 307218,
             "name": "Liquid Light",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303118,
+            "upc": 303118,
             "name": "Little Penguin",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303119,
+            "upc": 303119,
             "name": "Livingston Cellars",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303116,
+            "upc": 303116,
             "name": "Llano Estacado",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303287,
+            "upc": 303287,
             "name": "Lolailo",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303211,
+            "upc": 303211,
             "name": "Lost Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303120,
+            "upc": 303120,
             "name": "Louis Jadot",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303121,
+            "upc": 303121,
             "name": "Louis M Martini",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307102,
+            "upc": 307102,
             "name": "Luc Belaire",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303122,
+            "upc": 303122,
             "name": "Lucky Duck",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303124,
+            "upc": 303124,
             "name": "Madria",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307103,
+            "upc": 307103,
             "name": "Maison No. 9",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303123,
+            "upc": 303123,
             "name": "Manischewitz",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303239,
+            "upc": 303239,
             "name": "Marcus James",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303125,
+            "upc": 303125,
             "name": "Mark West Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303126,
+            "upc": 303126,
             "name": "Martini & Rossi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307213,
+            "upc": 307213,
             "name": "Matua Lighter",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303127,
+            "upc": 303127,
             "name": "Md 20 20",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303428,
+            "upc": 303428,
             "name": "Meiomi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307215,
+            "upc": 307215,
             "name": "Meiomi Bright",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303128,
+            "upc": 303128,
             "name": "Menage A Trois",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303129,
+            "upc": 303129,
             "name": "Meridian",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303130,
+            "upc": 303130,
             "name": "Mezzacorona",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303131,
+            "upc": 303131,
             "name": "Middle Sister",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307217,
+            "upc": 307217,
             "name": "Mind & Body",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303505,
+            "upc": 303505,
             "name": "Mionetto",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303132,
+            "upc": 303132,
             "name": "Mirassou",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307094,
+            "upc": 307094,
             "name": "Miraval",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303133,
+            "upc": 303133,
             "name": "Moet & Chandon Imperial",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303134,
+            "upc": 303134,
             "name": "Mogen David",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303135,
+            "upc": 303135,
             "name": "Monkey Bay",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303136,
+            "upc": 303136,
             "name": "Mount Veeder Winery",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303137,
+            "upc": 303137,
             "name": "Mumm Napa",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303138,
+            "upc": 303138,
             "name": "Murphy Goode",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307088,
+            "upc": 307088,
             "name": "My Favorite Neighbor",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303139,
+            "upc": 303139,
             "name": "Naked Grape",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303246,
+            "upc": 303246,
             "name": "New Age",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303140,
+            "upc": 303140,
             "name": "Newmans Own",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303141,
+            "upc": 303141,
             "name": "Nobilo Regional Collection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303142,
+            "upc": 303142,
             "name": "Noble Vines",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303143,
+            "upc": 303143,
             "name": "Oak Creek",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303144,
+            "upc": 303144,
             "name": "Oak Leaf Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303145,
+            "upc": 303145,
             "name": "Oliver",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303273,
+            "upc": 303273,
             "name": "Once Upon A Vine",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307251,
+            "upc": 307251,
             "name": "Opus One",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303146,
+            "upc": 303146,
             "name": "Orin Swift",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303147,
+            "upc": 303147,
             "name": "Oyster Bay",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303361,
+            "upc": 303361,
             "name": "Pacific Rim",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303300,
+            "upc": 303300,
             "name": "Penfolds",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303148,
+            "upc": 303148,
             "name": "Pepperwood Grove",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303149,
+            "upc": 303149,
             "name": "Peter Vella Box",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303150,
+            "upc": 303150,
             "name": "Primal Roots",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303212,
+            "upc": 303212,
             "name": "Quail Oak",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303511,
+            "upc": 303511,
             "name": "Ravage",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303151,
+            "upc": 303151,
             "name": "Ravenswood Vintners Blend",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303152,
+            "upc": 303152,
             "name": "Red Diamond",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303153,
+            "upc": 303153,
             "name": "Red Rock Winery",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303154,
+            "upc": 303154,
             "name": "Redwood Creek",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303155,
+            "upc": 303155,
             "name": "Rex Goliath",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303156,
+            "upc": 303156,
             "name": "Richards Wild Irish Rose",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303422,
+            "upc": 303422,
             "name": "Riondo",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303483,
+            "upc": 303483,
             "name": "Risata",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303157,
+            "upc": 303157,
             "name": "Riunite",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303159,
+            "upc": 303159,
             "name": "Robert Mondavi Napa Valley",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307252,
+            "upc": 307252,
             "name": "Robert Mondavi The Estates",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307253,
+            "upc": 307253,
             "name": "Robert Mondavi To Kalon Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303158,
+            "upc": 303158,
             "name": "Robert Mondavi Private Selection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303161,
+            "upc": 303161,
             "name": "Rodney Strong",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303162,
+            "upc": 303162,
             "name": "Rombauer Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303163,
+            "upc": 303163,
             "name": "Rosemount Estate Diamond Label",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307254,
+            "upc": 307254,
             "name": "Ruffino Aziano Chianti Classico",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307255,
+            "upc": 307255,
             "name": "Ruffino Chianti",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303521,
+            "upc": 303521,
             "name": "Ruffino Lumina",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307256,
+            "upc": 307256,
             "name": "Ruffino ModusToscana",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307257,
+            "upc": 307257,
             "name": "Ruffino Orvieto Classico",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307258,
+            "upc": 307258,
             "name": "Ruffino Prosecco",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307259,
+            "upc": 307259,
             "name": "Ruffino Riserva Ducale Chianti Classico ",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307260,
+            "upc": 307260,
             "name": "Ruffino Riserva Ducale Oro",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303164,
+            "upc": 303164,
             "name": "Ruffino Riserva Ducale Tan",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307095,
+            "upc": 307095,
             "name": "SALDO",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303423,
+            "upc": 303423,
             "name": "Sandeman",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303166,
+            "upc": 303166,
             "name": "Santa Margherita",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303512,
+            "upc": 303512,
             "name": "Saved",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303167,
+            "upc": 303167,
             "name": "Schmitt Sohne",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307261,
+            "upc": 307261,
             "name": "Screaming Eagle",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303513,
+            "upc": 303513,
             "name": "Schrader",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303168,
+            "upc": 303168,
             "name": "Sebastiani",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303169,
+            "upc": 303169,
             "name": "Seghesio Family Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303170,
+            "upc": 303170,
             "name": "Silver Oak",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303171,
+            "upc": 303171,
             "name": "Silverado",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303172,
+            "upc": 303172,
             "name": "Simi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307223,
+            "upc": 307223,
             "name": "Simi Brightful",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303173,
+            "upc": 303173,
             "name": "Simply Naked",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303322,
+            "upc": 303322,
             "name": "Skinny Girl",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303174,
+            "upc": 303174,
             "name": "Smoking Loon",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303175,
+            "upc": 303175,
             "name": "Sonoma Cutrer",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303176,
+            "upc": 303176,
             "name": "Southern Point",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303514,
+            "upc": 303514,
             "name": "Spoken Barrel",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303177,
+            "upc": 303177,
             "name": "St Francis",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303178,
+            "upc": 303178,
             "name": "St Genevieve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303179,
+            "upc": 303179,
             "name": "St James",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307104,
+            "upc": 307104,
             "name": "St. Petroni",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303181,
+            "upc": 303181,
             "name": "Stags Leap",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303182,
+            "upc": 303182,
             "name": "Starborough",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307221,
+            "upc": 307221,
             "name": "Starborough Starlite",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303183,
+            "upc": 303183,
             "name": "Stella Rosa",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303184,
+            "upc": 303184,
             "name": "Sterling Vintners Collection",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303186,
+            "upc": 303186,
             "name": "Stone Cellars",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303228,
+            "upc": 303228,
             "name": "Stone Hill",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307087,
+            "upc": 307087,
             "name": "Summer In A Bottle",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307105,
+            "upc": 307105,
             "name": "Summer Water",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307160,
+            "upc": 307160,
             "name": "Sunny with a Chance of Flowers",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303187,
+            "upc": 303187,
             "name": "Sutter Home",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303274,
+            "upc": 303274,
             "name": "Taproot",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303188,
+            "upc": 303188,
             "name": "Taylor",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303189,
+            "upc": 303189,
             "name": "The Dreaming Tree",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303491,
+            "upc": 303491,
             "name": "The Federalist",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303409,
+            "upc": 303409,
             "name": "The Prisoner",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303190,
+            "upc": 303190,
             "name": "Three Thieves Bandit",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303230,
+            "upc": 303230,
             "name": "Three Wishes",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303191,
+            "upc": 303191,
             "name": "Tisdale",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303192,
+            "upc": 303192,
             "name": "Toasted Head",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303515,
+            "upc": 303515,
             "name": "Tom Gore",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303216,
+            "upc": 303216,
             "name": "Trader Joe's",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303365,
+            "upc": 303365,
             "name": "Trapiche",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303193,
+            "upc": 303193,
             "name": "Turning Leaf",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303194,
+            "upc": 303194,
             "name": "Twisted",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307089,
+            "upc": 307089,
             "name": "Unshackled",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303195,
+            "upc": 303195,
             "name": "Vendange",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303196,
+            "upc": 303196,
             "name": "Verdi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303197,
+            "upc": 303197,
             "name": "Veuve Clicquot Ponsardin",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303198,
+            "upc": 303198,
             "name": "Wente Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303592,
+            "upc": 303592,
             "name": "Whispering Angel",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303199,
+            "upc": 303199,
             "name": "Whitehaven",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303200,
+            "upc": 303200,
             "name": "Wild Horse",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303201,
+            "upc": 303201,
             "name": "Wild Vines",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303335,
+            "upc": 303335,
             "name": "Willamette Valley Vineyards",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303349,
+            "upc": 303349,
             "name": "William Hill",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303259,
+            "upc": 303259,
             "name": "Wilson Creek",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303202,
+            "upc": 303202,
             "name": "Wine Cube Box",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303233,
+            "upc": 303233,
             "name": "Winking Owl",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303203,
+            "upc": 303203,
             "name": "Woodbridge By Robert Mondavi",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307262,
+            "upc": 307262,
             "name": "Woodbridge Sessions",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303232,
+            "upc": 303232,
             "name": "Yago",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307263,
+            "upc": 307263,
             "name": "Yellow Tail ",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307264,
+            "upc": 307264,
             "name": "Yellow Tail Fresh Twist",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 307131,
+            "upc": 307131,
             "name": "Yellow Tail Pure Bright",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303204,
+            "upc": 303204,
             "name": "Yellow Tail Reserve",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 303276,
+            "upc": 303276,
             "name": "Zonin",
-            "Category": "Wine"
+            "category": "Wine"
         },
         {
-            "UPC": 404997,
+            "upc": 404997,
             "name": "Made/Brewed at home spirits",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404802,
+            "upc": 404802,
             "name": "44 North",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404536,
+            "upc": 404536,
             "name": "100 Pipers",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404001,
+            "upc": 404001,
             "name": "1800",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404537,
+            "upc": 404537,
             "name": "Aberlour",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404552,
+            "upc": 404552,
             "name": "Absolut Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404558,
+            "upc": 404558,
             "name": "Absolut Apeach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404559,
+            "upc": 404559,
             "name": "Absolut Berri Acai",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404002,
+            "upc": 404002,
             "name": "Absolut Citron",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404548,
+            "upc": 404548,
             "name": "Absolut Elyx",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404549,
+            "upc": 404549,
             "name": "Absolut Grapefruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404560,
+            "upc": 404560,
             "name": "Absolut Juice",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404561,
+            "upc": 404561,
             "name": "Absolut Kurant",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404550,
+            "upc": 404550,
             "name": "Absolut Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404551,
+            "upc": 404551,
             "name": "Absolut Mandarin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404562,
+            "upc": 404562,
             "name": "Absolut Mango",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404563,
+            "upc": 404563,
             "name": "Absolut Pears",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404564,
+            "upc": 404564,
             "name": "Absolut Peppar",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404565,
+            "upc": 404565,
             "name": "Absolut Rainbow",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404566,
+            "upc": 404566,
             "name": "Absolut Raspberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404553,
+            "upc": 404553,
             "name": "Absolut Watermelon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404973,
+            "upc": 404973,
             "name": "Absolut Wild Berri",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404567,
+            "upc": 404567,
             "name": "Absolut Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404004,
+            "upc": 404004,
             "name": "Admiral Nelsons",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404822,
+            "upc": 404822,
             "name": "Alberta Premium Cask Strength Rye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404198,
+            "upc": 404198,
             "name": "Ancient Age",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404568,
+            "upc": 404568,
             "name": "Appleton Estate 8 Year Old Reserve",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404569,
+            "upc": 404569,
             "name": "Appleton Estate 12 Year Old Rare Casks",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404570,
+            "upc": 404570,
             "name": "Appleton Estate 15 Year Old River Casks",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404571,
+            "upc": 404571,
             "name": "Appleton Estate 21 Year Old Valley Casks",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404572,
+            "upc": 404572,
             "name": "Appleton Estate Signature",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404005,
+            "upc": 404005,
             "name": "Aristocrat",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404286,
+            "upc": 404286,
             "name": "Avi\u00f3n",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404410,
+            "upc": 404410,
             "name": "Bacardi Anejo Cuatro (Aged 4 Years)",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404008,
+            "upc": 404008,
             "name": "Bacardi Black",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404574,
+            "upc": 404574,
             "name": "Bacardi Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404538,
+            "upc": 404538,
             "name": "Bacardi Coquito",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404575,
+            "upc": 404575,
             "name": "Bacardi Dragonberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404009,
+            "upc": 404009,
             "name": "Bacardi Gold",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404412,
+            "upc": 404412,
             "name": "Bacardi Gran Reserva Diez",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404413,
+            "upc": 404413,
             "name": "Bacardi Gran Reserva Limitada",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404576,
+            "upc": 404576,
             "name": "Bacardi Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404010,
+            "upc": 404010,
             "name": "Bacardi Limon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404578,
+            "upc": 404578,
             "name": "Bacardi Mango",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404579,
+            "upc": 404579,
             "name": "Bacardi Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404580,
+            "upc": 404580,
             "name": "Bacardi Raspberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404411,
+            "upc": 404411,
             "name": "Bacardi Reserva Ocho (Aged 8 Years)",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404409,
+            "upc": 404409,
             "name": "Bacardi Spiced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404013,
+            "upc": 404013,
             "name": "Bacardi Superior",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404581,
+            "upc": 404581,
             "name": "Bacardi Tropical",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404582,
+            "upc": 404582,
             "name": "Baileys Original Irish Cream",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404583,
+            "upc": 404583,
             "name": "Baileys Almande",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404584,
+            "upc": 404584,
             "name": "Baileys Apple Pie",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404585,
+            "upc": 404585,
             "name": "Baileys Chocolate Cherry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404586,
+            "upc": 404586,
             "name": "Baileys Colada",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404587,
+            "upc": 404587,
             "name": "Baileys Deliciously Light",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404588,
+            "upc": 404588,
             "name": "Baileys Espresso Cr\u00e8me",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404589,
+            "upc": 404589,
             "name": "Baileys Red Velvet",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404590,
+            "upc": 404590,
             "name": "Baileys Salted Caramel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404934,
+            "upc": 404934,
             "name": "Baileys S'mores",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404591,
+            "upc": 404591,
             "name": "Baileys Strawberries & Cream",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404592,
+            "upc": 404592,
             "name": "Baileys Vanilla Cinnamon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404330,
+            "upc": 404330,
             "name": "Ballantine's",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404594,
+            "upc": 404594,
             "name": "Ballantine's 7 Bourbon Finish Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404595,
+            "upc": 404595,
             "name": "Ballantine's 12 Year Old Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404596,
+            "upc": 404596,
             "name": "Ballantine's Barrel Smooth Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404597,
+            "upc": 404597,
             "name": "Ballantine's Brasil Spirit Drink",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404598,
+            "upc": 404598,
             "name": "Ballantine's Finest Blended Scotch Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404599,
+            "upc": 404599,
             "name": "Ballantine's Light",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404600,
+            "upc": 404600,
             "name": "Ballantine's Passion Spirit Drink",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404601,
+            "upc": 404601,
             "name": "Ballantine's Single Malt Scotch Whisky Collection",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404859,
+            "upc": 404859,
             "name": "Banhez - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404269,
+            "upc": 404269,
             "name": "The Balvenie",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404016,
+            "upc": 404016,
             "name": "Barton",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404017,
+            "upc": 404017,
             "name": "Beefeater",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404018,
+            "upc": 404018,
             "name": "Belvedere",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404195,
+            "upc": 404195,
             "name": "Bird Dog Whiskey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404019,
+            "upc": 404019,
             "name": "Black Velvet",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404974,
+            "upc": 404974,
             "name": "Bombay Bramble",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404975,
+            "upc": 404975,
             "name": "Bombay Citron Presse",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404976,
+            "upc": 404976,
             "name": "Bombay Dry Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404020,
+            "upc": 404020,
             "name": "Bombay Sapphire",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404977,
+            "upc": 404977,
             "name": "Bombay Sapphire East",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404978,
+            "upc": 404978,
             "name": "Bombay Sapphire Premier Cru",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404199,
+            "upc": 404199,
             "name": "Bowman's",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404022,
+            "upc": 404022,
             "name": "Buchanan's De Luxe 12Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404603,
+            "upc": 404603,
             "name": "Buchanan's Master",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404979,
+            "upc": 404979,
             "name": "Buchanan's Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404604,
+            "upc": 404604,
             "name": "Buchanan's Red Seal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404605,
+            "upc": 404605,
             "name": "Buchanan's Special Reserve 18 Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404218,
+            "upc": 404218,
             "name": "Buffalo Trace",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404209,
+            "upc": 404209,
             "name": "Bulleit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404895,
+            "upc": 404895,
             "name": "Bumbu",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404024,
+            "upc": 404024,
             "name": "Burnetts",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404025,
+            "upc": 404025,
             "name": "Bushmills",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404228,
+            "upc": 404228,
             "name": "Cabo Wabo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404026,
+            "upc": 404026,
             "name": "Caliber",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404210,
+            "upc": 404210,
             "name": "Calico Jack",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404027,
+            "upc": 404027,
             "name": "California Brand",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404668,
+            "upc": 404668,
             "name": "Canadian Club 100% Rye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404670,
+            "upc": 404670,
             "name": "Canadian Club 1858",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404028,
+            "upc": 404028,
             "name": "Canadian Club Classic 12 Year Old",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404029,
+            "upc": 404029,
             "name": "Canadian Club Reserve 9 Year Old",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404031,
+            "upc": 404031,
             "name": "Canadian Hunter",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404032,
+            "upc": 404032,
             "name": "Canadian Ltd",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404033,
+            "upc": 404033,
             "name": "Canadian Mist",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404034,
+            "upc": 404034,
             "name": "Captain Morgan 100",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404980,
+            "upc": 404980,
             "name": "Captain Morgan Black Spiced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404981,
+            "upc": 404981,
             "name": "Captain Morgan Cannon Blast",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404982,
+            "upc": 404982,
             "name": "Captain Morgan Cherry Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404983,
+            "upc": 404983,
             "name": "Captain Morgan Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404035,
+            "upc": 404035,
             "name": "Captain Morgan Dark",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404036,
+            "upc": 404036,
             "name": "Captain Morgan Deluxe",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404037,
+            "upc": 404037,
             "name": "Captain Morgan Gold",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404606,
+            "upc": 404606,
             "name": "Captain Morgan Gingerbread Spiced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404038,
+            "upc": 404038,
             "name": "Captain Morgan Original Spiced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404607,
+            "upc": 404607,
             "name": "Captain Morgan Orange Vanilla Twist",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404039,
+            "upc": 404039,
             "name": "Captain Morgan Parrot Bay Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404608,
+            "upc": 404608,
             "name": "Captain Morgan Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404040,
+            "upc": 404040,
             "name": "Captain Morgan Private Stock",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404609,
+            "upc": 404609,
             "name": "Captain Morgan Silver Spiced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404984,
+            "upc": 404984,
             "name": "Captain Morgan Sliced Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404041,
+            "upc": 404041,
             "name": "Captain Morgan White",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404043,
+            "upc": 404043,
             "name": "Carolans",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404337,
+            "upc": 404337,
             "name": "Casa Noble",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404861,
+            "upc": 404861,
             "name": "Casamigos - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404339,
+            "upc": 404339,
             "name": "Casamigos - Tequila",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404044,
+            "upc": 404044,
             "name": "Castillo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404045,
+            "upc": 404045,
             "name": "Cazadores",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404046,
+            "upc": 404046,
             "name": "Chivas Regal 12Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404610,
+            "upc": 404610,
             "name": "Chivas Regal 18Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404611,
+            "upc": 404611,
             "name": "Chivas Regal 25Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404612,
+            "upc": 404612,
             "name": "Chivas Regal Extra 13Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404613,
+            "upc": 404613,
             "name": "Chivas Regal Mizunara",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404614,
+            "upc": 404614,
             "name": "Chivas The Icon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404615,
+            "upc": 404615,
             "name": "Chivas Ultis",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404616,
+            "upc": 404616,
             "name": "Chivas XV",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404048,
+            "upc": 404048,
             "name": "Christian Brothers",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404622,
+            "upc": 404622,
             "name": "Ciroc Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404617,
+            "upc": 404617,
             "name": "Ciroc Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404618,
+            "upc": 404618,
             "name": "Ciroc Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404619,
+            "upc": 404619,
             "name": "Ciroc French Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404620,
+            "upc": 404620,
             "name": "Ciroc Mango",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404985,
+            "upc": 404985,
             "name": "Ciroc Passion",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404049,
+            "upc": 404049,
             "name": "Ciroc Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404621,
+            "upc": 404621,
             "name": "Ciroc Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404050,
+            "upc": 404050,
             "name": "Ciroc Red Berry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404986,
+            "upc": 404986,
             "name": "Ciroc Summer Citrus",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404987,
+            "upc": 404987,
             "name": "Ciroc Summer Watermelon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404988,
+            "upc": 404988,
             "name": "Ciroc VS  Brandy",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404052,
+            "upc": 404052,
             "name": "Clan Macgregor 3Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404340,
+            "upc": 404340,
             "name": "Clase Azul",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404896,
+            "upc": 404896,
             "name": "Codigo 1530",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404053,
+            "upc": 404053,
             "name": "Coronet",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404054,
+            "upc": 404054,
             "name": "Courvoisier",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404960,
+            "upc": 404960,
             "name": "Courvoisier VS",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404961,
+            "upc": 404961,
             "name": "Courvoisier VSOP",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404962,
+            "upc": 404962,
             "name": "Courvoisier XO",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404989,
+            "upc": 404989,
             "name": "Crown Royal Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404055,
+            "upc": 404055,
             "name": "Crown Royal Black",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404056,
+            "upc": 404056,
             "name": "Crown Royal De Luxe",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404990,
+            "upc": 404990,
             "name": "Crown Royal Golden Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404057,
+            "upc": 404057,
             "name": "Crown Royal Limited Edition",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404540,
+            "upc": 404540,
             "name": "Crown Royal Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404058,
+            "upc": 404058,
             "name": "Crown Royal Reserve",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404293,
+            "upc": 404293,
             "name": "Crown Royal Regal Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404623,
+            "upc": 404623,
             "name": "Crown Royal Rye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404993,
+            "upc": 404993,
             "name": "Crown Royal Salted Caramel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404624,
+            "upc": 404624,
             "name": "Crown Royal Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404625,
+            "upc": 404625,
             "name": "Crown Royal XO",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404060,
+            "upc": 404060,
             "name": "Cruzan",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404061,
+            "upc": 404061,
             "name": "Crystal Palace",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404251,
+            "upc": 404251,
             "name": "Deep Eddy",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404062,
+            "upc": 404062,
             "name": "Dekuyper Luscious",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404940,
+            "upc": 404940,
             "name": "Dekuyper Peachtree Schnapps",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404063,
+            "upc": 404063,
             "name": "Dekuyper Puckers",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404341,
+            "upc": 404341,
             "name": "DeLeon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404862,
+            "upc": 404862,
             "name": "Del Maguey - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404065,
+            "upc": 404065,
             "name": "Dewars White Label",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404324,
+            "upc": 404324,
             "name": "Di Amore",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404067,
+            "upc": 404067,
             "name": "Disaronno",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404626,
+            "upc": 404626,
             "name": "Don Julio 1941",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404994,
+            "upc": 404994,
             "name": "Don Julio 1942",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404627,
+            "upc": 404627,
             "name": "Don Julio 70",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404628,
+            "upc": 404628,
             "name": "Don Julio A\u00f1ejo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404629,
+            "upc": 404629,
             "name": "Don Julio Blanco",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404995,
+            "upc": 404995,
             "name": "Don Julio Primavera",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404630,
+            "upc": 404630,
             "name": "Don Julio Real",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404631,
+            "upc": 404631,
             "name": "Don Julio Reposado",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404996,
+            "upc": 404996,
             "name": "Don Julio Rosado",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408000,
+            "upc": 408000,
             "name": "Don Julio Ultima Reserva",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404229,
+            "upc": 404229,
             "name": "Don Q",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404863,
+            "upc": 404863,
             "name": "Dos Hombres - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404069,
+            "upc": 404069,
             "name": "Dr Mcgillicuddys Fireball",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404946,
+            "upc": 404946,
             "name": "Dr McGillicuddy's Mentholmint",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404071,
+            "upc": 404071,
             "name": "Drambuie",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404633,
+            "upc": 404633,
             "name": "E&J Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404634,
+            "upc": 404634,
             "name": "E&J Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404635,
+            "upc": 404635,
             "name": "E&J Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404636,
+            "upc": 404636,
             "name": "E&J VS",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404637,
+            "upc": 404637,
             "name": "E&J VSOP Grand Blue",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404638,
+            "upc": 404638,
             "name": "E&J XO",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404249,
+            "upc": 404249,
             "name": "Eagle Rare",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404073,
+            "upc": 404073,
             "name": "Early Times",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404320,
+            "upc": 404320,
             "name": "Effen Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404074,
+            "upc": 404074,
             "name": "El Jimador",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404864,
+            "upc": 404864,
             "name": "El Silencio - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404200,
+            "upc": 404200,
             "name": "Elijah Craig",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404230,
+            "upc": 404230,
             "name": "Espol\u00f3n",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404640,
+            "upc": 404640,
             "name": "Evan Williams 1783",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404075,
+            "upc": 404075,
             "name": "Evan Williams Black Label",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404642,
+            "upc": 404642,
             "name": "Evan Williams Bottled-In-Bonded 100 Proof",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404641,
+            "upc": 404641,
             "name": "Evan Williams Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404643,
+            "upc": 404643,
             "name": "Evan Williams Cherry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404644,
+            "upc": 404644,
             "name": "Evan Williams Fire",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404645,
+            "upc": 404645,
             "name": "Evan Williams Honey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404646,
+            "upc": 404646,
             "name": "Evan Williams Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404647,
+            "upc": 404647,
             "name": "Evan Williams Single Barrel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404274,
+            "upc": 404274,
             "name": "Ezra Brooks",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404077,
+            "upc": 404077,
             "name": "Familia Camarena",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404247,
+            "upc": 404247,
             "name": "Famous Grouse",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404189,
+            "upc": 404189,
             "name": "Finlandia",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404078,
+            "upc": 404078,
             "name": "Fireball Cinnamon Whisky ",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404211,
+            "upc": 404211,
             "name": "Firefly",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404079,
+            "upc": 404079,
             "name": "Five Oclock",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404080,
+            "upc": 404080,
             "name": "Fleischmanns",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404192,
+            "upc": 404192,
             "name": "Four Roses",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404239,
+            "upc": 404239,
             "name": "Frangelico",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404081,
+            "upc": 404081,
             "name": "Gentleman Jack",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404271,
+            "upc": 404271,
             "name": "George Dickel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404301,
+            "upc": 404301,
             "name": "Georgi",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404082,
+            "upc": 404082,
             "name": "Gilbeys",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404223,
+            "upc": 404223,
             "name": "Glenfiddich",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404083,
+            "upc": 404083,
             "name": "Glenlivet 12Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404897,
+            "upc": 404897,
             "name": "Glenlivet 14 Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404554,
+            "upc": 404554,
             "name": "Glenlivet 15Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404898,
+            "upc": 404898,
             "name": "Glenlivet 18 Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404899,
+            "upc": 404899,
             "name": "Glenlivet Caribbean Reserve",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404555,
+            "upc": 404555,
             "name": "Founder's Reserve",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404202,
+            "upc": 404202,
             "name": "Goldschlager",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404085,
+            "upc": 404085,
             "name": "Gordons",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404086,
+            "upc": 404086,
             "name": "Gran Legacy",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404087,
+            "upc": 404087,
             "name": "Grand Marnier Cordon Rouge",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404648,
+            "upc": 404648,
             "name": "Grey Goose Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404649,
+            "upc": 404649,
             "name": "Grey Goose Essences Peach & Rosemary",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404650,
+            "upc": 404650,
             "name": "Grey Goose Essences Strawberry & Lemongrass",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404651,
+            "upc": 404651,
             "name": "Grey Goose Essences Watermelon & Basil",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404652,
+            "upc": 404652,
             "name": "Grey Goose La Poire",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404653,
+            "upc": 404653,
             "name": "Grey Goose L'Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404654,
+            "upc": 404654,
             "name": "Grey Goose Le Citron",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404360,
+            "upc": 404360,
             "name": "Havana Club",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404090,
+            "upc": 404090,
             "name": "Hawkeye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404091,
+            "upc": 404091,
             "name": "Heaven Hill",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404092,
+            "upc": 404092,
             "name": "Hendricks",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404656,
+            "upc": 404656,
             "name": "Hennessy Black",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404657,
+            "upc": 404657,
             "name": "Hennessy Master Blender's Selection",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408001,
+            "upc": 408001,
             "name": "Hennessy Paradis",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404658,
+            "upc": 404658,
             "name": "Hennessy V.S",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404659,
+            "upc": 404659,
             "name": "Hennessy V.S Gold",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404660,
+            "upc": 404660,
             "name": "Hennessy V.S.O.P Privil\u00e8ge",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404661,
+            "upc": 404661,
             "name": "James Hennessy",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404662,
+            "upc": 404662,
             "name": "Hennessy X.O",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404663,
+            "upc": 404663,
             "name": "Hennessy X.X.O",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404194,
+            "upc": 404194,
             "name": "Herradura",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404322,
+            "upc": 404322,
             "name": "High West",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404094,
+            "upc": 404094,
             "name": "Hiram Walker",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404095,
+            "upc": 404095,
             "name": "Hpnotiq",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404866,
+            "upc": 404866,
             "name": "Ilegal - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404900,
+            "upc": 404900,
             "name": "Italicus",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404096,
+            "upc": 404096,
             "name": "J & B Rare",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404097,
+            "upc": 404097,
             "name": "J Bavet",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404665,
+            "upc": 404665,
             "name": "Jack Daniel's Old No. 7 Tennessee Whiskey ",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404666,
+            "upc": 404666,
             "name": "Jack Daniel's Tennessee Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404667,
+            "upc": 404667,
             "name": "Jack Daniel's Tennessee Fire",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404532,
+            "upc": 404532,
             "name": "Jack Daniel's Tennessee Honey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404669,
+            "upc": 404669,
             "name": "Jack Daniel's Tennessee Rye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404498,
+            "upc": 404498,
             "name": "Jack Daniel's Tennessee Single Barral",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404671,
+            "upc": 404671,
             "name": "Jack Daniel's Tennessee Sinatra Select",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404099,
+            "upc": 404099,
             "name": "Jacques Cardin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404100,
+            "upc": 404100,
             "name": "Jagermeister",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404673,
+            "upc": 404673,
             "name": "Jameson Irish Whiskey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404674,
+            "upc": 404674,
             "name": "Jameson 18 Years",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404675,
+            "upc": 404675,
             "name": "Jameson Black Barrel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404676,
+            "upc": 404676,
             "name": "Jameson Cold Brew",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404677,
+            "upc": 404677,
             "name": "Jameson Caskmates IPA Edition",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404678,
+            "upc": 404678,
             "name": "Jameson Caskmates Stout Edition",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404679,
+            "upc": 404679,
             "name": "Jameson Cooper's Croze",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404680,
+            "upc": 404680,
             "name": "Jameson Blender's Dog",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404681,
+            "upc": 404681,
             "name": "Jameson Distiller's Safe",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404925,
+            "upc": 404925,
             "name": "Jameson Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404354,
+            "upc": 404354,
             "name": "Jefferson's",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404294,
+            "upc": 404294,
             "name": "Jim Beam Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404425,
+            "upc": 404425,
             "name": "Jim Beam Black Extra Aged",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404426,
+            "upc": 404426,
             "name": "Jim Beam Bonded",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404427,
+            "upc": 404427,
             "name": "Jim Beam Devil's Cut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404428,
+            "upc": 404428,
             "name": "Jim Beam Double Oak",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404429,
+            "upc": 404429,
             "name": "Jim Beam Fire",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404430,
+            "upc": 404430,
             "name": "Jim Beam Honey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404431,
+            "upc": 404431,
             "name": "Jim Beam Kentucky Straight",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404432,
+            "upc": 404432,
             "name": "Jim Beam Maple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404683,
+            "upc": 404683,
             "name": "Jim Beam Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404433,
+            "upc": 404433,
             "name": "Jim Beam Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404102,
+            "upc": 404102,
             "name": "Jim Beam Red Stag",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404434,
+            "upc": 404434,
             "name": "Jim Beam Rye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404435,
+            "upc": 404435,
             "name": "Jim Beam Single Barrel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404436,
+            "upc": 404436,
             "name": "Jim Beam Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404684,
+            "upc": 404684,
             "name": "John Walker & Sons King George V",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404685,
+            "upc": 404685,
             "name": "John Walker & Sons Odyssey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404686,
+            "upc": 404686,
             "name": "John Walker & Sons The John Walker",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404687,
+            "upc": 404687,
             "name": "John Walker & Sons XR 21",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404688,
+            "upc": 404688,
             "name": "Johnnie Walker Aged 18 Years",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404104,
+            "upc": 404104,
             "name": "Johnnie Walker Black Label 12Yrs",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404689,
+            "upc": 404689,
             "name": "Johnnie Walker Blue Label",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408002,
+            "upc": 408002,
             "name": "Johnnie Walker Double Black",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404690,
+            "upc": 404690,
             "name": "Johnnie Walker Green Label",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404691,
+            "upc": 404691,
             "name": "Johnnie Walker Gold Label",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408003,
+            "upc": 408003,
             "name": "Johnnie Walker High Rye",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404105,
+            "upc": 404105,
             "name": "Johnnie Walker Red Label",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404692,
+            "upc": 404692,
             "name": "Johnnie Walker Limited Editions",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404693,
+            "upc": 404693,
             "name": "Jose Cuervo Aniversario 250",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404694,
+            "upc": 404694,
             "name": "Jose Cuervo Especial Gold",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404695,
+            "upc": 404695,
             "name": "Jose Cuervo Especial Silver",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404696,
+            "upc": 404696,
             "name": "Jose Cuervo Reserva De La Familia",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404697,
+            "upc": 404697,
             "name": "Jose Cuervo Tradicional A\u00f1ejo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408004,
+            "upc": 408004,
             "name": "Jose Cuervo Tradicional Cristalino",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404698,
+            "upc": 404698,
             "name": "Jose Cuervo Tradicional Reposado",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404699,
+            "upc": 404699,
             "name": "Jose Cuervo Tradicional Tequila Plata",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404109,
+            "upc": 404109,
             "name": "Kahlua",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404817,
+            "upc": 404817,
             "name": "Kahlua Original",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404818,
+            "upc": 404818,
             "name": "Kahlua Mint Mocha",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404819,
+            "upc": 404819,
             "name": "Kahlua Salted Caramel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404820,
+            "upc": 404820,
             "name": "Kahlua Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404110,
+            "upc": 404110,
             "name": "Kamchatka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404111,
+            "upc": 404111,
             "name": "Karkov",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404112,
+            "upc": 404112,
             "name": "Kessler",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408005,
+            "upc": 408005,
             "name": "Ketel One Botanical Cucumber & Mint",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408006,
+            "upc": 408006,
             "name": "Ketel One Botanical Grapefruit & Rose",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408007,
+            "upc": 408007,
             "name": "Ketel One Botanical Peach & Orange Blossom",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404700,
+            "upc": 404700,
             "name": "Ketel One Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404701,
+            "upc": 404701,
             "name": "Ketel One Citroen",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404702,
+            "upc": 404702,
             "name": "Ketel One Oranje",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404901,
+            "upc": 404901,
             "name": "Ki No Bi",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404114,
+            "upc": 404114,
             "name": "Kinky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404208,
+            "upc": 404208,
             "name": "Knob Creek",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404115,
+            "upc": 404115,
             "name": "Korbel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404221,
+            "upc": 404221,
             "name": "The Kraken",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404333,
+            "upc": 404333,
             "name": "Tequila Rose",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404902,
+            "upc": 404902,
             "name": "La Hechicera",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404917,
+            "upc": 404917,
             "name": "Lillet",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404904,
+            "upc": 404904,
             "name": "Longmorn",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404117,
+            "upc": 404117,
             "name": "Lord Calvert",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404867,
+            "upc": 404867,
             "name": "Los Amantes - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404321,
+            "upc": 404321,
             "name": "Lunazul Tequila",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404232,
+            "upc": 404232,
             "name": "Macallan",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404704,
+            "upc": 404704,
             "name": "Maker's Mark 46",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408008,
+            "upc": 408008,
             "name": "Maker's Mark 101",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404705,
+            "upc": 404705,
             "name": "Maker's Mark Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404706,
+            "upc": 404706,
             "name": "Maker's Mark Cask Strength Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408009,
+            "upc": 408009,
             "name": "Maker's Mark Cellar Aged",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404707,
+            "upc": 404707,
             "name": "Maker's Mark Private Selection Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408010,
+            "upc": 408010,
             "name": "Maker's Mark Wood Finishing Series",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404905,
+            "upc": 404905,
             "name": "Malfy",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404708,
+            "upc": 404708,
             "name": "Malibu Black",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404709,
+            "upc": 404709,
             "name": "Malibu Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404710,
+            "upc": 404710,
             "name": "Malibu Mango",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404119,
+            "upc": 404119,
             "name": "Malibu Original Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404711,
+            "upc": 404711,
             "name": "Malibu Passion Fruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408011,
+            "upc": 408011,
             "name": "Malibu Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404712,
+            "upc": 404712,
             "name": "Malibu Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404713,
+            "upc": 404713,
             "name": "Malibu Tropical Banana",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404714,
+            "upc": 404714,
             "name": "Malibu Strawberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404715,
+            "upc": 404715,
             "name": "Malibu Watermelon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404121,
+            "upc": 404121,
             "name": "Margaritaville",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404122,
+            "upc": 404122,
             "name": "Martell",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404957,
+            "upc": 404957,
             "name": "Martell VS",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404958,
+            "upc": 404958,
             "name": "Martell VSOP",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404959,
+            "upc": 404959,
             "name": "Martell XO",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404123,
+            "upc": 404123,
             "name": "Mccormick",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404906,
+            "upc": 404906,
             "name": "McQueen and the Violet Fog",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404907,
+            "upc": 404907,
             "name": "Method and Madness",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404125,
+            "upc": 404125,
             "name": "Milagro",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404908,
+            "upc": 404908,
             "name": "Monkey 47",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404868,
+            "upc": 404868,
             "name": "Montelobos - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404203,
+            "upc": 404203,
             "name": "Mount Gay",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404233,
+            "upc": 404233,
             "name": "Montezuma",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404126,
+            "upc": 404126,
             "name": "Mr Boston",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 403137,
+            "upc": 403137,
             "name": "Mumm Napa",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404127,
+            "upc": 404127,
             "name": "Myers",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404716,
+            "upc": 404716,
             "name": "New Amsterdam Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404717,
+            "upc": 404717,
             "name": "New Amsterdam Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404718,
+            "upc": 404718,
             "name": "New Amsterdam Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404719,
+            "upc": 404719,
             "name": "New Amsterdam Grapefruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404720,
+            "upc": 404720,
             "name": "New Amsterdam Mango",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404721,
+            "upc": 404721,
             "name": "New Amsterdam Lemon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404722,
+            "upc": 404722,
             "name": "New Amsterdam Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408012,
+            "upc": 408012,
             "name": "New Amsterdam Passionfruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404723,
+            "upc": 404723,
             "name": "New Amsterdam Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404724,
+            "upc": 404724,
             "name": "New Amsterdam Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404922,
+            "upc": 404922,
             "name": "New Amsterdam Pink Whitney",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404725,
+            "upc": 404725,
             "name": "New Amsterdam Red berry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404726,
+            "upc": 404726,
             "name": "New Amsterdam Resberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404727,
+            "upc": 404727,
             "name": "New Amsterdam Watermelon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404253,
+            "upc": 404253,
             "name": "Nikolai",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404909,
+            "upc": 404909,
             "name": "Nocheluna Sotol",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404129,
+            "upc": 404129,
             "name": "Northern Light",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404910,
+            "upc": 404910,
             "name": "Ojo De Tigre",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404246,
+            "upc": 404246,
             "name": "Old Crow",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404304,
+            "upc": 404304,
             "name": "Ole Smoky Moonshine",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404936,
+            "upc": 404936,
             "name": "Ole Smoky Tennessee Whiskey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404289,
+            "upc": 404289,
             "name": "Olmeca Altos",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404729,
+            "upc": 404729,
             "name": "Patron A\u00f1ejo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404730,
+            "upc": 404730,
             "name": "Patron Extra A\u00f1ejo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404731,
+            "upc": 404731,
             "name": "Patron Silver",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404732,
+            "upc": 404732,
             "name": "Patron Citronge",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404911,
+            "upc": 404911,
             "name": "Pernod",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404733,
+            "upc": 404733,
             "name": "Roca Patron A\u00f1ejo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404734,
+            "upc": 404734,
             "name": "Roca Patron Resposado",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404735,
+            "upc": 404735,
             "name": "Roca Patron Silver",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404736,
+            "upc": 404736,
             "name": "Gran Patron Burdeos",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404737,
+            "upc": 404737,
             "name": "Gran Patron Piedra",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404738,
+            "upc": 404738,
             "name": "Gran Patron Platinum",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404739,
+            "upc": 404739,
             "name": "Gran Patron Smoky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404740,
+            "upc": 404740,
             "name": "Patron XO Caf\u00e9",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404133,
+            "upc": 404133,
             "name": "Paul Masson",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404134,
+            "upc": 404134,
             "name": "Phillips",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404742,
+            "upc": 404742,
             "name": "Pinnacle Vodka 100 Proof",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404743,
+            "upc": 404743,
             "name": "Pinnacle Vodka Original",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404744,
+            "upc": 404744,
             "name": "Pinnacle Berry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404745,
+            "upc": 404745,
             "name": "Pinnacle Blueberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404746,
+            "upc": 404746,
             "name": "Pinnacle Cake",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404747,
+            "upc": 404747,
             "name": "Pinnacle Cherry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404748,
+            "upc": 404748,
             "name": "Pinnacle Chocolate Whipped",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404749,
+            "upc": 404749,
             "name": "Pinnacle Citrus",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404750,
+            "upc": 404750,
             "name": "Pinnacle Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404751,
+            "upc": 404751,
             "name": "Pinnacle Cucumber",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404752,
+            "upc": 404752,
             "name": "Pinnacle Grape",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408013,
+            "upc": 408013,
             "name": "Pinnacle Grapefruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408014,
+            "upc": 408014,
             "name": "Pinnacle Habanero",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404753,
+            "upc": 404753,
             "name": "Pinnacle Kiwi Strawberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408015,
+            "upc": 408015,
             "name": "Pinnacle Light & Ripe Guava Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408016,
+            "upc": 408016,
             "name": "Pinnacle Light & Ripe Apricot Honeysuckle",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404754,
+            "upc": 404754,
             "name": "Pinnacle Mango",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404755,
+            "upc": 404755,
             "name": "Pinnacle Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404756,
+            "upc": 404756,
             "name": "Pinnacle Orange Whipped",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404757,
+            "upc": 404757,
             "name": "Pinnacle Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404758,
+            "upc": 404758,
             "name": "Pinnacle Pinapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404759,
+            "upc": 404759,
             "name": "Pinnacle Raspberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404760,
+            "upc": 404760,
             "name": "Pinnacle Red Berry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404761,
+            "upc": 404761,
             "name": "Pinnacle Ruby Red Grapefruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404762,
+            "upc": 404762,
             "name": "Pinnacle Salted Caramel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408017,
+            "upc": 408017,
             "name": "Pinnacle Tropical",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404763,
+            "upc": 404763,
             "name": "Pinnacle Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404135,
+            "upc": 404135,
             "name": "Pinnacle Whipped Cream",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404323,
+            "upc": 404323,
             "name": "Platinum 7X",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404964,
+            "upc": 404964,
             "name": "Platinum 10X",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404467,
+            "upc": 404467,
             "name": "Platinum V",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404137,
+            "upc": 404137,
             "name": "Popov",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404190,
+            "upc": 404190,
             "name": "Potter's",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404138,
+            "upc": 404138,
             "name": "Presidente",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404139,
+            "upc": 404139,
             "name": "Prestige",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404140,
+            "upc": 404140,
             "name": "Raynal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404214,
+            "upc": 404214,
             "name": "Rebel Yell",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404141,
+            "upc": 404141,
             "name": "Red Stag",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404142,
+            "upc": 404142,
             "name": "Remy Martin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404954,
+            "upc": 404954,
             "name": "Remy VS",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404955,
+            "upc": 404955,
             "name": "Remy VSOP",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404956,
+            "upc": 404956,
             "name": "Remy XO",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404556,
+            "upc": 404556,
             "name": "Ricard",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404143,
+            "upc": 404143,
             "name": "Rich And Rare",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404205,
+            "upc": 404205,
             "name": "Ronrico",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404826,
+            "upc": 404826,
             "name": "Roku Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404557,
+            "upc": 404557,
             "name": "Royal Salute",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404144,
+            "upc": 404144,
             "name": "Rum Chata",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404215,
+            "upc": 404215,
             "name": "Russian Standard",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404206,
+            "upc": 404206,
             "name": "Ryan's",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404145,
+            "upc": 404145,
             "name": "Sailor Jerry Spiced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404147,
+            "upc": 404147,
             "name": "Salignac",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404148,
+            "upc": 404148,
             "name": "Sauza Hornitos",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404912,
+            "upc": 404912,
             "name": "Scapa",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404150,
+            "upc": 404150,
             "name": "Scoresby",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404151,
+            "upc": 404151,
             "name": "Seagram's 7 Crown Whiskey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404764,
+            "upc": 404764,
             "name": "Seagram's Extra Dry Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404765,
+            "upc": 404765,
             "name": "Seagram's Apple Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408018,
+            "upc": 408018,
             "name": "Seagram's Distiller's Reserve Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404766,
+            "upc": 404766,
             "name": "Seagram's Grape Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404767,
+            "upc": 404767,
             "name": "Seagram's Lime Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404768,
+            "upc": 404768,
             "name": "Seagram's Melon Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404769,
+            "upc": 404769,
             "name": "Seagram's Peach Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404770,
+            "upc": 404770,
             "name": "Seagram's Pineapple Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404771,
+            "upc": 404771,
             "name": "Seagram's Red Berry Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404772,
+            "upc": 404772,
             "name": "Seagram's Watermelon Twisted Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404152,
+            "upc": 404152,
             "name": "Seagram's V O Canadian Whisky",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404153,
+            "upc": 404153,
             "name": "Seagram's Extra Smooth Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404773,
+            "upc": 404773,
             "name": "Seagram's 100 Proof Platinum Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404774,
+            "upc": 404774,
             "name": "Seagram's Apple Flavored Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404775,
+            "upc": 404775,
             "name": "Seagram's Grapefruit Flavored Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404776,
+            "upc": 404776,
             "name": "Seagram's Lime Flavored Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404777,
+            "upc": 404777,
             "name": "Seagram's Peach Flavored Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404778,
+            "upc": 404778,
             "name": "Seagram's Pineapple Flavored Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404779,
+            "upc": 404779,
             "name": "Seagram's Sweet Tea Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404155,
+            "upc": 404155,
             "name": "Skol",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404405,
+            "upc": 404405,
             "name": "Skrewball Peanut Butter Whiskey",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404780,
+            "upc": 404780,
             "name": "Skyy Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408019,
+            "upc": 408019,
             "name": "Skyy Infusions Agave Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404781,
+            "upc": 404781,
             "name": "Skyy Infusions Blood Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404782,
+            "upc": 404782,
             "name": "Skyy Infusions Citrus",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408020,
+            "upc": 408020,
             "name": "Skyy Infusions Espresso",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404783,
+            "upc": 404783,
             "name": "Skyy Infusions Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404784,
+            "upc": 404784,
             "name": "Skyy Infusions Watermelon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404437,
+            "upc": 404437,
             "name": "Smirnoff Double Black",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404159,
+            "upc": 404159,
             "name": "Smirnoff No. 21 Vodka (Red Label)",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408021,
+            "upc": 408021,
             "name": "Smirnoff Blue Raspberry Lemonade",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404438,
+            "upc": 404438,
             "name": "Smirnoff Blueberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404439,
+            "upc": 404439,
             "name": "Smirnoff Cherry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404440,
+            "upc": 404440,
             "name": "Smirnoff Citrus",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404441,
+            "upc": 404441,
             "name": "Smirnoff Grapefruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404442,
+            "upc": 404442,
             "name": "Smirnoff Green Apple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404523,
+            "upc": 404523,
             "name": "Smirnoff Kissed Caramel",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404443,
+            "upc": 404443,
             "name": "Smirnoff Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404444,
+            "upc": 404444,
             "name": "Smirnoff Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408022,
+            "upc": 408022,
             "name": "Smirnoff Peach Lemonade",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408023,
+            "upc": 408023,
             "name": "Smirnoff Pink Lemonade",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404445,
+            "upc": 404445,
             "name": "Smirnoff Raspberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408024,
+            "upc": 408024,
             "name": "Smirnoff Red, White & Berry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408025,
+            "upc": 408025,
             "name": "Smirnoff Spicy Tamarind",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404446,
+            "upc": 404446,
             "name": "Smirnoff Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404447,
+            "upc": 404447,
             "name": "Smirnoff Watermelon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404854,
+            "upc": 404854,
             "name": "Smirnoff Whipped Cream",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404448,
+            "upc": 404448,
             "name": "Smirnoff Sorbet Light Mango Passion Fruit",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404449,
+            "upc": 404449,
             "name": "Smirnoff Sorbet Light Pineapple Coconut",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404450,
+            "upc": 404450,
             "name": "Smirnoff Sorbet Light Raspberry Pomegranate",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404451,
+            "upc": 404451,
             "name": "Smirnoff Sorbet Light Summer Strawberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404452,
+            "upc": 404452,
             "name": "Smirnoff Sorbet Light White Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404307,
+            "upc": 404307,
             "name": "Smirnoff Sourced",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408026,
+            "upc": 408026,
             "name": "Smirnoff Zero Sugar Infusions Cucumber & Lime ",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408027,
+            "upc": 408027,
             "name": "Smirnoff Zero Sugar Infusions Lemon & Elderflower ",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408028,
+            "upc": 408028,
             "name": "Smirnoff Zero Sugar Infusions Strawberry & Rosa ",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408029,
+            "upc": 408029,
             "name": "Smirnoff Zero Sugar Infusions Watermelon & Mint ",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404913,
+            "upc": 404913,
             "name": "Smithworks - Spirits",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404914,
+            "upc": 404914,
             "name": "Smooth Ambler",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404162,
+            "upc": 404162,
             "name": "Sobieski",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404871,
+            "upc": 404871,
             "name": "Sombra - Mezcal",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404163,
+            "upc": 404163,
             "name": "Southern Comfort",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404915,
+            "upc": 404915,
             "name": "Spot",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404164,
+            "upc": 404164,
             "name": "St Remy",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404165,
+            "upc": 404165,
             "name": "Stolichnaya",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404916,
+            "upc": 404916,
             "name": "Suze",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404786,
+            "upc": 404786,
             "name": "Svedka Vodka 80 Proof",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404346,
+            "upc": 404346,
             "name": "Svedka 100 Proof",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404787,
+            "upc": 404787,
             "name": "Svedka Blue Respberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404166,
+            "upc": 404166,
             "name": "Svedka Cherry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404788,
+            "upc": 404788,
             "name": "Svedka Cherry Lemonade",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404167,
+            "upc": 404167,
             "name": "Svedka Citron",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404168,
+            "upc": 404168,
             "name": "Svedka Clementine",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404169,
+            "upc": 404169,
             "name": "Svedka Colada",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404789,
+            "upc": 404789,
             "name": "Svedka Cucumber Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404790,
+            "upc": 404790,
             "name": "Svedka Dragonfruit Melon",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404791,
+            "upc": 404791,
             "name": "Svedka Ginger Lime",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404170,
+            "upc": 404170,
             "name": "Svedka Grape",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404792,
+            "upc": 404792,
             "name": "Svedka Mango Pineapple",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408030,
+            "upc": 408030,
             "name": "Svedka Modern Style Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404793,
+            "upc": 404793,
             "name": "Svedka Peach",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404171,
+            "upc": 404171,
             "name": "Svedka Raspberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404347,
+            "upc": 404347,
             "name": "Svedka Ros\u00e9",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404794,
+            "upc": 404794,
             "name": "Svedka Strawberry Guava",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404795,
+            "upc": 404795,
             "name": "Svedka Strawberry Lemonade",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404172,
+            "upc": 404172,
             "name": "Svedka Vanilla",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404174,
+            "upc": 404174,
             "name": "Taaka Platinum",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404943,
+            "upc": 404943,
             "name": "Talisker",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404796,
+            "upc": 404796,
             "name": "Tanqueray London Dry Gin",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404797,
+            "upc": 404797,
             "name": "Tanqueray No Ten",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404798,
+            "upc": 404798,
             "name": "Tanqueray Rangpur",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 408031,
+            "upc": 408031,
             "name": "Tanqueray Sevilla Orange",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404177,
+            "upc": 404177,
             "name": "Ten High",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404342,
+            "upc": 404342,
             "name": "Tequila Corralejo",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404838,
+            "upc": 404838,
             "name": "The Singleton",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404179,
+            "upc": 404179,
             "name": "Three Olives",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404178,
+            "upc": 404178,
             "name": "Tia Maria",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404180,
+            "upc": 404180,
             "name": "Tito's",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404972,
+            "upc": 404972,
             "name": "Truly Flavored Vodka",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404272,
+            "upc": 404272,
             "name": "Tullamore Dew",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404182,
+            "upc": 404182,
             "name": "Uv Blue Raspberry",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404184,
+            "upc": 404184,
             "name": "Vitali",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404935,
+            "upc": 404935,
             "name": "White Claw - Spirits",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404185,
+            "upc": 404185,
             "name": "Wild Turkey 101 Proof",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404187,
+            "upc": 404187,
             "name": "Windsor Canadian",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404188,
+            "upc": 404188,
             "name": "Wolfschmidt",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404216,
+            "upc": 404216,
             "name": "Woodford Reserve",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 404241,
+            "upc": 404241,
             "name": "Yukon Jack",
-            "Category": "Spirits"
+            "category": "Spirits"
         },
         {
-            "UPC": 599997,
+            "upc": 599997,
             "name": "Made/Brewed at home non-alcoholic coctails",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550001,
+            "upc": 550001,
             "name": "Beckett's Non-Alcoholic Gin & Tonic",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550002,
+            "upc": 550002,
             "name": "Beckett's Non-Alcoholic La Paloma",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550003,
+            "upc": 550003,
             "name": "Beckett's Non-Alcoholic Lime Margarita",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550004,
+            "upc": 550004,
             "name": "Beckett's Non-Alcoholic Moscow Mule",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550005,
+            "upc": 550005,
             "name": "Cann Non-Alcoholic Unspiked Blood Orange Cardamom",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550006,
+            "upc": 550006,
             "name": "Cann Non-Alcoholic Unspiked Ginger Lemongrass",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550007,
+            "upc": 550007,
             "name": "Cann Non-Alcoholic Unspiked Grapefruit Rosemary",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550008,
+            "upc": 550008,
             "name": "Cann Non-Alcoholic Unspiked Lemon Lavender",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550009,
+            "upc": 550009,
             "name": "De Soi Non-Alcoholic Champigon Dreams",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550010,
+            "upc": 550010,
             "name": "De Soi Non-Alcoholic Golden Hour",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550011,
+            "upc": 550011,
             "name": "De Soi Non-Alcoholic Purple Lune",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550012,
+            "upc": 550012,
             "name": "Fauxmosa Cranberry Hibiscus & Ginger Non-Alcoholic Mimosa",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550013,
+            "upc": 550013,
             "name": "Fauxmosa Grapefruit Raspberry & Holy Basil Non-Alcoholic Mimosa",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550014,
+            "upc": 550014,
             "name": "Fauxmosa Orange with Turmeric Non-Alcoholic Mimosa",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550015,
+            "upc": 550015,
             "name": "Fauxmosa Pineapple Lemon & Mint Non-Alcoholic Mimosa",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550016,
+            "upc": 550016,
             "name": "Improv Cocktails Non-Alcoholic Cucumber G&T",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550017,
+            "upc": 550017,
             "name": "Improv Cocktails Non-Alcoholic Grapefruit Paloma",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550018,
+            "upc": 550018,
             "name": "Improv Cocktails Non-Alcoholic Kentucky Mule",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550019,
+            "upc": 550019,
             "name": "Improv Cocktails Non-Alcoholic Lime Margarita",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550020,
+            "upc": 550020,
             "name": "Improv Cocktails Non-Alcoholic Tropical Mai-Tai",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550021,
+            "upc": 550021,
             "name": "Lyre's Non-Alcoholic Amalfi Spritz",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550022,
+            "upc": 550022,
             "name": "Lyre's Non-Alcoholic American Malt & Cola",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550023,
+            "upc": 550023,
             "name": "Lyre's Non-Alcoholic Dark N' Spicy Cocktail",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550024,
+            "upc": 550024,
             "name": "Lyre's Non-Alcoholic G &T",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550025,
+            "upc": 550025,
             "name": "Martini & Rossi Floreale Non Alcoholic",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550026,
+            "upc": 550026,
             "name": "Martini & Rossi Vibrante Non Alcoholic",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550027,
+            "upc": 550027,
             "name": "Mingle Non-Alcoholic Blackberry Hibiscus Bellini",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550028,
+            "upc": 550028,
             "name": "Mingle Non-Alcoholic Blood Orange Elderflower Mimosa",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550029,
+            "upc": 550029,
             "name": "Mingle Non-Alcoholic Cranberry Cosmo",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550030,
+            "upc": 550030,
             "name": "Mingle Non-Alcoholic Cucumber Melon Mojito",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 550031,
+            "upc": 550031,
             "name": "Spiritless Non-Alcoholic Whiskey Sour",
-            "Category": "Non-Alcoholic_PMC"
+            "category": "Non-Alcoholic_PMC"
         },
         {
-            "UPC": 699997,
+            "upc": 699997,
             "name": "Made/Brewed at home non-alcoholic beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600001,
+            "upc": 600001,
             "name": "American IPA Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600002,
+            "upc": 600002,
             "name": "Athletic  All Out Stout Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600003,
+            "upc": 600003,
             "name": "Athletic Cerveza Atletica Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600004,
+            "upc": 600004,
             "name": "Athletic First Ride Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600005,
+            "upc": 600005,
             "name": "Athletic Lite Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600006,
+            "upc": 600006,
             "name": "Athletic Run Wild IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600007,
+            "upc": 600007,
             "name": "Athletic Wit's Peak Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600008,
+            "upc": 600008,
             "name": "Atmos Alturas Golden Ale Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600009,
+            "upc": 600009,
             "name": "Atmos Kora Double Hop IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600010,
+            "upc": 600010,
             "name": "Atmos Wayfarer IPA Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600011,
+            "upc": 600011,
             "name": "Beck's Beer Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600012,
+            "upc": 600012,
             "name": "Best Day Kolsch Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600013,
+            "upc": 600013,
             "name": "Best Day West Coast IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600014,
+            "upc": 600014,
             "name": "Bitburger Drive Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600015,
+            "upc": 600015,
             "name": "Boulevard Flying Start IPA Non Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600016,
+            "upc": 600016,
             "name": "Bravus  IPA Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600017,
+            "upc": 600017,
             "name": "Bravus Amber Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600018,
+            "upc": 600018,
             "name": "Bravus Blonde Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600019,
+            "upc": 600019,
             "name": "Bravus Blood Orange IPA Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600020,
+            "upc": 600020,
             "name": "Bravus IPA Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600021,
+            "upc": 600021,
             "name": "Bravus Oatmeal Dark Stout Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600022,
+            "upc": 600022,
             "name": "Bravus Oatmeal Stout Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600023,
+            "upc": 600023,
             "name": "Bravus Raspberry Gose Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600024,
+            "upc": 600024,
             "name": "BrewDog Elvis AF Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600025,
+            "upc": 600025,
             "name": "BrewDog Elvis AF Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600026,
+            "upc": 600026,
             "name": "BrewDog Hazy AF Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600027,
+            "upc": 600027,
             "name": "BrewDog Punk AF Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600028,
+            "upc": 600028,
             "name": "BrewDog Seasonal AF Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600029,
+            "upc": 600029,
             "name": "Brooklyn Special Effects Pilsner Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600030,
+            "upc": 600030,
             "name": "Buckler Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600031,
+            "upc": 600031,
             "name": "Budweiser Zero Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600032,
+            "upc": 600032,
             "name": "Busch Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600033,
+            "upc": 600033,
             "name": "Busty Lush Non-Alcoholic She's Divine Oatmeal Dark",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600034,
+            "upc": 600034,
             "name": "CERIA Grainwave Belgian White Ale Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600035,
+            "upc": 600035,
             "name": "CERIA Indiewave Non-Alcoholic IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600036,
+            "upc": 600036,
             "name": "Citrus Wheat Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600037,
+            "upc": 600037,
             "name": "Clausthaler Dry Hopped Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600038,
+            "upc": 600038,
             "name": "Clausthaler Grapefruit Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600039,
+            "upc": 600039,
             "name": "Clausthaler Original Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600040,
+            "upc": 600040,
             "name": "Clausthaler Santa Clausthaler Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600041,
+            "upc": 600041,
             "name": "Coors Edge Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600113,
+            "upc": 600113,
             "name": "Corona Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600042,
+            "upc": 600042,
             "name": "Deschutes Non-Alcoholic Black Butte",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600114,
+            "upc": 600114,
             "name": "Dos Equis Lime & Salt Zero Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600043,
+            "upc": 600043,
             "name": "Erdinger Weissbier Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600044,
+            "upc": 600044,
             "name": "Estrella Galicia 0.0 Non-Alcoholic Lager",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600045,
+            "upc": 600045,
             "name": "Genesee Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600046,
+            "upc": 600046,
             "name": "Golden Road Mango Cart Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600047,
+            "upc": 600047,
             "name": "Gruvi Golden Lager Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600048,
+            "upc": 600048,
             "name": "Gruvi IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600049,
+            "upc": 600049,
             "name": "Gruvi Non Alcoholic Mocha Nitro Stout",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600050,
+            "upc": 600050,
             "name": "Gruvi Non-Alcoholic Juicy IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600051,
+            "upc": 600051,
             "name": "Gruvi Stout Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600052,
+            "upc": 600052,
             "name": "Guinness Draught Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600053,
+            "upc": 600053,
             "name": "H2Ops Hop Water Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600054,
+            "upc": 600054,
             "name": "Hairless Dog 0.0 Non-Alcoholic Citra Lager",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600055,
+            "upc": 600055,
             "name": "Hairless Dog 0.0 Non-Alcoholic IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600056,
+            "upc": 600056,
             "name": "Heineken 0.0 Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600057,
+            "upc": 600057,
             "name": "HOP WTR  Blood Orange Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600058,
+            "upc": 600058,
             "name": "HOP WTR Non-Alcoholic Classic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600059,
+            "upc": 600059,
             "name": "HOP WTR Non-Alcoholic Lime",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600060,
+            "upc": 600060,
             "name": "HOP WTR Non-Alcoholic Mango ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600061,
+            "upc": 600061,
             "name": "Hoplark 0.0 Citra Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600062,
+            "upc": 600062,
             "name": "Hoplark 0.0 The Really Really Hoppy One Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600063,
+            "upc": 600063,
             "name": "Kaliber Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600064,
+            "upc": 600064,
             "name": "Karbach Free and Easy Non-Alcoholic IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600065,
+            "upc": 600065,
             "name": "Krombacher Non-Alcoholic Weizen",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600066,
+            "upc": 600066,
             "name": "Labatt Blue Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600067,
+            "upc": 600067,
             "name": "Lagunitas Hoppy Refresher Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600068,
+            "upc": 600068,
             "name": "Lagunitas IPNA IPA Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600069,
+            "upc": 600069,
             "name": "Lagunitas Non-Alcoholic Hoppy Refresher",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600070,
+            "upc": 600070,
             "name": "Moritz 0.0 Lager Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600071,
+            "upc": 600071,
             "name": "O'Doul's Amber Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600072,
+            "upc": 600072,
             "name": "O'Doul's Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600073,
+            "upc": 600073,
             "name": "Old Milwaukee Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600074,
+            "upc": 600074,
             "name": "Omission Bright Eyed IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600075,
+            "upc": 600075,
             "name": "Omission Non-Alcoholic Good To Go Golden",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600076,
+            "upc": 600076,
             "name": "Pabst Blue Ribbon Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600077,
+            "upc": 600077,
             "name": "Partake Blonde Ale Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600078,
+            "upc": 600078,
             "name": "Partake Hazy IPA Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600079,
+            "upc": 600079,
             "name": "Partake IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600080,
+            "upc": 600080,
             "name": "Partake Non-Alcoholic Lime",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600081,
+            "upc": 600081,
             "name": "Partake Non-Alcoholic Peach Gose",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600082,
+            "upc": 600082,
             "name": "Partake Pale Ale Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600083,
+            "upc": 600083,
             "name": "Partake Red Ale Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600084,
+            "upc": 600084,
             "name": "Partake Stout Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600085,
+            "upc": 600085,
             "name": "Paulaner Weizen Radler Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600086,
+            "upc": 600086,
             "name": "Penn's Best Lager Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600087,
+            "upc": 600087,
             "name": "Samuel Adams Just the Haze Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600088,
+            "upc": 600088,
             "name": "Samuel Adams Non-Alcoholic Gold Rush",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600089,
+            "upc": 600089,
             "name": "Sierra Nevada Hop Splash Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600090,
+            "upc": 600090,
             "name": "Sober Carpenter Irish Red Ale Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600091,
+            "upc": 600091,
             "name": "Sober Carpenter Non-Alcoholic IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600092,
+            "upc": 600092,
             "name": "Sober Carpenter White Ale Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600093,
+            "upc": 600093,
             "name": "St Pauli Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600094,
+            "upc": 600094,
             "name": "Summit Non-Alcoholic Nialas IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600095,
+            "upc": 600095,
             "name": "Summit Non-Alcoholic Nialas Irish Dark",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600096,
+            "upc": 600096,
             "name": "Surreal Mavs Hazy IPA Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600097,
+            "upc": 600097,
             "name": "Surreal Natural Bridge Kolsch Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600098,
+            "upc": 600098,
             "name": "Surreal Non-Alcoholic 17 Mile Porter",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600099,
+            "upc": 600099,
             "name": "Surreal Non-Alcoholic Red IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600100,
+            "upc": 600100,
             "name": "Texas Select Non-Alcoholic Beer",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600101,
+            "upc": 600101,
             "name": "Two Roots Non-Alcoholic Enough Said Lager",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600102,
+            "upc": 600102,
             "name": "Two Roots Non-Alcoholic Straight Drank IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600103,
+            "upc": 600103,
             "name": "Uncool Non-Alcoholic Hazy IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600104,
+            "upc": 600104,
             "name": "Uncool Non-Alcoholic IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600105,
+            "upc": 600105,
             "name": "Untitled Art Non-Alcoholic Juicy IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600106,
+            "upc": 600106,
             "name": "Untitled Art Non-Alcoholic West Coast IPA",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600107,
+            "upc": 600107,
             "name": "Weihenstephaner Hefe Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600108,
+            "upc": 600108,
             "name": "Wellbeing Golden Wheat Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600109,
+            "upc": 600109,
             "name": "Wellbeing Hellraiser Amber Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600110,
+            "upc": 600110,
             "name": "Wellbeing Intentional IPA Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600111,
+            "upc": 600111,
             "name": "Wellbeing Non-Alcoholic Madagascar Vanilla Cream Ale",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 600112,
+            "upc": 600112,
             "name": "Wellbeing Victory Wheat Non-Alcoholic",
-            "Category": "Non-Alcoholic_Beer"
+            "category": "Non-Alcoholic_Beer"
         },
         {
-            "UPC": 799997,
+            "upc": 799997,
             "name": "Made/Brewed at home non-alcoholic wine",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 700001,
+            "upc": 700001,
             "name": "Giesen Marlborough Sauvignon Blanc 0% Alcohol",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 700002,
+            "upc": 700002,
             "name": "Gruvi Bubbly Rose Non-Alcoholic",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 700003,
+            "upc": 700003,
             "name": "Gruvi Dry Secco Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 700004,
+            "upc": 700004,
             "name": "Gruvi Red Blend Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 700005,
+            "upc": 700005,
             "name": "Lyre's Classico Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 700006,
+            "upc": 700006,
             "name": "Stella Rosa Non-Alcoholic",
-            "Category": "Non-Alcoholic_Wine"
+            "category": "Non-Alcoholic_Wine"
         },
         {
-            "UPC": 899997,
+            "upc": 899997,
             "name": "Made/Brewed at home non-alcoholic spirits",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800001,
+            "upc": 800001,
             "name": "Beckett's '27 Non-Alcoholic Amaretto",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800002,
+            "upc": 800002,
             "name": "Beckett's '27 Non-Alcoholic Cinnamon Whiskey",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800003,
+            "upc": 800003,
             "name": "Beckett's '27 Non-Alcoholic Coconut Rum",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800004,
+            "upc": 800004,
             "name": "Beckett's '27 Non-Alcoholic Coffee Liqueur",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800005,
+            "upc": 800005,
             "name": "Clausthaler Grapefruit Non-Alcoholic Rum",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800023,
+            "upc": 800023,
             "name": "Curious Elixirs Non-Alcoholic",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800006,
+            "upc": 800006,
             "name": "Dhos Bittersweet Non-Alcoholic Aperitif ",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800007,
+            "upc": 800007,
             "name": "Dhos Orange Non-Alcoholic Liqueur",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800008,
+            "upc": 800008,
             "name": "Free Spirits The Spirit of Bourbon (Non-Alcoholic)",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800009,
+            "upc": 800009,
             "name": "Free Spirits The Spirit of Gin (Non-Alcoholic)",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800010,
+            "upc": 800010,
             "name": "Free Spirits The Spirit of Milano (Non-Alcoholic)",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800011,
+            "upc": 800011,
             "name": "Free Spirits The Spirit of Tequila (Non-Alcoholic)",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800012,
+            "upc": 800012,
             "name": "Ritual Zero Proof Gin Non-Alcoholic ",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800013,
+            "upc": 800013,
             "name": "Ritual Zero Proof Non-Alcoholic Rum",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800014,
+            "upc": 800014,
             "name": "Ritual Zero Proof Non-Alcoholic Tequila",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800015,
+            "upc": 800015,
             "name": "Ritual Zero Proof Non-Alcoholic Whiskey",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800016,
+            "upc": 800016,
             "name": "Seedlip Garden 108 Non-Alcoholic Spirit",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800017,
+            "upc": 800017,
             "name": "Seedlip Grove 42 Non-Alcoholic Spirit",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800018,
+            "upc": 800018,
             "name": "Seedlip Spice 94 Non-Alcoholic Spirit",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800019,
+            "upc": 800019,
             "name": "Spiritless Jalisco 55 Non-Alcoholic Tequila",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800020,
+            "upc": 800020,
             "name": "Spiritless Kentucky 74 Non-Alcoholic Bourbon",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800021,
+            "upc": 800021,
             "name": "Spiritless Non-Alcoholic Old Fashioned",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 800022,
+            "upc": 800022,
             "name": "Wilderton Non-Alcoholic Earthen Botanical Spirit",
-            "Category": "Non-Alcoholic_Spirits"
+            "category": "Non-Alcoholic_Spirits"
         },
         {
-            "UPC": 1,
+            "upc": 1,
             "name": "Adult Milk",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 2,
+            "upc": 2,
             "name": "Alabama Slammer",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 3,
+            "upc": 3,
             "name": "Amaretto Sour",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 4,
+            "upc": 4,
             "name": "Aqua Fresa",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 5,
+            "upc": 5,
             "name": "Aviation Cocktail",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 6,
+            "upc": 6,
             "name": "Bahama Mama",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 7,
+            "upc": 7,
             "name": "Bay Breeze",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 8,
+            "upc": 8,
             "name": "Bee's Knees",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 9,
+            "upc": 9,
             "name": "Blood & Sand",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 10,
+            "upc": 10,
             "name": "Bloody Maria",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 11,
+            "upc": 11,
             "name": "Bloody Mary",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 12,
+            "upc": 12,
             "name": "Blue Hawaiian",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 13,
+            "upc": 13,
             "name": "Boulevardier",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 14,
+            "upc": 14,
             "name": "Bramble",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 15,
+            "upc": 15,
             "name": "Chocolate Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 16,
+            "upc": 16,
             "name": "Citrus Gold Rush ",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 17,
+            "upc": 17,
             "name": "Coco Lime Smash",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 18,
+            "upc": 18,
             "name": "Coconut Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 19,
+            "upc": 19,
             "name": "Cold Brew",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 20,
+            "upc": 20,
             "name": "Cosmo",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 21,
+            "upc": 21,
             "name": "Cosmopolitan",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 22,
+            "upc": 22,
             "name": "Cranberry Sidecar ",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 23,
+            "upc": 23,
             "name": "Cuba Libre",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 24,
+            "upc": 24,
             "name": "Daiquiri",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 25,
+            "upc": 25,
             "name": "Dark And Stormy",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 26,
+            "upc": 26,
             "name": "Dirty Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 27,
+            "upc": 27,
             "name": "Eggnog",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 28,
+            "upc": 28,
             "name": "Electric Lemonade",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 29,
+            "upc": 29,
             "name": "Espresso Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 30,
+            "upc": 30,
             "name": "Flavored Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 31,
+            "upc": 31,
             "name": "French 75",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 32,
+            "upc": 32,
             "name": "French Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 33,
+            "upc": 33,
             "name": "Gibson",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 34,
+            "upc": 34,
             "name": "Gimlet",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 35,
+            "upc": 35,
             "name": "Gin & Juice",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 36,
+            "upc": 36,
             "name": "Gin And Tonic",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 37,
+            "upc": 37,
             "name": "Gin Fizz",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 38,
+            "upc": 38,
             "name": "Gold Rush",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 39,
+            "upc": 39,
             "name": "Highball",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 40,
+            "upc": 40,
             "name": "Hot Toddy",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 41,
+            "upc": 41,
             "name": "Hurricane",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 42,
+            "upc": 42,
             "name": "Irish Coffee",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 43,
+            "upc": 43,
             "name": "Irish Lemonade",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 44,
+            "upc": 44,
             "name": "Jalapeno Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 45,
+            "upc": 45,
             "name": "Jameson Ginger & Lime",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 46,
+            "upc": 46,
             "name": "Juan Daly",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 47,
+            "upc": 47,
             "name": "Kamikaze",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 48,
+            "upc": 48,
             "name": "Kentucky Mule",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 49,
+            "upc": 49,
             "name": "Lemon Drop",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 50,
+            "upc": 50,
             "name": "Lemon Drop Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 51,
+            "upc": 51,
             "name": "Long Island Iced Tea",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 52,
+            "upc": 52,
             "name": "Lychee Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 53,
+            "upc": 53,
             "name": "Mai Tai",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 54,
+            "upc": 54,
             "name": "Malibu + Pineapple",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 55,
+            "upc": 55,
             "name": "Malibu Soda (especially flavors)",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 56,
+            "upc": 56,
             "name": "Mango Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 57,
+            "upc": 57,
             "name": "Manhattan",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 58,
+            "upc": 58,
             "name": "Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 59,
+            "upc": 59,
             "name": "Martell Press ",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 60,
+            "upc": 60,
             "name": "Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 61,
+            "upc": 61,
             "name": "Mexican Coffee",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 62,
+            "upc": 62,
             "name": "Mexican Mule",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 63,
+            "upc": 63,
             "name": "Michelada",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 64,
+            "upc": 64,
             "name": "Mimosa",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 65,
+            "upc": 65,
             "name": "Mint Julep",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 66,
+            "upc": 66,
             "name": "Mojito",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 67,
+            "upc": 67,
             "name": "Moscow Mule",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 68,
+            "upc": 68,
             "name": "Mudslide",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 69,
+            "upc": 69,
             "name": "Mule",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 70,
+            "upc": 70,
             "name": "Negroni",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 71,
+            "upc": 71,
             "name": "Nutty Cola",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 72,
+            "upc": 72,
             "name": "Nutty Irishman",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 73,
+            "upc": 73,
             "name": "Old Fashioned",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 74,
+            "upc": 74,
             "name": "Painkiller",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 75,
+            "upc": 75,
             "name": "Paloma",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 76,
+            "upc": 76,
             "name": "Paper Plane",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 77,
+            "upc": 77,
             "name": "Passion Fruit Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 78,
+            "upc": 78,
             "name": "PB&J shot",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 79,
+            "upc": 79,
             "name": "Peanut Butter Espresso Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 80,
+            "upc": 80,
             "name": "Pimm's Cup",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 81,
+            "upc": 81,
             "name": "Pina Colada",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 82,
+            "upc": 82,
             "name": "Pineapple Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 83,
+            "upc": 83,
             "name": "Planters Punch",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 84,
+            "upc": 84,
             "name": "Prickly Pear Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 85,
+            "upc": 85,
             "name": "Punch",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 86,
+            "upc": 86,
             "name": "Ranch Water",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 87,
+            "upc": 87,
             "name": "Rob Roy",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 88,
+            "upc": 88,
             "name": "Rum & Coke",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 89,
+            "upc": 89,
             "name": "Rum Punch",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 90,
+            "upc": 90,
             "name": "Rum Runner",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 91,
+            "upc": 91,
             "name": "Salty Nuts shot",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 92,
+            "upc": 92,
             "name": "Sangria",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 93,
+            "upc": 93,
             "name": "Sazerac",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 94,
+            "upc": 94,
             "name": "Scotch & Soda Highball",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 95,
+            "upc": 95,
             "name": "Scotch Negroni",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 96,
+            "upc": 96,
             "name": "Screwdriver",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 97,
+            "upc": 97,
             "name": "Sea Breeze",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 98,
+            "upc": 98,
             "name": "Sex On The Beach",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 99,
+            "upc": 99,
             "name": "Sidecar",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 100,
+            "upc": 100,
             "name": "Singapore Sling",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 101,
+            "upc": 101,
             "name": "Skinny Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 102,
+            "upc": 102,
             "name": "Smash",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 103,
+            "upc": 103,
             "name": "Spanish Coffee",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 104,
+            "upc": 104,
             "name": "Sparkling Gold Rush",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 105,
+            "upc": 105,
             "name": "Spicy Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 106,
+            "upc": 106,
             "name": "Spritz",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 107,
+            "upc": 107,
             "name": "Spritzer",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 108,
+            "upc": 108,
             "name": "Strawberry Daiquiri",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 109,
+            "upc": 109,
             "name": "Strawberry Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 110,
+            "upc": 110,
             "name": "Swift Sour ",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 111,
+            "upc": 111,
             "name": "Tequila Sunrise",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 112,
+            "upc": 112,
             "name": "The Glenlivet Royale ",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 113,
+            "upc": 113,
             "name": "Tiki",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 114,
+            "upc": 114,
             "name": "Tom Collins",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 115,
+            "upc": 115,
             "name": "Vampiro Cocktail",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 116,
+            "upc": 116,
             "name": "Vesper",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 117,
+            "upc": 117,
             "name": "Vodka & Coke",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 118,
+            "upc": 118,
             "name": "Vodka Lemonade",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 119,
+            "upc": 119,
             "name": "Vodka Soda",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 120,
+            "upc": 120,
             "name": "Watermelon Margarita",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 121,
+            "upc": 121,
             "name": "Whiskey & Coke",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 122,
+            "upc": 122,
             "name": "Whiskey & Lemon Lime Soda",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 123,
+            "upc": 123,
             "name": "Whiskey Espresso Martini",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 124,
+            "upc": 124,
             "name": "Whiskey Lemonade",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 125,
+            "upc": 125,
             "name": "Whiskey Sour",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 126,
+            "upc": 126,
             "name": "White Russian",
-            "Category": "Cocktails"
+            "category": "Cocktails"
         },
         {
-            "UPC": 10001,
+            "upc": 10001,
             "name": "Virgin Adult Milk",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10002,
+            "upc": 10002,
             "name": "Virgin Alabama Slammer",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10003,
+            "upc": 10003,
             "name": "Virgin Amaretto Sour",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10004,
+            "upc": 10004,
             "name": "Virgin Aqua Fresa",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10005,
+            "upc": 10005,
             "name": "Virgin Aviation Cocktail",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10006,
+            "upc": 10006,
             "name": "Virgin Bahama Mama",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10007,
+            "upc": 10007,
             "name": "Virgin Bay Breeze",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10008,
+            "upc": 10008,
             "name": "Virgin Bee's Knees",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10009,
+            "upc": 10009,
             "name": "Virgin Blood & Sand",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10010,
+            "upc": 10010,
             "name": "Virgin Bloody Maria",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10011,
+            "upc": 10011,
             "name": "Virgin Bloody Mary",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10012,
+            "upc": 10012,
             "name": "Virgin Blue Hawaiian",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10013,
+            "upc": 10013,
             "name": "Virgin Boulevardier",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10014,
+            "upc": 10014,
             "name": "Virgin Bramble",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10015,
+            "upc": 10015,
             "name": "Virgin Chocolate Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10016,
+            "upc": 10016,
             "name": "Virgin Citrus Gold Rush ",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10017,
+            "upc": 10017,
             "name": "Virgin Coco Lime Smash",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10018,
+            "upc": 10018,
             "name": "Virgin Coconut Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10019,
+            "upc": 10019,
             "name": "Virgin Cold Brew",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10020,
+            "upc": 10020,
             "name": "Virgin Cosmo",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10021,
+            "upc": 10021,
             "name": "Virgin Cosmopolitan",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10022,
+            "upc": 10022,
             "name": "Virgin Cranberry Sidecar ",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10023,
+            "upc": 10023,
             "name": "Virgin Cuba Libre",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10024,
+            "upc": 10024,
             "name": "Virgin Daiquiri",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10025,
+            "upc": 10025,
             "name": "Virgin Dark And Stormy",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10026,
+            "upc": 10026,
             "name": "Virgin Dirty Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10027,
+            "upc": 10027,
             "name": "Virgin Eggnog",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10028,
+            "upc": 10028,
             "name": "Virgin Electric Lemonade",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10029,
+            "upc": 10029,
             "name": "Virgin Espresso Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10030,
+            "upc": 10030,
             "name": "Virgin Flavored Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10031,
+            "upc": 10031,
             "name": "Virgin French 75",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10032,
+            "upc": 10032,
             "name": "Virgin French Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10033,
+            "upc": 10033,
             "name": "Virgin Gibson",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10034,
+            "upc": 10034,
             "name": "Virgin Gimlet",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10035,
+            "upc": 10035,
             "name": "Virgin Gin & Juice",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10036,
+            "upc": 10036,
             "name": "Virgin Gin And Tonic",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10037,
+            "upc": 10037,
             "name": "Virgin Gin Fizz",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10038,
+            "upc": 10038,
             "name": "Virgin Gold Rush",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10039,
+            "upc": 10039,
             "name": "Virgin Highball",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10040,
+            "upc": 10040,
             "name": "Virgin Hot Toddy",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10041,
+            "upc": 10041,
             "name": "Virgin Hurricane",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10042,
+            "upc": 10042,
             "name": "Virgin Irish Coffee",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10043,
+            "upc": 10043,
             "name": "Virgin Irish Lemonade",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10044,
+            "upc": 10044,
             "name": "Virgin Jalapeno Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10045,
+            "upc": 10045,
             "name": "Virgin Jameson Ginger & Lime",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10046,
+            "upc": 10046,
             "name": "Virgin Juan Daly",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10047,
+            "upc": 10047,
             "name": "Virgin Kamikaze",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10048,
+            "upc": 10048,
             "name": "Virgin Kentucky Mule",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10049,
+            "upc": 10049,
             "name": "Virgin Lemon Drop",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10050,
+            "upc": 10050,
             "name": "Virgin Lemon Drop Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10051,
+            "upc": 10051,
             "name": "Virgin Long Island Iced Tea",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10052,
+            "upc": 10052,
             "name": "Virgin Lychee Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10053,
+            "upc": 10053,
             "name": "Virgin Mai Tai",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10054,
+            "upc": 10054,
             "name": "Virgin Malibu + Pineapple",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10055,
+            "upc": 10055,
             "name": "Virgin Malibu Soda (especially flavors)",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10056,
+            "upc": 10056,
             "name": "Virgin Mango Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10057,
+            "upc": 10057,
             "name": "Virgin Manhattan",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10058,
+            "upc": 10058,
             "name": "Virgin Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10059,
+            "upc": 10059,
             "name": "Virgin Martell Press ",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10060,
+            "upc": 10060,
             "name": "Virgin Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10061,
+            "upc": 10061,
             "name": "Virgin Mexican Coffee",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10062,
+            "upc": 10062,
             "name": "Virgin Mexican Mule",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10063,
+            "upc": 10063,
             "name": "Virgin Michelada",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10064,
+            "upc": 10064,
             "name": "Virgin Mimosa",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10065,
+            "upc": 10065,
             "name": "Virgin Mint Julep",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10066,
+            "upc": 10066,
             "name": "Virgin Mojito",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10067,
+            "upc": 10067,
             "name": "Virgin Moscow Mule",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10068,
+            "upc": 10068,
             "name": "Virgin Mudslide",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10069,
+            "upc": 10069,
             "name": "Virgin Mule",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10070,
+            "upc": 10070,
             "name": "Virgin Negroni",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10071,
+            "upc": 10071,
             "name": "Virgin Nutty Cola",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10072,
+            "upc": 10072,
             "name": "Virgin Nutty Irishman",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10073,
+            "upc": 10073,
             "name": "Virgin Old Fashioned",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10074,
+            "upc": 10074,
             "name": "Virgin Painkiller",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10075,
+            "upc": 10075,
             "name": "Virgin Paloma",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10076,
+            "upc": 10076,
             "name": "Virgin Paper Plane",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10077,
+            "upc": 10077,
             "name": "Virgin Passion Fruit Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10078,
+            "upc": 10078,
             "name": "Virgin PB&J shot",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10079,
+            "upc": 10079,
             "name": "Virgin Peanut Butter Espresso Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10080,
+            "upc": 10080,
             "name": "Virgin Pimm's Cup",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10081,
+            "upc": 10081,
             "name": "Virgin Pina Colada",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10082,
+            "upc": 10082,
             "name": "Virgin Pineapple Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10083,
+            "upc": 10083,
             "name": "Virgin Planters Punch",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10084,
+            "upc": 10084,
             "name": "Virgin Prickly Pear Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10085,
+            "upc": 10085,
             "name": "Virgin Punch",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10086,
+            "upc": 10086,
             "name": "Virgin Ranch Water",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10087,
+            "upc": 10087,
             "name": "Virgin Rob Roy",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10088,
+            "upc": 10088,
             "name": "Virgin Rum & Coke",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10089,
+            "upc": 10089,
             "name": "Virgin Rum Punch",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10090,
+            "upc": 10090,
             "name": "Virgin Rum Runner",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10091,
+            "upc": 10091,
             "name": "Virgin Salty Nuts shot",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10092,
+            "upc": 10092,
             "name": "Virgin Sangria",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10093,
+            "upc": 10093,
             "name": "Virgin Sazerac",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10094,
+            "upc": 10094,
             "name": "Virgin Scotch & Soda Highball",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10095,
+            "upc": 10095,
             "name": "Virgin Scotch Negroni",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10096,
+            "upc": 10096,
             "name": "Virgin Screwdriver",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10097,
+            "upc": 10097,
             "name": "Virgin Sea Breeze",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10098,
+            "upc": 10098,
             "name": "Virgin Sex On The Beach",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10099,
+            "upc": 10099,
             "name": "Virgin Sidecar",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10100,
+            "upc": 10100,
             "name": "Virgin Singapore Sling",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10101,
+            "upc": 10101,
             "name": "Virgin Skinny Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10102,
+            "upc": 10102,
             "name": "Virgin Smash",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10103,
+            "upc": 10103,
             "name": "Virgin Spanish Coffee",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10104,
+            "upc": 10104,
             "name": "Virgin Sparkling Gold Rush",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10105,
+            "upc": 10105,
             "name": "Virgin Spicy Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10106,
+            "upc": 10106,
             "name": "Virgin Spritz",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10107,
+            "upc": 10107,
             "name": "Virgin Spritzer",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10108,
+            "upc": 10108,
             "name": "Virgin Strawberry Daiquiri",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10109,
+            "upc": 10109,
             "name": "Virgin Strawberry Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10110,
+            "upc": 10110,
             "name": "Virgin Swift Sour ",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10111,
+            "upc": 10111,
             "name": "Virgin Tequila Sunrise",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10112,
+            "upc": 10112,
             "name": "Virgin The Glenlivet Royale ",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10113,
+            "upc": 10113,
             "name": "Virgin Tiki",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10114,
+            "upc": 10114,
             "name": "Virgin Tom Collins",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10115,
+            "upc": 10115,
             "name": "Virgin Vampiro Cocktail",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10116,
+            "upc": 10116,
             "name": "Virgin Vesper",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10117,
+            "upc": 10117,
             "name": "Virgin Vodka & Coke",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10118,
+            "upc": 10118,
             "name": "Virgin Vodka Lemonade",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10119,
+            "upc": 10119,
             "name": "Virgin Vodka Soda",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10120,
+            "upc": 10120,
             "name": "Virgin Watermelon Margarita",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10121,
+            "upc": 10121,
             "name": "Virgin Whiskey & Coke",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10122,
+            "upc": 10122,
             "name": "Virgin Whiskey & Lemon Lime Soda",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10123,
+            "upc": 10123,
             "name": "Virgin Whiskey Espresso Martini",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10124,
+            "upc": 10124,
             "name": "Virgin Whiskey Lemonade",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10125,
+            "upc": 10125,
             "name": "Virgin Whiskey Sour",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         },
         {
-            "UPC": 10126,
+            "upc": 10126,
             "name": "Virgin White Russian",
-            "Category": "Mocktails"
+            "category": "Mocktails"
         }
     ]
 }
