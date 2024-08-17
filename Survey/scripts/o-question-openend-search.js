@@ -133,7 +133,7 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.resetMessagePaddingTop = function () {
         if (this.messages) {
-            this.messages.style.paddingTop = '20px';
+            this.messages.style.paddingTop = '60px';
         }
     };
 
