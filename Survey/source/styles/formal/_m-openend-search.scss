@@ -1,3 +1,11 @@
+@use 'globals';
+
+.l-selection-and-scan {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .m-list-messages{
     height: 70px;
     padding: 20px 32px 0 0px;

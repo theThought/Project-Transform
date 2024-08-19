@@ -238,6 +238,10 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.processBarcodeData = function (event) {
+        if (event.detail === null) {
+            return;
+        }
+
         console.log(event.detail);
         this.setHiddenValue(event.detail);
         this.addTag(event.detail.description);
@@ -1039,19 +1043,26 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.configureTagContainer = function () {
         var container = document.createElement('div');
-        container.className = 'o-question-selected';
+        container.className = 'l-selection-and-scan';
+        var tagContainer = document.createElement('div');
+        tagContainer.className = 'o-question-selected';
+        container.appendChild(tagContainer);
         var inputElement = this.wrapper.querySelector('input');
         this.wrapper.insertBefore(container, inputElement);
     };
 
     oQuestionOpenendSearch.prototype.addBarcodeScanButton = function () {
+        if (!this.hasScan) {
+            return;
+        }
+
         var scanButton = document.createElement('input');
         scanButton.type = 'button';
         scanButton.classList.add('start-external');
         scanButton.setAttribute('data-questiongroup', this.group);
         var id = this.id + '_scanbutton';
         scanButton.id = id;
-        this.container.querySelector('.o-question-selected').append(scanButton);
+        this.container.querySelector('.l-selection-and-scan').insertAdjacentElement('afterbegin', scanButton);
         app.registerComponent('a-button-barcode', id, this.group);
     }
 
