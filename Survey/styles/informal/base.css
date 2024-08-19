@@ -314,7 +314,24 @@ input[type=submit][data-checked=true]:disabled {
   background-image: url("../../images/informal/checkmark-blue.png");
 }
 
-button.a-button-preterminator,
+input[type=button].a-button-image {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  padding: 0;
+  min-width: 0;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+input[type=button].a-button-image:hover {
+  background-color: transparent !important;
+}
+
+input.a-button-preterminator,
 button.a-button-postterminator {
   position: relative;
   border: none;

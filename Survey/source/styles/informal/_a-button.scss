@@ -60,8 +60,22 @@ input[type=submit][data-checked="true"] {
         background-image: url("/Survey/images/informal/checkmark-blue.png");
     }
 }
+input[type=button].a-button-image {
+    appearance: none;
+    border: none;
+    padding: 0;
+    min-width: 0;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
-button.a-button-preterminator,
+input[type=button].a-button-image:hover {
+    background-color: transparent !important;
+}
+
+input.a-button-preterminator,
 button.a-button-postterminator {
     position: relative;
     border: none;

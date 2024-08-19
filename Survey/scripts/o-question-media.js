@@ -16,13 +16,8 @@ define(['component'],
 
         oQuestionMedia.prototype.init = function () {
             this.configureProperties();
-            //this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            //this.requestInitialSize();
             this.configurationComplete();
-        }
-
-        oQuestionMedia.prototype.configureIncomingEventListeners = function () {
         }
 
         oQuestionMedia.prototype.configureLocalEventListeners = function () {
@@ -47,6 +42,17 @@ define(['component'],
             } catch (error) {
                 this.setError(error.message);
             }
+        }
+
+        oQuestionMedia.prototype.captions = function (props) {
+            if (typeof props.icon === 'undefined') {
+                return;
+            }
+
+            this.trigger.classList.add('a-button-image');
+            this.trigger.style.background = 'url("' + props.icon.source + '") center';
+            this.trigger.style.width = props.icon.width;
+            this.trigger.style.height = props.icon.height;
         }
 
         oQuestionMedia.prototype.setValue = function (data) {
