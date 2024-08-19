@@ -69,6 +69,7 @@ define(['component'],
                     break;
                 case 'broadcastChange':
                     this.processVisibilityRulesFromExternalTrigger(event);
+                    this.processCalculations(event);
                     break;
             }
         }

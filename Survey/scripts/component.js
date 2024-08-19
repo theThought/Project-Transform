@@ -469,7 +469,6 @@ define(
                 this.debug('Processing calculation for ' + this.questionName, 3);
                 this.getQuestionValues();
                 this.element.value = this.insertJSONValuesIntoRule(this.expandedCalculation).trim();
-
             }
         }
 
