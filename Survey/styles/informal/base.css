@@ -331,7 +331,7 @@ input[type=button].a-button-image:hover {
   background-color: transparent !important;
 }
 
-input.a-button-preterminator,
+button.a-button-preterminator,
 button.a-button-postterminator {
   position: relative;
   border: none;
@@ -1270,7 +1270,7 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
       -ms-flex: 0 1 40px;
           flex: 0 1 40px;
   display: block;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 html[dir=rtl] .o-question-slider-date-horizontal-control .a-label-prelabel,

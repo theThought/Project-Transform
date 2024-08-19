@@ -1330,6 +1330,7 @@ html[dir=rtl] .o-question-slider-vertical-control .m-label-ticklabels {
       -ms-flex: 0 1 40px;
           flex: 0 1 40px;
   display: block;
+  font-size: 12px;
 }
 
 .o-question-slider-date-vertical-control .m-style-slidermarks {
