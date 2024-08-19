@@ -35,6 +35,7 @@ define(['o-question'], function (oQuestion) {
         this.matchedWord = null;
         this.tabPressed = false;
         this.mousePressed = false;
+        this.hasScan = false;
     }
 
     oQuestionOpenendSearch.prototype = Object.create(oQuestion.prototype);
@@ -67,6 +68,7 @@ define(['o-question'], function (oQuestion) {
         this.filterList();
         this.setupSpecialListener();
         this.ensureSpecialOrder();
+        this.addBarcodeScanButton();
     
         // Apply any batched changes at the end
     };
@@ -166,6 +168,7 @@ define(['o-question'], function (oQuestion) {
         document.addEventListener("restoreEntries", this.handleEvent.bind(this), false);
         document.addEventListener(this.group + "_enableExclusive", this.handleEvent.bind(this), false);
         document.addEventListener("broadcastChange", this.handleEvent.bind(this), false);
+        document.addEventListener("broadcastBarcodeDataChange", this.handleEvent.bind(this), false);
         document.addEventListener(this.group + '_optionVisibility', this.handleEvent.bind(this), false);
     };
 
@@ -222,6 +225,9 @@ define(['o-question'], function (oQuestion) {
             case 'focusout':
                 this.onFocusOut(event);
                 break;
+            case 'broadcastBarcodeDataChange':
+                this.processBarcodeData(event);
+                break;
             case 'broadcastChange':
                 this.processVisibilityRulesFromExternalTrigger(event);
                 break;
@@ -230,6 +236,12 @@ define(['o-question'], function (oQuestion) {
                 break;
         }
     };
+
+    oQuestionOpenendSearch.prototype.processBarcodeData = function (event) {
+        console.log(event.detail);
+        this.setHiddenValue(event.detail);
+        this.addTag(event.detail.description);
+    }
 
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
         if (this.hiddenelement.value === event.detail.itemValue) {
@@ -995,6 +1007,10 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
+    oQuestionOpenendSearch.prototype.scan = function (prop) {
+        this.hasScan = prop;
+    }
+
     oQuestionOpenendSearch.prototype.updateItemCount = function (count) {
         var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
         var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
@@ -1027,6 +1043,17 @@ define(['o-question'], function (oQuestion) {
         var inputElement = this.wrapper.querySelector('input');
         this.wrapper.insertBefore(container, inputElement);
     };
+
+    oQuestionOpenendSearch.prototype.addBarcodeScanButton = function () {
+        var scanButton = document.createElement('input');
+        scanButton.type = 'button';
+        scanButton.classList.add('start-external');
+        scanButton.setAttribute('data-questiongroup', this.group);
+        var id = this.id + '_scanbutton';
+        scanButton.id = id;
+        this.container.querySelector('.o-question-selected').append(scanButton);
+        app.registerComponent('a-button-barcode', id, this.group);
+    }
 
     oQuestionOpenendSearch.prototype.addTag = function (label) {
         if (typeof label === 'undefined' || label === null) {
