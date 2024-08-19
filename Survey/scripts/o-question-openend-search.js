@@ -60,7 +60,6 @@ define(['o-question'], function (oQuestion) {
         this.configureInitialFilter();
         this.configureIncomingEventListeners();
         this.configureLocalEventListeners();
-        this.configurationComplete();
         this.fetchList();
         this.getDataFromSource();
         this.wordMatching();
@@ -69,7 +68,8 @@ define(['o-question'], function (oQuestion) {
         this.setupSpecialListener();
         this.ensureSpecialOrder();
         this.addBarcodeScanButton();
-    
+        this.configurationComplete();
+
         // Apply any batched changes at the end
     };
 
@@ -94,6 +94,13 @@ define(['o-question'], function (oQuestion) {
         this.setHiddenValue(value);
         this.addTag(selectedOption.innerText);
     };
+
+    oQuestionOpenendSearch.prototype.broadcastChange = function () {
+        var elementTempValue = this.element.value;
+        this.element.value = this.hiddenelement.value;
+        oQuestion.prototype.broadcastChange.call(this);
+        this.element.value = elementTempValue;
+    }
 
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
         if (typeof value === 'object') {
