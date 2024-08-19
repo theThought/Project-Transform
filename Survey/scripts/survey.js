@@ -25,6 +25,12 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oProgress(id, group));
             });
             break;
+        case 'a-button-barcode':
+            requirejs(['a-button-barcode'], function (aButtonBarcode) {
+                console.log('Registering barcode scan button');
+                app.preinitcomponents.unshift(new aButtonBarcode(id, group));
+            });
+            break;
         case 'ainputsinglelineedit':
             requirejs(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
                 console.log('Registering single line');
