@@ -242,9 +242,9 @@ define(['o-question'], function (oQuestion) {
             return;
         }
 
-        console.log(event.detail);
         this.setHiddenValue(event.detail);
         this.addTag(event.detail.description);
+        this.broadcastChange();
     }
 
     oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
