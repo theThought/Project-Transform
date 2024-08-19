@@ -3346,6 +3346,19 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   color: #FAFAFA;
 }
 
+.a-label-prelabel,
+.a-label-postlabel {
+  width: 400px;
+  text-align: center;
+  display: block;
+}
+@media (max-width: 769px) {
+  .a-label-prelabel,
+  .a-label-postlabel {
+    width: 80%;
+  }
+}
+
 .o-question-media-external .o-media-frame {
   display: -webkit-box;
   display: -ms-flexbox;

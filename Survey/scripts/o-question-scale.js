@@ -216,7 +216,8 @@ define(['o-question'],
                 return;
             }
         
-            var unitContainerWidth = this.unitContainer.offsetWidth + 'px';
+            // var unitContainerWidth = this.unitContainer.offsetWidth + 'px';
+            // var unitContainerWidth = '400px';
             var isVertical = this.container.classList.contains('o-question-scale-vertical');
         
             if (isVertical) {
@@ -224,7 +225,7 @@ define(['o-question'],
                     var postElement = document.createElement('div');
                     postElement.className = 'a-label-postlabel';
                     postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    postElement.style.width = unitContainerWidth;
+                    // postElement.style.width = unitContainerWidth;
                     this.container.insertBefore(postElement, this.container.firstChild);
                 }
 
@@ -232,7 +233,7 @@ define(['o-question'],
                     var preElement = document.createElement('div');
                     preElement.className = 'a-label-prelabel';
                     preElement.innerHTML = preLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    preElement.style.width = unitContainerWidth;
+                    // preElement.style.width = unitContainerWidth;
                     this.container.appendChild(preElement);
                 }
             } else {
