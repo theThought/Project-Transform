@@ -565,7 +565,7 @@ define(['o-question'], function (oQuestion) {
         if (selectedOption) {
             this.setSelectedOption(selectedOption);
         } else if (typeof parsedValue === 'object') {
-            this.addTag(parsedValue.name || parsedValue.value || parsedValue); // Show the tag for the restored item
+            this.addTag(parsedValue.description || parsedValue.value || parsedValue); // Show the tag for the restored item
         } else {
             this.addTag(parsedValue); 
         }
@@ -585,7 +585,7 @@ define(['o-question'], function (oQuestion) {
             if (hiddenValue) {
                 try {
                     const parsedValue = JSON.parse(hiddenValue);
-                    this.addTag(parsedValue.name || parsedValue.value || parsedValue);
+                    this.addTag(parsedValue.description || parsedValue.value || parsedValue);
                     this.setHiddenValue(parsedValue);
                     this.element.value = '';
                 } catch (e) {
@@ -1133,7 +1133,7 @@ define(['o-question'], function (oQuestion) {
     
         var displayLabel;
         if (typeof label === 'object') {
-            displayLabel = label.name || label.value || label; // Prioritize name if present, fallback to value or entire label
+            displayLabel = label.name || label.value || label; 
         } else {
             displayLabel = label;
         }
