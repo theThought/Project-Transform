@@ -40,14 +40,33 @@ define(['component'],
         }
 
         aButtonBarcode.prototype.captions = function (props) {
-            if (typeof props.icon === 'undefined') {
+            if (typeof props.start === 'undefined') {
                 return;
             }
 
-            this.element.classList.add('a-button-image');
-            this.element.style.background = 'url("' + props.icon.source + '") center';
-            this.element.style.width = props.icon.width;
-            this.element.style.height = props.icon.height;
+            if (typeof props.start.icon !== "undefined") {
+                this.setButtonImage(props.start.icon);
+            }
+
+            if (typeof props.start.text !== 'undefined') {
+                this.setButtonText(props.start.text);
+            }
+        }
+
+        aButtonBarcode.prototype.setButtonText = function (text) {
+            if (!text.length) {
+                return;
+            }
+
+            this.trigger.value = text;
+            this.trigger.style.width = 'auto';
+        }
+
+        aButtonBarcode.prototype.setButtonImage = function (props) {
+            this.trigger.classList.add('a-button-image');
+            this.trigger.style.background = 'url("' + props.source + '") center';
+            this.trigger.style.width = props.width;
+            this.trigger.style.height = props.height;
         }
 
         aButtonBarcode.prototype.setValue = function (data) {
