@@ -18,6 +18,10 @@ define(['component'],
             this.configurationComplete();
         }
 
+        aButtonBarcode.prototype.scan = function (props) {
+            this.captions(props.captions);
+        }
+
         aButtonBarcode.prototype.configureLocalEventListeners = function () {
             this.element.addEventListener("click", this, false);
         }
@@ -54,20 +58,17 @@ define(['component'],
         }
 
         aButtonBarcode.prototype.setButtonText = function (text) {
-            if (!text.length) {
-                return;
-            }
-
-            this.trigger.value = text;
-            this.trigger.style.width = 'auto';
+            this.element.value = text;
+            this.element.style.width = 'auto';
         }
 
         aButtonBarcode.prototype.setButtonImage = function (props) {
-            this.trigger.classList.add('a-button-image');
-            this.trigger.style.background = 'url("' + props.source + '") center';
-            this.trigger.style.width = props.width;
-            this.trigger.style.height = props.height;
+            this.element.classList.add('a-button-image');
+            this.element.style.background = 'url("' + props.source + '") center';
+            this.element.style.width = props.width;
+            this.element.style.height = props.height;
         }
+
 
         aButtonBarcode.prototype.setValue = function (data) {
             this.element.setAttribute('data-barcode', JSON.stringify(data.product));
