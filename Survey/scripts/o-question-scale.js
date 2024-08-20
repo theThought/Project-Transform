@@ -244,7 +244,7 @@ define(['o-question'],
                     var postElement = document.createElement('div');
                     postElement.className = 'a-label-postlabel';
                     postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    postElement.style.width = unitContainerWidth; 
+                    // postElement.style.width = unitContainerWidth; 
                     labelContainer.appendChild(postElement);
                 }
         
@@ -252,7 +252,7 @@ define(['o-question'],
                     var preElement = document.createElement('div');
                     preElement.className = 'a-label-prelabel';
                     preElement.innerHTML = preLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    preElement.style.width = unitContainerWidth; 
+                    // preElement.style.width = unitContainerWidth; 
                     labelContainer.insertBefore(preElement, labelContainer.firstChild);
                 }
                 this.container.appendChild(labelContainer);

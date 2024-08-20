@@ -566,7 +566,7 @@ define(['o-question'], function (oQuestion) {
         if (selectedOption) {
             this.setSelectedOption(selectedOption);
         } else if (typeof parsedValue === 'object') {
-            this.addTag(parsedValue.name || parsedValue.value); // Show the tag for the restored item
+            this.addTag(parsedValue.description || parsedValue.value); // Show the tag for the restored item
         } else {
             this.addTag(parsedValue); // Handle simple value
         }
