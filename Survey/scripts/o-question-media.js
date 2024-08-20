@@ -43,14 +43,29 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.captions = function (props) {
-            if (typeof props.icon === 'undefined') {
+            if (typeof props.start === 'undefined') {
                 return;
             }
 
+            if (typeof props.start.icon !== "undefined") {
+                this.setButtonImage(props.start.icon);
+            }
+
+            if (typeof props.start.text !== 'undefined') {
+                this.setButtonText(props.start.text);
+            }
+        }
+
+        oQuestionMedia.prototype.setButtonText = function (text) {
+            this.trigger.value = text;
+            this.trigger.style.width = 'auto';
+        }
+
+        oQuestionMedia.prototype.setButtonImage = function (props) {
             this.trigger.classList.add('a-button-image');
-            this.trigger.style.background = 'url("' + props.icon.source + '") center';
-            this.trigger.style.width = props.icon.width;
-            this.trigger.style.height = props.icon.height;
+            this.trigger.style.background = 'url("' + props.source + '") center';
+            this.trigger.style.width = props.width;
+            this.trigger.style.height = props.height;
         }
 
         oQuestionMedia.prototype.setValue = function (data) {
