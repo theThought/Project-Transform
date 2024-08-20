@@ -1018,8 +1018,8 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    oQuestionOpenendSearch.prototype.scan = function (prop) {
-        this.hasScan = prop;
+    oQuestionOpenendSearch.prototype.scan = function (props) {
+        this.hasScan = props.state;
     }
 
     oQuestionOpenendSearch.prototype.updateItemCount = function (count) {
