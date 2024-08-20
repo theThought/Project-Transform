@@ -961,6 +961,18 @@ html[dir=rtl] .o-question-scale-vertical div.a-label-postlabel {
   border: none !important;
 }
 
+.o-question-scale-vertical div.a-label-prelabel,
+.o-question-scale-vertical div.a-label-postlabel {
+  text-align: center;
+  width: 400px;
+}
+.o-question-scale-vertical div.a-label-postlabel {
+  margin-bottom: 20px;
+}
+.o-question-scale-vertical div.a-label-prelabel {
+  margin-top: 20px;
+}
+
 .focused * {
   outline: none;
 }

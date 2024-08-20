@@ -242,6 +242,22 @@ html[dir="rtl"] .o-question-scale-vertical {
     }
 }
 
+.o-question-scale-vertical {
+    div.a-label-prelabel,
+    div.a-label-postlabel {
+        text-align: center;
+        width: 400px;
+    }
+
+    div.a-label-postlabel {
+        margin-bottom: 20px;
+    }
+
+    div.a-label-prelabel {
+        margin-top: 20px;
+    }
+}
+
 .focused {
     * {
         outline: none;
