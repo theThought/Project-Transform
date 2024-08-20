@@ -35,6 +35,7 @@ define(['component'],
         oQuestionMedia.prototype.onClick = async function () {
             try {
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
+                this.clearError();
                 this.setValue(data);
             } catch (error) {
                 this.setError(error.message);
@@ -53,6 +54,11 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.setValue = function (data) {
+            if (typeof data.product === 'undefined') {
+                this.clearValue();
+                return;
+            }
+
             this.element.value = JSON.stringify(data.product);
             this.broadcastChange();
         }
