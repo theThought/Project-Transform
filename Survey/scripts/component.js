@@ -496,7 +496,7 @@ define(
             for (var currentQuestion in this.sourceQuestions) {
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     this.sourceQuestions[currentQuestion] = [];
-                    var questionElements = document.querySelectorAll("input[name*='" + currentQuestion + "'], select[name*='" + currentQuestion + "']");
+                    var questionElements = document.querySelectorAll("input[name$='" + currentQuestion + "'], select[name$='" + currentQuestion + "']");
 
                     if (!questionElements.length) {
                         this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
