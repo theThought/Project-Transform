@@ -77,19 +77,29 @@ define(['o-question'], function (oQuestion) {
         selectedOption.classList.add('selected');
         selectedOption.setAttribute('data-selected', 'selected');
     
-        var value = JSON.parse(selectedOption.getAttribute('data-item'));
+        var dataItem = selectedOption.getAttribute('data-item');
     
-        this.setHiddenValue(value); 
-        this.addTag(value.name || value.value); 
+        // Determine if the data-item is JSON or a simple value
+        var value;
+        try {
+            value = JSON.parse(dataItem);
+        } catch (e) {
+            value = dataItem;  // If it's not JSON, treat it as a simple string
+        }
+    
+        this.setHiddenValue(value); // Store the value in the hidden input
+        this.addTag(value.name || value.value || value); // Display tag (for UI), fall back to value if name is not available
     };
     
+    
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
-        if (typeof value === 'object') {
+        if (typeof value === 'object' && value !== null) {
             this.hiddenelement.value = JSON.stringify(value);
         } else {
             this.hiddenelement.value = value;
         }
     };
+    
     
     oQuestionOpenendSearch.prototype.broadcastChange = function () {
         var elementTempValue = this.element.value;
@@ -519,12 +529,50 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.restoreSelection = function () {
-        var currentselection = this.droplist.querySelector('[data-value="' + this.element.value + '"]');
-        if (currentselection === null) {
-            return;
+        var hiddenValue = this.hiddenelement.value;
+        if (!hiddenValue) return;
+    
+        var parsedValue;
+        try {
+            parsedValue = JSON.parse(hiddenValue);
+        } catch (e) {
+            parsedValue = hiddenValue;
         }
-        this.setSelectedOption(currentselection);
+    
+        var selectedOption = null;
+    
+        // If parsedValue is an object, match data-item attribute manually
+        if (typeof parsedValue === 'object') {
+            var listItems = this.droplist.querySelectorAll('li');
+            for (var i = 0; i < listItems.length; i++) {
+                var item = listItems[i];
+                var itemData = item.getAttribute('data-item');
+    
+                try {
+                    var itemObject = JSON.parse(itemData);
+                    if (JSON.stringify(itemObject) === JSON.stringify(parsedValue)) {
+                        selectedOption = item;
+                        break;
+                    }
+                } catch (e) {
+                    // If parsing fails, just continue
+                }
+            }
+        } else {
+            // For simple values, you can use querySelector
+            selectedOption = this.droplist.querySelector('[data-item="' + CSS.escape(parsedValue) + '"]');
+        }
+    
+        if (selectedOption) {
+            this.setSelectedOption(selectedOption);
+        } else if (typeof parsedValue === 'object') {
+            this.addTag(parsedValue.name || parsedValue.value); // Show the tag for the restored item
+        } else {
+            this.addTag(parsedValue); // Handle simple value
+        }
     };
+    
+    
 
     oQuestionOpenendSearch.prototype.setWrapperType = function () {
         this.wrapper.classList.add('list-combobox');
@@ -537,18 +585,19 @@ define(['o-question'], function (oQuestion) {
             if (hiddenValue) {
                 try {
                     const parsedValue = JSON.parse(hiddenValue);
-                    this.addTag(parsedValue.description);
+                    this.addTag(parsedValue.name || parsedValue.value || parsedValue);
                     this.setHiddenValue(parsedValue);
                     this.element.value = '';
                 } catch (e) {
-                    console.error("Error parsing initial value:", e);
+                    this.addTag(hiddenValue); // If it's not JSON, treat it as a simple string
+                    this.element.value = '';
                 }
             }
         }
         this.element.placeholder = this.defaultplaceholder;
     };
     
-
+    
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
         var newelement = this.element.cloneNode();
         newelement.id = '';
@@ -1074,9 +1123,15 @@ define(['o-question'], function (oQuestion) {
     }
 
     oQuestionOpenendSearch.prototype.addTag = function (label) {
-        if (typeof label === 'undefined' || label === null) {
-            return;
+        if (!label) return;
+    
+        var displayLabel;
+        if (typeof label === 'object') {
+            displayLabel = label.name || label.value || label; // Prioritize name if present, fallback to value or entire label
+        } else {
+            displayLabel = label;
         }
+    
         var container = document.querySelector('.o-question-selected');
         if (!container) {
             container = document.createElement('div');
@@ -1084,57 +1139,35 @@ define(['o-question'], function (oQuestion) {
             var inputElement = this.wrapper.querySelector('input');
             this.wrapper.insertBefore(container, inputElement);
         }
+    
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
+    
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
         }
+    
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
-        tag.setAttribute('data-value', label);
-        tag.setAttribute('value', label);
-        tag.innerHTML = '<span> ' + label + '</span><button class="delete-tag">X</button>';
+        tag.setAttribute('data-value', displayLabel);
+        tag.setAttribute('value', displayLabel);
+        tag.innerHTML = '<span> ' + displayLabel + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
-        this.updateItemCount(0);
     
+        // Handling tag deletion and related input reset
         var deleteButton = tag.querySelector('.delete-tag');
         deleteButton.addEventListener('click', function () {
             container.removeChild(tag);
-    
-            // Clear the input
             this.element.value = ''; 
-            this.hiddenelement.value = '';
-    
-            // Refocus on the input
+            this.hiddenelement.value = ''; 
             this.element.focus();
-    
-            // Reset filters and show all items, including images
             this.clearFilters();
             this.showAllImageItems();
-    
-            // Update the item count based on the reset list
             this.updateItemCount(this.buildVisibleList().length);
         }.bind(this));
-    
-        if (this.special) {
-            var checkbox = this.special.querySelector('input[type="checkbox"]');
-            if (checkbox && checkbox.checked) {
-                container.removeChild(tag);
-            }
-            var observer = new MutationObserver(function (mutations) {
-                mutations.forEach(function (mutation) {
-                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
-                        var isChecked = this.special.getAttribute('data-checked') === 'true';
-                        if (isChecked) {
-                            container.removeChild(tag);
-                        }
-                    }
-                }.bind(this));
-            }.bind(this));
-            observer.observe(this.special, { attributes: true });
-        }
     };
+    
     
     // Method to clear any filters applied and reset the list
     oQuestionOpenendSearch.prototype.clearFilters = function () {
