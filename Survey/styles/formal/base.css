@@ -2755,7 +2755,6 @@ html[dir=rtl] .o-dropdown ul li {
 }
 
 .o-question-openend-search .m-openend-search-count {
-  border-top: 1px solid #000066;
   margin-top: 60px;
   padding-top: 11px;
   text-align: right;

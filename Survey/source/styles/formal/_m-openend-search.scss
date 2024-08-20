@@ -33,18 +33,22 @@
 
 
 .o-question-openend-search .m-openend-search-count {
-  border-top: 1px solid #000066;
+  
   margin-top: 60px;
   padding-top: 11px;
   text-align: right;
   margin-bottom: 30px;
   position: relative;
-  }
+
+  
+    // border-top: 1px solid #000066;
+  
+
+  
+}
 
 
 .o-question-openend-search .m-option-base {
-  
-  
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
@@ -208,12 +212,6 @@
     width: 100% !important;
   }
 }
-
-
-
-
-
-
 
  // RTL Styles
  :dir(rtl) {

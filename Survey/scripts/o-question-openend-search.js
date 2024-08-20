@@ -46,7 +46,8 @@ define(['o-question'], function (oQuestion) {
         this.indexList();
         this.manualWidth = this.checkManualWidth();
         this.cloneInputElement();
-        this.restoreSelection();
+        this.configureTagContainer();  
+        this.restoreSelection();  
         this.setCurrentListPosition();
         this.updateScrollPosition(this.getCurrentListPosition());
         this.configureProperties();
@@ -63,15 +64,15 @@ define(['o-question'], function (oQuestion) {
         this.fetchList();
         this.getDataFromSource();
         this.wordMatching();
-        this.configureTagContainer();
         this.filterList();
         this.setupSpecialListener();
         this.ensureSpecialOrder();
         this.addBarcodeScanButton();
         this.configurationComplete();
-
+    
         // Apply any batched changes at the end
     };
+    
 
     oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
         selectedOption.classList.add('selected');
@@ -541,7 +542,6 @@ define(['o-question'], function (oQuestion) {
     
         var selectedOption = null;
     
-        // If parsedValue is an object, match data-item attribute manually
         if (typeof parsedValue === 'object') {
             var listItems = this.droplist.querySelectorAll('li');
             for (var i = 0; i < listItems.length; i++) {
@@ -559,18 +559,18 @@ define(['o-question'], function (oQuestion) {
                 }
             }
         } else {
-            // For simple values, you can use querySelector
             selectedOption = this.droplist.querySelector('[data-item="' + CSS.escape(parsedValue) + '"]');
         }
     
         if (selectedOption) {
             this.setSelectedOption(selectedOption);
         } else if (typeof parsedValue === 'object') {
-            this.addTag(parsedValue.description || parsedValue.value); // Show the tag for the restored item
+            this.addTag(parsedValue.name || parsedValue.value || parsedValue); // Show the tag for the restored item
         } else {
-            this.addTag(parsedValue); // Handle simple value
+            this.addTag(parsedValue); 
         }
     };
+    
     
     
 
@@ -1075,6 +1075,8 @@ define(['o-question'], function (oQuestion) {
         var itemCountElement = document.querySelector('.m-openend-search-count .a-label-counter');
         var itemPromptElement = document.querySelector('.m-openend-search-count .a-label-counter-prompt');
         if (itemCountElement && itemPromptElement) {
+            var itemCountParent = itemCountElement.parentNode;
+    
             if (this.droplist.classList.contains('visible')) {
                 if (typeof count === 'number' && count > 0) {
                     if (this.properties && this.properties.prompts && this.properties.prompts.listcount) {
@@ -1084,19 +1086,23 @@ define(['o-question'], function (oQuestion) {
                         itemCountElement.textContent = count;
                         itemPromptElement.textContent = "items";
                     }
+    
+                    itemCountParent.style.borderTop = '1px solid #000066';
                 } else if (count === 0) {
                     itemCountElement.textContent = '';
                     itemPromptElement.textContent = "";
+                    itemCountParent.style.borderTop = '';
                 }
-                itemCountElement.parentNode.classList.remove('hidden');
+                itemCountParent.classList.remove('hidden');
             } else {
                 itemCountElement.textContent = '';
                 itemPromptElement.textContent = '';
-                itemCountElement.parentNode.classList.add('hidden');
+                itemCountParent.classList.add('hidden');
+                itemCountParent.style.borderTop = '';
             }
         }
     };
-
+    
     oQuestionOpenendSearch.prototype.configureTagContainer = function () {
         var container = document.createElement('div');
         container.className = 'l-selection-and-scan';
