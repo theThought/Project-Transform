@@ -57,6 +57,10 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.setButtonText = function (text) {
+            if (!text.length) {
+                return;
+            }
+
             this.trigger.value = text;
             this.trigger.style.width = 'auto';
         }

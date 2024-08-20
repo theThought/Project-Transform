@@ -58,6 +58,10 @@ define(['component'],
         }
 
         aButtonBarcode.prototype.setButtonText = function (text) {
+            if (!text.length) {
+                return;
+            }
+
             this.element.value = text;
             this.element.style.width = 'auto';
         }
