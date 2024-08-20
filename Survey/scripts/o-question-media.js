@@ -33,9 +33,6 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.onClick = async function () {
-            this.clearError();
-            this.clearValue();
-
             try {
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
                 this.setValue(data);

@@ -31,8 +31,6 @@ define(['component'],
         }
 
         aButtonBarcode.prototype.onClick = async function () {
-            this.clearValue();
-
             try {
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
                 this.setValue(data);
