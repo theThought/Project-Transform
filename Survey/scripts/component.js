@@ -586,7 +586,7 @@ define(
                 return ruleString;
             }
 
-            var re = /\s?(\w+)\.JSON\("(.*?)"\)/ig;
+            var re = /\s?(\w+)\.JSON\(["'](.*?)["']\)/ig;
             var matches;
 
             // match 0: full string
