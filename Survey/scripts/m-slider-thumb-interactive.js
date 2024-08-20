@@ -13,6 +13,7 @@ define(['component'],
         mSliderThumbInteractive.prototype.init = function () {
             this.configureProperties();
             this.configureIncomingEventListeners();
+            this.requestValue();
             this.configurationComplete();
         }
 

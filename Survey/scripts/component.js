@@ -94,6 +94,18 @@ define(
             }
         }
 
+        component.prototype.requestValue = function () {
+            if (this.element.value) {
+                return;
+            }
+
+            var valueRequest = new CustomEvent(this.group + '_valueRequest', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(valueRequest);
+        }
+
         component.prototype.checkCollision = function (firstElement, secondElement) {
             var firstElementBottom = firstElement.getBoundingClientRect().bottom;
             var secondElementTop = secondElement.getBoundingClientRect().top;

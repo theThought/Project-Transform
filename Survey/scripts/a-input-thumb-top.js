@@ -14,6 +14,7 @@ define(['component'],
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
+            this.requestValue();
             this.configurationComplete();
         }
 

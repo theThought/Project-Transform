@@ -59,6 +59,7 @@ define(['o-question'],
             document.addEventListener('restoreEntries', this, false);
             document.addEventListener('click', this, false);
             document.addEventListener('broadcastChange', this, false);
+            document.addEventListener(this.group + '_requestValue', this, false);
             document.addEventListener(this.group + '_broadcastTimeChange', this, false);
             document.addEventListener(this.group + '_broadcastDateChange', this, false);
             document.addEventListener(this.group + '_enableExclusive', this, false);
@@ -100,6 +101,9 @@ define(['o-question'],
                     break;
                 case this.group + '_broadcastDateChange':
                     this.receiveDateChange(event);
+                    break;
+                case this.group + '_requestValue':
+                    this.broadcastChange();
                     break;
             }
         }
