@@ -127,23 +127,15 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
-        if (this.droplist) {
-            var computedStyle = window.getComputedStyle(this.droplist);
-            this.setMessagePaddingTop(computedStyle.height);
-        }
+        
+            // var computedStyle = window.getComputedStyle(this.droplistwrapper);
+            
+            // this.messages.style.paddingTop = computedStyle.height;
+        
     };
 
-    oQuestionOpenendSearch.prototype.setMessagePaddingTop = function (height) {
-        if (this.messages) {
-            this.messages.style.paddingTop = height;
-        }
-    };
+  
 
-    oQuestionOpenendSearch.prototype.resetMessagePaddingTop = function () {
-        if (this.messages) {
-            this.messages.style.paddingTop = '60px';
-        }
-    };
 
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
         this.wrapper.classList.remove('direction-up');
@@ -571,9 +563,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
     
-    
-    
-
     oQuestionOpenendSearch.prototype.setWrapperType = function () {
         this.wrapper.classList.add('list-combobox');
         this.wrapper.classList.add('o-combobox');
@@ -589,7 +578,7 @@ define(['o-question'], function (oQuestion) {
                     this.setHiddenValue(parsedValue);
                     this.element.value = '';
                 } catch (e) {
-                    this.addTag(hiddenValue); // If it's not JSON, treat it as a simple string
+                    this.addTag(hiddenValue); 
                     this.element.value = '';
                 }
             }
@@ -905,18 +894,30 @@ define(['o-question'], function (oQuestion) {
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
             this.getDroplistHeight();
+    
+            console.log(this.droplistwrapper);
+            console.log(this.droplist);
+            console.log(this.messages);
+            
+            // Correctly setting paddingTop
+            this.messages.style.paddingTop = this.droplistwrapper.offsetHeight + 'px';
+    
             this.updateItemCount(this.buildVisibleList().length);
         }
     };
-
+    
     oQuestionOpenendSearch.prototype.hideList = function () {
         if (this.droplist.classList.contains('visible')) {
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
-            this.resetMessagePaddingTop();
+    
+            // Reset paddingTop when the list is hidden
+            this.messages.style.paddingTop = '10px';
+    
             this.updateItemCount(0);
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.toggleList = function () {
         this.setDropListDirection();
