@@ -882,40 +882,31 @@ define(['o-question'], function (oQuestion) {
         }
         this.element.classList.remove('exact');
         if (this.hiddenelement.value) {
-            this.setHiddenValue('');  // Clear hidden value
+            this.setHiddenValue('');  
             this.broadcastChange();
         }
     };
     
 
     oQuestionOpenendSearch.prototype.showList = function () {
-        if (!this.droplist.classList.contains('visible')) {
+        
             this.setDropListDirection();
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
             this.getDroplistHeight();
-    
-            console.log(this.droplistwrapper);
-            console.log(this.droplist);
-            console.log(this.messages);
-            
-            // Correctly setting paddingTop
-            this.messages.style.paddingTop = this.droplistwrapper.offsetHeight + 'px';
-    
+        
+            this.messages.style.paddingTop = this.droplist.offsetHeight + 'px';
             this.updateItemCount(this.buildVisibleList().length);
-        }
+        
     };
     
     oQuestionOpenendSearch.prototype.hideList = function () {
-        if (this.droplist.classList.contains('visible')) {
+     
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
-    
-            // Reset paddingTop when the list is hidden
-            this.messages.style.paddingTop = '10px';
-    
+            this.messages.style.paddingTop = '0px';
             this.updateItemCount(0);
-        }
+        
     };
     
 
