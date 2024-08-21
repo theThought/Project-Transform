@@ -104,16 +104,7 @@ define(['o-question'], function (oQuestion) {
             this.hiddenelement.value = value;
         }
     };
-    
-    oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
-        if (typeof value === 'object' && value !== null) {
-            this.hiddenelement.value = JSON.stringify(value);
-        } else {
-            this.hiddenelement.value = value;
-        }
-    };
-    
-    
+
     oQuestionOpenendSearch.prototype.broadcastChange = function () {
         var elementTempValue = this.element.value;
         this.element.value = this.hiddenelement.value;
