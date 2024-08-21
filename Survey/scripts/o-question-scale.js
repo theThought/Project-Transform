@@ -211,21 +211,18 @@ define(['o-question'],
         oQuestionScale.prototype.labels = function (labelProperties) {
             var preLabel = labelProperties.pre || '';
             var postLabel = labelProperties.post || '';
-        
+
             if (!preLabel && !postLabel) {
                 return;
             }
-        
-            // var unitContainerWidth = this.unitContainer.offsetWidth + 'px';
-            // var unitContainerWidth = '400px';
+
             var isVertical = this.container.classList.contains('o-question-scale-vertical');
-        
+
             if (isVertical) {
                 if (postLabel) {
                     var postElement = document.createElement('div');
                     postElement.className = 'a-label-postlabel';
                     postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    // postElement.style.width = unitContainerWidth;
                     this.container.insertBefore(postElement, this.container.firstChild);
                 }
 
@@ -233,29 +230,38 @@ define(['o-question'],
                     var preElement = document.createElement('div');
                     preElement.className = 'a-label-prelabel';
                     preElement.innerHTML = preLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    // preElement.style.width = unitContainerWidth;
                     this.container.appendChild(preElement);
                 }
             } else {
                 var labelContainer = document.createElement('div');
                 labelContainer.classList.add('o-label-container');
-                
-                if (postLabel) {
-                    var postElement = document.createElement('div');
-                    postElement.className = 'a-label-postlabel';
-                    postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    // postElement.style.width = unitContainerWidth; 
-                    labelContainer.appendChild(postElement);
-                }
-        
+
                 if (preLabel) {
                     var preElement = document.createElement('div');
                     preElement.className = 'a-label-prelabel';
                     preElement.innerHTML = preLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
-                    // preElement.style.width = unitContainerWidth; 
-                    labelContainer.insertBefore(preElement, labelContainer.firstChild);
+                    labelContainer.appendChild(preElement);
                 }
+
+                if (postLabel) {
+                    var postElement = document.createElement('div');
+                    postElement.className = 'a-label-postlabel';
+                    postElement.innerHTML = postLabel.replace(/%lt%/g, '<').replace(/%gt%/g, '>');
+                    labelContainer.appendChild(postElement);
+                }
+
+                var unitContainerWidth = this.unitContainer.offsetWidth;
+                labelContainer.style.width = unitContainerWidth + 'px';
+                labelContainer.style.display = 'flex';
+                labelContainer.style.justifyContent = 'space-between';
+                labelContainer.style.marginBottom = '20px';
+
                 this.container.appendChild(labelContainer);
+
+                var specialCheckbox = this.container.querySelector('div[data-exclusive="true"][data-questiongroup="' + this.group + '"]');
+                if (specialCheckbox) {
+                    this.container.appendChild(specialCheckbox);
+                }
             }
         }
         
