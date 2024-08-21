@@ -94,6 +94,7 @@ define(['o-question'], function (oQuestion) {
     
         this.setHiddenValue(mappedValue);
         this.addTag(mappedValue.description || mappedValue.ean);
+        this.value = mappedValue;
     };
     
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
@@ -587,9 +588,11 @@ define(['o-question'], function (oQuestion) {
                     const parsedValue = JSON.parse(hiddenValue);
                     this.addTag(parsedValue.description || parsedValue.value || parsedValue);
                     this.setHiddenValue(parsedValue);
+                    this.value = parsedValue;
                     this.element.value = '';
                 } catch (e) {
-                    this.addTag(hiddenValue); 
+                    this.addTag(hiddenValue);
+                    this.value = hiddenValue;
                     this.element.value = '';
                 }
             }
