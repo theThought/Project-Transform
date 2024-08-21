@@ -39,7 +39,7 @@ define(['component'],
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
                 this.setValue(data);
             } catch (error) {
-                this.setError(error.message);
+                console.warn(error.message);
             }
         }
 
