@@ -46,13 +46,11 @@ define(['o-question'], function (oQuestion) {
         this.indexList();
         this.manualWidth = this.checkManualWidth();
         this.cloneInputElement();
-        this.configureTagContainer();  
-        this.restoreSelection();  
+        this.configureTagContainer();
         this.setCurrentListPosition();
         this.updateScrollPosition(this.getCurrentListPosition());
         this.configureProperties();
         this.createButtonElement();
-        this.getInitialValue();
         this.setPosition();
         this.setTabIndex();
         this.setWrapperType();
@@ -68,6 +66,9 @@ define(['o-question'], function (oQuestion) {
         this.setupSpecialListener();
         this.ensureSpecialOrder();
         this.addBarcodeScanButton();
+        this.addEmptyMessage();
+        this.getInitialValue();
+        this.restoreSelection();
         this.configurationComplete();
     
         // Apply any batched changes at the end
@@ -96,7 +97,36 @@ define(['o-question'], function (oQuestion) {
         this.addTag(mappedValue.description || mappedValue.ean);
         this.value = mappedValue;
     };
-    
+
+    oQuestionOpenendSearch.prototype.addEmptyMessage = function () {
+        if (typeof this.properties.empty === 'undefined') {
+            return;
+        }
+
+        var emptyText = this.properties.empty.text;
+        var emptyTextContainer = document.createElement('div');
+        emptyTextContainer.className = 'a-label-empty';
+        emptyTextContainer.style.display = 'none';
+        emptyTextContainer.innerText = emptyText;
+        this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
+    }
+
+    oQuestionOpenendSearch.prototype.displayEmptyMessage = function () {
+        if (typeof this.properties.empty === 'undefined') {
+            return;
+        }
+
+        this.container.querySelector('.a-label-empty').style.display = 'block';
+    }
+
+    oQuestionOpenendSearch.prototype.hideEmptyMessage = function () {
+        if (typeof this.properties.empty === 'undefined') {
+            return;
+        }
+
+        this.container.querySelector('.a-label-empty').style.display = 'none';
+    }
+
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
         if (typeof value === 'object' && value !== null) {
             this.hiddenelement.value = JSON.stringify(value);
@@ -130,15 +160,9 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
-        
             // var computedStyle = window.getComputedStyle(this.droplistwrapper);
-            
             // this.messages.style.paddingTop = computedStyle.height;
-        
     };
-
-  
-
 
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
         this.wrapper.classList.remove('direction-up');
@@ -1143,6 +1167,8 @@ define(['o-question'], function (oQuestion) {
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
         }
+
+        this.hideEmptyMessage();
     
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
@@ -1161,6 +1187,7 @@ define(['o-question'], function (oQuestion) {
             this.element.focus();
             this.clearFilters();
             this.updateItemCount(this.buildVisibleList().length);
+            this.displayEmptyMessage();
         }.bind(this));
     };
     
