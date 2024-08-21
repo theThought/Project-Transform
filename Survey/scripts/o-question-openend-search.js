@@ -73,25 +73,36 @@ define(['o-question'], function (oQuestion) {
         // Apply any batched changes at the end
     };
     
-
     oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
         selectedOption.classList.add('selected');
         selectedOption.setAttribute('data-selected', 'selected');
     
         var dataItem = selectedOption.getAttribute('data-item');
     
-        // Determine if the data-item is JSON or a simple value
         var value;
         try {
             value = JSON.parse(dataItem);
         } catch (e) {
-            value = dataItem;  // If it's not JSON, treat it as a simple string
+            value = dataItem;
         }
     
-        this.setHiddenValue(value); // Store the value in the hidden input
-        this.addTag(value.name || value.value || value); // Display tag (for UI), fall back to value if name is not available
+        var mappedValue = {
+            ean: value.upc,
+            description: value.name,
+            category: value.category
+        };
+    
+        this.setHiddenValue(mappedValue);
+        this.addTag(mappedValue.description || mappedValue.ean);
     };
     
+    oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
+        if (typeof value === 'object' && value !== null) {
+            this.hiddenelement.value = JSON.stringify(value);
+        } else {
+            this.hiddenelement.value = value;
+        }
+    };
     
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
         if (typeof value === 'object' && value !== null) {
@@ -886,7 +897,6 @@ define(['o-question'], function (oQuestion) {
             this.broadcastChange();
         }
     };
-    
 
     oQuestionOpenendSearch.prototype.showList = function () {
         
