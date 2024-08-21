@@ -1168,7 +1168,8 @@ define(['o-question'], function (oQuestion) {
         deleteButton.addEventListener('click', function () {
             container.removeChild(tag);
             this.element.value = ''; 
-            this.hiddenelement.value = ''; 
+            this.hiddenelement.value = '';
+            this.broadcastChange();
             this.element.focus();
             this.clearFilters();
             this.showAllImageItems();

@@ -545,8 +545,21 @@ define(
                 // match 1: question
                 // match 2: contains property requested
                 while (null !== (matches = re.exec(ruleString))) {
-                    var data = JSON.parse(questionData);
-                    ruleString = ruleString.replace(matches[0], data[matches[1]]);
+                    var data;
+
+                    try {
+                        data = JSON.parse(questionData);
+                    } catch (e) {
+                        data = {}
+                    }
+
+                    var value = data[matches[1]];
+
+                    if (typeof value === 'undefined' || value === null) {
+                        value = '';
+                    }
+
+                    ruleString = ruleString.replace(matches[0], value);
                 }
 
                 return ruleString;
