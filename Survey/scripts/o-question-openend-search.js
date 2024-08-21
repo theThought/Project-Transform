@@ -590,8 +590,7 @@ define(['o-question'], function (oQuestion) {
         }
         this.element.placeholder = this.defaultplaceholder;
     };
-    
-    
+
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
         var newelement = this.element.cloneNode();
         newelement.id = '';
@@ -620,8 +619,7 @@ define(['o-question'], function (oQuestion) {
         }
         return listItems;
     };
-    
-    
+
     oQuestionOpenendSearch.prototype.buildListFromHtml = function () {
         var item = this.droplist.querySelector('li');
         if (item) {
@@ -893,7 +891,6 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.showList = function () {
-        
             this.setDropListDirection();
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
@@ -901,16 +898,13 @@ define(['o-question'], function (oQuestion) {
         
             this.messages.style.paddingTop = this.droplist.offsetHeight + 'px';
             this.updateItemCount(this.buildVisibleList().length);
-        
     };
     
     oQuestionOpenendSearch.prototype.hideList = function () {
-     
             this.element.classList.remove('list-visible');
             this.droplist.classList.remove('visible');
             this.messages.style.paddingTop = '0px';
             this.updateItemCount(0);
-        
     };
     
 
@@ -1166,7 +1160,6 @@ define(['o-question'], function (oQuestion) {
             this.broadcastChange();
             this.element.focus();
             this.clearFilters();
-            this.showAllImageItems();
             this.updateItemCount(this.buildVisibleList().length);
         }.bind(this));
     };
