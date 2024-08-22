@@ -74,35 +74,48 @@ define(['o-question'], function (oQuestion) {
         // Apply any batched changes at the end
     };
     
+    oQuestionOpenendSearch.prototype.buildJsonTemplate = function () {
+        var properties = app.getProperties(this.group);
+        var map = properties.list.valuefrom.match || [];
+        var template = {};
+        for (var i = 0; i < map.length; i++) {
+            var pair = map[i];
+            template[pair.property] = null;
+        }
+        return template;
+    };
+
     oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
         selectedOption.classList.add('selected');
         selectedOption.setAttribute('data-selected', 'selected');
-    
         var dataItem = selectedOption.getAttribute('data-item');
-    
         var value;
         try {
             value = JSON.parse(dataItem);
         } catch (e) {
             value = dataItem;
         }
-    
-        var mappedValue = {
-            ean: value.upc,
-            description: value.name,
-            category: value.category
-        };
-    
-        this.setHiddenValue(mappedValue);
-        this.addTag(mappedValue.description || mappedValue.ean);
-        this.value = mappedValue;
+        var filledTemplate = this.fillTemplateWithValues(value);
+        this.setHiddenValue(filledTemplate);
+        this.addTag(filledTemplate.description || Object.values(filledTemplate)[0]);
+        this.value = filledTemplate;
+    };
+
+    oQuestionOpenendSearch.prototype.fillTemplateWithValues = function (value) {
+        var filledTemplate = JSON.parse(JSON.stringify(this.template));
+        for (var key in this.template) {
+            if (this.template.hasOwnProperty(key) && value.hasOwnProperty(key)) {
+                filledTemplate[key] = value[key];
+            }
+        }
+        return filledTemplate;
     };
 
     oQuestionOpenendSearch.prototype.addEmptyMessageContainer = function () {
         var emptyTextContainer = document.createElement('div');
         emptyTextContainer.className = 'a-label-message-external-empty';
         this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
-    }
+    };
 
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
         if (typeof value === 'object' && value !== null) {
@@ -117,7 +130,7 @@ define(['o-question'], function (oQuestion) {
         this.element.value = this.hiddenelement.value;
         oQuestion.prototype.broadcastChange.call(this);
         this.element.value = elementTempValue;
-    }
+    };
 
     oQuestionOpenendSearch.prototype.onFocusIn = function (event) {
         if (this.tabPressed) {
