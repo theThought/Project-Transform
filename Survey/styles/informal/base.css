@@ -945,6 +945,13 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
   background-image: url("../../images/informal/icon-success.svg");
 }
 
+.o-openend-search .a-label-empty {
+  display: none;
+}
+.o-openend-search .o-question-selected:empty + .a-label-empty {
+  display: block;
+}
+
 .o-question-scale-horizontal div.a-label-prelabel,
 .o-question-scale-horizontal div.a-label-postlabel,
 .o-question-scale-vertical div.a-label-prelabel,

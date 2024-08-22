@@ -106,25 +106,8 @@ define(['o-question'], function (oQuestion) {
         var emptyText = this.properties.empty.text;
         var emptyTextContainer = document.createElement('div');
         emptyTextContainer.className = 'a-label-empty';
-        emptyTextContainer.style.display = 'none';
         emptyTextContainer.innerText = emptyText;
         this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
-    }
-
-    oQuestionOpenendSearch.prototype.displayEmptyMessage = function () {
-        if (typeof this.properties.empty === 'undefined') {
-            return;
-        }
-
-        this.container.querySelector('.a-label-empty').style.display = 'block';
-    }
-
-    oQuestionOpenendSearch.prototype.hideEmptyMessage = function () {
-        if (typeof this.properties.empty === 'undefined') {
-            return;
-        }
-
-        this.container.querySelector('.a-label-empty').style.display = 'none';
     }
 
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
@@ -1167,8 +1150,6 @@ define(['o-question'], function (oQuestion) {
         if (this.buttonElement) {
             this.buttonElement.disabled = true;
         }
-
-        this.hideEmptyMessage();
     
         var tag = document.createElement('div');
         tag.className = 'm-tag-answer';
@@ -1187,7 +1168,6 @@ define(['o-question'], function (oQuestion) {
             this.element.focus();
             this.clearFilters();
             this.updateItemCount(this.buildVisibleList().length);
-            this.displayEmptyMessage();
         }.bind(this));
     };
     

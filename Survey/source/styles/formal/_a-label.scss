@@ -223,6 +223,15 @@ html[dir="rtl"] {
     }
 }
 
+.o-openend-search {
+    .a-label-empty {
+        display: none;
+    }
+    .o-question-selected:empty + .a-label-empty {
+        display: block;
+    }
+}
+
 .o-question-scale-horizontal,
 .o-question-scale-vertical {
     div.a-label-prelabel,
