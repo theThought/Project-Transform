@@ -66,7 +66,7 @@ define(['o-question'], function (oQuestion) {
         this.setupSpecialListener();
         this.ensureSpecialOrder();
         this.addBarcodeScanButton();
-        this.addEmptyMessage();
+        this.addEmptyMessageContainer();
         this.getInitialValue();
         this.restoreSelection();
         this.configurationComplete();
@@ -98,15 +98,9 @@ define(['o-question'], function (oQuestion) {
         this.value = mappedValue;
     };
 
-    oQuestionOpenendSearch.prototype.addEmptyMessage = function () {
-        if (typeof this.properties.empty === 'undefined') {
-            return;
-        }
-
-        var emptyText = this.properties.empty.text;
+    oQuestionOpenendSearch.prototype.addEmptyMessageContainer = function () {
         var emptyTextContainer = document.createElement('div');
         emptyTextContainer.className = 'a-label-empty';
-        emptyTextContainer.innerText = emptyText;
         this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
     }
 
