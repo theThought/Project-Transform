@@ -3129,6 +3129,10 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   margin: 0;
 }
 
+.a-figure-thumbnail {
+  margin: 4px;
+}
+
 html {
   height: 95vh;
   width: auto;
