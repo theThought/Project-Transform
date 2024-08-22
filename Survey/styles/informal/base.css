@@ -945,10 +945,10 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
   background-image: url("../../images/informal/icon-success.svg");
 }
 
-.o-openend-search .a-label-empty {
+.o-openend-search .a-label-message-external-empty {
   display: none;
 }
-.o-openend-search .o-question-selected:empty + .a-label-empty {
+.o-openend-search .o-question-selected:empty + .a-label-message-external-empty {
   display: block;
 }
 

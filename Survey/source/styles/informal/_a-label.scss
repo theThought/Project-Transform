@@ -225,10 +225,10 @@ html[dir="rtl"] {
 }
 
 .o-openend-search {
-    .a-label-empty {
+    .a-label-message-external-empty {
         display: none;
     }
-    .o-question-selected:empty + .a-label-empty {
+    .o-question-selected:empty + .a-label-message-external-empty {
         display: block;
     }
 }

@@ -55,6 +55,17 @@ define(['component'],
             if (typeof props.start.text !== 'undefined') {
                 this.setButtonText(props.start.text);
             }
+
+            if (typeof props.empty.text !== 'undefined') {
+                this.setEmptyText(props.empty.text);
+            }
+        }
+
+        aButtonBarcode.prototype.setButtonImage = function (props) {
+            this.element.classList.add('a-button-image');
+            this.element.style.background = 'url("' + props.source + '") center';
+            this.element.style.width = props.width;
+            this.element.style.height = props.height;
         }
 
         aButtonBarcode.prototype.setButtonText = function (text) {
@@ -66,13 +77,10 @@ define(['component'],
             this.element.style.width = 'auto';
         }
 
-        aButtonBarcode.prototype.setButtonImage = function (props) {
-            this.element.classList.add('a-button-image');
-            this.element.style.background = 'url("' + props.source + '") center';
-            this.element.style.width = props.width;
-            this.element.style.height = props.height;
+        aButtonBarcode.prototype.setEmptyText = function (text) {
+            var emptyTextContainer = this.container.querySelector('.a-label-message-external-empty');
+            emptyTextContainer.innerText = text;
         }
-
 
         aButtonBarcode.prototype.setValue = function (data) {
             this.element.setAttribute('data-barcode', JSON.stringify(data.product));

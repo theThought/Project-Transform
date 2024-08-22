@@ -65,8 +65,8 @@ define(['o-question'], function (oQuestion) {
         this.filterList();
         this.setupSpecialListener();
         this.ensureSpecialOrder();
-        this.addBarcodeScanButton();
         this.addEmptyMessageContainer();
+        this.addBarcodeScanButton();
         this.getInitialValue();
         this.restoreSelection();
         this.configurationComplete();
@@ -100,7 +100,7 @@ define(['o-question'], function (oQuestion) {
 
     oQuestionOpenendSearch.prototype.addEmptyMessageContainer = function () {
         var emptyTextContainer = document.createElement('div');
-        emptyTextContainer.className = 'a-label-empty';
+        emptyTextContainer.className = 'a-label-message-external-empty';
         this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
     }
 
