@@ -35,13 +35,15 @@ define(['o-question'], function (oQuestion) {
         this.tabPressed = false;
         this.mousePressed = false;
         this.hasScan = false;
-        this.template = this.buildJsonTemplate();
+        this.template = {};
     }
 
     oQuestionOpenendSearch.prototype = Object.create(oQuestion.prototype);
     oQuestionOpenendSearch.prototype.constructor = oQuestionOpenendSearch;
 
     oQuestionOpenendSearch.prototype.init = function () {
+        this.configureProperties();
+        this.template = this.buildJsonTemplate();
         this.list = this.buildList();
         this.indexList();
         this.manualWidth = this.checkManualWidth();
@@ -49,7 +51,6 @@ define(['o-question'], function (oQuestion) {
         this.configureTagContainer();
         this.setCurrentListPosition();
         this.updateScrollPosition(this.getCurrentListPosition());
-        this.configureProperties();
         this.createButtonElement();
         this.setPosition();
         this.setTabIndex();
@@ -73,13 +74,22 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.buildJsonTemplate = function () {
-        var properties = app.getProperties(this.group);
-        var map = properties.list.valuefrom.match || [];
-        var template = {};
-        for (var i = 0; i < map.length; i++) {
-            var pair = map[i];
-            template[pair.property.toLowerCase()] = pair.from.toLowerCase();
+        var template = {match: {}, nomatch: {}};
+        var i, pair, map;
+
+        map = this.properties.list.valuefrom.match || [];
+        for (i = 0; i < map.length; i++) {
+            pair = map[i];
+            template.match[pair.property.toLowerCase()] = pair.from.toLowerCase();
         }
+
+        // the nomatch is deliberately inverted, as we want to retrieve a destination from a method
+        map = this.properties.list.valuefrom.nomatch || [];
+        for (i = 0; i < map.length; i++) {
+            pair = map[i];
+            template.nomatch[pair.from.toLowerCase()] = pair.property.toLowerCase();
+        }
+
         return template;
     };
 
@@ -101,14 +111,12 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.fillTemplateWithValues = function (value) {
-        var filledTemplate = JSON.parse(JSON.stringify(this.template));
+        var filledTemplate = JSON.parse(JSON.stringify(this.template.match));
 
         if (typeof value === "object") {
             for (var key in filledTemplate) {
                 filledTemplate[key] = value[filledTemplate[key]];
             }
-        } else {
-
         }
 
         return filledTemplate;
@@ -125,8 +133,8 @@ define(['o-question'], function (oQuestion) {
             this.hiddenelement.value = JSON.stringify(value);
             this.hiddenelement.setAttribute('data-value', JSON.stringify(value));
         } else {
-            this.hiddenelement.value = JSON.stringify({description: value});
-            this.hiddenelement.setAttribute('data-value', JSON.stringify({description: value}));
+            this.hiddenelement.value = JSON.stringify({[this.template.nomatch.search]: value});
+            this.hiddenelement.setAttribute('data-value', JSON.stringify({[this.template.nomatch.search]: value}));
         }
     };
 
@@ -349,8 +357,8 @@ define(['o-question'], function (oQuestion) {
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
-                self.hiddenelement.setAttribute('value', JSON.stringify({description: inputValue}));
-                self.hiddenelement.setAttribute('data-value', JSON.stringify({description: inputValue}));
+                self.hiddenelement.setAttribute('value', JSON.stringify({[self.template.nomatch.search]: inputValue}));
+                self.hiddenelement.setAttribute('data-value', JSON.stringify({[self.template.nomatch.search]: inputValue}));
                 self.element.value = '';
                 self.broadcastChange();
                 self.hideList();
