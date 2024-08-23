@@ -2260,7 +2260,7 @@
       </xsl:element>  
    </xsl:template>
    
-      <xsl:template name="OpenendSearchScanControl">
+   <xsl:template name="OpenendSearchScanControl">
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
