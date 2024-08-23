@@ -111,7 +111,7 @@ define(['o-question'], function (oQuestion) {
         if (typeof this.template !== 'undefined') {
             var filledTemplate = this.fillTemplateWithValues(value);
             this.setHiddenValue(filledTemplate);
-            this.addTag(filledTemplate.description || Object.values(filledTemplate)[0]);
+            this.addTag(filledTemplate.name || Object.values(filledTemplate)[0]);
             this.value = filledTemplate;
         } else if (typeof value === 'object') {
             value = value[this.properties.list.descriptionfrom];
