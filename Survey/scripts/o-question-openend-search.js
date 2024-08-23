@@ -325,8 +325,8 @@ define(['o-question'], function (oQuestion) {
         this.userspecifiedheight = height;
         this.droplist.style.maxHeight = height + 'px';
         this.droplist.style.minHeight = height + 'px';
-        this.droplistwrapper.style.maxHeight = height + 'px';
-        this.droplistwrapper.style.minHeight = height + 'px';
+        // this.droplistwrapper.style.maxHeight = height + 'px';
+        // this.droplistwrapper.style.minHeight = height + 'px';
     };
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
@@ -559,7 +559,7 @@ define(['o-question'], function (oQuestion) {
         var messagePadding = 0;
         var droplistWrapperPadding = 35;
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-        this.droplistwrapper.style.width = Math.max(droplistwidth, inputwidth) + droplistWrapperPadding - padding + 'px';
+        //this.droplistwrapper.style.width = Math.max(droplistwidth, inputwidth) + droplistWrapperPadding - padding + 'px';
         this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
         this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
         this.manualWidth = true;
