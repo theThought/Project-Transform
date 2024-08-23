@@ -107,25 +107,37 @@ define(['o-question'], function (oQuestion) {
         } catch (e) {
             value = dataItem;
         }
-
+        console.log(value);
+    
         if (typeof this.template !== 'undefined') {
             var filledTemplate = this.fillTemplateWithValues(value);
             this.setHiddenValue(filledTemplate);
-            this.addTag(filledTemplate.name || Object.values(filledTemplate)[0]);
+            
+            // Use the dynamic property based on descriptionfrom??
+            var descriptionField = filledTemplate[this.properties.list.descriptionfrom];
+            console.log(this.properties.list.descriptionfrom);
+            
+
+            this.addTag(descriptionField || Object.values(filledTemplate)[0]);
             this.value = filledTemplate;
         } else if (typeof value === 'object') {
-            value = value[this.properties.list.descriptionfrom];
-            this.setHiddenValue(value);
-            this.addTag(value);
-            this.value = value;
+            // Dynamically reference the descriptionfrom property??
+            var descriptionField = value[this.properties.list.descriptionfrom];
+            
+            this.setHiddenValue(descriptionField);
+            this.addTag(descriptionField);
+            this.value = descriptionField;
+            console.log('is obj');
+            console.log(descriptionField);
         } else {
             this.setHiddenValue(value);
             this.addTag(value);
             this.value = value;
         }
-
+    
         this.broadcastChange();
     };
+    
 
     oQuestionOpenendSearch.prototype.fillTemplateWithValues = function (value) {
         var filledTemplate = JSON.parse(JSON.stringify(this.template.match));

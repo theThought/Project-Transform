@@ -36,8 +36,8 @@
 		<meta name="theme-color" content="#ffffff"/>
 	</head>
 	<body>
-		<form name="mrForm" id="mrForm" action="/mrIWeb/mrIWeb.dll" method="post"><input type="hidden" name="I.Engine" value="engine2"/><input type="hidden" name="I.Project" value="S20223280"/><input type="hidden" name="I.Session" value="jcynlquvrshevcda44eiexioznya1aaa"/><input type="hidden" name="I.SavePoint" value="BrandlistPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
-				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="../../Survey/images/formal/ipsoslogo192.png"/>
+		<form name="mrForm" id="mrForm" action="/mrIWeb/mrIWeb.dll" method="post"><input type="hidden" name="I.Engine" value="engine4"/><input type="hidden" name="I.Project" value="S20223280"/><input type="hidden" name="I.Session" value="fqeesbtrftxufjxhtq3ipr4mfpwqoaaa"/><input type="hidden" name="I.SavePoint" value="BrandlistPage"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/formal/ipsoslogo192.png"/>
 				<div class="overall-progress">
 					<div class="overall-progress-text">
 						<!-- progress text -->
@@ -49,7 +49,7 @@
 			</div>
 			<script id="pageproperties">app.RegisterProperties('Page',{"sidebyside":30,"focus":{"question":true,"control":true},"pwa":"false","paste":"true","jumptoerror":"true"})</script><div class="surroundcontent">
 				<div class="o-question-container">
-					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QBrandlistPage_QbrandlistAllDetails');</script><script type="text/javascript">app.RegisterProperties("_QbrandlistAllDetails",{"displayicon":false,"listsize":12,"list":{"location":"internal","source":"a-list","valuefrom":{"Match":[{"property":"code","from":"UPC"},{"property":"name","from":"name"},{"property":"category","from":"category"}],"NoMatch":[{"property":"name","from":"search"}]},"descriptionfrom":"name"},"showanswers":true,"mincharactersforlist":3,"notenoughcharacters":"type at least 3 characters to see a list of products containing what has been typed.","filtertype":"contains","placeholder":"Describe your drink, include the brand if you know it","noitemsinlist":"There are no drinks of that name in the list, you can accept this answer by tapping the tick","prompts":{"selection":"Brand Identified","listcount":"beverages found"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QBrandlistPage_QbrandlistAllDetails');</script><script type="text/javascript">app.RegisterProperties("_QbrandlistAllDetails",{"displayicon":false,"listsize":12,"list":{"location":"internal","source":"a-list","valuefrom":{"match":[{"property":"code","from":"UPC"},{"property":"name","from":"name"},{"property":"category","from":"category"}],"nomatch":[{"property":"name","from":"search"}]},"descriptionfrom":"name"},"showanswers":true,"mincharactersforlist":3,"notenoughcharacters":"type at least 3 characters to see a list of products containing what has been typed.","filtertype":"contains","placeholder":"Describe your drink, include the brand if you know it","noitemsinlist":"There are no drinks of that name in the list, you can accept this answer by tapping the tick","prompts":{"selection":"Brand Identified","listcount":"beverages found"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="m-message-error">
 					</div>
 					<div class="o-question-core">
@@ -109,7 +109,7 @@
 					<script type="text/javascript" class="a-list" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/brandlist.js">// database list</script>
 				</div>
 				<div class="o-question-container sidebyside">
-					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QBrandlistPage_QLACode');</script><script type="text/javascript">app.RegisterProperties("_QLACode",{"calculation":{"rule":"search.JSON('code')"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QBrandlistPage_QLACode');</script><script type="text/javascript">app.RegisterProperties("_QLACode",{"calculation":{"rule":"brandlistAllDetails.JSON('ean')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-messages">
 						<div class="o-question-information-messages">
 							<div class="m-message-error">
@@ -159,7 +159,7 @@
 					</div>
 				</div>
 				<div class="o-question-container sidebyside">
-					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QBrandlistPage_QLAProduct');</script><script type="text/javascript">app.RegisterProperties("_QLACode",{"calculation":{"rule":"search.JSON('name')"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q2">app.registerComponent('oQuestionContainer','_Q2','_QBrandlistPage_QLAProduct');</script><script type="text/javascript">app.RegisterProperties("_QLACode",{"calculation":{"rule":"brandlistAllDetails.JSON('description')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-messages">
 						<div class="o-question-information-messages">
 							<div class="m-message-error">
@@ -209,7 +209,7 @@
 					</div>
 				</div>
 				<div class="o-question-container sidebyside">
-					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QBrandlistPage_QLACategory__Entry');</script><script type="text/javascript">app.RegisterProperties("_QLACode",{"calculation":{"rule":"search.JSON('category')"}});</script><div class="m-question-cover"><!-- cover --></div>
+					<script data-questionid="_Q3">app.registerComponent('oQuestionContainer','_Q3','_QBrandlistPage_QLACategory__Entry');</script><script type="text/javascript">app.RegisterProperties("_QLACode",{"calculation":{"rule":"brandlistAllDetails.JSON('category')"}});</script><div class="m-question-cover"><!-- cover --></div>
 					<div class="o-question-messages">
 						<div class="o-question-information-messages">
 							<div class="m-message-error">
@@ -275,3 +275,4 @@
 		
 </body>
 </html>
+
