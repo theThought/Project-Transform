@@ -74,6 +74,10 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.buildJsonTemplate = function () {
+        if (typeof this.properties.list.valuefrom !== 'object') {
+            return;
+        }
+
         var template = {match: {}, nomatch: {}};
         var i, pair, map;
 
@@ -103,10 +107,23 @@ define(['o-question'], function (oQuestion) {
         } catch (e) {
             value = dataItem;
         }
-        var filledTemplate = this.fillTemplateWithValues(value);
-        this.setHiddenValue(filledTemplate);
-        this.addTag(filledTemplate.description || Object.values(filledTemplate)[0]);
-        this.value = filledTemplate;
+
+        if (typeof this.template !== 'undefined') {
+            var filledTemplate = this.fillTemplateWithValues(value);
+            this.setHiddenValue(filledTemplate);
+            this.addTag(filledTemplate.description || Object.values(filledTemplate)[0]);
+            this.value = filledTemplate;
+        } else if (typeof value === 'object') {
+            value = value[this.properties.list.descriptionfrom];
+            this.setHiddenValue(value);
+            this.addTag(value);
+            this.value = value;
+        } else {
+            this.setHiddenValue(value);
+            this.addTag(value);
+            this.value = value;
+        }
+
         this.broadcastChange();
     };
 
@@ -133,8 +150,13 @@ define(['o-question'], function (oQuestion) {
             this.hiddenelement.value = JSON.stringify(value);
             this.hiddenelement.setAttribute('data-value', JSON.stringify(value));
         } else {
-            this.hiddenelement.value = JSON.stringify({[this.template.nomatch.search]: value});
-            this.hiddenelement.setAttribute('data-value', JSON.stringify({[this.template.nomatch.search]: value}));
+            if (typeof this.template === 'object') {
+                this.hiddenelement.value = JSON.stringify({[this.template.nomatch.search]: value});
+                this.hiddenelement.setAttribute('data-value', JSON.stringify({[this.template.nomatch.search]: value}));
+            } else {
+                this.hiddenelement.value = value;
+                this.hiddenelement.setAttribute('data-value', value);
+            }
         }
     };
 
@@ -357,8 +379,7 @@ define(['o-question'], function (oQuestion) {
             var inputValue = self.element.value.trim();
             if (inputValue.length > 0) {
                 self.addTag(inputValue);
-                self.hiddenelement.setAttribute('value', JSON.stringify({[self.template.nomatch.search]: inputValue}));
-                self.hiddenelement.setAttribute('data-value', JSON.stringify({[self.template.nomatch.search]: inputValue}));
+                self.setHiddenValue(inputValue);
                 self.element.value = '';
                 self.broadcastChange();
                 self.hideList();
