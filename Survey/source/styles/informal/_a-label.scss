@@ -228,8 +228,12 @@ html[dir="rtl"] {
     .a-label-message-external-empty {
         display: none;
     }
+
     .o-question-selected:empty + .a-label-message-external-empty {
         display: block;
+    }
+
+    .a-label-message-external-nomatch {
     }
 }
 

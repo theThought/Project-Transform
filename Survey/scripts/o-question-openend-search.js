@@ -66,7 +66,7 @@ define(['o-question'], function (oQuestion) {
         this.filterList();
         this.setupSpecialListener();
         this.ensureSpecialOrder();
-        this.addEmptyMessageContainer();
+        this.addMessageContainers();
         this.addBarcodeScanButton();
         this.getInitialValue();
         this.restoreSelection();
@@ -151,10 +151,13 @@ define(['o-question'], function (oQuestion) {
         return filledTemplate;
     };
 
-    oQuestionOpenendSearch.prototype.addEmptyMessageContainer = function () {
+    oQuestionOpenendSearch.prototype.addMessageContainers = function () {
         var emptyTextContainer = document.createElement('div');
         emptyTextContainer.className = 'a-label-message-external-empty';
         this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
+        var noMatchTextContainer = document.createElement('div');
+        noMatchTextContainer.className = 'a-label-message-external-nomatch';
+        this.container.querySelector('.l-selection-and-scan').appendChild(noMatchTextContainer);
     };
 
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {

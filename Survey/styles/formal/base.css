@@ -1000,7 +1000,6 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
 .o-openend-search .o-question-selected:empty + .a-label-message-external-empty {
   display: block;
 }
-
 .o-question-scale-horizontal div.a-label-prelabel,
 .o-question-scale-horizontal div.a-label-postlabel,
 .o-question-scale-vertical div.a-label-prelabel,
@@ -3471,6 +3470,10 @@ body > form {
 
 [data-hidden=true] {
   visibility: hidden;
+}
+
+.hidden {
+  display: none;
 }
 
 .unavailable {

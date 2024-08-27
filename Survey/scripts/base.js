@@ -19,14 +19,12 @@
 
 // matches polyfill
 if (!Element.prototype.matches) {
-    Element.prototype.matches =
-        Element.prototype.msMatchesSelector ||
-        Element.prototype.webkitMatchesSelector;
+    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
 
 // closest polyfill
 if (!Element.prototype.closest) {
-    Element.prototype.closest = function(s) {
+    Element.prototype.closest = function (s) {
         var el = this;
 
         do {
@@ -64,13 +62,11 @@ if (typeof Object.assign !== 'function') {
                 }
             }
             return to;
-        },
-        writable: true,
-        configurable: true
+        }, writable: true, configurable: true
     });
 }
 
-Date.prototype.addDays = function(days) {
+Date.prototype.addDays = function (days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
@@ -79,9 +75,19 @@ Date.prototype.addDays = function(days) {
 // remove duplicate values from arrays
 function uniq(a) {
     var seen = {};
-    return a.filter(function(item) {
+    return a.filter(function (item) {
         return seen.hasOwnProperty(item) ? false : (seen[item] = true);
     });
+}
+
+function isEmpty(obj) {
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 var app = new Survey();

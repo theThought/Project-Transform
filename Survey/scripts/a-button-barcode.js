@@ -7,6 +7,7 @@ define(['component'],
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.errorcontainer = this.container.querySelector('.o-label-message-error.external-warning');
             this.element = document.querySelector('input#' + this.id);
+            this.noMatchTextContainer = null;
         }
 
         aButtonBarcode.prototype = Object.create(component.prototype);
@@ -59,6 +60,10 @@ define(['component'],
             if (typeof props.empty.text !== 'undefined') {
                 this.setEmptyText(props.empty.text);
             }
+
+            if (typeof props.nomatch.text !== 'undefined') {
+                this.setNoMatchText(props.nomatch.text);
+            }
         }
 
         aButtonBarcode.prototype.setButtonImage = function (props) {
@@ -82,9 +87,30 @@ define(['component'],
             emptyTextContainer.innerText = text;
         }
 
+        aButtonBarcode.prototype.setNoMatchText = function (text) {
+            this.noMatchTextContainer = this.container.querySelector('.a-label-message-external-nomatch');
+            this.noMatchTextContainer.classList.add('hidden');
+            this.noMatchTextContainer.innerText = text;
+        }
+
+        aButtonBarcode.prototype.displayNoMatchMessage = function () {
+            this.noMatchTextContainer.classList.remove('hidden');
+        }
+
+        aButtonBarcode.prototype.hideNoMatchMessage = function () {
+            this.noMatchTextContainer.classList.add('hidden');
+        }
+
         aButtonBarcode.prototype.setValue = function (data) {
-            this.element.setAttribute('data-barcode', JSON.stringify(data.product));
-            this.broadcastBarcodeDataChange(data.product);
+            if (isEmpty(data.product)) {
+                this.displayNoMatchMessage();
+                this.element.setAttribute('data-barcode', JSON.stringify(data.barcode));
+                this.broadcastBarcodeDataChange(data.barcode);
+            } else {
+                this.hideNoMatchMessage();
+                this.element.setAttribute('data-barcode', JSON.stringify(data.product));
+                this.broadcastBarcodeDataChange(data.product);
+            }
         }
 
         aButtonBarcode.prototype.clearValue = function () {
