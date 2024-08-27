@@ -1180,6 +1180,9 @@ define(['o-question'], function (oQuestion) {
         tag.setAttribute('value', displayLabel);
         tag.innerHTML = '<span> ' + displayLabel + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
+
+        this.clearExternalMessages();
+
         var deleteButton = tag.querySelector('.delete-tag');
         deleteButton.addEventListener('click', function () {
             container.removeChild(tag);
@@ -1193,6 +1196,11 @@ define(['o-question'], function (oQuestion) {
             this.updateItemCount(this.buildVisibleList().length);
         }.bind(this));
     };
+
+    oQuestionOpenendSearch.prototype.clearExternalMessages = function () {
+        var clearExternalMessages = new CustomEvent('clearExternalMessages', {bubbles: true, detail: this});
+        this.element.dispatchEvent(clearExternalMessages);
+    }
 
     oQuestionOpenendSearch.prototype.clearFilters = function () {
         this.list.forEach(function (item) {

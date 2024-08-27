@@ -15,12 +15,17 @@ define(['component'],
 
         aButtonBarcode.prototype.init = function () {
             this.configureProperties();
+            this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configurationComplete();
         }
 
         aButtonBarcode.prototype.scan = function (props) {
             this.captions(props.captions);
+        }
+
+        aButtonBarcode.prototype.configureIncomingEventListeners = function () {
+            document.addEventListener("clearExternalMessages", this, false);
         }
 
         aButtonBarcode.prototype.configureLocalEventListeners = function () {
@@ -32,6 +37,9 @@ define(['component'],
                 case "click":
                     this.onClick();
                     break;
+                case "clearExternalMessages":
+                    this.clearMessages(event);
+                    break;
             }
         }
 
@@ -42,6 +50,14 @@ define(['component'],
             } catch (error) {
                 console.warn(error.message);
             }
+        }
+
+        aButtonBarcode.prototype.clearMessages = function (event) {
+            if (event.detail.group !== this.group) {
+                return;
+            }
+
+            this.hideNoMatchMessage();
         }
 
         aButtonBarcode.prototype.captions = function (props) {
