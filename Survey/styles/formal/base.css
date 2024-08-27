@@ -2773,10 +2773,6 @@ html[dir=rtl] .o-dropdown ul li {
   padding-top: 5px;
 }
 
-.o-openend-search.list-combobox.o-combobox {
-  margin-bottom: 120px;
-}
-
 .o-question-openend-search .m-openend-search-count {
   margin-top: 60px;
   padding-top: 11px;
