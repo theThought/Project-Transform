@@ -71,7 +71,14 @@ define(['o-question'], function (oQuestion) {
         this.getInitialValue();
         this.restoreSelection();
         this.configurationComplete();
+        this.placeCheckBox();
     };
+
+    oQuestionOpenendSearch.prototype.placeCheckBox = function(){
+        if (this.special && this.buttonElement) {
+            this.buttonElement.insertAdjacentElement('afterend', this.special);
+        }
+    }
 
     oQuestionOpenendSearch.prototype.buildJsonTemplate = function () {
         if (typeof this.properties.list.valuefrom !== 'object') {
@@ -194,6 +201,7 @@ define(['o-question'], function (oQuestion) {
             this.showList();
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.fetchList = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
@@ -400,7 +408,14 @@ define(['o-question'], function (oQuestion) {
                 self.hideList();
             }
         });
+    
+        if (this.special) {
+            if (document.body.contains(this.special)) {
+                buttonElement.insertAdjacentElement('afterend', this.special);
+            } 
+        }
     };
+    
 
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
@@ -1260,17 +1275,16 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.ensureSpecialOrder = function () {
-        if (this.special) {
+      
+        if (this.special && !this.special.hasBeenMoved) {
             const parentNode = this.wrapper.parentNode;
             if (parentNode) {
                 parentNode.insertBefore(this.special, this.wrapper.nextSibling);
-                const mListExternal = document.querySelector('.m-list-external');
-                if (mListExternal && mListExternal.classList.contains('visible')) {
-                    parentNode.insertBefore(this.special, this.wrapper.nextSibling);
-                }
+                this.special.hasBeenMoved = true; 
             }
         }
     };
+    
 
     oQuestionOpenendSearch.prototype.hideKeyboard = function () {
         this.element.blur();
