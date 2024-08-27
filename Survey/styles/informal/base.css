@@ -947,9 +947,13 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
 .o-openend-search .a-label-message-external-empty {
   display: none;
 }
-.o-openend-search .o-question-selected:empty + .a-label-message-external-empty {
+.o-openend-search .o-question-selected:empty + .a-label-message-external-nomatch.hidden + .a-label-message-external-empty {
   display: block;
 }
+.o-openend-search .o-question-selected:not(:empty) + .a-label-message-external-nomatch {
+  display: none;
+}
+
 .o-question-scale-horizontal div.a-label-prelabel,
 .o-question-scale-horizontal div.a-label-postlabel,
 .o-question-scale-vertical div.a-label-prelabel,

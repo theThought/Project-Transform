@@ -152,12 +152,12 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.addMessageContainers = function () {
-        var emptyTextContainer = document.createElement('div');
-        emptyTextContainer.className = 'a-label-message-external-empty';
-        this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
         var noMatchTextContainer = document.createElement('div');
         noMatchTextContainer.className = 'a-label-message-external-nomatch';
         this.container.querySelector('.l-selection-and-scan').appendChild(noMatchTextContainer);
+        var emptyTextContainer = document.createElement('div');
+        emptyTextContainer.className = 'a-label-message-external-empty';
+        this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
     };
 
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
