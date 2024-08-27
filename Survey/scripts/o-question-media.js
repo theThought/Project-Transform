@@ -9,6 +9,7 @@ define(['component'],
             this.errorcontainer = this.container.querySelector('.o-label-message-error.external-warning');
             this.trigger = this.container.querySelector('input[type=button]');
             this.element = document.querySelector('input#' + this.id);
+            this.api = 'barcode';
         }
 
         oQuestionMedia.prototype = Object.create(component.prototype);
@@ -33,13 +34,39 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.onClick = async function () {
+            switch (this.api) {
+                case 'barcode':
+                    this.callBarcodeScan();
+                    break;
+                case 'picture':
+                    this.callPictureCapture();
+                    break;
+            }
+
+        }
+
+        oQuestionMedia.prototype.callBarcodeScan = async function () {
             try {
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
                 this.clearError();
-                this.setValue(data);
+                this.setBarcodeData(data);
             } catch (error) {
                 this.setError(error.message);
             }
+        }
+
+        oQuestionMedia.prototype.callPictureCapture = async function () {
+            try {
+                const data = await window.theDiary.takePicture(true);
+                this.clearError();
+                this.setPictureData(data);
+            } catch (error) {
+                this.setError(error.message);
+            }
+        }
+
+        oQuestionMedia.prototype.type = function (prop) {
+            this.api = prop;
         }
 
         oQuestionMedia.prototype.captions = function (props) {
@@ -72,13 +99,18 @@ define(['component'],
             this.trigger.style.height = props.height;
         }
 
-        oQuestionMedia.prototype.setValue = function (data) {
-            if (typeof data.product === 'undefined') {
+        oQuestionMedia.prototype.setBarcodeData = function (data) {
+            if (isEmpty(data.product)) {
                 this.clearValue();
                 return;
             }
 
             this.element.value = JSON.stringify(data.product);
+            this.broadcastChange();
+        }
+
+        oQuestionMedia.prototype.setPictureData = function (data) {
+            this.element.value = JSON.stringify(data);
             this.broadcastChange();
         }
 
