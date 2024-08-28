@@ -186,7 +186,7 @@ define(['o-question'], function (oQuestion) {
         } else {
             // Handle the normal case where product is found
             this.setHiddenValue(barcodeData);
-            this.addTag(barcodeData.product.description);
+            this.addTag(barcodeData.description);
             this.broadcastChange();
         }
     };
