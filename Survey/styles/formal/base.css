@@ -2753,11 +2753,6 @@ html[dir=rtl] .o-dropdown ul li {
   gap: 8px;
 }
 
-.m-list-messages {
-  height: 70px;
-  padding: 20px 32px 0 0px;
-}
-
 @media (max-width: 768px) {
   .m-list-messages {
     padding-top: 10px;
@@ -2837,7 +2832,6 @@ html[dir=rtl] .o-dropdown ul li {
 }
 
 .o-list {
-  background-color: #FFFFFF;
   padding: 0 0 10px;
 }
 .o-list .m-list-external {

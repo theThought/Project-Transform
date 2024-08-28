@@ -93,10 +93,10 @@ define(['o-question'], function (oQuestion) {
             pair = map[i];
             template.match[pair.property.toLowerCase()] = pair.from.toLowerCase();
         }
-
+   
         // the nomatch is deliberately inverted, as we want to retrieve a destination from a method
         map = this.properties.list.valuefrom.nomatch || [];
-        for (i = 0; i < map.length; i++) {
+        for (i = 0; i < map.length; i++) {  
             pair = map[i];
             template.nomatch[pair.from.toLowerCase()] = pair.property.toLowerCase();
         }
@@ -114,37 +114,29 @@ define(['o-question'], function (oQuestion) {
         } catch (e) {
             value = dataItem;
         }
-        console.log(value);
-    
+
         if (typeof this.template !== 'undefined') {
             var filledTemplate = this.fillTemplateWithValues(value);
             this.setHiddenValue(filledTemplate);
-            
-            // Use the dynamic property based on descriptionfrom??
+
             var descriptionField = filledTemplate[this.properties.list.descriptionfrom];
-            console.log(this.properties.list.descriptionfrom);
-            
 
             this.addTag(descriptionField || Object.values(filledTemplate)[0]);
             this.value = filledTemplate;
         } else if (typeof value === 'object') {
-            // Dynamically reference the descriptionfrom property??
             var descriptionField = value[this.properties.list.descriptionfrom];
-            
+
             this.setHiddenValue(descriptionField);
             this.addTag(descriptionField);
             this.value = descriptionField;
-            console.log('is obj');
-            console.log(descriptionField);
         } else {
             this.setHiddenValue(value);
             this.addTag(value);
             this.value = value;
         }
-    
+
         this.broadcastChange();
     };
-    
 
     oQuestionOpenendSearch.prototype.fillTemplateWithValues = function (value) {
         var filledTemplate = JSON.parse(JSON.stringify(this.template.match));
@@ -156,15 +148,6 @@ define(['o-question'], function (oQuestion) {
         }
 
         return filledTemplate;
-    };
-
-    oQuestionOpenendSearch.prototype.addMessageContainers = function () {
-        var noMatchTextContainer = document.createElement('div');
-        noMatchTextContainer.className = 'a-label-message-external-nomatch';
-        this.container.querySelector('.l-selection-and-scan').appendChild(noMatchTextContainer);
-        var emptyTextContainer = document.createElement('div');
-        emptyTextContainer.className = 'a-label-message-external-empty';
-        this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
     };
 
     oQuestionOpenendSearch.prototype.setHiddenValue = function (value) {
@@ -180,6 +163,41 @@ define(['o-question'], function (oQuestion) {
                 this.hiddenelement.setAttribute('data-value', value);
             }
         }
+    };
+
+    oQuestionOpenendSearch.prototype.processBarcodeData = function (event) {
+        if (event.detail === null) {
+            return;
+        }
+        var barcodeData = event.detail;
+        if (barcodeData.product && Object.keys(barcodeData.product).length === 0) {
+            // Barcode not found in the database, prompt user to enter description
+            var userValue = prompt("Product not found. Please enter a description:");
+            if (userValue) {
+                var mergedValue = {
+                    ean: barcodeData.barcode,
+                    description: userValue,
+                    category: null
+                };
+                this.setHiddenValue(mergedValue);
+                this.addTag(userValue);
+                this.broadcastChange();
+            }
+        } else {
+            // Handle the normal case where product is found
+            this.setHiddenValue(barcodeData);
+            this.addTag(barcodeData.product.description);
+            this.broadcastChange();
+        }
+    };
+
+    oQuestionOpenendSearch.prototype.addMessageContainers = function () {
+        var noMatchTextContainer = document.createElement('div');
+        noMatchTextContainer.className = 'a-label-message-external-nomatch';
+        this.container.querySelector('.l-selection-and-scan').appendChild(noMatchTextContainer);
+        var emptyTextContainer = document.createElement('div');
+        emptyTextContainer.className = 'a-label-message-external-empty';
+        this.container.querySelector('.l-selection-and-scan').appendChild(emptyTextContainer);
     };
 
     oQuestionOpenendSearch.prototype.broadcastChange = function () {
@@ -201,14 +219,12 @@ define(['o-question'], function (oQuestion) {
             this.showList();
         }
     };
-    
 
     oQuestionOpenendSearch.prototype.fetchList = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
     };
 
-    oQuestionOpenendSearch.prototype.getDroplistHeight = function () {
-    };
+    oQuestionOpenendSearch.prototype.getDroplistHeight = function () {};
 
     oQuestionOpenendSearch.prototype.setDropListDirection = function () {
         this.wrapper.classList.remove('direction-up');
@@ -308,21 +324,6 @@ define(['o-question'], function (oQuestion) {
         }
     };
 
-    oQuestionOpenendSearch.prototype.processBarcodeData = function (event) {
-        if (event.detail === null) {
-            return;
-        }
-        this.setHiddenValue(event.detail);
-        this.addTag(event.detail.description);
-        this.broadcastChange();
-    }
-
-    oQuestionOpenendSearch.prototype.receiveOptionVisibilityChange = function (event) {
-        if (this.hiddenelement.value === event.detail.itemValue) {
-            this.clearEntries();
-        }
-    };
-
     oQuestionOpenendSearch.prototype.updateDroplistPosition = function () {
         this.droplist.style.marginLeft = 0 - this.container.scrollLeft + 'px';
     };
@@ -348,8 +349,6 @@ define(['o-question'], function (oQuestion) {
         this.userspecifiedheight = height;
         this.droplist.style.maxHeight = height + 'px';
         this.droplist.style.minHeight = height + 'px';
-        // this.droplistwrapper.style.maxHeight = height + 'px';
-        // this.droplistwrapper.style.minHeight = height + 'px';
     };
 
     oQuestionOpenendSearch.prototype.mincharactersforlist = function (prop) {
@@ -408,14 +407,13 @@ define(['o-question'], function (oQuestion) {
                 self.hideList();
             }
         });
-    
+
         if (this.special) {
             if (document.body.contains(this.special)) {
                 buttonElement.insertAdjacentElement('afterend', this.special);
             } 
         }
     };
-    
 
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
@@ -589,7 +587,6 @@ define(['o-question'], function (oQuestion) {
         var messagePadding = 0;
         var droplistWrapperPadding = 35;
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-        //this.droplistwrapper.style.width = Math.max(droplistwidth, inputwidth) + droplistWrapperPadding - padding + 'px';
         this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
         this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
         this.manualWidth = true;
@@ -1195,9 +1192,6 @@ define(['o-question'], function (oQuestion) {
         tag.setAttribute('value', displayLabel);
         tag.innerHTML = '<span> ' + displayLabel + '</span><button class="delete-tag">X</button>';
         container.appendChild(tag);
-
-        this.clearExternalMessages();
-
         var deleteButton = tag.querySelector('.delete-tag');
         deleteButton.addEventListener('click', function () {
             container.removeChild(tag);
@@ -1211,11 +1205,6 @@ define(['o-question'], function (oQuestion) {
             this.updateItemCount(this.buildVisibleList().length);
         }.bind(this));
     };
-
-    oQuestionOpenendSearch.prototype.clearExternalMessages = function () {
-        var clearExternalMessages = new CustomEvent('clearExternalMessages', {bubbles: true, detail: this});
-        this.element.dispatchEvent(clearExternalMessages);
-    }
 
     oQuestionOpenendSearch.prototype.clearFilters = function () {
         this.list.forEach(function (item) {
@@ -1292,7 +1281,6 @@ define(['o-question'], function (oQuestion) {
             }
         }
     };
-    
 
     oQuestionOpenendSearch.prototype.hideKeyboard = function () {
         this.element.blur();

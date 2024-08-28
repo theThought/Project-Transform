@@ -6,11 +6,6 @@
     gap: 8px;
 }
 
-.m-list-messages{
-    height: 70px;
-    padding: 20px 32px 0 0px;
-}
-
     @media (max-width: 768px) {
       .m-list-messages {
         padding-top: 10px;
@@ -30,11 +25,6 @@
 .a-list-placeholder-restriction{
   padding-top: 5px;
 }
-// Leaving this commented out for the time being as it 
-// is creating too much of a gap. 
-// .o-openend-search.list-combobox.o-combobox {
-//   margin-bottom: 120px;
-// }
 
 .o-question-openend-search .m-openend-search-count {
   margin-top: 60px;
@@ -92,9 +82,11 @@
   display: none;
 }
 
+
+
 .o-list{
   // border: globals.$border-thickness solid globals.$theme-primary;
-  background-color: globals.$input-background;
+  // background-color: globals.$input-background;
   padding: 0 0 10px;
 
     .m-list-external {
@@ -102,6 +94,9 @@
       box-shadow: none !important;
     }
 }
+
+
+
 
 .o-question-openend-search .o-combobox ul, 
 .o-question-openend-search .o-dropdown ul {
@@ -207,6 +202,19 @@
     width: 100% !important;
   }
 }
+
+
+//So if the .a-input-openend-search has .list-visible
+// Then target o-list with these styles:
+
+    // .m-list-external.standard-list.visible{
+    //   z-index: 3;
+    //   margin-top: -50px;
+    //   background: white !important;
+    //   display: block;
+    //   position: absolute;
+    // }
+
 
  // RTL Styles
  :dir(rtl) {
