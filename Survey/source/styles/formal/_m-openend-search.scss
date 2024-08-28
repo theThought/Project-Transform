@@ -205,15 +205,14 @@
 
 
 //So if the .a-input-openend-search has .list-visible
-// Then target o-list with these styles:
-
-    // .m-list-external.standard-list.visible{
-    //   z-index: 3;
-    //   margin-top: -50px;
-    //   background: white !important;
-    //   display: block;
-    //   position: absolute;
-    // }
+// Then target o-list with these styles
+    .m-list-external.standard-list.visible{
+      z-index: 3;
+      margin-top: -50px;
+      background: white !important;
+      display: block;
+      position: absolute;
+    }
 
 
  // RTL Styles
