@@ -60,6 +60,7 @@ define(['component'],
                 const data = await window.theDiary.takePicture(true);
                 this.clearError();
                 this.setPictureData(data);
+                this.displayImage(data);
             } catch (error) {
                 this.setError(error.message);
             }
@@ -112,6 +113,12 @@ define(['component'],
         oQuestionMedia.prototype.setPictureData = function (data) {
             this.element.value = JSON.stringify(data);
             this.broadcastChange();
+        }
+
+        oQuestionMedia.prototype.displayImage = function (data) {
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL(data.file);
+            this.container.querySelector('.o-media-frame').style.background = "center / cover url('"+ imageUrl + "')";
         }
 
         oQuestionMedia.prototype.clearValue = function () {
