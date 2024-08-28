@@ -121,7 +121,7 @@ define(['component'],
             if (isEmpty(data.product)) {
                 this.displayNoMatchMessage();
                 this.element.setAttribute('data-barcode', JSON.stringify(data.barcode));
-                this.broadcastBarcodeDataChange(data.barcode);
+                this.broadcastBarcodeDataChange(data);
             } else {
                 this.hideNoMatchMessage();
                 this.element.setAttribute('data-barcode', JSON.stringify(data.product));
