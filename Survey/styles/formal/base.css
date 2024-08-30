@@ -2834,9 +2834,12 @@ html[dir=rtl] .o-dropdown ul li {
 .o-list {
   visibility: hidden;
   padding: 10px 0px;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .o-list ul {
-  border: 2px solid green;
+  width: 100%;
 }
 .o-list .m-list-external {
   border: none;
@@ -2846,15 +2849,13 @@ html[dir=rtl] .o-dropdown ul li {
 
 .o-list.visible {
   visibility: visible;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   list-style-type: none;
   background-color: #FFFFFF;
   z-index: 1;
   border: 1px solid #455B97;
-}
-
-.o-question-openend-search .o-combobox ul,
-.o-question-openend-search .o-dropdown ul {
-  background-color: transparent !important;
 }
 
 .vertical-list {
@@ -2982,12 +2983,6 @@ html[dir=rtl] .o-dropdown ul li {
   .horizontal-list {
     width: 100% !important;
   }
-}
-
-.m-list-external.standard-list.visible {
-  background: white !important;
-  display: block;
-  position: absolute;
 }
 
 :dir(rtl) .m-openend-search-count,

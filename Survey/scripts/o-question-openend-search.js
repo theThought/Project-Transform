@@ -2,14 +2,14 @@ define(['o-question'], function (oQuestion) {
     function oQuestionOpenendSearch(id, group) {
         oQuestion.call(this, id, group);
         this.element = document.querySelector('.a-input-openend-search[data-questionid="' + this.id + '"]');
-        this.droplistwrapper = document.querySelector('.o-list');
         this.droplist = document.querySelector('.o-list ul[data-questiongroup="' + this.group + '"]');
         this.wrapper = document.querySelector('div[class*=o-openend-search][data-questiongroup="' + this.group + '"]');
         this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
-        this.itemCountElement = document.querySelector('.m-openend-search-count');
-        this.messages = document.querySelector('.m-list-messages');
-        this.special = document.querySelector('.m-option-base');
-        this.getListItems = document.querySelector('.a-list');
+        this.droplistwrapper = this.container.querySelector('.o-list');
+        this.itemCountElement = this.container.querySelector('.m-openend-search-count');
+        this.messages = this.container.querySelector('.m-list-messages');
+        this.special = this.container.querySelector('.m-option-base');
+        this.getListItems = this.container.querySelector('.a-list');
         this.hiddenelement = null;
         this.mincharacters = 0;
         this.keypressed = null;
@@ -573,8 +573,8 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.setWidth = function () {
         if (this.manualWidth) {
             this.element.classList.add('manual-width');
-            this.droplist.classList.add('manual-width');
-            this.droplist.style.width = 'calc(' + this.element.style.width + ' + 16px + 16px)';
+       //    this.droplist.classList.add('manual-width');
+        //   this.droplist.style.width = 'calc(' + this.element.style.width + ' + 16px + 16px)';
             return;
         }
         this.element.size = Math.max(this.defaultplaceholder.length, 1);
@@ -589,9 +589,9 @@ define(['o-question'], function (oQuestion) {
         var errormargin = 4;
         var messagePadding = 30;
         var droplistWrapperPadding = 35;
-        this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-        this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
-        this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
+       // this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
+      //  this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
+       // this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
         this.manualWidth = true;
     };
 
@@ -816,11 +816,18 @@ define(['o-question'], function (oQuestion) {
             var setWidth = this.element.offsetWidth;
             // Set the width of this.droplistwrapper
             this.droplistwrapper.style.width = setWidth + 'px';
-            this.special.style.display = 'none';
+    
+            // Checking if this.special is not null before trying to access its style
+            if (this.special) {
+                this.special.style.display = 'none';
+            } else {
+                console.error('this.special is null');
+            }
+    
             this.droplistwrapper.classList.add('visible');
-
         }
     };
+    
 
 
     oQuestionOpenendSearch.prototype.clearKeyBuffer = function () {
@@ -931,6 +938,7 @@ define(['o-question'], function (oQuestion) {
         var image = selectedOption.querySelector('img');
         if (image) {
             var visibleItemCount = 1;
+
             this.element.classList.add('list-visible');
             this.droplist.classList.add('visible');
             document.querySelector('.m-list-external').classList.add('visible');
@@ -939,7 +947,9 @@ define(['o-question'], function (oQuestion) {
         
         //Hiding the list and showing the special again
         this.droplistwrapper.classList.remove('visible');
-        this.special.style.display = 'block';
+        if (this.special) {
+            this.special.style.display = 'block';
+        }
     };
 
     oQuestionOpenendSearch.prototype.clearEntries = function () {
@@ -1223,8 +1233,11 @@ define(['o-question'], function (oQuestion) {
             this.element.focus();
             this.clearFilters();
             this.updateItemCount(this.buildVisibleList().length);
-            // this.list.style.visibility = 'visible'
-            this.special.style.display = 'none';
+            
+            if (this.special) {
+                console.log('does this have the special?');
+                this.special.style.display = 'block';
+            }
             this.droplistwrapper.classList.remove('visible');
             this.notenoughcharacters(this.properties.notenoughcharacters);
         }.bind(this));

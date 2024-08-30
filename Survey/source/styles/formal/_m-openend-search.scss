@@ -21,10 +21,6 @@
         width: 80%;
     }
 }
-// .a-list-message,
-// .a-list-placeholder-restriction{
-//   padding: 10px 20px;
-// }
 
 .o-question-openend-search .m-list-messages {
   padding: 15px 14px;
@@ -88,33 +84,35 @@
 }
 
 .o-list{
-  // border: globals.$border-thickness solid globals.$theme-primary;
-  // background-color: globals.$input-background;
  visibility: hidden;
  padding: 10px 0px;
+ position: absolute;
+ box-sizing: border-box;
+  ul{
+   width: 100%;
+  }
 
-    ul{
-      border: 2px solid green;
-    }
-
-    .m-list-external {
-      border:none;    
-      box-shadow: none !important;
-    }
+  .m-list-external {
+    border:none;    
+    box-shadow: none !important;
+  }
 }
 
 .o-list.visible {
   visibility: visible;
+  //Making the same as the combox box
+  position: absolute;
+  box-sizing: border-box;
   list-style-type: none;
   background-color: #FFFFFF;
   z-index: 1;
   border: globals.$border-thickness solid globals.$theme-primary;
 }
 
-.o-question-openend-search .o-combobox ul, 
-.o-question-openend-search .o-dropdown ul {
-  background-color: transparent !important;
-}
+// .o-question-openend-search .o-combobox ul, 
+// .o-question-openend-search .o-dropdown ul {
+//   background-color: transparent !important;
+// }
 
 
 // Openended search for the images
@@ -219,18 +217,18 @@
 
 //So if the .a-input-openend-search has .list-visible
 // Then target o-list with these styles
-    .m-list-external.standard-list.visible{
-      //ORG
+    // .m-list-external.standard-list.visible{
+    //   //ORG
       
-      background: white !important;
-      display: block;
-      position: absolute;
-      // z-index: 3;
-      // margin-top: -50px;
-      // background: white !important;
-      // display: block;
-      // position: absolute;
-    }
+    //   background: white !important;
+    //   display: block;
+    //   position: absolute;
+    //   // z-index: 3;
+    //   // margin-top: -50px;
+    //   // background: white !important;
+    //   // display: block;
+    //   // position: absolute;
+    // }
 
 
  // RTL Styles
