@@ -172,7 +172,8 @@ define(['o-question'], function (oQuestion) {
         var barcodeData = event.detail;
         if (barcodeData.product && Object.keys(barcodeData.product).length === 0) {
             // Barcode not found in the database, prompt user to enter description
-            var userValue = prompt("Product not found. Please enter a description:");
+            // Changed this from a hard coded prompt to scan.captions.nomatch.text as advised by Rich.
+            var userValue = prompt(scan.captions.nomatch.text);
             if (userValue) {
                 var mergedValue = {
                     ean: barcodeData.barcode,
