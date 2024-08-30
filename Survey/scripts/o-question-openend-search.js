@@ -73,7 +73,7 @@ define(['o-question'], function (oQuestion) {
         this.configurationComplete();
         this.placeCheckBox();
     };
-
+    
     oQuestionOpenendSearch.prototype.placeCheckBox = function(){
         if (this.special && this.buttonElement) {
             this.buttonElement.insertAdjacentElement('afterend', this.special);
@@ -207,7 +207,8 @@ define(['o-question'], function (oQuestion) {
         this.element.value = elementTempValue;
     };
 
-    oQuestionOpenendSearch.prototype.onFocusIn = function (event) {
+
+    oQuestionOpenendSearch.prototype.onFocusIn = function (event) {    
         if (this.tabPressed) {
             this.tabPressed = false;
         } else if (this.mousePressed) {
@@ -267,6 +268,7 @@ define(['o-question'], function (oQuestion) {
         this.element.addEventListener('change', this.handleEvent.bind(this), false);
         this.element.addEventListener('focusin', this.handleEvent.bind(this), false);
         this.element.addEventListener('focusout', this.handleEvent.bind(this), false);
+        this.element.addEventListener('blur', this.handleEvent.bind(this), false);
         this.element.addEventListener('cut', this.handleEvent.bind(this), false);
         this.container.addEventListener('scroll', this.handleEvent.bind(this), false);
         this.droplist.addEventListener('scroll', this.hideKeyboard.bind(this), false);
@@ -312,6 +314,7 @@ define(['o-question'], function (oQuestion) {
             case 'focusout':
                 this.onFocusOut(event);
                 break;
+           
             case 'broadcastBarcodeDataChange':
                 this.processBarcodeData(event);
                 break;
@@ -584,7 +587,7 @@ define(['o-question'], function (oQuestion) {
         var droplistwidth = parseFloat(droplistdims.width);
         var padding = 32;
         var errormargin = 4;
-        var messagePadding = 0;
+        var messagePadding = 30;
         var droplistWrapperPadding = 35;
         this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
         this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
@@ -708,6 +711,7 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.onFocusOut = function (event) {
+      
         if (event.relatedTarget === null) {
             return;
         }
@@ -806,7 +810,18 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.onMousedown = function (event) {
         this.mousePressed = true;
         this.tabPressed = false;
+        
+        if (this.element && this.element.contains(event.target)) {
+            console.log('clicked in input');
+            var setWidth = this.element.offsetWidth;
+            // Set the width of this.droplistwrapper
+            this.droplistwrapper.style.width = setWidth + 'px';
+            this.special.style.display = 'none';
+            this.droplistwrapper.classList.add('visible');
+
+        }
     };
+
 
     oQuestionOpenendSearch.prototype.clearKeyBuffer = function () {
         this.keybuffer = '';
@@ -921,6 +936,10 @@ define(['o-question'], function (oQuestion) {
             document.querySelector('.m-list-external').classList.add('visible');
             this.updateItemCount(visibleItemCount);
         }
+        
+        //Hiding the list and showing the special again
+        this.droplistwrapper.classList.remove('visible');
+        this.special.style.display = 'block';
     };
 
     oQuestionOpenendSearch.prototype.clearEntries = function () {
@@ -1204,6 +1223,10 @@ define(['o-question'], function (oQuestion) {
             this.element.focus();
             this.clearFilters();
             this.updateItemCount(this.buildVisibleList().length);
+            // this.list.style.visibility = 'visible'
+            this.special.style.display = 'none';
+            this.droplistwrapper.classList.remove('visible');
+            this.notenoughcharacters(this.properties.notenoughcharacters);
         }.bind(this));
     };
 
