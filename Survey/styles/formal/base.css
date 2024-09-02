@@ -2766,9 +2766,12 @@ html[dir=rtl] .o-dropdown ul li {
     width: 80%;
   }
 }
+.o-openend-search {
+  padding-bottom: 20px;
+}
+
 .o-question-openend-search .m-list-messages {
   padding: 15px 14px;
-  /* background: blueviolet; */
 }
 
 .o-question-openend-search .m-openend-search-count {
@@ -2868,7 +2871,6 @@ html[dir=rtl] .o-dropdown ul li {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 32% !important;
 }
 .vertical-list li {
   width: 30%;
@@ -2938,6 +2940,7 @@ html[dir=rtl] .o-dropdown ul li {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  width: 95% !important;
 }
 .horizontal-list li {
   -webkit-box-flex: 0;

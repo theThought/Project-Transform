@@ -812,20 +812,17 @@ define(['o-question'], function (oQuestion) {
         this.mousePressed = true;
         this.tabPressed = false;
         
+
+        // Fixed so when user clicks in 
+        // The special is still showing but with the ul hovering over. 
+        // When clicked out of input the uk li is hidden.
         if (this.element && this.element.contains(event.target)) {
-            console.log('clicked in input');
             var setWidth = this.element.offsetWidth;
-            // Set the width of this.droplistwrapper
             this.droplistwrapper.style.width = setWidth + 'px';
-    
-            // Checking if this.special is not null before trying to access its style
-            if (this.special) {
-                this.special.style.display = 'none';
-            } else {
-                console.error('this.special is null');
-            }
-    
+            this.droplistwrapper.style.top = '100px';
             this.droplistwrapper.classList.add('visible');
+        } else {
+            this.droplistwrapper.classList.remove('visible');
         }
     };
     
@@ -948,9 +945,9 @@ define(['o-question'], function (oQuestion) {
         
         //Hiding the list and showing the special again
         this.droplistwrapper.classList.remove('visible');
-        if (this.special) {
-            this.special.style.display = 'block';
-        }
+        // if (this.special) {
+        //     this.special.style.display = 'block';
+        // }
     };
 
     oQuestionOpenendSearch.prototype.clearEntries = function () {
@@ -1235,10 +1232,10 @@ define(['o-question'], function (oQuestion) {
             this.clearFilters();
             this.updateItemCount(this.buildVisibleList().length);
             
-            if (this.special) {
-                console.log('does this have the special?');
-                this.special.style.display = 'block';
-            }
+            // if (this.special) {
+            //     console.log('does this have the special?');
+            //     this.special.style.display = 'block';
+            // }
             this.droplistwrapper.classList.remove('visible');
             this.notenoughcharacters(this.properties.notenoughcharacters);
         }.bind(this));

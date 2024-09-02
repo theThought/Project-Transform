@@ -22,9 +22,12 @@
     }
 }
 
+.o-openend-search {
+  padding-bottom: 20px;
+}
+
 .o-question-openend-search .m-list-messages {
   padding: 15px 14px;
-  /* background: blueviolet; */
 }
 
 .o-question-openend-search .m-openend-search-count {
@@ -109,12 +112,6 @@
   border: globals.$border-thickness solid globals.$theme-primary;
 }
 
-// .o-question-openend-search .o-combobox ul, 
-// .o-question-openend-search .o-dropdown ul {
-//   background-color: transparent !important;
-// }
-
-
 // Openended search for the images
 
 // Images vertical 
@@ -122,7 +119,7 @@
   display: flex !important;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 32% !important;
+
 
   li {
     width: 30%;
@@ -174,15 +171,16 @@
   display: flex !important;
   flex-wrap: nowrap;
   overflow-x: auto;
-  overflow-y: hidden; // Ensure no vertical scrolling
+  overflow-y: hidden; 
   gap: 20px;
   padding: 20px 0px !important;
   margin: 10px !important;
   align-items: center;
-  justify-content: flex-start; // Ensure items align to the start
+  justify-content: flex-start; 
+  width: 95% !important;
 
   li {
-    flex: 0 0 auto; // Prevent items from shrinking or growing
+    flex: 0 0 auto; 
     padding: 20px !important;
     display: flex;
   }
@@ -254,7 +252,7 @@
   .m-tag-answer {
     flex-direction: row-reverse;
     justify-content: flex-end;
-    margin: 20px 0 20px auto; // Align to the right
+    margin: 20px 0 20px auto; 
   }
 
   .delete-tag {
