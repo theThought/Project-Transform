@@ -1,7 +1,7 @@
 @use 'globals';
 
 .o-question-choice-summary {
-    width: 40%;
+    // width: 40%;
     .m-option-summary {
         width: 100%;
         border-bottom: 2px solid #ECEFF5;
@@ -80,8 +80,8 @@
     z-index: 2;
     margin: 0 10px;
 }
-@media only screen and (max-width: 768px) {
-    .o-question-choice-summary {
-        width: 90%;
-    }
-}
+// @media only screen and (max-width: 768px) {
+//     .o-question-choice-summary {
+//         width: 90%;
+//     }
+// }

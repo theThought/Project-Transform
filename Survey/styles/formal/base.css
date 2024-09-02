@@ -2656,9 +2656,6 @@ html[dir=rtl] .o-dropdown ul li {
           box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
-.o-question-choice-summary {
-  width: 40%;
-}
 .o-question-choice-summary .m-option-summary {
   width: 100%;
   border-bottom: 2px solid #ECEFF5;
@@ -2738,11 +2735,6 @@ html[dir=rtl] .o-dropdown ul li {
   margin: 0 10px;
 }
 
-@media only screen and (max-width: 768px) {
-  .o-question-choice-summary {
-    width: 90%;
-  }
-}
 .l-selection-and-scan {
   display: -webkit-box;
   display: -ms-flexbox;
