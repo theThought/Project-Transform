@@ -9,7 +9,7 @@ define(['component'],
             this.errorcontainer = this.container.querySelector('.o-label-message-error.external-warning');
             this.trigger = this.container.querySelector('input[type=button]');
             this.element = document.querySelector('input#' + this.id);
-            this.api = 'barcode';
+            this.action = 'barcode';
         }
 
         oQuestionMedia.prototype = Object.create(component.prototype);
@@ -34,7 +34,7 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.onClick = async function () {
-            switch (this.api) {
+            switch (this.action) {
                 case 'barcode':
                     this.callBarcodeScan();
                     break;
@@ -66,8 +66,8 @@ define(['component'],
             }
         }
 
-        oQuestionMedia.prototype.type = function (prop) {
-            this.api = prop;
+        oQuestionMedia.prototype.action = function (prop) {
+            this.action = prop;
         }
 
         oQuestionMedia.prototype.captions = function (props) {
