@@ -73,11 +73,11 @@ define(['component'],
                 this.setButtonText(props.start.text);
             }
 
-            if (typeof props.empty.text !== 'undefined') {
+            if (typeof props.empty !== 'undefined') {
                 this.setEmptyText(props.empty.text);
             }
 
-            if (typeof props.nomatch.text !== 'undefined') {
+            if (typeof props.nomatch !== 'undefined') {
                 this.setNoMatchText(props.nomatch.text);
             }
         }
@@ -100,13 +100,13 @@ define(['component'],
 
         aButtonBarcode.prototype.setEmptyText = function (text) {
             var emptyTextContainer = this.container.querySelector('.a-label-message-external-empty');
-            emptyTextContainer.innerText = text;
+            emptyTextContainer.innerHTML = this.replaceHTMLPlaceholder(text);
         }
 
         aButtonBarcode.prototype.setNoMatchText = function (text) {
             this.noMatchTextContainer = this.container.querySelector('.a-label-message-external-nomatch');
             this.noMatchTextContainer.classList.add('hidden');
-            this.noMatchTextContainer.innerText = text;
+            this.noMatchTextContainer.innerHTML = this.replaceHTMLPlaceholder(text);
         }
 
         aButtonBarcode.prototype.displayNoMatchMessage = function () {
