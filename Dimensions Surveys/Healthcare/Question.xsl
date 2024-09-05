@@ -2239,10 +2239,12 @@
                <xsl:element name="div">
                   <xsl:attribute name="class">a-list-message</xsl:attribute>
                   <xsl:attribute name="data-id">notenoughcharacters</xsl:attribute>
+                  <xsl:comment>not enough characters message goes here</xsl:comment>
                </xsl:element>
                <xsl:element name="div">
                   <xsl:attribute name="class">a-list-message</xsl:attribute>
                   <xsl:attribute name="data-id">noitemsinlist</xsl:attribute>
+                  <xsl:comment>no items in list message goes here</xsl:comment>
                </xsl:element>
             </xsl:element>
          </xsl:element>
