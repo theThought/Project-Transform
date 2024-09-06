@@ -509,7 +509,7 @@ define(
                                 continue;
                             }
 
-                            var questionValue = questionElements[j].value.toLowerCase();
+                            var questionValue = questionElements[j].value;
                             this.sourceQuestions[currentQuestion].push(questionValue);
                         }
 
@@ -526,7 +526,7 @@ define(
                 }
 
                 var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
-                ruleString = ruleString.replace(allQuestionsRe, "'" + questionData + "'");
+                ruleString = ruleString.replace(allQuestionsRe, "'" + questionData.toLowerCase() + "'");
             }
 
             return ruleString;
