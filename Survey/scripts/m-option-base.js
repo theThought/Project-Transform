@@ -183,6 +183,10 @@ define(['component'],
         }
 
         mOptionBase.prototype.restoreEntries = function () {
+            // the following line is only required when children are made available by parents
+            // we cannot call makeAvailable as it's possible to end in a loop
+            this.element.classList.remove('unavailable');
+
             if (!this.restoreValues) {
                 return;
             }

@@ -80,6 +80,7 @@ define(['component'],
                     this.clearEntriesFromExternal(event);
                     break;
                 case 'restoreEntries':
+                    this.makeAvailable();
                     this.restoreEntries(event);
                     break;
                 case 'focusin':
