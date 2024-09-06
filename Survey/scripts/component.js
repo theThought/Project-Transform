@@ -496,7 +496,7 @@ define(
             for (var currentQuestion in this.sourceQuestions) {
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     this.sourceQuestions[currentQuestion] = [];
-                    var questionElements = document.querySelectorAll("input[name$='" + currentQuestion + "'], select[name$='" + currentQuestion + "']");
+                    var questionElements = document.querySelectorAll("div.o-question-response[data-questiongroup$='" + currentQuestion + "'] input, div.o-question-response[data-questiongroup$='" + currentQuestion + "'] select");
 
                     if (!questionElements.length) {
                         this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
@@ -535,7 +535,7 @@ define(
         component.prototype.insertJSONValuesIntoRule = function (ruleString) {
             for (var currentQuestion in this.sourceQuestions) {
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
-                    var questionData = this.sourceQuestions[currentQuestion].join("','");
+                    var questionData = this.sourceQuestions[currentQuestion].join("");
                 }
 
                 var re = new RegExp("%%" + currentQuestion + "%%\.json\.(\\w+)", "ig");
