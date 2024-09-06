@@ -100,9 +100,6 @@ define(['component'],
         }
 
         aInputSingleLineEdit.prototype.makeAvailable = function () {
-            // call the parent (super) method
-            component.prototype.makeAvailable.call(this);
-
             this.element.classList.remove('unavailable');
             this.wrapper.classList.remove('unavailable');
         }
