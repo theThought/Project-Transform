@@ -114,29 +114,65 @@ define(['o-question'], function (oQuestion) {
         } catch (e) {
             value = dataItem;
         }
-
+    
         if (typeof this.template !== 'undefined') {
             var filledTemplate = this.fillTemplateWithValues(value);
             this.setHiddenValue(filledTemplate);
-
+    
             var descriptionField = filledTemplate[this.properties.list.descriptionfrom];
-
             this.addTag(descriptionField || Object.values(filledTemplate)[0]);
             this.value = filledTemplate;
         } else if (typeof value === 'object') {
             var descriptionField = value[this.properties.list.descriptionfrom];
-
+    
+            // Avoid setting value here, let setHiddenValue handle it
             this.setHiddenValue(descriptionField);
             this.addTag(descriptionField);
             this.value = descriptionField;
         } else {
+            // Avoid setting value here, let setHiddenValue handle it
             this.setHiddenValue(value);
             this.addTag(value);
             this.value = value;
         }
-
+    
         this.broadcastChange();
     };
+    
+
+    // oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
+    //     selectedOption.classList.add('selected');
+    //     selectedOption.setAttribute('data-selected', 'selected');
+    //     var dataItem = selectedOption.getAttribute('data-item');
+    //     var value;
+    //     try {
+    //         value = JSON.parse(dataItem);
+    //     } catch (e) {
+    //         value = dataItem;
+    //     }
+
+    //     if (typeof this.template !== 'undefined') {
+    //         var filledTemplate = this.fillTemplateWithValues(value);
+    //         this.setHiddenValue(filledTemplate);
+
+    //         var descriptionField = filledTemplate[this.properties.list.descriptionfrom];
+
+    //         this.addTag(descriptionField || Object.values(filledTemplate)[0]);
+    //         this.value = filledTemplate;
+    //     } else if (typeof value === 'object') {
+    //         var descriptionField = value[this.properties.list.descriptionfrom];
+
+    //         this.setHiddenValue(descriptionField);
+    //         this.addTag(descriptionField);
+    //         this.value = descriptionField;
+    //     } else {
+    //         this.setHiddenValue(value);
+    //         this.addTag(value);
+    //         this.value = value;
+    //     }
+
+    //     this.broadcastChange();
+    // };
 
     oQuestionOpenendSearch.prototype.fillTemplateWithValues = function (value) {
         var filledTemplate = JSON.parse(JSON.stringify(this.template.match));
@@ -1297,18 +1333,49 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.setupSpecialListener = function () {
         if (this.special) {
             var checkbox = this.special.querySelector('input[type="checkbox"]');
+            
+            // Setup mutation observer to watch for changes to `data-checked` attribute
             var observer = new MutationObserver(function (mutations) {
                 mutations.forEach(function (mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'data-checked') {
                         var isChecked = this.special.getAttribute('data-checked') === 'true';
+                        
+                        // When checked, remove the tag and clear input values
                         if (isChecked) {
-                            this.itemCountElement.textContent = '';
+                            this.clearSelectedValuesAndTags();
+                            this.itemCountElement.textContent = ''; // Clear the item count
                         }
                     }
                 }.bind(this));
             }.bind(this));
+    
             observer.observe(this.special, { attributes: true });
         }
+    };
+    
+    // Method to clear the selected values, tags, and hidden element
+    oQuestionOpenendSearch.prototype.clearSelectedValuesAndTags = function () {
+        // Clear the input value
+        if (this.element) {
+            this.element.value = '';
+        }
+    
+        // Clear the hidden input value
+        if (this.hiddenelement) {
+            this.hiddenelement.value = '';
+            this.hiddenelement.setAttribute('data-value', '');
+        }
+    
+        // Clear the selected tag (if any)
+        var tagContainer = this.container.querySelector('.o-question-selected');
+        if (tagContainer) {
+            while (tagContainer.firstChild) {
+                tagContainer.removeChild(tagContainer.firstChild);
+            }
+        }
+    
+        // Broadcast that a change has occurred
+        this.broadcastChange();
     };
 
     oQuestionOpenendSearch.prototype.ensureSpecialOrder = function () {
