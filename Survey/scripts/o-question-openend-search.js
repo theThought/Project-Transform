@@ -139,41 +139,6 @@ define(['o-question'], function (oQuestion) {
         this.broadcastChange();
     };
     
-
-    // oQuestionOpenendSearch.prototype.setSelectedOption = function (selectedOption) {
-    //     selectedOption.classList.add('selected');
-    //     selectedOption.setAttribute('data-selected', 'selected');
-    //     var dataItem = selectedOption.getAttribute('data-item');
-    //     var value;
-    //     try {
-    //         value = JSON.parse(dataItem);
-    //     } catch (e) {
-    //         value = dataItem;
-    //     }
-
-    //     if (typeof this.template !== 'undefined') {
-    //         var filledTemplate = this.fillTemplateWithValues(value);
-    //         this.setHiddenValue(filledTemplate);
-
-    //         var descriptionField = filledTemplate[this.properties.list.descriptionfrom];
-
-    //         this.addTag(descriptionField || Object.values(filledTemplate)[0]);
-    //         this.value = filledTemplate;
-    //     } else if (typeof value === 'object') {
-    //         var descriptionField = value[this.properties.list.descriptionfrom];
-
-    //         this.setHiddenValue(descriptionField);
-    //         this.addTag(descriptionField);
-    //         this.value = descriptionField;
-    //     } else {
-    //         this.setHiddenValue(value);
-    //         this.addTag(value);
-    //         this.value = value;
-    //     }
-
-    //     this.broadcastChange();
-    // };
-
     oQuestionOpenendSearch.prototype.fillTemplateWithValues = function (value) {
         var filledTemplate = JSON.parse(JSON.stringify(this.template.match));
 
@@ -207,8 +172,6 @@ define(['o-question'], function (oQuestion) {
         }
         var barcodeData = event.detail;
         if (barcodeData.product && Object.keys(barcodeData.product).length === 0) {
-            // Barcode not found in the database, prompt user to enter description
-            // Changed this from a hard coded prompt to scan.captions.nomatch.text as advised by Rich.
             var userValue = prompt(scan.captions.nomatch.text);
             if (userValue) {
                 var mergedValue = {
@@ -610,8 +573,6 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.setWidth = function () {
         if (this.manualWidth) {
             this.element.classList.add('manual-width');
-       //    this.droplist.classList.add('manual-width');
-        //   this.droplist.style.width = 'calc(' + this.element.style.width + ' + 16px + 16px)';
             return;
         }
         this.element.size = Math.max(this.defaultplaceholder.length, 1);
@@ -620,15 +581,7 @@ define(['o-question'], function (oQuestion) {
         if (isNaN(inputwidth)) {
             inputwidth = 0;
         }
-        var droplistdims = getComputedStyle(this.droplist);
-        var droplistwidth = parseFloat(droplistdims.width);
-        var padding = 32;
-        var errormargin = 4;
-        var messagePadding = 30;
-        var droplistWrapperPadding = 35;
-       // this.element.style.width = Math.max(droplistwidth, inputwidth) + errormargin - padding + 'px';
-      //  this.droplist.style.width = Math.max(droplistwidth, inputwidth) - droplistWrapperPadding - padding + 'px';
-       // this.messages.style.width = Math.max(droplistwidth, inputwidth) + errormargin - messagePadding + 'px';
+        
         this.manualWidth = true;
     };
 
