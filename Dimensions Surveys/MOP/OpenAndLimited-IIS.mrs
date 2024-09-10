@@ -1,0 +1,1950 @@
+'OpenAndLimited-IIS
+'July 2012
+'***************************************************************************************
+'Functionality:
+
+''if the id exists in the participants table will be authenticated  on that id
+''if the id does not exists in the participants table then:
+''- if the URL id is blank - a new record will be added in the participants table with the format open_(random)
+''- if the URL id is not blank and the link contains a parameter named arfu - a new record will be added in the participants
+'' table with value from the URL id
+'***************************************************************************************
+
+'==========================================================
+'Licensed Materials - Property of IBM
+'
+'IBM SPSS Products: Data Collection
+'
+'(C) Copyright IBM Corp. 2001, 2011
+'
+'US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP 
+'Schedule Contract with IBM Corp.
+'==========================================================
+
+' Interviewer Server 6.0.1
+' Last updated:  2011-02-18
+
+
+' *******************************************************************************
+' basic_sample.mrs
+' This is the standard script. The script demonstrates a scenario where
+' once a sample has completed an interview it will not be able to be used
+' again.
+' The script pends and completes quotas if a Quota named Expressions
+' exists.
+' *******************************************************************************
+
+' *******************************************************************************
+' IBM SPSS Data Collection constants
+'==========================================================
+'Licensed Materials - Property of IBM
+'
+'IBM SPSS Products: Data Collection
+'
+'(C) Copyright IBM Corp. 2001, 2014
+'
+'US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP 
+'Schedule Contract with IBM Corp.
+'==========================================================
+
+' Interviewer Server 6.0.1
+' Last updated:  2014-05-26
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Constants.mrs
+' Contains the shared constants for basic and multimode
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' These strings are informational or error messages displayed to the
+' respondent which may require translation
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'****** CustomTimeout
+#line 27 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\Constants.mrs"
+Const CUSTOM_TIMEOUT = 600  'this value is in seconds.  If you wish to use the server default, please set to 600...
+'****** Endof CustomTimeout
+
+Const DISPLAY_AUTH_FAILURE = "ID and/or password not found."
+Const DISPLAY_ALREADY_COMPLETE = "You have already completed the survey."
+Const DISPLAY_FAILED_QUOTA = "Thank you for your interest in the survey.  This survey is closed for respondents matching your characteristics."
+Const DISPLAY_FAILED_QUOTA_LOCAL = "This survey is closed for respondents matching these characteristics."
+Const DISPLAY_ACTIVE = "A survey is active for your ID.  Please continue the original survey or return in {Timeout} minutes to restart."
+Const DISPLAY_EXPIRES = "Your survey has expired."
+Const DISPLAY_NOT_FOUND = "Your record cannot be found."
+Const DISPLAY_PROHIBITED = "It is prohibited to start an interview from the {Queue} queue."
+Const DISPLAY_FAILED_MOVE_TO_ACTIVE = "There was an error moving the record to the ACTIVE queue."
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' These constants are used internally
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+' SampleResult.Code values set to indicate script status
+Const RESULT_SUCCESS = 0
+Const RESULT_FAILURE = 1
+Const RESULT_REJECT = 2
+Const RESULT_NO_RECORDS = 3
+
+' QuotaResultConstants to check quota results against
+Const QUOTA_BELOW_TARGET = 2
+Const QUOTA_OVER_TARGET = 1
+Const QUOTA_PENDING_OVER_TARGET = 4
+Const QUOTA_WAS_PENDED = 4096
+
+Const QUEUE_FRESH = "FRESH"
+Const QUEUE_ACTIVE = "ACTIVE"
+Const QUEUE_COMPLETED = "COMPLETED"
+Const QUEUE_TIMED_OUT = "TIMED_OUT"
+Const QUEUE_STOPPED = "STOPPED"
+Const QUEUE_FAILED = "FAILED"
+Const QUEUE_OVERQUOTA = "OVERQUOTA"
+Const QUEUE_APPOINTMENT = "APPOINTMENT"
+Const QUEUE_TRANSFER_TO_WEB = "TRANSFER_TO_WEB"
+Const QUEUE_RECALL = "RECALL"
+Const QUEUE_REFUSED = "REFUSED"
+Const QUEUE_UNUSABLE = "UNUSABLE"
+Const QUEUE_CHECK_NUMBER = "CHECK_NUMBER"
+Const QUEUE_SILENT = "SILENT"
+Const QUEUE_EXCEEDS_MAX_TRIES = "MAX_TRIES"
+Const QUEUE_NOT_IN_USE = "NOT_IN_USE"
+
+Const FIELD_ID = "Id"
+Const FIELD_QUEUE = "Queue"
+Const FIELD_ACTIVE = "Active"
+Const FIELD_SERIAL = "Serial"
+Const FIELD_TEST = "Test"
+Const FIELD_INTERVIEWERID = "UserID"
+Const FIELD_PREVIOUSQUEUE = "PreviousQueue"
+Const FIELD_APPOINTMENTTIME = "AppointmentTime"
+Const FIELD_RECALLTIME = "RecallTime"
+Const FIELD_RETURNTIME = "ReturnTime"
+Const FIELD_TRYCOUNT = "TryCount"
+Const FIELD_APPOINTMENTTRYCOUNT = "AppointmentTryCount"
+Const FIELD_PHONENUMBER = "PhoneNumber"
+Const FIELD_INTERVIEWMODE = "InterviewMode"
+Const FIELD_CALLOUTCOME = "CallOutcome"
+Const FIELD_TIMEZONE = "TimeZone"
+Const FIELD_PREVIOUSINTERVIEWERID = "PreviousInterviewerId"
+Const FIELD_SORTID = "SortId"
+Const FIELD_EXPIRATIONTIME = "ExpirationTime" 'If this field does not exist, leave it empty...
+Const FIELD_DAYPART = "DayPart"
+Const FIELD_DAYPARTNAME = "__DAYPARTNAME"
+Const FIELD_REQUIRESMANUALDIAL = "RequiresManualDial"
+Const FIELD_USEDOVERRIDE = "__USEDOVERRIDE"
+Const FIELD_NOANSWERCOUNT = "NoAnswerCount"
+Const FIELD_CONNECTCOUNT = "ConnectCount"
+Const FIELD_TRUNKGROUP = "TrunkGroup"
+Const FIELD_TMP_PREVIOUSQUEUE = "__PREVIOUSQUEUE"
+Const FIELD_ASSIGNEDINTERVIEWERID = "AssignedInterviewerId"
+Const FIELD_DISTRIBUTEDTO = "DistributedTo"
+Const FIELD_RESTARTFROMACTIVECOUNT = "RestartFromActiveCount"
+Const FIELD_PROJECTID = "Project_ID" ' Personal/Local only, used to associate project for synchronization
+Const FIELD_LOCALCHANGED = "LocalChanged" ' Personal/Local only, used to indicate new history record for synchronization
+
+' If the Comments field is populated, the record is returned for Preview
+' To change the Preview criteria, update the CheckForPreview and
+' CreateGroupDialWhereClause functions
+Const FIELD_COMMENTS = "Comments"
+
+Const IVPROPS_SERIAL = "Serial"
+Const IVPROPS_DISPLAYTEXT = "DisplayText"
+Const IVPROPS_TEST = "Test"
+Const IVPROPS_PROJECT = "Project"
+Const IVPROPS_CONNECTIONID = "ConnectionID"
+Const IVPROPS_TIMEDOUT = "TimedOut"
+Const IVPROPS_TIMEOUT = "Timeout"
+Const IVPROPS_ROUTINGCONTEXT = "RoutingContext"
+Const IVPROPS_RUNNUMBER = "RunNumber"
+Const IVPROPS_QUOTAPROJECTNAME = "QuotaProjectName" ' Not used
+Const IVPROPS_REVIEW = "Review"
+Const IVPROPS_AUTODIAL = "AutoDial"
+Const IVPROPS_CALLERID = "CallerId"
+Const IVPROPS_GROUP = "GroupDial"
+Const IVPROPS_RECORDS_REQUIRED = "SMRecordsRequired"
+Const IVPROPS_AMD_MODE = "AmdMode"
+Const IVPROPS_AM_FILE = "AmFile" ' Not used
+Const IVPROPS_AMD_PARAMETERS = "AmdParameters" ' Not used
+Const IVPROPS_CONNECTEDCALL = "ConnectedCall"
+Const IVPROPS_FORCE_PREVIEW = "ForcePreview"
+Const IVPROPS_INTERVIEWMODE = "InterviewMode"
+Const IVPROPS_ISFAILOVER = "IsFailOver"
+Const IVPROPS_ISRESTARTFROMACTIVE = "IsRestartFromActive"
+Const IVPROPS_NEXTPROJECT = "NextProject" ' Used when chaining is enabled only
+
+Const IVERPROPS_INTERVIEWERID = "UserID"
+Const IVERPROPS_SESSIONID = "CATISessionID"
+
+Const CODE_COMPLETED = 1
+Const CODE_STOPPED = 2
+Const CODE_FAILED = 4
+Const CODE_OVERQUOTA = 5
+Const CODE_EARLYCOMPLETE = 6
+Const CODE_FAILEDSCREENER = 7
+Const CODE_ABANDONED = 8
+Const CODE_REVIEWED = 10
+Const CODE_APPOINTMENT = 11
+Const CODE_NOANSWER = 12
+Const CODE_ANSWERMACHINE = 13
+Const CODE_BUSY = 14
+Const CODE_TRANSFERTOWEB = 15
+Const CODE_REJECTED = 16
+Const CODE_NETWORKBUSY = 17
+Const CODE_FASTBUSY = 18
+Const CODE_DIALERBUSY = 19
+Const CODE_FAX = 21
+Const CODE_WRONGNUMBER = 22
+Const CODE_DISCONNECTED = 23
+Const CODE_CELLPHONE = 24
+Const CODE_BUSINESSNUMBER = 25
+Const CODE_POSSIBLEWRONGNUMBER = 26
+Const CODE_NOTAVAILABLE = 27
+Const CODE_REFUSED = 31
+Const CODE_LANGUAGEBARRIER = 32
+Const CODE_LANGUAGERECALL = 33
+Const CODE_REJECTEDBYREVIEWER = 34
+Const CODE_EDITED = 35
+Const CODE_CANCELED = 41
+Const CODE_DIALERFAILED = 42
+Const CODE_SILENT = 43
+Const CODE_UNKNOWN = 44
+Const CODE_REMOTEHANGUP = 45
+
+Const CODENAME_ANSWERMACHINE = "ANSWERMACHINE"
+Const CODENAME_REJECTED = "REJECTED"
+Const CODENAME_NETWORKBUSY = "NETWORKBUSY"
+Const CODENAME_FASTBUSY = "FASTBUSY"
+Const CODENAME_SILENT = "SILENT"
+Const CODENAME_REMOTEHANGUP = "REMOTEHANGUP"
+Const CODENAME_EDITED = "Edited"
+Const CODENAME_OVERQUOTA = "OverQuota"
+
+Const INTERVIEWMODE_CATI = "Web CATI"
+Const INTERVIEWMODE_WEB = "Web"
+Const INTERVIEWMODE_LOCAL = "Personal"
+
+Const IM_WEB = 0
+Const IM_PHONE = 1
+Const IM_LOCAL = 2
+
+Const ROUTING_CATI = "CATI"
+Const ROUTING_WEB = "Web"
+
+Const ID_AUTODIAL = "__AUTODIAL"
+
+Const ARR_WHERE = 0
+Const ARR_ORDERBY = 1
+
+Const AMD_DISABLED = 0
+Const AMD_ENABLED = 1
+Const AMD_CALIBRATE = 2
+Const AMD_LONG_HOLD = 3
+Const AMD_DEBUG = 4
+
+' DPM cannot store EMPTY and NULL value directly. Storing below 2 strings instead.
+Const EMPTY_VALUE_FOR_DPM_NODE = "%^&EMPTY&^%" 
+Const NULL_VALUE_FOR_DPM_NODE = "%^&NULL&^%"
+
+' All possible time zones.
+Const ALL_TIME_ZONES = "0;1;2;3;4;10;13;15;20;25;30;33;35;40;45;50;55;56;60;65;70;73;75;80;83;85;90;95;100;105;110;113;115;120;125;130;135;140;145;150;155;158;160;165;170;175;180;185;190;193;195;200;201;203;205;207;210;215;220;225;227;230;235;240;245;250;255;260;265;270;275;280;285;290;300"
+
+' If expiration time field is null, using this value to compare.
+Const MAX_EXPIRATION_DATE_TIME = "2099/12/31 23:59:59"
+
+' Global used to store the PreviousQueue for GetSampleRec
+Dim strSavePreviousQueue
+
+' Global used to store an array of currently valid timezones
+Dim arrValidTimeZones[]
+
+
+'IIS Specifics
+#line 43 ""
+Const QUEUE_FAILED_SCREENER = "FAILED_SCREENER"
+
+'IIS openAndSecured
+Const FIELD_flag4OpenRandomId = "flag4OpenRandomId"
+const FIELD_LimitedFailedToOpen = "LimitedFailedToOpen"
+
+
+
+' *******************************************************************************
+' CLIENT SPECIFIC SECTION
+' Update these constants and functions as require
+'
+' Each of the functions in this file is described in comments that describe when
+' the function is called and the supplied parameters.
+' For more information, consult the DDL, in particular the Sample Management
+' topics under Professional | Interview Scripting.
+
+
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Place your specific constants here
+' Strings
+' Queues
+' Sample Fields
+' Return Codes / Call Outcomes
+' Other constants
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' Set PASS_QUOTA_IF_ANY_PASS to True if you want the respondent to continue if any
+' of the quota cells that he/she falls into are below quota.  Set to False if you
+' want the respondent to fail the quota check if any cell that he/she falls into
+' is over quota.
+Const PASS_QUOTA_IF_ANY_PASS = True
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' Pend all specifies if all quotas should be pended or just Expressions quotas.
+' If you are using the method where you setup interview script questions with the
+' same names as sample fields in order to create sample quotas then change to 
+' True to Pend at the top level.
+Const PEND_ALL = False
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+' *******************************************************************************
+' Description:  This function is called when a record is selected but then rejected. 
+' The function allows processing further processing of the record based on the 
+' reject reason before it is moved to the UNUSABLE queue.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' SampleRec - The sample record being rejected
+' Reason - String indicating the reason that the record was rejected
+Sub RejectRecord_ClientSpecific(LogStart, SampleRec, Reason)
+
+    Log.Log(LogStart + "RejectRecord_ClientSpecific:  Entered:  " +             "SampleRec = " + CText(SampleRec.Fields[FIELD_ID]) + ", " +             "Reason = " + Reason,             logLevels.LOGLEVEL_TRACE)
+#line 104 ""
+            
+    Select Case Reason          
+        Case "Quota"
+            ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            ' ToDo - Additional processing for records rejected because they are over quota
+            ' If you update the SampleRec use SampleRec.WriteRecord() to write the updates
+            ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+    End Select
+    
+    Log.Log(LogStart + "RejectRecord_ClientSpecific:  Exiting", logLevels.LOGLEVEL_TRACE)
+
+End Sub
+
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Set bChaining to True to enable chaining for web projects
+' If chaining is enabled a FIELD_PROJECT SampleField must be included and the 
+' proper project names specified as PROJECT1 and PROJECT2.  In addition, extra 
+' serial fields must be specified As FIELD_SERIAL1 and FIELD_SERIAL2.
+' These settings are used in AuthenticateSampleRec.
+Dim bChaining
+bChaining = False
+Const FIELD_PROJECT = "Project"
+Const PROJECT1 = "Project1Name"
+Const PROJECT2 = "Project2Name"
+Const FIELD_SERIAL1 = "Serial1"
+Const FIELD_SERIAL2 = "Serial2"
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+' *******************************************************************************
+' Description:  This function is called by AuthenticateSampleRec if all standard
+' authentication checks fail.  Add script here to create a new sample record if
+' required.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' SampleFields - SampleFields passed in from the web browser for Authentication,
+'    typically includes an ID and a password
+Function AuthenticateSampleRec_ClientSpecific(LogStart, SampleFields)
+    Dim SampleRec
+    Dim LogMsg
+
+    Log.Log(LogStart + "AuthenticateSampleRec_ClientSpecific:  Entered", logLevels.LOGLEVEL_TRACE)
+    
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ' ToDo - Add your specific authentication checks here and return a record if found
+    Set SampleRec = Null
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    LogMsg = LogStart + "AuthenticateSampleRec_ClientSpecific:  Returning:  "
+    If IsNullObject(SampleRec) Then
+        LogMsg = LogMsg + "No records found"
+    Else
+        LogMsg = LogMsg + "Found a record"
+    End If
+    Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+    
+    Set AuthenticateSampleRec_ClientSpecific = SampleRec    
+End Function
+
+
+' *******************************************************************************
+' Description:  The functions ReturnSampleRec_DCCodes_ClientSpecific and 
+' ReturnSampleRec_ClientCodes_ClientSpecific are called by ReturnSampleRec to handle
+' IBM SPSS Data Collection return codes and client return codes respectively.
+' Update this function to change the default handling of Data Collection provided
+' return codes and update ReturnSampleRec_ClientCodes_ClientSpecific to handle
+' your additional return codes.
+' These functions are called by ReturnSampleRec after it has initialized 
+' SampleFields and finishing quotas if required.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' ReturnRec - Sample record being returned.  View and/or modify sample fields using
+'    ReturnRec.SampleFields
+' SampleRecReturnCode - Call outcome chosen by the interviewer as a number
+'
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Update this function to change how Data Collection defined return codes 
+' are handled
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function ReturnSampleRec_DCCodes_ClientSpecific(LogStart, ReturnRec, SampleRecReturnCode)
+    Dim bHandled
+    Dim TimedOut
+    
+    Log.Log(LogStart + "ReturnSampleRec_DCCodes_ClientSpecific:  Entered:  " +             "SampleRecReturnCode.Name = " + SampleRecReturnCode.Name,             logLevels.LOGLEVEL_TRACE)
+#line 196 ""
+    
+    bHandled = True
+    
+    Select Case (SampleRecReturnCode.Code)
+      
+    ' Move to the COMPLETED queue
+    Case CODE_COMPLETED
+        Queues.MoveSampleRec(QUEUE_COMPLETED, ReturnRec)
+      
+      
+    ' Terminated with complete from interview script     
+    Case CODE_EARLYCOMPLETE
+        Queues.MoveSampleRec(QUEUE_COMPLETED, ReturnRec)
+
+    ' These interviews have been stopped using the Stop
+    ' button or timed out 
+    Case CODE_STOPPED ' Stopped or TimedOut
+      ' Check if the interview has been timed out
+      ' The TimedOut property should always exist in InterviewProperties  
+      TimedOut = 1
+      TimedOut = InterviewProperties.Item(IVPROPS_TIMEDOUT).Value
+      If (TimedOut = 1) Then
+         Queues.MoveSampleRec(QUEUE_TIMED_OUT, ReturnRec)
+      Else
+         Queues.MoveSampleRec(QUEUE_STOPPED, ReturnRec)
+      End If
+
+    ' Interview failure, move sample to interview failed queue
+    ' It can be restarted from there
+    Case CODE_FAILED
+        Queues.MoveSampleRec(QUEUE_FAILED, ReturnRec)
+
+
+    Case CODE_OVERQUOTA
+        Queues.MoveSampleRec(QUEUE_OVERQUOTA, ReturnRec)
+		
+	'IIS Specifics	
+	Case CODE_FAILEDSCREENER
+        Queues.MoveSampleRec(QUEUE_FAILED_SCREENER, ReturnRec)	
+      
+   ' A different Code could be due to using signal in the interview script
+    Case Else
+        bHandled = False
+    End Select
+
+    Log.Log(LogStart + "ReturnSampleRec_DCCodes_ClientSpecific:  Returning " + CText(bHandled), logLevels.LOGLEVEL_TRACE)
+
+    ReturnSampleRec_DCCodes_ClientSpecific = bHandled
+End Function
+
+
+' *******************************************************************************
+' Description:  The functions ReturnSampleRec_DCCodes_ClientSpecific and 
+' ReturnSampleRec_ClientCodes_ClientSpecific are called by ReturnSampleRec to handle
+' IBM SPSS Data Collection return codes and client return codes respectively.
+' Update this function to add handling for return codes that are specific to your
+' site.
+' These functions are called by ReturnSampleRec after it has initialized 
+' SampleFields and finishing quotas if required.
+'
+' Parameters:
+' LogStart - Includes the -P -R -I log parameters that initialize the Project,
+'    RespondentID and InterviewerID log sections
+' ReturnRec - Sample record being returned.  View and/or modify sample fields using
+'    ReturnRec.SampleFields
+' SampleRecReturnCode - Call outcome chosen by the interviewer as a number
+Function ReturnSampleRec_ClientCodes_ClientSpecific(LogStart, ReturnRec, SampleRecReturnCode)
+    Dim bHandled
+
+    Log.Log(LogStart + "ReturnSampleRec_ClientCodes_ClientSpecific:  Entered:  " +             "SampleRecReturnCode.Name = " + SampleRecReturnCode.Name,             logLevels.LOGLEVEL_TRACE)
+#line 268 ""
+    
+    bHandled = True
+    
+'    Select Case (SampleRecReturnCode.Code)
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ' ToDo - Add client specific return codes here
+'    Case X
+'    Case Else
+        bHandled = False
+'    End Select
+    ' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    Log.Log(LogStart + "ReturnSampleRec_ClientCodes_ClientSpecific:  Returning " + CText(bHandled), logLevels.LOGLEVEL_TRACE)    
+
+    ReturnSampleRec_ClientCodes_ClientSpecific = bHandled
+End Function
+
+
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+' ToDo - Add client specific functions here
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+' *******************************************************************************
+' IBM SPSS Data Collection functions
+' Do not remove
+'IIS Specifics
+'==========================================================
+'Licensed Materials - Property of IBM
+'
+'IBM SPSS Products: Data Collection
+'
+'(C) Copyright IBM Corp. 2001, 2011
+'
+'US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP 
+'Schedule Contract with IBM Corp.
+'==========================================================
+
+' Interviewer Server 6.0
+' Last updated:  2011-03-22
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' MainFunctions.mrs
+' Contains the basic functions required by the system, GetSampleRec,
+' AuthenticateSampleRec, ReturnSampleRec
+'
+' These functions are tested as part of the Data Collection system and
+' changes to this file may not be supported.
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+' *******************************************************************************
+' This function implements the number selection rules
+
+
+
+
+
+
+'IIS openAndSecured
+' *******************************************************************************
+' This function takes 10 tries to create a random Id add the new SampleRec
+#line 210 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+Function AddRecordWithRandomId(LogStart, SampleFields, autentificat)
+   Dim i
+   Dim SampleRec
+   Dim LogMsg
+   dim prefix
+   
+if autentificat="open" then
+  prefix="open"
+
+   For i = 1 to 10
+      SampleFields.Item(FIELD_ID).Value = prefix + ctext(RandomPassword())
+      On Error Resume Next   ' Ignore error if Id already exists and check SampleRec
+      Set SampleRec = Queues.AddSampleRec(QUEUE_FRESH, SampleFields)
+      On Error GoTo 0
+      If Not (SampleRec = Null) Then
+         LogMsg = LogStart + "Replaced Id with " + CText(SampleFields.Item(FIELD_ID).Value)  
+         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         Exit For
+      End If
+      LogMsg = LogStart + "Adding record failed (" + SampleFields.Item(FIELD_ID).Value + ") - Attempt " + CText(i)
+'#line 107 ""
+      Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+   Next
+end if   
+
+if autentificat="addFromUrl" then
+		Dim IDParam
+		 IDParam=GetStringValue(SampleFields,"Id")
+		  ' TestParam=GetStringValue(SampleFields,"Test")
+			If not (IDParam = Null) then
+				'@ set the URL id as a new record for the participant
+				SampleFields.Item(FIELD_ID).Value = IDParam
+				On Error Resume Next   ' Ignore error if Id already exists and check SampleRec
+				Set SampleRec = Queues.AddSampleRec(QUEUE_FRESH, SampleFields)
+				  
+				  If Not (SampleRec = Null) Then
+				     LogMsg = LogStart + "Id was added from URL id"  
+				     Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+				  End If
+		  End If
+		  
+end if
+
+   
+   Set AddRecordWithRandomId = SampleRec
+End Function 
+
+' *******************************************************************************
+' Use this function until a RandomPassword function is added to the function
+' library
+Function RandomPassword()
+   Dim ScriptingSite
+   
+   Set ScriptingSite = CreateObject("mrSM.QueueScriptingSite")
+   RandomPassword = ScriptingSite.RandomPassword
+End Function
+
+' *******************************************************************************
+' If the sample does not exist in the database,  the sample has completed
+' the survey before, or the sample falls into overtarget quota cells, 
+' then the sample is rejected.
+' Otherwise, Authentication succeeds and the survey is started.
+
+
+' *******************************************************************************
+' The AuthenticateSampleRec function will be called if a respondent enters the
+' survey through the Web.
+Sub AuthenticateSampleRec(SampleResult, SampleFields)
+    Dim dtNow
+    Dim InterviewerID
+    Dim RespondentIDField, sfID
+    Dim ActiveField
+    Dim bReject
+    Dim strQueue
+    Dim InterviewMode, RoutingContext
+    Dim LogStart, LogMsg
+   
+    On Error GoTo ErrorHandler
+	
+	'Custom timeout
+	If CUSTOM_TIMEOUT <> 600 Then
+       If InterviewProperties.FindItem(IVPROPS_TIMEOUT) Is Not Null Then
+          InterviewProperties.Item(IVPROPS_TIMEOUT).Value = CUSTOM_TIMEOUT
+       End If
+    End If
+	'EndOf Custom timeout
+	
+	'IIS Specifics
+	InterviewProperties.Item("InterviewRejectedPage").Value = "rejected - iis.htm"
+	'InterviewProperties.Item("AuthenticatePage").Value = "authenticate - iis.htm"
+	InterviewProperties.Item("AuthenticatePage").Value = "authfailed - iis.htm"
+	InterviewProperties.Item("AuthFailedPage").Value = "authfailed - iis.htm"
+	InterviewProperties.Item("AuthRetryPage").Value = "authretry - iis.htm"
+	'InterviewProperties.Item("ProjectInactivePage").Value = "projinactive - iis.htm"
+
+    LogStart = CreateLogStart(SampleFields) + "AuthenticateSampleRec:  "
+    dtNow = Now("UTC")
+    LogMsg = LogStart + "Entered"
+    InterviewerID = GetStringValue(SampleFields, FIELD_INTERVIEWERID)
+    If (InterviewerID <> "") Then
+        LogMsg = LogMsg + ", InterviewerID = " + InterviewerID
+    End If
+    LogMsg = LogMsg + ", current time (UTC) = " + CreateCanonicalDateTime(dtNow)
+    Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+
+    ' Try to find a matching record in the Sample Management database.
+    Set SampleResult.SampleRec = Queues.AuthenticateSampleRec(SampleFields)
+'========SampleResult.SampleRec - autentificarea idului
+
+    If IsNullObject(SampleResult.SampleRec) Then
+        ' No sample record found
+
+        ' It is possible that this is a failover where 
+        ' it is expected that the record is active but a timing
+        ' condition has caused the record to be returned already
+        Set ActiveField = FindItem(SampleFields, FIELD_ACTIVE)
+        If Not IsNullObject(ActiveField) Then
+            ' Try again but without the ActiveField
+            LogMsg = LogStart + "Removing Active and trying again"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+            SampleFields.Remove(ActiveField)
+            Set SampleResult.SampleRec = Queues.AuthenticateSampleRec(SampleFields)
+        End If
+        
+     If (SampleResult.SampleRec = Null) Then
+'******************************************************************************************************************************* daca id nu e autentificat	  
+         ' Add a new record
+         ' Use the RandomPassword function to create an Id
+         LogMsg = LogStart + "Sample record not found, adding" 
+         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         Set RespondentIDField = FindItem(SampleFields, FIELD_ID)
+'=== creaza field id in cazul in care nu exista in participants         
+         If (RespondentIDField Is Null) Then
+            Set sfId = SampleFields.CreateField()
+            sfId.Name = FIELD_ID
+            ' The Id value will be set by AddRecordWithRandomId
+            ' You still need to Add the field even if you called Create
+            SampleFields.Add(sfId)
+            LogMsg = LogStart + "Added Id field"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         Else
+            ' Log that the Id field already exists
+            ' It will be reset in AddRecordWithRandomId
+            LogMsg = LogStart + "Id field found, will be replaced"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         End If 
+         ' Using the AddRecordWithRandomId function to add the record
+         ' It will retry multiple times
+		 '---------------------------------------------------------------------------------------------------test cip
+		 'Create fields for open link surveys
+		 'FIELD_LimitedFailedToOpen - store failed autentification ids
+		 'FIELD_OpenRandomId - flag autoGenerated ids
+	 
+	 Dim flag4OId, value4flagOId,sfLimFailed 		 
+		 
+														
+'@@@ daca id e blank				
+dim skipCultureinfo	
+								
+			
+					if SampleFields.Item(FIELD_ID).Value = null then
+						Set flag4OId = SampleFields.CreateField()
+									flag4OId.Name = FIELD_flag4OpenRandomId
+									flag4OId.Value="openId"
+									SampleFields.Add(flag4OId)
+						LogMsg = LogStart + "Id was blank, will be added as an open_RandomID" 
+         				Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+         				
+						Set SampleResult.SampleRec = AddRecordWithRandomID(LogStart, SampleFields,"open") 
+						skipCultureinfo=true
+					else
+'@@@ daca id nu blank si nu se poate autentifica
+'@@@ se verifica daca exista parametrul arfu(add record from url)
+                        dim AddRecordFromUrl							
+                            'Set AddRecordFromUrl = FindItem("arfu", FIELD_ID)
+                        ' Set AddRecordFromUrl = GetStringValue(SampleFields,"arfu")
+					         'If not(AddRecordFromUrl Is Null) Then
+					        '  If (AddRecordFromUrl <> "") Then
+					         
+					        ''							        Set sfLimFailed = SampleFields.CreateField()
+							''									sfLimFailed.Name = FIELD_LimitedFailedToOpen
+							''									sfLimFailed.Value= SampleFields.Item(FIELD_ID).Value
+							''									SampleFields.Add(sfLimFailed)	
+							
+                        LogMsg = LogStart + "Id has a value which couldn't be authenticated, the arfu parameter exists, the id url value will be added in the participants table" 
+                        Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)			
+                                    
+                        Set SampleResult.SampleRec = AddRecordWithRandomID(LogStart, SampleFields,"addFromUrl")
+                        skipCultureinfo=true
+							' else
+							'         Set InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = DISPLAY_AUTH_FAILURE
+							        
+							'         LogMsg = LogStart + "Id has a value which couldn't be authenticated, the arfu parameter is null, the record is rejected."
+							'         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+							        
+
+							'         ' This keyword indicates that authentication has failed.
+							'         SampleResult.Code = RESULT_FAILURE
+							' end if
+					end if									
+'---------------------------------------------------------------------------------------------------test cip
+      End If  
+'**************************************************************************************************************
+        
+        
+        
+    End If
+'[@cip
+  'If IsNullObject(SampleResult.SampleRec) Then
+	If not (IsNullObject(SampleResult.SampleRec)) Then
+	'id nu e autentificat
+''    'IIS openAndSecured
+''        Set InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = DISPLAY_AUTH_FAILURE
+''        LogMsg = LogStart + "Failed, sample not found" 
+''        Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+''
+''        ' This keyword indicates that authentication has failed.
+''        SampleResult.Code = RESULT_FAILURE
+''     'IIS openAndSecured   
+    ''Else
+		'IIS Specifics
+		Dim reaccessedText, langCode
+		
+		langCode = "EN"
+		dim sr, split
+		'[@cip
+		'CLT timeout
+		dim isCLTproj,CLTAmpFlag	
+		isCLTproj=false
+		
+		'if (left(SampleFields.Item(FIELD_ID).Value,4)<>"open") then
+		'if not(skipCultureinfo) then
+		
+		For Each sr In SampleResult.SampleRec.Fields
+			if  sr.Name = "CultureInfo" then
+				if Len(sr.Value) > 4 then
+					langCode = UCase(CText( sr.Value.Left(2) ) )
+				end if
+			end if
+			'CLT timeout		
+			if  sr.Name = "SupplierID" then
+				if sr.value = "10191" then
+					isCLTproj=true
+				end if
+			end if
+        Next
+				'CLT timeout
+		if isCLTproj then
+			If InterviewProperties.FindItem(IVPROPS_TIMEOUT) Is Not Null Then
+				InterviewProperties.Item(IVPROPS_TIMEOUT).Value = "60"
+			End If
+			CLTAmpFlag="custom"
+		end if
+		reaccessedText = "<span id=""langCode"" style=""display:none"">" + langCode + "</span>"
+		
+        bReject = False
+        'end if
+        '[@cip
+        
+        ' Case of queue name must match what is in sample database
+        ' If queue is COMPLETED in database, then sample is rejected
+        '     (unless it is being reviewed - telephone specific)
+        ' If queue is OVERQUOTA, then sample is rejected
+        ' If queue is ACTIVE, then sample is rejected, unless this is a restart
+        strQueue = UCase(SampleResult.SampleRec.Fields.Item(FIELD_QUEUE).Value)
+        If (strQueue = QUEUE_COMPLETED) Then
+            ' If the Review InterviewProperty is set, then COMPLETED records can be returned
+            If Not (GetBoolValue(InterviewProperties, IVPROPS_REVIEW)) Then
+                ' Review is not set, check for chaining
+                If (FindItem(SampleResult.SampleRec.Fields, FIELD_PROJECT)) Then
+                    If (UCase(SampleResult.SampleRec.Fields[FIELD_PROJECT].Value) <> PROJECT2) Then
+                        ' Run project2
+                        SampleResult.SampleRec.Fields[FIELD_PROJECT].Value = PROJECT2
+                    Else
+                        bReject = True
+                    End If
+                Else
+                    bReject = True
+                End If
+                If (bReject) Then
+                    InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = reaccessedText'DISPLAY_ALREADY_COMPLETE
+                    LogMsg = LogStart + "Rejected, sample has completed the survey before"
+                    bReject = True
+                End If
+            End If
+        ElseIf (strQueue = QUEUE_OVERQUOTA) Then
+            InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = reaccessedText'DISPLAY_FAILED_QUOTA
+            LogMsg = LogStart + "Rejected, sample signaled out of survey before"
+            bReject = True
+        'added
+        ElseIf (strQueue = QUEUE_FAILED_SCREENER) Then
+            InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = reaccessedText'DISPLAY_FAILED_QUOTA
+            LogMsg = LogStart + "Rejected, sample signaled out of survey before"
+            bReject = True
+        'end added
+		
+		'multicountry added by cip				
+		ElseIf (strQueue = "FIELDCLOSED") Then		
+		Dim MultiQueue
+			LogMsg = LogStart + "Rejected due to QueueMulticountry set to  :" + strQueue		  
+			bReject = True
+			MultiQueue="<script>$(document).ready(function(){$('.flag-table').show();$('#content').hide();"
+			MultiQueue=MultiQueue+"$('#navigation-bar').hide();$('#navigation-bar-bottom').hide();});</script>"
+			
+			InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value =MultiQueue
+			Queues.MoveSampleRec("ACCESSEDFIELDCLOSED", SampleResult.SampleRec)
+		
+		ElseIf (strQueue = "ACCESSEDFIELDCLOSED") Then		
+			LogMsg = LogStart + "Rejected due to QueueMulticountry set to  :" + strQueue
+			bReject = True
+			MultiQueue="<script>$(document).ready(function(){$('.flag-table').show();$('#content').hide();"
+			MultiQueue=MultiQueue+"$('#navigation-bar').hide();$('#navigation-bar-bottom').hide();});</script>"
+			
+			InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value =MultiQueue
+		'endofMulticountry
+		
+        ElseIf (strQueue = QUEUE_ACTIVE) Then
+            If Not (Failover(LogStart)) Then
+                Dim iTimeout
+                iTimeout = GetIntValue(InterviewProperties, IVPROPS_TIMEOUT)
+                If (iTimeout = 0) Then
+                    iTimeout = 10
+                Else
+                    iTimeout = iTimeout / 60
+                End If
+                'InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = Replace(DISPLAY_ACTIVE, "{Timeout}", CText(iTimeout))
+				'CLT timeout
+				InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = "<span id=""timeoutCode"" style=""display:none"">" + langCode + "-" + CText(iTimeout) + "</span><span id='CLTAmpFlag' style='display:none'>"+CLTAmpFlag+"</span>"
+                LogMsg = LogStart + "Rejected, sample in ACTIVE queue"
+                'bReject = True
+            End If
+#line 549 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+        End If
+		
+		'IIS Specifics
+		If strQueue <> "FIELDCLOSED" and strQueue <> "ACCESSEDFIELDCLOSED" then 'multicountry condition
+			Dim ReturnCodeValue
+			If (FindItem(SampleResult.SampleRec.Fields, "ReturnCode")) Then
+			  ReturnCodeValue = UCase(SampleResult.SampleRec.Fields["ReturnCode"].Value)
+			  If ReturnCodeValue = "F" or ReturnCodeValue = "R" or ReturnCodeValue = "SC" or ReturnCodeValue = "SI" or ReturnCodeValue = "QC" or ReturnCodeValue = "QI" or ReturnCodeValue = "C" or ReturnCodeValue = "CQ" or ReturnCodeValue = "U" Then
+				LogMsg = LogStart + "Rejected due to ReturnCode :" + ReturnCodeValue		  
+				bReject = True
+				InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = reaccessedText
+			  End If
+			End If
+		End If
+      
+        If (bReject) Then
+            Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+            ' Release the reference to the SampleRec or it will stay Active
+            ' and be unable to be found again
+            Set SampleResult.SampleRec = Null
+            SampleResult.Code = RESULT_REJECT
+
+        Else
+            If (InterviewerID <> "") Then
+                InterviewMode = INTERVIEWMODE_CATI
+                RoutingContext = ROUTING_CATI
+            Else
+                InterviewMode = INTERVIEWMODE_WEB
+                RoutingContext = ROUTING_WEB
+                
+                ' Make sure the correct project is being run if chaining
+                If (FindItem(SampleResult.SampleRec.Fields, FIELD_PROJECT)) Then
+                    If (UCase(SampleResult.SampleRec.Fields[FIELD_PROJECT].Value <> PROJECT2)) Then
+                        ' Handle case where Project field may not be initialized
+                        SampleResult.SampleRec.Fields[FIELD_PROJECT].Value = PROJECT1
+                    End If
+                    InterviewProperties.Item(IVPROPS_PROJECT).Value = SampleResult.SampleRec.Fields[FIELD_PROJECT].Value
+                End If
+            End If
+            If ( Not CheckQuotas(LogStart, SampleResult.SampleRec, InterviewMode, InterviewProperties)) Then
+                InterviewProperties.Item(IVPROPS_DISPLAYTEXT).Value = DISPLAY_FAILED_QUOTA
+
+                Set SampleResult.SampleRec = Null
+                SampleResult.Code = RESULT_REJECT
+    
+            Else
+                strSavePreviousQueue = SampleResult.SampleRec.Fields.Item(FIELD_QUEUE).Value
+                Queues.MoveSampleRec(QUEUE_ACTIVE, SampleResult.SampleRec)
+            
+                If (InterviewMode = INTERVIEWMODE_CATI) Then
+                    UseThisSampleRecForCATI_Single(LogStart, SampleResult.SampleRec, InterviewerID)
+                Else
+                    UseThisSampleRecForWeb(LogStart, SampleResult.SampleRec)
+                End If
+
+                SampleResult.Code = RESULT_SUCCESS
+            End If
+
+        End If 
+    End If
+   
+    Exit Sub
+   
+ErrorHandler:
+    ' Log the error and exit
+    Log.Log(LogStart + "Error executing script (line " + CText(Err.LineNumber) + "):  " +             Err.Description + "  (0x" + CText(Format(Err.Number, "X")) + ")", logLevels.LOGLEVEL_ERROR)
+#line 616 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+    Set SampleResult.SampleRec = Null
+    SampleResult.Code = RESULT_FAILURE
+    Exit Sub
+End Sub
+
+
+' *******************************************************************************
+' This function implements the call outcome rules
+Sub ReturnSampleRec(SampleResult, SampleRecReturnCode)
+    Dim dtNow
+    Dim SerialValue
+    Dim ReturnRec
+    Dim LogStart, LogMsg
+#line 636 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+       
+    Set ReturnRec = SampleResult.SampleRec
+   
+    On Error GoTo ErrorHandler
+   
+    LogStart = CreateLogStart(ReturnRec.Fields) + "ReturnSampleRec:  "
+    dtNow = Now("UTC")
+    LogMsg = LogStart + "Entered, SampleRecReturnCode = " + SampleRecReturnCode.Name +              " (" + CText(SampleRecReturnCode.Code) + ")"
+#line 651 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+    LogMsg = LogMsg + ", current time (UTC) = " + CreateCanonicalDateTime(dtNow)
+    Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+
+    ' Save Serial number for restart
+    SerialValue = SaveSerial(LogStart, ReturnRec)
+
+    FinishQuotas(LogStart, SampleRecReturnCode, SerialValue)
+   
+
+#line 702 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+    If Not (ReturnSampleRec_DCCodes_ClientSpecific(LogStart, ReturnRec, SampleRecReturnCode)) Then
+        ' Call function to handle client specific return codes
+        If Not (ReturnSampleRec_ClientCodes_ClientSpecific(LogStart, ReturnRec, SampleRecReturnCode)) Then
+            ' A different Code could be due to using signal in the interview script
+            Dim QueueName
+            Set QueueName = "SIGNAL_" + CText(SampleRecReturnCode.Code)
+            Set LogMsg = "SampleRecReturnCode.Code = " + CText(SampleRecReturnCode.Code) + ", moving sample to " + QueueName + " queue."
+            Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+            Queues.MoveSampleRec(QueueName, ReturnRec)
+        End If
+    End If
+#line 714 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+      
+   LogMsg = LogStart + "Exiting, Queue = " + ReturnRec.Fields[FIELD_QUEUE].Value
+#line 721 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+   Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+
+   SampleResult.Code = RESULT_SUCCESS
+   
+   Exit Sub
+   
+ErrorHandler:
+   ' Log the error and exit
+   Log.Log(LogStart + "Error executing script (line " + CText(Err.LineNumber) + "):  " +             Err.Description + "  (0x" + CText(Format(Err.Number, "X")) + ")", logLevels.LOGLEVEL_ERROR)
+#line 731 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\MainFunctionsOpenAndSecuredIIS.mrs"
+   SampleResult.Code = RESULT_FAILURE
+   Exit Sub
+End Sub
+
+
+
+'==========================================================
+'Licensed Materials - Property of IBM
+'
+'IBM SPSS Products: Data Collection
+'
+'(C) Copyright IBM Corp. 2001, 2014
+'
+'US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP 
+'Schedule Contract with IBM Corp.
+'==========================================================
+
+' Interviewer Server 6.0.1
+' Last updated:  2014-05-26
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' HelperFunctions.mrs
+' Contains helper functions required used by the main functions.
+'
+' These functions are tested as part of the Data Collection system and
+' changes to this file may not be supported.
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+' *******************************************************************************
+' This function checks if quotas as specified in QUOTA_LIST exist and then 
+' attachs the QuotaEngine and Pends the specified quotas.
+' The CheckQuotaResult function handles the details of checking if the quotas
+' succeeded or failed.
+#line 30 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+Function CheckQuotas(LogStart, SampleRec, InterviewMode, InterviewProperties)
+    Dim Result
+    Dim LogQuota, LogMsg
+
+    ' Don't check quotas in review mode
+    If (GetBoolValue(InterviewProperties, IVPROPS_REVIEW)) Then
+        CheckQuotas = True
+        Exit Function
+    End If
+
+    ' Does this project have sample management quotas?
+    If Not (HasSMQuotas()) Then
+        CheckQuotas = True ' No quotas to check so return passed
+        Exit Function
+    End If
+
+    ' Does this respondent meet the Quota requirements?
+    ' Pend for all quotas
+  
+    ' No need to Pend quotas if you are not checking quotas until you are in
+    ' the script but you must attach it either case
+    QuotaEngine.AttachRecord(SampleRec)
+    
+    ' Pend just the expression quotas or all quotas
+    ' Pending all quotas will pend any cells that have data, which may be
+    ' Expression quotas or quotas with matching sample and case data fields
+    If (PEND_ALL) Then
+        Result = QuotaEngine.Pend()
+    Else
+        Result = QuotaEngine.QuotaGroups.Item["Expressions"].Pend()
+    End If
+     
+    LogQuota = CreateLogQuota(Result)
+   
+    Select Case CheckQuotaResult(LogStart, Result, PASS_QUOTA_IF_ANY_PASS)
+            
+        Case 0   ' Quota check failed
+            ' All cells that respondent falls into are over target
+            ' No need to Rollback as quota wasn't Pended in the first place.
+            LogMsg = LogStart + SampleRec.Fields.Item(FIELD_ID) +                      " failed quota check, no quotas pended.  " + LogQuota
+#line 71 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+
+            ' Set SampleFields so that the record will look as if it has been used
+            InitializeTest(LogStart, SampleRec)
+            
+#line 83 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+         
+            ' Let the client process the record if necessary
+            RejectRecord_ClientSpecific(LogStart, SampleRec, "Quota")
+            
+            ' Write out the changes to the record      
+            SampleRec.WriteRecord()
+
+            ' Move to overquota queue, ignore errors, could already be removed
+            On Error Resume Next
+            Queues.MoveSampleRec(QUEUE_OVERQUOTA, SampleRec)
+            On Error GoTo 0
+
+            CheckQuotas = False
+      
+        Case 1   ' Quota pend succeeded
+            LogMsg = LogStart + SampleRec.Fields.Item(FIELD_ID) +                      " passed quota check.  " + LogQuota
+#line 100 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+            CheckQuotas = True
+      
+        Case 2   ' Respondent did not fall into any quota cells
+            LogMsg = LogStart + SampleRec.Fields.Item(FIELD_ID) +                      " did not fall into any quota cells.  " + LogQuota
+#line 106 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_WARNING)
+            CheckQuotas = True
+      
+    End Select
+
+End Function
+
+' *******************************************************************************
+' Pass in Result from Pend
+' Possibilities are:
+' - No cells pended
+'   This could be due to the respondent not falling into any cells, possibly 
+'   because the only Expressions quotas are based on interview script data 
+'   instead of sample data.  Or it could be due to all the cells that the 
+'   respondent falls into being over target.
+' - Some cells pended
+'   If some of the cells were pended, then you need to decide if you want the 
+'   quota check to pass if any of the cells are below target or if you want to
+'   pass only if all the cells are below target.
+'   Set PassIfAnyPass to True if you want the respondent to continue if any quota
+'   cells that he/she falls into are below quota
+'   Set to False if you want the respondent to fail the quota check if any cell
+'   that he/she falls into is over quota
+' Returns 1 if respondent passed quota, should continue
+' Returns 0 if respondent failed quota, should be rejected
+' Returns 2 if respondent did not fall into any quota cells, should continue
+Function CheckQuotaResult(LogStart, Result, PassIfAnyPass)
+   If (Result = 0) Then
+      ' Respondent did not fall into any cells
+      ' Likely that these are Expressions quotas for the interview script
+      CheckQuotaResult = 2
+      Exit Function
+   End If
+   
+   If (PassIfAnyPass) Then
+      If ( BitAnd (Result, QUOTA_WAS_PENDED)) Then
+         CheckQuotaResult = 1
+      Else
+         CheckQuotaResult = 0
+      End If
+   Else
+      If ( BitAnd (Result, QUOTA_OVER_TARGET)) Then
+         CheckQuotaResult = 0
+         ' There are quotas pended, roll back the quotas as this sample will be rejected
+         QuotaEngine.RollBack()
+      Else
+         CheckQuotaResult = 1
+      End If
+   End If
+End Function
+
+' *******************************************************************************
+Function CreateLogQuota(Result)
+    Dim QuotaGroup, PendedQuota
+    Dim LogMsg
+     
+    LogMsg = ""
+    If (PEND_ALL) Then
+        For Each QuotaGroup In QuotaEngine.QuotaGroups
+            For Each PendedQuota In QuotaGroup.Quotas.WasPendedList
+                If (LogMsg <> "") Then
+                    LogMsg = LogMsg + ", "
+                End If
+                LogMsg = LogMsg + PendedQuota.FullName
+             Next
+        Next
+    Else
+        For Each PendedQuota In QuotaEngine.QuotaGroups["Expressions"].Quotas.WasPendedList
+            If (LogMsg <> "") Then
+                LogMsg = LogMsg + ", "
+            End If
+            LogMsg = LogMsg + PendedQuota.FullName
+        Next
+    End If    
+    CreateLogQuota = "Pend Result = " + CText(Result) + ", Pended:  " + LogMsg
+End Function
+
+' *******************************************************************************
+' QuotaAutoCommit defaults to 1 for Dimensions projects meaning that quota
+' completion or rollback is handled by the system.  We need to rollback quotas
+' only for interviews that did not start (Serial = 0).
+Sub FinishQuotas(LogStart, SampleRecReturnCode, SerialValue)
+   Dim LogMsg
+
+   If (SampleRecReturnCode.Code = CODE_REVIEWED Or        SampleRecReturnCode.Code = CODE_REJECTEDBYREVIEWER) Then
+#line 192 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+      Exit Sub ' Reviewing, return without finishing quotas
+   End If
+   
+   ' Does this project have sample management quotas?
+   If Not (HasSMQuotas()) Then
+      Exit Sub ' No quotas so just return
+   End If
+   
+   ' Rollback quotas only if interview is not started
+   ' All other rollbacks will occur when the cache is cleaned up
+   If Not (InterviewStarted()) Then
+      QuotaEngine.Rollback()
+      LogMsg = LogStart + "Quotas rolled back"
+      Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+   End If
+End Sub
+
+' *******************************************************************************
+Function HasSMQuotas()
+    Dim Check
+   
+    ' Quotas cannot be tested in Author Professional
+    ' so if running in Author Professional return as if quotas don't exist
+    If (IsDebug()) Then
+        HasSMQuotas = False
+        Exit Function
+    End If
+   
+    ' Would like to use QuotaProjectName to see if Quotas are enabled but the 
+    ' InterviewProperty is not passed to the sample script
+    On Error Resume Next
+    Set Check = QuotaEngine.QuotaGroups
+    On Error GoTo 0
+    If IsNullObject(Check) Then
+        HasSMQuotas = False ' QuotaEngine.QuotaGroups not available
+    ElseIf Not (IsNullObject(FindItem(QuotaEngine.QuotaGroups, "Expressions"))) Then
+        HasSMQuotas = True ' Expression sample management quotas
+    Else
+        ' Return true if we are setup to pend at the top level
+        HasSMQuotas = PEND_ALL 
+    End If
+End Function
+
+' *******************************************************************************
+Function CheckForSampleField(strSampleFields, strName)
+    ' strSampleFields is a comma separated string with no spaces between Fields
+    ' strName could be contained in a field
+    '    for example Language in CountryLanguage
+    ' There could be two instances of strName
+    '    for example CountryLanguage and Language
+       
+    Dim strTemp
+    Dim retVal
+    retVal = False
+   
+    For Each strTemp In strSampleFields.Split(",")
+        If Trim(UCase(strTemp)) = Trim(UCase(strName)) Then
+            retVal = True
+            Exit For
+        End If
+    Next
+    CheckForSampleField = retVal
+End Function
+
+' *******************************************************************************
+Function CheckForSampleFieldX(collSampleFields, strName)
+    Dim oTemp
+   
+    Set oTemp = FindItem(collSampleFields, strName)
+    If (IsNullObject(oTemp)) Then
+        CheckForSampleFieldX = False
+    Else
+        CheckForSampleFieldX = True
+    End If
+End Function
+
+' *******************************************************************************
+Sub LogIntProps(LogStart, IntProps)
+   Dim i, j
+   Dim Cats
+   Dim LogMsg
+   
+   LogMsg = LogStart + "Count = " + CText(IntProps.Count)
+   Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+   For i = 1 To IntProps.Count
+      If (VarType(IntProps[i].Value) = 3) Then
+         LogMsg = LogStart + "IntProps(" + CText(i) + ") = " +                   IntProps[i].Name + " = "
+#line 280 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+         Set Cats = IntProps[i].Value
+         For j = 1 to Cats.Count
+            LogMsg = LogMsg + CText(Cats.Item[j].Value) + ", "
+         Next
+         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+      Else
+         LogMsg = LogStart + "IntProps(" + CText(i) + ") = " +                   IntProps[i].Name + " = " + CText(IntProps[i].Value)
+#line 288 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+         Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+      End If
+   Next
+End Sub
+
+' *******************************************************************************
+Function CreateCanonicalDateTime(dtInput)
+   Dim strDateTime
+
+   ' SQL comparisons require the string in canonical date time format in order
+   ' to avoid issues with locale dependency
+   ' This is the required format
+   ' yyyy-mm-dd hh:mi:ss(24h)
+   strDateTime = CText(DatePart(dtInput, "yyyy")) + "-" +                  Format(DatePart(dtInput, "m"), "d2") + "-" +                  Format(DatePart(dtInput, "d"), "d2") + " " +                  Format(DatePart(dtInput, "h"), "d2") + ":" +                  Format(DatePart(dtInput, "n"), "d2") + ":" +                  Format(DatePart(dtInput, "s"), "d2")
+#line 307 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+                 
+   CreateCanonicalDateTime = strDateTime                 
+End Function
+
+' *******************************************************************************
+Function Failover(LogStart)
+   Dim LogMsg
+   Dim IsFailOver
+   
+   ' ACTIVE queue is ok if this is a failover of a Dimensions project
+   ' (if IsFailOver is present and equal to 1)
+   IsFailOver = GetIntValue(InterviewProperties, IVPROPS_ISFAILOVER)
+   If (IsFailOver = 1) Then
+      LogMsg = LogStart + "Failover situation found"
+      Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+      Failover = True  
+   Else
+      Failover = False
+   End If
+End Function
+
+' *******************************************************************************
+'Function AllowRestartFromActive(LogStart, SampleRec)
+'    Dim SerialFieldName, SerialField
+'    Dim RestartFromActiveCountField
+'    Dim LogMsg
+'   
+'    ' Restarting from the ACTIVE queue is allowed if 
+'    ' - the RESTART_FROM_ACTIVE script constant is set AND
+'    ' - the Serial field is already initialized (> 0)
+'    ' If the Serial field is not initialized then a race condition could cause 
+'    ' two case data records to be created
+'    If (RESTART_FROM_ACTIVE) Then
+'        ' Check if Serial has been initialized
+'        SerialFieldName = GetSerialFieldName(SampleRec)
+'        Set SerialField = FindItem(SampleRec.Fields, SerialFieldName)
+'        If Not(IsNullObject(SerialField)) Then
+'            If (SerialField.Value > 0) Then
+'                ' Restart from active is allowed
+'                
+'                ' Increment the RestartFromActiveCount so records restarted from ACTIVE can be identified
+'                Set RestartFromActiveCountField = FindItem(SampleRec.Fields, FIELD_RESTARTFROMACTIVECOUNT)
+'                If (IsNullObject(RestartFromActiveCountField)) Then
+'                    LogMsg = LogStart + "Restarting from ACTIVE (" + _
+'                        FIELD_RESTARTFROMACTIVECOUNT + " does not exist so cannot be incremented)"
+'                Else
+'                    RestartFromActiveCountField.Value = RestartFromActiveCountField.Value + 1
+'                    LogMsg = LogStart + "Restarting from ACTIVE (" + _
+'                        FIELD_RESTARTFROMACTIVECOUNT + " = " + CText(RestartFromActiveCountField.Value) + ")"
+'                End If
+'                
+'                ' Set the IsRestartFromActive InterviewProperty to signal to the mrIEng that
+'                ' the cache IsDatabaseUpToDate property should be set to False so that completed
+'                ' cache data is written to the database all at once at the end of the file
+'                ' This keeps consistency if multiple sessions are active
+'                SetProperty(InterviewProperties, IVPROPS_ISRESTARTFROMACTIVE, 1)
+'                
+'                Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+'                AllowRestartFromActive = True
+'                
+'            Else
+'                LogMsg = LogStart + "Restart from ACTIVE disallowed, " + _
+'                    SerialFieldName + " = " + CText(SerialField.Value)
+'                Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+'                AllowRestartFromActive = False
+'            End If
+'        Else
+'            ' Unlikely that Serial field does not exist but do not allow restart if this is the case
+'            ' Logged elsewhere
+'            AllowRestartFromActive = False
+'        End If
+'    Else
+'        AllowRestartFromActive = False 
+'    End If
+'End Function
+
+' *******************************************************************************
+Function InterviewStarted()
+   ' The RespondentID property will exist if an interview has been started
+   If (GetStringValue(InterviewProperties, "RespondentID") <> "") Then
+      InterviewStarted = True
+   Else
+      InterviewStarted = False
+   End If
+End Function
+
+' *******************************************************************************
+Sub UseThisSampleRecForWeb(LogStart, SampleRec)
+   UseThisSampleRec(LogStart, SampleRec, IM_WEB, ROUTING_WEB, "")
+End Sub
+   
+' *******************************************************************************
+Sub UseThisSampleRec(LogStart, SampleRec, InterviewMode, RoutingContext, LogAppend)
+   Dim RoutingContextValue
+   Dim LogMsg
+   
+   ' Initialize the Serial value if it exists in the SampleRec
+   InitializeSerial(LogStart, SampleRec)
+
+   ' Set the Test field if it exists
+   InitializeTest(LogStart, SampleRec)
+
+
+#line 424 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+   ' Do not update RoutingContext if it is already set to something other than Web
+   ' This supports switching between contexts called Web and CATI but also allows
+   ' using another context
+   RoutingContextValue = GetStringValue(InterviewProperties, IVPROPS_ROUTINGCONTEXT)
+   If ((RoutingContextValue = "" Or RoutingContextValue = ROUTING_WEB) And (RoutingContext <> "")) Then
+      InterviewProperties.Item(IVPROPS_ROUTINGCONTEXT).Value = RoutingContext
+   End If
+   
+   ' Append the specific logging message passed in
+   LogMsg = LogStart + GetInterviewModeText(InterviewMode) + " record returned" + LogAppend
+   Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+End Sub
+
+' *******************************************************************************
+Sub LogProperties(LogStart, Properties)
+   Dim p
+   Dim LogMsg
+   For Each p In Properties
+      LogMsg = LogStart + p.Name + " = " + CText(p.Value) 
+      Log.Log(LogMsg, logLevels.LOGLEVEL_INFO)
+      
+      ' If the value is a property collection, do it recursively.
+      If VarType(p.Value) = 4 Then
+         LogProperties(LogStart + "  ", p.Value)
+      End If      
+   Next 
+End Sub
+
+' *******************************************************************************
+Sub InitializeTest(LogStart, SampleRec)
+   Dim TestField, TestProp
+   
+   ' Missing Test field will result in the Test vs. Live filter in the 
+   ' CATI reporting activity being disabled
+   Set TestField = FindItem(SampleRec.Fields, FIELD_TEST)
+   If Not IsNullObject(TestField) Then 
+      Set TestProp = FindItem(InterviewProperties, IVPROPS_TEST)
+      If IsNullObject(TestProp) Then
+         TestField.Value = 1 ' If the Test InterviewProperty is missing, make this a test interview
+      Else
+         TestField.Value = TestProp.Value
+      End If
+   End If
+End Sub
+
+' *******************************************************************************
+Function GetSerialFieldName(SampleRec)
+    ' Support chaining if it is enabled
+    If (bChaining) Then
+        If (SampleRec.Fields[FIELD_PROJECT].Value = PROJECT1) Then
+            GetSerialFieldName = FIELD_SERIAL1
+        Else
+            GetSerialFieldName = FIELD_SERIAL2
+        End If
+    Else
+        GetSerialFieldName = FIELD_SERIAL
+    End If
+
+End Function
+    
+' *******************************************************************************
+Sub InitializeSerial(LogStart, SampleRec)
+    Dim SerialFieldName, SerialField
+    Dim LogMsg
+   
+    SerialFieldName = GetSerialFieldName(SampleRec)
+    Set SerialField = FindItem(SampleRec.Fields, SerialFieldName)
+    If IsNullObject(SerialField) Then
+        ' If Serial field does not exist, stopped interviews cannot be
+        ' restarted. 
+        ' This error should be recorded in the log file.
+        LogMsg = LogStart + SerialFieldName + " Field not found in SampleRec.  " +                  "Unable to use Serial number for restart."
+#line 497 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+        Log.Log(LogMsg, logLevels.LOGLEVEL_ERROR)
+    Else
+        If (SerialField.Value > 0) Then
+            ' If the Serial value exists and is not 0 then it
+            ' should be used, otherwise let the interviewing system assign 
+            ' the Serial value
+            ' Serial value can be saved for restarting interviews.
+            InterviewProperties.Item(IVPROPS_SERIAL).Value = SerialField.Value
+            LogMsg = LogStart + "Setting " + SerialFieldName + " to " +                      CText(SerialField.Value)
+#line 507 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+        End If
+    End If
+End Sub
+
+' *******************************************************************************
+Function SaveSerial(LogStart, SampleRec)
+    Dim SerialFieldName, SerialField, SerialValue
+    Dim LogMsg
+   
+    SerialValue = GetIntValue(InterviewProperties, IVPROPS_SERIAL)
+   
+    ' First check that the Serial Field exists.
+    If (SerialValue <> 0) Then
+        ' Support chaining if it is enabled
+        If (bChaining) Then
+            If (SampleRec.Fields[FIELD_PROJECT].Value = PROJECT1) Then
+                SerialFieldName = FIELD_SERIAL1
+            Else
+                SerialFieldName = FIELD_SERIAL2
+            End If
+        Else
+            SerialFieldName = FIELD_SERIAL
+        End If
+        
+        Set SerialField = FindItem(SampleRec.Fields, SerialFieldName)
+        If IsNullObject(SerialField) Then
+            ' If Serial field does not exist, stopped interviews cannot be restarted. 
+            ' This error should be recorded in the log file.
+            LogMsg = LogStart + SerialFieldName + " Field not found in SampleRec.  " +                      "Unable to save Serial number for use in restart."
+#line 538 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_ERROR)
+        Else
+            SampleRec.Fields.Item(SerialFieldName).Value = SerialValue
+            LogMsg = LogStart + "Saving " + SerialFieldName + " (" + CText(SerialValue) +                     ") to sample field"
+#line 543 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE)
+        End If
+    End If
+    SaveSerial = SerialValue
+End Function
+
+' *******************************************************************************
+Function CreateLogStart(SampleFields)
+   Dim RespondentID, InterviewerID, ConnectionID
+   Dim LogStart
+   ' Initialize the string that will be used at the start of all
+   ' log messages
+   ' ConnectionID will be valid only on restart
+   ' RespondentID might be available from the ID field in Authenticate
+
+   LogStart = "-P"
+   LogStart = LogStart + GetStringValue(InterviewProperties, IVPROPS_PROJECT)
+   LogStart = LogStart + " -R"
+   RespondentID = GetStringValue(SampleFields, FIELD_ID)
+   If (RespondentID <> "") Then
+      LogStart = LogStart + RespondentID   
+#line 570 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+   End If
+   LogStart = LogStart + " -I"
+   ConnectionID = GetStringValue(InterviewProperties, IVPROPS_CONNECTIONID)
+#line 579 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+   LogStart = LogStart + ConnectionID
+   CreateLogStart = LogStart + " SAMPLE SCRIPT:  "
+End Function
+
+' *******************************************************************************
+Function IsCATISampleRec(SampleRec)
+   Dim CATIField
+   
+   Set CATIField = FindItem(SampleRec.Fields, FIELD_INTERVIEWMODE)
+   If IsNullObject(CATIField) Then
+      IsCATISampleRec = False
+   Else
+      IsCATISampleRec = True
+   End If
+End Function
+
+' *******************************************************************************
+Function IsDebug()
+   Dim DebugField
+
+   Set DebugField = FindItem(InterviewProperties, "IsDebug")
+   If IsNullObject(DebugField) Then
+      IsDebug = False
+   Else
+      IsDebug = DebugField
+   End If
+End Function
+
+' *******************************************************************************
+Function GetStringValue(Collection, PropName)
+   Dim Field
+   
+   Set Field = FindItem(Collection, PropName)
+   If Not IsNullObject(Field) Then
+      GetStringValue = CText(Field.Value)
+   Else
+      GetStringValue = ""
+   End If
+End Function
+
+' *******************************************************************************
+Function GetIntValue(Collection, PropName)
+   Dim Field
+   
+   Set Field = FindItem(Collection, PropName)
+   If Not IsNullObject(Field) Then
+      GetIntValue = CLong(Field.Value)
+   Else
+      GetIntValue = 0
+   End If
+End Function
+
+' *******************************************************************************
+Function GetBoolValue(Collection, PropName)
+   Dim Field
+   
+   Set Field = FindItem(Collection, PropName)
+   If Not IsNullObject(Field) Then
+      GetBoolValue = CBoolean(Field.Value)
+   Else
+      GetBoolValue = False
+   End If
+End Function
+
+' *******************************************************************************
+Sub LogSampleRecords(SampleRecs)
+    Dim SampleRec
+    Log.Log("SampleRecords is:", logLevels.LOGLEVEL_TRACE) 
+    For Each SampleRec In SampleRecs
+        Log.Log("     " + SampleRec.Fields.Item("Id"), logLevels.LOGLEVEL_TRACE) 
+    Next
+End Sub
+
+' ********************************************************************************
+Sub SetProperty(Properties, Name, Value)
+   Dim Property
+   Set Property = Properties.FindItem(Name)
+   If IsNullObject(Property) Then
+       Set Property = Properties.CreateProperty()
+       Property.Name = Name
+       Property.Value = Value
+       Properties.Add(Property)
+   Else
+       Property.Value = Value
+   End If
+End Sub
+
+' *******************************************************************************
+Function GetInterviewMode(SampleRec)
+    Dim Property, InterviewModeField
+   
+    ' Use the previous InterviewMode if this is a review
+    If (GetBoolValue(InterviewProperties, IVPROPS_REVIEW)) Then
+        Set InterviewModeField = FindItem(SampleRec.Fields, FIELD_INTERVIEWMODE)
+        If (IsNullObject(InterviewModeField)) Then
+            ' Must be Web
+            GetInterviewMode = IM_WEB
+        Else
+            Select Case InterviewModeField.Value
+            Case INTERVIEWMODE_WEB
+                GetInterviewMode = IM_WEB
+            Case INTERVIEWMODE_CATI
+                GetInterviewMode = IM_PHONE
+            Case INTERVIEWMODE_LOCAL
+                GetInterviewMode = IM_LOCAL
+            Case Else
+                GetInterviewMode = -1
+            End Select
+        End If
+    Else
+        ' Get InterviewMode from the InterviewProperty
+        Set Property = FindItem(InterviewProperties, IVPROPS_INTERVIEWMODE)
+        If Not (IsNullObject(Property)) Then
+            GetInterviewMode = CLong(Property.Value)
+        Else
+#line 709 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+            ' If telephone files are not included, this can only be Web
+            GetInterviewMode = IM_WEB
+#line 712 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+        End If
+    End If
+End Function
+
+' *******************************************************************************
+Function GetInterviewModeText(InterviewMode)
+    Dim InterviewModeString
+    
+    Select Case InterviewMode
+    Case IM_WEB
+        GetInterviewModeText = INTERVIEWMODE_WEB
+    Case IM_PHONE
+        GetInterviewModeText = INTERVIEWMODE_CATI
+    Case IM_LOCAL
+        GetInterviewModeText = INTERVIEWMODE_LOCAL
+    Case Else
+        GetInterviewModeText = "Unknown"
+    End Select
+End Function
+
+' *******************************************************************************
+Function CreateFilterPersonalWhereClause(LogStart)
+   Dim strFilterPersonalWhere
+   Dim LogMsg
+   
+   strFilterPersonalWhere = ""
+   
+   If (SupportsPersonal()) Then
+      ' Project has required fields for personal interviewing,
+      ' filter out any records that are assigned or distributed
+      strFilterPersonalWhere = "((" + FIELD_ASSIGNEDINTERVIEWERID + " IS NULL OR " + FIELD_ASSIGNEDINTERVIEWERID + " LIKE N'')" +                             " AND (" + FIELD_DISTRIBUTEDTO + " IS NULL OR " + FIELD_DISTRIBUTEDTO + " LIKE N''))"
+#line 744 "\\1247682-frc02i1\\FMRoot2\\Shared\\Library\\Sample Management Scripts\\HelperFunctions.mrs"
+   End If
+
+   LogMsg = LogStart + "CreateFilterPersonalWhereClause returns '" + strFilterPersonalWhere + "'"
+   Log.Log(LogMsg, logLevels.LOGLEVEL_TRACE) 
+   CreateFilterPersonalWhereClause = strFilterPersonalWhere 
+End Function
+
+' *******************************************************************************
+Function SupportsPersonal()
+    If (CheckForSampleField(Queues.Properties.Item("FieldColumns").Value, FIELD_ASSIGNEDINTERVIEWERID)) Then
+        If (CheckForSampleField(Queues.Properties.Item("FieldColumns").Value, FIELD_DISTRIBUTEDTO)) Then
+            SupportsPersonal = True
+        Else
+            SupportsPersonal = False
+        End If
+    Else
+        SupportsPersonal = False
+    End If  
+End Function
+
+' *******************************************************************************
+Sub UseThisSampleRecForPersonal(LogStart, SampleRec, InterviewerID)
+    ' Store the interviewer ID
+    SaveInterviewerID(LogStart, SampleRec, InterviewerID)
+
+    ' Include the number of records requested (SMRecordsRequired InterviewProperty)
+    ' and returned in the final log message
+    Dim LogAppend
+    LogAppend = " from " + strSavePreviousQueue
+   
+    UseThisSampleRec(LogStart, SampleRec, IM_LOCAL, "", LogAppend)
+   
+    ' Provide the client with an opportunity to add temporary sample fields or override other settings
+    UseThisSampleRecForPersonal_ClientSpecific(LogStart, SampleRec, strSavePreviousQueue)
+End Sub
+' *******************************************************************************
+Function GetInterviewerProp(strPropName)
+   Dim Value
+   
+   ' Interviewer properties are stored at the top level
+   GetInterviewerProp = GetStringValue(UserProperties, strPropName)
+End Function
+
+
+' *******************************************************************************
+' Helper functions below here are used for telephone interviewing
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+' ********************************************************************************
+
+
+' *******************************************************************************
+' Check the APPOINTMENT queue for appointments made with respondents
+' If AppointmentPreferArranger is True, then we check for appointments 
+'    with the arranging interviewer during the interval from AppointmentMarginBefore
+'    to AppointmentMarginAfter minutes before the record's appt time and
+'    any interviewer in the interval after AppointmentMarginAfter.
+'    If we are group dialing, records for the arranging interviewer need to be 
+'       returned with Preview = True to ensure that they go to the specific 
+'       interviewer.
+' If AppointmentPreferArranger is False, then we return the appointment for any
+'    interviewer if it is after AppointmentMarginBefore minutes before the appt.
+' Appointments need to be returned sorted by appointment time from the 
+' APPOINTMENT queue.
+
+
+' *******************************************************************************
+' Check the RECALL queue for recalls due to busy, no anwer etc.
+' All recalls are considered suitable for calling up to RecallMarginBefore 
+' minutes before the RecallTime stored in the sample record.
+' Recalls are not moved from the RECALL queue when MaxTries have been reached
+' so we need to pass MaxTries as an additional part of the WHERE clause.
+' Recalls need to be returned sorted by RecallTime from the 
+' RECALL queue.
+
+
+
+' *******************************************************************************
+' If WebCallbackDelay is set to non-zero
+' Check the TIMED_OUT, STOPPED and TRANSFER_TO_WEB queues for Web interviews that
+' can be called
+' They should have a PhoneNumber
+' The ReturnTime should have past by WebCallbackDelay minutes
+' There is no need to check an After interval
+
+
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+
+
+
+
+' *******************************************************************************
+
+
+
+
+' *******************************************************************************
+' Checks if this is a HandleQueue_ style IntQual.
+' If it is, returns the Queue name; Null otherwise.
+
+
+' *******************************************************************************
+
+
+
+
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+
+
+
+' *******************************************************************************
+' Reads DPM properties once and passes to UseThisSampleRecForCATI,
+' faster if possibly processing multiple records
+
+' *******************************************************************************
+' This version used to simplify calling when a single record has been requested
+
+' *******************************************************************************
+' This version is meant to be called from UseThisSampleRecsForCATI to avoid
+' multiple checks of the same properties if multiple records are being processed
+
+
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+
+' *******************************************************************************
+
+
+
+
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+' Determine the number of records to return
+
+' *******************************************************************************
+
+
+
+
+' *******************************************************************************
+' We need to return a WHERE clause
+' For records in queues other than APPOINTMENT, we will filter out Values that 
+' do not have an order or weight
+'
+' We need to return an ORDER by clause that will be valid in both cases
+' This order by clause will return time zones 35, 20, 10 and 4 in order and 
+' then all other values randomly
+' ORDER BY CHARINDEX('|' + TimeZone + '|', '|4|10|20|35|') DESC
+'
+' Since we need to return more than one value, we will return the values in 
+' an array that is passed in to the function
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+' Put this in a function in case the order of the order bys needs to be changed
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+
+
+' *******************************************************************************
+' Should recalls be prioritized for this record scan?
+' Use new (6.0) DPM property PrioritizeRecallsPercentage and a random value to 
+' decide if this particular scan should prioritize RECALL or FRESH queue
+' If the property is not available, fall back to the original boolean 
+' PrioritizeRecalls property
+' ********************************************************************************
+
+' ********************************************************************************
+
+' ********************************************************************************
+
+' ********************************************************************************
