@@ -421,6 +421,11 @@ define(['o-question'], function (oQuestion) {
     oQuestionOpenendSearch.prototype.getDataFromSource = function () {
         var listElement = document.querySelector('#' + this.droplist.id);
         var direction = this.properties.direction || 'standard-list';
+    
+        // Add role="listbox" for ARIA
+        listElement.setAttribute('role', 'listbox');
+        listElement.setAttribute('aria-label', 'Selectable list of items');
+    
         if (direction === 'horizontal') {
             listElement.classList.add('horizontal-list');
             listElement.classList.remove('vertical-list');
@@ -432,12 +437,15 @@ define(['o-question'], function (oQuestion) {
             listElement.classList.remove('horizontal-list');
             listElement.classList.add('standard-list');
         }
+    
         var html = '';
         for (var i = 0; i < barcodelist.list.length; i++) {
             var item = barcodelist.list[i];
             var flexClass = item.image ? 'flex-container' : '';
             var uniqueId = 'checkbox-' + i;
-            html += '<li class="a-option-list ' + flexClass + '" id="' + item.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + (item.name || item.caption) + '" tabindex="0">';
+    
+            // Add role="option" for ARIA
+            html += '<li class="a-option-list ' + flexClass + '" id="' + item.id + '" data-list-position="' + i + '" data-questiongroup="' + this.group + '" data-value="' + (item.name || item.caption) + '" tabindex="0" role="option" aria-selected="false">';
             if (item.image) {
                 html += '<label for="' + uniqueId + '" class="flex-label" data-value="' + (item.name || item.caption) + '">';
                 html += '<img src="' + item.image + '" alt="' + item.caption + '" class="list-image" data-value="' + (item.name || item.caption) + '">';
@@ -449,13 +457,22 @@ define(['o-question'], function (oQuestion) {
             html += '</li>';
         }
         listElement.innerHTML = html;
+    
         var listItems = listElement.querySelectorAll('li');
-        listItems.forEach(function (item) {
+        listItems.forEach(function (item, index) {
+            // Handle click events
             item.addEventListener('click', function (e) {
                 e.stopPropagation();
                 var value = item.getAttribute('data-value');
                 this.addTag(value);
+    
+                // Update ARIA selected attribute
+                listItems.forEach(function (li) {
+                    li.setAttribute('aria-selected', 'false');
+                });
+                item.setAttribute('aria-selected', 'true');
             }.bind(this));
+    
             var label = item.querySelector('label');
             if (label) {
                 label.addEventListener('click', function (e) {
@@ -464,6 +481,7 @@ define(['o-question'], function (oQuestion) {
                     this.addTag(value);
                 }.bind(this));
             }
+    
             var img = item.querySelector('img');
             if (img) {
                 img.addEventListener('click', function (e) {
@@ -475,8 +493,25 @@ define(['o-question'], function (oQuestion) {
                     this.addTag(value);
                 }.bind(this));
             }
+    
+            // Handle keyboard navigation
+            item.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    var nextItem = listItems[index + 1] || listItems[0];
+                    nextItem.focus();
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    var prevItem = listItems[index - 1] || listItems[listItems.length - 1];
+                    prevItem.focus();
+                } else if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
         }.bind(this));
     };
+    
 
     oQuestionOpenendSearch.prototype.gettingWords = function () {
         var wordsArray = [];
