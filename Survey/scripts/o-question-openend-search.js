@@ -681,13 +681,22 @@ define(['o-question'], function (oQuestion) {
     };
 
     oQuestionOpenendSearch.prototype.cloneInputElement = function () {
-        var newelement = this.element.cloneNode();
-        newelement.id = '';
-        newelement.name = '';
-        this.element.type = 'hidden';
-        this.hiddenelement = this.element;
-        this.element = this.wrapper.insertBefore(newelement, this.droplistwrapper);
+        var newElement = this.element.cloneNode();
+        newElement.id = '';
+        newElement.name = '';
+        newElement.type = 'text';  // Ensure it's a text input
+        newElement.setAttribute('role', 'combobox');
+        newElement.setAttribute('aria-autocomplete', 'list');
+        newElement.setAttribute('aria-expanded', 'false');
+        newElement.setAttribute('aria-controls', this.droplist.id);
+        newElement.setAttribute('aria-label', 'Search input');  // Or aria-labelledby for an external label
+        newElement.setAttribute('tabindex', '0');
+        
+        this.element.type = 'hidden';  // Hide original element
+        this.hiddenelement = this.element;  // Set hidden element reference
+        this.element = this.wrapper.insertBefore(newElement, this.droplistwrapper);  // Insert cloned element into DOM
     };
+    
 
     oQuestionOpenendSearch.prototype.buildList = function () {
         var listItems = this.droplist.querySelectorAll('li');
