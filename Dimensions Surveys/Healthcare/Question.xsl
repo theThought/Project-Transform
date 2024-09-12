@@ -3398,8 +3398,10 @@
                <xsl:value-of select="@Alt" />
             </xsl:attribute>
          </xsl:if>
-         <!--- CSS Class -->
-         
+         <!--- Block LastPass -->
+         <xsl:attribute name="data-lpignore">
+            <xsl:text>true</xsl:text>
+         </xsl:attribute>
          <!--- Show Only -->
          <xsl:if test="$bShowOnly != false() or $tReadOnly != 'false' or Style/Control/@ReadOnly='true'">
             <xsl:attribute name="data-readonly">
