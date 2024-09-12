@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-US" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="Robots" content="noindex, nofollow" />
+    <meta name="Generator" content="Interviewer Server HTML Player 1.0.23..106" />
+    <meta name="Template" content="local-formal.htm" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/formal/base.css"
+        title="Formal" />
+    <script type="text/javascript"
+        src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js">//Require Script</script>
+    <script type="text/javascript"
+        src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
+    <script type="text/javascript"
+        src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
+    <script type="text/javascript">
+        require.config({
+            baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts',
+            waitSeconds: 0
+        });
+        require(['main'], function () { });
+    </script>
+    <title>Question type selection</title>
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/favicon-32x32.png" />
+    <!-- <link rel="manifest" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/manifest.json" /> -->
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="favicons/formal/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+</head>
+
+<body>
+    <form name="mrForm" id="mrForm" action="./" method="post"><input type="hidden" name="I.Engine"
+            value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden"
+            name="I.Session" value="cyazpuohtaxelamazgrfjay52iaqaaaa" /><input type="hidden" name="I.SavePoint"
+            value="TypesVsBroadsheetsSingle" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
+        <div class="header">
+            <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo"
+                src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/formal/ipsoslogo192.png" />
+            <div class="overall-progress">
+                <div class="overall-progress-text">
+                    <!-- progress text -->
+                </div>
+                <div class="overall-progress-bar">
+                    <table style="height: 100%; width: 100%">
+                        <tr>
+                            <td style="width: 1%; background-color: #D0DAE6" />
+                            <td class="mrProgressText">1%</td>
+                        </tr>
+                    </table><!-- progress bar -->
+                </div>
+            </div>
+        </div>
+        <script
+            id="pageproperties">app.RegisterProperties('Page', { "sidebyside": 30, "focus": { "question": true, "control": true }, "pwa": "false", "paste": "true", "jumptoerror": "true" })</script>
+        <div class="surroundcontent">
+            <div class="o-question-container sidebyside">
+                <script
+                    data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
+                <script
+                    type="text/javascript">app.RegisterProperties("_QTypesVsBroadsheetsSingle", { "sublistline": { "state": true, "length": 40 }, "balance": { "state": true }, "onesize": { "state": true } });</script>
+                <div class="m-question-cover"><!-- cover --></div>
+                <div class="o-question-messages">
+                    <div class="o-question-information-messages">
+                        <div class="m-message-error">
+                        </div>
+                    </div>
+                    <div class="o-question-response-messages">
+                        <!-- currently empty -->
+                    </div>
+                </div>
+                <div class="o-question-core">
+                    <div class="o-question-information-and-messages">
+                        <div class="o-question-information">
+                            <div class="o-question-information-content">Which of the following papers have you read in
+                                the last month?</div>
+                        </div>
+                        <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+                    </div>
+                    <div class="o-question-response">
+                        <Questions data-position="below">
+                            <Question data-position="below">
+                                <div class="o-question-response o-question-choice"
+                                    data-questiongroup="_QTypesVsBroadsheetsSingle" data-readonly="false"
+                                    data-position="below">
+                                    <script>app.registerComponent('oQuestionChoice', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
+                                    <div class="o-option-sublist">
+                                        <div class="a-label-heading-sublist" style="">
+                                            <span class="a-label-option">Tabloids</span>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S0"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S0', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_Cmail" id="_Q0_C0_S0" style=""
+                                                value="mail" />
+                                            <label for="_Q0_C0_S0">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">Daily Mail</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S1"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S1', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_Cexpress" id="_Q0_C0_S1" style=""
+                                                value="express" />
+                                            <label for="_Q0_C0_S1">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">Daily Express</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S2"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S2', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_Cfirst" id="_Q0_C0_S2" style=""
+                                                value="first" />
+                                            <label for="_Q0_C0_S2">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">1<sup>st</sup> edition</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S3"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S3', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_CSun" id="_Q0_C0_S3" style=""
+                                                value="Sun" />
+                                            <label for="_Q0_C0_S3">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">Sun</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S4"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S4', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_CMirror" id="_Q0_C0_S4" style=""
+                                                value="Mirror" />
+                                            <label for="_Q0_C0_S4">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">The Mirror</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S5"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S5', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_Cstar" id="_Q0_C0_S5" style=""
+                                                value="star" />
+                                            <label for="_Q0_C0_S5">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">Daily Star</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S6"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S6', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_CI" id="_Q0_C0_S6" style=""
+                                                value="I" />
+                                            <label for="_Q0_C0_S6">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">i</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C0_S7"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C0_S7', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_CMetro" id="_Q0_C0_S7" style=""
+                                                value="Metro" />
+                                            <label for="_Q0_C0_S7">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">Metro</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="o-option-sublist">
+                                        <div class="a-label-heading-sublist" style="">
+                                            <span class="a-label-option">Broadsheets</span>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C1_S0"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C1_S0', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_Ctelegraph" id="_Q0_C1_S0" style=""
+                                                value="telegraph" />
+                                            <label for="_Q0_C1_S0">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">The Daily Telegraph</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C1_S1"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C1_S1', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_Ctimes" id="_Q0_C1_S1" style=""
+                                                value="times" />
+                                            <label for="_Q0_C1_S1">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">The Times</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C1_S2"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C1_S2', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_CIndependent" id="_Q0_C1_S2" style=""
+                                                value="Independent" />
+                                            <label for="_Q0_C1_S2">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">The Independent</span>
+                                            </label>
+                                        </div>
+                                        <div data-exclusive="true" data-questionid="_Q0_C1_S3"
+                                            data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                            data-hidden="false" class="m-option-base  below " style="">
+                                            <script>app.registerComponent('mOptionBase', '_Q0_C1_S3', '_QTypesVsBroadsheetsSingle');</script>
+                                            <input class="hiddencontrol" type="radio"
+                                                name="_QTypesVsBroadsheetsSingle_CGuardian" id="_Q0_C1_S3" style=""
+                                                value="Guardian" />
+                                            <label for="_Q0_C1_S3">
+                                                <span class="a-icon-multistate" data-icontype="single">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                                <span class="a-label-option">Guardian</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div data-exclusive="true" data-questionid="_Q0_C2"
+                                        data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                        data-hidden="false" class="m-option-base  below " style="">
+                                        <script>app.registerComponent('mOptionBase', '_Q0_C2', '_QTypesVsBroadsheetsSingle');</script>
+                                        <input class="hiddencontrol" type="radio"
+                                            name="_QTypesVsBroadsheetsSingle_Cotherpaper" id="_Q0_C2" style=""
+                                            value="otherpaper" />
+                                        <label for="_Q0_C2">
+                                            <span class="a-icon-multistate" data-icontype="single">
+                                                <!--This is a comment!-->
+                                            </span>
+                                            <span class="a-label-option">Other (please specify)</span>
+                                        </label>
+                                        <!--Style-->
+                                        <span class="a-label-option"></span>
+                                        <input data-questionid="_Q0_O2" data-questiongroup="_QTypesVsBroadsheetsSingle"
+                                            data-position="side" type="text" step="any"
+                                            name="_QTypesVsBroadsheetsSingle_Ootherpaper" id="_Q0_O2" autocomplete="off"
+                                            style="" maxlength="100" value="" data-value=""
+                                            class="a-input-singlelineedit side" />
+                                        <script>app.registerComponent('aInputSinglelineedit', '_Q0_O2', '_QTypesVsBroadsheetsSingle');</script>
+                                    </div>
+                                    <div data-exclusive="true" data-questionid="_Q0_C3"
+                                        data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below"
+                                        data-hidden="false" class="m-option-base  below " style="">
+                                        <script>app.registerComponent('mOptionBase', '_Q0_C3', '_QTypesVsBroadsheetsSingle');</script>
+                                        <input class="hiddencontrol" type="radio"
+                                            name="_QTypesVsBroadsheetsSingle_Cdontread" id="_Q0_C3" style=""
+                                            value="dontread" />
+                                        <label for="_Q0_C3">
+                                            <span class="a-icon-multistate" data-icontype="single">
+                                                <!--This is a comment!-->
+                                            </span>
+                                            <span class="a-label-option">I don't read newspapers</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </Question>
+                        </Questions>
+                    </div>
+                </div>
+                <div class="o-question-messages">
+                    <div class="o-question-information-messages">
+                        <details class="o-message-information">
+                        </details>
+                    </div>
+                    <div class="o-question-response-messages">
+                    </div>
+                </div>
+                <div class="o-question-messages">
+                    <div class="o-question-information-messages">
+                        <div class="m-message-instruction">
+                        </div>
+                    </div>
+                    <div class="o-question-response-messages">
+                        <!-- currently empty -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div id="nav-controls" class="btn-container nav-center">
+                <div id="nextonly">
+                    <input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
+                </div>
+                <div id="prevstop">
+                    <input type="submit" name="_NPrev" class="a-button-prev" style="" value="Previous"></input>
+                    <input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style=""
+                        value="Stop"></input>
+                </div>
+            </div>
+            <div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a
+                    href="#">Unsubscribe</a></div>
+        </div>
+    </form>
+    <!-- The following script causes the page to be automatically reloaded if it changes in Professional.  This can be removed by disabling the "External browser automatic page update" setting. -->
+    <script type="text/javascript" src="SharedResources/javascript/auto-page-update/auto-page-update.js"
+        defer="true"></script>
+</body>
+
+</html>
