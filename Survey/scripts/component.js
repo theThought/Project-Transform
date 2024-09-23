@@ -51,8 +51,7 @@ define(
         }
 
         component.prototype.init = function () {
-            this.getInitialValue();
-            this.value = this.getCurrentValue();
+            this.initialValue = this.value = this.getCurrentValue();
         }
 
         component.prototype.configureProperties = function (propertiesName) {
