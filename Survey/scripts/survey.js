@@ -11,7 +11,6 @@ function Survey() {
 }
 
 Survey.prototype.registerComponent = function (componentType, id, group) {
-
     switch (componentType.toLowerCase()) {
         case 'page':
             requirejs(['page'], function (page) {
@@ -68,12 +67,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oOpenendSearch(id, group));
             });
             break;
-        // case 'mlistexternal':
-        //     requirejs(['m-list-external'], function (mListExternal) {
-        //         console.log('m-list-external');
-        //         app.preinitcomponents.unshift(new mListExternal(id, group));
-        //     });
-        //     break;    
         case 'odropdown':
         case 'osliderdatethumbdate':
             requirejs(['o-dropdown'], function (oDropdown) {
@@ -180,7 +173,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
         default:
             console.info('A request was made to register an unrecognised component type, ' + componentType + '.');
     }
-
 }
 
 Survey.prototype.checkProperties = function () {
