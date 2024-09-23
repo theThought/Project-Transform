@@ -17,6 +17,7 @@ define(
             this.container = null;
             this.value = null;
             this.initialValue = null;
+            this.available = false;
             this.restoreValues = false;
             this.isDebugging = true;
             this.questionName = app.extractQuestionName(group);
