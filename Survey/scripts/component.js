@@ -68,14 +68,8 @@ define(
             }
         }
 
-        component.prototype.getInitialValue = function () {
-            if (typeof this.element.value !== 'undefined') {
-                this.initialValue = this.element.value;
-            }
-
-            if (typeof this.checkbox !== "undefined") {
-                this.initialValue = (this.checkbox.checked);
-            }
+        component.prototype.storeInitialValue = function () {
+            this.initialValue = this.value = this.getCurrentValue();
         }
 
         component.prototype.getCurrentValue = function () {

@@ -41,7 +41,7 @@ define(['o-question'],
             this.hideOriginalInputElement();
             this.createTimeRangeElement();
             this.createDateElement();
-            this.getInitialValue();
+            this.storeInitialValue();
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
@@ -171,7 +171,7 @@ define(['o-question'],
             this.dateelement = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionDateTimeRecent.prototype.getInitialValue = function () {
+        oQuestionDateTimeRecent.prototype.storeInitialValue = function () {
             if (typeof this.hiddenelement.value === 'undefined' || this.hiddenelement.value.length === 0) {
                 return;
             }

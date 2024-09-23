@@ -29,7 +29,7 @@ define(['component'],
             this.isExclusive = (this.element.getAttribute('data-exclusive') === 'true') || false;
 
             this.configureProperties();
-            this.getInitialValue();
+            this.storeInitialValue();
             this.configureReadonly();
             this.relocateTextInput();
             this.configureIncomingEventListeners();
@@ -118,8 +118,8 @@ define(['component'],
             textDestination.appendChild(textWrapper);
         }
 
-        mOptionBase.prototype.getInitialValue = function () {
-            component.prototype.getInitialValue.call(this);
+        mOptionBase.prototype.storeInitialValue = function () {
+            component.prototype.storeInitialValue.call(this);
             this.changeState(this.checkbox.checked);
         }
 

@@ -45,7 +45,7 @@ define(['component'],
             this.setCurrentListPosition();
             this.updateScrollPosition(this.getCurrentListPosition());
             this.configureProperties();
-            this.getInitialValue();
+            this.storeInitialValue();
             this.setWidth();
             this.setPosition();
             this.setTabIndex();
@@ -283,7 +283,7 @@ define(['component'],
             this.wrapper.classList.add('list-droplist');
         }
 
-        oDropdown.prototype.getInitialValue = function () {
+        oDropdown.prototype.storeInitialValue = function () {
             if (typeof this.hiddenelement.value !== 'undefined') {
                 this.initialValue = this.hiddenelement.value;
             }

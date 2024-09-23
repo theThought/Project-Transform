@@ -29,7 +29,7 @@ define(['component'],
             this.isReadOnly = (this.element.closest('[data-readonly="true"]') !== null || this.element.readOnly) || false;
 
             this.configureProperties();
-            this.getInitialValue();
+            this.storeInitialValue();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.configureInitialVisibility();

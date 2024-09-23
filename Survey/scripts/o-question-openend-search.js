@@ -68,7 +68,7 @@ define(['o-question'], function (oQuestion) {
         this.ensureSpecialOrder();
         this.addMessageContainers();
         this.addBarcodeScanButton();
-        this.getInitialValue();
+        this.storeInitialValue();
         this.restoreSelection();
         this.configurationComplete();
         this.placeCheckBox();
@@ -660,7 +660,7 @@ define(['o-question'], function (oQuestion) {
         this.wrapper.classList.add('o-combobox');
     };
 
-    oQuestionOpenendSearch.prototype.getInitialValue = function () {
+    oQuestionOpenendSearch.prototype.storeInitialValue = function () {
         if (this.hiddenelement) {
             const hiddenValue = this.hiddenelement.value;
             if (hiddenValue) {

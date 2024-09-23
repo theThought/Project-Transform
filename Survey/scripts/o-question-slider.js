@@ -31,7 +31,7 @@ define(['o-question'],
             oQuestion.prototype.init.call(this);
 
             this.cloneInputElement();
-            this.getInitialValue();
+            this.storeInitialValue();
             this.configureIncomingEventListeners();
             this.createClickableArea();
             this.setThumbVisibility();
@@ -94,7 +94,7 @@ define(['o-question'],
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
-        oQuestionSlider.prototype.getInitialValue = function () {
+        oQuestionSlider.prototype.storeInitialValue = function () {
             if (typeof this.hiddenelement.value !== 'undefined' && this.hiddenelement.value.length) {
                 this.initialValue = this.hiddenelement.getAttribute('value');
                 this.element.value = this.hiddenelement.getAttribute('value');
