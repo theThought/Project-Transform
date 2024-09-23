@@ -28,6 +28,7 @@ require(['domready'], function (domReady) {
                         currentcomponent.init();
                     } catch (e) {
                         console.error('Failed to init component ' + currentcomponent.id + ' due to following error ' + e);
+                        console.log(e.stack);
                     }
                 } else {
                     console.log('No init defined for + ' + currentcomponent.id);
