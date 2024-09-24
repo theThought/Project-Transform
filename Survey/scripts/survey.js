@@ -62,6 +62,11 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new oCombobox(id, group));
             });
             break;
+        case 'mlist':
+            requirejs(['m-list'], function (mList) {
+                app.preinitcomponents.unshift(new mList(id, group));
+            });
+            break;
         case 'oopenendsearch':
             requirejs(['o-openendsearch'], function (oOpenendSearch) {
                 app.preinitcomponents.unshift(new oOpenendSearch(id, group));
