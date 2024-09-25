@@ -43,7 +43,7 @@ define(['component'],
             this.setInitialLabel();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.setWidth(0);
+            this.calculateWidth(null);
             this.setControlType();
             this.configureInitialVisibility();
             this.processVisibilityRules();
@@ -121,7 +121,7 @@ define(['component'],
                     this.onEnableExclusive(event);
                     break;
                 case this.group + '_listWidth':
-                    this.setWidth(event.detail);
+                    this.calculateWidth(event.detail);
                     break;
                 case this.group + '_optionVisibility':
                     this.receiveOptionVisibilityChange(event);
@@ -184,29 +184,33 @@ define(['component'],
             return width;
         }
 
-        oCombobox.prototype.setWidth = function (width) {
+        /**
+         * Calculates the width of the input.
+         * @param width {number|null}
+         */
+        oCombobox.prototype.calculateWidth = function (width) {
             // respect manual width if set: 16px + 16px accounts for element padding
             if (this.manualWidth) {
                 this.element.classList.add('manual-width');
                 return;
             }
 
-            var inputpadding = 64;
+            var padding = 64;
 
             var elementdims = getComputedStyle(this.element);
-            var initialwidth = parseFloat(elementdims.width) + (inputpadding);
+            var initialwidth = parseFloat(elementdims.width) + padding;
             var longestentry = this.defaultplaceholder;
             var inputwidth = this.getWidthOfText(longestentry);
             var desiredwidth = (Math.max(initialwidth, inputwidth));
 
-            if (typeof width !== 'undefined') {
+            if (width !== null) {
                 desiredwidth = (Math.max(desiredwidth, width));
             } else {
                 this.requestListWidth();
             }
 
             var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = parseFloat(containerstyles.width) - inputpadding;
+            var maxavailablewidth = parseFloat(containerstyles.width) - padding;
 
             var newwidth = Math.min(desiredwidth, maxavailablewidth);
 
