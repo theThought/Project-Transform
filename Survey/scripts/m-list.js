@@ -19,7 +19,6 @@ define(['component'],
             this.source = null;
             this.currentlistposition = -1;
             this.mincharacters = 0;
-            this.defaultplaceholder = 'Select';
             this.hasbeendisplayed = false;
             this.width = 0;
         }
@@ -36,12 +35,12 @@ define(['component'],
          */
         mList.prototype.init = function () {
             this.configureProperties();
+            this.configureIncomingEventListeners();
+            this.configureLocalEventListeners();
             this.list = this.buildList();
             this.calculateWidth();
             this.setPosition();
             this.removeTabIndex();
-            this.configureIncomingEventListeners();
-            this.configureLocalEventListeners();
             this.configurationComplete();
         }
 
@@ -50,6 +49,7 @@ define(['component'],
             document.addEventListener('hideList', this.handleEvent.bind(this), false);
             document.addEventListener('showList', this.handleEvent.bind(this), false);
             document.addEventListener('toggleList', this.handleEvent.bind(this), false);
+            document.addEventListener(this.group + '_listWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_requestListWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_sendKeyToList', this.handleEvent.bind(this), false);
         }
@@ -75,8 +75,11 @@ define(['component'],
                 case 'toggleList':
                     this.toggleList(event);
                     break;
+                case this.group + '_listWidth':
+                    this.setWidthFromControl(event);
+                    break;
                 case this.group + '_requestListWidth':
-                    this.notifyListWidth();
+                    this.notifyElementWidth();
                     break;
                 case this.group + '_sendKeyToList':
                     this.processKeyStroke(event);
@@ -253,8 +256,11 @@ define(['component'],
             this.element.appendChild(placeholderelement);
         }
 
+        /**
+         * Calculates the width of the list.
+         */
         mList.prototype.calculateWidth = function () {
-            var padding = 16*2; // the list has 32px of padding
+            var padding = 16 * 2; // the list has 32px of padding
 
             var elementdims = getComputedStyle(this.element);
             var initialwidth = parseFloat(elementdims.width) - padding;
@@ -281,7 +287,9 @@ define(['component'],
                     continue;
                 }
 
-                if (entries[i].textContent.length > longestentry.length) {
+                var entrylength = this.sanitiseText(entries[i].textContent);
+
+                if (entrylength > longestentry.length) {
                     longestentry = this.sanitiseText(entries[i].textContent);
                 }
             }
@@ -295,6 +303,7 @@ define(['component'],
             var newwidth = Math.min(Math.max(listwidth, textwidth), maxavailablewidth);
 
             this.setWidth(initialwidth, newwidth);
+            this.requestControlWidth();
         }
 
         mList.prototype.setWidth = function (initialwidth, newwidth, padding) {
@@ -304,7 +313,19 @@ define(['component'],
 
             this.element.style.width = newwidth + padding + 'px';
             this.width = newwidth;
-            this.notifyListWidth();
+            this.notifyElementWidth();
+        }
+
+        mList.prototype.setWidthFromControl = function (event) {
+            if (event.detail.element === this.element) {
+                return;
+            }
+
+            if (event.detail.width > this.width) {
+                var padding = 32;
+                this.element.style.width = event.detail.width + padding + 'px';
+                this.width = event.detail.width;
+            }
         }
 
         mList.prototype.getWidthOfText = function (text) {
@@ -486,8 +507,13 @@ define(['component'],
             this.element.dispatchEvent(widthEvent);
         }
 
-        mList.prototype.notifyListWidth = function () {
-            var widthEvent = new CustomEvent(this.group + '_listWidth', {bubbles: true, detail: this.width});
+        mList.prototype.notifyElementWidth = function () {
+            var widthEvent = new CustomEvent(this.group + '_listWidth', {bubbles: true, detail: this});
+            this.element.dispatchEvent(widthEvent);
+        }
+
+        mList.prototype.requestControlWidth = function () {
+            var widthEvent = new CustomEvent(this.group + '_requestControlWidth', {bubbles: true, detail: this});
             this.element.dispatchEvent(widthEvent);
         }
 

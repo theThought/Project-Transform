@@ -19,7 +19,7 @@ define(['component'],
             this.defaultplaceholder = 'Select';
             this.isjumpingtoletter = false;
             this.manualWidth = false;
-            this.haslistwidth = false;
+            this.width = 0;
             this.userspecifiedheight = 0;
             this.keytimer = null;
             this.keytimerlimit = 500; // Time in milliseconds at which the buffer is cleared.
@@ -38,15 +38,15 @@ define(['component'],
         oCombobox.prototype.init = function () {
             this.manualWidth = this.checkManualWidth();
             this.configureProperties();
-            this.storeInitialValue();
-            this.cloneInputElement();
-            this.setInitialLabel();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.calculateWidth(null);
+            this.storeInitialValue();
+            this.cloneInputElement();
+            this.calculateWidth();
             this.setControlType();
             this.configureInitialVisibility();
             this.processVisibilityRules();
+            this.setInitialLabel();
             this.configurationComplete();
         }
 
@@ -62,6 +62,7 @@ define(['component'],
             document.addEventListener(this.group + '_enableExclusive', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_listWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_optionVisibility', this.handleEvent.bind(this), false);
+            document.addEventListener(this.group + '_requestControlWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_updateListInput', this.handleEvent.bind(this), false);
         }
 
@@ -121,7 +122,10 @@ define(['component'],
                     this.onEnableExclusive(event);
                     break;
                 case this.group + '_listWidth':
-                    this.calculateWidth(event.detail);
+                    this.setWidthFromList(event);
+                    break;
+                case this.group + '_requestControlWidth':
+                    this.notifyElementWidth();
                     break;
                 case this.group + '_optionVisibility':
                     this.receiveOptionVisibilityChange(event);
@@ -188,10 +192,12 @@ define(['component'],
          * Calculates the width of the input.
          * @param width {number|null}
          */
-        oCombobox.prototype.calculateWidth = function (width) {
+        oCombobox.prototype.calculateWidth = function () {
             // respect manual width if set: 16px + 16px accounts for element padding
             if (this.manualWidth) {
                 this.element.classList.add('manual-width');
+                this.width = this.element.style.width;
+                this.notifyElementWidth();
                 return;
             }
 
@@ -203,21 +209,39 @@ define(['component'],
             var inputwidth = this.getWidthOfText(longestentry);
             var desiredwidth = (Math.max(initialwidth, inputwidth));
 
-            if (width !== null) {
-                desiredwidth = (Math.max(desiredwidth, width));
-            } else {
-                this.requestListWidth();
-            }
-
             var containerstyles = getComputedStyle(this.container.closest('question'));
             var maxavailablewidth = parseFloat(containerstyles.width) - padding;
 
             var newwidth = Math.min(desiredwidth, maxavailablewidth);
 
+            this.setWidth(initialwidth, newwidth);
+            this.requestListWidth();
+        }
+
+        oCombobox.prototype.setWidth = function (initialwidth, newwidth) {
             if (newwidth !== initialwidth) {
-                this.element.style.width = newwidth + 'px';
-                this.notifyWidthChange()
+                this.notifyWidthChange();
             }
+
+            this.element.style.width = newwidth + 'px';
+            this.width = newwidth;
+            this.notifyElementWidth();
+        }
+
+        oCombobox.prototype.setWidthFromList = function (event) {
+            if (event.detail.element === this.element) {
+                return;
+            }
+
+            if (event.detail.width > this.width) {
+                this.element.style.width = event.detail.width + 'px';
+                this.width = event.detail.width;
+            }
+        }
+
+        oCombobox.prototype.notifyElementWidth = function () {
+            var widthEvent = new CustomEvent(this.group + '_listWidth', {bubbles: true, detail: this});
+            this.element.dispatchEvent(widthEvent);
         }
 
         oCombobox.prototype.requestListWidth = function () {
