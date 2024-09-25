@@ -33,7 +33,7 @@ require(['domready'], function (domReady) {
                 } else {
                     console.log('No init defined for + ' + currentcomponent.id);
                 }
-                app.components.push(app.preinitcomponents.splice(i, 1));
+                app.components.push(app.preinitcomponents.splice(i, 1)[0]);
             }
 
             // check whether there are any unused properties that might indicate a problem
