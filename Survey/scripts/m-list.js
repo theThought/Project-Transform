@@ -37,7 +37,7 @@ define(['component'],
         mList.prototype.init = function () {
             this.configureProperties();
             this.list = this.buildList();
-            this.setWidth();
+            this.calculateWidth();
             this.setPosition();
             this.removeTabIndex();
             this.configureIncomingEventListeners();
@@ -185,15 +185,6 @@ define(['component'],
             this.setSelectedOptionByNode(currentselection);
         }
 
-        mList.prototype.selectOption = function (selectedOption) {
-            if (!this.element.classList.contains('visible')) {
-                return;
-            }
-
-            this.setSelectedOptionByNode(selectedOption);
-            this.hideList();
-        }
-
         mList.prototype.setSelectedOptionByIndex = function (index) {
             this.clearSelectedOption();
 
@@ -262,13 +253,21 @@ define(['component'],
             this.element.appendChild(placeholderelement);
         }
 
-        mList.prototype.setWidth = function () {
-            var droplistpadding = 32; // the drop list has 32px of padding, the input has 64px
+        mList.prototype.calculateWidth = function () {
+            var padding = 16*2; // the list has 32px of padding
 
-            var droplistdims = getComputedStyle(this.element);
-            var droplistwidth = parseFloat(droplistdims.width) - (droplistpadding);
+            var elementdims = getComputedStyle(this.element);
+            var initialwidth = parseFloat(elementdims.width) - padding;
+            var listwidth = initialwidth;
 
-            var initialwidth = droplistwidth;
+            // check to see whether an identical list has already been initialised
+            var existinglist = app.getComponentByProperty('source', this.source);
+
+            if (typeof existinglist !== 'undefined') {
+                this.setWidth(initialwidth, existinglist.width, padding);
+                return;
+            }
+
             var entries = this.buildList();
             var entrycount = entries.length;
             var longestentry = '';
@@ -293,13 +292,17 @@ define(['component'],
             var containerstyles = getComputedStyle(this.container.closest('question'));
             var maxavailablewidth = parseFloat(containerstyles.width);
 
-            var newwidth = Math.min(Math.max(droplistwidth, textwidth), maxavailablewidth);
+            var newwidth = Math.min(Math.max(listwidth, textwidth), maxavailablewidth);
 
+            this.setWidth(initialwidth, newwidth);
+        }
+
+        mList.prototype.setWidth = function (initialwidth, newwidth, padding) {
             if (newwidth !== initialwidth) {
-                this.notifyWidthChange()
+                this.notifyWidthChange();
             }
 
-            this.element.style.width = newwidth + droplistpadding + 'px';
+            this.element.style.width = newwidth + padding + 'px';
             this.width = newwidth;
             this.notifyListWidth();
         }
