@@ -175,7 +175,7 @@ define(['component'],
             this.element.dispatchEvent(listEvent);
         }
 
-        mList.prototype.restoreSelection = function (event) {
+        mList.prototype.restoreSelection = function () {
             var currentselection = this.element.querySelector('[data-value="' + this.inputelement.value + '"]');
 
             if (currentselection === null) {
@@ -520,10 +520,11 @@ define(['component'],
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
-                this.element.classList.add('charrestriction');
+                this.displayEmptyMessage(false);
+                this.displayMinCharacterMessage(true);
                 inputstring = '';
             } else {
-                this.element.classList.remove('charrestriction');
+                this.displayMinCharacterMessage(false);
             }
 
             inputstring = inputstring.toLowerCase();
@@ -548,9 +549,9 @@ define(['component'],
 
             if (visibleitems === 0) {
                 this.clearOptions();
-                this.togglePlaceholderVisibility(true);
+                this.displayEmptyMessage(true);
             } else {
-                this.togglePlaceholderVisibility(false);
+                this.displayEmptyMessage(false);
             }
 
             if (this.isExact && !exactmatch) {
@@ -571,10 +572,11 @@ define(['component'],
 
             if (inputstring.length < this.mincharacters) {
                 this.clearOptions();
-                this.element.classList.add('charrestriction');
+                this.displayEmptyMessage(false);
+                this.displayMinCharacterMessage(true);
                 return;
             } else {
-                this.element.classList.remove('charrestriction');
+                this.displayMinCharacterMessage(false);
             }
 
             inputstring = inputstring.toLowerCase();
@@ -601,9 +603,9 @@ define(['component'],
 
             if (visibleitems === 0) {
                 this.clearOptions();
-                this.togglePlaceholderVisibility(true);
+                this.displayEmptyMessage(true);
             } else {
-                this.togglePlaceholderVisibility(false);
+                this.displayEmptyMessage(false);
             }
 
             if (this.isExact && !exactmatch) {
@@ -619,7 +621,15 @@ define(['component'],
             }
         }
 
-        mList.prototype.togglePlaceholderVisibility = function (visibility) {
+        mList.prototype.displayMinCharacterMessage = function (visibility) {
+            if (visibility) {
+                this.element.classList.add('charrestriction');
+            } else {
+                this.element.classList.remove('charrestriction');
+            }
+        }
+
+        mList.prototype.displayEmptyMessage = function (visibility) {
             if (visibility) {
                 this.element.classList.add('empty');
             } else {
