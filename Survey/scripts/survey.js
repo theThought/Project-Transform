@@ -220,6 +220,21 @@ Survey.prototype.getProperties = function (id) {
     return {};
 }
 
+/**
+ * Returns a component with a property matching the supplied value.
+ *
+ * @param property {string}
+ * @param value {*}
+ * @returns {object}
+ */
+Survey.prototype.getComponentByProperty = function (property, value) {
+    for (var i = 0; i < this.components.length; i++) {
+        if (this.components[i][property] === value) {
+            return this.components[i];
+        }
+    }
+}
+
 Survey.prototype.extractQuestionName = function (id) {
     id = id.toLowerCase();
     id = id.split('_q');
