@@ -37,11 +37,11 @@ define(['component'],
          */
         oCombobox.prototype.init = function () {
             this.manualWidth = this.checkManualWidth();
+            this.cloneInputElement();
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.storeInitialValue();
-            this.cloneInputElement();
             this.calculateWidth();
             this.setControlType();
             this.configureInitialVisibility();
