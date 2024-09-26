@@ -80,8 +80,8 @@ define(['component'],
                     this.clearEntriesFromExternal(event);
                     break;
                 case 'restoreEntries':
-                    this.makeAvailable();
                     this.restoreEntries(event);
+                    this.makeAvailable();
                     break;
                 case 'focusin':
                     this.onFocusIn(event);
@@ -100,6 +100,8 @@ define(['component'],
         }
 
         aInputSingleLineEdit.prototype.makeAvailable = function () {
+            this.available = true;
+            this.restoreEntries();
             this.element.classList.remove('unavailable');
             this.wrapper.classList.remove('unavailable');
         }
