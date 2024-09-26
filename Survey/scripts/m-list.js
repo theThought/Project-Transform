@@ -46,6 +46,7 @@ define(['component'],
 
         mList.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
+            document.addEventListener('clearEntries', this.handleEvent.bind(this), false);
             document.addEventListener('hideList', this.handleEvent.bind(this), false);
             document.addEventListener('showList', this.handleEvent.bind(this), false);
             document.addEventListener('toggleList', this.handleEvent.bind(this), false);
@@ -63,6 +64,9 @@ define(['component'],
          */
         mList.prototype.handleEvent = function (event) {
             switch (event.type) {
+                case 'clearEntries':
+                    this.clearEntriesFromExternal(event);
+                    break;
                 case 'hideList':
                     this.hideList(event);
                     break;
@@ -98,6 +102,15 @@ define(['component'],
             if (prop === false) {
                 this.isExact = false;
             }
+        }
+
+        mList.prototype.clearEntriesFromExternal = function () {
+            // do not clear items that are still initialising
+            if (this.isInitialising) {
+                return;
+            }
+
+            this.clearSelectedOption();
         }
 
         mList.prototype.intialiseListForFirstDisplay = function (event) {
@@ -208,15 +221,6 @@ define(['component'],
             selectedOption.classList.add('selected');
             selectedOption.setAttribute('data-selected', 'selected');
             this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
-        }
-
-        mList.prototype.clearOptions = function () {
-            // do not clear items that are still initialising
-            if (this.isInitialising) {
-                return;
-            }
-
-            this.clearSelectedOption();
         }
 
         mList.prototype.clearSelectedOption = function () {
@@ -548,7 +552,7 @@ define(['component'],
             droplistparentnode.removeChild(this.element);
 
             if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
+                this.clearSelectedOption();
                 this.displayEmptyMessage(false);
                 this.displayMinCharacterMessage(true);
                 inputstring = '';
@@ -564,7 +568,7 @@ define(['component'],
 
                 if (itemlabel === inputstring && this.isExact) {
                     exactmatch = true;
-                    this.clearOptions();
+                    this.clearSelectedOption();
                     this.setSelectedOptionByNode(this.list[i]);
                 }
 
@@ -577,14 +581,14 @@ define(['component'],
             }
 
             if (visibleitems === 0) {
-                this.clearOptions();
+                this.clearSelectedOption();
                 this.displayEmptyMessage(true);
             } else {
                 this.displayEmptyMessage(false);
             }
 
             if (this.isExact && !exactmatch) {
-                this.clearOptions();
+                this.clearSelectedOption();
             }
 
             droplistparentnode.appendChild(this.element);
@@ -600,7 +604,7 @@ define(['component'],
             var exactmatch = false;
 
             if (inputstring.length < this.mincharacters) {
-                this.clearOptions();
+                this.clearSelectedOption();
                 this.displayEmptyMessage(false);
                 this.displayMinCharacterMessage(true);
                 return;
@@ -618,7 +622,7 @@ define(['component'],
 
                 if (itemlabel === inputstring && this.isExact) {
                     exactmatch = true;
-                    this.clearOptions();
+                    this.clearSelectedOption();
                     this.setSelectedOptionByNode(this.list[i]);
                 }
 
@@ -631,14 +635,14 @@ define(['component'],
             }
 
             if (visibleitems === 0) {
-                this.clearOptions();
+                this.clearSelectedOption();
                 this.displayEmptyMessage(true);
             } else {
                 this.displayEmptyMessage(false);
             }
 
             if (this.isExact && !exactmatch) {
-                this.clearOptions();
+                this.clearSelectedOption();
             }
 
             droplistparentnode.appendChild(this.element);
