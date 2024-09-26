@@ -203,8 +203,6 @@ define(['component'],
 
             if (this.element.contains(event.target)) {
 
-                this.broadcastChange();
-
                 // handle self-generated events
                 if (this.isExclusive && this.checkbox.checked) {
                     var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
@@ -234,6 +232,8 @@ define(['component'],
                         this.textInput.classList.remove('has-content');
                     }
                 }
+
+                this.broadcastChange();
             }
         }
 
