@@ -1,0 +1,51 @@
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  push:
+    branches: [ 'master' ]
+    # Trigger the action only when files change in the folders defined here.
+    paths: [
+      '.storybook/**',
+      'stories/**',
+      'public/**'
+    ]
+  # Allows workflow to be run manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          # Add dependency caching
+          cache: 'npm'
+          cache-dependency-path: 'npm-shrinkwrap.json'
+
+      - name: Install and Build
+        run: |
+          npm run publish-storybook
+          cd ${{ github.workspace }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ github.workspace }}/storybook-static
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
