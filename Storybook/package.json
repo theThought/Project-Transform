@@ -8,7 +8,7 @@
         "type": "git",
         "url": "https://github.com/theThought/Project-Transform"
     },
-    "homepage": "https://theThought.github.io/Project-Transform-Storybook",
+    "homepage": "https://theThought.github.io/Project-Transform",
     "scripts": {
         "reset": "rm -rf node_modules/ && npm install",
         "storybook": "storybook dev -p 6006",

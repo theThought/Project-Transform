@@ -1,10 +1,10 @@
 import { ChoiceBasicHtml } from './ChoiceBasic';
 
 export default {
-    title: 'Templates/Choice Basic',
+    title: 'Templates/Choices/t-choice Basic',
     parameters: {
         status: {
-            type: 'stable',
+            type: 'beta',
         },
     },
     argTypes: {

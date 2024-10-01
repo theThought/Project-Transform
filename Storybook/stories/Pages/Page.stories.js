@@ -4,7 +4,7 @@ export default {
     title: 'Pages/Page Layout',
     parameters: {
         status: {
-            type: 'stable',
+            type: 'beta',
         },
     },
 };

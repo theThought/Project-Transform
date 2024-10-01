@@ -3,7 +3,7 @@ const preview = {
     parameters: {
         options: {
             storySort: {
-                order: ['Templates', 'Pages'],
+                order: ['Introduction', 'Templates', 'Pages'],
             },
         },
     },
