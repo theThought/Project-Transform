@@ -10,6 +10,9 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 ## Re-ordering stories in sidebar navigation
 - All stories and docs are ordered according to the `storySort` configuration in `Storybook/.storybook/preview.js`.
 
+## CSS/JS filepaths
+- Storybook's static directory is defined by the `staticDirs: ['../public', '../../Survey']` array inside `./Storybook/main.js`.
+
 ## Build and publish Storybook locally
 - `npm run publish-storybook` - Builds all Storybook dependencies, and copies output to `storybook-static` folder.
 - `npx http-server ./storybook-static` - Test Storybook production build on local server.

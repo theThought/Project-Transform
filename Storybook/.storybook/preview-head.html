@@ -1,17 +1,13 @@
 <meta name="robots" content="noindex, nofollow">
 
-<link rel="stylesheet"
-    href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/formal/base.css"
-    title="Formal" />
-<script
-    src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js">//Require Script</script>
-<script
-    src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
-<script
-    src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
-<script>
+<link rel="stylesheet" href="styles/formal/base.css" type="text/css" />
+
+<script src="scripts/require.js" type="text/javascript"></script>
+<script src="scripts/survey.js" type="text/javascript"></script>
+<script src="scripts/base.js" type="text/javascript"></script>
+<script type="text/javascript">
     require.config({
-        baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts',
+        baseUrl: 'scripts',
         waitSeconds: 0
     });
     require(['main'], function () { });
