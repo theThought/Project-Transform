@@ -7,22 +7,22 @@ const preview = {
             },
         },
     },
-    // globalTypes: {
-    //     stylesheets: {
-    //         themes: [
-    //             {
-    //                 id: "default-theme",
-    //                 title: "Default theme",
-    //                 url: "./build/ui/default/css/index.css",
-    //             },
-    //             {
-    //                 id: "theme1-theme",
-    //                 title: "Theme1",
-    //                 url: "./build/ui/theme1/css/index.css",
-    //             }
-    //         ],
-    //     },
-    // },
+    globalTypes: {
+        stylesheets: {
+            themes: [
+                {
+                    id: "formal-theme",
+                    title: "Formal theme",
+                    url: "styles/formal/base.css",
+                },
+                {
+                    id: "informal-theme",
+                    title: "Informal theme",
+                    url: "styles/informal/base.css",
+                }
+            ],
+        },
+    },
 };
 
 export default preview;

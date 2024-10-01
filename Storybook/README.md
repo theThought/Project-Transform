@@ -13,6 +13,11 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 ## CSS/JS filepaths
 - Storybook's static directory is defined by the `staticDirs: ['../public', '../../Survey']` array inside `./Storybook/main.js`.
 
+## Toggling UI themes in Storybook
+- Uses the `storybook-theme-switch-addon` button in the toolbar (paint brush icon).
+- This works in both local and published Storybooks.
+- Theme CSS file paths are defined in `.storybook/preview.js`.
+
 ## Build and publish Storybook locally
 - `npm run publish-storybook` - Builds all Storybook dependencies, and copies output to `storybook-static` folder.
 - `npx http-server ./storybook-static` - Test Storybook production build on local server.

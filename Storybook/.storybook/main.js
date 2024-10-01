@@ -15,7 +15,7 @@ const config = {
             }
         },
         '@etchteam/storybook-addon-status',
-        // 'storybook-theme-switch-addon'
+        'storybook-theme-switch-addon'
     ],
     framework: {
         name: '@storybook/html-vite',
