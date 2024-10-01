@@ -2,7 +2,7 @@ export const ChoiceBasicHtml = (args) => `
 <form action="#"
     class="
     ${args.pagePropertiesFocusQuestion === true ? 'focus-question' : ''}
-    focus-control
+    ${args.pagePropertiesFocusControl === true ? 'focus-control' : ''}
     "
     data-paste="true"
 >
@@ -14,7 +14,7 @@ export const ChoiceBasicHtml = (args) => `
     <div class="m-question-cover"><!-- cover --></div>
 
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertiesSideBySide}%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">Which of the following papers have you read in
                         the last month?</div>
