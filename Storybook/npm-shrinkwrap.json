@@ -18,7 +18,7 @@
                 "@storybook/html": "^8.2.3",
                 "@storybook/html-vite": "^8.2.3",
                 "storybook": "^8.2.3",
-                "storybook-theme-switch-addon": "^1.0.1--canary.2.19b23d4.0"
+                "storybook-theme-switch-addon": "^1.0.1"
             }
         },
         "node_modules/@babel/helper-string-parser": {
@@ -4430,9 +4430,9 @@
             }
         },
         "node_modules/storybook-theme-switch-addon": {
-            "version": "1.0.1--canary.2.19b23d4.0",
-            "resolved": "https://registry.npmjs.org/storybook-theme-switch-addon/-/storybook-theme-switch-addon-1.0.1--canary.2.19b23d4.0.tgz",
-            "integrity": "sha512-ldnTH1oqZC72ELnBNb41Oa81M7J3WwIqhfogv0jddSAkF/pjdJLFFSiDiUL4SfBjkSDReprYW+x1CsMgdqnhNw==",
+            "version": "1.0.1",
+            "resolved": "https://registry.npmjs.org/storybook-theme-switch-addon/-/storybook-theme-switch-addon-1.0.1.tgz",
+            "integrity": "sha512-nxDNlFCoHOPuvI9hZ8ddxrQpMMnEIfFagq0ZtZBH8i/u6QC5QaVM/rh6WZiD/us1NeKYG9ItNv5UwOXOVOqgQQ==",
             "dev": true,
             "dependencies": {
                 "@storybook/client-logger": "next",

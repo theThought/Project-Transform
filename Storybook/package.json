@@ -25,6 +25,6 @@
         "@storybook/html": "^8.2.3",
         "@storybook/html-vite": "^8.2.3",
         "storybook": "^8.2.3",
-        "storybook-theme-switch-addon": "^1.0.1--canary.2.19b23d4.0"
+        "storybook-theme-switch-addon": "^1.0.1"
     }
 }
