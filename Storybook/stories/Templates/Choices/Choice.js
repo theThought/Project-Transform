@@ -10,29 +10,31 @@ export const ChoiceHtml = (args) => `
 ${style}
 <form action="#"
     class="
-    ${args.pagePropertiesFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertiesFocusControl === true ? 'focus-control' : ''}
+    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
+    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
     "
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container sidebyside focused cover-off config-complete" data-questiongroup="_QTypesVsBroadsheetsSingle" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
 
-    <div class="m-question-cover"><!-- cover --></div>
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
 
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertiesSideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
-                    <div class="o-question-information-content">Which of the following papers have you read in
-                        the last month?</div>
+                    <div class="o-question-information-content">Which of the following papers have you read in the last month?</div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
             </div>
             <div class="o-question-response">
                 <questions data-position="below">
                     <question data-position="below">
+
                         <div class="o-question-response o-question-choice" data-questiongroup="_QTypesVsBroadsheetsSingle" data-readonly="false" data-position="below">
                             <script>app.registerComponent('oQuestionChoice', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 
@@ -83,20 +85,22 @@ export const ChoiceSublistsHtml = (args) => `
 ${style}
 <form action="#"
     class="
-    ${args.pagePropertiesFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertiesFocusControl === true ? 'focus-control' : ''}
+    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
+    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
     "
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container sidebyside focused cover-off config-complete" data-questiongroup="_QTypesVsBroadsheetsSingle" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
 
-    <div class="m-question-cover"><!-- cover --></div>
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qtest__location');</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
 
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertiesSideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">Where was the test performed?</div>
                 </div>
@@ -105,6 +109,7 @@ ${style}
             <div class="o-question-response">
                 <questions data-position="below">
                     <question data-position="below">
+
                         <div class="o-question-response o-question-choice" data-questiongroup="_Qtest__location" data-readonly="false" data-position="below">
                             <script>app.registerComponent('oQuestionChoice', '_Q0', '_Qtest__location');</script>
 
@@ -229,29 +234,31 @@ export const ChoiceOtherSpecifyHtml = (args) => `
 ${style}
 <form action="#"
     class="
-    ${args.pagePropertiesFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertiesFocusControl === true ? 'focus-control' : ''}
+    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
+    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
     "
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container sidebyside focused cover-off config-complete" data-questiongroup="_QTypesVsBroadsheetsSingle" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
 
-    <div class="m-question-cover"><!-- cover --></div>
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
 
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertiesSideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
-                    <div class="o-question-information-content">Which of the following papers have you read in
-                        the last month?</div>
+                    <div class="o-question-information-content">Which of the following papers have you read in the last month?</div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
             </div>
             <div class="o-question-response">
                 <questions data-position="below">
                     <question data-position="below">
+
                         <div class="o-question-response o-question-choice" data-questiongroup="_QTypesVsBroadsheetsSingle" data-readonly="false" data-position="below">
                             <script>app.registerComponent('oQuestionChoice', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 

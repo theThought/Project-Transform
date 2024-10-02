@@ -1,8 +1,5 @@
 export const PageHtml = () => `
-<form name="mrForm" id="mrForm" action="./" method="post"><input type="hidden" name="I.Engine"
-        value="Server" /><input type="hidden" name="I.Project" value="Transform" /><input type="hidden"
-        name="I.Session" value="cyazpuohtaxelamazgrfjay52iaqaaaa" /><input type="hidden" name="I.SavePoint"
-        value="TypesVsBroadsheetsSingle" /><input type="hidden" name="I.Renderer" value="HTMLPlayer" />
+<form action="#" method="post">
     <div class="header">
         <img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo"
             src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/formal/ipsoslogo192.png" />

@@ -1,11 +1,12 @@
 import {
-    ChoiceHtml,
-    ChoiceSublistsHtml,
-    ChoiceOtherSpecifyHtml
-} from './Choice';
+    SingleLineHtml,
+    SingleLineDateHtml,
+    SingleLinePrePostLabelsHtml,
+    SingleLineSpecialCodesHtml
+} from './SingleLine';
 
 export default {
-    title: 'Templates/Choices/t-choice',
+    title: 'Templates/Open-ends/t-singleline',
     parameters: {
         status: {
             type: 'beta',
@@ -40,14 +41,18 @@ export default {
     }
 };
 
-export const Choice = {
-    render: (args) => ChoiceHtml(args),
+export const SingleLine = {
+    render: (args) => SingleLineHtml(args),
 };
 
-export const ChoiceSublists = {
-    render: (args) => ChoiceSublistsHtml(args),
+export const SingleLineDate = {
+    render: (args) => SingleLineDateHtml(args),
 };
 
-export const ChoiceOtherSpecify = {
-    render: (args) => ChoiceOtherSpecifyHtml(args),
+export const SingleLinePrePostLabels = {
+    render: (args) => SingleLinePrePostLabelsHtml(args),
+};
+
+export const SingleLineSpecialCodes = {
+    render: (args) => SingleLineSpecialCodesHtml(args),
 };
