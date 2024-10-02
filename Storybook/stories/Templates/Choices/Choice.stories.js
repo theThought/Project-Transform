@@ -12,6 +12,15 @@ export default {
         },
     },
     argTypes: {
+        pageLayout: {
+            control: 'select',
+            options: ['sidebyside', 'vertical'],
+            description: 'Arrange form control(s) alongside question, or below.',
+            table: {
+                type: { summary: 'select' },
+                defaultValue: { summary: 'sidebyside' }
+            },
+        },
         pagePropertyFocusQuestion: {
             control: 'boolean',
             description: 'Indicates whether the current question has focus.',
@@ -41,13 +50,25 @@ export default {
 };
 
 export const Choice = {
+    args: {
+        pageLayout: 'sidebyside',
+        pagePropertySideBySide: '30',
+    },
     render: (args) => ChoiceHtml(args),
 };
 
 export const ChoiceSublists = {
+    args: {
+        pageLayout: 'sidebyside',
+        pagePropertySideBySide: '30',
+    },
     render: (args) => ChoiceSublistsHtml(args),
 };
 
 export const ChoiceOtherSpecify = {
+    args: {
+        pageLayout: 'sidebyside',
+        pagePropertySideBySide: '30',
+    },
     render: (args) => ChoiceOtherSpecifyHtml(args),
 };

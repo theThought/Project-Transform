@@ -10,7 +10,7 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
     - Uses **source HTML**, prior to any JavaScript transformations caused by `custom properties` rendered in the source HTML.
     - Source HTML has been edited to provide simplified examples.
 - The compiled CSS/JavaScript code is loaded inside `.storybook/preview-head.html`, directly from the repo's `./Survey` folder .
-    - If JavaScript doesn't *"fire"* when a story is rendered, reload the browser.
+    - If JavaScript doesn't execute when a story is rendered, reload the browser.
 
 ## Toggling UI themes in Storybook
 - Uses the `storybook-theme-switch-addon` button in Storybook's main toolbar (paint brush icon).
@@ -21,3 +21,7 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 Storybook comes with 2 default accessibility testing tools:
 - `Accessibility addon`. This is in Storybook's `addons` toolbar, and is built on the same [AxeCore API](https://www.deque.com/axe/) that Lighthouse uses.
 - `Vision simulator`. This is in Storybook's main toolbar at the top of each story page.
+
+## TODO
+- Improve HTML semantics, and use `ARIA` to enhance accessibility.
+- Re-author Sass/JavaScript, and use better tooling to handle transpilation/bundling.

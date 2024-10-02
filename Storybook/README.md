@@ -27,6 +27,7 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 - Live Storybook URL = https://theThought.github.io/Project-Transform
 
 ## TODO
+- Improve HTML semantics, and use `ARIA` to enhance accessibility.
 - Setup Parcel bundler to transpile/compile/bundle Sass/JavaScript.
 - Setup linters & Git pre-commit hooks.
 - Setup VSCode and editor configs in root.

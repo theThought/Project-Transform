@@ -1,4 +1,7 @@
-import { PageHtml } from './Page';
+import {
+    PageLayoutSideBySideHtml,
+    PageLayoutVerticalHtml
+} from './Page';
 
 export default {
     title: 'Pages/Page Layout',
@@ -9,6 +12,10 @@ export default {
     },
 };
 
-export const Page = {
-    render: () => PageHtml(),
+export const PageLayoutSideBySide = {
+    render: () => PageLayoutSideBySideHtml(),
+};
+
+export const PageLayoutVertical = {
+    render: () => PageLayoutVerticalHtml(),
 };

@@ -18,7 +18,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 
@@ -93,7 +93,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qtest__location');</script>
 
@@ -242,7 +242,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 
