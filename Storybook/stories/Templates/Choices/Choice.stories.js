@@ -1,7 +1,11 @@
-import { ChoiceBasicHtml } from './ChoiceBasic';
+import {
+    ChoiceHtml,
+    ChoiceSublistsHtml,
+    ChoiceOtherSpecifyHtml
+} from './Choice';
 
 export default {
-    title: 'Templates/Choices/t-choice Basic',
+    title: 'Templates/Choices/t-choice',
     parameters: {
         status: {
             type: 'beta',
@@ -36,6 +40,14 @@ export default {
     }
 };
 
-export const ChoiceBasic = {
-    render: (args) => ChoiceBasicHtml(args),
+export const Choice = {
+    render: (args) => ChoiceHtml(args),
+};
+
+export const ChoiceSublists = {
+    render: (args) => ChoiceSublistsHtml(args),
+};
+
+export const ChoiceOtherSpecify = {
+    render: (args) => ChoiceOtherSpecifyHtml(args),
 };
