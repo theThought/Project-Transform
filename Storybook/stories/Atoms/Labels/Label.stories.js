@@ -1,5 +1,6 @@
 import {
     LabelQuestionHtml,
+    LabelOptionHtml,
     LabelInstructiontionHtml,
     LabelPrelabelHtml,
     LabelPostlabelHtml
@@ -18,6 +19,11 @@ export const LabelQuestion = {
     render: () => LabelQuestionHtml(),
 };
 LabelQuestion.storyName = 'a-label-question';
+
+export const LabelOption = {
+    render: () => LabelOptionHtml(),
+};
+LabelOption.storyName = 'a-label-option';
 
 export const LabelInstructiontion = {
     render: () => LabelInstructiontionHtml(),

@@ -10,6 +10,12 @@ export const LabelQuestionHtml = () => `
 </div>
 `;
 
+export const LabelOptionHtml = () => `
+<span class="a-label-option">
+    Checkbox/radio label
+</span>
+`;
+
 export const LabelInstructiontionHtml = () => `
 <div class="a-label-instruction" id="q-instructions">
     Additional instructions...
