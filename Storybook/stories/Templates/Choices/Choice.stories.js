@@ -46,6 +46,54 @@ export default {
                 defaultValue: { summary: '30' }
             },
         },
+        customPropertyBalanceState: {
+            control: 'boolean',
+            description: 'Indicates whether balance is enabled.',
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' }
+            },
+        },
+        customPropertyBalanceMinWidth: {
+            control: 'number',
+            description: 'Indicates the smallest width of an item.',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        customPropertyOneSizeState: {
+            control: 'boolean',
+            description: 'Indicates whether onesize is enabled.',
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' }
+            },
+        },
+        customPropertyOneSizeMaxWidth: {
+            control: 'number',
+            description: 'Indicates the largest width of an item.',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        customPropertySublistLineState: {
+            control: 'boolean',
+            description: 'Indicates whether sublist separator is displayed.',
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: 'false' }
+            },
+        },
+        customPropertySublistLineLength: {
+            control: 'number',
+            description: 'Indicates the length of the line in percentage terms.',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '25' }
+            },
+        },
     }
 };
 

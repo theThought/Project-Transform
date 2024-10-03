@@ -170,7 +170,8 @@ ${style}
     <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QQuestionWithLotsOfCodes');</script>
-        <script type="text/javascript">app.RegisterProperties("_QQuestionWithLotsOfCodes",{"balance":{"state":true}, "onesize":{"state":true}});</script>
+
+        <script>app.RegisterProperties("_QQuestionWithLotsOfCodes",{"balance":{"state":true}, "onesize":{"state":true}});</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
