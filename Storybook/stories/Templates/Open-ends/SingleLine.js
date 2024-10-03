@@ -18,7 +18,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
 
@@ -62,7 +62,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QBirthDate');</script>
         <script type="text/javascript">app.RegisterProperties("_Qbirthdate",{"type":"date"});</script>
@@ -109,7 +109,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QTextwithlabels');</script>
         <script type="text/javascript">app.RegisterProperties("_QTextWithLabels",{"type":"text","labels":{"pre":"%lt%i%gt%pre-label%lt%/i%gt%","post":"%lt%i%gt%post-label%lt%/i%gt%"}});</script>
@@ -156,7 +156,7 @@ ${style}
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}" data-questionid="_Q0" data-position="below">
+    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QQuestionWithLotsOfCodes');</script>
         <script type="text/javascript">app.RegisterProperties("_QQuestionWithLotsOfCodes",{"balance":{"state":true}, "onesize":{"state":true}});</script>
