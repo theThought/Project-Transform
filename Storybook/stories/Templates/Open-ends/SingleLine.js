@@ -1,3 +1,8 @@
+import {
+    htmlFragmentMessageError,
+    htmlFragmentMessageInstruction,
+} from '../../_htmlFragments';
+
 const style = `
 <style>
     .surroundcontent {
@@ -24,6 +29,7 @@ ${style}
 
         <div class="m-question-cover"><!-- cover --></div>
 
+        ${htmlFragmentMessageError}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
@@ -43,6 +49,7 @@ ${style}
                 </questions>
             </div>
         </div>
+        ${htmlFragmentMessageInstruction}
 
     </div>
 </div>
@@ -69,6 +76,7 @@ ${style}
 
         <div class="m-question-cover"><!-- cover --></div>
 
+        ${htmlFragmentMessageError}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
@@ -90,6 +98,7 @@ ${style}
                 </questions>
             </div>
         </div>
+        ${htmlFragmentMessageInstruction}
 
     </div>
 </div>
@@ -116,6 +125,7 @@ ${style}
 
         <div class="m-question-cover"><!-- cover --></div>
 
+        ${htmlFragmentMessageError}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
@@ -137,6 +147,7 @@ ${style}
                 </questions>
             </div>
         </div>
+        ${htmlFragmentMessageInstruction}
 
     </div>
 </div>
@@ -163,6 +174,7 @@ ${style}
 
         <div class="m-question-cover"><!-- cover --></div>
 
+        ${htmlFragmentMessageError}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
@@ -214,6 +226,7 @@ ${style}
                 </questions>
             </div>
         </div>
+        ${htmlFragmentMessageInstruction}
 
     </div>
 </div>
