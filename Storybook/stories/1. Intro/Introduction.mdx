@@ -9,8 +9,11 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 - The `Templates` HTML is copied from this [project's staging server](https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223280&i.test=1).
     - Uses **source HTML**, prior to any JavaScript transformations caused by `custom properties` rendered in the source HTML.
     - Source HTML has been edited to provide simplified examples.
-- The compiled CSS/JavaScript code is loaded inside `.storybook/preview-head.html`, directly from this repo's `./Survey` folder .
-    - If JavaScript doesn't execute when a story is rendered, reload the browser.
+
+### CSS/JavaScript, and Hot Module Reloading
+- The compiled CSS/JavaScript code is loaded inside `.storybook/preview-head.html`, directly from this repo's `./Survey` folder.
+- This means that Hot Module Reloading does not work - i.e. CSS/JavaScript changes are not automatically reflected in stories. Reload the current page.
+- Similarly, JavaScript may not execute when loading a new story. Reload the page.
 
 ## Toggling UI themes in Storybook
 - Uses the `storybook-theme-switch-addon` button in Storybook's main toolbar (paint brush icon).
@@ -25,3 +28,4 @@ Storybook comes with 2 default accessibility testing tools:
 ## TODO
 - Improve HTML semantics with `<label>` and `<fieldset><legend>` for questions, and use `ARIA` to further enhance accessibility.
 - Re-author Sass/JavaScript, and use better tooling to handle transpilation/bundling.
+- Leverage Hot Module Reloading.

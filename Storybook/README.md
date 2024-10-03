@@ -29,5 +29,6 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 ## TODO
 - Improve HTML semantics, and use `ARIA` to enhance accessibility.
 - Setup Parcel bundler to transpile/compile/bundle Sass/JavaScript.
+- Leverage Hot Module Reloading.
 - Setup linters & Git pre-commit hooks.
 - Setup VSCode and editor configs in root.
