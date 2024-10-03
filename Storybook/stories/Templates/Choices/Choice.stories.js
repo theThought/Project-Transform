@@ -52,7 +52,6 @@ export default {
 export const Choice = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => ChoiceHtml(args),
 };
@@ -60,7 +59,6 @@ export const Choice = {
 export const ChoiceSublists = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => ChoiceSublistsHtml(args),
 };
@@ -68,7 +66,6 @@ export const ChoiceSublists = {
 export const ChoiceOtherSpecify = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => ChoiceOtherSpecifyHtml(args),
 };

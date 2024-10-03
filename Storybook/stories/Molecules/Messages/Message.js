@@ -8,7 +8,7 @@ export const MessageErrorHtml = () => `
 
 export const MessageInstructionHtml = () => `
 <div class="m-message-instruction has-content">
-    <div class="a-label-instruction">
+    <div>
         Instruction message(s).
     </div>
 </div>

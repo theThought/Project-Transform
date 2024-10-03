@@ -53,7 +53,6 @@ export default {
 export const SingleLine = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => SingleLineHtml(args),
 };
@@ -61,7 +60,6 @@ export const SingleLine = {
 export const SingleLineDate = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => SingleLineDateHtml(args),
 };
@@ -69,7 +67,6 @@ export const SingleLineDate = {
 export const SingleLinePrePostLabels = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => SingleLinePrePostLabelsHtml(args),
 };
@@ -77,7 +74,6 @@ export const SingleLinePrePostLabels = {
 export const SingleLineSpecialCodes = {
     args: {
         pageLayout: 'sidebyside',
-        pagePropertySideBySide: '30',
     },
     render: (args) => SingleLineSpecialCodesHtml(args),
 };
