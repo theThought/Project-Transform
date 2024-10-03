@@ -1,3 +1,8 @@
+import {
+    htmlFragmentMessageError,
+    htmlFragmentMessageInstruction,
+} from '../_htmlFragments';
+
 export const PageLayoutSideBySideHtml = () => `
 <form action="#" method="post">
     <div class="header">
@@ -23,6 +28,7 @@ export const PageLayoutSideBySideHtml = () => `
     <div class="surroundcontent">
 
         <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q0" data-position="below">
+            ${htmlFragmentMessageError}
             <div class="o-question-core">
                 <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                     1ST QUESTION GOES HERE...
@@ -36,9 +42,11 @@ export const PageLayoutSideBySideHtml = () => `
                     </question>
                 </div>
             </div>
+            ${htmlFragmentMessageInstruction}
         </div>
 
         <div class="o-question-container sidebyside focused cover-off config-complete" data-questionid="_Q1" data-position="below">
+            ${htmlFragmentMessageError}
             <div class="o-question-core">
                 <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                     2ND QUESTION GOES HERE...
@@ -52,6 +60,7 @@ export const PageLayoutSideBySideHtml = () => `
                     </question>
                 </div>
             </div>
+            ${htmlFragmentMessageInstruction}
         </div>
 
     </div>
@@ -98,6 +107,7 @@ export const PageLayoutVerticalHtml = () => `
     <div class="surroundcontent">
 
         <div class="o-question-container focused cover-off config-complete" data-questionid="_Q0" data-position="below">
+            ${htmlFragmentMessageError}
             <div class="o-question-core">
                 <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                     1ST QUESTION GOES HERE...
@@ -111,9 +121,11 @@ export const PageLayoutVerticalHtml = () => `
                     </question>
                 </div>
             </div>
+            ${htmlFragmentMessageInstruction}
         </div>
 
         <div class="o-question-container focused cover-off config-complete" data-questionid="_Q1" data-position="below">
+            ${htmlFragmentMessageError}
             <div class="o-question-core">
                 <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                     2ND QUESTION GOES HERE...
@@ -127,6 +139,7 @@ export const PageLayoutVerticalHtml = () => `
                     </question>
                 </div>
             </div>
+            ${htmlFragmentMessageInstruction}
         </div>
 
     </div>
