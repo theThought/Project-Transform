@@ -49,7 +49,7 @@ export default {
         customPropertyInputType: {
             control: 'select',
             options: ['text', 'number', 'date'],
-            description: 'Provides the "type" attribute for the HTML <input> tag.',
+            description: 'Provides the "type" attribute for the HTML input tag.',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: 'text' }
