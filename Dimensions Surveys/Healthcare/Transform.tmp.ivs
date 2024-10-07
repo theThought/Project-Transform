@@ -1,5 +1,12 @@
 ﻿Metadata(en-US, Question, Label)
-Coke "Coca Cola" define
+FixedTextsList "" define
+    {
+        NoWhat "No details given",
+        NoPicture "Placeholder icon showing a camera crossed through as no image currently provided",
+        Picture "Photo of",
+        StartPrevious "I had another"
+    };
+    Coke "Coca Cola" define
     {
         regular "Original",
         diet "Diet",
@@ -1619,30 +1626,6 @@ Coke "Coca Cola" define
         state14 "just cut lawn",
         state15 "BBQ"
     };
-    '----------------- Question Type zIndex values
-    ' -10 Information
-    ' -20 SingleLineEdit
-    ' -21 ReadWriteEdit 
-    ' -22 Decimal
-    ' -25 openend-Search
-    ' -26 openend-search-scan
-    ' -30 MultiLineEdit
-    ' -40 Choice
-    ' -45 Choice - summary
-    ' -50 Slider (Horizontal)
-    ' -51 Slider (Vertical)
-    ' -52 Slider (date-recent)
-    ' -55 Scale (Horizontal)
-    ' -56 Scale (Vertical)
-    ' -60 DropDown
-    ' -70 Combobox
-    ' -80 Calendar (not supported)
-    ' -91 Datetime recent
-    ' -1100 Progressive (V) Grid
-    ' -1110 Progressive (H) Grid
-    ' -1400 Navigation - Tabstrip 
-    ' -1510 Media - external
-    '---------------------------------------------
     CustomList_Layout "Layouts" define
     {
         vertical "Vertical",
@@ -1764,6 +1747,7 @@ Coke "Coca Cola" define
     TypesList_LAQuestions "Little&Always questions" define
     {
         longlist "Long Lists",
+        longlistII "Long List - scan",
         ImageList "Image Lists",
         datetimerecent "Date/Time Recent",
         barcodescan "Barcode Scan",
@@ -1806,6 +1790,36 @@ Coke "Coca Cola" define
         year23 "2023",
         year24 "2024"
     };
+
+    '----------------- Question Type zIndex values
+    ' -10 Information
+    ' -20 SingleLineEdit
+    ' -21 ReadWriteEdit 
+    ' -22 Decimal
+    ' -25 openend-Search
+    ' -26 openend-search-scan
+    ' -30 MultiLineEdit
+    ' -40 Choice
+    ' -45 Choice - summary
+    ' -50 Slider (Horizontal)
+    ' -51 Slider (Vertical)
+    ' -52 Slider (date-recent)
+    ' -55 Scale (Horizontal)
+    ' -56 Scale (Vertical)
+    ' -60 DropDown
+    ' -70 Combobox
+    ' -80 Calendar (not supported)
+    ' -91 Datetime recent
+    ' -1100 Progressive (V) Grid
+    ' -1110 Progressive (H) Grid
+    ' -1400 Navigation - Tabstrip 
+    ' -1510 Media - external
+    '---------------------------------------------
+    FixedTexts ""
+    categorical [1..1]
+    {
+        use FixedTextsList -
+    } nocasedata;
 
     '----------------------------------------
     ' tabstrip Setup
@@ -2979,8 +2993,8 @@ Coke "Coca Cola" define
 
     ) expand;
 
-    EightByGrid "Pick the drugs you are using limit is 8" loop[..8]
-    fields (
+    EightByGrid "Pick the drugs you are using limit is 8" loop [1..8] fields -
+    (
         DrugComboSingleInGrid "1st Drug Question"
             style(
                 Align = "Left",
@@ -2989,12 +3003,14 @@ Coke "Coca Cola" define
                     Type = "ComboList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             druglist use \\.druglist -
             asc
         };
-        
+
+    ) expand;
+
     GridDrugComboSingle "This is a test of droplists within a grid" loop
     {
         use weekdayslist -
@@ -3008,7 +3024,7 @@ Coke "Coca Cola" define
                     Type = "ComboList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             druglist use \\.druglist -
             asc
@@ -3021,7 +3037,7 @@ Coke "Coca Cola" define
                     Type = "ComboList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             druglist use \\.druglist -
             asc
@@ -4139,7 +4155,7 @@ Coke "Coca Cola" define
                     Type = "DropList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             '            selectone "{#lblselect}"
             '            {
@@ -4153,7 +4169,7 @@ Coke "Coca Cola" define
                     Type = "DropList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             '            selectone "{#lblselect}"
             '            {
@@ -4167,7 +4183,7 @@ Coke "Coca Cola" define
                     Type = "DropList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             '            selectone "{#lblselect}"
             '            {
@@ -4181,7 +4197,7 @@ Coke "Coca Cola" define
                     Type = "ComboList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             '            selectone "{#lblselect}"
             '            {
@@ -4195,7 +4211,7 @@ Coke "Coca Cola" define
                     Type = "ComboList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             '            selectone "{#lblselect}"
             '            {
@@ -4209,7 +4225,7 @@ Coke "Coca Cola" define
                     Type = "ComboList"
                 )
             )
-        categorical [1..1]
+        categorical [0..1]
         {
             '            selectone "{#lblselect}"
             '            {
@@ -4217,6 +4233,98 @@ Coke "Coca Cola" define
         };
 
     ) expand grid;
+
+    effective_age_wise "<span class = ""QText2"">Of those companies that you are aware of with a COVID-19 vaccine available for use or in development, how EFFECTIVE would you rate their vaccine for each age category below? </span><br/><span class=""warn1""></span>" loop
+    {
+        use lst_company -
+    } ran fields -
+    (
+        under5 "Age under 5"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice1 "Age 5 - 11"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice2 "Age 12 - 17"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice3 "Age 18 - 29"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice4 "Age 30 - 49"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice5 "Age 50+"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+    ) expand grid;
+
 
     '----------------------------------------
     ' Double loop examples
@@ -6492,6 +6600,19 @@ Coke "Coca Cola" define
         nobrand "I don't know the brand" DK
     } );
 
+    brandlistAllDetailsII "Provide a description of the product you consumed so I can capture all the details"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200]
+    codes(
+    {
+        nobrand "I don't know the brand" DK
+    } );
+
     containerlist "Describe the container you used to hold the drink you consumed"
         style(
             ZIndex = -25,
@@ -7053,6 +7174,13 @@ Coke "Coca Cola" define
         LAProduct,
         LACategory_Entry
     );
+    BrandlistPageII ""
+    page(
+        brandlistAllDetailsII,
+        LACode,
+        LAProduct,
+        LACategory_Entry
+    );
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -7336,7 +7464,7 @@ CreateBanner(Textwithlabels, "Instruction")
 Textwithlabels.Banners["Instruction"].Text = "this is just an example you can put any text you like in here"
 Textwithlabels.ask()
 
-'IOM.LayoutTemplate = "pageoutput-label.htm"
+IOM.LayoutTemplate = "pageoutput-label.htm"
 AddCustomProperties(Height, "Height", "{'type':'number','labels':{'post':'cm'}}", "replace")
 CreateBanner(Height, "Instruction")
 Height.Banners["Instruction"].Text = "While it might be tempting to want to answer this question using feet and inches, we have ll gone metricc now and so we need you to provide the measurement in centimetres"
@@ -7592,7 +7720,7 @@ Passive10Page.ask()
 AddCustomProperties(tenpointfeedback, "tenpointfeedback", "{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 tenpointfeedback.ask()
-AddCustomProperties(sevenpointfeedback, "sevenpointfeedback", "{'values':{'min':1,'max':7,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
+AddCustomProperties(sevenpointfeedback, "sevenpointfeedback", "{'values':{'min':1,'max':7,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied','position':'side'}}", "replace") 
 sevenpointfeedback.ask()
 AddCustomProperties(fivepointfeedback, "fivepointfeedback", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace") 
 AddCustomProperties(fivepointfeedback, "fivepointfeedback", "{'balance':{'state':true}, 'onesize':{'state':true}}", "add")
@@ -7789,10 +7917,18 @@ smokecigars.Style.control = controltypes.ctComboList
 whichcigars.Style.control = controltypes.ctComboList
 whichcigarettes.Style.control = controltypes.ctComboList
 
+AddCustomProperties(smokecigars, "smokecigars", "{'displayicon':false,'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
+AddCustomProperties(whichcigars, "whichcigars", "{'displayicon':false,'mincharactersforlist':0,'filtertype':'contains','placeholder':'Pick one cigar brand','noitemsinlist':'no brands containing these characters exists'}", "replace")
+AddCustomProperties(whichcigarettes, "whichcigarettes", "{'displayicon':false,'filtertype':'contains','placeholder':'Pick one','noitemsinlist':'nothing'}", "replace")
 
-AddCustomProperties(smokecigars, "smokecigars", "{'displayicon':false,'onesize':{'state':true},'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
-AddCustomProperties(whichcigars, "whichcigars", "{'displayicon':false,'onesize':{'state':true},'mincharactersforlist':0,'filtertype':'contains','placeholder':'Pick one cigar brand','noitemsinlist':'no brands containing these characters exists'}", "replace")
-AddCustomProperties(whichcigarettes, "whichcigarettes", "{'displayicon':false,'onesize':{'state':true},'filtertype':'contains','placeholder':'Pick one','noitemsinlist':'nothing'}", "replace")
+addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigars')"), "'}}"), "add")
+addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigarettes')"), "'}}"), "add")
+
+CigarsOrCigarettesPage.ask()
+
+AddCustomProperties(smokecigars, "smokecigars", "{'displayicon':false,'listsource':'whichone','onesize':{'state':true},'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
+AddCustomProperties(whichcigars, "whichcigars", "{'displayicon':false,'listsource':'cigars','onesize':{'state':true},'mincharactersforlist':0,'filtertype':'contains','placeholder':'Pick one cigar brand','noitemsinlist':'no brands containing these characters exists'}", "replace")
+AddCustomProperties(whichcigarettes, "whichcigarettes", "{'displayicon':false,'listsource':'cigarettes','onesize':{'state':true},'filtertype':'contains','placeholder':'Pick one','noitemsinlist':'nothing'}", "replace")
 
 addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigars')"), "'}}"), "add")
 addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigarettes')"), "'}}"), "add")
@@ -7807,8 +7943,13 @@ case {GridCombo}
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 
-AddCustomProperties(GridDrugComboSingle, "DrugComboSingleInGrid", "{'exact':true, 'onesize':{'state':false},'filtertype':'contains','listsize':10,'mincharactersforlist':1,'notenoughcharacters':'Type the first letter of the drug to see a list of options','showanswers':false,'type':'combobox','placeholder':'type part of the drugname','noitemsinlist':'start typing a valid drug'}", "replace")
-AddCustomProperties(GridDrugComboSingle, "SecondDrugComboSingleInGrid", "{'onesize':{'state':false},'filtertype':'starts','mincharactersforlist':2,'notenoughcharacters':'A drug list will appear when you have typed at least 2 characters of the drug name','listsize':5,'showanswers':false,'type':'combobox','placeholder':'type start of the drugname','noitemsinlist':'start typing a valid drug'}", "add")
+AddCustomProperties(EightByGrid, "DrugComboSingleInGrid", "{'filtertype':'starts','mincharactersforlist':0,'listsize':5,'showanswers':false,'type':'combobox','placeholder':'type start of the drugname','noitemsinlist':'start typing a valid drug'}", "add")
+EightByGrid[..].DrugComboSingleInGrid.MustAnswer = false
+EightByGrid.Ask()
+
+AddCustomProperties(EightByGrid, "DrugComboSingleInGrid", "{'filtertype':'starts','listsource':'druglist','mincharactersforlist':0,'listsize':5,'showanswers':false,'type':'combobox','placeholder':'type start of the drugname','noitemsinlist':'start typing a valid drug'}", "add")
+
+EightByGrid.Ask()
 
 GridDrugComboSingle.Mon.DrugComboSingleInGrid.Response = {_2_7007_7309}
 GridDrugComboSingle.Tue.DrugComboSingleInGrid.Response = {_2_7007_7309}
@@ -7827,17 +7968,37 @@ GridDrugComboSingle[..].DrugComboSingleInGrid.Label.Style.Align = alignments.alL
 
 'GridDrugComboSingle.Mon.Categories[..].Style.cell.Align = alignments.alLeft
 
+AddCustomProperties(GridDrugComboSingle, "DrugComboSingleInGrid", "{'exact':true,'filtertype':'contains','listsize':10,'mincharactersforlist':1,'notenoughcharacters':'Type the first letter of the drug to see a list of options','showanswers':false,'type':'combobox','placeholder':'type part of the drugname','noitemsinlist':'start typing a valid drug'}", "replace")
+AddCustomProperties(GridDrugComboSingle, "SecondDrugComboSingleInGrid", "{'filtertype':'starts','mincharactersforlist':2,'notenoughcharacters':'A drug list will appear when you have typed at least 2 characters of the drug name','listsize':5,'showanswers':false,'type':'combobox','placeholder':'type start of the drugname','noitemsinlist':'start typing a valid drug'}", "add")
+
 GridDrugComboSingle.Ask()
 
-effective_age_wise[..].QuestionFilter = "slice3, slice4, slice5"
+AddCustomProperties(GridDrugComboSingle, "DrugComboSingleInGrid", "{'exact':true,'listsource':'druglist','filtertype':'contains','listsize':10,'mincharactersforlist':1,'notenoughcharacters':'Type the first letter of the drug to see a list of options','showanswers':false,'type':'combobox','placeholder':'type part of the drugname','noitemsinlist':'start typing a valid drug'}", "replace")
+AddCustomProperties(GridDrugComboSingle, "SecondDrugComboSingleInGrid", "{'filtertype':'starts','listsource':'druglist','mincharactersforlist':2,'notenoughcharacters':'A drug list will appear when you have typed at least 2 characters of the drug name','listsize':5,'showanswers':false,'type':'combobox','placeholder':'type start of the drugname','noitemsinlist':'start typing a valid drug'}", "add")
+
+GridDrugComboSingle.Ask()
+
+
+'effective_age_wise[..].QuestionFilter = "slice3, slice4, slice5"
 effective_age_wise.Style.Cell.RepeatHeader = (effective_age_wise.Categories.Count/3)+1
 
 'effective_age_wise.Categories.Filter = "moderna..gameleyaResearchInstitute"
 
 AddCustomProperties(effective_age_wise,"effective_age_wise","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
-AddCustomProperties(effective_age_wise, "slice3", "{'onesize':{'state':false},'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice4", "{'onesize':{'state':false},'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice5", "{'onesize':{'state':false},'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice1", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice2", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice3", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice4", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice5", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+
+effective_age_wise.Ask()
+
+AddCustomProperties(effective_age_wise,"effective_age_wise","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
+AddCustomProperties(effective_age_wise, "slice1", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice2", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice3", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice4", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wise, "slice5", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
 
 effective_age_wise.Ask()
 
@@ -8883,15 +9044,17 @@ case {RotatedHiddenCells}
     brandlist.QuestionTemplate = "question-database-brandlist.htm"
     brandlist.Ask()
 
-	AddCustomProperties(brandlistAllDetails, "brandlistAllDetails", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':{'Match':[{'property':'code','from':'UPC'},{'property':'name','from':'name'},{'property':'category','from':'category'}],'NoMatch':[{'property':'name','from':'search'}]},'descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
-	AddCustomProperties(LACode, "LACode", "{'calculation':{'variables':['name':'search','source':'brandlistAllDetails'}],'algorithm':'search.JSON(%%code%%)'}", "replace")
-	AddCustomProperties(LAProduct, "LACode", "{'calculation':{'variables':['name':'search','source':'brandlistAllDetails'}],'algorithm':'search.JSON(%%name%%)'}", "replace")
-	AddCustomProperties(LACategory_Entry, "LACode", "{'calculation':{'variables':['name':'search','source':'brandlistAllDetails'}],'algorithm':'search.JSON(%%category%%)'}", "replace")
+	AddCustomProperties(brandlistAllDetails, "brandlistAllDetails", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':{'match':[{'property':'code','from':'UPC'},{'property':'name','from':'name'},{'property':'category','from':'category'}],'nomatch':[{'property':'name','from':'search'}]},'descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+	AddCustomProperties(LACode, "LACode", "{'calculation':{'rule':'brandlistAllDetails.JSON(%%ean%%)'}}", "replace")
+	AddCustomProperties(LAProduct, "LACode", "{'calculation':{'rule':'brandlistAllDetails.JSON(%%description%%)'}}", "replace")
+	AddCustomProperties(LACategory_Entry, "LACode", "{'calculation':{'rule':'brandlistAllDetails.JSON(%%category%%)'}}", "replace")
 	
     brandlistAllDetails.QuestionTemplate = "question-database-brandlist.htm"
 	LACode.MustAnswer = false
 	LAProduct.MustAnswer = false
 	LACategory_Entry.MustAnswer = false
+    BrandlistPage.Ask()
+
     BrandlistPage.Ask()
     
 	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'internal','source':'a-list','valuefrom':'UPC','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
@@ -8901,6 +9064,30 @@ case {RotatedHiddenCells}
 '	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'external','source':'https:\\media.ipsosinteractive.com\sandbox\kevin.gray\passiveobservation\act\barcodelistdemo.json','valuefrom':'code','descriptionfrom':'Description'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick'}", "replace")
 '   barcodelist.QuestionTemplate = null
 '   barcodelist.Ask()
+
+	case {longlistII}
+    '----------------------------------------
+    ' Long List with scan
+    '----------------------------------------
+
+	AddCustomProperties(brandlistAllDetailsII, "brandlistAllDetailsII", "{'scan':{'state':true,'captions':{'start':{'icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/scan.png','width':'32px','height':'32px'}, 'text':''},'empty':{'text':'Either scan the product%%s barcode or manually enter the product%%s name'}}},'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':{'match':[{'property':'ean','from':'UPC'},{'property':'description','from':'name'},{'property':'category','from':'category'}],'nomatch':[{'property':'description','from':'search'}]},'descriptionfrom':'description'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'listcount':'beverages found'}}", "replace")
+'AddCustomProperties(what, "what", "{'scan':{'state':true,'captions':{'start':{'icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/scan.png','width':'32px','height':'32px'}, 'text':''},'empty':{'text':'Either scan the product%%s barcode or manually enter the product%%s name'}}},'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'listcount':'beverages found'}}", "replace")
+
+	AddCustomProperties(LACode, "LACode", "{'calculation':{'rule':'brandlistAllDetailsII.JSON(%%ean%%)'}}", "replace")
+	AddCustomProperties(LAProduct, "LAProduct", "{'calculation':{'rule':'brandlistAllDetailsII.JSON(%%description%%)'}}", "replace")
+	AddCustomProperties(LACategory_Entry, "LACategory_Entry", "{'calculation':{'rule':'brandlistAllDetailsII.JSON(%%category%%)'}}", "replace")
+	
+    brandlistAllDetailsII.QuestionTemplate = "question-database-brandlist.htm"
+	LACode.MustAnswer = false
+	LAProduct.MustAnswer = false
+	LACategory_Entry.MustAnswer = false
+    BrandlistPageII.Ask()
+
+    BrandlistPageII.Ask()
+    
+	AddCustomProperties(barcodelist, "barcodelist", "{'displayicon':false,'listsize':15,'list':{'location':'internal','source':'a-list','valuefrom':'UPC','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+    barcodelist.QuestionTemplate = "question-database.htm"
+    barcodelist.Ask()
 
 	case {ImageList}
 	AddCustomProperties(containerlist, "containerlist", "{'displayicon':false,'listsize':4,'direction':'horizontal','list':{'location':'internal','source':'c-list','valuefrom':'id','descriptionfrom':'caption'},'showanswers':true,'mincharactersforlist':0,'filtertype':'contains','placeholder':' The container you drank from your drink','noitemsinlist':'There are no containers of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'container','listcount':'containers found'}}", "replace")
@@ -9087,7 +9274,7 @@ htmlPICTURE[1] = "<div class='l-summary-questionname'>"
 htmlPICTURE[2] = "PICTURE"
 htmlPICTURE[3] = "</div>"
 htmlPICTURE[4] = "<div class='l-summary-questionprompt'>"
-htmlPICTURE[5] = "Photo of the brand of drink" 
+htmlPICTURE[5] = "Photograph your drink" 
 htmlPICTURE[6] = "</div>"
 htmlPICTURE[7] = "<div class='l-summary-response'>"
 htmlPICTURE[8] = ""
@@ -9098,30 +9285,33 @@ htmlPICTURE[12] = "</div>"
 
 	Summary.Response = null
 	
-	contentWHAT = BuildContent(htmlWHAT, false, false)
-	contentWHERE = BuildContent(htmlWHERE, false, false)
-	contentHOWMUCH = BuildContent(htmlHOWMUCH, false, false)
-	contentWHEN = BuildContent(htmlWHEN, false, false)
-	contentPICTURE = BuildContent(htmlPICTURE, false, false)
+	contentWHAT = BuildContent(htmlWHAT, false, false, false)
+	contentWHERE = BuildContent(htmlWHERE, false, false, false)
+	contentHOWMUCH = BuildContent(htmlHOWMUCH, false, false, false)
+	contentWHEN = BuildContent(htmlWHEN, false, false, false)
+	
+	htmlPICTURE[8] = MakeString("<div class='l-summary-response-image'><figure class='a-figure-thumbnail'><img src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' width='64px' height='64px' alt='", fixedTexts.Categories["NoPicture"].label.text, "' /></figure></div>")
+	contentPICTURE = BuildContent(htmlPICTURE, true, true, false)
+	
 	postMessageScript = "<script type='application/javascript' src='https://d11as4oy583d1f.cloudfront.net/iframe-script.js'>//Post message Script</script>"
 	IOM.Banners["PostMessage"].Text = postMessageScript
-	Summary.LayoutTemplate = "formal-summary.htm"
+'	Summary.LayoutTemplate = "formal-summary.htm"
 	'IOM.LayoutTemplate = "pageoutput-label.htm"
 	Summary.Ask()
 	debug.Log(format(summary.response,"b"))
 
 	htmlWHEN[8] = "<div class='l-summary-response-text'>Today</div><div class='l-summary-response-text'>18:30</div>"
-	contentWHEN = BuildContent(htmlWHEN, true, true)
+	contentWHEN = BuildContent(htmlWHEN, true, false, true)
 	Summary.Ask()
-	contentWHEN = BuildContent(htmlWHEN, true, false)
+	contentWHEN = BuildContent(htmlWHEN, true, false, false)
 	
 	htmlWHAT[8] = "<div class='l-summary-response-text'>Stellas Artois</div>"
-	contentWHAT = BuildContent(htmlWHAT, true, true)
+	contentWHAT = BuildContent(htmlWHAT, true, false, true)
 	Summary.Ask()
 	
-	htmlPICTURE[8] = MakeString("<img class='l-summary-response-image' width='48px' height='48px' src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' alt='No Picture taken'/>")
-	contentWHAT = BuildContent(htmlWHAT, true, false)
-	contentPICTURE = BuildContent(htmlPICTURE, true, true)
+	htmlPICTURE[8] = MakeString("<div class='l-summary-response-image'><figure class='a-figure-thumbnail'><img src='https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/no_photo.svg' width='64px' height='64px' alt='", fixedTexts.Categories["NoPicture"].label.text, "' /></figure></div>")
+	contentWHAT = BuildContent(htmlWHAT, true, false, false)
+	contentPICTURE = BuildContent(htmlPICTURE, true, false, true)
 	Summary.Ask()
 	
 case {datetimerecent}
@@ -9146,37 +9336,30 @@ case {barcodescan}
     '----------------------------------------
     ' Barcode scan Question
     '----------------------------------------
-	AddCustomProperties(LAScan, "LAScan", MakeString("{'captions':[{'type':'start','text':'Scan Barcode'}],'action':'Barcode'}"), "replace")
-'	AddCustomProperties(LAProduct, "LAProduct", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
-'	AddCustomProperties(LACategory, "LACategory", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+	postMessageScript = "<script type='application/javascript' src='https://d11as4oy583d1f.cloudfront.net/iframe-script.js'>//Post message Script</script>"
+	LAScan.Banners["PostMessage"].Text = postMessageScript
+
+	AddCustomProperties(LAScan, "LAScan", MakeString("{'captions':[{'type':'start','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/scan.png',width:'32px','height':'32px'}}],'action':'Barcode'}"), "replace")
+	LAScan.LayoutTemplate = "formal-camer.htm"
+	LAScan.ask()
+
+	LAScan.Banners.Remove("PostMessage")
+	LAScan.LayoutTemplate = null
+	
+	AddCustomProperties(LAScan, "LAScan", MakeString("{'captions':[{'type':'start','text':'Scan Barcode','icon':{}}],'action':'Barcode'}"), "replace")
 	LABarcode_Page.LayoutTemplate = "formal-camera.htm"
 '	LABarcode_Page.LayoutTemplate = "pageoutput-label.htm"
 	LAScan.MustAnswer = false
 	LAProduct.MustAnswer = false
 	LABarcode.MustAnswer = false
 	LACategory.MustAnswer = false
-'	if scriptsource.response is null then
-'		if iom.Info.User1 <> "" then
-'			select case iom.Info.User1.LCase()
-'			case "development"
-'			scriptsource.response = "https://d11as4oy583d1f.cloudfrosnt.net/iframe-script.js"
-'			case "staging"
-'			scriptsource.response = "https://d2cgld9eorebye.cloudfront.net/iframe-script.js"
-'			case "production"
-'			scriptsource.response = "https://thediary.ipsos.com/iframe-script.js"
-'			case "localhost"
-'			scriptsource.response = "http://localhost:3000/iframe-script.js"			
-'			end select
-'		else
-'			scriptsource.response = "https://thediary.ipsos.com/iframe-script.js"
-'		end if
-'	end if
+
+	AddCustomProperties(LAScan, "LAScan", MakeString("{'captions':[{'type':'start','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/scan.png',width:'32px','height':'32px'}}],'action':'Barcode'}"), "replace")
+	LABarcode_Page.Banners["PostMessage"].Text = postMessageScript
 	
-	postMessageScript = "<script type='application/javascript' src='https://d11as4oy583d1f.cloudfront.net/iframe-script.js'>//Post message Script</script>"
-	IOM.Banners["PostMessage"].Text = postMessageScript
+
 
 	LABarcode_Page.ask()
-
 end select
 
 loop
@@ -9188,13 +9371,16 @@ loop
     
 	'    Summary Question
 	'----------------------------------------
-	function BuildContent(theHTML, theResponse, theLastChange)
+	function BuildContent(theHTML, theResponse, theShowPrompt, theLastChange)
 	dim stringContent 
 	dim quote
 		stringContent = MakeString(theHTML[0], theHTML[1], theHTML[2], theHTML[3])
 		if not theResponse then
 			stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
 		else
+			if theShowPrompt then
+				stringContent = MakeString(stringContent, theHTML[4], theHTML[5], theHTML[6])
+			end if
 			stringContent = MakeString(stringContent, theHTML[7], theHTML[8], theHTML[9])
 		end if
 		'not required for ACT
