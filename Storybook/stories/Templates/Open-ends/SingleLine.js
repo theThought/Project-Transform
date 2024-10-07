@@ -76,7 +76,8 @@ ${style}
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QTextwithlabels');</script>
 
         <script type="text/javascript">app.RegisterProperties("_QTextWithLabels",{"type":"text","labels":{
-${args.customPropertyPreLabel !== '' ? `"pre":"%lt%i%gt%${args.customPropertyPreLabel}%lt%/i%gt%"` : ''},
+${args.customPropertyPreLabel !== '' ? `"pre":"%lt%i%gt%${args.customPropertyPreLabel}%lt%/i%gt%"` : ''}
+${args.customPropertyPreLabel !== '' && args.customPropertyPostLabel !== '' ? ',' : ''}
 ${args.customPropertyPostLabel !== '' ? `"post":"%lt%i%gt%${args.customPropertyPostLabel}%lt%/i%gt%"` : ''}
         }});</script>
 
