@@ -27,7 +27,7 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QText",{"type":${args.customPropertyInputType}});</script>
+        <script type="text/javascript">app.RegisterProperties("_QText",{"type":"${args.customPropertyInputType}"});</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 

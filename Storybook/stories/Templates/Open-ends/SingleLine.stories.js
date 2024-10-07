@@ -12,6 +12,31 @@ export default {
         },
     },
     argTypes: {
+        customPropertyInputType: {
+            control: 'select',
+            options: ['text', 'number', 'date'],
+            description: 'Provides the "type" attribute for the HTML input tag.',
+            table: {
+                type: { summary: 'select' },
+                defaultValue: { summary: 'text' }
+            },
+        },
+        customPropertyPreLabel: {
+            control: 'text',
+            description: 'Specifies the text to be placed before the input.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        customPropertyPostLabel: {
+            control: 'text',
+            description: 'Specifies the text to be placed after the input.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
         pageLayout: {
             control: 'select',
             options: ['sidebyside', 'vertical'],
@@ -44,31 +69,6 @@ export default {
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: '30' }
-            },
-        },
-        customPropertyInputType: {
-            control: 'select',
-            options: ['text', 'number', 'date'],
-            description: 'Provides the "type" attribute for the HTML input tag.',
-            table: {
-                type: { summary: 'select' },
-                defaultValue: { summary: 'text' }
-            },
-        },
-        customPropertyPreLabel: {
-            control: 'text',
-            description: 'Specifies the text to be placed before the input.',
-            table: {
-                type: { summary: 'text' },
-                defaultValue: { summary: 'n/a' }
-            },
-        },
-        customPropertyPostLabel: {
-            control: 'text',
-            description: 'Specifies the text to be placed after the input.',
-            table: {
-                type: { summary: 'text' },
-                defaultValue: { summary: 'n/a' }
             },
         },
     }
