@@ -1,6 +1,5 @@
 import {
     SingleLineHtml,
-    SingleLineDateHtml,
     SingleLinePrePostLabelsHtml,
     SingleLineSpecialCodesHtml
 } from './SingleLine';
@@ -47,26 +46,48 @@ export default {
                 defaultValue: { summary: '30' }
             },
         },
+        customPropertyInputType: {
+            control: 'select',
+            options: ['text', 'number', 'date'],
+            description: 'Provides the "type" attribute for the HTML <input> tag.',
+            table: {
+                type: { summary: 'select' },
+                defaultValue: { summary: 'text' }
+            },
+        },
+        customPropertyPreLabel: {
+            control: 'text',
+            description: 'Specifies the text to be placed before the input.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        customPropertyPostLabel: {
+            control: 'text',
+            description: 'Specifies the text to be placed after the input.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
     }
 };
 
 export const SingleLine = {
     args: {
         pageLayout: 'sidebyside',
+        customPropertyInputType: 'text'
     },
     render: (args) => SingleLineHtml(args),
 };
-
-export const SingleLineDate = {
-    args: {
-        pageLayout: 'sidebyside',
-    },
-    render: (args) => SingleLineDateHtml(args),
-};
+SingleLine.storyName = 'Single Line (Text, Number or Date)';
 
 export const SingleLinePrePostLabels = {
     args: {
         pageLayout: 'sidebyside',
+        customPropertyPreLabel: '',
+        customPropertyPostLabel: '',
     },
     render: (args) => SingleLinePrePostLabelsHtml(args),
 };
