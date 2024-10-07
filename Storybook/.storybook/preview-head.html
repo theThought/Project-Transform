@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="styles/formal/base.css" type="text/css" />
 
+<!-- Scripts required for survey components. -->
 <script src="scripts/require.js" type="text/javascript"></script>
 <script src="scripts/survey.js" type="text/javascript"></script>
 <script src="scripts/base.js" type="text/javascript"></script>
@@ -14,13 +15,13 @@
 </script>
 
 <!--
-    Some stories contain inline scripts that define "custom properties", which trigger JS to re-write the server-rendered DOM:
+    Some stories contain inline scripts that define survey "custom properties". These will trigger JS to re-write the server-rendered DOM:
 
     <script>app.RegisterProperties(...)</script>
 
     When "custom property" story controls are updated, we need to reload story iframe to re-initialise the JS again, based on updated DOM.
  -->
-<script>
+ <script>
     document.addEventListener('DOMContentLoaded', (e) => {
         let targetNode = e.target.querySelector('#scripts-root');
         const config = { childList: true, subtree: true };
@@ -29,7 +30,10 @@
 
         const callback = (mutations) => {
             mutations.forEach(mutation => {
-                console.log('mutation...', mutation.target, mutation.target.baseURI);
+                console.log('mutation...');
+                // WIP...
+                // 1. Need to re-initialise JS somehow?
+                // 2. Reloading iframe does NOT work - e.g. pre/post labels, date input, are not rendered correctly.
             });
         };
 
