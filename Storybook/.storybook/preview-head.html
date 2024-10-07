@@ -12,3 +12,28 @@
     });
     require(['main'], function () { });
 </script>
+
+<!--
+    Some stories contain inline scripts that define "custom properties", which trigger JS to re-write the server-rendered DOM:
+
+    <script>app.RegisterProperties(...)</script>
+
+    When "custom property" story controls are updated, we need to reload story iframe to re-initialise the JS again, based on updated DOM.
+ -->
+<script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+        let targetNode = e.target.querySelector('#scripts-root');
+        const config = { childList: true, subtree: true };
+
+        if (!targetNode) return;
+
+        const callback = (mutations) => {
+            mutations.forEach(mutation => {
+                console.log('mutation...', mutation.target, mutation.target.baseURI);
+            });
+        };
+
+        const observer = new MutationObserver(callback);
+        targetNode && observer.observe(targetNode, config);
+    });
+</script>

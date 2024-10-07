@@ -129,10 +129,12 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.onFocusIn = function (event) {
-            if (this.element.contains(event.target) || event.target === this.element) {
-                this.element.classList.add('focused');
-            } else {
-                this.element.classList.remove('focused');
+            if (this.element) {
+                if (this.element.contains(event.target) || event.target === this.element) {
+                    this.element.classList.add('focused');
+                } else {
+                    this.element.classList.remove('focused');
+                }
             }
         }
 
