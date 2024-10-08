@@ -27,5 +27,5 @@ export const LabelPrelabelHtml = () => `
 `;
 
 export const LabelPostlabelHtml = () => `
-<span class="a-label-prelabel">post-label</span>
+<span class="a-label-postlabel">post-label</span>
 `;
