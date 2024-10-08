@@ -84,7 +84,7 @@ export default {
         pagePropertySideBySide: {
             control: 'select',
             options: ['20', '30', '40', '50'],
-            description: 'Flex basis for question text, as a percentage of  available width.',
+            description: 'Width of question text, as a percentage of  available width.',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: '30' }
