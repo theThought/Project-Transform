@@ -19,10 +19,11 @@
 
     <script>app.RegisterProperties(...)</script>
 
-    When "custom property" story controls are updated, we need to reload story iframe to re-initialise the JS again, based on updated DOM.
+    When "custom property" story controls are updated, Storybook fires the "DOMContentLoaded" event. We need to re-initialise the JS again, based on updated DOM.
  -->
  <script>
     document.addEventListener('DOMContentLoaded', (e) => {
+        console.log('DOMContentLoaded...');
         let targetNode = e.target.querySelector('#scripts-root');
         const config = { childList: true, subtree: true };
 
