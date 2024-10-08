@@ -55,7 +55,7 @@ ${style}
                         <div class="o-question-response o-question-choice" data-questiongroup="_Qtest__location" data-readonly="false" data-position="below">
                             <script>app.registerComponent('oQuestionChoice', '_Q0', '_Qtest__location');</script>
 
-                            <div data-exclusive="true" data-questionid="_Q0_C0" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C0" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase','_Q0_C0','_Qtest__location');</script>
                                 <input class="hiddencontrol" type="radio" name="_Qtest__location_Cinhouse__hospitalpractice__where__the__tissue__sample__was__extracted" id="_Q0_C0" style="" value="inhouse__hospitalpractice__where__the__tissue__sample__was__extracted">
                                 <label for="_Q0_C0">
@@ -65,7 +65,7 @@ ${style}
                                     <span class="a-label-option">In-house</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C1" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C1" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase','_Q0_C1','_Qtest__location');</script>
                                 <input class="hiddencontrol" type="radio" name="_Qtest__location_Cexternal__community__hospital" id="_Q0_C1" style="" value="external__community__hospital">
                                 <label for="_Q0_C1">
@@ -75,7 +75,7 @@ ${style}
                                     <span class="a-label-option">External community hospital</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C2" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C2" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase','_Q0_C2','_Qtest__location');</script>
                                 <input class="hiddencontrol" type="radio" name="_Qtest__location_Cexternal__academic__hospital" id="_Q0_C2" style="" value="external__academic__hospital">
                                 <label for="_Q0_C2">
@@ -91,7 +91,7 @@ ${style}
                                 <div class="a-label-heading-sublist" style="">
                                     <span class="a-label-option">Private reference lab: Primary</span>
                                 </div>
-                                <div data-exclusive="true" data-questionid="_Q0_C27_S0" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                                <div data-exclusive="true" data-questionid="_Q0_C27_S0" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                     <script>app.registerComponent('mOptionBase','_Q0_C27_S0','_Qtest__location');</script>
                                     <input class="hiddencontrol" type="radio" name="_Qtest__location_Claverty" id="_Q0_C27_S0" style="" value="laverty">
                                     <label for="_Q0_C27_S0">
@@ -101,7 +101,7 @@ ${style}
                                         <span class="a-label-option">Laverty</span>
                                     </label>
                                 </div>
-                                <div data-exclusive="true" data-questionid="_Q0_C27_S1" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                                <div data-exclusive="true" data-questionid="_Q0_C27_S1" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                     <script>app.registerComponent('mOptionBase','_Q0_C27_S1','_Qtest__location');</script>
                                     <input class="hiddencontrol" type="radio" name="_Qtest__location_Cdorevitch" id="_Q0_C27_S1" style="" value="dorevitch">
                                     <label for="_Q0_C27_S1">
@@ -111,7 +111,7 @@ ${style}
                                         <span class="a-label-option">Dorevitch</span>
                                     </label>
                                 </div>
-                                <div data-exclusive="true" data-questionid="_Q0_C27_S2" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                                <div data-exclusive="true" data-questionid="_Q0_C27_S2" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                     <script>app.registerComponent('mOptionBase','_Q0_C27_S2','_Qtest__location');</script>
                                     <input class="hiddencontrol" type="radio" name="_Qtest__location_Cqml" id="_Q0_C27_S2" style="" value="qml">
                                     <label for="_Q0_C27_S2">
@@ -128,7 +128,7 @@ ${style}
                                 <div class="a-label-heading-sublist" style="">
                                     <span class="a-label-option">Private reference lab: Sonic</span>
                                 </div>
-                                <div data-exclusive="true" data-questionid="_Q0_C28_S0" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                                <div data-exclusive="true" data-questionid="_Q0_C28_S0" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                     <script>app.registerComponent('mOptionBase','_Q0_C28_S0','_Qtest__location');</script>
                                     <input class="hiddencontrol" type="radio" name="_Qtest__location_Cdouglass__hanly__moir" id="_Q0_C28_S0" style="" value="douglass__hanly__moir">
                                     <label for="_Q0_C28_S0">
@@ -138,7 +138,7 @@ ${style}
                                         <span class="a-label-option">Douglass Hanly Moir</span>
                                     </label>
                                 </div>
-                                <div data-exclusive="true" data-questionid="_Q0_C28_S1" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                                <div data-exclusive="true" data-questionid="_Q0_C28_S1" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                     <script>app.registerComponent('mOptionBase','_Q0_C28_S1','_Qtest__location');</script>
                                     <input class="hiddencontrol" type="radio" name="_Qtest__location_Cmelbourne__pathology" id="_Q0_C28_S1" style="" value="melbourne__pathology">
                                     <label for="_Q0_C28_S1">
@@ -148,7 +148,7 @@ ${style}
                                         <span class="a-label-option">Melbourne Pathology</span>
                                     </label>
                                 </div>
-                                <div data-exclusive="true" data-questionid="_Q0_C28_S2" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                                <div data-exclusive="true" data-questionid="_Q0_C28_S2" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                     <script>app.registerComponent('mOptionBase','_Q0_C28_S2','_Qtest__location');</script>
                                     <input class="hiddencontrol" type="radio" name="_Qtest__location_Csullivan__nicolaides" id="_Q0_C28_S2" style="" value="sullivan__nicolaides">
                                     <label for="_Q0_C28_S2">
@@ -205,7 +205,7 @@ ${style}
                         <div class="o-question-response o-question-choice" data-questiongroup="_QTypesVsBroadsheetsSingle" data-readonly="false" data-position="below">
                             <script>app.registerComponent('oQuestionChoice', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 
-                            <div data-exclusive="true" data-questionid="_Q0_C0_S0" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C0_S0" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase', '_Q0_C0_S0', '_QTypesVsBroadsheetsSingle');</script>
                                 <input class="hiddencontrol" type="radio" name="_QTypesVsBroadsheetsSingle_Cmail" id="_Q0_C0_S0" style="" value="mail">
                                 <label for="_Q0_C0_S0">
@@ -215,7 +215,7 @@ ${style}
                                     <span class="a-label-option">Daily Mail</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C0_S1" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C0_S1" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase', '_Q0_C0_S1', '_QTypesVsBroadsheetsSingle');</script>
                                 <input class="hiddencontrol" type="radio" name="_QTypesVsBroadsheetsSingle_Cexpress" id="_Q0_C0_S1" style="" value="express">
                                 <label for="_Q0_C0_S1">
@@ -225,7 +225,7 @@ ${style}
                                     <span class="a-label-option">Daily Express</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C0_S7" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C0_S7" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase', '_Q0_C0_S7', '_QTypesVsBroadsheetsSingle');</script>
                                 <input class="hiddencontrol" type="radio" name="_QTypesVsBroadsheetsSingle_CMetro" id="_Q0_C0_S7" style="" value="Metro">
                                 <label for="_Q0_C0_S7">
@@ -235,7 +235,7 @@ ${style}
                                     <span class="a-label-option">Metro</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C27_S4" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
+                            <div data-exclusive="true" data-questionid="_Q0_C27_S4" data-questiongroup="_Qtest__location" data-position="below" data-hidden="false" class="m-option-base below" style="" data-checked="false">
                                 <script>app.registerComponent('mOptionBase','_Q0_C27_S4','_Qtest__location');</script>
                                 <input class="hiddencontrol" type="radio" name="_Qtest__location_Cother__please__specify__primary" id="_Q0_C27_S4" style="" value="other__please__specify__primary">
                                 <label for="_Q0_C27_S4">
