@@ -11,7 +11,7 @@ const style = `
 </style>
 `;
 
-export const SingleLineHtml = (args) => `
+export const SingleLineCustomPropsHtml = (args) => `
 ${style}
 <form action="#"
     class="
@@ -27,58 +27,10 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QText",{"type":"${args.customPropertyInputType}"});</script>
-
-        <div class="m-question-cover"><!-- cover --></div>
-
-        ${htmlFragmentMessageError}
-        <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
-                <div class="o-question-information">
-                    <div class="o-question-information-content">This is a text / number / date question</div>
-                </div>
-                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
-            </div>
-            <div class="o-question-response">
-                <questions data-position="below">
-                    <question data-position="below">
-
-                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTextwithlabels" data-readonly="false" data-position="below">
-                            <input data-questionid="_Q0" data-questiongroup="_QText" data-position="below" type="text" step="any" name="_QText" id="_Q0" autocomplete="off" style="width:18em;" maxlength="20" value="" data-value="" class="a-input-singlelineedit below"/>
-                        </div>
-
-                    </question>
-                </questions>
-            </div>
-        </div>
-        ${htmlFragmentMessageInstruction}
-
-    </div>
-</div>
-
-</form>
-`;
-
-export const SingleLinePrePostLabelsHtml = (args) => `
-${style}
-<form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
-    data-paste="true"
->
-
-<div class="surroundcontent">
-
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
-
-        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QTextwithlabels');</script>
-
-        <script type="text/javascript">app.RegisterProperties("_QTextWithLabels",{"type":"text","labels":{
-${args.customPropertyPreLabel !== '' ? `"pre":"%lt%i%gt%${args.customPropertyPreLabel}%lt%/i%gt%"` : ''}
-${args.customPropertyPreLabel !== '' && args.customPropertyPostLabel !== '' ? ',' : ''}
-${args.customPropertyPostLabel !== '' ? `"post":"%lt%i%gt%${args.customPropertyPostLabel}%lt%/i%gt%"` : ''}
+        <script type="text/javascript">app.RegisterProperties("_QText",{"type":"${args.customPropertyInputType}","labels":{
+            ${args.customPropertyPreLabel ? `"pre":"%lt%i%gt%${args.customPropertyPreLabel}%lt%/i%gt%"` : ''}
+            ${args.customPropertyPreLabel && args.customPropertyPostLabel ? ',' : ''}
+            ${args.customPropertyPostLabel ? `"post":"%lt%i%gt%${args.customPropertyPostLabel}%lt%/i%gt%"` : ''}
         }});</script>
 
         <div class="m-question-cover"><!-- cover --></div>
@@ -87,7 +39,9 @@ ${args.customPropertyPostLabel !== '' ? `"post":"%lt%i%gt%${args.customPropertyP
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
-                    <div class="o-question-information-content">This is a text question with pre-/post-labels</div>
+                    <div class="o-question-information-content">
+                        This is a question with custom properties (e.g. number/date, pre/post labels)
+                    </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
             </div>
@@ -95,10 +49,10 @@ ${args.customPropertyPostLabel !== '' ? `"post":"%lt%i%gt%${args.customPropertyP
                 <questions data-position="below">
                     <question data-position="below">
 
-                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QTextwithlabels" data-readonly="false" data-position="below">
-                            <script>app.registerComponent('oQuestionSinglelineedit','_Q0','_QTextwithlabels');</script>
-                            <input data-questionid="_Q0" data-questiongroup="_QTextwithlabels" data-position="below" type="text" step="any" name="_QTextwithlabels" id="_Q0" autocomplete="off" style="width:18em;" maxlength="20" value="" data-value="" class="a-input-singlelineedit below"/>
-                            <script>app.registerComponent('aInputSinglelineedit','_Q0','_QTextwithlabels');</script>
+                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QText" data-readonly="false" data-position="below">
+                            <script>app.registerComponent('oQuestionSinglelineedit','_Q0','_QText');</script>
+                            <input data-questionid="_Q0" data-questiongroup="_QText" data-position="below" type="text" step="any" name="_QText" id="_Q0" autocomplete="off" style="width:10em;" maxlength="20" value="" data-value="" class="a-input-singlelineedit below"/>
+                            <script>app.registerComponent('aInputSinglelineedit','_Q0','_QText');</script>
                         </div>
 
                     </question>

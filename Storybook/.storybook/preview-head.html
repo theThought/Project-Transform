@@ -11,19 +11,19 @@
         baseUrl: 'scripts',
         waitSeconds: 0
     });
-    require(['main'], function () { });
 </script>
 
 <!--
     Some stories contain inline <script> tags that define survey "custom properties". These will trigger JS to re-write the server-rendered DOM:
 
-    <script>app.RegisterProperties(...)</script>
+        e.g. <script>app.RegisterProperties(...)</script>
 
     When "custom property" story controls are updated, Storybook fires the "DOMContentLoaded" event. We need to re-initialise the JS again, based on updated DOM.
  -->
  <script>
     document.addEventListener('DOMContentLoaded', (e) => {
         console.log('Storybook DOMContentLoaded fired... re-init components');
+        // Replaces "require(['main'], function () { })" used in real survey.
         require(['main-storybook'], function () { });
     });
 </script>
