@@ -14,16 +14,13 @@ const style = `
 export const SingleLineCustomPropertiesHtml = (args) => `
 ${style}
 <form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
+    class="focus-question focus-control"
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
+    <div class="o-question-container focused cover-off config-complete sidebyside">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
 
@@ -37,7 +34,7 @@ ${style}
 
         ${htmlFragmentMessageError}
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
                         This is a question with custom properties (e.g. number/date input, pre/post labels)
@@ -67,19 +64,16 @@ ${style}
 </form>
 `;
 
-export const SingleLineSpecialCodesHtml = (args) => `
+export const SingleLineSpecialCodesHtml = () => `
 ${style}
 <form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
+    class="focus-question focus-control"
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
+    <div class="o-question-container focused cover-off config-complete sidebyside">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QQuestionWithLotsOfCodes');</script>
 
@@ -89,7 +83,7 @@ ${style}
 
         ${htmlFragmentMessageError}
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">This is a question with special codes</div>
                 </div>

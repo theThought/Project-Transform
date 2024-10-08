@@ -14,16 +14,13 @@ const style = `
 export const ChoiceCustomPropertiesHtml = (args) => `
 ${style}
 <form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
+    class="focus-question focus-control"
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
+    <div class="o-question-container focused cover-off config-complete sidebyside">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qtest__location');</script>
 
@@ -43,7 +40,7 @@ ${style}
 
         ${htmlFragmentMessageError}
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
                         Choice question with custom properties (e.g. balance, onesize, sublistline)
@@ -176,19 +173,16 @@ ${style}
 </form>
 `;
 
-export const ChoiceOtherSpecifyHtml = (args) => `
+export const ChoiceOtherSpecifyHtml = () => `
 ${style}
 <form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
+    class="focus-question focus-control"
     data-paste="true"
 >
 
 <div class="surroundcontent">
 
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
+    <div class="o-question-container focused cover-off config-complete sidebyside">
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 
@@ -196,7 +190,7 @@ ${style}
 
         ${htmlFragmentMessageError}
         <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
                         Choice question with "other specify" option
