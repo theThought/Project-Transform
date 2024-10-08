@@ -15,7 +15,7 @@
 </script>
 
 <!--
-    Some stories contain inline scripts that define survey "custom properties". These will trigger JS to re-write the server-rendered DOM:
+    Some stories contain inline <script> tags that define survey "custom properties". These will trigger JS to re-write the server-rendered DOM:
 
     <script>app.RegisterProperties(...)</script>
 
@@ -23,22 +23,7 @@
  -->
  <script>
     document.addEventListener('DOMContentLoaded', (e) => {
-        console.log('DOMContentLoaded...');
-        let targetNode = e.target.querySelector('#scripts-root');
-        const config = { childList: true, subtree: true };
-
-        if (!targetNode) return;
-
-        const callback = (mutations) => {
-            mutations.forEach(mutation => {
-                console.log('mutation...');
-                // WIP...
-                // 1. Need to re-initialise JS somehow?
-                // 2. Reloading iframe does NOT work - e.g. pre/post labels, date input, are not rendered correctly.
-            });
-        };
-
-        const observer = new MutationObserver(callback);
-        targetNode && observer.observe(targetNode, config);
+        console.log('Storybook DOMContentLoaded fired... re-init components');
+        require(['main-storybook'], function () { });
     });
 </script>
