@@ -1,4 +1,4 @@
-import { SingleLineCustomPropsHtml } from './SingleLine';
+import { SingleLineCustomPropertiesHtml } from './SingleLine';
 
 export default {
     title: 'Templates/Open-ends/t-singleline',
@@ -70,11 +70,10 @@ export default {
     }
 };
 
-export const SingleLineCustomProps = {
+export const SingleLineCustomProperties = {
     args: {
         pageLayout: 'sidebyside',
         customPropertyInputType: 'text'
     },
-    render: (args) => SingleLineCustomPropsHtml(args),
+    render: (args) => SingleLineCustomPropertiesHtml(args),
 };
-SingleLineCustomProps.storyName = 'Single Line with Custom Properties (e.g. date/number, pre/post labels)';

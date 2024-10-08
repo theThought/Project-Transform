@@ -11,7 +11,7 @@ const style = `
 </style>
 `;
 
-export const SingleLineCustomPropsHtml = (args) => `
+export const SingleLineCustomPropertiesHtml = (args) => `
 ${style}
 <form action="#"
     class="
@@ -40,7 +40,7 @@ ${style}
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        This is a question with custom properties (e.g. number/date, pre/post labels)
+                        This is a question with custom properties (e.g. number/date input, pre/post labels)
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
