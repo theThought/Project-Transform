@@ -1,8 +1,4 @@
-import {
-    ChoiceHtml,
-    ChoiceSublistsHtml,
-    ChoiceOtherSpecifyHtml
-} from './Choice';
+import { ChoiceOtherSpecifyHtml } from './Choice';
 
 export default {
     title: 'Templates/Choices/t-choice',
@@ -12,54 +8,6 @@ export default {
         },
     },
     argTypes: {
-        customPropertyBalanceState: {
-            control: 'boolean',
-            description: 'Indicates whether balance is enabled.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        customPropertyBalanceMinWidth: {
-            control: 'number',
-            description: 'Indicates the smallest width of an item.',
-            table: {
-                type: { summary: 'number' },
-                defaultValue: { summary: 'n/a' }
-            },
-        },
-        customPropertyOneSizeState: {
-            control: 'boolean',
-            description: 'Indicates whether onesize is enabled.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        customPropertyOneSizeMaxWidth: {
-            control: 'number',
-            description: 'Indicates the largest width of an item.',
-            table: {
-                type: { summary: 'number' },
-                defaultValue: { summary: 'n/a' }
-            },
-        },
-        customPropertySublistLineState: {
-            control: 'boolean',
-            description: 'Indicates whether sublist separator is displayed.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        customPropertySublistLineLength: {
-            control: 'number',
-            description: 'Indicates the length of the line in percentage terms.',
-            table: {
-                type: { summary: 'number' },
-                defaultValue: { summary: '25' }
-            },
-        },
         pageLayout: {
             control: 'select',
             options: ['sidebyside', 'vertical'],
@@ -95,20 +43,6 @@ export default {
             },
         },
     }
-};
-
-export const Choice = {
-    args: {
-        pageLayout: 'sidebyside',
-    },
-    render: (args) => ChoiceHtml(args),
-};
-
-export const ChoiceSublists = {
-    args: {
-        pageLayout: 'sidebyside',
-    },
-    render: (args) => ChoiceSublistsHtml(args),
 };
 
 export const ChoiceOtherSpecify = {

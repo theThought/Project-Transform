@@ -11,93 +11,7 @@ const style = `
 </style>
 `;
 
-export const ChoiceHtml = (args) => `
-${style}
-<form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
-    data-paste="true"
->
-
-<div class="surroundcontent">
-
-    <div class="o-question-container focused cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
-
-        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
-
-        <script>app.RegisterProperties("_QTypesVsBroadsheetsSingle",{
-            "balance":{
-"state":${args.customPropertyBalanceState === true ? 'true' : 'false'},
-"min-width":${args.customPropertyBalanceMinWidth}},
-            "onesize":{
-"state":${args.customPropertyOneSizeState === true ? 'true' : 'false'},
-"max-width":${args.customPropertyOneSizeMaxWidth}
-        }});</script>
-
-        <div class="m-question-cover"><!-- cover --></div>
-
-        ${htmlFragmentMessageError}
-        <div class="o-question-core">
-            <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
-                <div class="o-question-information">
-                    <div class="o-question-information-content">Which of the following papers have you read in the last month?</div>
-                </div>
-                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
-            </div>
-            <div class="o-question-response">
-                <questions data-position="below">
-                    <question data-position="below">
-
-                        <div class="o-question-response o-question-choice" data-questiongroup="_QTypesVsBroadsheetsSingle" data-readonly="false" data-position="below">
-                            <script>app.registerComponent('oQuestionChoice', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
-
-                            <div data-exclusive="true" data-questionid="_Q0_C0_S0" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
-                                <script>app.registerComponent('mOptionBase', '_Q0_C0_S0', '_QTypesVsBroadsheetsSingle');</script>
-                                <input class="hiddencontrol" type="radio" name="_QTypesVsBroadsheetsSingle_Cmail" id="_Q0_C0_S0" style="" value="mail">
-                                <label for="_Q0_C0_S0">
-                                    <span class="a-icon-multistate" data-icontype="single">
-                                        <!--This is a comment!-->
-                                    </span>
-                                    <span class="a-label-option">Daily Mail</span>
-                                </label>
-                            </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C0_S1" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
-                                <script>app.registerComponent('mOptionBase', '_Q0_C0_S1', '_QTypesVsBroadsheetsSingle');</script>
-                                <input class="hiddencontrol" type="radio" name="_QTypesVsBroadsheetsSingle_Cexpress" id="_Q0_C0_S1" style="" value="express">
-                                <label for="_Q0_C0_S1">
-                                    <span class="a-icon-multistate" data-icontype="single">
-                                        <!--This is a comment!-->
-                                    </span>
-                                    <span class="a-label-option">Daily Express</span>
-                                </label>
-                            </div>
-                            <div data-exclusive="true" data-questionid="_Q0_C0_S7" data-questiongroup="_QTypesVsBroadsheetsSingle" data-position="below" data-hidden="false" class="m-option-base below cover-off" style="" data-checked="false">
-                                <script>app.registerComponent('mOptionBase', '_Q0_C0_S7', '_QTypesVsBroadsheetsSingle');</script>
-                                <input class="hiddencontrol" type="radio" name="_QTypesVsBroadsheetsSingle_CMetro" id="_Q0_C0_S7" style="" value="Metro">
-                                <label for="_Q0_C0_S7">
-                                    <span class="a-icon-multistate" data-icontype="single">
-                                        <!--This is a comment!-->
-                                    </span>
-                                    <span class="a-label-option">Metro</span>
-                                </label>
-                            </div>
-
-                        </div>
-                    </question>
-                </questions>
-            </div>
-        </div>
-        ${htmlFragmentMessageInstruction}
-
-    </div>
-</div>
-
-</form>
-`;
-
-export const ChoiceSublistsHtml = (args) => `
+export const ChoiceCustomPropertiesHtml = (args) => `
 ${style}
 <form action="#"
     class="
@@ -131,7 +45,9 @@ ${style}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
-                    <div class="o-question-information-content">Where was the test performed?</div>
+                    <div class="o-question-information-content">
+                        Choice question with custom properties (e.g. balance, onesize, sublistline)
+                    </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
             </div>
@@ -276,22 +192,15 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer', '_Q0', '_QTypesVsBroadsheetsSingle');</script>
 
-        <script>app.RegisterProperties("_QTypesVsBroadsheetsSingle",{
-            "balance":{
-"state":${args.customPropertyBalanceState === true ? 'true' : 'false'},
-"min-width":${args.customPropertyBalanceMinWidth}},
-            "onesize":{
-"state":${args.customPropertyOneSizeState === true ? 'true' : 'false'},
-"max-width":${args.customPropertyOneSizeMaxWidth}
-        }});</script>
-
         <div class="m-question-cover"><!-- cover --></div>
 
         ${htmlFragmentMessageError}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
                 <div class="o-question-information">
-                    <div class="o-question-information-content">Which of the following papers have you read in the last month?</div>
+                    <div class="o-question-information-content">
+                        Choice question with "other specify" option
+                    </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
             </div>
