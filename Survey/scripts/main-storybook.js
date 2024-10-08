@@ -1,11 +1,11 @@
+/* This is a copy of "main.js" for use in Storybook "preview-head.html". */
 define(
     function () {
         var initInterval = 300;
         var initRuns = 0;
         var initEmpy = 0;
-        var initLimit = 10;
 
-        var initTimer = setInterval(componentsReady, initInterval);
+        setInterval(componentsReady, initInterval);
 
         function componentsReady () {
             initRuns++;
@@ -15,10 +15,6 @@ define(
                 initEmpy++;
             } else {
                 console.info('Calling init for ' + i + ' components');
-            }
-
-            if (initEmpy >= initLimit) {
-                // clearInterval(initTimer);
             }
 
             while (i--) {
