@@ -8,6 +8,11 @@ const style = `
     .surroundcontent {
         min-height: fit-content;
     }
+
+    /* Storybook strips out inline <script> preceeding "m-option-base", so need to add margin back. */
+    .m-option-base:first-child {
+        margin-bottom: 4px;
+    }
 </style>
 `;
 
@@ -27,10 +32,10 @@ ${style}
         <script>app.RegisterProperties("_Qtest__location",{
             "balance":{
 "state":${args.customPropertyBalanceState === true ? 'true' : 'false'},
-"min-width":${args.customPropertyBalanceMinWidth}},
+"min-width":"${args.customPropertyBalanceMinWidth}"},
             "onesize":{
 "state":${args.customPropertyOneSizeState === true ? 'true' : 'false'},
-"max-width":${args.customPropertyOneSizeMaxWidth}},
+"max-width":"${args.customPropertyOneSizeMaxWidth}"},
             "sublistline":{
 "state":${args.customPropertySublistLineState === true ? 'true' : 'false'},
 "length":${args.customPropertySublistLineLength}
