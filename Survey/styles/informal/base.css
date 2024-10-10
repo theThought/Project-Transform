@@ -1624,23 +1624,23 @@ html[dir=rtl] .balance .m-option-base {
   border-bottom: 1px solid #DEC7E8;
 }
 
-.separator-length-10 > .o-option-sublist + .o-option-sublist::after {
+.separator-length-10 > .o-option-sublist::after {
   width: 10%;
 }
 
-.separator-length-25 > .o-option-sublist + .o-option-sublist::after {
+.separator-length-25 > .o-option-sublist::after {
   width: 25%;
 }
 
-.separator-length-50 > .o-option-sublist + .o-option-sublist::after {
+.separator-length-50 > .o-option-sublist::after {
   width: 50%;
 }
 
-.separator-length-75 > .o-option-sublist + .o-option-sublist::after {
+.separator-length-75 > .o-option-sublist::after {
   width: 75%;
 }
 
-.separator-length-100 > .o-option-sublist + .o-option-sublist::after {
+.separator-length-100 > .o-option-sublist::after {
   width: 100%;
 }
 
