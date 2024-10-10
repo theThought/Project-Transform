@@ -7,7 +7,11 @@ on:
     paths: [
       'Storybook/.storybook/**',
       'Storybook/stories/**',
-      'Storybook/public/**'
+      'Storybook/public/**',
+      'Survey/fonts/**',
+      'Survey/images/**',
+      'Survey/scripts/**',
+      'Survey/styles/**'
     ]
   # Allows workflow to be run manually from the Actions tab on GitHub.
   workflow_dispatch:
