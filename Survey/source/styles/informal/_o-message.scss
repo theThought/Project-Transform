@@ -67,7 +67,7 @@ details[open] summary:after {
     }
 }
 
-.m-message-instruction.has-content div,
+.m-message-instruction.has-content > div,
 .o-message-information.has-content {
     position: relative;
     margin-bottom: .5em;
@@ -108,7 +108,7 @@ details[open] summary:after {
     }
 }
 
-html[dir="rtl"] .m-message-instruction.has-content div {
+html[dir="rtl"] .m-message-instruction.has-content > div {
     padding: globals.$default-padding 32px globals.$default-padding 16px;
 
     &::before {

@@ -6,6 +6,9 @@
     "last 2 versions",
     "ie >= 10"
   ],
+  "scripts": {
+    "gulp": "gulp"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
     "eslint": "^8.56.0",
