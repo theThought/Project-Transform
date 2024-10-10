@@ -1,4 +1,4 @@
-/* This is a copy of "main.js" for use in Storybook "preview-head.html". */
+/* This is a copy of "main.js" for use in Storybook's "preview-head.html". */
 define(
     function () {
         var initInterval = 300;
