@@ -1241,7 +1241,7 @@
                   <xsl:text>;</xsl:text>
                </xsl:attribute>
             </xsl:if>
-            <!-- Commented out until mlist is supported in droplist
+            <!-- Previously commented out until mlist is supported in droplist -->
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName" select="'mList'" />
                <xsl:with-param name="qElementID">
@@ -1251,7 +1251,6 @@
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
-            -->
             <xsl:for-each select="Category">
                <xsl:element name="li">
                   <xsl:attribute name="class">a-option-list</xsl:attribute>
