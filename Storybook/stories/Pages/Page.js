@@ -3,6 +3,14 @@ import {
     htmlFragmentMessageInstruction,
 } from '../_htmlFragments';
 
+const style = `
+<style>
+    .surroundcontent {
+        min-height: fit-content;
+    }
+</style>
+`;
+
 export const PageLayoutHtml = (args) => `
 <form action="#"
     class="
