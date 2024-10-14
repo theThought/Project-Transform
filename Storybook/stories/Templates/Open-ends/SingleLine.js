@@ -77,8 +77,6 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QQuestionWithLotsOfCodes');</script>
 
-        <script>app.RegisterProperties("_QQuestionWithLotsOfCodes",{"balance":{"state":true}, "onesize":{"state":true}});</script>
-
         <div class="m-question-cover"><!-- cover --></div>
 
         ${htmlFragmentMessageError}
