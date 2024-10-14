@@ -1,0 +1,93 @@
+# Transform Project v1.90
+Healthcare Transformation project for Dimensions Surveys
+
+This release includes the normal round of issue resolutions, but it also introduces new question types.  There are minor changes to the templates and question.xsl but these are just in the class of fixes and so are not sigificnat.
+
+## New Features
+We are introducing two new question types.  They both have some issues and so they are being introduced as draft to allow you to try and provide some feedback.
+
+
+### Vertical Slider
+This is a rotated version of the horizontal slider which has been available for some time.  It has been introduced as part of a package of changes that are preparing us for the release of some new grid layouts.  The custom properties for this slider are the same as for the horizontal slider.  The only difference in implementation is the zIndex applied.
+
+The zIndex applied for horizontal slider is -50
+The zIndex applied for vertical slider is -51
+
+The following is an example question.  All sliders use long question types as their base.
+#### Metadata
+```
+   HowManyMissedV "How many of the last 10 visits did you miss"
+        style(
+            ZIndex = -51
+        )
+    long [0 .. 100];
+```
+
+#### Custom Properties
+```
+AddCustomProperties(HowManyMissedV, "HowManyMissedV", "{'values':{'min':0,'max':100},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "replace")
+```
+
+Values sets the min/max range of the slider.  The values can be positive or negative as long as max is numerically larger than min.
+Show: indicates whether certain visual elements are included in the slider (tickmarks, tickmark labels, terminators).  Each of these has a true/false setting where false is the default.
+Ticklabels
+
+
+### Horizontal Scale
+This is a draft question type, its not yet ready for production use.  We are releasing simply so you can give us some feedback as we go through the next round of improvements.
+
+The base question used for this is exactly the same as slider questions, however only positive numbers can be used.  The custom properties are different tho, they are described below.
+
+The zIndex for this is -55
+
+#### Metadata
+```
+Passive10Scale "Indicate your satisfaction with this wash"
+        style(
+            ZIndex = -55,
+            Width = "80%"
+        )
+    long [1 .. 10];
+```
+The width of the input can be used to control the width of the scale.  It is a max-width in this case, so the scale will not exceed 80% of the width of the available area.  80% is the default max-width if one is not provided.
+
+#### Custom properties
+```
+{'values':{'min':1,'max':10,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}
+```
+values (min/max): indicates the values that are assigned to each unit.  They must be positive numbers.  They are optional
+
+position: options are inside, above, below, none.  The default is inside.
+
+unit:  This is the definition of the image/shape that is repeated for each whole number between the min/max values.  At this time images are not supported (they are coming later) and so the url and caption of the image are not shown.
+
+background:  This is the definition of the image that appears behind the units.  This is not currently supported, it will be added later
+
+labels:  These are pre/post labels similar to those used in other question types.  Currently they are placed, automatically, below the control.  In later versions this position will be adjustable.
+
+### Categorical Grids now support ticking the cell
+Previously categorical questions presented in a grid would only allow the user to click on the checkbox or radio button control.  Users are now able to click anywhere on the cell that surrounds the control
+
+
+## Issue Resolved
+
+### long option labels don't wrap in balance (not onesize)
+Choice questions with long option labels would not wrap when balance was applied but onesize was not.
+
+### subdivider to first option gap wrong when balanced
+The spacing above options immediately following a spacer was too small when the question was presented with balanced options.
+
+### horizontal sliders don't default to 100% width
+As we adjusted the way sliders are sized, we temporarily lost the default of 100% of available width.
+
+### Double row headers have too many divider lines
+Double row Header now have just one horizontal line under neath the header
+
+### Information panel not visible in vertical
+This has been fixed by the application of a hotfix, we will be returning to the layout templates in a future release to increase flexibility
+
+### Instructions not visible in vertical
+This has been fixed by the application of a hotfix, we will be returning to the layout templates in a future release to increase flexibility
+
+### Combo-box was not filtering
+For some reason combo-boxes stopped filtering in the last release.  This has been resolved.

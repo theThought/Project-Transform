@@ -1,0 +1,25 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.82 release
+This is the first release of 2024.  Its focus is on fixing a few bugs, but it also makes a number of subtle changes to prepare for future developments.  This is particluarly the case with the Informal theme were we have been improving the atomic structure of components.
+
+## New Featues
+New thumbs have been generated for sliders, while these are not necessarily ones you will want to use they demonstrate the ability to change the shape and size of the thumb on a slider
+
+### Drop Up, Drop down v2
+We are releasing the second development for dropdowns and combo-boxes where the drop-up/drop-down facility is now aware of the size of the window and the position of the control within that window.  Now if a dropdown is not near the bottom of the question, but is near the bottom of the window, it will drop-up rather than down.
+
+## Issues resolved
+
+### Reset to null is not working when whole grids are made visible/invisible
+The team continues to work on resolving issues with visiblity, the current focus is on grids, where the entire grid is made visible/invisible.  It was found that whole grid visiblity was causing issues when resettonull:false was set.  This should be resetting to the value on load but it was resetting to a null value.
+
+### Drop Up, Drop down v1 improvments
+There was an issue with dropdowns and combo-boxes where (within a grid) the last row would work correctly but the penultimate row did not position the list correctly 
+
+### Improvements to Informal
+A raft of improvements have been made to choice and input controls within the informal theme, some of these have also resulted in minor adjustments to the formal theme.  These include:
+- correct alignment of choice options to headings
+- correct sizing of focus rectangles for options with other specify
+- correct formatting for read-only questions with other specify
+- one size works when read-only options are included 

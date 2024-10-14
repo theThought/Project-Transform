@@ -1,0 +1,101 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys v1.60
+
+## New Features
+This release provides the new visibility functionality.  This is a significant rework of the old functionality and requires a change to the way that rules are written.
+This means that there are some changes required to the functions that need to be included in the mdd.  There are changes to one function plus an additional function:
+
+### Changed Function (replace the existing function with this)
+
+```
+function SetCustomProperties(theQuestion, theQuestionName, theBannerContent, theAction)
+dim quote
+dim bannerArray
+dim bannerContent
+	if theAction is null then theAction = "replace"
+	
+	quote = ChrW(34)
+	debug.Log(MakeString("start banner content:", theBannerContent))
+	bannerContent = theBannerContent.Replace("'", quote).Replace("%%","'").Replace("<","%lt%").Replace(">","%gt%")
+	debug.Log(MakeString("complete banner content:", bannerContent))
+	
+	bannerContent = MakeString("<script type='text/javascript'>", "app.RegisterProperties(", quote, theQuestionName, quote, ",", bannerContent, ");</script>")
+	debug.Log(MakeString("final banner content:", bannerContent))
+	
+	if theAction <> "replace" then
+		theQuestion.Banners["CustomProperties"].text = MakeString(theQuestion.Banners["CustomProperties"].text, bannerContent)
+	else
+		theQuestion.Banners["CustomProperties"].text = bannerContent
+	end if
+end function
+```
+### New function (add this to your mdd)
+```
+function CreateVisibilityRule(theRule)
+dim newString 
+	newString = theRule.replace("'", "%%")
+	CreateVisibilityRule = newString
+end function
+```
+
+The rules themselves are also written differently when applied to a question.  the CreateVisibilityRule helps with the making of a rule.  The following is an exmaple taken from the transform.mdd
+
+```
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_smoked','yes_vaped')")
+AddCustomProperties(DidyouPreviously, "DidyouPreviously", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+```
+
+As the resulting custom properties includes strings within strings, we need to ensure that the browser understand which are to be wrapped in double-quotes and which are wrapped in single-quotes.  However, we did not want to make the scripter's life more complex and so we ask them to always use single-quotes.  The CreateVisibilityRule converts these (within the rule) to '%%' so that they can be distinguished from the single-quotes the scriptwriter uses for the rest of the custom properties.
+
+As the custom properties are assigned to the question via the AddCustomProperties function so these are rationalised out to a string similar to the one below:
+```
+<script type='text/javascript'>app.RegisterProperties("_QDidyouPreviously",{"visible":{"collapse":true,"rules":"Doyou_smoke.containsAny('Yes_smoked','yes_vaped')"}});</script>
+
+```
+
+### Rule constructs
+This new functionality allows rules to be written as a single string, no matter how complex.  AND and OR expressions are currently supported as are Brackets.
+In addition standard mathematical operands are supported Greater than (>), less than (<), less than or equal to (<=), greateer than or equal to (>=), equals (=) and not equals (<>)
+
+The solution also supports special functions for categorical questions:
+ContainsAny (any one or more of the provided list of options is selected)
+ContainsAll (all of the provided list of options is selected)
+ContainsNone (None of the provided list of options is selected)
+
+The smoke page has several examples of different combinations, as shown below:
+
+```
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked')")
+addCustomProperties(smokecigars, "smokecigars", MakeString("{'separator':true, 'onesize':{'state':true},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'Select an answer','visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigars')")
+addCustomProperties(brandswhich, "brandswhich", MakeString("{'separator':true, 'balanced':{'state':true},'onesize':{'state':true},'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigarettes')")
+AddCustomProperties(Howmanysmoked, "Howmanysmoked", MakeString("{'separator':false, 'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
+AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Howmanysmoked >= 30")
+AddCustomProperties(Weekendpercentage, "Weekendpercentage",MakeString("{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true, 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked') and smokecigars.containsAny('cigarettes') and Howmanysmoked <= 0")
+AddCustomProperties(PleaseReview, "PleaseReview", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
+AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_smoked','yes_vaped')")
+AddCustomProperties(DidyouPreviously, "DidyouPreviously", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+
+AddCustomProperties(DrugComboSingle, "DrugComboSingle", "{'displayicon':true,'onesize':{'state':true},'jumptofirstletter':true,'listsize':4,'showanswers':false,'type':'dropdown','placeholder':'Select first drug'}", "replace")
+```
+
+### Visibility Rules in grids
+Support for Visibility rules based on answers in grids, is still supported.  The same concept of identifying an iteration and a option is used in the new rules.  The following is an example where visibility is driven by a specific option in a specific iteration of a grid
+
+```
+	currentRule = CreateVisibilityRule("Cleanliness_QNetPromoterResult.containsAny('rating10')")
+addCustomProperties(NetPromoterComment, "NetPromoterComment", MakeString("{'visible':{'collapse':false,'rules':'", currentRule, "'}}"), "replace")
+```

@@ -1,0 +1,258 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+
+This is the release covering Development Sprint 9
+
+## New Features
+The following features were added to this release:
+
+### ReadWrite Question Type
+A new singlelineedit question type has been created.  It has been given the zIndex - 21.  It is called a ReadWriteEdit and it is used to read information from the browser and store intormation within the browser.  It is invisible by default without having to apply any visibility rules.
+
+### Warnings
+The ReadWriteEdit question is invisible, this has consequences: 
+
+- If there are issues reading the value and storing it within the supplied question (for example the value being read is too large for the question), then an error will occur and the user will not be able to proceed.  This is a known issue and will be resolved in a future release.
+
+- ReadWriteEdit questions should always be used alongside other questions within a page.  This can be simple information questions that just tell the user something is going on or should be part of a form.
+
+
+### Write to Local Storage
+You can now write to local storage using the ReadWriteEdit question type.  To perform a write you have to setup the following custom Properties
+```
+{"write":{"destination":"LocalStorage","name":"firstname"}}
+
+```
+Currently write only supports one destination: LocalStorage 
+This functionality generates a name:value pair in local storage, overwriting any existing matching name:value pair.
+The name property defines the name in the name:value pair 
+The content of the question defines the value in the name:value pair 
+
+```
+WriteFirstName "First Name:"
+        style(
+            ZIndex = -21
+        )
+    text [0..100];
+```
+```
+WriteFirstName.response = "Kevin"
+AddCustomProperties(WriteFirstName, "WriteFirstName", "{'write':{'destination':'LocalStorage','name':'firstname'}}", "replace")
+```
+
+The above example applies a value to a question and then defines that question as a read/write question
+The custom properties indicate that this value should be stored in local storage under the name "firstname" 
+
+### Read from Local Storage 
+You can now read from local storage and store the value in a question.  This operation is perfomed using the ReadWriteEdit Question type.  To perform a read you have to setup the following custom properties 
+
+```
+{"read":{"source":"LocalStorage","value":"surname"}}
+```
+
+Currently, read supports two sources:
+- LocalStorage
+- UserAgent 
+
+This functionality reads the value from a name:value pair and stores the result in the provided question 
+
+```
+ReadSurname "Surname:"
+        style(
+            ZIndex = -21
+        )
+    text [0..100];
+
+```
+```
+AddCustomProperties(ReadSurname, "ReadSurname", "{'read':{'source':'LocalStorage','value':'surname'}}", "replace")
+
+```
+This example setups a ReadSurname question and asks the system to read the surname value from LocalStoreage and store it in the question.
+
+### Obtain values from a UserAgent
+It is also possible to obtains specific values from the UserAgent.  It should be recognised that recent changes in browser technology means that UserAgent strings are an unreliable method of determining the type of device being used.  They are ok if only indicative metrics are required, but they should not be used to deteremine functionality and should be expected to be inaccurate.
+
+There are three elements to the UserAgent string that can be extracted:
+
+- Browser
+- Operating system
+- Display (width and height)
+
+```
+ReadDisplay "Display Dimensions"
+        style(
+            ZIndex = -21
+        )
+    text [0..50];
+
+```
+
+```
+AddCustomProperties(ReadDisplay, "ReadDisplay", "{'read':{'source':'UserAgent','value':'Display'}}", "replace")
+```
+
+The three value options are:
+- Browser
+- OperatingSystem
+- Display
+
+### Instructions
+It is now possible to put Instructions into questions.  This is done using the Instruction banner.  Any content injected into this banner is considered an instruction and is formatted appropriately.
+The updated question.htm question template places the instruction between the question text and the response controls.  This is considered the default location for instructions.
+
+For those situations where instructions should appear at the top of the question (above the question text), an additional question template has been provided.  As can be seen by comparing these two question templates, information placement can be controlled by the location of the banner within the question definition:
+
+```
+<div class='o-question-instruction'>
+	<mrData QuestionElement="Banner"  Name="Instruction" />
+</div>
+```
+
+To ensure Instructions are formatted correctly, but don't take up any space when empty, the following code needs to be added to the mdd shell
+
+```
+function PadInstruction(theBanner)
+	if theBanner.text.Left("3") <> "<p>" then theBanner.text = MakeString("<p>", theBanner.text, "</p>")
+end function
+```
+
+This function is called by a modified onBeforeQuestionAsk
+
+```
+
+function onBeforeQuestionAsk(theQuestion, theIOM)
+dim currentName, currentFullname, currentType, currentOrder
+dim registerBanner
+dim numberOfSubQuestions, counter, subQuestion, subName
+dim InstructionBanner
+
+currentname = theQuestion.QuestionName 
+currentfullname = theQuestion.QuestionFullName
+currenttype = theQuestion.QuestionType
+
+	if theQuestion.QuestionType <> QuestionTypes.qtPage then
+		CreateBanner(theQuestion, "RegisterContainer")
+		theQuestion.Banners["RegisterContainer"].text = ""
+
+		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
+	else
+		numberOfSubQuestions = theQuestion.count 
+		for counter = 0 to numberOfSubQuestions - 1
+			set subQuestion = theQuestion[counter]
+			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
+
+			CreateBanner(subQuestion, "RegisterContainer")
+			subQuestion.Banners["RegisterContainer"].text = ""
+
+			BuildRegisterContainer(subQuestion, counter, subName)
+		Next
+	end if	
+	
+	set instructionBanner = FindBanner(theQuestion, "Instruction")
+	if instructionBanner <> null then
+		PadInstruction(instructionBanner)
+	end if
+	
+end function
+```
+
+### Readonly inputs
+The readonly attribute is now supported in singlelineedit inputs (zIndex = -20).  This applies to both standalone questions and questions in a grid.
+ReadOnly questions do not have a box around the input, to make it clear they can not be edited.  However they still support pre/post labels.
+
+### Page Custom Properties
+Page Custom Properties are now included.  These are to be used to control the whole page or all the questions on the page. 
+To ensure that Page Custom Properties are appearing you need to include the Page Custom Properties banner in the page template.  This has been done to all the existing templates.  This Banner insert should be at the top of the <body> section of the html, before any other content
+
+```
+<mrBannerText Name="PageCustomProperties" />
+```
+### SideBySide Proportion Control
+Using the Page Custom Properties it is possible to control the balance of questions and responses in a side by side grid.  The default balance is 40/60, 40% of the horizontal space is taken with questions, 60% with responses.  This can be adjusted by defining the proportion of horizontal question space, the remainder will be used for responses.
+
+```
+PageJSON_Create(IOM, "{'sidebyside':25}")
+```
+The above example sets a 25/75 balance with responses taking up to 75% of the available width
+A new function has been added to the mdd shell to create the relevant content 
+
+```
+function PageJSON_Create(theIOM, theJSON)
+dim pageBanner
+dim quote
+dim scriptStart, scriptEnd
+	scriptStart = "<script>app.RegisterProperties('Page',"
+	scriptEnd = ")</script>"
+	quote = ChrW(34)
+	set pageBanner = theIOM.Banners["PageCustomProperties"]
+	
+	if theJSON <> "" then
+		pageBanner.text = MakeString(scriptStart, theJSON.Replace("'", quote), scriptEnd)
+	else
+		pageBanner.Text = ""
+	end if
+	
+end function
+```
+
+### Pre/post Label support in Totals
+Pre and Post labels can now be added to Totals in a grid.  This is done by defining pre/post labels to the Totals definition:
+```
+{"caption":"% Seen","totals":{"columns":{"visible":true,"caption":"Total","labels":{"post":"%"}}}}
+```
+The formatting and alignment of the totals has been changed to ensure that values align with the responses and pre/post labels align with any included in the main body of the grid (presuming they are the same)
+
+### Improved Navigation button position Control
+It is now possible to place the Quit button in the middle of the page between the previous and next buttons.  This requires a change to the HTML for the navigation on the page template, both the original and the new formats are supported.
+
+* Original Format *
+```
+<div class="footer">
+    <div id="nav-controls" class="btn-container nav-center">
+        <div id="nextonly">
+            <mrNavButton Name="Next">Next</mrNavButton>
+        </div>
+        <div id="prevstop">
+            <mrNavButton Name="Prev">Previous</mrNavButton>
+            <mrNavButton Name="Stop">Stop</mrNavButton>
+        </div>
+    </div>
+    <div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
+</div>
+```
+
+* New Format *
+```
+<div class="footer">
+	<div id="nav-controls" class="btn-container nav-center">
+        <mrNavButton Name="Next">Next</mrNavButton>
+        <mrNavButton Name="Stop">Stop</mrNavButton>
+        <mrNavButton Name="Prev">Previous</mrNavButton>
+    </div>
+	<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
+</div>
+```
+
+### Headings for Single column/row tables
+To overcome the issue in Dimensions where single column/row grids do not have a heading for the single column/row, the Table caption funtionality has been adjusted.
+If a grid is given a caption and there is only one row or column in the grid then the caption is used as a heading for that row/column rather than as the caption for the grid.
+
+```
+{'caption':'% Seen'}
+```
+
+## Issue Fixes
+The following reported issues were fixed in this release:
+
+### Submit Buttons
+Submit buttons have been returned to their original functionality. They now always submit on click.  It is not possible to have two of these questions on the same page 
+
+### Controlling Button Width
+It is now possible to set the width of a button, as long as onesize state is set to false {"onesize":{"state":false}} then any width styling applied to a button will be honoured.
+
+### Interation Heading formatting
+Iteration headings in grids now have the correct formatting
+
+### Improved Visibility control 
+Improvements have been made to the way visibility works to ensure that questions appear when required and preserve their values at the right time.

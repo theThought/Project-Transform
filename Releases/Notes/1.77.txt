@@ -1,0 +1,56 @@
+# v1.77 release
+This release provides a range of formatting fixes around errors both in stand alone questions and grids, it also delivers new functionality for dropdowns
+
+## New Designs
+There has been progress on the implementation of Right to Left (RTL).  The design team have been working on a new Design Kit that provides details on how atoms, molecules, organisms and templates will function in the Right to Left engagement.  They first focused on Fonts and discovered that the default fonts (Karla, Merriweather) don't actually support Arabic and so had to be replaced (to ensure control).  They are being replaced by Rubik which looks similar to Karla.  Rubik will also be used for titles a second font will not be deployed so that the implementation of arabic's characters is kept simple and clear
+
+## New Functionality
+There is a contention between the design of combo-boxes and their current implementation.  To resolve this the filter functionality used in combo-box has been applied to dropdown.  This is based on the filtertype custom property.  The default of this custom property is none which delivers the standard dropdown functionality (select based on first character).  This creates continuity with previous releases.
+
+
+### Filtertype:Starts
+When the custom property filtertype is set to starts then dropdowns no longer jump to first character but filter the list based on the typed characters.  In addition to the filtertype custom property, the researcher can set the noitemsinlist custom property to display a message when the typed entry does not match any entries.  With filtertype set to starts, typing filters to any items in the list whose starting characters match the typed characters.
+
+```
+{'filtertype':'starts','noitemsinlist':'no items start in this way'}
+```
+
+### Filtertype:Contains
+When the custom property filtertype is set to contains then dropdowns no longer jump to first character but filter the list based on the typed characters.  In addition to the filtertype custom property, the researcher can set the noitemsinlist custom property to display a message when the typed entry does not match any entries.  With filtertype set to contains, typing filters to any items in the list that contain the typed characters.
+
+```
+{'filtertype':'contains','noitemsinlist':'no items contain this combination'}
+```
+### Errors in Grids now shaded consistently
+When errors are displayed in grids they are held in their own row. This ensures that the integrety of the input control design is maintained.  If alternate row shading was implemented and errors occured, this affected the shading and made it look like errors did not belong to their relevant inputs.  Now an error row, when it appears, takes the same shading as its relevant input row.  Alternative row shading now only applies to input rows, to ensure it remains consistent with tables that don't show errors.
+
+### Horizontal scrolling for wide questions
+Questions that are wider than the screen now scroll horizontally.  They obtain a scrollbar that is independent of other questions.  This retains the look and feel of the question focus formatting and ensures the whole table can be accessed even on narrow screens.
+
+
+## Issue Resolution
+The following known issues have been resolved
+
+### Error messages have set widths
+Error messages and other system messages had been allocated a set width which would cause error messages to wrap even when there was space available to the right.
+
+### Error messages have inconsistent vertical spacing
+The vertical spacing and padding of various system messages were inconsistent with error messages taking up more vertical space than was expected.
+
+### Errors generated when a question has no controls
+New functionality added in v1.76 caused issues when questions with no controls (information questions) we included in the page.  This was both the case when only information questions were used and when they were used in combination with other questions.
+
+### Row and Column Titles are not correctly formatting
+At some point a release had implemented Merriweather font for table headings (rows and columns).
+
+### HTML 4 elements create line breaks 
+When deprecated HTML4 elements were included in text content it would cause line breaks.  The expectation is that HTML4 deprecated elements will no longer be used, but to support legacy surveys this has been resolved.
+
+## Deprecation
+Now that the new Dropdown and combo-box quwestion types have been fully implemented and approved, the old designs (based on option choices) have been deprecated.
+
+### option-based dropdowns
+These are no longer supported
+
+### option-based combo-boxes
+These are no longer supported

@@ -1,0 +1,42 @@
+# Transform Project - v1.89
+Healthcare Transformation project for Dimensions Surveys
+
+This release is mostly adjustments and bug fixing of existing issues, there are no significant new features.
+
+## New Features
+
+
+## Issue Resolution
+
+### Options made invisible are not de-selected from the answer
+This issue affected t-choice, t-droplist and t-combobox.  There were two key issue, the first and main issue was that an off-path option was retained in the answer, but also the team discovered a secondary issue where off-path options were shown in the list when the page first loaded.
+
+### Instruction position could not be controlled effectively
+the team continue to improve the control of the instructions so that they can now be positioned anywhere within the question by changing the question template.  The question templates have been updated.  The last oustanding issue was forcing items on the right side of side-by-side view even when there was no item on the left.
+
+### Page properties not always available
+Some page templates did not contain the PageProperties banner, it has now been placed in the same place for all page templates.
+
+### dynamic labels are not showing HTML
+This was a combination of issues.  Firstly the transformation of escaped special codes was not being handled causing the json structure not to be recognised properly.  In addition it was identified that Healthcare creates these banners using labels (so that they can be translated).  In a label the use of inverted commas was not handled consistently.  Consequently a change is required within the label.  The following is an example of the correct implementation.
+
+bold is expressed in inverted commas 'bold', however these become confused with the inverted commas used in the json structure.  To differentiate %% is placed into the string instead of the inverted comma.  However % is a special code in the metadata and so three are required rather than two.
+
+```
+DynamicLabel1 "How many <span class=%%%bold%%%>bananas</span> did you eat last week" info;
+```
+
+### Visibility on a grid not being applied correctly to radio buttons
+This issue is now resolved
+
+### Thumb does not change whne special codes are used
+In slider questions the the thumb needs to change when a special code is selected to make it clear that the value is not being recorded.  Now when the slider is used and then a special code is selected the visual of the thumb changes.  The user can click on the slide to make it active again, (removing any selection from the special code), once active the respondent can interact with it as normal.
+
+### Grid Caption not displayed correctly in two row tables
+This was caused by the system mistakenly seeing a two row table as a single variable row orientated table.  The system now uses the orientation flag to determine row orientated tables.
+
+### Buttons are not functioning properly
+This was caused by an invalid allocation of the data-questionid property.  It was not recording the category, which was causing issues with selection.
+
+### Rows missing when missing answer errors are displayed
+This was an issue caused by the changes made to the question.xsl.  The additional row caused the system to mis-calculate the size of the table and so skip the row containing the question control.

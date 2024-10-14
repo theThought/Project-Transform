@@ -1,0 +1,117 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+
+## New Features
+
+### Dynmaic Labels
+We have implemented Dynamic labels within the custom properties allowing multiple alternative labels to be allocated to a question with associated visibility rules.
+Dynamic labels are expected to have rules that are mutually exclusive, so only one label is shown at a time, but this is not necessary and support for multiple labels is provided.
+Where multiple labels are shown they can be underneath each other (block:true) or side by side (block:false). In both cases the order in which the rules appear is defined by the order in the custom properties.
+
+There is no limit to the number of rules that can be created, it is also possible to have labels that have no rules (which means they would always be visible).  This would allow for complex sentence construction.
+
+The following is an example JSON structure for a question that has dynamic labels, in this case visibility is defined by another question that is present on the same page:
+
+Custom Properties:
+```
+{
+  "separator": true,
+  "labels": {
+    "alternatives": [
+      {
+        "name": "fruitBanana",
+        "label": "Banana",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "FruitSelection.containsAny('Banana')"
+        }
+      },
+      {
+        "name": "fruitApple",
+        "label": "Apple",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "FruitSelection.containsAny('Apple')"
+        }
+      },
+      {
+        "name": "fruitOrange",
+        "label": "Orange",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "FruitSelection.containsAny('Orange')"
+        }
+      },
+      {
+        "name": "fruitkiwi",
+        "label": "kiwi fruit",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "FruitSelection.containsAny('kiwi')"
+        }
+      }
+    ],
+    "separator": ", "
+  },
+  "onesize": {
+    "state": true
+  },
+  "visible": {
+    "collapse": true,
+    "rules": "FruitSelection.containsAny('Banana','Apple','Orange','Kiwi','Satsuma','Grapes','Pineapple','Grapefruit','Mango')"
+  },
+  "options": {
+    "invisible": [
+      {
+        "name": "Banana",
+        "rules": "FruitSelection.containsNone('Banana')"
+      },
+      {
+        "name": "Apple",
+        "rules": "FruitSelection.containsNone('Apple')"
+      },
+      {
+        "name": "Orange",
+        "rules": "FruitSelection.containsNone('Orange')"
+      },
+      {
+        "name": "kiwi",
+        "rules": "FruitSelection.containsNone('kiwi')"
+      }
+    ]
+  }
+}
+```
+Rules can be generated using the CreatVisibilityRule function provided for Question Visibility
+
+
+### Multiple RegisterProperties
+It is now possible to write multiple AddCustomProperty functions for the same question.  The custom properties will be merged together.
+Each custom property rules has to be well structured with properties correctly placed within the overall json structure.
+
+the following example shows two calls for the same question, notice the replace value for the first call (replacing any existing properties) and the add value fo the others:
+
+```
+addCustomProperties(SecondChoice, "SecondChoice", MakeString("{'filter':{'source':'FirstChoice','exclusions':['otherpaper']}}"), "replace")
+addCustomProperties(SecondChoice, "SecondChoice", MakeString("{'separator':true,'onesize':{'state':true}"), "add")
+addCustomProperties(SecondChoice, "SecondChoice", MakeString("{'onesize':{'max-width':'10px'}}"), "add")
+addCustomProperties(SecondChoice, "SecondChoice", MakeString("{'balance':{'state':true}}"), "add")
+```
+
+
+## Bug Fixes
+
+### Vertical Spacing on choice Questions
+A couple of weeks ago an issue was raised regarding inconsistencies in the vertical spacing of options when balance is applied and the option list spans multiple defined lists.
+While that was solved in a previous release, we noticed that there was also an issue when sublists are used and headings are applied.  This has now been fixed
+
+
+### Slider Tick mark labels are missing
+Tick marks and tick mark labels had disappeared from sliders, they are now back.  There are no changes required to scripts, this was just a zIndex bug in the presentation of teh slider
+
+### Sliders are not working
+Sliders were not operating at all for a while, you could see the track but not interact with it, this has been resolved

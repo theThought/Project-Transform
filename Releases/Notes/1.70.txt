@@ -1,0 +1,75 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys.
+
+# v1.7 release
+
+Before I provide details of this release, I want to explain that the structure of the release has changed.  Previously we provided a survey.zip that contained all the survey assets and a transform.mdd that contained our example study.  In this release and going forwards we have combined those into a single zip called transform.zip.  It has all the survey assets and the transform.mdd that were used in our transform study.  In this way they can be more easily published while still providing you with access to the individual survey assets.
+
+## New Features
+
+### New Look for combo-boxes
+Combo-boxes now look like droplists.  When they do not have the focus they look like single-line edit input boxes.  When they have the focus the list is revealed below the input.  The user is still able to do first and contains character searches to limit the items in the list and messages still appear in the list if not enough characters have been typed or there are no items that match the filter.
+
+### Default dropdown widths based on list content
+Droplists now look at the content of the list to determine their width, if no width has been set in Dimensions.  If there are multiple dropdowns on the page, then each is independently sized.
+
+### Combo-box now supports exact match
+A new custom property has been introduced for combo-boxes.  Exact determines whether the text in the input section must match an item in the list for that item to be selected.  When this is set to true (the default) and an option is already selected, then the selected items text is shown in the input, if this is changed (either text is added or removed). then the item is deselected. Another item is not selected until the text matches that item. 
+
+### Codes can now be shown as radio buttons not checkboxes
+Special codes are traditionally shown as checkboxes, now the researcher can ask them to be displayed as radio buttons.  They do this by changing the type in Dimensions. The following is an example:
+
+metadata
+```
+hospital_days2Codes "Over the past 3 months, how many days has the patient spent in the hospital due to their cancer?"
+    style(
+        ZIndex = -20,
+        Width = "4em"
+    )
+long [0 .. 92]
+codes(
+{
+    unknown style(control(type="radiobutton")) "Unknown" DK,
+    refuse style(control(type="radiobutton")) "I refuse to answer" REF
+} );
+
+```
+In this case the two special codes included in the question are displayed as radiobuttons.  As radiobuttons they are unable to dismiss themselves, therfore they can only be dismissed by selecting another special code or making an entry in the original input (in this case a singleline edit input box).
+
+### Reset to page's loading value
+Previously, and still the default, a question when made invisible, will reset its value to null.  This is to protect the researcher from the issue of off-path data being stored as valid data.
+
+Now, if the question had a value when the page was first loaded, it is possible to reset the question's value to the one it had when the page first loaded.
+This is achieved through a propoerty called resettonull.  When set to true (the default), questions made invisible will reset to a null value.  When set to false they will reset to the value they had when the page first loaded (which could be null).
+
+### Question support side/below
+Questions can now be placed side by side as well as below each other.  The elementAlign property for a question is now supported.  Setting this property to NewLine (the default) puts a question below other questions.  The setting Right puts the question on the same line as the previous question.
+
+The following example is the setup required for a British postcode, which requires two input boxes.  This solution requires both of the inputs (left and right) to be given elementalign = "right".  This is because it tells the browser not to put either box on its own line, so allowing them to appear beside each other.
+
+```
+    PostCodeBlockII "" block fields
+    (
+        PostCodeLeft "Post code"
+            style(
+                ZIndex = -20,
+                elementalign = "right"
+                width="5em"
+            )
+        text [0..5];
+
+        PostCodeRight ""
+            style(
+                ZIndex = -20,
+                elementalign = "right"
+                width="5em"
+            )
+        text [0..5];
+    );
+```
+
+## Bug Fixes
+
+### First letter matching on dropdowns
+There was an issue with first letter matching on dropdowns that has been resolved.  When the user clicks the dropdown the arrow keys and first character of any item can be used to select items.
+

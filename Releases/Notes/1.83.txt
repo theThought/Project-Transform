@@ -1,0 +1,34 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.83 Release
+
+## New Features
+
+### Custom Thumbs
+The functionality for custom thumbs is now complete. It is possible to provide absolute or relative paths for the location of the file to be used as a custom thumb.  The file has to be an SVG file.
+For relative urls, the starting position is the folder that contains the styles.  To get to the folder containing the images the scriptwriter has to go up two levels and then provide the images/[theme]/filename structure where [theme] is either Formal or Informal.
+
+The following is an example of the AddCustomProperties function required to set a thumb using a relative url:
+```
+AddCustomProperties(HowManyMissed, "HowManyMissed", "{'thumb':{'image':'../../images/" + lcase(format(CustomList_SetTheme,"b")) + "/range-thumb-solid.svg'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true}", "add")
+```
+
+It this example a choice question called CustomList_SetTheme is used to decide the theme in the study.  If the team want to add their own custom thumbs they would probably use a full url rather than a relative one.
+
+### PWA Page property
+We are going to introduce Progressive Web App support over the next few weeks.  This will look to fragment the interaction between Dimensions and the UI.  An intermediate layer between the two will be added.  It will handle the interaction with Dimensions.  It is hoped that this will provide some performance enhancements especially in relation to pages that submit data with errors. 
+
+## Issues Resolved
+
+### Default thumb (formal)
+The last release did not include the new default thumb.  This version sees the solid pink centred thumb as the default.  A number of custom thumbs have been added.  The most notable is the crown.  this is named after the control on an Apple watch that can be rotated.
+
+### Wrongly sized focus box (question)
+When questions (normally grids) are wider than the browser window, there is an issue with the formatting of the container for the question.  The container stopped at the edge of the browser and so the question was forced to go over the boundary of the question.  While this did not cause any technical issue, it did look wrong.  Now the container can detect when a question is wider than the screen and adjust to the size of the question, rather than the width of the browser window
+
+### Placeholders and special codes
+There were a few minor issues with placeholders when special codes were deployed.  As a result, sometimes the data held temporarily in the special code did not make it back to the question when the special code selection was removed.
+
+### Improvements to informal
+We completed our review of the choice and input question types for Informal and made a number of small changes to ensure the functionality works in the same way betweeen both themes.
+

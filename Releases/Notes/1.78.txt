@@ -1,0 +1,37 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.78 release
+
+## New Features
+
+### Right to Left Support
+This release includes the first version of right to left support.  Right to Left required changes to fonts (as the ones being used did not support arabic) and changes to CSS settings.  It also requires a change to the HTML page.  The majority of these changes are implemented in this release meaning that scriptwriters do not have to worry about them.  The exception is the HTML page.  For a page to display right to left it must add a dir (direction) attibute to the <HTML> tag.
+
+This release includes a new Page.htm called Page_RTL.htm.  This includes the relevant change to the <HTML> tag and can be used for the base of any other page templates that need to be created to support Right to Left.
+
+### Deprecation of all old combo-box and dropdown controls
+The old style combo-box and dropdown controls that were based on m-option-base have now been deprecated and will no longer function.  All the CSS and Javascript has been cleaned to ensure that rogue code is no longer included in the release.
+
+### Informal Theme support
+The first steps to implementing the informal theme have been introduced in this release.  Not all the pieces are in place yet and so we are not actually launching this theme for you to use.  But we wanted to make clear that many of the CSS settings have been implemented to support both the Formal (current) and Informal (new) themes.
+
+### Local Google Fonts
+As this solution extends into China, there was some concern about whether the fonts being used (which are Google fonts) would work consistently through the Technology Wall that surrounds China.  As a result the fonts are now being loaded into the study (a new folder called fonts).  Now the fonts are referenced locally and not via Google's website and so the Technology Wall should not be an issue.
+## Issue Resolution
+
+### Cascading Invisibility Rule issues
+There have been several reports of issues with invisibility rules on complex pages. The team have worked through these issues and implemented a number of changes.  This feature requires further testing by the team to ensure the changes have resolved all outstanding issues.
+
+### HTML tags not expressed correctly in Totals
+HTML tags used in grid totals were not been expressed correctly, often the HTML was exposed.
+
+### Inconsistent font application in grids
+Over time our implementation of fonts in grids has deviated from the rules defined in the Design Guide.  We have reviewed all these settings and made the relevant adjustments.
+
+### Balance places items incorrectly
+There was an issue when balance was used in conjunction with an instruction message that caused the options to appear to the right of the instruction.
+
+### Performance issues with large dropdowns and combo-boxes
+Due to the sequencing of events and the update of the UI, the respondent seemed to have to wait for a long time before their actions showed up on the screen.  The triggering of events has been delayed slightly to allow the UI to update the screen first.  This makes the whole UI much more snappy.
+
+

@@ -1,0 +1,22 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+v1.62 release
+
+# new features
+## Grids with no headers do not show a header border
+While this is a new feature, it is really the first step in producing dynamic label support for grids.
+The team are building studies that have compound questions (questions that contain two or more points of input).
+Examples include two dropdowns (Month and Year) or an input and dropdown (value and measure)
+Today, grids are used to layout these compound questions.  The grids have a grid label that acts as the question label, but no iteration or question labels
+Borders on the table should not be visible when these labels are missing and so they are now suppressed 
+
+# bug fixes
+## sliders are working again
+There was an issue with the rendering of sliders.  This has now been resolved
+However, sliders are missing ticklabels, but this is a cosmetic issue and so will be resolved later
+
+## Pages were not loading fully
+Some complex pages were not loading fully.  The cover was not lifting when the question had finished rendering.  This has now been resolved
+
+## Grids of dropdowns were not loading fully
+We have beem making continuous improvements to the performance of dropdowns and comboboxes.  The lastest improvements ensure that the pages load more quickly and the cover raises when it is supposed to.

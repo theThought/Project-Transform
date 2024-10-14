@@ -1,0 +1,168 @@
+# Transform Project v1.74
+Healthcare Transformation project for Dimensions Surveys
+
+The mainstay of this release is a new version of the dropdown control, however to ensure that they are aligned properly it also includes updates to the combbobox control.  This includes a simplification of the way that these two controls are setup in the survey.
+
+There have been several variations of dropdown and combobox controls these are being deprecated with immediate effect and are replaced by this new simpler implementation.
+
+As a result the list of zIndex settings has been adjusted to the following;
+
+-10 Information
+-20 SingleLineEdit
+-21 ReadWriteEdit 
+-22 Decimal
+-30 MultiLineEdit
+-40 Choice
+-50 Slider
+-60 DropDown
+-70 Combobox
+
+## New Features
+The following are new features implemented and pro-active adjustments to existing features
+
+### dropdown control
+A brand new dropdown control has been created and allocated to zIndex 60.  All previous versions of the droplist and rapid droplist controls have been deprecated and no longer function.  Due to this the scripting requirements have been simplified.
+
+The purpose of a dropdown control is to provide a list of options from which the respondent has to pick.  The respondent must pick one of the items in the list if they answer the question, there is no option to enter a different value.
+
+When the control gains the focus the list is immediately revealed.  If the control already has a value the list scrolls (if necessary to show that selection).  The respondent is allowed to select by scrolling and tapping or by typing.  When they type a single character the first item matching that character is selected and displayed.  The respondent may select based on multiple characters as long as the characters are typed in quick succession, any pause in typing will result in the next character being seen as the first character in the selection process and so the next item selected will be the one that starts with that character.
+
+It is also possible to change the selection using the up/down arrow keys, whether or not character based selection was used.
+
+When the focus leaves the dropdown the selected item is displayed at the top of the control.  Only single selection is allowed.
+
+When defining a dropdown question in the metadata, the researcher must use a categorical question type.  The list of options within that question type are created as an unordered list in the HTML, which in turn is formatted to create the droplist affect.  When a respondent selects an option the option with that name is selected within Dimensions.
+
+The question needs to be assigned a "droplist" control type, this ensures the correct html content is created.  The zIndex should be set to -60.  This is shown in the following example:
+
+#### Metadata
+```
+choicedroplist "droplist question"
+    style(
+        ZIndex = -60,
+        Control(
+            Type = "DropList"
+        )
+    )
+    categorical [..1]
+    {
+        first "first",
+        second "second",
+        third "third"
+    } codes(
+    {
+        notapp "not applicable" NA
+    } );
+```
+
+The custom properties for the dropdown have been simplified as the control is no longer derived from radiobuttons or checkboxes and there are no combobox variations (comboboxes are now delivered in a different way).
+
+The supported custom properties are:
+Listsize - defines the number of items in the list
+Onesize - allows options to be wrapped onto multiple lines
+Placeholder - defines the text to be displayed if no option is selected
+FilterType - currently the only option is none (which is also the default)
+NoItemsInList - provided for future functionality
+ShowAnswers - provided for future functionality
+
+The following is an exmaple:
+```
+AddCustomProperties(DropPapers, "DropPapers", "{'listsize':10,'showanswers':false,'placeholder':'Select a paper'}", "replace")
+```
+
+### combobox control
+The current use of the combobox control is technically incorrect and this is causing some UI/UX issues, this will be resolved in a future release.  In preparation for that work the combobox control has been adjusted so that it very closely aligns to the dropdown control.  This includes changing the way its setup in the survey.
+
+The current functionality of the combobox control has not changed, it still needs to obtain a list of options and does so by being based off a categorical question.  The options in the categorical question are used to create an unordered list which is formatted to look like the combobox droplist.
+
+Unlike dropdown, currently, the combobox supports filtering rather than jumptofirstletter.  When a combobox gains the focus it automatically displays the droplist that matches its current selection.  There are options to restrict that list's display until a certain number of characters are typed.  As the user types the list is filtered to only show those options that match either via a start filter or a contains filter.
+
+Previously, combobox questions were built using the droplist control type.  The custom properties then indicated that the type was combobox.  This has been changed.  Combobox questions are now defined using the combolist control type.  This makes the type custom property redundant and so it has been deprecated.
+
+The ZIndex for comboboxes has also been changed it is now set to -70 for all comboboxes.  Here is an example combobox question defined in metadata:
+
+```
+ComboNewProducts "Which of these products best fits your needs"
+    style(
+        ZIndex = -70,
+        Control(
+            Type = "ComboList"
+        )
+    )
+categorical [1..1]
+{
+    use new_productslist sublist -
+    asc
+};
+```
+The Custom properties have been adjusted as the combobox is now a separate control to the dropdown and so properties that existed for use in a dropdown but not a combobox have been removed. The supported custom properties are:
+Listsize - defines the number of items in the list
+Onesize - allows options to be wrapped onto multiple lines
+Placeholder - defines the text to be displayed if no option is selected
+FilterType - Defines how a search filters the list, two options are starts and contains
+MinCharactersforList - How many characters have to be entered before the list appears
+NotEnoughCharacters - Message displayed when not enough characters have been entered
+NoItemsInList - prompt displayed when the search results in no items in the list
+ShowAnswers - provided for future functionality
+DisplayIcon - provided for future functionality
+
+The following is an example:
+```
+AddCustomProperties(ComboNewProducts, "ComboNewProducts", "{'onesize':{'state':false},'listsize':10,'showanswers':false,'mincharactersforlist':0,'notenoughcharacters':'You need to type at least one character of the required drug for options to be listed','filtertype':'starts','placeholder':'','otherquestion':'', 'noitemsinlist':'no items match this filter'}", "replace")
+```
+
+### New formatting for Information banners
+As a agreed the information banners now stand out better on the page by being given an information icon, a different background and bolder text.
+This means that the previous injecting of paragraph marks around an information banner to give it space have been removed.  This affects a function in the mdd.  The following function has been edited and needs to be replaced.
+
+```
+function onBeforeQuestionAsk(theQuestion, theIOM)
+dim currentName, currentFullname, currentType, currentOrder
+dim registerBanner
+dim numberOfSubQuestions, counter, subQuestion, subName
+dim InstructionBanner, warningBanner
+
+currentname = theQuestion.QuestionName 
+currentfullname = theQuestion.QuestionFullName
+currenttype = theQuestion.QuestionType
+	select case(thequestion.QuestionType)
+	case QuestionTypes.qtBlock, QuestionTypes.qtPage
+		numberOfSubQuestions = theQuestion.count 
+		for counter = 0 to numberOfSubQuestions - 1
+			set subQuestion = theQuestion[counter]
+			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
+
+			CreateBanner(subQuestion, "RegisterContainer")
+			subQuestion.Banners["RegisterContainer"].text = ""
+
+			BuildRegisterContainer(subQuestion, counter, subName)
+
+		Next	
+		case else 
+			CreateBanner(theQuestion, "RegisterContainer")
+			theQuestion.Banners["RegisterContainer"].text = ""
+	'this may need to loop for a table (sub questions) as in the non page version
+			BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
+	
+		end select
+end function
+
+```
+
+## Issues Resolved
+The following are bugs raised by the team that have now been resolved.
+
+### Invisibility - question blocks are not collapsing
+Questions with invisibility rules were always showing (the block in which they were contained was not collapsing).  This means that the collapse:true custom property was not being honoured.  This has now been resolved.
+
+### special codes lose their selection when their input gains the focus
+When an input gained the focus it was removing the selection from an special codes.  This was the correct action if the input contained a value, but if it was empty it should not take the selection away.  This issue has been corrected while preserving the ability to toggle on/off a previously entered value.
+
+### Vertical totals in grids are not aligned correctly
+There were some alignment issues with inputs totals and grids, these have now been resolved.  There are still some edge case issues when columns are forced to be wide but their input is only narrow.  These need additional functionality to be added to the totals custom property.  This has been noted and will be included in a future release.
+
+### Questions with no visible control should not get the focus
+If a question is actually just information and so there is no control that gets the focus, there is no need for the respondent to click on these questions, if they do it should be ignored.  The question will not receive the question focus or the control focus.
+
+### Side by side question text is too close to the accompanying question content
+In grid questions where there was long text wrapping onto two or more lines, there was insufficient distance between the edge of the text and the grid making it difficult to read.  The distance has now been doubled.  There is an option to add a vertical break in a later release if that is also required.

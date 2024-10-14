@@ -1,0 +1,25 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+
+## New Features
+
+### Slider Thumbs are now SVG based
+Previously the thumb of a slider is shape/icon.  This did not allow for transparency support within the thumb.  The thumb has now been upgraded with the existing icons replaced by Vector definitions that does support transparency.  Later custom properties will be added to the slider question to allow the thumb design to change.  Currently only the defaults are available.
+
+### Informal question type support expanded
+The team continues to expand the footprint of the informal theme.  They are building out the designs for each question type and building a new design system to allow it to be fully documented.  The informal theme can be accessed using the informal.htm layout template, however its not yet ready for production.
+
+### Dimensions 7.5 ready
+As part of the Ipsos programme around preparing for Dimensions 7.5, the latest internal scripts have been run and tested on Dimensions 7.5.  We are pleased to inform the team that all the tests past without the need for any change to any element of the system.  We are Dimensions 7.5 ready.
+
+## Issues Resolved
+
+### Horizontal scrolling - wide grids
+There was an issue with wide grids with dropdowns/combo-boxes where scrolling caused the droplist to become separated from the main input.  This was resolved but the fix broke the user experience for controls at the bottom of the grid.  The team reversed the previous work and implemented a different approach.  Both issues are now resolved.
+
+### Cascading visibility rules
+We continue to make changes to visibility to ensure that cascading visibility rules are working correctly.  The latest focus has been on grids where there is a dropdown/combo-box and an other specify input two or more rows.  There were issues with data being lost and, responses being nulled and data not being hydrated correctly.  These have all been resolved.
+
+
+### Right to Left on side by side
+The Right to Left implementation was originally tested on Vertical design, side by side seemed to not fully operate.  Previously the questions remained on the left rather than moving to the right.

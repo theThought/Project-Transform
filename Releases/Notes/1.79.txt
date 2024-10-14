@@ -1,0 +1,39 @@
+# v1.79
+Healthcare Transformation project for Dimensions Surveys
+
+This release focuses on fixing a number of outstanding issues
+
+## New Features
+None
+
+## Issues Resolved
+
+### Slider questions store an answer when not answered
+When a slider question is presented but not answered (for example the user clicks the previous button without answering), the slider is assigned a value.  The actual value assigned was 50, but the min/max properties could affect that resulting in one of these values being assigned, incorrectly.
+
+This issue was resolved by adding an extra property to all inputs.  data-value is a new attribute that contains the loaded value, this is returned back to Dimensions if the question was not answered.
+
+### Local fonts not loading correctly
+There is a CORS (cross-origin resource) error occuring when the study is run locally and the fonts are retrieved locally.  This requires a configuration change on the servers to resolve.  It was only affecting local work not live projects and as local work is only performed outside China it was identified that the best and quickest resolution was to re-implement Google fonts but have a graceful degradation of fonts to local ones if the Google ones fail.
+
+The following has been implemented in the style sheets to resolve the issue.  The first three lines aim to load the google fonts, with alternative local font access if this does not work.
+
+```
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+@font-face {
+  font-family: "KarlaLocal";
+  src: url("../fonts/karla-v30-latin-regular.eot");
+  src: url("../fonts/karla-v30-latin-regular.woff"), url("../fonts/karla-v30-latin-regular.ttf") format("truetype");
+}
+```
+
+### Up/Down arrows were not progressing correctly through filtered lists
+When a combo-box or dropdown has a contains filter applied a non-continuous list of options is displayed.  The up/down arrow keys were navigating through all options and not just the visible ones, this meant the user had to press these keys several times to move through the lists.  Navigation via up/down has been resolved so that it occurs through only the visible options.
+
+### Ticklabels are not displayed correctly
+Ticklabels had developed a fault (in sliders) where every value was being shown with a ticklabel even when the custom properties indicated that ticklabels should appear at intervals of multiple values.
+
+### droplists on scrolled tables disconnected from combo-boxes
+In large tables that can not fit horizontally there is a need to add a scrollbar to the question.  When this scrollbar is used on a grid containing dropdowns and/or combo-boxes then the droplist (showing options) can become disconnected from the main control.

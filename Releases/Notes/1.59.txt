@@ -1,0 +1,12 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.59 Release
+
+## New Features
+none
+
+## Issue Resolution
+There have been performance issues around Droplists and Combolists.  This has been particularly noticable when these questions are deployed in Grids
+
+The creation mechanism for these questions has been refactored and tested against the examples provided by the business.
+

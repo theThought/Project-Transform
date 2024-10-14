@@ -1,0 +1,23 @@
+# V1.68 Release
+## New Features
+The following new features were implemented:
+### Errors in Grids
+This release sees a partial implementation of the new presentation of errors in grids.  Previously, errors introduced into a grid on rehydration of a question (when clicking next identifies errors and returns the page) were placed in the same cell as the input.
+This causes massive alignment issues within the grid making it almost impossible to read.
+In this implementation the errors are moved into their own row which is added above the row that originally contained the error.  Separating them in this way makes alignment easier.
+However, the formatting of the page is now off, totals are added to the error rows (when row totals are applied), this needs to be suppressed.  Alternate line formatting includes the error rows (they should be ignored), the formatting of the error row should be adjusted to put the error closer to the relevant line (below) and further from the line above.
+These formatting changes will be applied in a future release.
+### Filters not fully implemented for droplists
+Filters were only implemented for combo-boxes.  The feature has now been extended to droplists.
+### Arrow keys are not supported in droplists
+Arrow keys are now supported in droplists to align them with arrow key support in combo-boxes
+## Issue Resolution
+The following issues were resolved:
+### Droplists and combo-boxes don’t display lists when initially invisible
+When a page containing droplists or combo-boxes loads, the width of the question is calculated, including the width of the droplist.  When the question is invisible these calculations were wrong causing the list to be 1 pixel wide.  Widths are now recalculated when the question is made visible.
+### Combo-boxes using automatic width don’t provide enough space for content
+The calculated width provided for a combo-box that does not have a pre-defined width was not taking into account the presence of the dropdown button.  More space has been provided to ensure the full text can be seen.
+### Checkbox grids do not allow multi-selection
+This was an issue found by the developer and has been resolved.
+### Previously selected options made invisible are not de-selected
+When an option in a combo-box is made invisible its selection should be removed as it is now effectively off-path.  This has been resolved.

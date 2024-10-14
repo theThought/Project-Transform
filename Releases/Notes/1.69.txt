@@ -1,0 +1,78 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+#v1.69 Release
+This release is combination of bug fixes and new features.
+
+##New Features
+
+### New look for combo-boxes
+The looks and feel of a combo-box has now changed.  When the control does not have the focus it looks like a normal single-line edit.  When it has the focus the drop list is automatically revealed to show the list of options (or a message to say why a list of options is not available).
+
+### Dynamic Labels for grid questions
+Dynamic Labels now support grid questions.  When the label for a grid (at the top of the grid, not a row label), needs to be dynamic the custom property should reference the name of the grid.
+
+* Example Custom Property *
+```
+labelRule[0] = MakeString("{'name':'first','label':'", PlannedSessionsLabel1.label.text, "','block':true,'visible':{'collapse':true,'rules':'", CreateVisibilityRule("SessionsPlanned.containsAny('Past')"),"'}}")
+labelRule[1] = MakeString("{'name':'second','label':'", PlannedSessionsLabel2.label.text, "','block':true,'visible':{'collapse':true,'rules':'", CreateVisibilityRule("SessionsPlanned.containsAny('Future')"),"'}}")
+labelRuleItems = MakeString("'labels':{'alternatives':[", labelRule[0], ",", labelRule[1], "],'separator':''}")
+
+AddCustomProperties(MonthyeargridNumericLoop, "MonthyeargridNumericLoop", MakeString("{", labelRuleItems, "}"),"add")
+```
+
+### Side by Side special codes
+Special codes can now be placed side by side.  They honour balance settings but there are a few issues with one-size on IE10.  To place a special code to the right of an input apply the align right style to the control in the metadata.  This is due to the support of the elemntAlign property which can be set to Right or newLine.
+
+At this time this only applies to special codes within a question and not to questions themselves.  This feature will be implemented later.
+
+* Example metadata *
+```
+avgROS1clinicalTrialPts "<span class=""QText2"">You have previously reported having an average of {#insAvgROS1clinNum} <b>Stage IIIB/IV ROS1+</b> patients on a clinical trial for their rare mutation cancer. Please confirm that the figure is still accurate or edit if you estimate having a lower or higher number of <b>Stage IIIB/IV ROS1+ NSCLC</b> patients enrolled on a clinical trial.</span>"
+    style(
+        ZIndex = -20,
+        Width = "2em"
+    )
+long [0 .. 99]
+codes(
+{
+    aligned "still aligned"
+        style(
+            ElementAlign = "Right"
+        )
+    exclusive
+} );
+```
+
+### Step Attribute
+The solution now supports the step attribute for number type inputs.  This allows the scriptwriter to indicate the supported number of decimal places in an input.  If a question is given a number type in the custom properties, it will, by default, be restricted to zero decimal places.  Applying a custom property called step allows the scriptwriter to allocate a different number of decimal places.
+
+* Example custom property *
+```
+AddCustomProperties(Income, "Income", "{'type':'number','step':'0.01','labels':{'pre':'£'}}", "replace")
+```
+
+### Capture value on load
+A question now captures and retains its initial value when the page loads. This requires no scriptwriting change, it is automatic for all questions.
+
+### Reset to onLoad when invisible
+When a question is made invisible it can either reset its value to null or it can reset it to the value it had when the page loaded.  This can be controlled by the scriptwriter at a qusetion level using custom properties. To retain backward compatability the default setting is reset to null, this could be changed.
+
+In the following example resettonull has been set to false, this means that the question will reset to its load value when the question is made invisible by either visibility or invisibility rules.
+* Example custom property *
+```
+	addCustomProperties(choicetext, "choicetext", "{'resettonull':false}", "add")
+```
+
+## Bug Fixes
+
+### Read-onlu controls
+This functionality has beeb re-written to better support individual question types.  Now all question types should support both read-only and show modes, whether stand-alone or within a grid.
+
+### Read-only for special codes
+When a question is both read-only and has special codes then the special code checkboxes honour the read-only status.
+
+### Dynamic Labels supported in side-by-side view
+A review of dynamic labels has ensured that these work in side-by-side view.  The issue was caused by an out of date question-side-by-side.htm question template.  The content of this template has been brought into line with the question template to make sure dynamic labels work.
+
+### Other specify falls onto second line
+There was an on-going issue where other specify input boxes in a categorical quesiton would fall onto a second line, this has now been resolved.

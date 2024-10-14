@@ -1,0 +1,58 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+
+The last release before 2024 fixes a number of long-standing bugs.  But it also introduces a new file structure for the implementation.  This means that when upgrading from a previous version, it is strongly recommended that all previous files are deleted, otherwise files will be duplicated in different locations.  It also means that amended layout templates will have to be adjusted as they will point in the wrong locations for the files they require.
+
+## New Features
+
+### Separation of Themes
+The formal and informal themes have been separated.  Previously, the individual files affected by thematic changes were named either formal or informal, however fonts were simply mixed together.  Now each folder that may contain different files for each theme have been given formal/informal sub-folders.  Into these folders all the relevant files for the theme have been placed.
+
+There are no shared theme-agnostic files except in scripts where theme is not relevant.  If a file is used by both themes it has been placed within both sub-folders.  This enables better isolation of themes so that you don't have to load both of them, if one is not required.  It also ensures that future themes are not forced to have shared files that are not relevant to that theme but are relevant to others.
+
+### pop up not down
+Dropdown and combo-boxes are now able to detect whether they are too close to the page footer for pop-down to work.  In these cases the controls pop up instead.
+
+### Change the slider thumb
+There is a new set of custom properties for slider thumbs, these allow the researcher to change the image that is used for the thumb.  Several images have been provided but more can be added.
+
+```
+{'thumb':{'image':'relative file location','width':32,'height':32}}
+```
+At this time only relative file locations are supported, meaning that the relevant image should be in the theme sub-folder of the images folder. 
+
+Default images are provided.  In Informal this is the image previously used (tear-drop with white centre).  In formal the default has been changed to a circle with a teal centre.
+
+Other files that have been added to the formal theme:
+- range-thumb-transparent
+- range-thumb-whitecentre
+- range-thumb-tealcentre
+
+Other files that have been added to the informal theme:
+- range-thumb-solid
+
+The width and height properties are recognised, but not used, at the present time.
+
+### SVG images for thumbs
+Previously, thumbs were png files.  They have now changed to SVG files.  This provides more flexbility and quicker loading times.  All the existing files have been transformed.  Should researchers want new thumbs they should generate svg files.
+
+## Issues Resolved
+
+### Other specify in a grid does not retain its value
+A long standing issue where combinations of dropdown and other specify in a grid were not working correctly was resolved by realising that control values were being changed when controls were being made visible.  The resettonull process that resets a control value should only be run when a control passes from a visible state to an invisible state.  Because they were also being run when a control passes from an invisible state to a visible state they were performing tasks that were not required.
+
+### Dropdowns and combo-boxes in collapsed grids are the wrong size when made visible
+When a whole grid is being made visible or invisible actions on the questions being held within the grid were not being triggered.  As a result controls that were not visible when the page loaded were not sized based on their content correctly.  Improvements to the bubbling of events have been made to ensure that these question types are made aware when the grid in which they sit is made visible to ensure they are sized at that time.
+
+### flood to fill not always visible
+There was an issue with floodtofill on sliders where either the floodtofill value was always visible or was never visible.
+
+### Focus missing on some inputs
+Inputs that has pre/post labels did not always show control focus
+
+### Control focus on slider overlaps with data mark labels
+The control focus for a slider was incorrectly presented causing it to conflict, visually, with the data mark labels when they were visible.  The focus for the slider has been brought into line with other controls.
+
+### inconsistent border around some inputs
+Some inputs with pre/post labels had inconsistent borders, some border edges looked twice as thick as others.
+

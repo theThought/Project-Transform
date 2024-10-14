@@ -1,0 +1,72 @@
+# Transform Project v1.88
+Healthcare Transformation project for Dimensions Surveys
+
+This release is dominated by a technical debt revision of question.xsl.  Large parts of the transform process have been re-written to resolve a number of HTML issues that were causing controls to have issues with exclusives and sub-questions.  This is the first of two adjustments to this file, the second one will open the door to a raft of new question types.
+
+## New Features
+
+### Dividers in sublists
+Sub-lists in choice questions can now have dividers that clearly separate options within a sublist from other options and from other sublists.  The divider appeaars as a dotted line, the length of which can be set to 10, 25, 50 or 75 percent of the width of the question.  The divider works in all layout modes.  By default its is currently turned on with a length of 25%.  Both of these settings can be adjusted by custom properties.
+
+```json
+{'sublistline': {
+    'state': true,
+    'length': '40'
+}}
+```
+
+The sublist divider is only used when sublists are applied to a question.  If a defined list contains sublists but the sublist keyword is not used, then the line does not appear.
+
+```
+choicewithoutdividers "This question does not show sublists" categorical[1]
+{
+    use sublist1,
+    use sublist2,
+    otheroption other
+};
+
+choicewithdividers "this questions does show sublists" categorical[1]
+{
+    use sublist1 sublist,
+    use sublist2 sublist,
+    otheroption other
+}
+```
+
+### Grids with headings and subheadings now supported
+Questions where sublists are used to create double row/column headings are now supported.  There are a few minor formatting issues that will be resolved in a future release (double underlines on sub-headings for columns), but the basic structure of the table is now created.
+
+This implementation means that nested loops are now supported.  We welcome some examples that we can review to determine whether there are outstanding issues.
+
+### Improved control of question elements layout
+All the question templates have been re-engineered to provide greater control of the layout.  This is most noticeable on side by side with the different elements now implementable in any location.  The only rule is that the question text and the question control should be aligned, but even that can be changed by adjusting the question template.
+
+## Issues Resolved
+
+### Pages of Blocks
+There were a number of issues encountered when displaying a Page of block questions.  The re-engineering of question.xsl has resolved these issues.  It is now possible to show a single or multiple blocks on a page.
+
+### Information pop-up background colour
+The background colour for the pop-up background was semi-transparent which caused issues when an pop-up is displayed over existing content.  The background for the details has now been made opaque but its colour continues to match the semi-opaque summary.
+
+### Information pop-up does not show on a hidden question
+If a pop-up was applied to a question that was hidden when the page loaded, then when the question was made visible the pop-up remained invisible.
+
+### Long questions are exceeding their focus
+If a single question, even when not in a grid, was wider than the page, causing horizontal scrolling to be required, then the question escaped the bounds of its focus container.  
+
+### exclusive issues resolved
+There were an increasing number of issues with exclusive options in questions, whether stand-alone or in a grid.  The re-engineering of the question.xsl has resovled all these issues
+
+### Other specify in a grid not working
+The re-engineering of the question.xsl has also enabled the resolution of outstanding issues with questions acting as other specify options in a grid.  These now appear and disappear as expected.
+
+### double inputs for other specify options
+Where a choice question containing an other specify option was placed in a grid, the other specify showed two inputs.  The second input has now been resolved.
+
+### Option visibility rules not being onhonored on page load
+Combobox and droplists were not honouring visibility rules is the page loaded and the questions were invisible.  When the questions became visible all options were being displayed.
+
+### values not reset when options made invisible
+A selected option made invisible was not being reset at the selection.  When dropdown and combobox questions were being used a selected item, if made invisible the a change in another question, were not being made unselected.
+

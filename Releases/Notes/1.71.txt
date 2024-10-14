@@ -1,0 +1,115 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.71 Release
+
+These releases are coming thick and fast with the hope that they provide you with functioning capability.  There may be some visual issues remaining but most of the functionality issues should be resolved.
+
+## New Features
+
+### Other specify with visibility in a Grid
+At long last we are implementing this feature and letting you have a play.  The features is actually much more than just providing visibility control of an other specify input in a grid also containing a dropdown.  It allows iteration based visibility rules where a rule can be applied to a single control in a specific iteration and can use tests based on other controls in specific iterations.  
+
+In this case it can be used so that when a respondent selects an "other" option from a dropdown then the corresponding other specify input is displayed.  The expection, but its not necessary, is that the two controls are in the same row.
+
+For this to work there has to be a change to one of the standard functions in the mdd shell.  The new function (which replaces the existing one) is as follows:
+
+```
+function AddCustomProperties(theQuestion, theQuestionName, theBannerContent, theAction)
+dim questionName
+
+	questionName = MakeString("_Q", theQuestionName.Replace("_", "__"))
+	questionName = questionName.Replace("__Q","_Q")
+	CreateBanner(theQuestion, "CustomProperties")
+	
+	SetCustomProperties(theQuestion, questionName, theBannerContent, theAction)
+end function
+```
+
+This implementation is all about rule building.  The basic question meta data is straight forward as shown below:
+
+```
+    patienttumours "select the relevant tumour for each of these patients" loop
+    {
+        patient1 "first patient",
+        patient2 "second patient",
+        patient3 "third patient"
+    } fields -
+    (
+        otherspecifylistdropdown "Select the relevant tumour or provide separate details"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [1..1]
+        {
+            lsolidtumors use \\.lsolidtumors -,
+            otheroption "Other Tumour"
+        };
+
+        otherspecifyotherinput "Provide the name of the tumour"
+            style(
+                ZIndex = -20,
+                Control(
+                    Type = "SingleLineEdit"
+                )
+            )
+        text [..200];
+
+    ) expand;
+```
+In this example the grid has three iterations based on a set of categories.  Each iteration contains a dropdown and a singlelineedit (other controls can be used)
+
+The power is in the routing.  Each iteration of the otherspecifyotherinput question needs to have a rule and that rule needs to indicate the specific iteration and name of the singlelineedit and the specific interation and name of the dropdown.  The structure of that naming convention is [IterationName]_Q[QuestionName].  For example an iteration name of patient3 and a questionname of otherspecifyotherinput creates a reference of _patient3_Qotherspecifyotherinput.  Please remmember that these are case sensitive.
+
+In the following routing a look was used to generate each of the three rules.  The size of the loop is based on the count of categories driving the iterations of the grid and so it does not have to change if the number of iterations change.
+
+```
+dim otherspecifyvisibility, otherspecifyvisibility1, otherspecifyvisibility2, otherspecifyvisibility3
+dim tumourCount, tumourCounter, tumourVisibility, tumourID
+	otherspecifyvisibility = CreateVisibilityRule("otherspecifylistdropdown.containsAny('otheroption')")
+	addCustomProperties(otherspecifyotherdropdown, "otherspecifyotherdropdown", MakeString("{'visible':{'collapse':false,'rules':'", otherspecifyvisibility, "'}}"), "replace")
+	
+	currentRule = CreateVisibilityRule("Cleanliness_QNetPromoterResult.containsAny('rating10')")
+addCustomProperties(NetPromoterComment, "NetPromoterComment", MakeString("{'visible':{'collapse':false,'rules':'", currentRule, "'}}"), "replace")
+
+	tumourCount = patientTumours.Categories.Count
+	addCustomProperties(patienttumours, tumourID + "_Qotherspecifyotherinput", MakeString("{}"), "replace")
+
+	for tumourCounter = 0 to tumourCount - 1
+		tumourID = patientTumours.Categories[tumourCounter].Name 
+		tumourVisibility = CreateVisibilityRule(TumourID + "_Qotherspecifylistdropdown.containsAny('otheroption')")
+		addCustomProperties(patienttumours, tumourID + "_Qotherspecifyotherinput", MakeString("{'visible':{'collapse':false,'rules':'", tumourVisibility, "'}}"), "add")
+	Next
+
+	AddCustomProperties(patienttumours, "otherspecifylistdropdown", "{'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select an option'}", "add")
+
+	patientTumours.Ask()
+
+```
+Before the loop there is an AddCustomProperties that just resets the custom properties for the question, the AddCustomProperties function in the loop then uses an add, to accumulate the rules.
+
+### Two new options for eaching content from the user agent string
+We have introduced two new pieces of information that can be obtained from the user agent string.  In fact these are not getting all their information from the user agent string but are using a third party control to translate the contents of the user agent string into the right version number.
+
+It is now possible to obtain:
+The Version of the Operating System
+The Version of the Browser
+
+```
+AddCustomProperties(ReadOSVersion, "ReadOSVersion", "{'read':{'source':'UserAgent','value':'OperatingSystemVersion'}}", "replace")
+AddCustomProperties(ReadBrowserVersion, "ReadBrowserVersion", "{'read':{'source':'UserAgent','value':'BrowserVersion'}}", "replace")
+```
+## Bug Fixes
+
+### Invisible dropdowns should be the correct width when made visible
+While dropdowns now have their width (unless specified) based on the content in the list, this width calculation was not working propertly when the list was invisible.  It is now calculated again when the list becomes visible.
+
+### Dropdowns have strange highlighting on some browsers
+We have made some changes to the way dropdowns work, this should have indirectly resolved this issue.
+
+### Errors not formatted in red in Grids
+We continue to work on the new Error presentation capability for grids to ensure that the introduction of errors does not break the overall look of the table.  There were some errors that were not applying these new rules and so were not formatted correctly.  These have been resolved.
+
+

@@ -1,0 +1,294 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+
+This release covers two months of development work.   There have been some vacations in that time most notably my own and so throughput is down.  The majority of the work is around bug fixes, but the PassiveObservation project has been quite active and so there is work on a number of new question types.
+
+## New Features
+
+### Visibility rule
+Discussions about new question types have identified that more complex questions (which capture data through more than one data point) may require some of the underlying questions to be permanently invisible.  Consequently the visible property now supports the use of the fase() rule which says that visible is always false and so the question will never be seen.  This is different from setting a question's visibility as false within the metadata or routing, because the question is still included on the page and it may still store values, it simply is not a question that the respondent maniuplates directly.
+
+The following is an example of a question being allocated the false() property to make it permanently invisible
+
+````
+	AddCustomProperties(LAProduct, "LAProduct", "{'visible':{'collapse':true,'rules':'false()'}}", "replace")
+````
+
+
+### Long List
+The long list question type is a combo-droplist.  This means that it uses a combination of a textbox for search/entry and a droplist.  It is also the best solution for supporting very long lists.  Rather than load the list into Dimensions metadata the list is held within a separate file.  That list is referenced through a special question template and loaded when the page loads.  This allows the list to be adjusted outside of the normal survey building cycle as any changes are loaded on next usage.
+
+The respondent is able to answer the question by selecting an item from the list (in this mode the question performs in exactly the same way as a standard combobox with a contains search option).  Alternatively the respondent can type text into the search, which does not match any entry within the list and click the enabled confirm button to store that text as their answer.  The confirm button is only enabled when the user has typed a string that is not matched.  If there is at least one match of the string then the confirm button is not enabled.
+
+As a result the question has a text question as a base rather than a categorical question.
+
+#### Metadata
+```
+   brandlist "Provide a description of the product you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200];
+```
+
+The question type index for long list is 25.  So the zIndex is set to -25
+The setting of the control to singlelineedit is optional but cleaner.
+
+#### Routing
+```VB
+	AddCustomProperties(brandlist, "brandlist", "{'displayicon':false,'listsize':12,'list':{'location':'internal','source':'a-list','valuefrom':'name','descriptionfrom':'name'},'showanswers':true,'mincharactersforlist':3,'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.','filtertype':'contains','placeholder':'Describe your drink, include the brand if you know it','noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick','prompts':{'selection':'Brand Identified','listcount':'beverages found'}}", "replace")
+
+    brandlist.QuestionTemplate = "question-database-brandlist.htm"
+    brandlist.Ask()
+```
+
+The question tmeplate is important here as it contains a HTML element that points to the list:
+```HTML
+       <script type="text/javascript" class="a-list" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/brandlist.js">// database list</script> 
+```
+This extra JavaScript snippet points to a JavaScript file that creates the list as a JSON construct.  The structure of the JSON is relatively flexible but it must contain an array at the top level that contains an object for each list item and the list item object must contain at least one text property.  The following is a snippet from the above file.
+
+```JSON
+var barcodelist = {
+    "list": [
+        {
+            "UPC": 101997,
+            "name": "Made/Brewed at home beer",
+            "Category": "Beer"
+        },
+        {
+            "UPC": 101354,
+            "name": "10 Barrel Brewing",
+            "Category": "Beer"
+        }
+    ]}
+```
+
+#### Custom Properties
+
+displayicon':false
+Not currently supported.  This is a placeholder for future functionality
+
+listsize':12
+defines the maimum size of the list.  This value can be reduced is there is not enough space available display the full list
+
+list'
+A number of custom properties defining the source list
+{'location':'internal', 'source':'a-list', 'valuefrom':'name', 'descriptionfrom':'name'}
+
+location:'internal'
+Only internal is currently supported.  This indicates that the definition of the location of the list is defined by the question template.  A later implementation will support an "external" option.  External requires full CORS support between interviewing domain and the one holding the source file.  Internal is supported to avoid CORS issues.
+
+source:'a-list'
+The source for an internal option is a class applied to the script tag included in the question template that describes the source of the list.  Effectively a script tag needs to be included in the question template with a class of the same name as defined in this source property.
+
+valuefrom:'name' 
+The name of the property within the JSON source list that is recorded within the survey
+
+descriptionfrom:'name'
+The name of the property within the JSON source list that is displayed to the respondent.
+
+showanswers:true
+Indicates whether the answers selected or typed are shown at the top of the control.  This is introduced to support multi-answer selection, however multi-answer selection is not yet supported.
+
+mincharactersforlist:3
+The minimum number of characters the respondent has to enter into the search before a list of results is shown
+
+notenoughcharacters:'type at least 3 characters to see a list of products containing what has been typed.'
+The prompt that is displayed when insufficient characters have been entered into the search 
+
+filtertype:'contains'
+The type of filtering of the list.  Contains is the only supported option currently.  As the respondent enters a search term, the system searches the list to find all the options that contain the text typed.
+
+placeholder:'Describe your drink, include the brand if you know it'
+The text entered into the search box as a placeholder (only visible when nothing has been entered into the search input).
+
+noitemsinlist:'There are no drinks of that name in the list, you can accept this answer by tapping the tick'
+The text displayed if there are no items in the list that match the search text entered.
+
+'prompts':{'selection':'Brand Identified','listcount':'beverages found'}
+Two additional prompts supported that are specific to this question type
+
+Selection:'Brand Identified'
+This is not currently supported.  It is a placeholder for future functionality
+
+listcount:'beverages found'
+At the bottom of the list is a count of the number of items matching the current search.  Before this count is a prompt that tells the respondent what this number means.  This property allows the adjustment of that prompt.
+
+### Date/Time Recent
+This is a special question type for entering date/time combinations.  It is specifically focused on the creation of recent dates with the default value usually being the current date/time.  As the functionality of this question type expands there will be options to use it to input different combinations of data.  At this time, however, it only supports date and time as a combination.
+
+In all its implementations there is a major value and a minor value.  In this implementation the major value is Date and the minor value is Time.  In future implementations example major/minor combinations include:
+- Week/Day
+- Month/Day
+- Day/Hour
+- Hour/Minute
+- Year/Month
+
+The control contains two sub-controls, one for the major value and one for the minor value.  The resulting data, however is a single date and so the two values are combined together to generate a date/time combination.
+
+All dates are transmitted in UTC format for consistency across timezones.  The UTC format used is:
+
+YYYY-MM-DDTHH:MM
+
+Four digit year
+two digit month
+two digit day
+T
+two digit hour
+two digit minute
+
+
+#### Metadata
+```
+```
+
+The question type index for long list is 25.  So the zIndex is set to -25
+
+#### Routing
+```VB
+    dateIsNow = Now()
+    When_MinDate.response = UTCFormat(LocaltoUTCTime(dateIsNow - 4), true)
+    When_MaxDate.response = UTCFormat(LocaltoUTCTime(dateIsNow), true)
+    When_Entry.response.initial = UTCFormat(LocaltoUTCTime(dateIsNow), true)
+		
+	
+	When_Entry.validation.function = "When_Validate"
+	AddCustomProperties(When_Entry, "When_Entry", MakeString("{'validation':{'min':'", When_MinDate, "','max':'",When_MaxDate, "'},'show':{'marks':true,'value':true,'terminators':true},'ticklabels':'20%','floodtovalue':false}"), "replace")
+
+	When_Entry.Ask()
+
+```
+
+A custom validation has been created against the question.  This is just to provide messages to the respondent should the date captured be invalid.  In principle the control has been designed to not allow this to happen and so it is just a security mechanism.
+
+```VB
+	function When_Validate (theQuestion, theIOM, theAttempt)
+	if theQuestion.response < theIOM.Questions["When_MinDate"].response then 
+		theQuestion.Errors.AddNew("Invalid date", "Date too long ago")
+		When_Validate = false
+		exit function
+	end if
+	
+	if theQuestion.response > theIOM.Questions["When_MaxDate"].response then
+		theQuestion.Errors.AddNew("Invalid date", "Date in the future")
+		When_Validate = false
+	end if
+	
+	When_Validate = true
+	
+	end function
+```
+
+To help the support of UTC formats, two extra functions have been added.  These construct and de-construct UTC dates.  As standard functions (rather than question specific functions, they are considered part of the code shell for any study)
+
+
+#### Custom Properties
+validation:{'min':'2024-07-01T00:00','max':'2024-07-04T00:00'}
+'min':'2024-07-01T00:00'
+'max':'2024-07-01T00:00'
+'show':{'marks':true,'value':true,'terminators':true}
+'marks':true
+'value':true
+'terminators':true
+'ticklabels':'20%'
+'floodtovalue':false
+
+### UTC date formatting 
+The introduction of date questions that the issues around timezones and different ways of presenting dates means that UTC date format is recommended for all date/time communications.  Unfortunately, Dimensions does not have native support for UTC and so two functions have been introduced to provide basic UTC formatting and deconstruction functionality.
+
+```VB
+	function FormatUTC(theDate, theZIncluded)
+	dim digitYear, digitMonth, digitDay, digitHour, digitMinute, digitSecond
+	dim strYear, strMonth, strDay, strHour, strMinute, strSecond
+	digitYear = YEar(theDate)
+	digitMonth = Month(theDate)
+	digitDay = day(theDate)
+	digitHour = hour(theDate)
+	digitMinute = minute(theDate)
+	digitSecond  = second(theDate)
+	strYear = ctext(digitYear)
+	if digitMonth<10 then 
+		strMonth = "0" + ctext(digitMonth)
+	else
+		strMonth = ctext(digitMonth)
+	end if
+	
+	if digitDay<10 then 
+		strDay = "0" + ctext(digitDay)
+	else
+		strDay = ctext(digitDay)
+	end if
+	
+	if digitHour<10 then 
+		strHour = "0" + ctext(digitHour)
+	else
+		strHour = ctext(digitHour)
+	end if	
+
+	
+	if digitMinute<10 then 
+		strMinute = "0" + ctext(digitMinute)
+	else
+		strMinute = ctext(digitMinute)
+	end if		
+	if theZIncluded then
+		FormatUTC = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00Z")
+	else
+		FormatUTC = MakeString(strYear, "-", strMonth, "-", strDay, "T", strHour, ":", strMinute, ":", "00")
+	end if	
+	end function
+
+function UnFormatUTC(theString)
+	dim findDate, findEnd, findDecimal
+	dim stringDate, stringTime
+	dim convertedDate, convertedTime
+		findDate = theString.Find("T")
+		findEnd = theString.Find("Z")
+		debug.Log("FindDate:" + ctext(findDate))
+		debug.Log("FindEnd:" + ctext(findEnd))
+		
+		if findEnd > -1 then
+			theString = theString.Left(findEnd)
+		end if
+		
+		findDecimal = theString.Find(".",, true)
+		if findDecimal > -1 then
+			theString = theString.Left(findDecimal)
+		end if
+		
+		if findDate > -1 then
+			stringDate = theString.Left(findDate)
+			stringTime = theString.Mid(findDate+1,theString.Len() - findDate)
+			debug.Log("stringDate: " + cText(stringDate))
+			debug.Log("stringTime: " + cText(stringTime))
+		else
+			UnFormatUTC = -1
+			exit function
+		end if
+		
+		convertedDate = cdate(stringDate + " " + stringTime)
+		UnFormatUTC = convertedDate
+	end function	
+```
+
+
+## Bug Fixes
+
+### Information Popup Does not cover all content
+The information popup, by default displays content over the top of other content.  When this happens the popup was not at a high enough level for some content causing it to appear underneath sliders rather than on top of them.
+
+### Jump to First error is not working
+When jumptoerror is set to true and a page is loaded that contains an error, the system is supposed to scroll to make that question visible and ensure that question has the focus.  This was working for grid questions but not for stand alone questions.
+
+### Reset to Null not working when visibility applied to a whole grid
+Sometimes questions were not performing a reset to null correctly when visibilty was applied to a whole grid rather than just an individual question.
+
+### Combo-box too narrow when placed in a grid
+Comboboxes width should be dependent on the content of the list used.  This was the case for standalone questions but not for grid questions.  This was caused by a contention between the width of the question and the width of the grid.  Now the width of the grid is not controlled, but the width of a single column of the grid is limited to the available horizontal space.
+
+### Horizontal Scale does not interact correctly with special codes
+When a combination of horizontal scale and special codes was created the horizontal scale did not recover correctly when a special code was selected.

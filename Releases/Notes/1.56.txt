@@ -1,0 +1,77 @@
+# Transform Project v1.56
+Healthcare Transformation project for Dimensions Surveys
+
+v1.56 Introduces Combobox
+This release introduces the combo box variation for droplist questions.  It is not a perfect implementation, but it does provide the base capabilities.  A number of improvements are defined for the next release, but the base functionality is in place and ready to be tested.
+
+## New Features
+
+### Combobox
+Combobox is not a new question type, it is a variation on the exist droplist question type.  Therefore it is based on a categorical question that provides a list of options.  It allows the researcher to chose to show radio buttons to the respondent and to control the list size.
+
+Where it changes is in the way a respondent locates an option in longer lists.  In droplist jumptofirstletter was implemented.  This allows the respondent to type a letter and the system will jump to the first option that starts with that letter.  In a combo box there is an input control overlaying the droplist, the respondent can type into this input and the items that start with the characters typed will be shown in the list, the remaining options will be filtered out.
+
+A later version will allow the user to use a contains filter (any option that contains the text typed), this first version only supports starts with (any option that starts with the typed text).
+
+There are a number of known issues that will be improved in a future release:
+
+- The input is formatted in the same way as the dropdown and so is not obvious
+- Tapping on the dropdown button allows the user to see the list but not type a filter
+- When the user clicks on the dropdown and then the input the list disappears
+
+The researcher defines the combobox using a zIndex of -60 (same as droplist)
+In the custom properties type is set to combobox 
+When a combobox is defined the jumptofirstletter property is ignored
+A new filtertype property is available (ignored when type = "dropdown"), currently this property only supports the value "starts"
+
+#### Metadata
+The ascending sort applied to the defined list is optional.
+the Controltype "combobox" in Dimensions is NOT used.
+```
+ComboNewProducts "Which of these products best fits your needs"
+        style(
+            ZIndex = -60,
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [1..1]
+    {
+        use new_productslist sublist -
+        asc
+    };
+```
+
+#### routing
+In the custom properties the type is set to "combobox"
+This enables the filtertype property which is set to "starts"
+```
+AddCustomProperties(ComboNewProducts, "ComboNewProducts", "{'displayicon':true,'onesize':{'state':true},'listsize':10,'showanswers':false,'type':'combobox','filtertype':'starts','placeholder':'','otherquestion','', noitemsinlist:'no items match this filter'}", "replace")
+ComboNewProducts.Ask()
+```
+
+### Combobox Grids
+Comboboxes are supported stand alone and in grids.
+
+### HTML support in captions
+
+HTML is supported in Labels in Dimensions, however there have been some issues with HTML embedded into custom properties.  This releases improves this by providing base HTML support.  This means that simple HTML constructs such as <br /> and <p>...</p> work, however, complex constructs such as <span class="test">...</span> do not yet work.  The failure point is attributes within the HTML, this version does not allow attributes to be created, this will be resolved in a future release.
+
+
+## Issues Resolved
+
+### Choice question - other specify missing
+This has been resolved and improved.
+
+### Missing Answer is not Red 
+In certain grids missing answer was either not displayed or was not formatted correctly.
+
+## Additional Information
+There are a few items that are partially resolved.  These partial resolutions are available in this release.
+
+### Slow performance on droplists
+We have made some improvements here, but we really need to see a video showing the issue so we can understand where your issues are.
+
+### Grids allow custom width for columns
+We have implemented a solution for this through better control of the items contained within a column.  UI design suggests that grid column widths should not be controlled bu should just be defined as slightly wider than the width of the contents of the column.  By improving HTML support in captions and adding a property to set the width of a caption we are allowing you better control of the columns contents.  This should resolve the issue, if there are examples where the width of the column needs to be controlled independently of the content of the column can you provide examples.
+

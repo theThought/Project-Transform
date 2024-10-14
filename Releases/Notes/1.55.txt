@@ -1,0 +1,71 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# Healthcare Transform
+v1.5.5 release
+
+## New Features
+We have been working on a number of big implementations, none of these are yet ready for distribution, the features include:
+- combolist (stand alone)
+- loop in loop (choice)
+- loop in loop (open-end)
+- flipped grids
+All of these features are expected to be released in the next release.
+
+### Grid - Improved control of Captions
+We have implemented some additional properties to allow greater control of captions.  Currently this only for Grid captions and not for totals captions (that will be delivered later)
+This allows the researcher to define a width for the caption, which in turn will force wrapping.  This is particularly useful in one-column / one-row grids where the caption is used for the title as it constrains the width of the title.
+This change also means that the structure for call grid captions changes, whether or not additional controls are applied.
+
+In the following example a caption for a grid is set, it is a one-column grid, so the caption is used as a title for the column.  The width of the caption is set to 10em.
+Note the the format for caption has changed it was:
+```
+{'caption':'this is the caption'}
+```
+It is now:
+```
+{'caption':{'content':'this is the caption'}}
+```
+
+This allows an extra parameter for caption which is width.  This sets the width of the caption, it does not set the width for the column.
+
+```
+AddCustomProperties(constantsum, "constantsum", "{'caption':{'content':'% of Patents Seen each day','width':'10em'},'totals':{'columns':{'visible':true,'caption':'Total','labels':{'post':'%'}}}}", "replace")
+
+```
+
+## Issues Resolved
+The focus of this release, therefore is issue fixing.  The following issues have been resolved:
+
+### Complex Grid - Same questionname
+In complex grids (grids where there are two or more questions) the question names for each question have been the same.  This has caused issues with functionality bleeding from one question to another and some custom properties seeming to not apply to questions.  This has now been resolved.  The resolution required a change to Question.xsl.  This file will need to be refreshed in all the studies.
+
+### Complex Grid - Pre/Post labels applied to whole grids
+This issue was a direct result of the incorrect appliance of questionnames within complex grids.
+
+### Buttons - one size applied regardless of state
+Whether you indicated onesize:true or onesize:false onesize was always set to true.  Now oneSize setting is respected.
+
+### Buttons - Unable to control button width
+As onesize was being applied regardless of state, it was not possible to control the width of a single button by applying styling to that button.  Now, button widths can be individually controlled
+
+### Droplist - Jumptofirstletter not applied in grids
+This was mainly caused by complex grids having questions with all the same questionname.  Jump to first letter is now respected.
+
+### Droplist - Support in grids
+There were a number of issues with the presentation and functionality of droplist questions in grids, these are now resolved.  We are still working on performance issues.
+
+### Grid (Choice questions) - issue clicking on checkbox
+It is now possible to click on either the cell or the checkbox in a grid of multi-answer questions, the same fix also ensures that radio buttons are clickable within the grid.
+
+### Grid (Choice questions) - labels incorrectly formatted
+When a choice question was placed in a grid the option text for each choice is shown as a title for the column/row.  This format was not the same as in the original stand alone option and could not be differentiated from question labels.  Now the formatting for these titles is the same as in stand alone choice questions.
+
+### Grid - Read-only on shaded rows/columns not displayed correctly
+If a cell was read-only but was presented in a shaded area of a grid, it was not formatted correctly.  Now all read only questions display without any containing box
+
+### Flipped Grids - Missing answer not shown in cell 
+While the implementation of flipped grids is not complete, we have performed some tasks and now a flipped grid is able to show errors in a cell.
+
+### Choice - Superscript/subscript affected text/icon alignment
+The vertical alignment of the text and question is now correct when subscript and superscript are implemented.
+

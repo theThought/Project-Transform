@@ -1,0 +1,69 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.58 release
+The 1.58 release contains the first full implementation of the combobox questions type and resolves a number of outstanding bugs
+
+## New Features
+### Combobox
+
+* Metadata *
+```
+ ComboNewProducts "Which of these products best fits your needs"
+        style(
+            ZIndex = -60,
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [1..1]
+    {
+        use new_productslist sublist -
+        asc
+    };
+```
+
+* Routing *
+```
+AddCustomProperties(ComboNewProducts, "ComboNewProducts", "{'displayicon':true,'onesize':{'state':true},'listsize':10,'showanswers':false,'type':'combobox','mincharactersforlist':1,'notenoughcharacters':'You need to type at least one character of the required drug for options to be listed','filtertype':'starts','placeholder':'','otherquestion':'', 'noitemsinlist':'no items match this filter'}", "replace")
+ComboNewProducts.Ask()
+```
+#### The Custom Properties
+displayicon - show an icon to the left of each option (radio button or checkbox).  Default is false
+onesize - all options should be the same width and height. Default is false
+listSize - number of options shown in the list before scrolling is required. Default is 8
+showAnswers - Not currently used
+type - sets the type of dropdown.  Two options "droplist" and "combobox".  No Default.  For this question type the type must be "combobox"
+mincharactersforlist - how many characters have to be typed before items are shown in the list. Default 0
+notenoughcharacters - A prompt displayed if not enough characters are entered
+filtertype - how the typed text filters the contents of the list.  There are two options: "starts" and "includes".  Includes is not currently supported.
+placeholder - text displayed when no item has been selected
+noitemsinlist - text displayed if the typed filter means there are no items in the list to show
+
+
+## Issues
+This is the list of issues that have been resolved
+
+### Droplist performance
+Droplist performance has been improved.
+One of the key issues is sizing of the droplist.  If no sizing guidelines are given then the droplist has to be sized based on the content of the drop list.  This means that all those items have to be loaded onto the page and when they are loaded they have to be evaluated to determine the tallest/widest.  This is then used as the default size and applied to every item in the list.  If the list is long or there are lots of droplists on the page, then this can take some time.  It is most noticable in IE, where sometimes it fails due to the time taken.
+
+By default we have switched onesize to false for combobox and droplist, to prevent this from happening.  However it still happens if the control does not have a pre-defined width.
+
+* reccommendation *
+We reccomend that all droplists and comboboxes have a width defined in the metadata (or routing) so that this process does not have to be done.  In pages containing under 200 items (ie a single list of 200 or 10 lists of 20), this reccommendation can be ignored, but in pages of over 200 items it is best to implement it to ensure good performance.
+
+### Inconsistent application of custom properties on Grids
+Droplist and combobox question types have suffered from inconsistent application in grids.  This is where the custom properties don't seem to be applied to all questions (and the number of questions they are applied to is inconsistent between refreshes).
+
+This issue has been largely resolved.  We continue to evaluate the mechanism and may push further improvements in future releases.
+
+### Grey Bar in choice question
+There was an issue in certain browsers on certain devices where a grey bar would appear under choices.  This greybar was a scrollbar (horizontal).  The issue was caused by some padding that was preventing the radio button icon from being partially obscured on the left side.  This padding has been adjusted and the grey bar now does not appear.
+
+### Button caption wrapping
+There was an issue with IE where buttons did not always wrap correctly.  They would wrap but no additional height was provided and so the text was partially obscured.  Adjustments have been made to how IE works in these cases.  The result is that the width of a defined button defines the width of the caption (the button is slightly larger).  Wrapping now works correctly.
+
+### Pre/Post labels not hidden for hidden inputs
+If a visiblity:hidden style was applied to an input (usually in a grid) (style.hidden = true), then the input was hidden but the pre/post labels were still displayed.  This is no longer the case.
+
+

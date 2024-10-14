@@ -1,0 +1,44 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.66 Release
+
+
+## New Features
+### Read-only now shows a checked state
+We have moved from three-state (on, off, disabled) to four-state (on, off, disabled-on, disabled-off) icons for both checkboxes and radio buttons.  This means that the content of the images folder has been updated for the first time in several months and needs to be updated on your systems.  Implementation of this feature does not required any coding changes within the survey.
+
+### Contains filters
+Rapid combo-boxes now support contains filters. This means that the respondent can enter text representing any part of an option and it will be located.  Due to the nature of start vs contains algorithms, start queries are faster and should be used when contains queries are not required.  To implement either filter type the filtertype property needs to be assigned:
+
+* Starts Filter *
+```
+{'filtertype':'starts'}
+```
+
+* Contains Filter *
+```
+{'filtertype':'contains'}
+```
+
+## Bug Fixes
+
+### Rapid Combo-box cannot use the scrollbar
+Mouse click events were not working correctly on the rapid combo-box.  As a result, when the user clicked on any part of the control the droplist would disappear.  This made the scrollbar unusable.  This has now been resolved
+
+### Accessibility issues with Rapid Combo-box
+When  typing into a Rapid Combo-box, it was not possible to use the arrow keys to move to an option in the list.  This is an accessibility issue and has been resolved
+
+### Rapid dropdown questions don't store answers
+There was an issue where <select> based questions were not storing their values.  It was determined that the html being created did not include the id of the question and so Dimensions could not extract the value and allocate it to a relevant question.  This has been resolved.
+
+### Balanced choice questions lost their padding
+This was caused by a partially implemented future feature, the issue has now been resolved
+
+### Rapid Combo-box droplists were placed incorrectly on the z-axis
+The droplist for a Rapid Combo-box was placed too far down on the z-axis causing them to appear behind other questions.  This has been resolved
+
+### Ampersands not supported in Option lists
+Dimensions 6.x uses a very old transformation engine for converting XML question definitions into HTML.  Unfortunately this causes a conflict between HTML tags (eg 1<sup>st</sup> and ampersands).  All the different options have been explored, there is no one option that supports both correctly.  As a result the recommendation is that ampersands (in option lists) are written as &amp; as this resolves the issue.
+
+### Rapid Combo-box droplists contain centre aligned options
+This was an issue when the combo-box is used in a grid.  The droplist was picking up the default alignment which, for a grid in Dimensions is set to centred.  This has been changed.

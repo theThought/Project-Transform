@@ -1,0 +1,78 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+#v1.73 release
+
+As a get closer to the release of this platform commercially, so our focus is on fixing bugs and visual discrepancies.
+
+As part of this release, we are introducing a total revamped look and feel for the questionnaire.  While this does not fundementally change the look from the previous one, there are sufficient small changes that the overall effect is quite significant.
+
+Changes include:
+
+Consistency in the implementation of rounded corners
+Reduction in the rounding for buttons and combo-boxes to make it more subtle
+Improvements and more consistency on the padding around options to make vertical and horizontal spacing more consistent
+
+More consistent application of atoms within the design to ensure that the fundemental building blocks of the design are consistent across all question types
+
+Complete re-engineering of focus for the active control to make it clearer which control has the active control
+The introduction of focus on the active question to align with focus on the active control
+Page configuration options that allow the control of whether active questions and active controls are physically different from inactive questions/controls
+Complete set of designs for inactive atoms, molecules, organisms and templates within active questions
+Complete set of designs for inactive atoms, molecules, organisms and templates within inactive questions
+
+## New Features
+As part of the new design we are delivering a new focus concept.  Previously we used to the default browser focus mechanism to show which control had the focus.  We retired that because of issues with the look and restrictions on browser control.  This caused issues with radio buttons where keyboard control meant that focus was required.  This forced us to consider a new approach to focus.
+
+The new design introduces two types of focus.  It is possible to control each at a page level within the script.  The two types are:
+- Control
+- Question
+
+### Control focus
+The purpose of control focus is to tell the respondent which question currently has the focus so that they know where any keyboard actions will be performed.
+Each control has a focus (called active) design.  This design "pops" the control out of the page (3D effect) to draw visual attention to that control.
+As the user taps, clicks or tabs through controls so the focus changes with the new design following the focus.
+
+### Question focus
+The purpose of question focus is to tell the respondent where to look.  It does not affect keyboard actions, it simply says on a crowded page this is where the current question starts and ends.  Like control focus, this is delivered through a "pop" design where the question is given 3D elevation.  The background colour of the question also changes to add extra emphasis.
+
+While the two focus mechanisms are not completely aligned they are loosely coupled.  The control with the focus should always be contained within a question which also has the focus.  It is not possible to have a control with the focus in a question that does not have the focus.  However, the navigation buttons are not within questions and while they can grab the focus they do not "pop" and so this creates a slight deviation from the overall design.
+
+### Focus page properties
+The researcher has the ability to control whether or not these effects are implemented on the page through page properties.  A focus object has been added to the page properties which contains two properties (control and question).  Both of these can be set to true or false.  True says that the focus is shown, false says it is not.
+
+exmaple
+```
+PageJSON_Create(IOM, "{'focus':{'question':true,'control':true}}")
+```
+In the above example both the question focus and the control focus are set to true and so both can be seen.  These are the default settings.  It is possible to switch either or both off although control focus is likely to need to remain on.
+
+### Combobox inputs and lists look like one control
+Previously a combo-box consisted of an input box + a list.  This is still the case but the design changes mean they are now merged together to create a single object.  The focus pop surrounds both elements to enhance the effect.  When this control gets the focus the list is automatically displayed (or a message indicating why the options in the list are not visible).
+
+## Issue Resolution
+The following issues have also been resolved in this release
+
+### Instruction banner is too light
+We have reviewed all the colours across the whole design set.  The instruction is now a darker blue, but a different blue to the question text
+
+### Choice questions occasionally show a horizontal scroll bar
+This has been resolved, it was effectively a rounding error and should not return
+
+### Support arrow keys within radio button groups to move between options
+This was partially implemented in a previous release but there was an issue when there was at least one other specify within the question.  This has now been resolved.
+
+### Questions that are Shown and not asked can still be answered
+If a question is shown (question.show()) rather than asked (question.ask()) then options and input boxes were still active.  This has now been resolved.  Show questions can be seen but they can not get the focus and they can not be edited.
+
+### Exclusive checkboxes don't dismiss other checkboxes
+This issue has been tested for standalone questions and resolved.  In many cases the exclusivity was being applied but the formatting was inaccurate and so it looked like it was not working.
+
+### Exclusive checkboxes don't dimiss other checkboxes when one or more is read-only
+The underlying bug has been resolved and so a checkbox which is enabled and switched on will be dismissed when an exclusive checkbox is ticked. However, there is a caveat to this implementation.  If a checkbox is ticked and then set as readonly there should not be an exclusive option in the question.  This is because the exclusive would not be able to untick the read-only ticked option and so could not fulfil its obligations.  The system does not check for this, this would need to be checked manually by the scriptwriter.  Effectively either checked options should not be read-only or the question should not contain an exclusive option.
+
+### Pre/Post labels are formatted incorrectly on read-only questions
+When a question containing either a pre/post label is made read-only the colour changes, this colour change must be applied to the pre/post label as well.
+
+### Totals in grids were not being displayed correctly
+When a total appears in a grid with or without a pre/post label it needs to be displayed on the right lines (not lines containing errors) and by formatted correctly.  There were a number of issues here that were resolved.
+

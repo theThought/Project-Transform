@@ -1,0 +1,103 @@
+
+# v1.54 release notes
+Our developer is on holiday for a week and so I am releasing this version even though there are a couple of minor issues with some of the functionality.
+
+## New Features
+
+### DropList: In Grid support 
+Droplists are now supported in Grids.  They are implemented in the same way as stand alone grids.  There are some minor UI issues (control buttons are not displayed), but they are functional.  We would like to see some real-world implementations of this feaature so we can better guage performance.
+
+### DropList: Jumptofirstletter
+Droplists can now support the Jumptofirstleter property in custom properties.  When the user presses the dropdown to expose the list the pressing of a letter will select the first option that has that letter as its first character.
+
+### DropList: width based on widest option
+The width of droplists, where width has not been specified, is now calculated based on the width of the options in the option list.
+
+### Visibility: Specific-List rule
+A new visibility rule has been introduced where the user defines a list of options where any one of them can be selected in order for the question to become visible.
+An example implementation of this rule is:
+
+```
+{"visible":{"collapse":true,"rules":[{"question":"DailyBalanceOneSize","type":"specific-list","value":["Telegraph","Independent","Guardian","Times"]}]}}
+```
+
+In this example, a multi-answer question contains a list of newpapers, a second question's visibility is switched on when the selection made by the respondent includes any one of the listed options (Telegraph, Independent, Guardian or Times).
+## Issues
+
+### Grids: Grand Total Alignment
+Alignment of the grand total (when both vertical and horizontal totals are applied) is improved.  There are some other outstanding issues on alignment in relation to wide columns, that are not covered by this update.
+
+### DropList: onesize:false not supported
+Previously if onesize was set to false the options were still one-sized.  This has now been corrected.
+
+### Grids: Horizontal Edge not consistent
+Some horizontal lines in grids are not shown completely.  In this fix, the top line (under the titles) did not reach to the very left of the table, this has been resolved.
+There are still issues around tables with more than one column/row of titles.  We have not extended our design work to these types of questions yet.
+
+### Complex ProgressBar: Section title not displayed
+The complex Progress bar was not displaying the title of the current section.  The design of the bar has been changed slightly to allow this to happen.
+
+### Padding for Instructions was not added when in a Page
+Instructions are padded to create consistent space when an instruction appears.  This was not working when the questions were placed in a page.  This fix requires a change to the mdd shell.  The following function needs to be replaced by the code below:
+
+```
+function onBeforeQuestionAsk(theQuestion, theIOM)
+dim currentName, currentFullname, currentType, currentOrder
+dim registerBanner
+dim numberOfSubQuestions, counter, subQuestion, subName
+dim InstructionBanner, warningBanner
+
+currentname = theQuestion.QuestionName 
+currentfullname = theQuestion.QuestionFullName
+currenttype = theQuestion.QuestionType
+
+	if theQuestion.QuestionType <> QuestionTypes.qtPage then
+		CreateBanner(theQuestion, "RegisterContainer")
+		theQuestion.Banners["RegisterContainer"].text = ""
+
+		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
+
+		set instructionBanner = FindBanner(theQuestion, "Instruction")
+		if instructionBanner <> null then
+			PadBanner(instructionBanner)
+		end if
+		
+		set warningBanner = FindBanner(theQuestion, "Warning")
+		if warningBanner <> null then
+			PadBanner(warningBanner)
+		end if
+
+	else
+		numberOfSubQuestions = theQuestion.count 
+		for counter = 0 to numberOfSubQuestions - 1
+			set subQuestion = theQuestion[counter]
+			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
+
+			CreateBanner(subQuestion, "RegisterContainer")
+			subQuestion.Banners["RegisterContainer"].text = ""
+
+			BuildRegisterContainer(subQuestion, counter, subName)
+
+			set instructionBanner = FindBanner(subQuestion, "Instruction")
+			if instructionBanner <> null then
+				PadBanner(instructionBanner)
+			end if
+			
+			set warningBanner = FindBanner(subQuestion, "Warning")
+			if warningBanner <> null then
+				PadBanner(warningBanner)
+			end if
+
+		Next
+	end if	
+	
+end function
+```
+
+## Technical Debt
+
+### Choice: Full Review of Balance
+A full review of balance was performed on choice questions to ensure it was working effectively
+
+### Choice: Full Review of OneSize
+A full review of Onsize was performed on choice questions to ensure it was working effectively 

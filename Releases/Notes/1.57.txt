@@ -1,0 +1,179 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+#Version 1.57
+
+This release contains a few new features.
+
+## New features
+
+### Input: Type = Date
+Support for type=date has been implemented on input questions.  At this time there are some issues with min/max validations.  These will be resolved in a future release to ensure that the browsers that support this feature limit the range of dates defined in min/max properties for a question.  For now implementations will have to rely on Dimensions Server side validations.
+
+This utilises the HTML 5 implementation of a calendar control.  This is not supported by IE and so running this question within the Dimensions IDE will see no difference.  However all other browsers support the question type and so this should not affect respondents.
+
+### Input: Type = Month
+Support for type=month has been implemented on input questions, however there are a number of browsers that do not support this and so the implementation is not complete.  We would advise that this feature is used with care.  We will look to build a new mechanism for this in a future release.
+
+### Visibility driven by iterations in a grid
+We now support visibility rules that look at a specific iteration of a grid.  When defining the rule it is necessary to define the name of the iteration and the name of the question that drives the visibility rules.  When page, grid, iteration, question and option elements are injected into a survey, Dimensions puts an _Q infront of each of them.  As _ can be used by scriptwriters in their name it is not possible to cleanly identify where a iteration name is separated from a question name to inject the _Q infront of each element within the rule evaluation.  Consequently, the scriptwriter has to inject the _Q manually to separate the iteration name from the question name.
+
+The following is an example of a rule where NetPromoterScore is a grid that contains several iterations of a 1 to 10 score.  The visibility rule is applied to the Cleanliness iteration, within that iteration the grid sub question NetPromoterResult has a option value of 10 (the option name is rating10).  When this is selected the NetPromoterComment question is made visible.
+
+Note the _Q between Cleanliness and NetPromoterResult.  This has to be manually inserted by the scriptwriter.
+Also note that the NetPromoterScore grid is never referred to within the visibility question, this means that NetPromoterResult needs to be unique (no other grid on the page can have this sub-question name).
+
+Metadata
+```
+NetPromoterList ""
+    define
+    {
+        Overall "Overall Score",
+        Cleanliness "Cleanliness",
+        Attention "Attention to detail",
+        Variety "range of options",
+        Staff "hospitality"
+    } ran;
+
+NetPromoterRating "" define
+    {
+        rating1 "1",
+        rating2 "2",
+        rating3 "3",
+        rating4 "4",
+        rating5 "5",
+        rating6 "6",
+        rating7 "7",
+        rating8 "8",
+        rating9 "9",
+        rating10 "10"
+    };
+
+NetPromoterScore "Please rate the following on a scale of 1 to 10<br />Where 1 is terrible and 10 is excellent" loop
+    {
+        use NetPromoterList -
+        ran
+    } fields -
+    (
+        NetPromoterResult "NetPromoterResult"
+            style(
+                ZIndex = -40
+            )
+        categorical [1..1]
+        {
+            netPromoterRating use \\.NetPromoterRating -
+        };
+
+    ) expand;
+    
+```
+
+Routing
+```
+addCustomProperties(NetPromoterComment, "NetPromoterComment", "{'visible':{'collapse':false,'rules':[{'question':'Cleanliness_QNetPromoterResult','type':'specific-option','value':'rating10'}]}}", "replace")
+```
+
+
+## Issue Resolutions
+The following issues have been resolved in this release
+
+### Total Alignment on very wide columns
+When totals are applied to columns which are wide and the inputs within those columns are narrow, then total alignment is not automatic.  The scriptwriter may have to make some adjustments to the total custom properties to get the alignment right.  To this end two new custom properties have been added to the totals configuration:
+
+Align: defines the alignment of the total within the cell 
+Width: defines the width of the total within the cell 
+
+In the following example the column's width is defined by the large title and not by the width of the input, further more the input question has a 4em width applied to it in the metadata.  Consequently, the total will not be aligned correctly by defualt.  An align has been applied to the column total and a width of 4em (matching the input) has also been applied:
+
+Metadata:
+```
+ConstantSum "What percentage of patients did you see each day" loop
+    {
+        use weekdayslist -
+    } fields -
+    (
+        PercentageSeen "% Seen"
+            style(
+                ZIndex = -20,
+                Width = "4em"
+            )
+        long [1 .. 100];
+
+    ) expand;
+```
+
+Routing:
+```
+AddCustomProperties(constantsum, "constantsum", "{'caption':{'content':'% of Patents seen each day','width':'7em','align':'center'},'totals':{'columns':{'visible':true,'align':'centre', 'width':'4em','caption':{'content':'Total'},'labels':{'post':'%'}}}}", "replace")
+```
+
+
+### Total alignment vs spinners
+When totals are applied to a grid of inputs, the alignment of the total can be affected by the use of spinners within the inputs.  To improve alignment an option allowing the spinners to be surpressed has been added.  This is a custom propertiy for inputs and can be used at any time.  The default is for spinners to be displayed.
+
+Metadata:
+```
+columntotals "Indicate the number of hours worked by the team on each project" loop
+    {
+        use weekdayslist -
+    } fields -
+    (
+        ProjectA "Project Jupiter"
+            style(
+                ZIndex = -20,
+                Width = "5em"
+            )
+        long [0 .. 50];
+
+        ProjectB "Project Neptune"
+            style(
+                ZIndex = -20,
+                Width = "5em"
+            )
+        long [0 .. 50];
+
+        ProjectC "Project Saturn"
+            style(
+                ZIndex = -20,
+                Width = "5em"
+            )
+        long [0 .. 50];
+
+    );
+```
+
+Routing:
+```
+AddCustomProperties(columntotals, "columntotals", "{'cellshading':{'columnheader':true,'altcolumns':true},'totals':{'rows':{'visible':false,'exceptions':[]},'columns':{'visible':true,'width':'5em','caption':'Total<br/>Hours'}}}", "replace")
+AddCustomProperties(columntotals, "ProjectA", "{'type':'number','nospinner':true}", "add")
+AddCustomProperties(columntotals, "ProjectB", "{'type':'number','nospinner':true}", "add")
+AddCustomProperties(columntotals, "ProjectC", "{'type':'number','nospinner':true}", "add")
+columntotals.Ask()
+
+```
+
+### Full HTML support on warnings and captions
+In the last release partial support for embedded HTML was provided.  This has now been extended to full support.  As a result HTML elements that contain attributes can now be included.  As shown in the following example:
+
+This implementation required a change to the functions within the mdd shell.  A copy of the latest mdd has been provided.  Changes were made to the following functions:
+
+```
+function SetCustomProperties(theQuestion, theQuestionName, theBannerContent, theAction)
+dim quote
+dim bannerArray
+dim bannerContent
+	if theAction is null then theAction = "replace"
+	
+	quote = ChrW(34)
+	bannerContent = theBannerContent
+	bannerContent = MakeString("<script type='text/javascript'>", "app.RegisterProperties(", quote, theQuestionName, quote, ",", bannerContent, ");</script>")
+	
+	if theAction <> "replace" then
+		theQuestion.Banners["CustomProperties"].text = MakeString(theQuestion.Banners["CustomProperties"].text, bannerContent)
+	else
+		theQuestion.Banners["CustomProperties"].text = bannerContent
+	end if
+end function
+```
+
+### Choice buttons do not wrap correctly
+The implementation of buttons had surpressed the wrapping of button captions. This restriction has now been removed.  There was also a limit on how small a button could be (that min width was set to 5em, this has been reduced to 2em)

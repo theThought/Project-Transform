@@ -1,0 +1,248 @@
+# Transform Project v1.91
+There are mostly bug fixes in this release, however we are also introducing a draft of the long-list qusetion (t-openend-search).
+
+I am adding a two new sections to the document to make things a little easier:  
+
+- Draft Features will tell you about developments of question types we have not yet released officially but that you can try
+- Unreleased will let you know which question types we are working on that have not yet been released and that you should effectively ignore even if there are options within the transform test study
+
+## New Features
+
+### Improved CORS support
+To ensure that Cross-Origin Resource Support (CORS) is managed correctly, for this, changes have been made to the layout templates.  Previously the layout templates referred to media.ipsosinteractive.com, but this has no CORS support in the interviewing clusters and so they have changed these lins to cdn.ipsosinteractive.com.
+
+I am aware that the team changes these references to their own location of media assets and so this should not affect the final implementation.
+
+## Local templates
+A number of local templates have been created and included.  These are required within development becuase the development machine used (in Romania) does not have access to cdn.ipsosinteractive.com and so when scripts are run locally they use the local template (referring to media.ipsosinteractive.com) and when launched as a live study they referen to the CORS supported files (cden.ipsosinteractive.com).
+
+These files have been provided to support transform.mdd and are not required for your implementation.
+
+## Issues resolved
+
+### Droplist width too tight, causes word wrapping
+The team were not able to replicate the exact issues being had by the client and so this may require more work, howeve the team were able to identify that selected answers were being truncated because the droplist was not wide enough to show both the answer and the drop button.  This issue has been resolved and its hoped that this also resolves the client's issue.
+
+### Sublist dividers created vertical spacing issues
+There were a number of issues where vertical spacing was incorrect when a choice question contained sublists and items not in a sublist.  The spacing has been adjusted in these situations to ensure it is more balanced and consistent.
+
+### Slider widths
+The team have been working on mobile responsiveness.  This has meant providing support for dynamic widths for sliders and scales.  The latter is being implemented as the question type is being generated.  Some of the changes caused existing sliders to no longer be the width of the screen.  This was because the default setting had changed.
+
+Now, if a width is not set then the default is 95% of the width of the screen.  The teams recommendation is 85%, the 95% has been set for consistency.
+
+A scriptwriter can control the width of the track of a slider by setting the width of the input for the question (sliders are based on a singlelineedit input).  It is strongly advised that fixed widths are not used, as they are not responsive and might cause issues on smaller devices.  Hence the recommendation is to use percentages.  These percentages are of available space not browser width.  This means the same slider will be slightly smaller in side by side view compared to vertical view as there is less available space.
+
+### side by side percentage breaks vertical pages
+Issues were reported when the sidebyside page custom property was used on a vertical page.  The client uses a mixture of side by side and vertical on the same page meaning the issues occur quite often.  The most common issue was the loss of information and instruction panels.  Changes have been made to prevent this issue.
+
+## Draft Features
+The following functionality is still in development, changes will occur and so backward compatability is not guaranteed.  The team would, however, like feedback on the implementations.
+
+### Scale (t-scale)
+The previous draft has issues with any question that was not a 10-point scale.  These have been resolved allowing any size of scale (although 3, 5, 7 and 10 are the expected sizes).
+
+### Long balanced options dont wrap 
+This affects questions where balance is applied but one-size is not.  In these cases the options were being given a fixed width equivalent to their content and so wrap was lost.
+
+### Scale in Grids
+No further work on this
+
+
+### Block questions
+Further investigation of the use of blocks has identified that the xml definition for a block question when its the only question on the page, is different from that when it is shown as part of a page.  This has disrupted the deployment of block questions as it affects the ability to show errors clearly and ensure that controls are aligned property.
+
+Where a block question is providing multiple visible points of input, e.g. post code (with two input boxes) or measurement (with an input and a choice question), then a page should be used as well as a block, even if the block is the only question on the page.  This ensures the structure of the xml generated by Dimensions and so the presentation of the question on the page, is the same in both single question pages and multiple question pages.
+
+The examples in Transform have, therefore, been added to a single page with a filter used to determine which question should be displayed (to allow a single question page to be constructed).  This has made the deployment of the questions more consistent.
+
+Implementing blocks in this way has allowed correct support of SideBySide layouts.
+
+#### Metadata
+
+````
+MonthYearBlock "When:" block fields
+    (
+        AskMonth "Month"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [1..1]
+        {
+            use monthlist
+        };
+
+        Askyear "Year"
+            style(
+                ZIndex = -60,
+                Control(
+                    Type = "DropList"
+                )
+            )
+        categorical [1..1]
+        {
+            use yearlist
+        };
+
+    );
+
+MonthYearPage "" Page (MonthYearBlock);
+````
+
+#### Routing
+````
+MonthYearPage.Ask()
+
+````
+
+
+### Long Lists (t-openend-search)
+
+Combobox and dropdown question types are built on categorical questions and use the defined lists within the study definition to define their content.  When an answer is selected it is recorded as a choice within the categorical list.
+
+Long list provides a very similar visual representation to the combobox, the semantics of the question type are the same.  However, there are four important differences:
+
+1. The base question is a text openend input and not a categorical question
+2. The list of options is not sourced from the survey defintion but from a separate list
+3. The response is the text of the option selected not a code
+4. It is possible to provide an answer that is not in the list
+
+When the user is presented with this question for the first time, presuming nothing has provided an answer previously, they are presented with an input into which they can enter a search term.  The input, being empty has a placeholder (defined by custom properties).
+
+As the user types a search the system calculates the number of items matching that entry in the list.  This number is presented at the bottom of the list (even if not enough characters have been typed to see the actual list).
+When sufficient characters have been typed the list is shown in the list box.  The height of the list box can be controlled through custom properties.  It is also controlled on mobile phones by the presence of the keyboard.
+
+The expectation is that the user will select an item from the list.  If they do so, that selected item is displayed above the control as a tag.  This mechanism supports using this question type for multi-answer questions in the future.
+
+If the respondent wants an option that is not in the list then they can continue typing even if there are no search items.  At this time the confirm button (to the right of the search) is enabled (text in search, but no matching items in list).  Pressing this button will record the search text as the selected item.  The disabling of the confirm button until there are no further items in the list aims to prevent lazy entries where the respondent types part of a response and confirms it even if the item they want is in the list.
+
+The respondent can remove a current selection by clicking on the cross in the tag above the control.  They can also perform another search/selection/confirmation as this will overwrite the previous answer.
+
+
+#### Metadata
+The metadata for this question is very simple as it a single openend question.  The size of the question should be sufficient to capture all the text description from any one option in the list.
+
+A long list has a ZIndex of -25 and a control type of singlelineedit.  It is possible to add special codes to the question which will work in the usual way (showing options below the control or allowing the question to not be answered).
+
+````
+   brandlist "Provide a description of the product you consumed"
+        style(
+            ZIndex = -25,
+            Control(
+                Type = "SingleLineEdit"
+            )
+        )
+    text [..200]
+    codes(
+    {
+        nobrand "I don't know the brand" DK
+    } );
+````
+
+#### Routing
+The routing requires the setup of the custom properties and the asking of the question.  
+The implementation is currently using a simple mechanism to define the location of the list.  This is to use a question template that contans a script reference to the list.
+
+Later an implementation will be created that removes the need for a question template for each different question moving the location details of the list into the custom properties.  This was not implemented immediately due to CORS issues.
+
+````
+    brandlist.QuestionTemplate = "question-database-brandlist.htm"
+    brandlist.Ask()
+````
+
+#### Custom Properties
+The custom properties are generated in the usual way.  Many of them are derived from the combobox qusetion type.  This question type is not yet fully developed and so additional custom properties will be added.
+
+````
+{
+    'displayicon':false,
+    'listsize':12,
+    'list':{
+        'location':'internal',
+        'source':'a-list',
+        'valuefrom':'name',
+        'descriptionfrom':'name'
+    },
+    'showanswers':true,
+    'mincharactersforlist':3,
+    'notenoughcharacters':'type at least 3 characters to see a list of products containing what has been typed.',
+    'filtertype':'contains',
+    'placeholder':'Describe your drink, include the brand if you know it',
+    'noitemsinlist':'There are no drinks of that name in the list, you can accept this answer by tapping the tick',
+    'prompts':{
+        'selection':'Brand Identified',
+        'listcount':'beverages found'
+    }
+}
+````
+displayicon -  whether a choice icon should be displayed at the start of the option.  This property is not currently functioning.  The default value is false.
+listsize - the height of the list window, how many items (approximately) can be seen in the list.  If the list is longer the list scrolls wiithin the window.
+list - this is the first of two implementations of list (Internal and external)
+location - internal means the question template decides the location and so the list is internal to the webpage, exteranl means the location is defined as a url and is not held in the page (has to be loaded separately).  At this time only location is fully supported.
+source - when internal this is the class of the script tag being used to create the internal list.
+valuefrom - the name of the field in the list that is stored in the data collection platform when a user selects an option
+descriptionfrom - the name of the field in the list that is used to create the list on the screen.  This is also, currently, the field that is used by search.
+showanswers - this is the first implementation of this custom property.  the property exists in combobox as well but is not enabled.  When set to true (default) the answer selected is shown as a tag above the control rather than left in the control.
+mincharactersforlist - the minimum number of characters that have to be entered in the search before the list is shown
+notenoughcharacters - the message displayed to the user if less than the mincharactersforlist have been entered into the search
+filtertype - defines how the search is performed.  Contains is the only current option and is the default.  other methods will be added later
+placeholder - the text displayed in the search input when no text has been entered
+noitemsinlist - the message displayed when the text entered does not match an item in the list
+prompts - additional text elements included in the question
+selection - appears above the control to the left of the selected item to clarify the purpose of the tag (not currently enabled)
+listcount - the text appearing after the value that counts how many matching items there are in the text
+
+
+#### List
+There are two ways a list can be created.  Only one of these is supported 
+
+Internal
+This is where a script tag is placed in a question template, the script tag references a json file located on the server that contains the list
+
+````
+        <script type="text/javascript" class="a-list" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/brandlist.js">// database list</script> 
+````
+
+The above exmaple provides direct access to a js file that contains the list.  The following is an extract from the file referenced in the script.
+
+````
+var barcodelist = {
+    "list": [
+        {
+            "UPC": 101997,
+            "name": "Made/Brewed at home beer",
+            "Category": "Beer"
+        },
+        {
+            "UPC": 101354,
+            "name": "10 Barrel Brewing",
+            "Category": "Beer"
+        }
+    ]
+}
+````
+The list is allocated as a variable that is held at the database level.  This is picked up by the question type and used to generate the search list in the control.
+
+External
+This is the long term direction for this control, however it requires CORS setup, which was not fully in place during development.
+
+This method will provide a link to a json file rather than a javascript file, but the json structure will be identical to the one used in the file above.
+
+## Unreleased
+The following question types have been implemented in Transform test survey but at not yet suitable for testing or use by the Healthcare team
+
+- Sliders (Grids)
+- Progressive Grids (any of them)
+- Tab Strip
+- Rotated slider Grids
+- Rotatated scale grids
+- Rotated split grids
+- Rotated complex grids
+- Rotated 1 row grids
+- Rotated Grids of solo questions
+- Rotated loop in loop questions
+- Image lists
+- Date Recent

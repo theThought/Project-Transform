@@ -1,0 +1,29 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.67 Release
+
+## New Features
+
+### Question level option filters
+This feature augments the current visibility/invisibility options for lists (choice, dropdown, combobox).  Where the current visibility/invisibility features are set at an individual option level (rules are applied to each option in the list), this implementation applies rules at a question level and so one rule affects all options.
+
+This feature allows the options lists from two questions to be synchronised so that when one option is selected from Question A then the equivalent option is hidden from question B.  Effectively this implements QuestionB.categories.filter = QuestionA.response on screen.
+
+Consequently, the two questions need to be based on the same defined list as the hidding of options is based on category name.  The following is an example of the custom properties that can be applied
+
+```
+addCustomProperties(FirstChoice, "FirstChoice", MakeString("{'filter':{'source':'SecondChoice','exclusions':['otherpaper']}}"), "add")
+
+```
+
+Filter is the main custom property, this requres an attribute of source to tell it the question driving the filtering (in this case the question secondchoice).  It is also possible to list options that are excluded from the filter.  In this case the option named "otherpaper" is not included, so when this option is selected in SecondChoice it is not excluded from Firstchoice.
+
+### Hidden cells
+It is now possible to hide an entire question using the style.cnotrol.hidden options in Dimensions.  When this is applied to a question any sub-questions inherit the same hidden style.  This menas that complex question types such as asliders and combo-boxes that contain multiple visual elements now hide whereas before it was only simple question types that disappeared.  It also means that a question with special codes will hide the special codes as well as the main question.
+
+
+## Bug Fixes
+
+### Combo boxes not showing existing values
+There was a regression issue where previously combo-boxes would show exiting values when the page loads, but they were no longer doing so.  This has been resolved.  Whether the boxes are pre=populated by rehydration caused by an error on the page or whether the questions had been asked previously they will show their existing value when the page loads.
+

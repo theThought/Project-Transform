@@ -1,0 +1,46 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.75 release
+Most of the changes made here are a result of a battery of regression tests.  A number of minor (unlisted) issues have been resolved.
+
+## New Features
+
+### Invisibility now supports ResetToNull
+The Resettonull custom property supported in Visibility rules is now also supported in invisibility rules.  This allows a control to be reset to its load value, rather than reset to null, when it becomes invisible.
+
+
+## Issues Resolved
+
+### Visibility rules not working on controls within a grid
+The visibility custom property rules were working on single question implementations and on specific instances of a question in a grid, but not on general questions in the grid.  This has now been resolved for the following controls:
+- single line edit
+- dropdown
+- choice
+- combobox
+
+When visiblity is applied to a question in a grid, it now honours the rule.
+
+### Invisibility rules not working on controls within a grid
+The invisibility custom property rules were working on single question implementations and on specific instances of a question in a grid, but not on general questions in the grid.  This has now been resolved for the following controls:
+- single line edit
+- dropdown
+- choice
+- combobox
+
+When invisiblity is applied to a question in a grid, it now honours the rule.
+### Open-ends in grids made invisible where not hiding pre/post labels
+When an single line edit control was made invisible by either visibility or invisibility rules, the pre/post labels were not also being made invisible.  Consequently, the control disappeared but the pre/post labels did not.
+
+### Information panels were not displaying correctly on side by side questions
+The structure of a side by side question requires that some content appear on the left and other information on the right.
+The information panel was identified as being required to appear on the right, but it was actually appearing on the left.  Furthermore, the panel was breaking the barrier between the left and right sides when the information was wider than the width of the left side.
+A new question layout has been provided that places the information panel in the correct place.  This layout's structure contains 3 rows of two items.  They are in the following order:
+
+### Jump to first letter now works with any number of entries
+Jump to first letter (dropdown) was only working for the first two entries.  A third typing of a single letter would take the user back to the first instance of that letter.  This has now been resovled such that it can be used any number of tmes to take the respondent to the next option that starts with that single letter.
+
+### Question focus on mobile phones does not show vertical "pop"
+To preserve horizontal space on mobile phones the vertical pop lines around a question are no longer shown on smaller screens.  Instead the horiztonal pop goes from left to right edge (not including margins).
+
+### Tab Sequence for questions with special codes has been adjusted
+With a page of questions where some contained one or more special codes, there was some issues with tabbing between the single line edit control and the special options.

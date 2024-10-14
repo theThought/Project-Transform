@@ -1,0 +1,15 @@
+# Transform Project
+This is a special release for the testing of the new list mechanics.  Two questions: Droplist and ComboList have been adjusted to create a more controlled construction process for the list of options used in both these question types.
+
+The aim is to eliminate poor construction of a question as a result of confused timings of events.  A second objective was to reduce the time to build when a page contains multiple lists that use the same source of options (for example grids).
+
+The new mechanics can be used against existing studies with no changes being made to the study (except the loading of the new Question.xsl).  In this case each question will be seen as an independent entity and will be constructed with no reference to any other question on the page.
+
+Alternatively, questions that use the same list of options can be associated together by adding a listsource property to those questions
+
+```
+{"listsource":"droplist"}
+```
+Two or more questions that contain a listsource custom property where the listsource is the same will calculate the width of the list based on the first question initialised rather than recalculate the list size for each question.
+
+

@@ -1,0 +1,113 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.65 release
+
+Two new features are available in this release:
+- a new faster drodown control
+- a new faster combobox control
+
+These are NOT updates of the existing controls, those still exist and can still be used.  These are two new controls and so they have been given new ZIndex numbers.
+
+## DropDown
+The new dropdown is based on a <select> tag in HTML, the base input is a <select> tag which includes <option> tags for each of the options in the list.  The control of a <select> tag is limited from a presentation perspective the control is managed by the operating system and so is not consistent across browser (even if those browsers are based on Webkit).  The <select> tag comes with features for free.  This includes the selection mechanism where typing will select an option based on a "starts-with" algorithm.
+
+The following is a simple example of a dropdown implementation:
+
+### metadata:
+```
+FullPaperList ""
+    define
+    {
+        Sun "Sun",
+        Mail "The Daily Mail",
+        Express "Daily Express",
+        Mirror "The Mirror",
+        Telegraph "The Daily Telegraph",
+        Independent "The Independent",
+        Guardian "Guardian",
+        Star "Daily Star",
+        Times "The Times",
+        I "i",
+        Metro "Metro",
+        Post "The Washington Post",
+        LeMonde "Le Monde",
+        Journal "The Wall Street Journal",
+        STimes "Sunday Times",
+        Observer "Observer",
+        STelegraph "Sunday Telegraph"
+    } asc;
+
+DropPapers "Which of the following daily newspapers is your favourite"
+    style(
+        ZIndex = -65,
+        Width = "12em",
+        Control(
+            Type = "DropList"
+        )
+    )
+categorical [1..1]
+{
+    use FullPaperList sublist -
+    asc
+};
+```
+
+Note:
+The ControlType must be droplist (as this stops the generation of radio buttons and ensures that a whole question's content in held in a single cell within a grid).
+The ZIndex is -65 (select dropdown) rather than -60 (choice dropdown)
+
+### routing:
+At this time, the custom properties for select dropdown and choice dropdown are the same, however the jumptofirstletter property is redundant and will be deprecated later
+
+Showanswers is out of scope for this version and may also be deprecated as it is for supporting multi-choice droplists which can not be supported by a select based dropdown
+```
+AddCustomProperties(DropPapers, "DropPapers", "{'displayicon':true,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':''}", "replace")
+DropPapers.ask()
+```
+
+## Combo-box
+This question type is implemented as a input-box (into which the user can type a search expression), a hidden input box where the selected item is stored, and a unordered list which is formatted to look like a select list.
+
+The structure of the question is similar to the previous choice combo-box but the question type (as defined by ZIndex) is different.  The custom properties are, at the current time, the same.
+
+### metadata
+```
+new_productslist ""
+    define
+    {
+        first "I am always among the first to prescribe a new product",
+        waitShort "I like to wait a while (for a few months) after a new product is approved before I start prescribing it",
+        waitMedium "I wait to be comfortable (for more than a few months) with a new product by speaking to colleagues, hearing about its success before I prescribe it",
+        waitLong "I prefer to prescribe products that are tried and trusted",
+        reluctant "I am very reluctant to prescribe new products/switch to new products"
+    } asc;
+
+ComboNewProducts "Which of these products best fits your needs"
+        style(
+            ZIndex = -60,
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [1..1]
+    {
+        use new_productslist sublist -
+        asc
+    };
+```
+
+Note:
+The ControlType must be droplist (as this stops the generation of radio buttons and ensures that a whole question's content in held in a single cell within a grid).
+The ZIndex is -68 (combo-box) rather than -60 (choice combo-box)
+
+### routing
+At this time, the custom properties for combo-box and choice combo-box are the same, however displayicon is not currently implemented.  It may be implemented later
+
+Showanswers is out of scope for this version it is not required until support of multi-choice combo-boxes is implemented
+Only the filtertype "starts" is implemented at this time
+
+```
+AddCustomProperties(ComboNewProducts, "ComboNewProducts", "{'displayicon':true,'onesize':{'state':true},'listsize':10,'showanswers':false,'type':'combobox','mincharactersforlist':1,'notenoughcharacters':'You need to type at least one character of the required drug for options to be listed','filtertype':'starts','placeholder':'','otherquestion':'', 'noitemsinlist':'no items match this filter'}", "replace")
+ComboNewProducts.Ask()
+```
+

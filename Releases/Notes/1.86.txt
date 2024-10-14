@@ -1,0 +1,65 @@
+# Transform Project v1.86
+Healthcare Transformation project for Dimensions Surveys
+
+In this release our primary focus was performance in relation to invisibility.  This took a lot of effort to evaluate, resolve and test and so its accomanpied by just a small number of other elements.
+
+## New Features
+
+### Wide dropdowns now force wrapping
+When a dropdown is too wide for the browser width, it automatically forces wrapping of the text within the item.  This ensures that the dropdown remains usable (no need for horizontal scrolling).
+
+### Information Pop-up
+Its now possible to create an expanding information panel within a question.  The panel has a summary that is permanently displayed and detail content that is only displayed when the user clicks on the summary.
+
+The detail can be hidden by clicking on the summary again.
+
+The implementation is a html5 construct which is added to the page via the question template.  The following example shows the question template for a standard vertical question with the information pop-up placed after the question control
+
+```
+    <details class='o-message-information'>
+        <mrData QuestionElement="Banner"  Name="Information" />
+    </details>
+
+```
+The setup of the banner content needs a new function within the script.  The following needs to be added to the base survey template:
+
+```
+sub CreateInformationPopup (theQuestion, theTitle, theContent)
+dim informationBanner
+dim bannerArray[6]
+	CreateBanner(theQuestion, "Information")
+	set informationBanner  = theQuestion.Banners["Information"]
+	bannerArray[0] = "<summary class='a-label-summary'>"
+	bannerArray[1] = theTitle
+	bannerArray[2] = "</summary>"
+	bannerArray[3] = "<div class='a-label-details'>"
+	bannerArray[4] = theContent
+	bannerArray[5] = "</div>"
+	
+	informationBanner.text = CombineArray(bannerArray, "")
+end sub
+```
+The creation of the content can then be performed in the routing by calling this function.  The following example inserts a information popup against the question and defines the summary and the detail.
+
+```
+	CreateInformationPopUp(varopinion, "A description of VAR", "VAR is Virtual Assistant Referee, it can be used to overturn the decisions of the referee on the pitch where it is determined that they have made a clear and obvious error.")
+	varopinion.ask() 
+
+```
+
+Unfortunately this solution only works in vertical layout currently.  It does not work correctly in side by side as can not control its placement.  This is due to an outstanding bug, which we are targetting for the next release.
+
+## Issues Resolved
+
+### Invisibility performance
+Complex pages with visiblity rules, especially if they contain long combolists and droplists that could have option visibility rules, were performing poorly.
+The page would make items visible quickly but would make them invisible only after a significant pause.
+
+This was caused by over signalling.  Controls that did not actually change stated were indicating that their state had changed because they were affected by an rule that could have caused them to go invisible.  It did not matter whether the control was already invisible or whether its answer changed due to going invisible, it still signalled a change of state.  On very complex pages this resulted in a slow down.  Controls now only broadcast a change of state when their state actually changes.
+
+### choice questions in grids not supporting hidden rules
+There was a partial implementation of this fix in the last release but radio buttons had not been fixed.  This release resolves that.
+
+### wide questions are exceeding their question focus container
+This was an issue identified with grids recently, it has now also been resolved for wide single questions.  The question focus container now wraps around the entire question if that question exceeds the width of the browser window
+

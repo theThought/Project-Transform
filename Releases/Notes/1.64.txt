@@ -1,0 +1,226 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+# v1.64 Release
+This release focuses on three new features which when grouped together are called Reverse Visibility.  They deliver the reverse of the visibility options that we have provided already
+- Question visibility
+- Alternative label visiblity
+- Response option invisibility
+
+New Features
+## Question invisibility
+It is now possible to indicate that a question is visible unless a specific rule is satisfied.  Previous feature implementations allowed a question to be invisible until a visible rule was satisified.  Both methods are interchangeable and can be used at the same time (although they must not contradict each other).
+
+In this example a question is visible unless the number of marriages response is less than 1 (including no answer).
+
+```
+	childrenInvisibilityRule = CreateVisibilityRule("HowManyDependents<1")
+	AddCustomProperties(HowManyMarriages, "HowManyMarriages", MakeString("{'invisible':{'collapse':true,'rules':'", childrenInvisibilityRule , "'}}"), "replace")
+```
+While it is invisibility that is being controlled the CreateVisibilityRule function can still be used.  It is not actually necessary in this case as the rule does not contain any single-quotes (the function converts these into a different format to ensure they are not confused with the single-quotes in the JSON)
+
+The invisible rule sits alongside the visible rule and has the same structure
+collapse indicated whether the question should take no space when invisible, its values are true or false
+rules is a string that expresses the rule that indicates when the question should be invisible.  If the rule is tested and fails then the question will be visible.  If the rule is tested a passes then the question will be invisible
+
+## Alternative label invisiblity
+The existing capbility of providing multiple question labels for a question and controlling which of these is visible (based on other responses) is called alternative labels.  Previously it was possible to define the labels have them invisible by default and only visible when the visible rule is satisfied.
+
+With this release the opposite is now available.  Each label is named and its content provided, then a invisibilty rule is written.  This means that the label is visible until the rule is satisfied at which point the label becomes invisible.
+
+It is possible to combine visibility and invisibility rules such that some labels are defined one way and some the other.
+
+The following example is the json that is used to control the content and plaurality of a single question based on two other questions.
+
+```
+{
+  "labels": {
+    "alternatives": [
+      {
+        "name": "select",
+        "label": "Select the ",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "HowManyDaily>0 or HowManyWeekend>0"
+        }
+      },
+      {
+        "name": "daily",
+        "label": " daily",
+        "block": false,
+        "invisible": {
+          "collapse": true,
+          "rules": "HowManyDaily<1"
+        }
+      },
+      {
+        "name": "or",
+        "label": " or",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "HowManyDaily>0 and HowManyWeekend<0"
+        }
+      },
+      {
+        "name": "weekend",
+        "label": " weekend",
+        "block": false,
+        "invisible": {
+          "collapse": true,
+          "rules": "HowManyWeekend<1"
+        }
+      },
+      {
+        "name": "newspaper",
+        "label": " newspaper",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "HowManyDaily>0 or HowManyWeekend>0"
+        }
+      },
+      {
+        "name": "plaural",
+        "label": "s",
+        "block": false,
+        "invisible": {
+          "collapse": true,
+          "rules": "(HowManyDaily + HowManyWeekly)<2"
+        }
+      },
+      {
+        "name": "read",
+        "label": " you read",
+        "block": false,
+        "visible": {
+          "collapse": true,
+          "rules": "HowManyDaily>0 or HowManyWeekend>0"
+        }
+      }
+    ],
+    "separator": ""
+  }
+}	
+```
+## Response option visibility
+Within a question it is possible to control the visibility/invisibility of an option.  Previously the expectation was that a option would be visible unless an invisibility rule is satisfied (at which point it is hidden).  This release introduces the opposite - an option is invisible unless the visibility rule defines that it should be seen.
+
+Rules have to be applied against individual options, it is not possible to control the visibility of sublists.  Visible and Invisible rules can be combined within a single question, however they should not be applied to a single option (as this creates a risk of contention).  The following json provides an example of a series of question options being made visible or invisible based on three options in another question.
+
+```
+{
+  "options": {
+    "visible": [
+      {
+        "name": "Sun",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Mail",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Express",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Mirror",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Telegraph",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Independent",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Guardian",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Star",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Times",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "I",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Metro",
+        "rules": "PaperTypes.ContainsAny('Daily')"
+      },
+      {
+        "name": "Post",
+        "rules": "PaperTypes.ContainsAny('International')"
+      },
+      {
+        "name": "LeMonde",
+        "rules": "PaperTypes.ContainsAny('International')"
+      },
+      {
+        "name": "Journal",
+        "rules": "PaperTypes.ContainsAny('International')"
+      },
+      {
+        "name": "STimes",
+        "rules": "PaperTypes.ContainsAny('Sunday')"
+      },
+      {
+        "name": "Observer",
+        "rules": "PaperTypes.ContainsAny('Sunday')"
+      },
+      {
+        "name": "STelegraph",
+        "rules": "PaperTypes.ContainsAny('Sunday')"
+      }
+    ]
+  }
+}
+```
+
+## Mathematical Operands within Rules
+These new visibility rules introduce some base support for maths within a rule.
+
+In the following example the responses from two long open-end questions are added together and analysed as part of the rule.
+At this time there is not full support for parenthesis and so implementation is only very basic.
+
+```
+{
+        "name": "plaural",
+        "label": "s",
+        "block": false,
+        "invisible": {
+          "collapse": true,
+          "rules": "(HowManyDaily + HowManyWeekly)<2"
+        }
+}
+```
+
+## Handling array construction in Dimensions
+When a question requires a complex combination of visible or invisible rules, the json that has to be constructed contains an array or rules.
+While the system now supports the ability to write multiple AddCustomProperties functions against a single question; that capability does not support the merging of seperate calls into a single array.  This means that each element of the array of rules cannot be written using multiple AddCustomProperties.  
+
+Therefore, the construction of the array needs to occur within the Dimensions script.  The following is an example of how that can be achieved.
+
+```
+	alternativeRule[0] = "{'name':'select','label':'Select the ','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 or HowManyWeekend>0'}}"
+	alternativeRule[1] = "{'name':'daily','label':' daily','block':false,'invisible':{'collapse':true,'rules':'HowManyDaily<1'}}"
+	alternativeRule[2] = "{'name':'or','label':' or','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 and HowManyWeekend>0'}}"
+	alternativeRule[3] = "{'name':'weekend','label':' weekend','block':false,'invisible':{'collapse':true,'rules':'HowManyWeekend<1'}}"
+	alternativeRule[4] = "{'name':'newspaper','label':' newspaper','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 or HowManyWeekend>0'}}"
+	alternativeRule[5] = "{'name':'plaural','label':'s','block':false,'invisible':{'collapse':true,'rules':'HowManyDaily + HowManyWeekend<2'}}"
+	alternativeRule[6] = "{'name':'read','label':' you read','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 or HowManyWeekend>0'}}"
+	
+	
+	alternativesLabelRule = MakeString("{'labels':{'alternatives':[", alternativeRule[0], ",", alternativeRule[1], ",", alternativeRule[2], ",", alternativeRule[3], ",", alternativeRule[4], ",", alternativeRule[5], ",", alternativeRule[6], "],'separator':''}}")
+	AddCustomProperties(WhichPapers, "WhichPapers", alternativesLabelRule, "add")
+
+```
+

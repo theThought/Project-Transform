@@ -1,0 +1,102 @@
+# Transform Project
+Healthcare Transformation project for Dimensions Surveys
+TransformRelease Notes
+## New Features
+There is only one new feature, which is the control of visibility of options based on responses to other questions.  This is called invisibility as the developer defines when the options are invisible (filtered out)
+
+### Invisibility
+This feature currently only operates as an option level within a question, its purpose is to define when options are invisible, based on the current answers of other questions.
+The rules for invisibility are written in exactly the same way as those for visibility. However, they define what is hidden rather than what is shown. If the rule is evaluated as true then the option is hidden. The structure will be as follows:
+
+If there are multiple options that use the same rule to define invisibility, each option will need to be listed separately, as follows:
+```
+{“options”:{“invisible”:[{“name:”option name 1”,“rules”:”rule definition”},{“name:”option name 2”,“rules”:”rule definition”}]}}
+```
+
+This means that a question that has visibility rules and contains options that have invisibility rules will have the following structure:
+```
+{“visible”: {“collapse”: true/false, “rules”:”rule definition”},“options”:{“invisible”:[{“name:”option name”,“rules”:”rule definition”}]}}
+```
+
+At this time visibility rules can only be applied to questions and invisibility rules to options.
+#### Example
+* Metadata *
+GenderList "" define
+{ 
+    male "Male", 
+    female "Female", 
+    transg_m2f "Transgender – Male to Female", 
+    transg_f2m "Transgender – Female to Male" 
+}; 
+
+ldiag1 "" define 
+{ 
+    select "SELECT DIAGNOSIS", 
+    bone_and_sarcoma__excluding_gist_ "Bone and Sarcoma", 
+    gist "GIST", 
+    brain___nervous_system "Brain and nervous system", 
+    breast "Breast", colorectal "Colorectal", 
+    endocrine "Endocrine (incl. Thyroid, NETs)", 
+    female_reprod "Female Reproductive (incl. Ovarian)", 
+    gastric "Gastrointestinal (incl. pancreas and peritoneum)", 
+    head___neck "Head and neck", hepato_biliary "Hepatobiliary", 
+    leukaemia "Leukaemia", lung "Lung", 
+    lymphoma "Lymphoma", 
+    male_reprod "Male Reproductive (incl. Prostate)", 
+    myelodysplasia "Myelodysplasia", 
+    myeloma "Multiple Myeloma", 
+    myeloproliferative_disorder "Myeloproliferative disorder", 
+    neuroblastoma "Neuroblastoma", 
+    skin "Skin (incl. Melanoma)", 
+    urinary_and_bladder "Urinary (incl. RCC)", 
+    unknown "unknown Primary", 
+    "other" "Other" 
+};
+
+filterOnGender "Gender" categorical [1..1] 
+{ 
+    use GenderList - 
+}; 
+
+diagnosis1 "" 
+style( ZIndex = -60, Control( Type = "DropList" ) ) 
+categorical [1..1] 
+{ 
+    use ldiag1 - 
+}; 
+
+diagnosis2 "" 
+style( ZIndex = -60, Control( Type = "DropList" ) ) 
+categorical [1..1] 
+{ 
+    use ldiag1 - 
+}; 
+
+FilterOnGenderPage "" page( filterOnGender, diagnosis1, diagnosis2 );
+
+* Routing *
+dim currentRule, currentRule1, currentRule2 
+'----- filtering options in a categorical 
+
+currentRule = CreateVisibilityRule("filterOnGender.containsAny('male','transg_m2f')") 
+addCustomProperties(diagnosis1, "diagnosis1", MakeString("{'separator':true, 'onesize':{'state':false},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'SELECT DIAGNOSIS','options':{'invisible':[{'name':'female_reprod','rules':'", currentRule,"'}]}}"), "replace") 
+
+currentRule1 = CreateVisibilityRule("filterOnGender.containsAny('male','transg_m2f')") 
+currentRule2 = CreateVisibilityRule("filterOnGender.containsAny('female','transg_f2m')") 
+
+addCustomProperties(diagnosis1, "diagnosis1", MakeString("{'separator':true, 'onesize':{'state':false},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'SELECT DIAGNOSIS','options':{'invisible':[{'name':'female_reprod','rules':'", currentRule,"'}]}}"), "replace") 
+addCustomProperties(diagnosis2, "diagnosis2", MakeString("{'separator':true, 'onesize':{'state':false},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'SELECT DIAGNOSIS','options':{'invisible':[{'name':'female_reprod','rules':'", currentRule1,"'},{'name':'male_reprod','rules':'", currentRule2,"'}]}}"), "replace") 
+
+filteronGenderPage.ask()
+
+## Bug Fixes
+### Multiple Questions with the same list answer each other
+This issue was a bug in the question.xsl that caused each question to have incomplete Ids. This issue has been corrected, you will need to replace your current question.xsl with the updated one
+
+In investigating this issue, we identified another issue, probably with your question.htm. The html generated in the example you provided was incomplete, there were no wrappers around each question and so they were not formed correctly. This was not the cause of the issue, but it was noted when we were debugging.
+
+You should check your question.htm to make sure that it is well formed, that the html contained within that document is contained in each and every question generated (outside of a grid).
+
+### Grid Auto totals not working
+This was an issue with the ids for inputs in a grid, again a question.xsl issue.  This file will need to be updated in all live projects
+

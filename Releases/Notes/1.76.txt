@@ -1,0 +1,75 @@
+# Transform Project v1.76 release
+Healthcare Transformation project for Dimensions Surveys
+
+This release provides bug fixes for Dropdown and Visibility/Invisibility and adds formatting options for text content
+
+## New Features
+
+## Text formatting
+Currently inline text formatting has been implemented by embedding html elements such as bold, underline, italic and font.  Many of these were depcreated in the transition from HTML 4 to HTML 5.  Many are supported by modern browsers, but that will not always be the case.  Best practice is to migrate these formatting options to the implmentation of a cascading style sheet.
+
+It is recommended that ```<p>``` tags be used around any text, with each tag being wrapped around a single paragraph. This creates the relevant spacing without needing to use ```<br>``` tags.
+
+To apply formatting to text content within a question, banner, error message or option list, the researcher should create a ```<span>``` tag and apply a class name to it.  The content generated must be well-formed XML and so the ```<span>``` tag needs to be closed before the paragraph is finished.
+
+For example:
+```
+<p>The text to be formatted is <span class='formatting'>various formats can be applied in the class</span></p>.
+```
+The list of classes that have been created are:
+- bold
+- ltBold
+- caps
+- italic
+- underline
+- minustwo
+- plustwo
+- minusfour
+- plusfour
+- sub
+- sup
+
+The plustwo, plusfour styles increase the base font by 2 or 4 points
+The minustwo, minusfour styles decrease the base font by 2 or 4 points
+The sub style creates subscript
+The sup style creates superscript
+
+These styles can be used singularly or in combination.  The following is an series of examples used in the Hello question in Transform.mdd (Line breaks have been inserted to increase readibility, but should not be included in the actual question):
+
+```
+    Hello 
+    "<p>While this can be consider an example of a basic information question, it is actually possible to create a lot of content in a single question.</p>
+    <p>It is advised that content is wrapped in paragraph tags because this creates natural spacing between each paragraph</p>
+    <p>it is also possible to use html tags such as numbered and unordered list tags.</p><p>To demonstrate the different in which you can apply formatting to different parts of the content, the following is an unordered list
+        <ul>
+            <li>This is an exmaple of <span class='bold'>bold</span> text.</li>
+            <li>Two levels of bold are provided <span class='ltbold'>light bold</span> and <span class='bold'>bold as shown above</span>.</li>
+            <li>This TEXT is typed in all caps and this <span class='caps'>text</span> is formatted as all caps.</li>
+            <li>Text can also be <span class='underline'>underlined</span> or <span class='italic'>italicised</span>.</li>
+            <li>We are also playing with the idea of allowing you deliver <span class='plusfour'>impact</span> by increasing the font size by four points </li>
+            <li>Finally, we are looking at whether its possible to provide superscript such as 13m<span class='sup minusfour'>2</span> and subscript such as H<span class='sub minusfour'>2</span>O</li>
+        </ul>
+    </p>
+    <p>Its also possible to create content through banners, the question template defines where these banners appear.  In this example we have placed the banners below the question label, but this is just for demonstration purposes.</p>"
+    style(
+            ZIndex = -10
+        )
+    info;
+```
+
+## Issue Resolution
+the following issues have been resolved:
+
+### Dropdowns are not sizing correctly
+Dropdown controls have been adjusted so that they react to their content when deciding their width.  The dropdown will size based on the content of the placeholder and the content of the list, to ensure that all content is visible.  At this time, if that content causes the dropdown to be wider than the screen, the system will force the respondent to scroll left/right.  In a later release this will be adjusted by forcing a word wrap based on the screen width.
+
+It is still possible to override this calculation with a manual width applied in the metadata of the question or via routing.
+
+### Visiblity Casades properly
+Both visible and invisibility rules were not handling situations where questions that they were not based on changed.  They were looking for the source question for their rule to determine whether they were visible but not taking into account the source question if the rule was not satisfied.  This would cause questions to disappear when they should not.
+
+### Reset to Null and Reset to Load were not operating correctly
+Both of these options were acting over agressively, resulting in data being lost when it should not be.
+
+### deprecated html 4 tags caused line breaks when inserted into quesiton text
+While we do not encourage the use of deprecated HTML 4 tags we have fixed this issue.  This formatting should be implemented through the new text formatting feature.

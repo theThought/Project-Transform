@@ -1,0 +1,118 @@
+# Transform Project v1.85
+Healthcare Transformation project for Dimensions Surveys
+
+I am changing the format of the readme for the next few releases to reflect the prioritisation of work
+
+## Requested Changes
+
+### Speed of page refresh
+Not resolved with this release.  
+We have designed a fix based on what we believe if causing the issue, this will be implemented in the next sprint
+ 
+### Wrapping categoricals going down page when we have long question text
+We are unable to recreate this issue
+We have applied a number of layout changes to choice questions are part of the Informal development work.  This may have resolved the issue here by accident
+ 
+### Droplists with long text being mis-aligned when going to right edge of screen
+This is not resolved with this release
+This is not an issue with the dropdowns as such.  the dropdowns are pushing the width of the page and causing the question to be wider.  The side-by-side implementation is a percentage of the width of the question rather than the page and so the labels are being given more space causing the dropdowns to appear pushed to the right.
+
+We are working on a redesign of question templates, which will affect all questions.  To make the relationship between question and control better.
+ 
+### ‘Click here’ for more info 
+We have a design for this, for review
+ 
+### Alternate Row shading in grids not working
+Resolved in this release
+ 
+### Column expand grid
+Partially resolved in this release, requiring review
+The formatting issues have been resolved
+ 
+### Instruction under question text
+Not resolved in this release
+We are aware of the cause of the issue, but any work done will be impacted by the change to the question templates and so will need that work to be completed first.
+ 
+### Clickable area of categoricals (with long question text)
+We are unable to recreate this issue
+We have applied a number of layout changes to choice questions are part of the Informal development work.  This may have resolved the issue here by accident
+ 
+### Horizontal scroll jump
+Not resolved in this release
+This is caused by Accessibility requirements which can not hide input controls but has to push them offscreen.
+We have a design but have not yet implemented it.
+ 
+### One line grids being used for 2 questions on one line
+We are going to demonstrate an alternative to the use of grids for side by side questions
+
+### Grids balanced column width
+Not resolved in this release
+A design has been discussed but not yet built or tested
+ 
+### Droplist pre-fill and visibility/droplist with only one option (invisible date made visible where year has one category only)
+Not resolved in this release
+This sounds like a resettonull issue but I need more information to be sure
+ 
+### Collapse in grid (e.g. Drug and Other when Other is not seen for any)
+Not resolved in this release
+Collapse is a question level property not a grid level property which is why it does not work
+Collapsing a column because nothing in the column is visible has all sorts of potential design and accessibility implementations, this may require a different layout design rather than the use of a grid.
+  
+Grids with Headers (Onc doesn’t need for launch)
+Not resolved in this release
+A design has been discussed but not yet built or tested
+
+
+## Other Features
+
+### Disable Paste for Pages
+You can now disable paste for a whole page (all controls within the page).
+Ths can be done by applying a page property:
+```
+{'paste':false}
+```
+Equally its possible to allow paste for the whole page (all controls within the page) by satting the same property to true.
+```
+{'paste':true}
+```
+Paste is set to true by default
+
+### Enable/Disable paste for single line inputs
+You can now enable/disable paste for any single line input (zIndex=-20)
+This will enable/disable paste for just that question and will override any page setting
+Disabling paste 
+```
+{'paste':false}
+```
+Enabling paste
+```
+{'paste':true}
+```
+
+### Jump to first error (Grids and sub-questions)
+You are now able to push the focus to the first error in a grid.
+When a page containing an error in the grid loads, implementing jump to first error will put the focus in the input where the first error occurs
+You switch Jump to first error at a page level using a page custom property.  This switches on this feature:
+{'jumptoerror':true}
+The default is false, which means that by default the focus is with the first input on the page 
+Jump to first error for stand alone questions has not yet been implemented.  However this does work if the error is a single-line edit in a choice question (other specify)
+
+### Rotated Categorical grids
+Categorical grids can now be rotated using the Column style in the metadata or by applying style.orientation = orColumn in the routing.
+
+### Rotated Complex grids
+Complex grids (grids containing multiple question and question types) can now be rotated.  There are certain aspects of this that have not yet been tested (such as captions and totals).
+
+### Side by Side questons
+With a view to finding alternatives to the current use of grids to create side by side questions.  This release provide examples of the work we are doing with Blocks (single iteration grids).  This is a more suitable implementation for complex questions.  The release includes various exmaples (some still have formatting issues to resolve).
+
+## Other Issues Resolved
+
+### long question not respecting visibility instructions in a grid
+Long questions now hide when made invisible in a grid
+
+### Categorical exclusives not respected when in a grid
+Exclusives now work in categorical grids
+
+### Readoly grids are not read-only
+This had not been implemented before, but now a grid with a readonly or displayed using show() makes all the underlying controls readonly.
