@@ -1,0 +1,123 @@
+:root {
+    --sidebar-width: 20%;
+    --sidebar-content-min-width: 66%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: sans-serif;
+    margin: 0;
+    min-block-size: 100vh;
+}
+
+body {
+    grid-template-rows: auto 1fr auto;
+    min-block-size: 100vh;
+    display: grid;
+}
+
+.header,
+.footer,
+.form-controls {
+    background: hsl(51, 100%, 45%, 15%);
+    border: 1px dashed hsl(51, 100%, 45%);
+    padding: 1em;
+}
+
+form {
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
+    > * + * {
+        margin-top: 1em;
+    }
+}
+
+.form-controls {
+    inset-block-end: 1em;
+    margin-block-start: auto;
+    position: relative;
+}
+
+.o-question-container {
+    border: 2px dashed hsl(0, 0%, 20%);
+    padding: 1em;
+
+    > * + * {
+        margin-block-start: 1em;
+    }
+}
+
+.l-sidebar-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    > :not(.l-sidebar) {
+        flex-basis: 0;
+        flex-grow: 999;
+        min-inline-size: var(--sidebar-content-min-width);
+    }
+
+    > * {
+        border: 1px dashed hsl(51, 100%, 45%);
+        padding: 1em;
+    }
+
+    > div > * + * {
+        margin-top: 1em;
+    }
+}
+
+.l-sidebar {
+    flex-basis: var(--sidebar-width);
+    flex-grow: 1;
+}
+
+ul {
+    padding-inline-start: 1rem;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+fieldset {
+    border: 0;
+}
+
+legend.l-sidebar {
+    /* So legend can behave as a flex item. */
+    display: contents;
+}
+
+.l-sidebar-wrapper div:has(.a-label-prelabel) * {
+    margin-block-start: 0;
+}
+
+[role="status"] {
+    background: hsl(204, 92%, 75%, 10%);
+    border: 1px dashed hsl(204, 92%, 75%);
+    padding: 1em;
+}
+
+[role="alert"] {
+    background: hsl(358, 75%, 39%, 10%);
+    border: 1px dashed hsl(358, 75%, 39%);
+    padding: 1em;
+}
+
+.notes {
+    background: hsl(270, 50%, 40%, 10%);
+    border: 1px dashed hsl(270, 50%, 40%);
+    margin-block-start: 2em;
+    max-inline-size: 100ch;
+    padding: 1em;
+}

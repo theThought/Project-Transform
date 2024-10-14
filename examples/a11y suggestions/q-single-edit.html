@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question single edit</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <header class="header">
+        <p>Page header content goes inside <code>&lt;header&gt;</code>.</p>
+    </header>
+
+    <main class="surroundcontent">
+        <form action="#">
+            <div class="o-question-container">
+                <div role="alert">
+                    <!-- CSS icon -->
+                    Error message... with ARIA <code>role="error"</code>
+                </div>
+
+                <div class="l-sidebar-wrapper">
+                    <div class="l-sidebar">
+                        <label for="q-text" class="a-label-question">
+                            Question text is a label
+                        </label>
+                        <div class="a-label-instruction" id="q-instructions">
+                            Additional instructions... with unique <code>id</code> for ARIA enhancement
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="text" id="q-text" aria-describedby="q-instructions" />
+                    </div>
+                </div>
+
+                <div role="status">
+                    <!-- CSS icon -->
+                    Status message... with ARIA <code>role="status"</code>
+                </div>
+            </div>
+
+            <div class="notes">
+                <h2>Accessibility considerations & other notes</h2>
+                <ul>
+                    <li>Single input types - e.g. <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> - should use <code>&lt;label&gt;</code> for question text.</li>
+                    <li>The input has an <code>aria-describedby</code> attribute to programmatically associate it with a unique <code>id</code> on the instructions. This enables screen readers to announce the instructions in addition to the form control's label.</li>
+                    <li>We should <a href="https://www.deque.com/blog/accessible-forms-the-problem-with-placeholders/">not use placeholder text in input fields</a>.</li>
+                    <li>If status message is an error:
+                        <ul>
+                            <li>Place error message <strong>before</strong> question.</li>
+                            <li>Shift keyboard <code>focus</code> to the <strong>1st error message on the page</strong> so that it's the 1st thing announced to screen readers when page is reloaded.</li>
+                            <li>See <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role">role="alert"</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role">role="status"</a> on MDN.</li>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form-controls">Form buttons...</div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>Page footer content goes inside <code>&lt;footer&gt;</code>.</p>
+    </footer>
+</body>
+</html>
