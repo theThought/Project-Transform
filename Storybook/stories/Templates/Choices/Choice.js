@@ -31,7 +31,7 @@ ${style}
 
         <script>app.RegisterProperties("_Qtest__location",{
             "balance":{"state":${args.Balance === true ? 'true' : 'false'},"min-width":"${args.BalanceMinWidth}"},
-            "onesize":{"state":${args.OneSize === true ? 'true' : 'false'},"max-width":"${args.customPropertyOneSizeMaxWidth}"},
+            "onesize":{"state":${args.OneSize === true ? 'true' : 'false'},"max-width":"${args.OneSizeMaxWidth}"},
             "sublistline":{"state":${args.SublistLine === true ? 'true' : 'false'},"length":${args.SublistLineLength}}
         });</script>
 
