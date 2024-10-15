@@ -42,8 +42,8 @@ define(['component'],
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.storeInitialValue();
-            this.calculateWidth();
             this.setControlType();
+            this.calculateWidth();
             this.configureInitialVisibility();
             this.processVisibilityRules();
             this.setInitialLabel();
@@ -190,7 +190,6 @@ define(['component'],
 
         /**
          * Calculates the width of the input.
-         * @param width {number|null}
          */
         oCombobox.prototype.calculateWidth = function () {
             // respect manual width if set: 16px + 16px accounts for element padding
@@ -358,8 +357,8 @@ define(['component'],
                     return;
                 case 35: // end
                 case 36: // home
-                case 40: // down arrow
                 case 38: // up arrow
+                case 40: // down arrow
                     this.clearKeyBuffer();
                     this.sendKeyToList();
                     break;
@@ -484,7 +483,7 @@ define(['component'],
         oCombobox.prototype.setSelectedOption = function (selectedOption) {
             this.setValue(selectedOption.textContent);
             this.setHiddenValue(selectedOption.getAttribute('data-value'));
-            this.element.setAttribute('aria-active-descendant', selectedOption.id);
+            this.element.setAttribute('aria-activedescendant', selectedOption.id);
         }
 
         /**

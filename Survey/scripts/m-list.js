@@ -10,11 +10,12 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup=' + this.group + '] ul.m-list');
-            this.inputelement = document.querySelector('input.a-input-combobox[data-questiongroup="' + this.group + '"]');
-            this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
+            this.inputelement = document.querySelector('input[data-questiongroup="' + this.group + '"]');
+            this.container = this.element.closest('div.o-question-response[data-questiongroup="' + this.group + '"]');
 
             this.filtermethod = 'contains';
             this.list = null;
+            this.controltype = '';
             this.isExact = true;
             this.source = null;
             this.currentlistposition = -1;
@@ -38,6 +39,7 @@ define(['component'],
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.list = this.buildList();
+            this.setListType();
             this.calculateWidth();
             this.setPosition();
             this.removeTabIndex();
@@ -50,6 +52,7 @@ define(['component'],
             document.addEventListener('hideList', this.handleEvent.bind(this), false);
             document.addEventListener('showList', this.handleEvent.bind(this), false);
             document.addEventListener('toggleList', this.handleEvent.bind(this), false);
+            document.addEventListener(this.group + '_enableExclusive', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_listWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_requestListWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_sendKeyToList', this.handleEvent.bind(this), false);
@@ -78,6 +81,9 @@ define(['component'],
                     break;
                 case 'toggleList':
                     this.toggleList(event);
+                    break;
+                case this.group + '_enableExclusive':
+                    this.enableExclusive();
                     break;
                 case this.group + '_listWidth':
                     this.setWidthFromControl(event);
@@ -113,6 +119,22 @@ define(['component'],
             this.clearSelectedOption();
         }
 
+        mList.prototype.setListType = function () {
+            if (this.container.classList.contains('o-question-dropdown')) {
+                this.controltype = 'droplist';
+                this.filtermethod = 'jump';
+            } else {
+                this.controltype = 'combobox';
+            }
+
+            this.element.setAttribute('aria-label', 'options');
+        }
+
+        mList.prototype.enableExclusive = function () {
+            this.setCurrentListPosition(-1);
+            this.clearSelectedOption();
+        }
+
         mList.prototype.intialiseListForFirstDisplay = function (event) {
             this.indexList();
             this.restoreSelection(event);
@@ -133,6 +155,19 @@ define(['component'],
 
         mList.prototype.filtertype = function (prop) {
             this.filtermethod = prop;
+        }
+
+        /**
+         * Sets whether the list will jump to the entry that
+         * starts with the letter matching the user's keystroke.
+         *
+         * Automagically called by the property setter function.
+         * @param prop {boolean}
+         */
+        mList.prototype.jumptofirstletter = function (prop) {
+            if (prop === true) {
+                this.filtertype = 'jump';
+            }
         }
 
         mList.prototype.processKeyStroke = function (event) {
@@ -187,8 +222,7 @@ define(['component'],
                 this.hideList();
             }
 
-            var listEvent = new CustomEvent(this.group + '_updateListInput', {bubbles: true, detail: this});
-            this.element.dispatchEvent(listEvent);
+            this.notifyListInput();
         }
 
         mList.prototype.restoreSelection = function () {
@@ -213,6 +247,7 @@ define(['component'],
 
             currententry.classList.add('selected');
             currententry.setAttribute('data-selected', 'selected');
+            currententry.setAttribute('aria-selected', 'true');
         }
 
         mList.prototype.setSelectedOptionByNode = function (selectedOption) {
@@ -220,14 +255,17 @@ define(['component'],
 
             selectedOption.classList.add('selected');
             selectedOption.setAttribute('data-selected', 'selected');
+            selectedOption.setAttribute('aria-selected', 'true');
             this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
         }
 
         mList.prototype.clearSelectedOption = function () {
-            var previousOption = this.container.querySelector('li.selected');
-            if (previousOption !== null) {
-                previousOption.removeAttribute('data-selected');
-                previousOption.classList.remove('selected');
+            var selectedOption = this.container.querySelector('li.selected');
+
+            if (selectedOption !== null) {
+                selectedOption.removeAttribute('data-selected');
+                selectedOption.removeAttribute('aria-selected');
+                selectedOption.classList.remove('selected');
             }
         }
 
@@ -264,23 +302,22 @@ define(['component'],
          * Calculates the width of the list.
          */
         mList.prototype.calculateWidth = function () {
-            var padding = 16 * 2; // the list has 32px of padding
-
+            var padding = 32;
             var elementdims = getComputedStyle(this.element);
             var initialwidth = parseFloat(elementdims.width) - padding;
             var listwidth = initialwidth;
-
-            // check to see whether an identical list has already been initialised
             var existinglist = app.getComponentByProperty('source', this.source);
 
-            if (typeof existinglist !== 'undefined') {
+            // check to see whether an identical list has already been initialised
+            if (this.source !== null && typeof existinglist !== 'undefined') {
                 this.setWidth(initialwidth, existinglist.width, padding);
                 return;
             }
 
             var entries = this.buildList();
             var entrycount = entries.length;
-            var longestentry = '';
+            var longestentry = 0;
+            var textwidth = 0;
 
             for (var i = 0; i < entrycount; i++) {
                 if (entries[i].classList.contains('a-list-placeholder-empty')) {
@@ -291,22 +328,19 @@ define(['component'],
                     continue;
                 }
 
-                var entrylength = this.sanitiseText(entries[i].textContent);
+                textwidth = this.getWidthOfText(this.sanitiseText(entries[i].textContent));
 
-                if (entrylength > longestentry.length) {
-                    longestentry = this.sanitiseText(entries[i].textContent);
+                if (textwidth > longestentry) {
+                    longestentry = parseInt(textwidth);
                 }
             }
-
-            // get the approximate text width
-            var textwidth = this.getWidthOfText(longestentry);
 
             var containerstyles = getComputedStyle(this.container.closest('question'));
             var maxavailablewidth = parseFloat(containerstyles.width);
 
-            var newwidth = Math.min(Math.max(listwidth, textwidth), maxavailablewidth);
+            var newwidth = Math.min(Math.max(listwidth, longestentry), maxavailablewidth);
 
-            this.setWidth(initialwidth, newwidth);
+            this.setWidth(initialwidth, newwidth, padding);
             this.requestControlWidth();
         }
 
@@ -326,7 +360,7 @@ define(['component'],
             }
 
             if (event.detail.width > this.width) {
-                var padding = 32;
+                var padding = (this.controltype === 'droplist') ? 64 : 32;
                 this.element.style.width = event.detail.width + padding + 'px';
                 this.width = event.detail.width;
             }
@@ -543,6 +577,56 @@ define(['component'],
                 case 'contains':
                     this.filterListContains(eventdetail.element.value);
                     break;
+                case 'jump':
+                    this.jumpToLetter(eventdetail.keybuffer);
+            }
+        }
+
+        mList.prototype.jumpToLetter = function (inputstring) {
+            if (!inputstring.length) {
+                return;
+            }
+
+            var list = this.buildVisibleList();
+            var currentfirstletter = '';
+
+            console.log(inputstring);
+
+            if (this.currentlistposition !== -1) {
+                currentfirstletter = list[this.currentlistposition].textContent.substring(0,1).toLowerCase();
+            }
+
+            var listpasses = 0;
+
+            for (var i = 0; i < list.length; i++) {
+                var currentitem = list[i];
+                var currentitemlabel = this.sanitiseText(currentitem.innerText.toLowerCase());
+
+                if (currentitemlabel.indexOf(inputstring) === 0) {
+                    if ((listpasses === 0 && currentfirstletter === inputstring.substring(0, 1) && i < this.currentlistposition) ||
+                        (currentitem.classList.contains('selected') && inputstring.length === 1)) {
+                        // this is required if we've reached the end of the list and landed on an active item
+                        // as the last element -- we will need to loop back for another pass at this point
+                        if (listpasses === 0 && i === list.length - 1) {
+                            listpasses = 1;
+                            i = 0;
+                        }
+                        continue;
+
+                    } else {
+                        this.setSelectedOptionByIndex(i);
+                        this.setCurrentListPosition(i);
+                        this.notifyListInput();
+                        return;
+                    }
+                }
+
+                // this is required to reiterate the list for a second time in case we started part way
+                // through with an existing selection
+                if (listpasses === 0 && i === list.length - 1) {
+                    listpasses = 1;
+                    i = 0;
+                }
             }
         }
 
@@ -595,8 +679,7 @@ define(['component'],
             this.list = this.buildVisibleList();
 
             if (this.isExact && exactmatch) {
-                var listEvent = new CustomEvent(this.group + '_updateListInput', {bubbles: true, detail: this});
-                this.element.dispatchEvent(listEvent);
+                this.notifyListInput();
             }
         }
 
@@ -649,9 +732,13 @@ define(['component'],
             this.list = this.buildVisibleList();
 
             if (this.isExact && exactmatch) {
-                var listEvent = new CustomEvent(this.group + '_updateListInput', {bubbles: true, detail: this});
-                this.element.dispatchEvent(listEvent);
+                this.notifyListInput();
             }
+        }
+
+        mList.prototype.notifyListInput = function () {
+            var listEvent = new CustomEvent(this.group + '_updateListInput', {bubbles: true, detail: this});
+            this.element.dispatchEvent(listEvent);
         }
 
         mList.prototype.displayMinCharacterMessage = function (visibility) {
