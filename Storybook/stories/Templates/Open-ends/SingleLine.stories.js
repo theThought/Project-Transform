@@ -8,7 +8,7 @@ export default {
         },
     },
     argTypes: {
-        customPropertyInputType: {
+        InputType: {
             control: 'select',
             options: ['text', 'number', 'date'],
             description: 'Provides the "type" attribute for the HTML input tag.',
@@ -17,7 +17,7 @@ export default {
                 defaultValue: { summary: 'text' }
             },
         },
-        customPropertyPreLabel: {
+        PreLabel: {
             control: 'text',
             description: 'Specifies the text to be placed before the input.',
             table: {
@@ -25,7 +25,7 @@ export default {
                 defaultValue: { summary: 'n/a' }
             },
         },
-        customPropertyPostLabel: {
+        PostLabel: {
             control: 'text',
             description: 'Specifies the text to be placed after the input.',
             table: {
@@ -38,7 +38,7 @@ export default {
 
 export const SingleLineCustomProperties = {
     args: {
-        customPropertyInputType: 'text'
+        InputType: 'text'
     },
     render: (args) => SingleLineCustomPropertiesHtml(args),
 };

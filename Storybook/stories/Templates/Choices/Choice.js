@@ -30,16 +30,10 @@ ${style}
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qtest__location');</script>
 
         <script>app.RegisterProperties("_Qtest__location",{
-            "balance":{
-"state":${args.customPropertyBalanceState === true ? 'true' : 'false'},
-"min-width":"${args.customPropertyBalanceMinWidth}"},
-            "onesize":{
-"state":${args.customPropertyOneSizeState === true ? 'true' : 'false'},
-"max-width":"${args.customPropertyOneSizeMaxWidth}"},
-            "sublistline":{
-"state":${args.customPropertySublistLineState === true ? 'true' : 'false'},
-"length":${args.customPropertySublistLineLength}
-        }});</script>
+            "balance":{"state":${args.Balance === true ? 'true' : 'false'},"min-width":"${args.BalanceMinWidth}"},
+            "onesize":{"state":${args.OneSize === true ? 'true' : 'false'},"max-width":"${args.customPropertyOneSizeMaxWidth}"},
+            "sublistline":{"state":${args.SublistLine === true ? 'true' : 'false'},"length":${args.SublistLineLength}}
+        });</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 

@@ -8,7 +8,7 @@ export default {
         },
     },
     argTypes: {
-        customPropertyBalanceState: {
+        Balance: {
             control: 'boolean',
             description: 'Indicates whether balance is enabled.',
             table: {
@@ -16,7 +16,7 @@ export default {
                 defaultValue: { summary: 'false' }
             },
         },
-        customPropertyBalanceMinWidth: {
+        BalanceMinWidth: {
             control: 'text',
             description: 'Indicates the smallest width of an item (in "px" or "em").',
             table: {
@@ -24,7 +24,7 @@ export default {
                 defaultValue: { summary: 'n/a' }
             },
         },
-        customPropertyOneSizeState: {
+        OneSize: {
             control: 'boolean',
             description: 'Indicates whether onesize is enabled.',
             table: {
@@ -32,7 +32,7 @@ export default {
                 defaultValue: { summary: 'false' }
             },
         },
-        customPropertyOneSizeMaxWidth: {
+        OneSizeMaxWidth: {
             control: 'text',
             description: 'Indicates the largest width of an item (in "px" or "em").',
             table: {
@@ -40,7 +40,7 @@ export default {
                 defaultValue: { summary: 'n/a' }
             },
         },
-        customPropertySublistLineState: {
+        SublistLine: {
             control: 'boolean',
             description: 'Indicates whether sublist separator is displayed.',
             table: {
@@ -48,7 +48,7 @@ export default {
                 defaultValue: { summary: 'false' }
             },
         },
-        customPropertySublistLineLength: {
+        SublistLineLength: {
             control: 'number',
             description: 'Indicates the length of the line in percentage terms.',
             table: {

@@ -24,11 +24,10 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QText",{"type":"${args.customPropertyInputType}","labels":{
-            ${args.customPropertyPreLabel ? `"pre":"%lt%i%gt%${args.customPropertyPreLabel}%lt%/i%gt%"` : ''}
-            ${args.customPropertyPreLabel && args.customPropertyPostLabel ? ',' : ''}
-            ${args.customPropertyPostLabel ? `"post":"%lt%i%gt%${args.customPropertyPostLabel}%lt%/i%gt%"` : ''}
-        }});</script>
+        <script>app.RegisterProperties("_QText",{
+            "type":"${args.InputType}",
+            "labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
+        });</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
