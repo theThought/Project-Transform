@@ -126,6 +126,8 @@ define(['component'],
             } else {
                 this.controltype = 'combobox';
             }
+
+            this.element.setAttribute('aria-label', 'options');
         }
 
         mList.prototype.enableExclusive = function () {
