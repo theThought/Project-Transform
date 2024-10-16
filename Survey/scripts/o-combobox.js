@@ -332,6 +332,7 @@ define(['component'],
                     break;
                 case 35: // end
                 case 36: // home
+                    break;
                 case 38: // up arrow
                 case 40: // down arrow
                     event.preventDefault(); // prevent caret from moving
