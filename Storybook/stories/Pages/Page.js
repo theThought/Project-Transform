@@ -13,10 +13,7 @@ const style = `
 
 export const PageLayoutHtml = (args) => `
 <form action="#"
-    class="
-    ${args.pagePropertyFocusQuestion === true ? 'focus-question' : ''}
-    ${args.pagePropertyFocusControl === true ? 'focus-control' : ''}
-    "
+    class="focus-control ${args.FocusQuestion === true ? 'focus-question' : ''}"
     data-paste="true"
 >
     <div class="header">
@@ -43,8 +40,8 @@ export const PageLayoutHtml = (args) => `
 
         <div class="
         o-question-container cover-off config-complete
-        ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}
-        ${args.pagePropertyFocusQuestion === true ? 'focused' : ''}
+        ${args.PageLayout === 'sidebyside' ? 'sidebyside' : ''}
+        ${args.FocusQuestion === true ? 'focused' : ''}
         ">
 
             <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QQuestion0');</script>
@@ -53,7 +50,7 @@ export const PageLayoutHtml = (args) => `
 
             ${htmlFragmentMessageError}
             <div class="o-question-core">
-                <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
+                <div class="o-question-information-and-messages" style="flex-basis: ${args.SideBySide}%;">
                     <div class="o-question-information">
                         <div class="o-question-information-content">
                             1ST QUESTION GOES HERE...
@@ -77,7 +74,7 @@ export const PageLayoutHtml = (args) => `
 
         </div>
 
-        <div class="o-question-container cover-off config-complete ${args.pageLayout === 'sidebyside' ? 'sidebyside' : ''}">
+        <div class="o-question-container cover-off config-complete ${args.PageLayout === 'sidebyside' ? 'sidebyside' : ''}">
 
             <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QQuestion1');</script>
 
@@ -85,7 +82,7 @@ export const PageLayoutHtml = (args) => `
 
             ${htmlFragmentMessageError}
             <div class="o-question-core">
-                <div class="o-question-information-and-messages" style="flex-basis: ${args.pagePropertySideBySide}%;">
+                <div class="o-question-information-and-messages" style="flex-basis: ${args.SideBySide}%;">
                     <div class="o-question-information">
                         <div class="o-question-information-content">
                             2ND QUESTION GOES HERE...

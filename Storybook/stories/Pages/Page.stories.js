@@ -8,27 +8,27 @@ export default {
         },
     },
     argTypes: {
-        pageLayout: {
+        PageLayout: {
             control: 'select',
             options: ['sidebyside', 'vertical'],
-            description: 'Arrange form control(s) alongside question, or below.',
+            description: 'Page property - arrange form control(s) alongside question, or below.',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: 'sidebyside' }
             },
         },
-        pagePropertyFocusQuestion: {
+        FocusQuestion: {
             control: 'boolean',
-            description: 'Indicates whether the current question has focus.',
+            description: 'Page property - indicates whether the current question has focus.',
             table: {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' }
             },
         },
-        pagePropertySideBySide: {
+        SideBySide: {
             control: 'select',
             options: ['20', '30', '40', '50'],
-            description: 'Width of question text, as a percentage of  available width.',
+            description: 'Page property - width of question text, as a percentage of  available width.',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: '30' }
