@@ -354,9 +354,9 @@ define(['component'],
                     return;
                 case 37: // left
                 case 39: // right
-                    return;
                 case 35: // end
                 case 36: // home
+                    return;
                 case 38: // up arrow
                 case 40: // down arrow
                     this.clearKeyBuffer();
