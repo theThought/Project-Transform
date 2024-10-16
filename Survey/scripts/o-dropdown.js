@@ -127,7 +127,7 @@ define(['component'],
                     this.receiveOptionVisibilityChange(event);
                     break;
                 case this.group + '_updateListInput':
-                    this.getSelectedValue(event);
+                    this.setSelectedValue(event);
                     break;
             }
         }
@@ -248,7 +248,7 @@ define(['component'],
         /**
          * Determines which sort of droplist this component will be.
          *
-         * At present only combobox is supported, it is envisaged this could be expanded
+         * At present only droplist is supported, it is envisaged this could be expanded
          * to include select and open-end search by setting the appropriate attributes.
          */
         oDropdown.prototype.setControlType = function () {
@@ -329,7 +329,7 @@ define(['component'],
                 case 13: // enter key
                     event.stopImmediatePropagation();
                     event.preventDefault();
-                    this.getSelectedValue(event);
+                    this.requestSelectedValue();
                     break;
                 default:
                     this.element.classList.remove('exact');
@@ -457,8 +457,13 @@ define(['component'],
             }
         }
 
-        oDropdown.prototype.getSelectedValue = function (event) {
-            var selectedOption = this.container.querySelector('li.selected');
+        oDropdown.prototype.requestSelectedValue = function (event) {
+            var valueEvent = new CustomEvent(this.group + '_requestValue', {bubbles: true, detail: this});
+            this.element.dispatchEvent(valueEvent);
+        }
+
+        oDropdown.prototype.setSelectedValue = function (event) {
+            var selectedOption = event.detail.element.querySelector('li.selected');
             this.clearKeyBuffer();
             this.hideList();
 
@@ -486,7 +491,7 @@ define(['component'],
                 return;
             }
 
-            var selectedOption = this.container.querySelector('li[data-value="' + this.getValue() + '"]');
+            var selectedOption = document.querySelector('#' + this.id + '_list li[data-value="' + this.getValue() + '"]');
             this.setSelectedOption(selectedOption);
         }
 

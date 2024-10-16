@@ -55,6 +55,7 @@ define(['component'],
             document.addEventListener(this.group + '_enableExclusive', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_listWidth', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_requestListWidth', this.handleEvent.bind(this), false);
+            document.addEventListener(this.group + '_requestValue', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_sendKeyToList', this.handleEvent.bind(this), false);
         }
 
@@ -90,6 +91,9 @@ define(['component'],
                     break;
                 case this.group + '_requestListWidth':
                     this.notifyElementWidth();
+                    break;
+                case this.group + '_requestValue':
+                    this.notifyListInput();
                     break;
                 case this.group + '_sendKeyToList':
                     this.processKeyStroke(event);
@@ -260,7 +264,7 @@ define(['component'],
         }
 
         mList.prototype.clearSelectedOption = function () {
-            var selectedOption = this.container.querySelector('li.selected');
+            var selectedOption = this.element.querySelector('li.selected');
 
             if (selectedOption !== null) {
                 selectedOption.removeAttribute('data-selected');
@@ -370,9 +374,9 @@ define(['component'],
             var tmp = document.createElement("span");
             tmp.style.whiteSpace = 'nowrap';
             tmp.innerHTML = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            this.container.appendChild(tmp);
+            document.documentElement.appendChild(tmp);
             var width = parseFloat(tmp.getBoundingClientRect().width);
-            this.container.removeChild(tmp);
+            document.documentElement.removeChild(tmp);
             return width;
         }
 
@@ -514,8 +518,8 @@ define(['component'],
 
         mList.prototype.setDropListDirection = function () {
             // reset to default direction before performing checks
-            this.container.classList.remove('direction-up');
-            this.container.classList.add('direction-down');
+            this.element.classList.remove('direction-up');
+            this.element.classList.add('direction-down');
             this.element.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
             this.element.style.removeProperty('bottom');
             var paddingAllowance = 10;
@@ -528,8 +532,8 @@ define(['component'],
             var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
             if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
-                this.container.classList.remove('direction-down');
-                this.container.classList.add('direction-up');
+                this.element.classList.remove('direction-down');
+                this.element.classList.add('direction-up');
 
                 if (distanceToTop < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
                     this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
@@ -593,7 +597,7 @@ define(['component'],
             console.log(inputstring);
 
             if (this.currentlistposition !== -1) {
-                currentfirstletter = list[this.currentlistposition].textContent.substring(0,1).toLowerCase();
+                currentfirstletter = list[this.currentlistposition].textContent.substring(0, 1).toLowerCase();
             }
 
             var listpasses = 0;
