@@ -457,7 +457,7 @@ define(['component'],
             }
         }
 
-        oDropdown.prototype.requestSelectedValue = function (event) {
+        oDropdown.prototype.requestSelectedValue = function () {
             var valueEvent = new CustomEvent(this.group + '_requestValue', {bubbles: true, detail: this});
             this.element.dispatchEvent(valueEvent);
         }
