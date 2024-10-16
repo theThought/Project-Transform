@@ -17,6 +17,18 @@ const style = `
 `;
 
 export const ChoiceCustomPropertiesHtml = (args) => `
+
+<!-- Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs. Content inside <pre> is copied from the <script>app.RegisterProperties(...)</script> markup below. -->
+<span>Custom properties JSON:</span><br/>
+<pre>
+{
+    "balance":{"state":${args.Balance === true ? 'true' : 'false'},"min-width":"${args.BalanceMinWidth}"},
+    "onesize":{"state":${args.OneSize === true ? 'true' : 'false'},"max-width":"${args.OneSizeMaxWidth}"},
+    "sublistline":{"state":${args.SublistLine === true ? 'true' : 'false'},"length":${args.SublistLineLength}}
+}
+</pre>
+<!-- End -->
+
 ${style}
 <form action="#"
     class="focus-question focus-control"
