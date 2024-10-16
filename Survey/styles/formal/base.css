@@ -1792,7 +1792,7 @@ html[dir=rtl] .balance .m-option-base {
 }
 
 .o-question-core > .o-question-response {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .o-question-core {

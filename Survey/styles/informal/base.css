@@ -1779,8 +1779,8 @@ html[dir=rtl] .balance .m-option-base {
   width: 100%;
 }
 
-.oquestion-core > .o-question-response {
-  overflow: scroll;
+.o-question-core > .o-question-response {
+  overflow: auto;
 }
 
 .o-question-core {
