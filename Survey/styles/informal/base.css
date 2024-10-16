@@ -1779,6 +1779,10 @@ html[dir=rtl] .balance .m-option-base {
   width: 100%;
 }
 
+.oquestion-core > .o-question-response {
+  overflow: scroll;
+}
+
 .o-question-core {
   z-index: 2;
 }

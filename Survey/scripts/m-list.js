@@ -50,6 +50,7 @@ define(['component'],
             // for each event listener there must be a corresponding event handler
             document.addEventListener('clearEntries', this.handleEvent.bind(this), false);
             document.addEventListener('hideList', this.handleEvent.bind(this), false);
+            document.addEventListener('scroll', this.handleEvent.bind(this), true);
             document.addEventListener('showList', this.handleEvent.bind(this), false);
             document.addEventListener('toggleList', this.handleEvent.bind(this), false);
             document.addEventListener(this.group + '_enableExclusive', this.handleEvent.bind(this), false);
@@ -76,6 +77,9 @@ define(['component'],
                     break;
                 case 'mousedown':
                     this.onMousedown(event);
+                    break;
+                case 'scroll':
+                    this.updateListPosition(event.target.scrollLeft)
                     break;
                 case 'showList':
                     this.showList(event);
@@ -429,6 +433,10 @@ define(['component'],
 
             var scrollposition = currentitem.offsetTop - this.element.clientHeight;
             this.element.scrollTop = scrollposition + 100;
+        }
+
+        mList.prototype.updateListPosition = function (position) {
+            this.element.style.marginLeft = 0-position + 'px';
         }
 
         mList.prototype.navigateFirst = function () {
