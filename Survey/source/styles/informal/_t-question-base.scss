@@ -61,6 +61,9 @@ html[dir="rtl"] .o-question-errorandinstruction {
 .sidebyside .o-question-information-and-messages {
     position: relative;
     z-index: 20;
+}
+
+.sidebyside.focused .o-question-information-and-messages {
     background-color: white;
 }
 
