@@ -2,10 +2,6 @@
 
 $default-text-width: globals.$default-input-width;
 
-.o-combobox, .o-dropdown {
-    position: relative;
-}
-
 .o-combobox {
     input[type=text] {
         max-width: 100%;

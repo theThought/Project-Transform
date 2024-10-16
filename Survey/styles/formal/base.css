@@ -2528,10 +2528,6 @@ input[type=range]:focus::-ms-fill-lower {
   display: none;
 }
 
-.o-combobox, .o-dropdown {
-  position: relative;
-}
-
 .o-combobox input[type=text] {
   max-width: 100%;
   padding: 10px 16px;
