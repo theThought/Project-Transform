@@ -3,6 +3,8 @@ import {
     htmlFragmentMessageInstruction,
 } from '../../_htmlFragments';
 
+import { parseCustomProps } from '../../_parseCustomPropsJSON';
+
 const style = `
 <style>
     .surroundcontent {
@@ -16,15 +18,15 @@ export const SingleLineCustomPropertiesHtml = (args) => `
 <!--
 Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs.
 
-Content inside <pre> is copied from the <script>app.RegisterProperties(...)</script> markup inside the <form> below.
+Copy the JSON from <script>app.RegisterProperties(...)</script> markup inside the <form> below, and paste into the parseCustomProps() function to sanitise it for ZeroHeight.
 -->
 <span>Custom properties JSON:</span><br/>
-<pre>
+${parseCustomProps(`
 {
     "type":"${args.InputType}",
     "labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
 }
-</pre>
+`)}
 <!-- End -->
 
 ${style}
