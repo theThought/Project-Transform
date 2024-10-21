@@ -13,12 +13,16 @@ const style = `
 
 export const SingleLineCustomPropertiesHtml = (args) => `
 
-<!-- Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs. Content inside <pre> is copied from the <script>app.RegisterProperties(...)</script> markup below. -->
+<!--
+Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs.
+
+Content inside <pre> is copied from the <script>app.RegisterProperties(...)</script> markup inside the <form> below.
+-->
 <span>Custom properties JSON:</span><br/>
 <pre>
 {
-"type":"${args.InputType}",
-"labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
+    "type":"${args.InputType}",
+    "labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
 }
 </pre>
 <!-- End -->
@@ -35,10 +39,12 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
 
-        <script>app.RegisterProperties("_QText",{
-"type":"${args.InputType}",
-"labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
-        });</script>
+        <script>app.RegisterProperties("_QText",
+{
+    "type":"${args.InputType}",
+    "labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
+}
+        );</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 

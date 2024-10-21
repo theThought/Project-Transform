@@ -18,13 +18,23 @@ const style = `
 
 export const ChoiceCustomPropertiesHtml = (args) => `
 
-<!-- Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs. Content inside <pre> is copied from the <script>app.RegisterProperties(...)</script> markup below. -->
+<!--
+Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs.
+
+Content inside <pre> is copied from the <script>app.RegisterProperties(...)</script> markup inside the <form> below.
+-->
 <span>Custom properties JSON:</span><br/>
 <pre>
 {
-"balance":{"state":${args.Balance === true ? 'true' : 'false'}${args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},
-"onesize":{"state":${args.OneSize === true ? 'true' : 'false'}${args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},
-"sublistline":{"state":${args.SublistLine === true ? 'true' : 'false'}${args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}
+    ${
+    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
+    }
+    ${
+    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
+    }
+    ${
+    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
+    }
 }
 </pre>
 <!-- End -->
@@ -41,11 +51,19 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qtest__location');</script>
 
-        <script>app.RegisterProperties("_Qtest__location",{
-"balance":{"state":${args.Balance === true ? 'true' : 'false'}${args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},
-"onesize":{"state":${args.OneSize === true ? 'true' : 'false'}${args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},
-"sublistline":{"state":${args.SublistLine === true ? 'true' : 'false'}${args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}
-        });</script>
+        <script>app.RegisterProperties("_Qtest__location",
+{
+    ${
+    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
+    }
+    ${
+    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
+    }
+    ${
+    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
+    }
+}
+        );</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
