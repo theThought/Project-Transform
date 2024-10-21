@@ -344,7 +344,7 @@ define(['component'],
             }
 
             var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = parseFloat(containerstyles.width);
+            var maxavailablewidth = parseFloat(containerstyles.width) - padding * 1.5;
 
             var newwidth = Math.min(Math.max(listwidth, longestentry), maxavailablewidth);
 
