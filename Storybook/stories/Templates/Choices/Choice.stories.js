@@ -53,7 +53,7 @@ export default {
             options: [10, 25, 50, 75, 100],
             description: 'Indicates the length of the line in percentage terms.',
             table: {
-                type: { summary: 'number' },
+                type: { summary: 'select' },
                 defaultValue: { summary: 25 }
             },
         },
