@@ -1,7 +1,7 @@
-// Array of strings to be replaced.
+// Array of strings to be replaced. Keep adding to array as required...
 const ignoredStrings = [
-    '"balance":{"state":false},',
-    '"onesize":{"state":false},',
+    '"balance":{"state":false}',
+    '"onesize":{"state":false}',
     '"sublistline":{"state":false}',
 ];
 
@@ -25,6 +25,7 @@ export const parseCustomProps = (json) => {
     parsedJson = parsedJson.replace(/"/gm, '\''); // Double quotes with single
     parsedJson = parsedJson.replace(/\s/gm, ''); // Whitespace
     parsedJson = parsedJson.replace(/,}/gm, '}'); // Rogue commas
+    parsedJson = parsedJson.replace(/{,/gm, '{'); // Rogue commas
 
     // Build HTML string.
     parsedJson = `
