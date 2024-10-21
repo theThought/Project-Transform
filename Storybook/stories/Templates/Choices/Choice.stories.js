@@ -49,11 +49,13 @@ export default {
             },
         },
         SublistLineLength: {
-            control: 'number',
+            // control: 'number',
+            control: 'select',
+            options: [10, 25, 50, 75, 100],
             description: 'Indicates the length of the line in percentage terms.',
             table: {
                 type: { summary: 'number' },
-                defaultValue: { summary: '25' }
+                defaultValue: { summary: 25 }
             },
         },
     }
