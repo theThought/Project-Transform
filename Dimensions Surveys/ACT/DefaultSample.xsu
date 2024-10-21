@@ -33,7 +33,8 @@
 		<SampleField>
 			<name>Language</name>
 			<type>8</type>
-			<value>ENG</value>
+			<value>FRC
+			</value>
 		</SampleField>
 	</SampleFields>
 </SampleRecord>

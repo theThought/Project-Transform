@@ -58,6 +58,15 @@ html[dir="rtl"] .o-question-errorandinstruction {
     flex: 0 0 40%;
 }
 
+.sidebyside .o-question-information-and-messages {
+    position: relative;
+    z-index: 20;
+}
+
+.sidebyside.focused .o-question-information-and-messages {
+    background-color: white;
+}
+
 html[dir="rtl"] .sidebyside .o-question-information {
     margin-right: 0;
     margin-left: 1em;

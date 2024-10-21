@@ -1,0 +1,103 @@
+@use 'globals';
+
+.o-structure-table {
+    ul.m-list {
+        max-width: none;
+    }
+}
+
+ul.m-list {
+    max-width: 100%;
+    list-style-type: none;
+    margin: -1px 0 4px 0;
+    padding: 0 0 8px 0;
+    border: globals.$border-thickness solid globals.$theme-primary;
+    background-color: globals.$input-background;
+    position: fixed;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    min-width: 3em;
+    left: -9999px;
+    font-weight: 400;
+    font-size: globals.$option-font-size;
+
+    &.charrestriction {
+        li:not(.a-list-placeholder-restriction) {
+            display: none;
+        }
+
+        li.a-list-placeholder-restriction {
+            display: block;
+            padding: 12px 16px 4px 16px;
+        }
+    }
+
+    &.empty {
+        li.a-list-placeholder-empty {
+            display: block;
+            padding: 12px 16px 4px 16px;
+        }
+    }
+
+    li.a-list-placeholder-empty {
+        display: none;
+    }
+
+    li.a-list-placeholder-restriction {
+        display: none;
+    }
+
+    &.visible {
+        left: auto;
+    }
+
+    li {
+        padding: 4px 16px;
+        cursor: default;
+        text-align: left;
+    }
+
+    li:not(.filter-hidden) {
+        padding-top: 12px;
+    }
+
+    li:not(.filter-hidden) ~ li {
+        padding-top: 4px;
+    }
+
+    li:hover {
+        color: globals.$theme-primary-hover;
+    }
+
+    li.selected {
+        color: globals.$theme-secondary;
+        font-weight: globals.$standard-font-weight;
+        background: rgba(globals.$theme-primary, .2);
+    }
+
+    li.filter-hidden {
+        display: none;
+    }
+}
+
+.o-combobox.direction-down ul,
+.o-dropdown.direction-down ul {
+    border-bottom-left-radius: globals.$text-border-radius;
+    border-bottom-right-radius: globals.$text-border-radius;
+}
+
+.o-combobox.direction-up ul,
+.o-dropdown.direction-up ul {
+    bottom: 36px;
+    border-top-left-radius: globals.$text-border-radius;
+    border-top-right-radius: globals.$text-border-radius;
+}
+
+html[dir="rtl"] {
+    ul.m-list {
+        li {
+            text-align: inherit;
+        }
+    }
+}

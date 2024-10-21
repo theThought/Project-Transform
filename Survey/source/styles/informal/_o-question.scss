@@ -40,6 +40,10 @@
 
 }
 
+.o-question-core > .o-question-response {
+    overflow: auto;
+}
+
 .o-question-core {
     z-index: 2;
 }

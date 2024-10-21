@@ -131,7 +131,7 @@ define(['component'],
                     this.receiveOptionVisibilityChange(event);
                     break;
                 case this.group + '_updateListInput':
-                    this.getSelectedValue(event);
+                    this.setSelectedValue(event);
                     break;
             }
         }
@@ -332,6 +332,7 @@ define(['component'],
                     break;
                 case 35: // end
                 case 36: // home
+                    break;
                 case 38: // up arrow
                 case 40: // down arrow
                     event.preventDefault(); // prevent caret from moving
@@ -339,7 +340,7 @@ define(['component'],
                 case 13: // enter key
                     event.stopImmediatePropagation();
                     event.preventDefault();
-                    this.getSelectedValue(event);
+                    this.requestSelectedValue();
                     break;
                 default:
                     this.element.classList.remove('exact');
@@ -354,9 +355,9 @@ define(['component'],
                     return;
                 case 37: // left
                 case 39: // right
-                    return;
                 case 35: // end
                 case 36: // home
+                    return;
                 case 38: // up arrow
                 case 40: // down arrow
                     this.clearKeyBuffer();
@@ -467,8 +468,13 @@ define(['component'],
             }
         }
 
-        oCombobox.prototype.getSelectedValue = function (event) {
-            var selectedOption = this.container.querySelector('li.selected');
+        oCombobox.prototype.requestSelectedValue = function () {
+            var valueEvent = new CustomEvent(this.group + '_requestValue', {bubbles: true, detail: this});
+            this.element.dispatchEvent(valueEvent);
+        }
+
+        oCombobox.prototype.setSelectedValue = function (event) {
+            var selectedOption = event.detail.element.querySelector('li.selected');
             this.clearKeyBuffer();
             this.hideList();
 
@@ -496,7 +502,7 @@ define(['component'],
                 return;
             }
 
-            var selectedOption = this.container.querySelector('li[data-value="' + this.getValue() + '"]');
+            var selectedOption = document.querySelector('#' + this.id + '_list li[data-value="' + this.getValue() + '"]');
             this.setSelectedOption(selectedOption);
         }
 

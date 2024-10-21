@@ -1450,6 +1450,87 @@ html[dir=rtl] .m-list-optionlist:not(.display-icons) .a-label-option {
   padding-right: 0;
 }
 
+.o-structure-table ul.m-list {
+  max-width: none;
+}
+
+ul.m-list {
+  max-width: 100%;
+  list-style-type: none;
+  margin: -1px 0 4px 0;
+  padding: 0 0 8px 0;
+  border: 1px solid #455B97;
+  background-color: #FFFFFF;
+  position: fixed;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+  min-width: 3em;
+  left: -9999px;
+}
+ul.m-list.charrestriction li:not(.a-list-placeholder-restriction) {
+  display: none;
+}
+ul.m-list.charrestriction li.a-list-placeholder-restriction {
+  display: block;
+  padding: 12px 16px 4px 16px;
+}
+ul.m-list.empty li.a-list-placeholder-empty {
+  display: block;
+  padding: 12px 16px 4px 16px;
+}
+ul.m-list li.a-list-placeholder-empty {
+  display: none;
+}
+ul.m-list li.a-list-placeholder-restriction {
+  display: none;
+}
+ul.m-list.visible {
+  left: auto;
+}
+ul.m-list li {
+  padding: 4px 16px;
+  cursor: default;
+  text-align: left;
+}
+ul.m-list li:not(.filter-hidden) {
+  padding-top: 12px;
+}
+ul.m-list li:not(.filter-hidden) ~ li {
+  padding-top: 4px;
+}
+ul.m-list li:hover {
+  color: #324371;
+}
+ul.m-list li.selected {
+  color: #449B9B;
+}
+ul.m-list li.filter-hidden {
+  display: none;
+}
+
+.o-combobox.direction-down ul,
+.o-dropdown.direction-down ul {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.o-combobox.direction-up ul,
+.o-dropdown.direction-up ul {
+  bottom: 36px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+html[dir=rtl] ul.m-list li {
+  text-align: inherit;
+}
+
+.focus-control ul.m-list {
+  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
+}
+
 .m-option-base {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -1708,6 +1789,10 @@ html[dir=rtl] .balance .m-option-base {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   width: 100%;
+}
+
+.o-question-core > .o-question-response {
+  overflow: auto;
 }
 
 .o-question-core {
@@ -2447,10 +2532,6 @@ input[type=range]:focus::-ms-fill-lower {
   display: none;
 }
 
-.o-combobox, .o-dropdown {
-  position: relative;
-}
-
 .o-combobox input[type=text] {
   max-width: 100%;
   padding: 10px 16px;
@@ -2556,104 +2637,6 @@ input[type=range]:focus::-ms-fill-lower {
 html[dir=rtl] .o-dropdown input[type=text] {
   background: url("../../images/formal/white-chevron-down.png") left 12px center no-repeat #455B97;
   padding: 10px 16px 10px 48px;
-}
-
-.o-structure-table .o-combobox ul,
-.o-structure-table .o-dropdown ul {
-  max-width: none;
-}
-
-.o-combobox ul,
-.o-dropdown ul {
-  max-width: 100%;
-  list-style-type: none;
-  margin: -1px 0 4px 0;
-  padding: 0 0 8px 0;
-  border: 1px solid #455B97;
-  background-color: #FFFFFF;
-  position: absolute;
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 10;
-  min-width: 3em;
-  left: -9999px;
-}
-.o-combobox ul.charrestriction li:not(.a-list-placeholder-restriction),
-.o-dropdown ul.charrestriction li:not(.a-list-placeholder-restriction) {
-  display: none;
-}
-.o-combobox ul.charrestriction li.a-list-placeholder-restriction,
-.o-dropdown ul.charrestriction li.a-list-placeholder-restriction {
-  display: block;
-  padding: 12px 16px 4px 16px;
-}
-.o-combobox ul.empty li.a-list-placeholder-empty,
-.o-dropdown ul.empty li.a-list-placeholder-empty {
-  display: block;
-  padding: 12px 16px 4px 16px;
-}
-.o-combobox ul li.a-list-placeholder-empty,
-.o-dropdown ul li.a-list-placeholder-empty {
-  display: none;
-}
-.o-combobox ul li.a-list-placeholder-restriction,
-.o-dropdown ul li.a-list-placeholder-restriction {
-  display: none;
-}
-.o-combobox ul.visible,
-.o-dropdown ul.visible {
-  left: auto;
-  display: block;
-}
-.o-combobox ul li,
-.o-dropdown ul li {
-  padding: 4px 16px;
-  cursor: default;
-  text-align: left;
-}
-.o-combobox ul li:not(.filter-hidden),
-.o-dropdown ul li:not(.filter-hidden) {
-  padding-top: 12px;
-}
-.o-combobox ul li:not(.filter-hidden) ~ li,
-.o-dropdown ul li:not(.filter-hidden) ~ li {
-  padding-top: 4px;
-}
-.o-combobox ul li:hover,
-.o-dropdown ul li:hover {
-  color: #324371;
-}
-.o-combobox ul li.selected,
-.o-dropdown ul li.selected {
-  color: #449B9B;
-}
-.o-combobox ul li.filter-hidden,
-.o-dropdown ul li.filter-hidden {
-  display: none;
-}
-
-.o-combobox.direction-down ul,
-.o-dropdown.direction-down ul {
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-.o-combobox.direction-up ul,
-.o-dropdown.direction-up ul {
-  bottom: 36px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-}
-
-html[dir=rtl] .o-combobox ul li,
-html[dir=rtl] .o-dropdown ul li {
-  text-align: inherit;
-}
-
-.focus-control .o-combobox ul,
-.focus-control .o-dropdown ul {
-  -webkit-box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 11px 11px -9px rgba(0, 0, 0, 0.25);
 }
 
 .o-question-choice-summary .m-option-summary {
@@ -3213,6 +3196,15 @@ html[dir=rtl] .o-question-errorandinstruction {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 40%;
           flex: 0 0 40%;
+}
+
+.sidebyside .o-question-information-and-messages {
+  position: relative;
+  z-index: 20;
+}
+
+.sidebyside.focused .o-question-information-and-messages {
+  background-color: white;
 }
 
 html[dir=rtl] .sidebyside .o-question-information {
