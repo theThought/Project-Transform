@@ -1,9 +1,35 @@
+// Array of strings to be replaced.
+const ignoredStrings = [
+    '"balance":{"state":false},',
+    '"onesize":{"state":false},',
+    '"sublistline":{"state":false}',
+];
+
+/**
+ * Function - parse template literal containing custom properties JSON, and replace/sanitise unwanted content prior to rendering in Storybook, for use in ZeroHeight docs.
+ *
+ * @param {string} json - template literal containing JSON.
+ *
+ * @return {string} - template literal (HTML).
+ */
 export const parseCustomProps = (json) => {
-    const parsedJson = `
+    // Remove any unwanted strings.
+    ignoredStrings.map(string => {
+        if (json.includes(string)) {
+            json = json.replace(string, '');
+        }
+    });
+
+    let parsedJson = json;
+    // Replace any unwanted characters.
+    parsedJson = parsedJson.replace(/"/gm, '\''); // Double quotes with single
+    parsedJson = parsedJson.replace(/\s/gm, ''); // Whitespace
+    parsedJson = parsedJson.replace(/,}/gm, '}'); // Rogue commas
+
+    // Build HTML string.
+    parsedJson = `
         <span>Custom properties JSON:</span><br/>
-        <pre>
-        ${json.replaceAll('"', '\'')}
-        </pre>
+        <pre>${parsedJson}</pre>
     `;
 
     return parsedJson;
