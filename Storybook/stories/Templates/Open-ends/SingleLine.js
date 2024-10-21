@@ -14,6 +14,7 @@ const style = `
 `;
 
 export const SingleLineCustomPropertiesHtml = (args) => `
+${style}
 
 <!--
 Render custom properties for ZeroHeight scriptwriter users.
@@ -25,7 +26,6 @@ ${parseCustomProps(`
 }
 `)}
 
-${style}
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"
