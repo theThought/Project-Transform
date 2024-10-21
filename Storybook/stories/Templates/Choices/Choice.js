@@ -25,7 +25,6 @@ Render custom properties here so scriptwriters can get the JSON more easily from
 
 Copy the JSON from <script>app.RegisterProperties(...)</script> markup inside the <form> below, and paste into the parseCustomProps() function to sanitise it for ZeroHeight.
 -->
-<span>Custom properties JSON:</span><br/>
 ${parseCustomProps(`
 {
     ${
