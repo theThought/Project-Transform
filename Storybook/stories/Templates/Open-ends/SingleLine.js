@@ -16,9 +16,7 @@ const style = `
 export const SingleLineCustomPropertiesHtml = (args) => `
 
 <!--
-Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs.
-
-Copy the JSON from <script>app.RegisterProperties(...)</script> markup inside the <form> below, and paste into the parseCustomProps() function to sanitise it for ZeroHeight.
+Render custom properties for ZeroHeight scriptwriter users.
 -->
 ${parseCustomProps(`
 {
@@ -26,7 +24,6 @@ ${parseCustomProps(`
     "labels":{${args.PreLabel ? `"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%"` : ''}${args.PreLabel && args.PostLabel ? ',' : ''}${args.PostLabel ? `"post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"` : ''}}
 }
 `)}
-<!-- End -->
 
 ${style}
 <form action="#"

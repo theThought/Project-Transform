@@ -21,9 +21,7 @@ const style = `
 export const ChoiceCustomPropertiesHtml = (args) => `
 
 <!--
-Render custom properties here so scriptwriters can get the JSON more easily from ZeroHeight docs.
-
-Copy the JSON from <script>app.RegisterProperties(...)</script> markup inside the <form> below, and paste into the parseCustomProps() function to sanitise it for ZeroHeight.
+Render custom properties for ZeroHeight scriptwriter users.
 -->
 ${parseCustomProps(`
 {
@@ -38,7 +36,6 @@ ${parseCustomProps(`
     }
 }
 `)}
-<!-- End -->
 
 ${style}
 <form action="#"
