@@ -29,13 +29,13 @@ Copy the JSON from <script>app.RegisterProperties(...)</script> markup inside th
 ${parseCustomProps(`
 {
     ${
-    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
+    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.Balance === true && args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
     }
     ${
-    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
+    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSize === true && args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
     }
     ${
-    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
+    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLine === true && args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
     }
 }
 `)}
@@ -56,13 +56,13 @@ ${style}
         <script>app.RegisterProperties("_Qtest__location",
 {
     ${
-    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
+    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.Balance === true && args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
     }
     ${
-    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
+    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSize === true && args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
     }
     ${
-    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
+    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLine === true && args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
     }
 }
         );</script>
