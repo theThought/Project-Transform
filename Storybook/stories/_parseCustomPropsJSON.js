@@ -28,8 +28,10 @@ export const parseCustomProps = (json) => {
 
     // Build HTML string.
     parsedJson = `
-        <span>Custom properties JSON:</span><br/>
-        <pre>${parsedJson}</pre>
+        <div style="margin-block-end: 2rem; overflow-x: auto;">
+            <span>Custom properties JSON:</span><br/>
+            <pre>${parsedJson}</pre>
+        </div>
     `;
 
     return parsedJson;
