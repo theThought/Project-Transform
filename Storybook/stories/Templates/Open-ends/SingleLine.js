@@ -51,7 +51,7 @@ ${parseCustomProps(`
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        This is a question with custom properties (e.g. number/date input, pre/post labels)
+                        <label for="_Q0">This is a question with custom properties (e.g. number/date input, pre/post labels)</label>
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -97,7 +97,9 @@ ${style}
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
-                    <div class="o-question-information-content">This is a question with special codes</div>
+                    <div class="o-question-information-content">
+                        <label for="_Q0">This is a question with special codes</label>
+                    </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
             </div>
