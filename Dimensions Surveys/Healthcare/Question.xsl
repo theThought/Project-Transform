@@ -451,7 +451,6 @@
             </xsl:call-template>
          </xsl:when>
          <xsl:when test="$qCustomType='media-external'">
-         <xsl:text>Media-External</xsl:text>
             <xsl:call-template name="MediaExternalControl">
                <xsl:with-param name="qElementID" select="$qElementID" />
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -2954,27 +2953,22 @@
             <xsl:value-of select="$qCustomType" />
             <xsl:text>-wrapper</xsl:text>
          </xsl:attribute>
-         <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName" select="'oMediaExternal'" />
-            <xsl:with-param name="qElementID">
-               <xsl:value-of select="$qElementID" />
-               <xsl:text>_Wrapper</xsl:text>
-            </xsl:with-param>
-            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-         </xsl:call-template>
+         
          <xsl:element name="div">
-            <xsl:attribute name="class">o-label-message-error external-warning</xsl:attribute>
-            <xsl:comment> --- warnings generated from interaction with external capability --- </xsl:comment>
+            <xsl:attribute name="class">o-question-buttonandmessage</xsl:attribute>
+            <xsl:element name="div">
+               <xsl:attribute name="class">o-buttonandmessage-button</xsl:attribute>
+               <xsl:comment> --- media capture start button --- </xsl:comment>
+            </xsl:element>
+            <xsl:element name="div">
+               <xsl:attribute name="class">o-buttonandmessage-message</xsl:attribute>
+               <xsl:comment> --- media capture instructions --- </xsl:comment>
+            </xsl:element>            
          </xsl:element>
+
          <xsl:element name="div">
             <xsl:attribute name="class">o-media-frame</xsl:attribute>
-            <xsl:element name="input">
-               <xsl:attribute name="type">button</xsl:attribute>
-               <xsl:attribute name="class">
-                  <xsl:text>a-button-primary start_external</xsl:text>
-               </xsl:attribute>
-            </xsl:element>
+            <xsl:comment> --- media frame --- </xsl:comment>
          </xsl:element>
       
          <xsl:call-template name="SingleLineEditControl">
