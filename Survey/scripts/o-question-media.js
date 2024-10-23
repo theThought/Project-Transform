@@ -17,8 +17,10 @@ define(['component'],
         oQuestionMedia.prototype.constructor = oQuestionMedia;
 
         oQuestionMedia.prototype.init = function () {
+            component.prototype.init.call(this);
             this.configureProperties();
             this.configureLocalEventListeners();
+            this.checkForExistingMedia();
             this.configurationComplete();
         }
 
@@ -35,6 +37,26 @@ define(['component'],
             }
         }
 
+        oQuestionMedia.prototype.checkForExistingMedia = async function () {
+            if (this.api !== 'picture' || !this.value) {
+                return;
+            }
+
+            const data = JSON.parse(this.value);
+            const url = data.url;
+
+            if (typeof url !== 'string') {
+                return;
+            }
+
+            try {
+                const data = await window.theDiary.getPictureFromUrl(url)
+                this.displayImage(data);
+            } catch (error) {
+                this.setMessage(error.message);
+            }
+        }
+
         oQuestionMedia.prototype.onClick = async function () {
             switch (this.api) {
                 case 'barcode':
@@ -44,7 +66,6 @@ define(['component'],
                     this.callPictureCapture();
                     break;
             }
-
         }
 
         oQuestionMedia.prototype.callBarcodeScan = async function () {
@@ -62,7 +83,7 @@ define(['component'],
                 const data = await window.theDiary.takePicture(true);
                 this.clearMessage();
                 this.setPictureData(data);
-                this.displayImage(data);
+                this.displayImage(data.file);
             } catch (error) {
                 this.setMessage(error.message);
             }
@@ -117,9 +138,9 @@ define(['component'],
             this.broadcastChange();
         }
 
-        oQuestionMedia.prototype.displayImage = function (data) {
+        oQuestionMedia.prototype.displayImage = function (file) {
             var urlCreator = window.URL || window.webkitURL;
-            var imageUrl = urlCreator.createObjectURL(data.file);
+            var imageUrl = urlCreator.createObjectURL(file);
             this.frame.style.background = "center / cover url('"+ imageUrl + "')";
         }
 
