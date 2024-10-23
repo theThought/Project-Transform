@@ -2958,7 +2958,9 @@
             <xsl:attribute name="class">o-question-buttonandmessage</xsl:attribute>
             <xsl:element name="div">
                <xsl:attribute name="class">o-buttonandmessage-button</xsl:attribute>
-               <xsl:comment> --- media capture start button --- </xsl:comment>
+               <xsl:element name="button">
+                  <xsl:attribute name="class">a-button-primary start_external</xsl:attribute>
+               </xsl:element>
             </xsl:element>
             <xsl:element name="div">
                <xsl:attribute name="class">o-buttonandmessage-message</xsl:attribute>
