@@ -20,6 +20,7 @@ define(['component'],
             component.prototype.init.call(this);
             this.configureProperties();
             this.configureLocalEventListeners();
+            this.createImageLoadPlaceholder();
             this.checkForExistingMedia();
             this.configurationComplete();
         }
@@ -50,9 +51,11 @@ define(['component'],
             }
 
             try {
+                this.displayImageLoader();
                 const data = await window.theDiary.getPictureFromUrl(url)
                 this.displayImage(data);
             } catch (error) {
+                this.hideImageLoader();
                 this.setMessage(error.message);
             }
         }
@@ -139,9 +142,24 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.displayImage = function (file) {
+            this.hideImageLoader();
             var urlCreator = window.URL || window.webkitURL;
             var imageUrl = urlCreator.createObjectURL(file);
             this.frame.style.background = "center / cover url('"+ imageUrl + "')";
+        }
+
+        oQuestionMedia.prototype.createImageLoadPlaceholder = function () {
+            var loaderContainer = document.createElement("div");
+            loaderContainer.classList.add("m-image-loader");
+            this.frame.appendChild(loaderContainer);
+        }
+
+        oQuestionMedia.prototype.displayImageLoader = function () {
+            this.container.querySelector('.m-image-loader').style.display = 'block';
+        }
+
+        oQuestionMedia.prototype.hideImageLoader = function () {
+            this.container.querySelector('.m-image-loader').style.display = 'none';
         }
 
         oQuestionMedia.prototype.clearValue = function () {
