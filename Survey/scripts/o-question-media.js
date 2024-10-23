@@ -6,10 +6,10 @@ define(['component'],
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.wrapper = this.container.querySelector('.o-question-media-external-wrapper');
-            this.errorcontainer = this.container.querySelector('.o-label-message-error.external-warning');
+            this.errorcontainer = this.container.querySelector('.o-label-message');
             this.trigger = this.container.querySelector('input[type=button]');
             this.element = document.querySelector('input#' + this.id);
-            this.action = 'barcode';
+            this.api = 'barcode';
         }
 
         oQuestionMedia.prototype = Object.create(component.prototype);
@@ -34,7 +34,7 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.onClick = async function () {
-            switch (this.action) {
+            switch (this.api) {
                 case 'barcode':
                     this.callBarcodeScan();
                     break;
@@ -67,7 +67,7 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.action = function (prop) {
-            this.action = prop;
+            this.api = prop;
         }
 
         oQuestionMedia.prototype.captions = function (props) {
