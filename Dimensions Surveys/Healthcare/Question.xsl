@@ -2958,7 +2958,8 @@
             <xsl:attribute name="class">o-question-buttonandmessage</xsl:attribute>
             <xsl:element name="div">
                <xsl:attribute name="class">o-buttonandmessage-button</xsl:attribute>
-               <xsl:element name="button">
+               <xsl:element name="input">
+                  <xsl:attribute name="type">button</xsl:attribute>
                   <xsl:attribute name="class">a-button-primary start_external</xsl:attribute>
                </xsl:element>
             </xsl:element>
