@@ -21,13 +21,13 @@ define(['component'],
             this.configureProperties();
             this.configureLocalEventListeners();
             this.createImageLoadPlaceholder();
+            this.setInitialMessage();
             this.checkForExistingMedia();
             this.configurationComplete();
         }
 
         oQuestionMedia.prototype.configureLocalEventListeners = function () {
             this.trigger.addEventListener("click", this, false);
-            this.frame.addEventListener("click", this, false);
         }
 
         oQuestionMedia.prototype.handleEvent = function (event) {
@@ -38,8 +38,16 @@ define(['component'],
             }
         }
 
+        oQuestionMedia.prototype.setInitialMessage = function () {
+            if (typeof this.properties.messages.empty === 'undefined') {
+                return;
+            }
+
+            this.setMessage('empty');
+        }
+
         oQuestionMedia.prototype.checkForExistingMedia = async function () {
-            if (this.api !== 'picture' || !this.value) {
+            if (this.api !== "picture" || !this.value) {
                 return;
             }
 
@@ -84,7 +92,7 @@ define(['component'],
         oQuestionMedia.prototype.callPictureCapture = async function () {
             try {
                 const data = await window.theDiary.takePicture(true);
-                this.clearMessage();
+                this.setMessage('success');
                 this.setPictureData(data);
                 this.displayImage(data.file);
             } catch (error) {
@@ -92,21 +100,19 @@ define(['component'],
             }
         }
 
-        oQuestionMedia.prototype.action = function (prop) {
-            this.api = prop;
+        oQuestionMedia.prototype.action = function (props) {
+            this.api = props.type;
+
+            this.button(props.button);
         }
 
-        oQuestionMedia.prototype.captions = function (props) {
-            if (typeof props.start === 'undefined') {
-                return;
+        oQuestionMedia.prototype.button = function (props) {
+            if (typeof props.icon !== "undefined") {
+                this.setButtonImage(props.icon);
             }
 
-            if (typeof props.start.icon !== "undefined") {
-                this.setButtonImage(props.start.icon);
-            }
-
-            if (typeof props.start.text !== 'undefined') {
-                this.setButtonText(props.start.text);
+            if (typeof props.caption !== "undefined") {
+                this.setButtonText(props.caption);
             }
         }
 
@@ -120,7 +126,7 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.setButtonImage = function (props) {
-            this.trigger.classList.add('a-button-image');
+            this.trigger.classList.add("a-button-image");
             this.trigger.style.background = 'url("' + props.source + '") center';
             this.trigger.style.width = props.width;
             this.trigger.style.height = props.height;
@@ -149,17 +155,21 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.createImageLoadPlaceholder = function () {
+            if (this.api !== "picture") {
+                return;
+            }
+
             var loaderContainer = document.createElement("div");
             loaderContainer.classList.add("m-image-loader");
             this.frame.appendChild(loaderContainer);
         }
 
         oQuestionMedia.prototype.displayImageLoader = function () {
-            this.container.querySelector('.m-image-loader').style.display = 'block';
+            this.container.querySelector(".m-image-loader").style.display = "block";
         }
 
         oQuestionMedia.prototype.hideImageLoader = function () {
-            this.container.querySelector('.m-image-loader').style.display = 'none';
+            this.container.querySelector(".m-image-loader").style.display = "none";
         }
 
         oQuestionMedia.prototype.clearValue = function () {
@@ -168,8 +178,8 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.setMessage = function (message) {
-            if (this.properties.captions[message]) {
-                this.messagecontainer.innerHTML = this.properties.captions[message].text;
+            if (this.properties.messages[message]) {
+                this.messagecontainer.innerHTML = this.properties.messages[message];
             } else {
                 this.messagecontainer.innerHTML = message;
             }
