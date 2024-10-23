@@ -6,7 +6,7 @@ define(['component'],
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.wrapper = this.container.querySelector('.o-question-media-external-wrapper');
-            this.errorcontainer = this.container.querySelector('.o-label-message');
+            this.messagecontainer = this.container.querySelector('.o-label-message');
             this.trigger = this.container.querySelector('input[type=button]');
             this.element = document.querySelector('input#' + this.id);
             this.api = 'barcode';
@@ -48,21 +48,21 @@ define(['component'],
         oQuestionMedia.prototype.callBarcodeScan = async function () {
             try {
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
-                this.clearError();
+                this.clearMessage();
                 this.setBarcodeData(data);
             } catch (error) {
-                this.setError(error.message);
+                this.setMessage(error.message);
             }
         }
 
         oQuestionMedia.prototype.callPictureCapture = async function () {
             try {
                 const data = await window.theDiary.takePicture(true);
-                this.clearError();
+                this.clearMessage();
                 this.setPictureData(data);
                 this.displayImage(data);
             } catch (error) {
-                this.setError(error.message);
+                this.setMessage(error.message);
             }
         }
 
@@ -118,7 +118,7 @@ define(['component'],
         oQuestionMedia.prototype.displayImage = function (data) {
             var urlCreator = window.URL || window.webkitURL;
             var imageUrl = urlCreator.createObjectURL(data.file);
-            this.container.querySelector('.o-media-frame').style.background = "center / cover url('"+ imageUrl + "')";
+            this.frame.style.background = "center / cover url('"+ imageUrl + "')";
         }
 
         oQuestionMedia.prototype.clearValue = function () {
@@ -126,12 +126,16 @@ define(['component'],
             this.broadcastChange();
         }
 
-        oQuestionMedia.prototype.setError = function (message) {
-            this.errorcontainer.innerHTML = message;
+        oQuestionMedia.prototype.setMessage = function (message) {
+            if (this.properties.captions[message]) {
+                this.messagecontainer.innerHTML = this.properties.captions[message].text;
+            } else {
+                this.messagecontainer.innerHTML = message;
+            }
         }
 
-        oQuestionMedia.prototype.clearError = function () {
-            this.errorcontainer.innerHTML = '';
+        oQuestionMedia.prototype.clearMessage = function () {
+            this.messagecontainer.innerHTML = '';
         }
 
         return oQuestionMedia;
