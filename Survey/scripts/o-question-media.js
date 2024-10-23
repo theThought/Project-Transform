@@ -108,12 +108,12 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.button = function (props) {
-            if (typeof props.icon !== "undefined") {
-                this.setButtonImage(props.icon);
-            }
-
             if (typeof props.caption !== "undefined") {
                 this.setButtonText(props.caption);
+            }
+
+            if (typeof props.icon !== "undefined") {
+                this.setButtonImage(props.icon);
             }
         }
 
@@ -131,6 +131,9 @@ define(['component'],
             this.trigger.style.background = 'url("' + props.source + '") center';
             this.trigger.style.width = props.width;
             this.trigger.style.height = props.height;
+
+            this.trigger.title = this.trigger.value;
+            this.trigger.value ='';
         }
 
         oQuestionMedia.prototype.setBarcodeData = function (data) {
