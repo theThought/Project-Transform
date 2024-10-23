@@ -334,7 +334,6 @@ input[type=button].a-button-image {
   background-size: cover;
   background-repeat: no-repeat !important;
   background-position: center center;
-  border: none;
 }
 
 input[type=button].a-button-image:hover {
