@@ -8,6 +8,7 @@ define(['component'],
             this.wrapper = this.container.querySelector('.o-question-media-external-wrapper');
             this.messagecontainer = this.container.querySelector('.o-label-message');
             this.trigger = this.container.querySelector('input[type=button]');
+            this.frame = this.container.querySelector('div.o-media-frame');
             this.element = document.querySelector('input#' + this.id);
             this.api = 'barcode';
         }
@@ -23,6 +24,7 @@ define(['component'],
 
         oQuestionMedia.prototype.configureLocalEventListeners = function () {
             this.trigger.addEventListener("click", this, false);
+            this.frame.addEventListener("click", this, false);
         }
 
         oQuestionMedia.prototype.handleEvent = function (event) {
