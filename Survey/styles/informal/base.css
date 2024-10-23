@@ -3103,8 +3103,9 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   color: #FAFAFA;
 }
 
-.o-question-media-external .o-question-buttonandmessage > div {
-  display: inline-block;
+.o-question-media-external .o-buttonandmessage-button {
+  float: left;
+  margin-right: 8px;
 }
 .o-question-media-external .o-media-frame {
   position: relative;

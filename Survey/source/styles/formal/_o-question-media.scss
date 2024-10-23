@@ -1,9 +1,11 @@
 @use 'globals';
 
 .o-question-media-external {
-    .o-question-buttonandmessage > div {
-        display: inline-block;
+    .o-buttonandmessage-button {
+        float: left;
+        margin-right: 8px;
     }
+
     .o-media-frame {
         position: relative;
         display: flex;
