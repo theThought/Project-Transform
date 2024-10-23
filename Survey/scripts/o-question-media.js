@@ -20,7 +20,7 @@ define(['component'],
             component.prototype.init.call(this);
             this.configureProperties();
             this.configureLocalEventListeners();
-            this.createImageLoadPlaceholder();
+            this.createImagePlaceholder();
             this.setInitialMessage();
             this.checkForExistingMedia();
             this.configurationComplete();
@@ -154,9 +154,11 @@ define(['component'],
             this.frame.style.background = "center / cover url('"+ imageUrl + "')";
         }
 
-        oQuestionMedia.prototype.createImageLoadPlaceholder = function () {
-            if (this.api !== "picture") {
-                return;
+        oQuestionMedia.prototype.createImagePlaceholder = function () {
+            if (typeof this.properties.frame !== "undefined") {
+                this.frame.style.backgroundImage = 'url("' + this.properties.frame.background.source + '")';
+                this.frame.style.backgroundSize = 'cover';
+                this.frame.style.backgroundPosition = 'center';
             }
 
             var loaderContainer = document.createElement("div");
