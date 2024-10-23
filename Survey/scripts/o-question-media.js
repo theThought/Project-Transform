@@ -48,6 +48,7 @@ define(['component'],
 
         oQuestionMedia.prototype.checkForExistingMedia = async function () {
             if (this.api !== "picture" || !this.value) {
+                this.hideImageLoader();
                 return;
             }
 
