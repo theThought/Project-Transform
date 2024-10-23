@@ -1,8 +1,8 @@
 @use 'globals';
 
 .o-question-media-external {
-    .o-question-media-button-and-messages {
-        display: flex;
+    .o-question-buttonandmessage > div {
+        display: inline-block;
     }
     .o-media-frame {
         display: flex;

@@ -6,7 +6,7 @@ define(['component'],
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.wrapper = this.container.querySelector('.o-question-media-external-wrapper');
-            this.messagecontainer = this.container.querySelector('.o-label-message');
+            this.messagecontainer = this.container.querySelector('.o-buttonandmessage-message');
             this.trigger = this.container.querySelector('input[type=button]');
             this.frame = this.container.querySelector('div.o-media-frame');
             this.element = document.querySelector('input#' + this.id);

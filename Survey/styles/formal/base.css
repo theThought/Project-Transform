@@ -3346,10 +3346,8 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   color: #FAFAFA;
 }
 
-.o-question-media-external .o-question-media-button-and-messages {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.o-question-media-external .o-question-buttonandmessage > div {
+  display: inline-block;
 }
 .o-question-media-external .o-media-frame {
   display: -webkit-box;

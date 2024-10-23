@@ -3103,6 +3103,9 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   color: #FAFAFA;
 }
 
+.o-question-media-external .o-question-buttonandmessage > div {
+  display: inline-block;
+}
 .o-question-media-external .o-media-frame {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3114,14 +3117,11 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  min-height: 200px;
+  padding-top: 75%;
   background: linear-gradient(to right, #8797C8 3px, transparent 3px) 0 0, linear-gradient(to right, #8797C8 3px, transparent 3px) 0 100%, linear-gradient(to left, #8797C8 3px, transparent 3px) 100% 0, linear-gradient(to left, #8797C8 3px, transparent 3px) 100% 100%, linear-gradient(to bottom, #8797C8 3px, transparent 3px) 0 0, linear-gradient(to bottom, #8797C8 3px, transparent 3px) 100% 0, linear-gradient(to top, #8797C8 3px, transparent 3px) 0 100%, linear-gradient(to top, #8797C8 3px, transparent 3px) 100% 100%;
   background-color: #B4BDDB;
   background-repeat: no-repeat;
   background-size: 20px 20px;
-}
-.o-question-media-external .o-media-frame input[type=button] {
-  margin: 0;
 }
 
 .a-figure-thumbnail {
