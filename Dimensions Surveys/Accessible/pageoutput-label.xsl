@@ -7,6 +7,7 @@
 
    <xsl:template match="*">
 	<xsl:text>parent: </xsl:text>
+	<xsl:value-of select="../name()" />
    <xsl:if test="name() != ''">
     <xsl:element name="{name()}">
         <xsl:for-each select="./@*">
