@@ -19,8 +19,10 @@
    </xsl:template>
    
    <xsl:template match="*">
+   <xsl:comment>
 	<xsl:text>parent: </xsl:text>
 	<xsl:value-of select="../name()" />
+    </xsl:comment>
    <xsl:if test="name() != ''">
     <xsl:element name="{name()}">
         <xsl:for-each select="./@*">
