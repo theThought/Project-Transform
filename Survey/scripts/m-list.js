@@ -79,7 +79,7 @@ define(['component'],
                     this.onMousedown(event);
                     break;
                 case 'scroll':
-                    this.updateListPosition(event.target.scrollLeft)
+                    this.updateListPosition(event.target)
                     break;
                 case 'showList':
                     this.showList(event);
@@ -435,8 +435,20 @@ define(['component'],
             this.element.scrollTop = scrollposition + 100;
         }
 
-        mList.prototype.updateListPosition = function (position) {
-            this.element.style.marginLeft = 0-position + 'px';
+        mList.prototype.updateListPosition = function (target) {
+            if (target === this.element) {
+                return;
+            }
+
+            if (!target.contains(this.element)) {
+                return;
+            }
+
+            var scrollLeft = target.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollTop = target.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
+
+            this.element.style.marginLeft = 0 - scrollLeft + 'px';
+            this.element.style.marginTop = 0 - scrollTop + 'px';
         }
 
         mList.prototype.navigateFirst = function () {
