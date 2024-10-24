@@ -77,15 +77,13 @@ ul.m-list {
     }
 }
 
-.o-combobox.direction-down ul,
-.o-dropdown.direction-down ul {
+.o-question-response.direction-down ul {
     border-bottom-left-radius: globals.$text-border-radius;
     border-bottom-right-radius: globals.$text-border-radius;
 }
 
-.o-combobox.direction-up ul,
-.o-dropdown.direction-up ul {
-    bottom: 36px;
+.o-question-response.direction-up ul {
+    bottom: 65px;
     border-top-left-radius: globals.$text-border-radius;
     border-top-right-radius: globals.$text-border-radius;
 }

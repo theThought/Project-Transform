@@ -21,6 +21,7 @@ define(['component'],
             this.currentlistposition = -1;
             this.mincharacters = 0;
             this.hasbeendisplayed = false;
+            this.userspecifiedheight = null;
             this.width = 0;
         }
 
@@ -385,7 +386,8 @@ define(['component'],
         }
 
         mList.prototype.listsize = function (prop) {
-            var height = (27 * prop);
+            // first list item is 35px high, subsequent are 27, end padding is 8
+            var height = 35 + (27 * (prop-1)) + 8;
             this.userspecifiedheight = height;
             this.element.style.maxHeight = height + 'px';
         }
@@ -538,11 +540,11 @@ define(['component'],
 
         mList.prototype.setDropListDirection = function () {
             // reset to default direction before performing checks
-            this.element.classList.remove('direction-up');
-            this.element.classList.add('direction-down');
+            this.container.classList.remove('direction-up');
+            this.container.classList.add('direction-down');
             this.element.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
             this.element.style.removeProperty('bottom');
-            var paddingAllowance = 10;
+            //var paddingAllowance = 10;
 
             var footer = document.getElementsByClassName('footer')[0];
             var viewportBounds = this.checkViewportBounds(this.element);
@@ -552,15 +554,15 @@ define(['component'],
             var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
             if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
-                this.element.classList.remove('direction-down');
-                this.element.classList.add('direction-up');
+                this.container.classList.remove('direction-down');
+                this.container.classList.add('direction-up');
 
                 if (distanceToTop < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
-                    this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+                    //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
                 }
 
             } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
-                this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
+                //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
         }
 

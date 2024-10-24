@@ -1513,15 +1513,13 @@ ul.m-list li.filter-hidden {
   display: none;
 }
 
-.o-combobox.direction-down ul,
-.o-dropdown.direction-down ul {
+.o-question-response.direction-down ul {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
 
-.o-combobox.direction-up ul,
-.o-dropdown.direction-up ul {
-  bottom: 36px;
+.o-question-response.direction-up ul {
+  bottom: 65px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
