@@ -3140,7 +3140,7 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   right: 0;
   bottom: 0;
   opacity: 1;
-  z-index: 999;
+  z-index: 20;
   background-image: url("../../images/formal/loading.gif");
   background-repeat: no-repeat;
   background-position: 50% 50%;
