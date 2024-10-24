@@ -5,6 +5,10 @@
     <xsl:param name="sImageLocation"/>
     <xsl:param name="sLabelClass"/>
 
+    <xsl:template match="/">
+        <xsl:text>very top</xsl:text>
+    </xsl:template>
+
     <xsl:template match="/*">
         <xsl:text>root</xsl:text>
         <xsl:element name="{name()}">
@@ -13,7 +17,6 @@
                     <xsl:value-of select="." />
                 </xsl:attribute>
             </xsl:for-each>
-            <xsl:apply-templates />
         </xsl:element>
     </xsl:template>
 
