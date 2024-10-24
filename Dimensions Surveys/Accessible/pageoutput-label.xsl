@@ -5,22 +5,8 @@
     <xsl:param name="sImageLocation"/>
     <xsl:param name="sLabelClass"/>
 
-    <xsl:template match="/">
-        <xsl:text>very top</xsl:text>
-    </xsl:template>
-
-    <xsl:template match="/*">
-        <xsl:text>root</xsl:text>
-        <xsl:element name="{name()}">
-            <xsl:for-each select="./@*">
-                <xsl:attribute name="{local-name()}">
-                    <xsl:value-of select="." />
-                </xsl:attribute>
-            </xsl:for-each>
-        </xsl:element>
-    </xsl:template>
-
    <xsl:template match="*">
+	<xsl:text>parent: </xsl:text>
    <xsl:if test="name() != ''">
     <xsl:element name="{name()}">
         <xsl:for-each select="./@*">
