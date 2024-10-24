@@ -13,7 +13,9 @@
         justify-content: center;
         width: 100%;
         padding-top: 75%;
+    }
 
+    .o-media-frame-outline {
         background: linear-gradient(to right, globals.$borders 3px, transparent 3px) 0 0,
         linear-gradient(to right, globals.$borders 3px, transparent 3px) 0 100%,
         linear-gradient(to left, globals.$borders 3px, transparent 3px) 100% 0,

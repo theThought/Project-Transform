@@ -60,10 +60,14 @@ define(['component'],
             }
 
             try {
+                this.disableTrigger();
+                this.removeImage();
                 this.displayImageLoader();
                 const data = await window.theDiary.getPictureFromUrl(url)
                 this.displayImage(data);
+                this.enableTrigger();
             } catch (error) {
+                this.enableTrigger();
                 this.hideImageLoader();
                 this.setMessage(error.message);
             }
@@ -153,16 +157,25 @@ define(['component'],
 
         oQuestionMedia.prototype.displayImage = function (file) {
             this.hideImageLoader();
+            this.removeFrameClass();
             var urlCreator = window.URL || window.webkitURL;
             var imageUrl = urlCreator.createObjectURL(file);
             this.frame.style.background = "center / cover url('"+ imageUrl + "')";
         }
 
+        oQuestionMedia.prototype.removeImage = function () {
+            this.frame.style.background = "";
+            this.addFrameClass();
+        }
+
         oQuestionMedia.prototype.createImagePlaceholder = function () {
             if (typeof this.properties.frame !== "undefined") {
+                this.removeFrameClass();
                 this.frame.style.backgroundImage = 'url("' + this.properties.frame.background.source + '")';
                 this.frame.style.backgroundSize = 'cover';
                 this.frame.style.backgroundPosition = 'center';
+            } else {
+                this.addFrameClass();
             }
 
             var loaderContainer = document.createElement("div");
@@ -176,6 +189,14 @@ define(['component'],
 
         oQuestionMedia.prototype.hideImageLoader = function () {
             this.container.querySelector(".m-image-loader").style.display = "none";
+        }
+
+        oQuestionMedia.prototype.removeFrameClass = function () {
+            this.frame.classList.remove("o-media-frame-outline");
+        }
+
+        oQuestionMedia.prototype.addFrameClass = function () {
+            this.frame.classList.add("o-media-frame-outline");
         }
 
         oQuestionMedia.prototype.clearValue = function () {
@@ -193,6 +214,14 @@ define(['component'],
 
         oQuestionMedia.prototype.clearMessage = function () {
             this.messagecontainer.innerHTML = '';
+        }
+
+        oQuestionMedia.prototype.enableTrigger = function () {
+            this.trigger.disabled = false;
+        }
+
+        oQuestionMedia.prototype.disableTrigger = function () {
+            this.trigger.disabled = true;
         }
 
         return oQuestionMedia;
