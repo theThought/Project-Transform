@@ -20,7 +20,8 @@ define(['component'],
             component.prototype.init.call(this);
             this.configureProperties();
             this.configureLocalEventListeners();
-            this.createImagePlaceholder();
+            this.setImagePlaceholder();
+            this.createImageLoaderSpinner();
             this.setInitialMessage();
             this.checkForExistingMedia();
             this.configurationComplete();
@@ -69,6 +70,7 @@ define(['component'],
             } catch (error) {
                 this.enableTrigger();
                 this.hideImageLoader();
+                this.setImagePlaceholder();
                 this.setMessage(error.message);
             }
         }
@@ -168,7 +170,7 @@ define(['component'],
             this.addFrameClass();
         }
 
-        oQuestionMedia.prototype.createImagePlaceholder = function () {
+        oQuestionMedia.prototype.setImagePlaceholder = function () {
             if (typeof this.properties.frame !== "undefined") {
                 this.removeFrameClass();
                 this.frame.style.backgroundImage = 'url("' + this.properties.frame.background.source + '")';
@@ -178,6 +180,9 @@ define(['component'],
                 this.addFrameClass();
             }
 
+        }
+
+        oQuestionMedia.prototype.createImageLoaderSpinner = function () {
             var loaderContainer = document.createElement("div");
             loaderContainer.classList.add("m-image-loader");
             this.frame.appendChild(loaderContainer);
@@ -191,12 +196,12 @@ define(['component'],
             this.container.querySelector(".m-image-loader").style.display = "none";
         }
 
-        oQuestionMedia.prototype.removeFrameClass = function () {
-            this.frame.classList.remove("o-media-frame-outline");
-        }
-
         oQuestionMedia.prototype.addFrameClass = function () {
             this.frame.classList.add("o-media-frame-outline");
+        }
+
+        oQuestionMedia.prototype.removeFrameClass = function () {
+            this.frame.classList.remove("o-media-frame-outline");
         }
 
         oQuestionMedia.prototype.clearValue = function () {
