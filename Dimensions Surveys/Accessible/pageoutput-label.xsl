@@ -6,9 +6,10 @@
     <xsl:param name="sLabelClass"/>
 
    <xsl:template match="*">
-	<xsl:text>parent: </xsl:text>
-	<xsl:value-of select="../name()" />
+   
    <xsl:if test="name() != ''">
+   	<xsl:text>parent: </xsl:text>
+	<xsl:value-of select="../name()" />
     <xsl:element name="{name()}">
         <xsl:for-each select="./@*">
             <xsl:attribute name="{local-name()}">
