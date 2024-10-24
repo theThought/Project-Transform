@@ -71,7 +71,8 @@ define(['component'],
                 this.enableTrigger();
                 this.hideImageLoader();
                 this.setImagePlaceholder();
-                this.setMessage(error.message);
+                this.debug(error.message, 2);
+                this.setMessage('retrieval_failed');
             }
         }
 
