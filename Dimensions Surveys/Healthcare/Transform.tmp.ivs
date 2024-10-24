@@ -2342,6 +2342,19 @@ FixedTextsList "" define
 
     );
 
+    OnlineYesNo "" define
+    {
+        onlineyes "Yes, this was an online purchase"
+        labelstyle(Image(Name="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/images/MOP/online.svg", AltText="Yes, this was an online purchase")),
+        onlineno "No, this purchase was made in person"
+        labelstyle(image(Name="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/images/MOP/physical.svg", AltText="No, this purchase was made in person"))
+    };
+
+	OnlineQuestion "Did you purchase your item online" categorical[1]
+	{
+	use onlineyesno
+	}
+	
     test_location "Where was the test performed?"
         [
             json = "{'balance':{'state':false}, 'onesize':{'state':true, 'max-wdith':'15em'}}"
@@ -4143,98 +4156,7 @@ FixedTextsList "" define
 
     ) expand;
 
-    effective_age_wise "<span class = ""QText2"">Of those companies that you are aware of with a COVID-19 vaccine available for use or in development, how EFFECTIVE would you rate their vaccine for each age category below? </span><br/><span class=""warn1""></span>" loop
-    {
-        use lst_company -
-    } ran fields -
-    (
-        under5 "Age under 5"
-            style(
-                ZIndex = -60,
-                Control(
-                    Type = "DropList"
-                )
-            )
-        categorical [0..1]
-        {
-            '            selectone "{#lblselect}"
-            '            {
-            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
-        };
-
-        slice1 "Age 5 - 11"
-            style(
-                ZIndex = -60,
-                Control(
-                    Type = "DropList"
-                )
-            )
-        categorical [0..1]
-        {
-            '            selectone "{#lblselect}"
-            '            {
-            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
-        };
-
-        slice2 "Age 12 - 17"
-            style(
-                ZIndex = -60,
-                Control(
-                    Type = "DropList"
-                )
-            )
-        categorical [0..1]
-        {
-            '            selectone "{#lblselect}"
-            '            {
-            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
-        };
-
-        slice3 "Age 18 - 29"
-            style(
-                ZIndex = -70,
-                Control(
-                    Type = "ComboList"
-                )
-            )
-        categorical [0..1]
-        {
-            '            selectone "{#lblselect}"
-            '            {
-            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
-        };
-
-        slice4 "Age 30 - 49"
-            style(
-                ZIndex = -70,
-                Control(
-                    Type = "ComboList"
-                )
-            )
-        categorical [0..1]
-        {
-            '            selectone "{#lblselect}"
-            '            {
-            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
-        };
-
-        slice5 "Age 50+"
-            style(
-                ZIndex = -70,
-                Control(
-                    Type = "ComboList"
-                )
-            )
-        categorical [0..1]
-        {
-            '            selectone "{#lblselect}"
-            '            {
-            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
-        };
-
-    ) expand grid;
-
-    effective_age_wise "<span class = ""QText2"">Of those companies that you are aware of with a COVID-19 vaccine available for use or in development, how EFFECTIVE would you rate their vaccine for each age category below? </span><br/><span class=""warn1""></span>" loop
+    effective_age_wiseCombo "<span class = ""QText2"">Of those companies that you are aware of with a COVID-19 vaccine available for use or in development, how EFFECTIVE would you rate their vaccine for each age category below? </span><br/><span class=""warn1""></span>" loop
     {
         use lst_company -
     } ran fields -
@@ -4325,6 +4247,96 @@ FixedTextsList "" define
 
     ) expand grid;
 
+    effective_age_wise "<span class = ""QText2"">Of those companies that you are aware of with a COVID-19 vaccine available for use or in development, how EFFECTIVE would you rate their vaccine for each age category below? </span><br/><span class=""warn1""></span>" loop
+    {
+        use lst_company -
+    } ran fields -
+    (
+        under5 "Age under 5"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice1 "Age 5 - 11"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice2 "Age 12 - 17"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice3 "Age 18 - 29"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice4 "Age 30 - 49"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+        slice5 "Age 50+"
+            style(
+                ZIndex = -70,
+                Control(
+                    Type = "ComboList"
+                )
+            )
+        categorical [0..1]
+        {
+            '            selectone "{#lblselect}"
+            '            {
+            lst_effectiveScale2 use \\.lst_effectiveScale2 - '            }
+        };
+
+    ) expand grid;
 
     '----------------------------------------
     ' Double loop examples
@@ -6751,7 +6763,7 @@ FixedTextsList "" define
     date;
 
     '----------------------------------------
-    ' Camera Questions
+    ' Scam Questions
     '----------------------------------------
     LAScan "Scan Barcode"
         style(
@@ -6819,6 +6831,18 @@ FixedTextsList "" define
         LAProduct,
         LACategory
     );
+    
+    '----------------------------------------
+    ' Media Questions
+    '----------------------------------------
+    LAMediaAsk "Please scan a copy of your physical receipt" 
+    style(
+            ZIndex = -1510
+        )
+    text[..1000];
+    LAMediaURL "" text[..1000];
+    LAMedia_Page "LA Media Page" page (LAMediaAsk, LAMediaURL);
+    
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -7498,6 +7522,8 @@ CustomPage.Show()
 case {choice}
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
+OnlineQuestion.ask()
+
 test_location.ask()
 GenderReal.Ask()
 
@@ -7623,7 +7649,7 @@ HowManyMissedLabels.ask()
 AddCustomProperties(HowManyMissedMarksLabels, "HowManyMissedMarksLabels", "{'values':{'min':1,'max':10},'show':{'marks':true},'ticklabels':1}", "replace") 
 HowManyMissedMarksLabels.ask()
 
-AddCustomProperties(HowManyMissedThumbValue, "HowManyMissedThumbValue", "{'values':{'min':1,'max':10},'show':{'value':true}}", "replace") 
+AddCustomProperties(HowManyMissedThumbValue, "HowManyMissedThumbValue", "{'values':{'min':1,'max':10},'show':{'value':true},'ticklabels':1}", "replace") 
 HowManyMissedThumbValue.Ask()
 
 AddCustomProperties( HowManyMissedThumbMarks, "HowManyMissedThumbMarks", "{'values':{'min':1,'max':10},'show':{'value':true,'marks':true}}", "replace") 
@@ -7984,23 +8010,25 @@ effective_age_wise.Style.Cell.RepeatHeader = (effective_age_wise.Categories.Coun
 
 'effective_age_wise.Categories.Filter = "moderna..gameleyaResearchInstitute"
 
-AddCustomProperties(effective_age_wise,"effective_age_wise","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
-AddCustomProperties(effective_age_wise, "slice1", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice2", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice3", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice4", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice5", "{'filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo,"effective_age_wiseCombo","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
+AddCustomProperties(effective_age_wiseCombo, "under5", "{'filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice1", "{'filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice2", "{'filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice3", "{'filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice4", "{'filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice5", "{'filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
 
-effective_age_wise.Ask()
+effective_age_wiseCombo.Ask()
 
-AddCustomProperties(effective_age_wise,"effective_age_wise","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
-AddCustomProperties(effective_age_wise, "slice1", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice2", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice3", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice4", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
-AddCustomProperties(effective_age_wise, "slice5", "{'listsource':'druglist','filtertype':'starts','listsize':9,'showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo,"effective_age_wiseCombo","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
+AddCustomProperties(effective_age_wiseCombo, "under5", "{'listsource':'druglist','filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice1", "{'listsource':'druglist','filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice2", "{'listsource':'druglist','filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice3", "{'listsource':'druglist','filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice4", "{'listsource':'druglist','filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
+AddCustomProperties(effective_age_wiseCombo, "slice5", "{'listsource':'druglist','filtertype':'starts','listsize':9,'type':'combobox','showanswers':false,'placeholder':''}", "add")
 
-effective_age_wise.Ask()
+effective_age_wiseCombo.Ask()
 
 case {dropdown}
 
@@ -8014,8 +8042,8 @@ DrugComboSingle.Style.Control.type = controltypes.ctDropList
 new_products.Style.Control.Type = controltypes.ctDropList
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 
-AddCustomProperties(new_products, "new_products", "{'listsize':5,'showanswers':false,'placeholder':'select an option'}", "replace")
-DropListPage.ask()
+AddCustomProperties(new_products, "new_products", "{'listsize':5,'listsource':'drop1','showanswers':false,'placeholder':'select an option'}", "replace")
+'DropListPage.ask()
 new_products.Ask()
 
 AddCustomProperties(DrugOrdinal, "DrugOrdinal", "{'listsize':10,'showanswers':false,'placeholder':'select an option'}", "replace")
@@ -9360,6 +9388,19 @@ case {barcodescan}
 
 
 	LABarcode_Page.ask()
+	
+case {CameraCapture}
+    '----------------------------------------
+    ' External media Question
+    '----------------------------------------
+	postMessageScript = "<script type='application/javascript' src='https://d11as4oy583d1f.cloudfront.net/iframe-script.js'>//Post message Script</script>"
+	LAMediaAsk.Banners.AddNew("PostMessage","")
+	LAMediaAsk.Banners["PostMessage"].Text = postMessageScript
+
+	AddCustomProperties(LAMediaAsk, "LAMediaAsk", MakeString("{'captions':[{'type':'empty','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/gophoto.png',width:'32px','height':'32px'},'text':'Click button to take picture; if asked for consent to access the camera, select allow.'},{'type':'success','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/gophoto.png',width:'32px','height':'32px'},'text':'Picture captured; Click the button to retake the picture.'},{'type':'interrupted','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/gophoto.png',width:'32px','height':'32px'},'text':'Photo taking interrupted; click button to restart.'},{'type':'declined','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/gophoto.png',width:'32px','height':'32px'},'text':'You did not give consent for camera access, if you want to take a picture, try again and click allow'},{'type':'prohibited','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/gophoto.png',width:'32px','height':'32px'},'text':'Camera access has been declined three times; camera access is not available.'},{'type':'frame','icon':{'source':'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/gophoto.png',width:'32px','height':'32px'},'text':'A photo has not yet been provided'}]}"), "replace")
+	LAMediaAsk.LayoutTemplate = "formal-camera.htm"
+	LAMediaAsk.ask()
+
 end select
 
 loop
