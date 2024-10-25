@@ -449,6 +449,11 @@ define(['component'],
             var scrollLeft = target.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
             var scrollTop = target.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
 
+            if (this.container.classList.contains('direction-up')) {
+                var itemHeight = this.element.getBoundingClientRect().height;
+                scrollTop += itemHeight + 41;
+            }
+
             this.element.style.marginLeft = 0 - scrollLeft + 'px';
             this.element.style.marginTop = 0 - scrollTop + 'px';
         }
@@ -564,6 +569,8 @@ define(['component'],
             } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
                 //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
+
+            this.updateListPosition(document);
         }
 
         mList.prototype.notifyWidthChange = function () {

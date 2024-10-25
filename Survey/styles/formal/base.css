@@ -1519,7 +1519,6 @@ ul.m-list li.filter-hidden {
 }
 
 .o-question-response.direction-up ul {
-  bottom: 65px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
@@ -2580,16 +2579,6 @@ input[type=range]:focus::-ms-fill-lower {
   color: #6B5B72;
 }
 
-.o-combobox input.list-visible {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.o-combobox.direction-up input.list-visible {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
 .o-dropdown input[type=text] {
   max-width: 100%;
   padding: 10px 48px 10px 16px;
@@ -2626,12 +2615,12 @@ input[type=range]:focus::-ms-fill-lower {
   color: #FAFAFA;
 }
 
-.o-dropdown.direction-down input.list-visible {
+.direction-down input[aria-expanded=true] {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.o-dropdown.direction-up input.list-visible {
+.direction-up input[aria-expanded=true] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
