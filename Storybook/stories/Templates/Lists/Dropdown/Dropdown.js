@@ -20,7 +20,12 @@ ${style}
 Render custom properties for ZeroHeight scriptwriter users.
 -->
 ${parseCustomProps(`
-
+{
+    ${`${args.JumpToFirstLetter === false ? '"jumptofirstletter":"false",' : ''}`}
+    ${args.ListSize > 0 ? `"listsize":${args.ListSize},` : ''}
+    ${args.ListSource && args.ListSource !== '' ? `"listsource":"${args.ListSource}",` : ''}
+    ${args.Placeholder && args.Placeholder !== '' ? `"placeholder":"${args.Placeholder}",` : ''}
+}
 `)}
 
 <form action="#"
@@ -36,21 +41,12 @@ ${parseCustomProps(`
 
         <script type="text/javascript">app.RegisterProperties("_Qnew__products",
 {
-    "listsize":5,
-    "listsource":"drop1",
-    "placeholder":"select an option"
+    ${`${args.JumpToFirstLetter === false ? '"jumptofirstletter":"false",' : ''}`}
+    ${args.ListSize > 0 ? `"listsize":${args.ListSize},` : ''}
+    ${args.ListSource && args.ListSource !== '' ? `"listsource":"${args.ListSource}",` : ''}
+    ${args.Placeholder && args.Placeholder !== '' ? `"placeholder":"${args.Placeholder}",` : ''}
 }
         );</script>
-
-<!--
-        <script>app.RegisterProperties("_Qtest__location",
-{
-    ${
-    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.Balance === true && args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
-    }
-}
-        );</script>
--->
 
         <div class="m-question-cover"><!-- cover --></div>
 

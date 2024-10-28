@@ -8,58 +8,44 @@ export default {
         },
     },
     argTypes: {
-        Balance: {
+        JumpToFirstLetter: {
             control: 'boolean',
-            description: 'Indicates whether balance is enabled.',
+            description: 'Navigate to first matching entry when respondent types a character.',
             table: {
                 type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
+                defaultValue: { summary: 'true' }
             },
         },
-        BalanceMinWidth: {
+        ListSize: {
+            control: 'number',
+            description: 'Configures how many options should be displayed in the list.',
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        ListSource: {
             control: 'text',
-            description: 'Indicates the smallest width of an item (in "px" or "em").',
+            description: 'Identifier for an existing list to re-use data.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
             },
         },
-        OneSize: {
-            control: 'boolean',
-            description: 'Indicates whether onesize is enabled.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        OneSizeMaxWidth: {
+        Placeholder: {
             control: 'text',
-            description: 'Indicates the largest width of an item (in "px" or "em").',
+            description: 'Defines the text to be displayed if no option is selected.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
-            },
-        },
-        SublistLine: {
-            control: 'boolean',
-            description: 'Indicates whether sublist separator is displayed.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        SublistLineLength: {
-            control: 'select',
-            options: [10, 25, 50, 75, 100],
-            description: 'Indicates the length of the line in percentage terms.',
-            table: {
-                type: { summary: 'select' },
-                defaultValue: { summary: 25 }
             },
         },
     }
 };
 
 export const Dropdown = {
+    args: {
+        JumpToFirstLetter: true
+    },
     render: (args) => DropdownHtml(args),
 };
