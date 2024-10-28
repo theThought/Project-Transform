@@ -10,7 +10,7 @@ export default {
     argTypes: {
         // Same as Dropdown:
         ListSize: {
-            control: 'number',
+            control: { type: 'number', min: 0 },
             description: 'Configures how many options should be displayed in the list.',
             table: {
                 type: { summary: 'number' },
@@ -52,7 +52,7 @@ export default {
             },
         },
         MinCharactersForList: {
-            control: 'number',
+            control: { type: 'number', min: 0 },
             description: 'Defines how many characters must be typed before the list is displayed.',
             table: {
                 type: { summary: 'number' },

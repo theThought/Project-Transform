@@ -5,9 +5,9 @@ const ignoredStrings = [
     '"onesize":{"state":false}',
     '"sublistline":{"state":false}',
     // Lists
-    '"exact":true',
-    '"filtertype":"contains"',
-    '"mincharactersforlist":"0"',
+    '"exact":true,',
+    '"filtertype":"contains",',
+    '"mincharactersforlist":0',
 ];
 
 /**

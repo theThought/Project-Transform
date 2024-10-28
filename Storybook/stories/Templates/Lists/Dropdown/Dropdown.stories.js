@@ -17,7 +17,7 @@ export default {
             },
         },
         ListSize: {
-            control: 'number',
+            control: { type: 'number', min: 0 },
             description: 'Configures how many options should be displayed in the list.',
             table: {
                 type: { summary: 'number' },
