@@ -1,10 +1,13 @@
 // Array of strings to be replaced. Keep adding to array as required...
 const ignoredStrings = [
-    // Choice
+    // Choice questions
     '"balance":{"state":false}',
     '"onesize":{"state":false}',
     '"sublistline":{"state":false}',
     // Lists
+    '"exact":true',
+    '"filtertype":"contains"',
+    '"mincharactersforlist":"0"',
 ];
 
 /**
