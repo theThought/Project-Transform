@@ -8,7 +8,7 @@ import { parseCustomProps } from '../../../_parseCustomPropsJSON';
 const style = `
 <style>
     .surroundcontent {
-        min-height: fit-content;
+        min-height: fit-content; /* Override template height inside Storybook */
     }
 </style>
 `;

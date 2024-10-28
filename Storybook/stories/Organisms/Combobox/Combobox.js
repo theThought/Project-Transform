@@ -1,7 +1,7 @@
 const style = `
 <style>
     ul.m-list {
-        left: auto;
+        left: auto; /* Display list without reliance on JS */
     }
 </style>
 `;
