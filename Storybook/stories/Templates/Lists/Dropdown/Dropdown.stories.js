@@ -20,7 +20,7 @@ export default {
             control: { type: 'number', min: 0 },
             description: 'Configures how many options should be displayed in the list.',
             table: {
-                type: { summary: 'number' },
+                type: { summary: 'number', min: 0 },
                 defaultValue: { summary: 'n/a' }
             },
         },

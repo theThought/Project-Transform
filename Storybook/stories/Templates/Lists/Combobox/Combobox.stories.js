@@ -13,7 +13,7 @@ export default {
             control: { type: 'number', min: 0 },
             description: 'Configures how many options should be displayed in the list.',
             table: {
-                type: { summary: 'number' },
+                type: { summary: 'number', min: 0 },
                 defaultValue: { summary: 'n/a' }
             },
         },
@@ -55,7 +55,7 @@ export default {
             control: { type: 'number', min: 0 },
             description: 'Defines how many characters must be typed before the list is displayed.',
             table: {
-                type: { summary: 'number' },
+                type: { summary: 'number', min: 0 },
                 defaultValue: { summary: 0 }
             },
         },
