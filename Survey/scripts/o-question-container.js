@@ -100,7 +100,7 @@ define(['o-question'],
         }
 
         oQuestionContainer.prototype.onWidthEvent = function (event) {
-            if (this.element.contains(event.target)) {
+            if (this.element && this.element.contains(event.target)) {
                 // fix current width of question text column if this is a side-by-side layout
                 var aggregateWidth = 0;
                 var maxWidth = 0;

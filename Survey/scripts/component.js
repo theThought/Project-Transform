@@ -101,8 +101,15 @@ define(
         }
 
         component.prototype.checkCollision = function (firstElement, secondElement) {
-            var firstElementBottom = firstElement.getBoundingClientRect().bottom;
-            var secondElementTop = secondElement.getBoundingClientRect().top;
+            var firstElementBottom;
+            var secondElementTop;
+
+            if (firstElement) {
+                firstElementBottom = firstElement.getBoundingClientRect().bottom;
+            }
+            if (secondElement) {
+                secondElementTop = secondElement.getBoundingClientRect().top;
+            }
 
             return firstElementBottom > secondElementTop;
         }
