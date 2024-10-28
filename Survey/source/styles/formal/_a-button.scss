@@ -67,6 +67,11 @@ input[type=button].a-button-image {
     background-size: cover;
     background-repeat: no-repeat !important;
     background-position: center center;
+
+    &:disabled {
+        background-color: transparent !important;
+        opacity: .25;
+    }
 }
 
 input[type=button].a-button-image:hover {

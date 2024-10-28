@@ -6,18 +6,24 @@ define(['component'],
 
             this.container = document.querySelector('div.o-question-response[data-questiongroup="' + this.group + '"]')
             this.wrapper = this.container.querySelector('.o-question-media-external-wrapper');
-            this.errorcontainer = this.container.querySelector('.o-label-message-error.external-warning');
+            this.messagecontainer = this.container.querySelector('.o-buttonandmessage-message');
             this.trigger = this.container.querySelector('input[type=button]');
+            this.frame = this.container.querySelector('div.o-media-frame');
             this.element = document.querySelector('input#' + this.id);
-            this.action = 'barcode';
+            this.api = 'barcode';
         }
 
         oQuestionMedia.prototype = Object.create(component.prototype);
         oQuestionMedia.prototype.constructor = oQuestionMedia;
 
         oQuestionMedia.prototype.init = function () {
+            component.prototype.init.call(this);
             this.configureProperties();
             this.configureLocalEventListeners();
+            this.setImagePlaceholder();
+            this.createImageLoaderSpinner();
+            this.setInitialMessage();
+            this.checkForExistingMedia();
             this.configurationComplete();
         }
 
@@ -33,8 +39,45 @@ define(['component'],
             }
         }
 
+        oQuestionMedia.prototype.setInitialMessage = function () {
+            if (typeof this.properties.messages.empty === 'undefined') {
+                return;
+            }
+
+            this.setMessage('empty');
+        }
+
+        oQuestionMedia.prototype.checkForExistingMedia = async function () {
+            if (this.api !== "picture" || !this.value) {
+                this.hideImageLoader();
+                return;
+            }
+
+            const data = JSON.parse(this.value);
+            const url = data.url;
+
+            if (typeof url !== 'string') {
+                return;
+            }
+
+            try {
+                this.disableTrigger();
+                this.removeImage();
+                this.displayImageLoader();
+                const data = await window.theDiary.getPictureFromUrl(url)
+                this.displayImage(data);
+                this.enableTrigger();
+            } catch (error) {
+                this.enableTrigger();
+                this.hideImageLoader();
+                this.setImagePlaceholder();
+                this.debug(error.message, 2);
+                this.setMessage('retrieval_failed');
+            }
+        }
+
         oQuestionMedia.prototype.onClick = async function () {
-            switch (this.action) {
+            switch (this.api) {
                 case 'barcode':
                     this.callBarcodeScan();
                     break;
@@ -42,45 +85,42 @@ define(['component'],
                     this.callPictureCapture();
                     break;
             }
-
         }
 
         oQuestionMedia.prototype.callBarcodeScan = async function () {
             try {
                 const data = await window.theDiary.scanBarcode("us_alcohol_consumption", true);
-                this.clearError();
+                this.clearMessage();
                 this.setBarcodeData(data);
             } catch (error) {
-                this.setError(error.message);
+                this.setMessage(error.message);
             }
         }
 
         oQuestionMedia.prototype.callPictureCapture = async function () {
             try {
                 const data = await window.theDiary.takePicture(true);
-                this.clearError();
+                this.setMessage('success');
                 this.setPictureData(data);
-                this.displayImage(data);
+                this.displayImage(data.file);
             } catch (error) {
-                this.setError(error.message);
+                this.setMessage(error.message);
             }
         }
 
-        oQuestionMedia.prototype.action = function (prop) {
-            this.action = prop;
+        oQuestionMedia.prototype.action = function (props) {
+            this.api = props.type;
+
+            this.button(props.button);
         }
 
-        oQuestionMedia.prototype.captions = function (props) {
-            if (typeof props.start === 'undefined') {
-                return;
+        oQuestionMedia.prototype.button = function (props) {
+            if (typeof props.caption !== "undefined") {
+                this.setButtonText(props.caption);
             }
 
-            if (typeof props.start.icon !== "undefined") {
-                this.setButtonImage(props.start.icon);
-            }
-
-            if (typeof props.start.text !== 'undefined') {
-                this.setButtonText(props.start.text);
+            if (typeof props.icon !== "undefined") {
+                this.setButtonImage(props.icon);
             }
         }
 
@@ -94,10 +134,13 @@ define(['component'],
         }
 
         oQuestionMedia.prototype.setButtonImage = function (props) {
-            this.trigger.classList.add('a-button-image');
+            this.trigger.classList.add("a-button-image");
             this.trigger.style.background = 'url("' + props.source + '") center';
             this.trigger.style.width = props.width;
             this.trigger.style.height = props.height;
+
+            this.trigger.title = this.trigger.value;
+            this.trigger.value ='';
         }
 
         oQuestionMedia.prototype.setBarcodeData = function (data) {
@@ -115,10 +158,51 @@ define(['component'],
             this.broadcastChange();
         }
 
-        oQuestionMedia.prototype.displayImage = function (data) {
+        oQuestionMedia.prototype.displayImage = function (file) {
+            this.hideImageLoader();
+            this.removeFrameClass();
             var urlCreator = window.URL || window.webkitURL;
-            var imageUrl = urlCreator.createObjectURL(data.file);
-            this.container.querySelector('.o-media-frame').style.background = "center / cover url('"+ imageUrl + "')";
+            var imageUrl = urlCreator.createObjectURL(file);
+            this.frame.style.background = "center / cover url('"+ imageUrl + "')";
+        }
+
+        oQuestionMedia.prototype.removeImage = function () {
+            this.frame.style.background = "";
+            this.addFrameClass();
+        }
+
+        oQuestionMedia.prototype.setImagePlaceholder = function () {
+            if (typeof this.properties.frame !== "undefined") {
+                this.removeFrameClass();
+                this.frame.style.backgroundImage = 'url("' + this.properties.frame.background.source + '")';
+                this.frame.style.backgroundSize = 'cover';
+                this.frame.style.backgroundPosition = 'center';
+            } else {
+                this.addFrameClass();
+            }
+
+        }
+
+        oQuestionMedia.prototype.createImageLoaderSpinner = function () {
+            var loaderContainer = document.createElement("div");
+            loaderContainer.classList.add("m-image-loader");
+            this.frame.appendChild(loaderContainer);
+        }
+
+        oQuestionMedia.prototype.displayImageLoader = function () {
+            this.container.querySelector(".m-image-loader").style.display = "block";
+        }
+
+        oQuestionMedia.prototype.hideImageLoader = function () {
+            this.container.querySelector(".m-image-loader").style.display = "none";
+        }
+
+        oQuestionMedia.prototype.addFrameClass = function () {
+            this.frame.classList.add("o-media-frame-outline");
+        }
+
+        oQuestionMedia.prototype.removeFrameClass = function () {
+            this.frame.classList.remove("o-media-frame-outline");
         }
 
         oQuestionMedia.prototype.clearValue = function () {
@@ -126,12 +210,24 @@ define(['component'],
             this.broadcastChange();
         }
 
-        oQuestionMedia.prototype.setError = function (message) {
-            this.errorcontainer.innerHTML = message;
+        oQuestionMedia.prototype.setMessage = function (message) {
+            if (this.properties.messages[message]) {
+                this.messagecontainer.innerHTML = this.properties.messages[message];
+            } else {
+                this.messagecontainer.innerHTML = message;
+            }
         }
 
-        oQuestionMedia.prototype.clearError = function () {
-            this.errorcontainer.innerHTML = '';
+        oQuestionMedia.prototype.clearMessage = function () {
+            this.messagecontainer.innerHTML = '';
+        }
+
+        oQuestionMedia.prototype.enableTrigger = function () {
+            this.trigger.disabled = false;
+        }
+
+        oQuestionMedia.prototype.disableTrigger = function () {
+            this.trigger.disabled = true;
         }
 
         return oQuestionMedia;

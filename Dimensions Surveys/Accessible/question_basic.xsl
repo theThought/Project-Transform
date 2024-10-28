@@ -21,41 +21,39 @@
    </xsl:variable>
    <!--- Basic Structure -->
    <xsl:template match="Questions">
-      <xsl:element name="root">
-         <xsl:element name="Questions">
-            <xsl:attribute name="data-position">
-               <xsl:text>below</xsl:text>
-            </xsl:attribute>
-            <xsl:for-each select="*">
-               <xsl:choose>
-                  <xsl:when test="name()='Question'">
-                     <xsl:element name="Question">
-                        <xsl:attribute name="data-position">
-                           <xsl:choose>
-                              <xsl:when test="Style/@ElementAlign='NewLine'">
-                                 <xsl:text>below</xsl:text>
-                              </xsl:when>
-                              <xsl:when test="Style/@ElementAlign='Right'">
-                                 <xsl:text>side</xsl:text>
-                              </xsl:when>
-                              <xsl:otherwise>
-                                 <xsl:text>below</xsl:text>
-                              </xsl:otherwise>
-                           </xsl:choose>
-                        </xsl:attribute>
-                        <xsl:call-template name="Question" />
-                     </xsl:element>
-                  </xsl:when>
-                  <xsl:otherwise>
-                     <Other>
-                        <xsl:value-of select="name()" />
-                     </Other>
-                  </xsl:otherwise>
-               </xsl:choose>
-            </xsl:for-each>
-         </xsl:element>
-      </xsl:element>
-   </xsl:template>
+      <xsl:for-each select="*">
+      <xsl:choose>
+         <xsl:when test="name()='Question'">
+         <!--
+            <xsl:element name="div">
+               <xsl:attribute name="data-position">
+                  <xsl:choose>
+                     <xsl:when test="Style/@ElementAlign='NewLine'">
+                        <xsl:text>below</xsl:text>
+                     </xsl:when>
+                     <xsl:when test="Style/@ElementAlign='Right'">
+                        <xsl:text>side</xsl:text>
+                     </xsl:when>
+                     <xsl:otherwise>
+                        <xsl:text>below</xsl:text>
+                     </xsl:otherwise>
+                  </xsl:choose>
+               </xsl:attribute>
+         -->
+               <xsl:call-template name="Question" />
+         <!-- 
+            </xsl:element>
+         -->
+         </xsl:when>
+         <xsl:otherwise>
+            <Other>
+               <xsl:value-of select="name()" />
+            </Other>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:for-each>
+</xsl:template>
+
    <xsl:template name="Question">
       <xsl:param name="bWithinTable" select="false()" />
       <xsl:param name="SubQuestion" select="false()" />
@@ -115,6 +113,7 @@
             </xsl:if>
          </xsl:when>
          <xsl:otherwise>
+            <xsl:text>Here</xsl:text>
             <xsl:for-each select="*">
                <xsl:choose>
                   <xsl:when test="name() = 'Error'">
@@ -249,6 +248,7 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
+         <!-- 
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
@@ -264,11 +264,13 @@
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
          </xsl:call-template>
+         -->
          <xsl:call-template name='TypePicker'>
             <xsl:with-param name="qElementID" select="$qElementID" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
          </xsl:call-template>
+
       </xsl:element>
    </xsl:template>
    <!--- Type Picker -->
@@ -1053,6 +1055,7 @@
                <xsl:with-param name="qIsCustom" select="$qIsCustom" />
                <xsl:with-param name="qCustomType" select="$qCustomType" />
             </xsl:call-template>
+            <!--
             <xsl:call-template name="appComponentScript">
                <xsl:with-param name="ComponentName">
                   <xsl:text>aInput</xsl:text>
@@ -1064,6 +1067,7 @@
                <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
             </xsl:call-template>
+            -->
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>

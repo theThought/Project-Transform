@@ -21,6 +21,7 @@ define(['component'],
             this.currentlistposition = -1;
             this.mincharacters = 0;
             this.hasbeendisplayed = false;
+            this.userspecifiedheight = null;
             this.width = 0;
         }
 
@@ -79,7 +80,7 @@ define(['component'],
                     this.onMousedown(event);
                     break;
                 case 'scroll':
-                    this.updateListPosition(event.target.scrollLeft)
+                    this.updateListPosition(event.target)
                     break;
                 case 'showList':
                     this.showList(event);
@@ -385,7 +386,8 @@ define(['component'],
         }
 
         mList.prototype.listsize = function (prop) {
-            var height = (27 * prop);
+            // first list item is 35px high, subsequent are 27, end padding is 8
+            var height = 35 + (27 * (prop-1)) + 8;
             this.userspecifiedheight = height;
             this.element.style.maxHeight = height + 'px';
         }
@@ -435,8 +437,25 @@ define(['component'],
             this.element.scrollTop = scrollposition + 100;
         }
 
-        mList.prototype.updateListPosition = function (position) {
-            this.element.style.marginLeft = 0-position + 'px';
+        mList.prototype.updateListPosition = function (target) {
+            if (target === this.element) {
+                return;
+            }
+
+            if (!target.contains(this.element)) {
+                return;
+            }
+
+            var scrollLeft = target.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollTop = target.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
+
+            if (this.container.classList.contains('direction-up')) {
+                var itemHeight = this.element.getBoundingClientRect().height;
+                scrollTop += itemHeight + 41;
+            }
+
+            this.element.style.marginLeft = 0 - scrollLeft + 'px';
+            this.element.style.marginTop = 0 - scrollTop + 'px';
         }
 
         mList.prototype.navigateFirst = function () {
@@ -526,11 +545,11 @@ define(['component'],
 
         mList.prototype.setDropListDirection = function () {
             // reset to default direction before performing checks
-            this.element.classList.remove('direction-up');
-            this.element.classList.add('direction-down');
+            this.container.classList.remove('direction-up');
+            this.container.classList.add('direction-down');
             this.element.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
             this.element.style.removeProperty('bottom');
-            var paddingAllowance = 10;
+            //var paddingAllowance = 10;
 
             var footer = document.getElementsByClassName('footer')[0];
             var viewportBounds = this.checkViewportBounds(this.element);
@@ -540,16 +559,18 @@ define(['component'],
             var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
             if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
-                this.element.classList.remove('direction-down');
-                this.element.classList.add('direction-up');
+                this.container.classList.remove('direction-down');
+                this.container.classList.add('direction-up');
 
                 if (distanceToTop < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
-                    this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+                    //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
                 }
 
             } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
-                this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
+                //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
+
+            this.updateListPosition(document);
         }
 
         mList.prototype.notifyWidthChange = function () {

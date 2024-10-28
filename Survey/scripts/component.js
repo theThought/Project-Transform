@@ -499,7 +499,7 @@ define(
                             // determine the input type - required for handling unselected checkboxes/radio buttons
                             var questionType = questionElements[j].type;
 
-                            if ((questionType === 'checkbox' || questionType === 'radio') && !questionElements[j].checked) {
+                            if (questionType === 'button' || (questionType === 'checkbox' || questionType === 'radio') && !questionElements[j].checked) {
                                 continue;
                             }
 
