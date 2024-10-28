@@ -23,6 +23,7 @@ define(['component'],
             this.hasbeendisplayed = false;
             this.userspecifiedheight = null;
             this.width = 0;
+            this.height = 0;
         }
 
         mList.prototype = Object.create(component.prototype);
@@ -140,15 +141,15 @@ define(['component'],
         }
 
         mList.prototype.enableExclusive = function () {
-            this.setCurrentListPosition(-1);
+            this.setListIndex(-1);
             this.clearSelectedOption();
         }
 
         mList.prototype.intialiseListForFirstDisplay = function (event) {
             this.indexList();
             this.restoreSelection(event);
-            this.setCurrentListPosition();
-            this.updateScrollPosition(this.getCurrentListPosition());
+            this.setListIndex();
+            this.updateScrollPosition(this.getListIndex());
         }
 
         /**
@@ -265,7 +266,7 @@ define(['component'],
             selectedOption.classList.add('selected');
             selectedOption.setAttribute('data-selected', 'selected');
             selectedOption.setAttribute('aria-selected', 'true');
-            this.setCurrentListPosition(selectedOption.getAttribute('data-list-position'));
+            this.setListIndex(selectedOption.getAttribute('data-list-position'));
         }
 
         mList.prototype.clearSelectedOption = function () {
@@ -387,7 +388,7 @@ define(['component'],
 
         mList.prototype.listsize = function (prop) {
             // first list item is 35px high, subsequent are 27, end padding is 8
-            var height = 35 + (27 * (prop-1)) + 8;
+            var height = 35 + (27 * (prop - 1)) + 8;
             this.userspecifiedheight = height;
             this.element.style.maxHeight = height + 'px';
         }
@@ -406,7 +407,7 @@ define(['component'],
             }
         }
 
-        mList.prototype.setCurrentListPosition = function (position) {
+        mList.prototype.setListIndex = function (position) {
             if (typeof position !== 'undefined') {
                 this.currentlistposition = parseInt(position);
                 return;
@@ -421,7 +422,7 @@ define(['component'],
             }
         }
 
-        mList.prototype.getCurrentListPosition = function () {
+        mList.prototype.getListIndex = function () {
             return parseInt(this.currentlistposition);
         }
 
@@ -450,12 +451,48 @@ define(['component'],
             var scrollTop = target.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
 
             if (this.container.classList.contains('direction-up')) {
-                var itemHeight = this.element.getBoundingClientRect().height;
-                scrollTop += itemHeight + 41;
+                scrollTop += this.height + 41;
             }
 
             this.element.style.marginLeft = 0 - scrollLeft + 'px';
             this.element.style.marginTop = 0 - scrollTop + 'px';
+
+        }
+
+        mList.prototype.setDropListDirection = function () {
+            // reset to default direction before performing checks
+            if (this.element.getBoundingClientRect().height > 0) {
+                this.height = this.element.getBoundingClientRect().height;
+            }
+
+            this.container.classList.remove('direction-up');
+            this.container.classList.add('direction-down');
+            this.element.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
+            this.element.style.removeProperty('bottom');
+            //var paddingAllowance = 10;
+
+            var footer = document.getElementsByClassName('footer')[0];
+            var viewportBounds = this.checkViewportBounds(this.element);
+            var footerCollision = this.checkCollision(this.element, footer);
+
+            var distanceToTop = this.element.getBoundingClientRect().top;
+            var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
+
+            if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
+                this.container.classList.remove('direction-down');
+                this.container.classList.add('direction-up');
+
+                this.element.style.marginTop = 0 - (this.height + 41) + 'px';
+
+                if (distanceToTop < Math.max(this.userspecifiedheight, this.height)) {
+                    //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+                }
+
+            } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.height)) {
+                //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
+            }
+
+            //this.updateListPosition(document);
         }
 
         mList.prototype.navigateFirst = function () {
@@ -543,36 +580,6 @@ define(['component'],
             this.source = prop;
         }
 
-        mList.prototype.setDropListDirection = function () {
-            // reset to default direction before performing checks
-            this.container.classList.remove('direction-up');
-            this.container.classList.add('direction-down');
-            this.element.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
-            this.element.style.removeProperty('bottom');
-            //var paddingAllowance = 10;
-
-            var footer = document.getElementsByClassName('footer')[0];
-            var viewportBounds = this.checkViewportBounds(this.element);
-            var footerCollision = this.checkCollision(this.element, footer);
-
-            var distanceToTop = this.element.getBoundingClientRect().top;
-            var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
-
-            if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
-                this.container.classList.remove('direction-down');
-                this.container.classList.add('direction-up');
-
-                if (distanceToTop < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
-                    //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
-                }
-
-            } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.element.getBoundingClientRect().height)) {
-                //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
-            }
-
-            this.updateListPosition(document);
-        }
-
         mList.prototype.notifyWidthChange = function () {
             var widthEvent = new CustomEvent('widthEvent', {bubbles: true, detail: this});
             this.element.dispatchEvent(widthEvent);
@@ -600,7 +607,7 @@ define(['component'],
         }
 
         mList.prototype.filterList = function (eventdetail) {
-            this.setCurrentListPosition();
+            this.setListIndex();
             this.list = this.buildList();
 
             switch (this.filtermethod) {
@@ -648,7 +655,7 @@ define(['component'],
 
                     } else {
                         this.setSelectedOptionByIndex(i);
-                        this.setCurrentListPosition(i);
+                        this.setListIndex(i);
                         this.notifyListInput();
                         return;
                     }
