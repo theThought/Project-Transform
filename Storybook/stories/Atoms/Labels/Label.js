@@ -26,3 +26,9 @@ export const LabelPrelabelHtml = () => `
 export const LabelPostlabelHtml = () => `
 <span class="a-label-postlabel">post-label</span>
 `;
+
+export const LabelHeadingSublistHtml = () => `
+<div class="a-label-heading-sublist" style="">
+    <span class="a-label-option">Sublist heading</span>
+</div>
+`;

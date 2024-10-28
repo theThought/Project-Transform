@@ -3,7 +3,8 @@ import {
     LabelOptionHtml,
     LabelInstructiontionHtml,
     LabelPrelabelHtml,
-    LabelPostlabelHtml
+    LabelPostlabelHtml,
+    LabelHeadingSublistHtml
 } from './Label';
 
 export default {
@@ -39,3 +40,8 @@ export const LabelPostlabel = {
     render: () => LabelPostlabelHtml(),
 };
 LabelPostlabel.storyName = 'a-label-postlabel';
+
+export const LabelHeadingSublist = {
+    render: () => LabelHeadingSublistHtml(),
+};
+LabelHeadingSublist.storyName = 'a-label-heading-sublist';
