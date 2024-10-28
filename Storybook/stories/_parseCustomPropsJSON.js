@@ -5,8 +5,8 @@ const ignoredStrings = [
     '"onesize":{"state":false}',
     '"sublistline":{"state":false}',
     // Lists
-    '"exact":true,',
-    '"filtertype":"contains",',
+    '"exact":true',
+    '"filtertype":"contains"',
     '"mincharactersforlist":0',
 ];
 
@@ -29,7 +29,7 @@ export const parseCustomProps = (json) => {
     // Replace any unwanted characters.
     parsedJson = parsedJson.replace(/"/gm, '\''); // Double quotes with single
     parsedJson = parsedJson.replace(/\s/gm, ''); // Whitespace
-    parsedJson = parsedJson.replace(/,,/gm, ','); // Rogue commas
+    parsedJson = parsedJson.replace(/,+/gm, ','); // Rogue commas
     parsedJson = parsedJson.replace(/,}/gm, '}'); // Rogue commas
     parsedJson = parsedJson.replace(/{,/gm, '{'); // Rogue commas
 
