@@ -7,6 +7,10 @@
 
     <xsl:template match="*">
       <xsl:element name="label">
+		<xsl:comment>
+			<xsl:text>elementID: </xsl:text>
+			<xsl:value-of select="@ElementId" />
+		</xsl:comment>
       <xsl:choose>
         <xsl:when test="name()='Error'">
           <xsl:attribute name="class">Error</xsl:attribute>
@@ -19,11 +23,11 @@
                       <xsl:attribute name="for">
                           <xsl:value-of select="@ElementId"/>
                       </xsl:attribute>
-                      <xsl:call-template name="LabelBase"/>
                       <xsl:attribute name="id">
                           <xsl:value-of select="@ElementId"/>
-                          <xsl_text>_label_question</xsl_text>
+                          <xsl:text>_label_question</xsl:text>
                       </xsl:attribute>
+                      <xsl:call-template name="LabelBase"/>
                   </xsl:element>
               </xsl:when>
               <xsl:otherwise>
