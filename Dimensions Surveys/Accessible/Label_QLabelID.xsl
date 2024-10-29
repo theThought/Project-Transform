@@ -22,7 +22,7 @@
                       <xsl:call-template name="LabelBase"/>
                       <xsl:attribute name="id">
                           <xsl:value-of select="@ElementId"/>
-                          <xsl_text>_label</xsl_text>
+                          <xsl_text>_label_question</xsl_text>
                       </xsl:attribute>
                   </xsl:element>
               </xsl:when>
