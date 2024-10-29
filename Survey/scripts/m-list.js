@@ -451,11 +451,11 @@ define(['component'],
             var scrollTop = target.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
 
             if (this.container.classList.contains('direction-up')) {
-                scrollTop += this.height + 41;
+                scrollTop += this.height + 39;
             }
 
             this.element.style.marginLeft = 0 - scrollLeft + 'px';
-            this.element.style.marginTop = 0 - scrollTop + 'px';
+            this.element.style.marginTop = -1 - scrollTop + 'px';
 
         }
 
@@ -465,8 +465,11 @@ define(['component'],
                 this.height = this.element.getBoundingClientRect().height;
             }
 
+            var tempMargin = this.element.style.marginTop || '';
+
             this.container.classList.remove('direction-up');
             this.container.classList.add('direction-down');
+            this.element.style.marginTop = '';
             this.element.style.maxHeight = (this.userspecifiedheight > 0) ? this.userspecifiedheight + 'px' : '';
             this.element.style.removeProperty('bottom');
             //var paddingAllowance = 10;
@@ -478,11 +481,13 @@ define(['component'],
             var distanceToTop = this.element.getBoundingClientRect().top;
             var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
+            this.element.style.marginTop = tempMargin + 'px';
+
             if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
                 this.container.classList.remove('direction-down');
                 this.container.classList.add('direction-up');
 
-                this.element.style.marginTop = 0 - (this.height + 41) + 'px';
+                this.element.style.marginTop = 0 - (this.height + 40) + 'px';
 
                 if (distanceToTop < Math.max(this.userspecifiedheight, this.height)) {
                     //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
