@@ -19,6 +19,7 @@ define(['component'],
         oQuestionMedia.prototype.init = function () {
             component.prototype.init.call(this);
             this.configureProperties();
+            this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
             this.setImagePlaceholder();
             this.createImageLoaderSpinner();
@@ -27,14 +28,21 @@ define(['component'],
             this.configurationComplete();
         }
 
+        oQuestionMedia.prototype.configureIncomingEventListeners = function () {
+            document.addEventListener(this.group + '_enableExclusive', this.handleEvent.bind(this), false);
+        }
+
         oQuestionMedia.prototype.configureLocalEventListeners = function () {
-            this.trigger.addEventListener("click", this, false);
+            this.trigger.addEventListener("click", this.handleEvent.bind(this), false);
         }
 
         oQuestionMedia.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case "click":
                     this.onClick();
+                    break;
+                case this.group + "_enableExclusive":
+                    this.enableExclusive();
                     break;
             }
         }
@@ -67,6 +75,7 @@ define(['component'],
                 const data = await window.theDiary.getPictureFromUrl(url)
                 this.displayImage(data);
                 this.enableTrigger();
+                this.enableExclusive();
             } catch (error) {
                 this.enableTrigger();
                 this.hideImageLoader();
@@ -85,6 +94,12 @@ define(['component'],
                     this.callPictureCapture();
                     break;
             }
+        }
+
+        oQuestionMedia.prototype.enableExclusive = function () {
+            this.setImagePlaceholder();
+            this.setInitialMessage();
+            this.enableTrigger();
         }
 
         oQuestionMedia.prototype.callBarcodeScan = async function () {
@@ -140,7 +155,7 @@ define(['component'],
             this.trigger.style.height = props.height;
 
             this.trigger.title = this.trigger.value;
-            this.trigger.value ='';
+            this.trigger.value = '';
         }
 
         oQuestionMedia.prototype.setBarcodeData = function (data) {
@@ -150,12 +165,22 @@ define(['component'],
             }
 
             this.element.value = JSON.stringify(data.product);
+            this.dismissExclusive();
             this.broadcastChange();
         }
 
         oQuestionMedia.prototype.setPictureData = function (data) {
             this.element.value = JSON.stringify(data);
+            this.dismissExclusive();
             this.broadcastChange();
+        }
+
+        oQuestionMedia.prototype.dismissExclusive = function () {
+            var enableExclusive = new CustomEvent(this.group + '_enableExclusive', {
+                bubbles: true,
+                detail: this
+            });
+            this.element.dispatchEvent(enableExclusive);
         }
 
         oQuestionMedia.prototype.displayImage = function (file) {
@@ -163,7 +188,7 @@ define(['component'],
             this.removeFrameClass();
             var urlCreator = window.URL || window.webkitURL;
             var imageUrl = urlCreator.createObjectURL(file);
-            this.frame.style.background = "center / cover url('"+ imageUrl + "')";
+            this.frame.style.background = "center / cover url('" + imageUrl + "')";
         }
 
         oQuestionMedia.prototype.removeImage = function () {
