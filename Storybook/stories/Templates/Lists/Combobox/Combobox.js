@@ -63,7 +63,7 @@ ${parseCustomProps(`
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Dropdown question with custom properties
+                        Combobox question with custom properties
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
