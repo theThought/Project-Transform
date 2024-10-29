@@ -9,15 +9,25 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 - The HTML in each story is copied from [Project Transform's staging server](https://online-stg.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S20223280&i.test=1), using the **source HTML** - i.e. prior to any JavaScript transformations of the DOM via `custom properties`.
 - In some cases, the source HTML has been simplified to produce cleaner examples.
 
-### CSS/JavaScript, and Hot Module Reloading
-- The compiled CSS/JavaScript code is loaded inside `.storybook/preview-head.html`, directly from this repo's `./Survey` folder.
-- This means that Hot Module Reloading does not work - i.e. CSS/JavaScript changes are not automatically reflected in stories. Reload the current page.
-- Similarly, JavaScript may not execute when loading a new story. Reload the page.
+## CSS and JavaScript
+- The compiled CSS/JavaScript code is loaded inside `./Storybook/.storybook/preview-head.html`, directly from this repo's `./Survey` folder.
+- Storybook's `public` folder has been pointed at `staticDirs: ['../public', '../../Survey']` folders inside `./Storybook/.storybook/main.js`.
+
+### Compiling CSS/JavaScript in local Storybook environment
+- When working in Storybook locally, CSS and JavaScript changes can be made in the `./Survey` folder, with changes reflected in Storybook's UI.
+- Sass needs to be compiled first. Run `npm run gulp` from the repo's root directory to start a Gulp watch task.
+- JavaScript does not get compiled or bundled, so just edit the code.
+
+However...
+
+### Hot Module Reloading
+- Hot Module Reloading does not work - i.e. CSS/JavaScript changes are not automatically reflected in stories. **Reload the page.**
+- Similarly, JavaScript may not execute when loading a new story or a docs page. **Reload the page**.
 
 ## Toggling UI themes in Storybook
 - Uses the `storybook-theme-switch-addon` button in Storybook's main toolbar (paint brush icon).
 - This works in both local and published Storybooks.
-- Theme CSS file paths are defined in `.storybook/preview.js`.
+- Theme CSS file paths are defined in `./Storybook/.storybook/preview.js`.
 
 ## Accessibility testing
 Storybook comes with 2 default accessibility testing tools:
