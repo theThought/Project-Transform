@@ -42,7 +42,7 @@ define(['component'],
                     this.onClick();
                     break;
                 case this.group + "_enableExclusive":
-                    this.enableExclusive();
+                    this.enableExclusive(event);
                     break;
             }
         }
@@ -95,7 +95,11 @@ define(['component'],
             }
         }
 
-        oQuestionMedia.prototype.enableExclusive = function () {
+        oQuestionMedia.prototype.enableExclusive = function (event) {
+            if (event.target === this.element) {
+                return;
+            }
+
             this.setImagePlaceholder();
             this.setInitialMessage();
             this.clearValue();
@@ -164,13 +168,17 @@ define(['component'],
                 return;
             }
 
-            this.element.value = JSON.stringify(data.product);
+            var val = JSON.stringify(data.product);
+            this.element.value = val;
+            this.element.setAttribute('data-value', val);
             this.dismissExclusive();
             this.broadcastChange();
         }
 
         oQuestionMedia.prototype.setPictureData = function (data) {
-            this.element.value = JSON.stringify(data);
+            var val = JSON.stringify(data);
+            this.element.value = val;
+            this.element.setAttribute('data-value', val);
             this.dismissExclusive();
             this.broadcastChange();
         }
@@ -231,6 +239,7 @@ define(['component'],
 
         oQuestionMedia.prototype.clearValue = function () {
             this.element.value = '';
+            this.element.setAttribute('data-value', '');
             this.broadcastChange();
         }
 
