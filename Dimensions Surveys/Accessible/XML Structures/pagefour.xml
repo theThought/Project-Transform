@@ -1,0 +1,595 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta http-equiv="Content-Language" content="en-US"/><meta http-equiv="Expires" content="-1"/><meta http-equiv="Pragma" content="no-cache"/><meta name="Robots" content="noindex, nofollow"/><meta name="Generator" content="Interviewer Server HTML Player 1.0.23..106"/><meta name="Template" content="XML.htm"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+		<title>PageFour</title>
+	</head>
+	<body>
+		<form name="mrForm" id="mrForm" action="./" method="post"><input type="hidden" name="I.Engine" value="Server"/><input type="hidden" name="I.Project" value="Accessible601"/><input type="hidden" name="I.Session" value="tcsh2efq4ngujbbxahomy16e2maqaaaa"/><input type="hidden" name="I.SavePoint" value="PageFour"/><input type="hidden" name="I.Renderer" value="HTMLPlayer"/><div class="header">
+				<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/formal/ipsoslogo192.png"/>
+			</div>
+			<div class="surroundcontent">
+				<Label>
+					<!--Root-->
+					<Label/>
+					<Style>
+						<!--parent: Style-->
+					</Style>
+					<Text>
+						<!--parent: Text-->all question labels have ids</Text>
+				</Label>
+				<div class="o-question-container">
+					<div class="o-question-core">
+						<Label>
+							<!--Root-->
+							<Label/>
+							<Style>
+								<!--parent: Style-->
+							</Style>
+							<Text>
+								<!--parent: Text-->&lt;p&gt;Welcome to our study about payments.  Please answer all the questions every time that you make a purchase.&lt;/p&gt;</Text>
+						</Label>
+						<Question>
+							<Style ElementAlign="NewLine"></Style>
+						</Question>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<div class="o-question-core">
+						<Label>
+							<!--Root-->
+							<Label ElementId="_Q1"/>
+							<Style>
+								<!--parent: Style-->
+							</Style>
+							<Text>
+								<!--parent: Text-->provide the cost of the purchase</Text>
+						</Label>
+						<Question>
+							<Style ElementAlign="NewLine" Indent="1">
+								<Control Type="SingleLineEdit"></Control>
+							</Style>
+							<Control Type="SingleLineEdit" QuestionName="_QPageFour_QPaymentmade" ElementID="_Q1" Value="" Length="11">
+								<Style ElementAlign="NewLine" Indent="1">
+									<Control Type="SingleLineEdit"></Control>
+								</Style>
+							</Control>
+						</Question>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<div class="o-question-core">
+						<Label>
+							<!--Root-->
+							<Label ElementId="_Q2"/>
+							<Style>
+								<!--parent: Style-->
+							</Style>
+							<Text>
+								<!--parent: Text-->provide the amount of cashback requested</Text>
+						</Label>
+						<Question>
+							<Style ElementAlign="NewLine" Indent="1">
+								<Control Type="SingleLineEdit"></Control>
+							</Style>
+							<Control Type="SingleLineEdit" QuestionName="_QPageFour_Qcashback" ElementID="_Q2" Value="" Length="11">
+								<Style ElementAlign="NewLine" Indent="1">
+									<Control Type="SingleLineEdit"></Control>
+								</Style>
+							</Control>
+							<Control Type="CheckButton" QuestionName="_QPageFour_Qcashback_X" ElementID="_Q2_X">
+								<Style ElementAlign="NewLine" Indent="1">
+									<Control Type="CheckButton"></Control>
+								</Style>
+								<Category Name="nocashback" CategoryID="0">
+									<Label>
+										<Style ElementAlign="Right">
+											<Font IsBold="true"></Font>
+										</Style>
+										<Text>I did not request cashback</Text>
+									</Label>
+								</Category>
+							</Control>
+						</Question>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<div class="o-question-core">
+						<Label>
+							<!--Root-->
+							<Label/>
+							<Style>
+								<!--parent: Style-->
+							</Style>
+							<Text>
+								<!--parent: Text-->indicate the method of payment used</Text>
+						</Label>
+						<Question>
+							<Style ElementAlign="NewLine" Indent="1"></Style>
+							<Table UseTablesLayout="0" Summary="indicate the method of payment used" TableId="_Q3">
+								<Row Y="0">
+									<Cell X="0" Y="0">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="Cash" CategoryID="0">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Cash</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="1">
+									<Cell X="0" Y="1">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="Debit" CategoryID="1">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Debit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="2">
+									<Cell X="0" Y="2">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="visa" CategoryID="2">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Visa credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="3">
+									<Cell X="0" Y="3">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="mastercard" CategoryID="3">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>MasterCard credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="4">
+									<Cell X="0" Y="4">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="amex" CategoryID="4">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Amex credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="5">
+									<Cell X="0" Y="5">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="othercredit" CategoryID="5">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Other credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="6">
+									<Cell X="0" Y="6">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="Interac" CategoryID="6">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Interac e-transfer</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="7">
+									<Cell X="0" Y="7">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="prepaid" CategoryID="7">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Prepaid Visa, MasterCard, or AMEX card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="8">
+									<Cell X="0" Y="8">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="store" CategoryID="8">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Store branded prepaid card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="9">
+									<Cell X="0" Y="9">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="mobile" CategoryID="9">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Mobile payment app</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="10">
+									<Cell X="0" Y="10">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="online" CategoryID="10">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Online payment account (e.g. PayPal)</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="11">
+									<Cell X="0" Y="11">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="cheque" CategoryID="11">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Personal cheque</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="12">
+									<Cell X="0" Y="12">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="crypto" CategoryID="12">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Bitcoin or other cryptocurrency</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="13">
+									<Cell X="0" Y="13">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodsimple_C" ElementID="_Q3_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="coupon" CategoryID="13">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Redeemed coupon or store points</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+							</Table>
+						</Question>
+					</div>
+				</div>
+				<div class="o-question-container">
+					<div class="o-question-core">
+						<Label>
+							<!--Root-->
+							<Label/>
+							<Style>
+								<!--parent: Style-->
+							</Style>
+							<Text>
+								<!--parent: Text-->Indicate the methods of payment used</Text>
+						</Label>
+						<Question>
+							<Style ElementAlign="NewLine" Indent="1"></Style>
+							<Table UseTablesLayout="0" Summary="Indicate the methods of payment used" TableId="_Q4">
+								<Row Y="0">
+									<Cell X="0" Y="0">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="Cash" CategoryID="0">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Cash</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="1">
+									<Cell X="0" Y="1">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="Debit" CategoryID="1">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Debit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="2">
+									<Cell X="0" Y="2">
+										<Control Type="Static" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine"></Style>
+											<Category Name="creditcards" CategoryID="2">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Credit Card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="3">
+									<Cell X="0" Y="3">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="visa" CategoryID="2_S0">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Visa credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="4">
+									<Cell X="0" Y="4">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="mastercard" CategoryID="2_S1">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>MasterCard credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="5">
+									<Cell X="0" Y="5">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="amex" CategoryID="2_S2">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Amex credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="6">
+									<Cell X="0" Y="6">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="othercredit" CategoryID="2_S3">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Other credit card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="7">
+									<Cell X="0" Y="7">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="prepaid" CategoryID="3">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Prepaid Visa, MasterCard, or AMEX card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="8">
+									<Cell X="0" Y="8">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="store" CategoryID="4">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Store branded prepaid card</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="9">
+									<Cell X="0" Y="9">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="mobile" CategoryID="5">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Mobile payment app</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="10">
+									<Cell X="0" Y="10">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="online" CategoryID="6">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Online payment account (e.g. PayPal)</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="11">
+									<Cell X="0" Y="11">
+										<Control Type="Static" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine"></Style>
+											<Category Name="othermethods" CategoryID="7">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Other Methods</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="12">
+									<Cell X="0" Y="12">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="cheque" CategoryID="7_S0">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Personal cheque</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="13">
+									<Cell X="0" Y="13">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="Interac" CategoryID="7_S1">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Interac e-transfer</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="14">
+									<Cell X="0" Y="14">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="crypto" CategoryID="7_S2">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Bitcoin or other cryptocurrency</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+								<Row Y="15">
+									<Cell X="0" Y="15">
+										<Control Type="CheckButton" QuestionName="_QPageFour_Qmethodcomplex_C" ElementID="_Q4_C">
+											<Style ElementAlign="NewLine" Indent="1">
+												<Control Type="CheckButton"></Control>
+											</Style>
+											<Category Name="coupon" CategoryID="7_S3">
+												<Label>
+													<Style ElementAlign="Right"></Style>
+													<Text>Redeemed coupon or store points</Text>
+												</Label>
+											</Category>
+										</Control>
+									</Cell>
+								</Row>
+							</Table>
+						</Question>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div id="nav-controls" class="btn-container nav-center">
+					<div id="nextonly">
+						<input type="submit" name="_NNext" class="a-button-next" style="" value="Next"></input>
+					</div>
+					<div id="prevstop">
+						<input tabindex="-1" type="submit" name="_NStop" class="a-button-stop" style="" value="Stop"></input>
+					</div>
+				</div>
+				<div class="page-links"><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Unsubscribe</a></div>
+			</div>
+		</form><!-- The following script causes the page to be automatically reloaded if it changes in Professional.  This can be removed by disabling the "External browser automatic page update" setting. -->
+		<script type="text/javascript" src="SharedResources/javascript/auto-page-update/auto-page-update.js" defer="true"></script>
+	</body>
+</html>
