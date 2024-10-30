@@ -75,7 +75,6 @@ define(['component'],
                 const data = await window.theDiary.getPictureFromUrl(url)
                 this.displayImage(data);
                 this.enableTrigger();
-                this.enableExclusive();
             } catch (error) {
                 this.enableTrigger();
                 this.hideImageLoader();
