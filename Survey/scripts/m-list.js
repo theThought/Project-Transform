@@ -28,6 +28,7 @@ define(['component'],
             this.containerScrollLeft = 0;
             this.documentScrollTop = 0;
             this.documentScrollLeft = 0;
+            this.componentHeight = 39; // height of control component in PX
         }
 
         mList.prototype = Object.create(component.prototype);
@@ -144,6 +145,10 @@ define(['component'],
             this.element.setAttribute('aria-label', 'options');
         }
 
+        /**
+         * Clears the list's value in response to an exclusive
+         * option (generally checkbox) being selected in the group
+         */
         mList.prototype.enableExclusive = function () {
             this.setListIndex(-1);
             this.clearSelectedOption();
@@ -451,14 +456,9 @@ define(['component'],
                 return;
             }
 
-            if (this.id === '_Q0_Q0_Q0_list') {
-                console.log('here');
-            }
-            
-
             var scrollLeft = null;
             var scrollTop = null;
-            
+
             if (typeof target.scrollLeft !== 'undefined') {
                 scrollLeft = target.scrollLeft;
                 if (scrollLeft !== this.containerScrollLeft) {
@@ -479,18 +479,18 @@ define(['component'],
                 scrollTop = target.scrollTop;
 
                 if (this.container.classList.contains('direction-up')) {
-                    scrollTop += this.height + 39;
+                    scrollTop += this.height + this.componentHeight;
                 }
 
-                if (scrollTop !== this.containerscrollTop) {
-                    this.containerscrollTop = scrollTop;
+                if (scrollTop !== this.containerScrollTop) {
+                    this.containerScrollTop = scrollTop;
                     this.element.style.marginTop = 0 - scrollTop + 'px';
                 }
             } else {
                 scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
                 if (this.container.classList.contains('direction-up')) {
-                    scrollTop += this.height + 39;
+                    scrollTop += this.height + this.componentHeight;
                 }
 
                 if (scrollTop !== this.documentScrollTop) {
@@ -528,7 +528,7 @@ define(['component'],
                 this.container.classList.remove('direction-down');
                 this.container.classList.add('direction-up');
 
-                this.element.style.marginTop = 0 - (this.height + 40) + 'px';
+                this.element.style.marginTop = 0 - (this.height + this.componentHeight) + 'px';
 
                 if (distanceToTop < Math.max(this.userspecifiedheight, this.height)) {
                     //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
