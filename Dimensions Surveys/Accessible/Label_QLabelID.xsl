@@ -27,10 +27,10 @@
                                 </xsl:if>
                                 <xsl:if test="@ElementId !='' or @LabelID !=''">
                                     <xsl:attribute name="id">
-                                        <xsl:if select="@ElementId != ''">
+                                        <xsl:if test="@ElementId != ''">
                                             <xsl:value-of select="@ElementId"/>
                                         </xsl:if>
-                                        <xsl:if select="@LabelID !=''">
+                                        <xsl:if test="@LabelID !=''">
                                             <xsl:value-of select="@LabelID"/>
                                         </xsl:if>
                                         <xsl:text>_label_question</xsl:text>
