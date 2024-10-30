@@ -28,7 +28,7 @@ define(['component'],
             this.containerScrollLeft = 0;
             this.documentScrollTop = 0;
             this.documentScrollLeft = 0;
-            this.componentHeight = 39; // height of control component in PX
+            this.controlHeight = 39; // height of control component in PX
         }
 
         mList.prototype = Object.create(component.prototype);
@@ -48,6 +48,7 @@ define(['component'],
             this.list = this.buildList();
             this.setListType();
             this.calculateWidth();
+            this.controlHeight = this.calculateControlHeight();
             this.setPosition();
             this.removeTabIndex();
             this.configurationComplete();
@@ -395,6 +396,19 @@ define(['component'],
             return width;
         }
 
+        /**
+         * Return the height of the control component from the CSS variables
+         *
+         * @returns {int}
+         */
+        mList.prototype.calculateControlHeight = function () {
+            var height= getComputedStyle(document.documentElement).getPropertyValue('--combobox-height');
+            var paddingTop = getComputedStyle(document.documentElement).getPropertyValue('--combobox-padding-top');
+            var paddingBottom = getComputedStyle(document.documentElement).getPropertyValue('--combobox-padding-bottom');
+
+            return parseInt(height) + parseInt(paddingTop) + parseInt(paddingBottom);
+        }
+
         mList.prototype.listsize = function (prop) {
             // first list item is 35px high, subsequent are 27, end padding is 8
             var height = 35 + (27 * (prop - 1)) + 8;
@@ -479,7 +493,7 @@ define(['component'],
                 scrollTop = target.scrollTop;
 
                 if (this.container.classList.contains('direction-up')) {
-                    scrollTop += this.height + this.componentHeight;
+                    scrollTop += this.height + this.controlHeight;
                 }
 
                 if (scrollTop !== this.containerScrollTop) {
@@ -490,7 +504,7 @@ define(['component'],
                 scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
                 if (this.container.classList.contains('direction-up')) {
-                    scrollTop += this.height + this.componentHeight;
+                    scrollTop += this.height + this.controlHeight;
                 }
 
                 if (scrollTop !== this.documentScrollTop) {
@@ -528,14 +542,14 @@ define(['component'],
                 this.container.classList.remove('direction-down');
                 this.container.classList.add('direction-up');
 
-                this.element.style.marginTop = 0 - (this.height + this.componentHeight) + 'px';
-
                 if (distanceToTop < Math.max(this.userspecifiedheight, this.height)) {
-                    //this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
+                    // temporarily removed - limits max height of element to ensure it will fit in available space
+                    //  this.element.style.maxHeight = distanceToTop - paddingAllowance + 'px';
                 }
 
             } else if (distanceToBottom < Math.max(this.userspecifiedheight, this.height)) {
-                //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
+                // temporarily removed - limits max height of element to ensure it will fit in available space
+                //  this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
 
             this.updateListPosition(document);
