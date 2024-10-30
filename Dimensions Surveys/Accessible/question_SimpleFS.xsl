@@ -643,6 +643,8 @@
       <xsl:variable name="Orientation">
          <xsl:value-of select="../Style/@Orientation" />
       </xsl:variable>
+      <xsl:text>TABLE for:</xsl:text>
+      <xsl:value-of select="$qCustomType" />
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
             <xsl:element name="table">
@@ -682,8 +684,12 @@
                <xsl:if test="not(contains(./Cell/Control/Category/@CategoryID, '_'))">
                   <xsl:choose>
                      <xsl:when test="./Cell/Control[@Type='Static']">
-                        <xsl:element name="div">
+                        <xsl:element name="fieldset">
                            <xsl:attribute name="class">o-option-sublist</xsl:attribute>
+                           <xsl:attribute name="aria-describedby">
+                              <xsl:value-of select="$qElementID" />
+                              <xsl:text>_label_question</xsl:text>
+                           </xsl:attribute>
                            <xsl:call-template name="SpanCell">
                               <xsl:with-param name="qElementID" select="$qElementID" />
                               <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
@@ -825,7 +831,7 @@
       <xsl:param name="qElementID" />
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
-      <xsl:element name="div">
+      <xsl:element name="legend">
          <xsl:attribute name="class">a-label-heading-sublist</xsl:attribute>
          <xsl:attribute name="style">
             <xsl:if test="Style/@Width or Style/@Height">
