@@ -24,6 +24,10 @@ define(['component'],
             this.userspecifiedheight = null;
             this.width = 0;
             this.height = 0;
+            this.containerScrollTop = 0;
+            this.containerScrollLeft = 0;
+            this.documentScrollTop = 0;
+            this.documentScrollLeft = 0;
         }
 
         mList.prototype = Object.create(component.prototype);
@@ -447,16 +451,53 @@ define(['component'],
                 return;
             }
 
-            var scrollLeft = target.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
-            var scrollTop = target.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
-
-            if (this.container.classList.contains('direction-up')) {
-                scrollTop += this.height + 39;
+            if (this.id === '_Q0_Q0_Q0_list') {
+                console.log('here');
             }
+            
 
-            this.element.style.marginLeft = 0 - scrollLeft + 'px';
-            this.element.style.marginTop = -1 - scrollTop + 'px';
+            var scrollLeft = null;
+            var scrollTop = null;
+            
+            if (typeof target.scrollLeft !== 'undefined') {
+                scrollLeft = target.scrollLeft;
+                if (scrollLeft !== this.containerScrollLeft) {
+                    this.containerScrollLeft = scrollLeft;
+                    this.element.style.marginLeft = 0 - scrollLeft + 'px';
+                    return;
+                }
+            } else {
+                scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+                if (scrollLeft !== this.documentScrollLeft) {
+                    this.documentScrollLeft = scrollLeft;
+                    this.element.style.marginLeft = 0 - scrollLeft + 'px';
+                    return;
+                }
+            }
+            
+            if (typeof target.scrollTop !== 'undefined') {
+                scrollTop = target.scrollTop;
 
+                if (this.container.classList.contains('direction-up')) {
+                    scrollTop += this.height + 39;
+                }
+
+                if (scrollTop !== this.containerscrollTop) {
+                    this.containerscrollTop = scrollTop;
+                    this.element.style.marginTop = 0 - scrollTop + 'px';
+                }
+            } else {
+                scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+                if (this.container.classList.contains('direction-up')) {
+                    scrollTop += this.height + 39;
+                }
+
+                if (scrollTop !== this.documentScrollTop) {
+                    this.documentScrollTop = scrollTop;
+                    this.element.style.marginTop = -1 - scrollTop + 'px';
+                }
+            }
         }
 
         mList.prototype.setDropListDirection = function () {
@@ -481,7 +522,7 @@ define(['component'],
             var distanceToTop = this.element.getBoundingClientRect().top;
             var distanceToBottom = window.innerHeight - this.element.getBoundingClientRect().bottom;
 
-            this.element.style.marginTop = tempMargin + 'px';
+            this.element.style.marginTop = tempMargin;
 
             if (distanceToTop > distanceToBottom && (viewportBounds.bottom || footerCollision)) {
                 this.container.classList.remove('direction-down');
@@ -497,7 +538,7 @@ define(['component'],
                 //this.element.style.maxHeight = distanceToBottom - paddingAllowance + 'px';
             }
 
-            //this.updateListPosition(document);
+            this.updateListPosition(document);
         }
 
         mList.prototype.navigateFirst = function () {
