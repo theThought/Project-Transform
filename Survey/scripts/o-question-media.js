@@ -98,6 +98,7 @@ define(['component'],
         oQuestionMedia.prototype.enableExclusive = function () {
             this.setImagePlaceholder();
             this.setInitialMessage();
+            this.clearValue();
             this.enableTrigger();
         }
 
