@@ -186,8 +186,7 @@ define(['component'],
         oQuestionMedia.prototype.displayImage = function (file) {
             this.hideImageLoader();
             this.removeFrameClass();
-            var urlCreator = window.URL || window.webkitURL;
-            var imageUrl = urlCreator.createObjectURL(file);
+            var imageUrl = URL.createObjectURL(file);
             this.frame.style.background = "center / cover url('" + imageUrl + "')";
         }
 
