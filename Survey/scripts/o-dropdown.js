@@ -94,13 +94,6 @@ define(['component'],
                 case 'clearEntries':
                     this.clearEntriesFromExternal(event);
                     break;
-                case 'focusin':
-                case 'input':
-                    this.onFocusIn();
-                    break;
-                case 'focusout':
-                    this.onFocusOut();
-                    break;
                 case 'keydown':
                     this.getKeyPressed(event);
                     this.onKeydown(event);
@@ -114,7 +107,6 @@ define(['component'],
                     break;
                 case 'restoreEntries':
                     this.restoreEntries(event);
-                    //this.setWidth();
                     break;
                 case this.group + '_enableExclusive':
                     this.onEnableExclusive(event);

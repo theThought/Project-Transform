@@ -18,7 +18,6 @@ define(['component'],
             this.keypressed = null;
             this.keybuffer = '';
             this.defaultplaceholder = 'Select';
-            this.isjumpingtoletter = false;
             this.manualWidth = false;
             this.width = 0;
             this.userspecifiedheight = 0;
@@ -118,7 +117,6 @@ define(['component'],
                     break;
                 case 'restoreEntries':
                     this.restoreEntries(event);
-                    //this.setWidth();
                     break;
                 case this.group + '_enableExclusive':
                     this.onEnableExclusive(event);
