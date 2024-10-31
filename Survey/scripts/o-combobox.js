@@ -12,6 +12,7 @@ define(['component'],
             this.element = document.querySelector('input.a-input-combobox[data-questionid="' + this.id + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
 
+            this.isReadOnly = false;
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
@@ -36,6 +37,7 @@ define(['component'],
          * event once all tasks are completed.
          */
         oCombobox.prototype.init = function () {
+            this.isReadOnly = this.checkReadOnly();
             this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
             this.configureProperties();
@@ -134,6 +136,14 @@ define(['component'],
                     this.setSelectedValue(event);
                     break;
             }
+        }
+
+        oCombobox.prototype.checkReadOnly = function () {
+            if (this.element.closest('[data-readonly="true"]') !== null || this.element.getAttribute('data-readonly')) {
+                this.element.readOnly = true;
+            }
+
+            return (this.element.closest('[data-readonly="true"]') !== null || this.element.getAttribute('data-readonly')) || false;
         }
 
         oCombobox.prototype.receiveOptionVisibilityChange = function (event) {
@@ -393,6 +403,10 @@ define(['component'],
          * Dispatch an event instructing the list to display.
          */
         oCombobox.prototype.showList = function () {
+            if (this.isReadOnly) {
+                return;
+            }
+
             this.element.setAttribute('aria-expanded', 'true');
             var listEvent = new CustomEvent('showList', {bubbles: true, detail: this});
             this.element.dispatchEvent(listEvent);
@@ -411,6 +425,10 @@ define(['component'],
          * Dispatch an event instructing the list visibility to toggle.
          */
         oCombobox.prototype.toggleList = function (event) {
+            if (this.isReadOnly) {
+                return;
+            }
+
             if (event.target === this.element) {
                 var expanded = this.element.getAttribute('aria-expanded') === 'true';
                 this.element.setAttribute('aria-expanded', !expanded);

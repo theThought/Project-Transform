@@ -12,6 +12,7 @@ define(['component'],
             this.element = document.querySelector('input.a-input-dropdown[data-questionid="' + this.id + '"]');
             this.container = this.element.closest('div[data-questiongroup="' + this.group + '"]');
 
+            this.isReadOnly = false;
             this.hiddenelement = null;
             this.mincharacters = 0;
             this.keypressed = null;
@@ -35,6 +36,7 @@ define(['component'],
          * event once all tasks are completed.
          */
         oDropdown.prototype.init = function () {
+            this.isReadOnly = this.checkReadOnly();
             this.manualWidth = this.checkManualWidth();
             this.cloneInputElement();
             this.configureProperties();
@@ -130,6 +132,10 @@ define(['component'],
                     this.setSelectedValue(event);
                     break;
             }
+        }
+
+        oDropdown.prototype.checkReadOnly = function () {
+            return (this.element.closest('[data-readonly="true"]') !== null || this.element.getAttribute('data-readonly')) || false;
         }
 
         oDropdown.prototype.receiveOptionVisibilityChange = function (event) {
@@ -382,6 +388,10 @@ define(['component'],
          * Dispatch an event instructing the list to display.
          */
         oDropdown.prototype.showList = function () {
+            if (this.isReadOnly) {
+                return;
+            }
+
             this.element.setAttribute('aria-expanded', 'true');
             var listEvent = new CustomEvent('showList', {bubbles: true, detail: this});
             this.element.dispatchEvent(listEvent);
@@ -400,6 +410,10 @@ define(['component'],
          * Dispatch an event instructing the list visibility to toggle.
          */
         oDropdown.prototype.toggleList = function (event) {
+            if (this.isReadOnly) {
+                return;
+            }
+
             if (event.target === this.element) {
                 var expanded = this.element.getAttribute('aria-expanded') === 'true';
                 this.element.setAttribute('aria-expanded', !expanded);
