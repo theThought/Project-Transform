@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<Activate UseWebService="True" WebServiceUrl="https://devstg751.ipsosinteractive.com/spssmr/dimensionnet" UseQueuedActivation="True" ActivationManner="1" TaskId="00000000-0000-0000-0000-000000000000" ActivateDocumentPath="" Culture="en-US" NeedValidateMDMDocument="True" KeepCheckOut="False">
+  <ActivateSettings>
+    <Sites>
+      <Site DpmServerName="UGCP-DSTG-2G92" UserName="ipsosgroup\kgray01" UserTicket="827299e5-2a35-452f-8fdc-e791d77b9742">
+        <Clusters>
+          <Cluster Name="DefaultCluster">
+            <Projects>
+              <ProjectSettings Id="ACCESSIBLE" FailIfProjectExists="False" UseDefaultIVTemplates="True" SamplemanagementId="" QuotaId="" MdmBaseLanguage="ENU" MdmBaseRoutingContext="WEB" MdmLatestLabel="">
+                <Tasks>
+                  <Task Name="ActivateProject" />
+                </Tasks>
+                <InterviewVersionSettings RestartWithNewVersion="True" TestVersion="" ActiveVersion="" />
+              </ProjectSettings>
+            </Projects>
+          </Cluster>
+        </Clusters>
+      </Site>
+    </Sites>
+  </ActivateSettings>
+  <ProjectsInfo>
+    <ProjectInfo Id="ACCESSIBLE" Name="Accessible" ProjectDatabaseServer="Accessible" ProjectDatabase="ACCESSIBLE">
+      <DpmProperties>
+        <Property name="InterviewScriptType" type="string"><![CDATA[Dimensions]]></Property>
+        <Properties name="mrInterview">
+          <Property name="Notes" type="string"><![CDATA[]]></Property>
+          <Property name="UseCati" type="string"><![CDATA[0]]></Property>
+          <Property name="Label" type="string"><![CDATA[Accessible]]></Property>
+          <Property name="QuotaFullType" type="string"><![CDATA[None]]></Property>
+          <Property name="ProjectInactiveType" type="string"><![CDATA[Template]]></Property>
+          <Property name="InterviewRestart" type="string"><![CDATA[1]]></Property>
+          <Property name="DefaultPresentationTemplate" type="string"><![CDATA[]]></Property>
+          <Property name="ClusterList" type="string"><![CDATA[DefaultCluster;]]></Property>
+          <Property name="SampleManagementProvider" type="string"><![CDATA[]]></Property>
+          <Property name="AutoUpdateDataModel" type="integer">1</Property>
+          <Property name="AuthFailedType" type="string"><![CDATA[Template]]></Property>
+          <Property name="QuotaProjectName" type="string"><![CDATA[]]></Property>
+          <Property name="UseDatamodel" type="integer">1</Property>
+          <Property name="InterviewStoppedPage" type="string"><![CDATA[]]></Property>
+          <Property name="AuthRetryType" type="string"><![CDATA[Template]]></Property>
+          <Property name="ProjectInactivePage" type="string"><![CDATA[projinactive.htm]]></Property>
+          <Property name="CompletedInterviewPage" type="string"><![CDATA[]]></Property>
+          <Property name="QuotaFullPage" type="string"><![CDATA[]]></Property>
+          <Property name="UseInMemoryCache" type="integer">0</Property>
+          <Property name="AuthRetryPage" type="string"><![CDATA[authretry.htm]]></Property>
+          <Property name="UseSampleMgmt" type="boolean">False</Property>
+          <Property name="SampleManagementName" type="string"><![CDATA[]]></Property>
+          <Property name="TestUseSampleMgmt" type="integer">1</Property>
+          <Property name="AuthenticatePage" type="string"><![CDATA[authenticate.htm]]></Property>
+          <Property name="TestUseQuota" type="integer">1</Property>
+          <Property name="TestVersion" type="string"><![CDATA[]]></Property>
+          <Property name="AuthenticateType" type="string"><![CDATA[Template]]></Property>
+          <Property name="InterviewStoppedType" type="string"><![CDATA[None]]></Property>
+          <Property name="InterviewRejectedPage" type="string"><![CDATA[rejected.htm]]></Property>
+          <Property name="AuthFailedPage" type="string"><![CDATA[authfailed.htm]]></Property>
+          <Property name="InterviewStartURL" type="string"><![CDATA[https://devstg751.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=ACCESSIBLE]]></Property>
+          <Property name="UseImageCache" type="integer">1</Property>
+          <Property name="CompletedInterviewType" type="string"><![CDATA[None]]></Property>
+          <Property name="EnableChaining" type="boolean">False</Property>
+          <Property name="ActiveVersion" type="string"><![CDATA[]]></Property>
+          <Property name="DefaultCategoryType" type="string"><![CDATA[multi]]></Property>
+          <Property name="InterviewRejectedType" type="string"><![CDATA[Template]]></Property>
+          <Property name="UsePlayerNavigation" type="integer">1</Property>
+          <Property name="UseDefaultURLs" type="string"><![CDATA[1]]></Property>
+          <Property name="ExpiryDateTime" type="string"><![CDATA[]]></Property>
+          <Property name="RoutingContext" type="string"><![CDATA[Web]]></Property>
+          <Property name="TimeLastActivated" type="string"><![CDATA[20241030 13:23:40]]></Property>
+          <Property name="LastActivatedBy" type="string"><![CDATA[ipsosgroup\kgray01]]></Property>
+        </Properties>
+        <Property name="Status" type="string"><![CDATA[Test]]></Property>
+        <Property name="IsMobile" type="boolean">False</Property>
+        <Property name="Description" type="string"><![CDATA[Accessibility Tests]]></Property>
+        <Property name="GroupName" type="string"><![CDATA[Kevin]]></Property>
+        <Property name="Label" type="string"><![CDATA[Accessible]]></Property>
+        <Property name="Notes" type="string"><![CDATA[]]></Property>
+      </DpmProperties>
+      <Recording>
+        <CapiRecordingApprovalDefaultOption>4</CapiRecordingApprovalDefaultOption>
+        <CapiPercentContactsRecorded>100</CapiPercentContactsRecorded>
+        <CapiRecordInterviewOnly>False</CapiRecordInterviewOnly>
+      </Recording>
+      <Files>
+        <Default IncludeSubfolders="False">
+          <SourceFolder><![CDATA[C:\Users\KGray01\Documents\GitHub\Project-Transform\Dimensions Surveys\Accessible\7.5]]></SourceFolder>
+          <ExcludedSubfolders><![CDATA[]]></ExcludedSubfolders>
+          <IncludedFiles><![CDATA[mdd;mqd;catifields_*.mdd;catiCallOutcomes_*.mdd;CatiResources_*.mdd;*.htm;;;;;;;;;;;;;;;;;;;;;*.xsl;*.xslt;;;;;;;;;;;;;;;;;;;]]></IncludedFiles>
+        </Default>
+      </Files>
+      <InterviewTemplates>
+        <InterviewTemplate Name="Authenticate" Page="authenticate.htm" Type="template" />
+        <InterviewTemplate Name="AuthenticateFailed" Page="authfailed.htm" Type="template" />
+        <InterviewTemplate Name="AuthenticateRetry" Page="authretry.htm" Type="template" />
+        <InterviewTemplate Name="InterviewCompleted" Page="" Type="none" />
+        <InterviewTemplate Name="InterviewRejected" Page="rejected.htm" Type="template" />
+        <InterviewTemplate Name="InterviewStopped" Page="" Type="none" />
+        <InterviewTemplate Name="ProjectInactive" Page="projinactive.htm" Type="template" />
+        <InterviewTemplate Name="QuotaFull" Page="" Type="none" />
+      </InterviewTemplates>
+      <UserRoles>
+        <UserRole Name="CustomerAccountAdmins" />
+        <UserRole Name="DPMAdmins" />
+      </UserRoles>
+      <InterviewSettings>
+        <DpmProperties />
+      </InterviewSettings>
+      <EmailSetups />
+    </ProjectInfo>
+  </ProjectsInfo>
+  <SampleManagementsInfo />
+  <QuotasInfo />
+</Activate>
