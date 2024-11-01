@@ -36,7 +36,6 @@ define(['o-question'],
             document.addEventListener("configComplete", this, false);
             document.addEventListener("broadcastChange", this, false);
             document.addEventListener("focusin", this, false);
-            document.addEventListener("widthEvent", this, false);
         }
 
         oQuestionContainer.prototype.handleEvent = function (event) {
@@ -51,9 +50,6 @@ define(['o-question'],
                     break;
                 case 'focusin':
                     this.onFocusIn(event);
-                    break;
-                case "widthEvent":
-                    this.onWidthEvent(event);
                     break;
                 case "configComplete":
                     this.onConfigurationComplete(event);
@@ -87,35 +83,6 @@ define(['o-question'],
                 message.classList.add('style-popover');
             } else {
                 message.classList.add('style-inline');
-            }
-        }
-
-        oQuestionContainer.prototype.onWidthEvent = function (event) {
-            if (this.element && this.element.contains(event.target)) {
-                // fix current width of question text column if this is a side-by-side layout
-                var aggregateWidth = 0;
-                var maxWidth = 0;
-                var questioncolumncontainer = this.element.querySelectorAll('.o-question-core>div');
-
-                for (var i = 0; i < questioncolumncontainer.length; i++) {
-                    var style = window.getComputedStyle(questioncolumncontainer[i]);
-                    var width = questioncolumncontainer[i].scrollWidth;
-                    var margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
-                    var border = parseInt(style.borderLeftWidth) + parseInt(style.borderRightWidth);
-
-                    aggregateWidth += (width + margin + border);
-                    maxWidth = Math.max(maxWidth, (width + margin + border));
-
-                    if (this.layouttype === 'horizontal' && i === 0 && questioncolumncontainer[i].style.maxWidth === '') {
-                        questioncolumncontainer[i].style.maxWidth = width + 'px';
-                    }
-                }
-
-                if (this.layouttype === 'horizontal') {
-                    this.element.style.minWidth = aggregateWidth + 'px';
-                } else {
-                    this.element.style.minWidth = maxWidth + 'px';
-                }
             }
         }
 
