@@ -382,8 +382,8 @@ define(
             }
 
             // regular expression that searches for a string followed by an operator
-            // operators are = < > <> .containsNone .containsNone .containsAll
-            var questionRe = /\s?(\w+)(\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%|\.json)/ig;
+            // operators are = < > <> .containsNone .containsNone .containsAll .answerCount
+            var questionRe = /(\w+)(\.answerCount\((.*?\))|\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%|\.json)/ig;
             var questions = ruleString.match(questionRe);
 
             if (questions === null) {
@@ -395,6 +395,7 @@ define(
             ruleString = this.expandContainsAnyRule(ruleString);
             ruleString = this.expandContainsAllRule(ruleString);
             ruleString = this.expandContainsNoneRule(ruleString);
+            ruleString = this.expandAnswerCountRule(ruleString);
             ruleString = this.replaceOperators(ruleString);
             ruleString = this.extractQuestionIdentifiers(ruleString);
 
@@ -699,6 +700,26 @@ define(
             // match 2: contains string
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[' + this.escapeString(matches[2]).toLowerCase() + '].every(function (val) {return [%%' + this.escapeString(matches[1]) + '%%].indexOf(val) == -1})';
+                expandedString = ' (' + expandedString + ') ';
+                ruleString = ruleString.replace(matches[0], expandedString);
+            }
+
+            return ruleString;
+        }
+
+        component.prototype.expandAnswerCountRule = function (ruleString) {
+            if (ruleString.toLowerCase().indexOf('answercount') === -1) {
+                return ruleString;
+            }
+
+            var re = /\s?(\w+)\.answerCount\(\)(.*?)/ig;
+            var matches;
+
+            // match 0: full string
+            // match 1: question
+            // match 2: contains string
+            while (null !== (matches = re.exec(ruleString))) {
+                var expandedString = '[%%' + this.escapeString(matches[1]) + '%%].length ' + matches[2];
                 expandedString = ' (' + expandedString + ') ';
                 ruleString = ruleString.replace(matches[0], expandedString);
             }

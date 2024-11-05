@@ -42,6 +42,7 @@ define(['o-question'],
             switch (event.type) {
                 case 'broadcastChange':
                     if (!this.isInitialising && !event.detail.isInitialising) {
+                        this.updateAnswerCount(event);
                         this.processAlternativeVisibilityRulesFromExternalTrigger(event);
                         this.processVisibilityRulesFromExternalTrigger(event);
                         this.processOptionVisibilityRulesFromExternalTrigger(event);
