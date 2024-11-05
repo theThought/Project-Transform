@@ -690,8 +690,6 @@ define(['component'],
             var list = this.buildVisibleList();
             var currentfirstletter = '';
 
-            console.log(inputstring);
-
             if (this.currentlistposition !== -1) {
                 currentfirstletter = list[this.currentlistposition].textContent.substring(0, 1).toLowerCase();
             }

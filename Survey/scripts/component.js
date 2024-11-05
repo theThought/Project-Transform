@@ -154,8 +154,6 @@ define(
                 return;
             }
 
-            console.log('broadcasting a change');
-
             var broadcastChange = new CustomEvent('broadcastChange', {bubbles: true, detail: this});
             this.element.dispatchEvent(broadcastChange);
         }
