@@ -58,6 +58,16 @@ define(
             }
         }
 
+        /**
+         *
+         * @param {boolean} prop Property to determine whether detail panels will float over content (defaults to true)
+         */
+        page.prototype.floatdetails = function (prop) {
+            if (!prop) {
+                this.element.classList.add('details-inline');
+            }
+        }
+
         page.prototype.styleDetails = function () {
             var detailmessages = document.querySelectorAll('details.o-message-information');
 

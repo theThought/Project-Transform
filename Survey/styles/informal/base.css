@@ -765,6 +765,13 @@ html[dir=rtl] .m-option-base .a-input-singlelineedit {
   width: 100%;
 }
 
+.details-inline .a-label-details {
+  position: static;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
 .a-label-details {
   position: absolute;
   width: 100%;

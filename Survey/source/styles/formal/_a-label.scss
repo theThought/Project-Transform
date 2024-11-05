@@ -17,11 +17,20 @@
     }
 }
 
+.details-inline {
+    .a-label-details {
+        position: static;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+}
+
 .a-label-details {
     position: absolute;
     width: 100%;
     box-sizing: border-box;
-    padding: 8px 16px 8px 42px;
+    padding: 8px 16px 8px 32px;
     background-color: #E4EBF4;
     left: 0;
 }
