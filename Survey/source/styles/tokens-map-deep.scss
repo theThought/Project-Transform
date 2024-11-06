@@ -1,0 +1,193 @@
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+$active-state-shadow: 0px 11px 11px -9px #00000040 !default;
+$button: 500 16px/1.5 Karla !default;
+$error: 400 14px/1.4 Karla !default;
+// Danger action
+// Negative action
+$formal-alert-error: #da2911 !default;
+$formal-alert-info: #2f469c !default; // Info action
+// Success action
+// Positive button
+$formal-alert-success: #007675 !default;
+$formal-alert-warning: #8f6400 !default; // Warning action
+$formal-other-pink: #dec7e8 !default;
+$formal-other-purple: #7a3996 !default;
+// Headers
+// Labels
+$formal-scale-grey-dark: #002554 !default;
+$formal-scale-grey-darkest: #212c4c !default; // Titles
+$formal-scale-grey-light: #eceff5 !default; // Icons
+// Borders
+// Separators
+$formal-scale-grey-medium: #b4bddb !default;
+$formal-scale-grey-white: #fafafa !default; // Background
+$formal-theme-dark-blue: #002554 !default; // Primary hover colour
+$formal-theme-dark-green: #004e4e !default; // Secondary hover colour
+$formal-theme-light-blue: #2f469c !default; // Primary colour, Accent
+// Secondary brand colour
+// Accent
+$formal-theme-light-green: #007675 !default;
+// Danger action
+// Negative action
+$informal-alert-danger: #da2911 !default;
+$informal-alert-info: #4b79b6 !default; // Info action
+// Success action
+// Positive action
+$informal-alert-success: #469b9b !default;
+$informal-alert-warning: #d4aa49 !default; // Warning action
+// Questions
+// Labels
+// Icons
+$informal-other-dark-grey: #4a444e !default;
+$informal-other-disabled-grey: #6a646f !default; // disabled states
+$informal-other-pink: #dec7e8 !default;
+$informal-theme-hover-purple: #662582 !default; // Secondary hover colour
+// Primary hover colour
+// 
+$informal-theme-hover-sand: #d4aa49 !default;
+// Secondary brand colour
+// Accent
+$informal-theme-purple: #7a3996 !default;
+$informal-theme-sand: #e8be5d !default; // Primary colour Accent
+$information: 400 14px/1.4 Karla !default;
+$instruction: 400 16px/1.5 Karla !default;
+$iteration: 400 16px/1.5 Karla !default;
+$label: 700 16px/1.5 Karla !default;
+$label: 400 16px/1.5 Karla !default;
+$link: 400 16px/1.5 Karla !default;
+$list-heading: 400 16px/1.5 Merriweather !default;
+$option: 500 16px/1.5 Karla !default;
+$placeholder: 400 16px/1.5 Karla !default;
+$progress-value: 400 16px/1.5 Karla !default;
+$question: 400 16px/1.5 Karla !default;
+$success: 400 14px/1.4 Karla !default;
+$warning: 400 14px/1.4 Karla !default;
+$base: 0px 1px 2px 0px #0000000F !default;
+$gray-200: #e2e8f0 !default;
+$other-dark-grey: #6a646f !default;
+$other-disabled-grey: #847e88 !default;
+$scale-grey-dark-1: #57699c !default;
+$scale-grey-darkest: #212c4c !default;
+$scale-grey-light-1: #eceff5 !default;
+$scale-grey-light-2: #d6ddeb !default;
+$scale-grey-light-3: #b4bddb !default;
+$scale-grey-light-4: #8797c8 !default;
+$scale-grey-white: #fafafa !default;
+$theme-blue: #455b97 !default;
+$theme-green: #449b9b !default;
+$theme-hover-blue: #324371 !default;
+$theme-hover-green: #317474 !default;
+$theme-hover-purple: #662582 !default;
+$theme-hover-sand: #d4aa49 !default;
+$theme-info: #4b79b6 !default;
+$theme-lightblue: #c2dbfc !default;
+$theme-pink: #dec7e8 !default;
+$theme-purple: #7a3996 !default;
+$theme-red-error: #da2911 !default;
+$theme-sand: #e8be5d !default;
+$theme-success: #469b9b !default;
+$white: #ffffff !default;
+
+$tokens: (
+  'Active state shadow': $active-state-shadow,
+  'Button': $button,
+  'Error': $error,
+  'Formal': (
+    'alert': (
+      'error': $formal-alert-error,
+      'info': $formal-alert-info,
+      'success': $formal-alert-success,
+      'warning': $formal-alert-warning
+    ),
+    'other': (
+      'pink': $formal-other-pink,
+      'purple': $formal-other-purple
+    ),
+    'scale': (
+      'grey': (
+        'dark': $formal-scale-grey-dark,
+        'darkest': $formal-scale-grey-darkest,
+        'light': $formal-scale-grey-light,
+        'medium': $formal-scale-grey-medium,
+        'white': $formal-scale-grey-white
+      )
+    ),
+    'theme': (
+      'dark blue': $formal-theme-dark-blue,
+      'dark green': $formal-theme-dark-green,
+      'light blue': $formal-theme-light-blue,
+      'light green': $formal-theme-light-green
+    )
+  ),
+  'Informal': (
+    'alert': (
+      'danger': $informal-alert-danger,
+      'info': $informal-alert-info,
+      'success': $informal-alert-success,
+      'warning': $informal-alert-warning
+    ),
+    'other': (
+      'dark_grey': $informal-other-dark-grey,
+      'disabled_grey': $informal-other-disabled-grey,
+      'pink': $informal-other-pink
+    ),
+    'theme': (
+      'hover_purple': $informal-theme-hover-purple,
+      'hover_sand': $informal-theme-hover-sand,
+      'purple': $informal-theme-purple,
+      'sand': $informal-theme-sand
+    )
+  ),
+  'Information': $information,
+  'Instruction': $instruction,
+  'Iteration': $iteration,
+  'LABEL': $label,
+  'Label': $label,
+  'Link': $link,
+  'List Heading': $list-heading,
+  'Option': $option,
+  'Placeholder': $placeholder,
+  'Progress Value': $progress-value,
+  'Question': $question,
+  'Success': $success,
+  'Warning': $warning,
+  'base': $base,
+  'gray': (
+    '200': $gray-200
+  ),
+  'other': (
+    'dark_grey': $other-dark-grey,
+    'disabled_grey': $other-disabled-grey
+  ),
+  'scale': (
+    'grey': (
+      'dark 1': $scale-grey-dark-1,
+      'darkest': $scale-grey-darkest,
+      'light 1': $scale-grey-light-1,
+      'light 2': $scale-grey-light-2,
+      'light 3': $scale-grey-light-3,
+      'light 4': $scale-grey-light-4,
+      'white': $scale-grey-white
+    )
+  ),
+  'theme': (
+    'blue': $theme-blue,
+    'green': $theme-green,
+    'hover_blue': $theme-hover-blue,
+    'hover_green': $theme-hover-green,
+    'hover_purple': $theme-hover-purple,
+    'hover_sand': $theme-hover-sand,
+    'info': $theme-info,
+    'lightblue': $theme-lightblue,
+    'pink': $theme-pink,
+    'purple': $theme-purple,
+    'red error': $theme-red-error,
+    'sand': $theme-sand,
+    'success': $theme-success
+  ),
+  'white': $white
+);

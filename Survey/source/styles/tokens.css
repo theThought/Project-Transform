@@ -1,0 +1,114 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --active-state-shadow: 0px 11px 11px -9px #00000040;
+  --button: 500 16px/1.5 Karla;
+  --error: 400 14px/1.4 Karla;
+  /**
+   * Danger action
+   * Negative action
+   */
+  --formal-alert-error: #da2911;
+  --formal-alert-info: #2f469c; /* Info action */
+  /**
+   * Success action
+   * Positive button
+   */
+  --formal-alert-success: #007675;
+  --formal-alert-warning: #8f6400; /* Warning action */
+  --formal-other-pink: #dec7e8;
+  --formal-other-purple: #7a3996;
+  /**
+   * Headers
+   * Labels
+   */
+  --formal-scale-grey-dark: #002554;
+  --formal-scale-grey-darkest: #212c4c; /* Titles */
+  --formal-scale-grey-light: #eceff5; /* Icons */
+  /**
+   * Borders
+   * Separators
+   */
+  --formal-scale-grey-medium: #b4bddb;
+  --formal-scale-grey-white: #fafafa; /* Background */
+  --formal-theme-dark-blue: #002554; /* Primary hover colour */
+  --formal-theme-dark-green: #004e4e; /* Secondary hover colour */
+  --formal-theme-light-blue: #2f469c; /* Primary colour, Accent */
+  /**
+   * Secondary brand colour
+   * Accent
+   */
+  --formal-theme-light-green: #007675;
+  /**
+   * Danger action
+   * Negative action
+   */
+  --informal-alert-danger: #da2911;
+  --informal-alert-info: #4b79b6; /* Info action */
+  /**
+   * Success action
+   * Positive action
+   */
+  --informal-alert-success: #469b9b;
+  --informal-alert-warning: #d4aa49; /* Warning action */
+  /**
+   * Questions
+   * Labels
+   * Icons
+   */
+  --informal-other-dark-grey: #4a444e;
+  --informal-other-disabled-grey: #6a646f; /* disabled states */
+  --informal-other-pink: #dec7e8;
+  --informal-theme-hover-purple: #662582; /* Secondary hover colour */
+  /**
+   * Primary hover colour
+   * 
+   */
+  --informal-theme-hover-sand: #d4aa49;
+  /**
+   * Secondary brand colour
+   * Accent
+   */
+  --informal-theme-purple: #7a3996;
+  --informal-theme-sand: #e8be5d; /* Primary colour Accent */
+  --information: 400 14px/1.4 Karla;
+  --instruction: 400 16px/1.5 Karla;
+  --iteration: 400 16px/1.5 Karla;
+  --label: 700 16px/1.5 Karla;
+  --label: 400 16px/1.5 Karla;
+  --link: 400 16px/1.5 Karla;
+  --list-heading: 400 16px/1.5 Merriweather;
+  --option: 500 16px/1.5 Karla;
+  --placeholder: 400 16px/1.5 Karla;
+  --progress-value: 400 16px/1.5 Karla;
+  --question: 400 16px/1.5 Karla;
+  --success: 400 14px/1.4 Karla;
+  --warning: 400 14px/1.4 Karla;
+  --base: 0px 1px 2px 0px #0000000F;
+  --gray-200: #e2e8f0;
+  --other-dark-grey: #6a646f;
+  --other-disabled-grey: #847e88;
+  --scale-grey-dark-1: #57699c;
+  --scale-grey-darkest: #212c4c;
+  --scale-grey-light-1: #eceff5;
+  --scale-grey-light-2: #d6ddeb;
+  --scale-grey-light-3: #b4bddb;
+  --scale-grey-light-4: #8797c8;
+  --scale-grey-white: #fafafa;
+  --theme-blue: #455b97;
+  --theme-green: #449b9b;
+  --theme-hover-blue: #324371;
+  --theme-hover-green: #317474;
+  --theme-hover-purple: #662582;
+  --theme-hover-sand: #d4aa49;
+  --theme-info: #4b79b6;
+  --theme-lightblue: #c2dbfc;
+  --theme-pink: #dec7e8;
+  --theme-purple: #7a3996;
+  --theme-red-error: #da2911;
+  --theme-sand: #e8be5d;
+  --theme-success: #469b9b;
+  --white: #ffffff;
+}
