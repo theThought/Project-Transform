@@ -374,32 +374,6 @@ define(
             }
         }
 
-        component.prototype.parseVisibilityRules = function (ruleString) {
-            if (!ruleString) {
-                return;
-            }
-
-            // regular expression that searches for a string followed by an operator
-            // operators are = < > <> .containsNone .containsNone .containsAll .answerCount
-            var questionRe = /(\w+)(\.answerCount\((.*?\))|\.contains(?:None|Any|All)\((.*?)\)|\s?[=<>+-]|\s?%gt%|\s?%lt%|\.json)/ig;
-            var questions = ruleString.match(questionRe);
-
-            if (questions === null) {
-                this.debug('A visibility rule was found but did not identify any questions:', 2);
-                this.debug(this.questionName + ': ' + ruleString, 2);
-                return;
-            }
-
-            ruleString = this.expandContainsAnyRule(ruleString);
-            ruleString = this.expandContainsAllRule(ruleString);
-            ruleString = this.expandContainsNoneRule(ruleString);
-            ruleString = this.expandAnswerCountRule(ruleString);
-            ruleString = this.replaceOperators(ruleString);
-            ruleString = this.extractQuestionIdentifiers(ruleString);
-
-            return ruleString;
-        }
-
         component.prototype.processInvisibleRules = function () {
 
             if (!this.ruleParsingComplete) {
@@ -422,6 +396,22 @@ define(
             } else {
                 this.makeAvailable();
             }
+        }
+
+        component.prototype.parseVisibilityRules = function (ruleString) {
+            if (!ruleString) {
+                return;
+            }
+
+            ruleString = this.expandContainsAnyRule(ruleString);
+            ruleString = this.expandContainsAllRule(ruleString);
+            ruleString = this.expandContainsNoneRule(ruleString);
+            ruleString = this.expandAnswerCountRule(ruleString);
+            ruleString = this.expandIsVisibleRule(ruleString);
+            ruleString = this.replaceOperators(ruleString);
+            ruleString = this.extractQuestionIdentifiers(ruleString);
+
+            return ruleString;
         }
 
         component.prototype.processAvailability = function (event) {
@@ -585,6 +575,11 @@ define(
         component.prototype.extractQuestionIdentifiers = function (ruleString) {
             var questionRe = /%%(\w+)%%/g;
             var questions = ruleString.match(questionRe);
+
+            if (!questions) {
+                return ruleString;
+            }
+
             questions = uniq(questions);
 
             for (var i = 0; i < questions.length; i++) {
@@ -631,14 +626,14 @@ define(
         }
 
         component.prototype.replaceOperators = function (ruleString) {
-            var questionRe = /\s?(\w+)(\s?[=<>+-]+\s?)/g;
+            var questionRe = /\s?([a-zA-Z]+)\s([=<>+-]+)/g;
 
             ruleString = ruleString.replace(/or /gi, '|| ');
             ruleString = ruleString.replace(/and /gi, '&& ');
             ruleString = ruleString.replace(/%gt%/g, '>');
             ruleString = ruleString.replace(/%lt%/g, '<');
             ruleString = ruleString.replace(questionRe, " %%$1%% $2 ");
-            ruleString = ruleString.replace(/[^=!<>]=[^=]/g, '==');
+            ruleString = ruleString.replace(/[^=!<>*]=[^=]/g, '==');
 
             return ruleString;
         }
@@ -723,6 +718,29 @@ define(
             while (null !== (matches = re.exec(ruleString))) {
                 var expandedString = '[%%' + this.escapeString(matches[1]) + '%%].length ' + matches[2];
                 expandedString = ' (' + expandedString + ') ';
+                ruleString = ruleString.replace(matches[0], expandedString);
+            }
+
+            return ruleString;
+        }
+
+        component.prototype.expandIsVisibleRule = function (ruleString) {
+            if (ruleString.toLowerCase().indexOf('isvisible') === -1) {
+                return ruleString;
+            }
+
+            var re = /\s?(\w+)\.isVisible\(\)/ig;
+            var matches;
+
+            // match 0: full string
+            // match 1: question
+            while (null !== (matches = re.exec(ruleString))) {
+                var expandedString = "document.querySelector('div.o-question-container[data-questiongroup*=\"";
+                expandedString += this.escapeString(matches[1]);
+                expandedString += "\"]').classList.contains('cover-off')";
+
+                expandedString = ' (' + expandedString + ') ';
+
                 ruleString = ruleString.replace(matches[0], expandedString);
             }
 
