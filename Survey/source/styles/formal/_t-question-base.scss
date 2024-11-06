@@ -3,6 +3,13 @@
 .o-question-container {
     padding: 1em;
     position: relative;
+    display: none;
+
+    &.cover-off,
+    &.unavailable {
+        display: block;
+        visibility: visible;
+    }
 }
 
 .focus-question .o-question-container.focused {

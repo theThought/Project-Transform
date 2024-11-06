@@ -20,8 +20,6 @@ define(['o-question'],
         oQuestionContainer.prototype.constructor = oQuestionContainer;
 
         oQuestionContainer.prototype.init = function () {
-            this.collapse = false;
-
             this.configureProperties();
             this.configureIncomingEventListeners();
             this.setLayoutType();

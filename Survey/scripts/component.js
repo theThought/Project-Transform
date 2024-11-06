@@ -309,7 +309,6 @@ define(
             // the collapse property removes the space required by the question if it is hidden
             if ((typeof this.properties.visible !== "undefined" && this.properties.visible.collapse === true) ||
                 (typeof this.properties.invisible !== "undefined" && this.properties.invisible.collapse === true)) {
-                this.collapse = true;
                 this.element.classList.add('collapse');
             }
 
