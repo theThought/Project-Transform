@@ -521,12 +521,16 @@ define(
 
         component.prototype.insertQuestionValuesIntoRule = function (ruleString) {
             for (var currentQuestion in this.sourceQuestions) {
+                var questionData = '';
+
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
-                    var questionData = this.sourceQuestions[currentQuestion].join("','");
+                    questionData = this.sourceQuestions[currentQuestion].join("','");
                 }
 
+                questionData = "'" + questionData.toLowerCase() + "'";
+
                 var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
-                ruleString = ruleString.replace(allQuestionsRe, "'" + questionData.toLowerCase() + "'");
+                ruleString = ruleString.replace(allQuestionsRe, questionData);
             }
 
             return ruleString;
