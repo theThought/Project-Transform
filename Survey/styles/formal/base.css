@@ -1617,6 +1617,8 @@ html[dir=rtl] .balance .m-option-base {
   top: 45%;
   opacity: 0;
   font-size: x-large;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .config-complete .m-question-cover {
@@ -3141,6 +3143,11 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 .o-question-container {
   padding: 1em;
   position: relative;
+  display: none;
+}
+.o-question-container.cover-off, .o-question-container.unavailable {
+  display: block;
+  visibility: visible;
 }
 
 .focus-question .o-question-container.focused {

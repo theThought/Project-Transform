@@ -13,7 +13,6 @@ define(['component'],
             component.call(this, id, group);
 
             this.ready = false;
-            this.collapse = true;
             this.isFiltered = false;
             this.isReadOnly = false;
             this.optionRuleParsingComplete = false;
