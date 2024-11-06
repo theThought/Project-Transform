@@ -1,14 +1,7 @@
 Survey/Simple Test study/TRI22DEUREP.mdd
-Survey/Transform/Transform.tmp.ivs
 .DS_Store
-Dimensions Surveys/Healthcare/Transform.tmp.ivs
-Dimensions Surveys/Healthcare/Transform.lmd
-*.lmd
-node_modules
+.idea
 .vscode
+*.lmd
 *.ivs
-*.ivs
-Dimensions Surveys/Healthcare/Transform.tmp.ivs
-*.ivs
-*.ivs
-*.ivs
+node_modules
