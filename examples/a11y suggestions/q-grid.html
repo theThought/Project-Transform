@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question grid</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <header class="header">
+        <p>Page header content goes inside <code>&lt;header&gt;</code>.</p>
+    </header>
+
+    <main class="surroundcontent">
+        <form action="#">
+            <div class="o-question-container">
+                <div role="alert">
+                    <!-- CSS icon -->
+                    Error message... with ARIA <code>role="error"</code>
+                </div>
+
+                <div class="l-sidebar-wrapper">
+                    <div class="l-sidebar">
+                        <p id="q-text" class="a-label-question">
+                            Question text is a paragraph
+                        </p>
+                        <div class="a-label-instruction" id="q-instructions">
+                            Additional instructions... with unique <code>id</code> for ARIA enhancement
+                        </div>
+                    </div>
+
+                    <div>
+                        <table aria-labelledby="q-text q-instructions">
+                            <caption>Table 1 - with scoped row/column headers</caption>
+                            <thead>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <th scope="col">CHead 1</th>
+                                    <th scope="col">CHead 2</th>
+                                    <th scope="col">CHead 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">RHead 1</th>
+                                    <td><input type="radio" name="t1r1"></td>
+                                    <td><input type="radio" name="t1r1"></td>
+                                    <td><input type="radio" name="t1r1"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">RHead 2</th>
+                                    <td><input type="radio" name="t1r2"></td>
+                                    <td><input type="radio" name="t1r2"></td>
+                                    <td><input type="radio" name="t1r2"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">RHead 3</th>
+                                    <td><input type="radio" name="t1r3"></td>
+                                    <td><input type="radio" name="t1r3"></td>
+                                    <td><input type="radio" name="t1r3"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table aria-labelledby="q-text q-instructions">
+                            <caption>Table 2 - with scoped row/column headers plus "ids", and "headers" attribute on table cells</caption>
+                            <thead>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <th scope="col" id="c1">CHead 1</th>
+                                    <th scope="col" id="c2">CHead 2</th>
+                                    <th scope="col" id="c3">CHead 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" id="r1">RHead 1</th>
+                                    <td headers="r1 c1">
+                                        <input type="radio" name="t2r1">
+                                    </td>
+                                    <td headers="r1 c2">
+                                        <input type="radio" name="t2r1">
+                                    </td>
+                                    <td headers="r1 c3">
+                                        <input type="radio" name="t2r1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="r2">RHead 2</th>
+                                    <td headers="r2 c1">
+                                        <input type="radio" name="t2r2">
+                                    </td>
+                                    <td headers="r2 c2">
+                                        <input type="radio" name="t2r2">
+                                    </td>
+                                    <td headers="r2 c3">
+                                        <input type="radio" name="t2r2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" id="r3">RHead 3</th>
+                                    <td headers="r3 c1">
+                                        <input type="radio" name="t2r3">
+                                    </td>
+                                    <td headers="r3 c2">
+                                        <input type="radio" name="t2r3">
+                                    </td>
+                                    <td headers="r3 c3">
+                                        <input type="radio" name="t2r3">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table aria-labelledby="q-text q-instructions">
+                            <caption>Table 3 - without scoped row/column headers, and real labels for radios</caption>
+                            <thead>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <th>CHead 1</th>
+                                    <th>CHead 2</th>
+                                    <th>CHead 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>RHead 1</th>
+                                    <td>
+                                        <input type="radio" name="t3r1" id="t3r1c1">
+                                        <label for="t3r1c1">label t3r1c1</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="t3r1" id="t3r1c2">
+                                        <label for="t3r1c2">label t3r1c2</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="t3r1" id="t3r1c3">
+                                        <label for="t3r1c3">label t3r1c3</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>RHead 2</th>
+                                    <td>
+                                        <input type="radio" name="t3r2" id="t3r2c1">
+                                        <label for="t3r2c1">label t3r2c1</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="t3r2" id="t3r2c2">
+                                        <label for="t3r2c2">label t3r2c2</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="t3r2" id="t3r2c3">
+                                        <label for="t3r2c3">label t3r2c3</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>RHead 3</th>
+                                    <td>
+                                        <input type="radio" name="t3r3" id="t3r3c1">
+                                        <label for="t3r3c1">label t3r3c1</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="t3r3" id="t3r3c2">
+                                        <label for="t3r3c2">label t3r3c2</label>
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="t3r3" id="t3r3c3">
+                                        <label for="t3r3c3">label t3r3c3</label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div role="status" id="q-information">
+                    <!-- CSS icon -->
+                    Status message... with ARIA <code>role="status"</code>
+                </div>
+            </div>
+
+            <div class="notes">
+                <h2>Accessibility considerations & other notes</h2>
+                <p>Specifically, wrt the use of <code>&lt;table&gt;</code> markup.</p>
+                <ul>
+                    <li>Tables can be given an accessible name either by an explicit <code>&lt;caption&gt;</code> or <code>aria-labelledby</code>. ARIA wins if both are present. Note that <code>aria-describedby</code> does not work (in NVDA).</li>
+                    <li>Table header cells <code>&lt;th&gt;</code> are announced both with and without the <code>scope</code> attribute.</li>
+                    <li>Table header cells are <strong>not</strong> sufficient to provide an accessible name for form controls, even with the addition of <code>headers</code> attributes.</li>
+                    <li>Real <code>&lt;label for=""&gt;</code> must be used to provide an accessible name for form controls.</li>
+                </ul>
+            </div>
+
+            <div class="form-controls">Form buttons...</div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>Page footer content goes inside <code>&lt;footer&gt;</code>.</p>
+    </footer>
+</body>
+</html>

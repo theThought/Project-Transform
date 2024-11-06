@@ -46,6 +46,22 @@ form {
     position: relative;
 }
 
+table {
+    border-collapse: collapse;
+    border: 1px solid;
+    text-align: left;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid;
+    padding: .5em;
+}
+
+caption {
+    text-align: left;
+}
+
 .o-question-container {
     border: 2px dashed hsl(0, 0%, 20%);
     padding: 1em;
