@@ -678,7 +678,7 @@
          </xsl:when>
          <xsl:otherwise>
             <xsl:comment>this is a set of options</xsl:comment>
-            <xsl:element name="div">
+            <xsl:element name="fieldset">
                <xsl:attribute name="aria-labelledby">
                   <xsl:value-of select="$qElementID" />
                   <xsl:text>_label_question</xsl:text>
