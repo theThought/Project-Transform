@@ -1,0 +1,79 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" type="text/css" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/styles/formal/base.css" title="Formal" />
+	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/require.js">//Require Script</script>
+	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/survey.js">//Survey Class</script>
+	<script type="text/javascript" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts/base.js">//Global Code</script>
+	<script type="text/javascript">
+		require.config({
+		baseUrl: 'https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/scripts',
+	 waitSeconds: 0
+	});
+	require(['main'], function() {});
+	</script>
+
+	<title><mrPageTitle/></title>
+	<link rel="apple-touch-icon" sizes="57x57" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/apple-icon-180x180.png" />
+
+	<link rel="icon" type="image/png" sizes="192x192" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/android-icon-192x192.png" />
+
+	<link rel="icon" type="image/png" sizes="16x16" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/favicon-16x16.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/favicons/formal/favicon-32x32.png" />
+
+	<!-- <link rel="manifest" href="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/manifest.json" /> -->
+
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="favicons/formal/ms-icon-144x144.png" />
+	<meta name="theme-color" content="#ffffff" />
+
+	<style rel="stylesheet" type="text/css">
+		* {font-size:18px;line-height:21px;}
+		.optionwrapper {display:inline-grid; grid-template-columns: 124px 1fr; gap: 8px;}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/images/formal/ipsoslogo192.png" />
+		<div class="overall-progress">
+			<div class="overall-progress-text">
+				<!-- progress text -->
+			</div>
+			<div class="overall-progress-bar">
+					<!-- progress bar -->
+			</div>
+		</div>
+	</div>
+
+	<mrPage IncludeElementIDs="true" QuestionXSL="question.xsl" LabelXSL="label.xsl" NavigationXSL="navigation.xsl" UseTablesLayout="false" ErrorTemplate="error.htm" BannerTemplate="banner.htm" />
+	<mrBannerText  Name="PageCustomProperties" />
+
+
+	<div class='surroundcontent'>
+		<mrData>Questions here</mrData>
+	</div>
+
+	<div class="footer">
+		<div id="nav-controls" class="btn-container nav-center">
+			<div id="nav-controls" class="btn-container nav-center">
+				<div id="nextonly">
+					<mrNavButton Name="Next" Enabled="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/navigation/Next_Inactive.svg" Disabled="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/act/images/navigation/Next_Readonly.svg"><!-- Next Button --></mrNavButton>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
