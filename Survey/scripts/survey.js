@@ -14,25 +14,21 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
     switch (componentType.toLowerCase()) {
         case 'page':
             requirejs(['page'], function (page) {
-                console.log('Registering page');
                 app.preinitcomponents.unshift(new page(id, group));
             });
             break;
         case 'oprogress':
             requirejs(['o-progress'], function (oProgress) {
-                console.log('Registering progress');
                 app.preinitcomponents.unshift(new oProgress(id, group));
             });
             break;
         case 'a-button-barcode':
             requirejs(['a-button-barcode'], function (aButtonBarcode) {
-                console.log('Registering barcode scan button');
                 app.preinitcomponents.unshift(new aButtonBarcode(id, group));
             });
             break;
         case 'ainputsinglelineedit':
             requirejs(['a-input-singlelineedit'], function (aInputSinglelineEdit) {
-                console.log('Registering single line');
                 app.preinitcomponents.unshift(new aInputSinglelineEdit(id, group));
             });
             break;
@@ -43,7 +39,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
             break;
         case 'ainputreadwriteedit':
             requirejs(['a-input-readwriteedit'], function (aInputReadWriteEdit) {
-                console.log('Registering input');
                 app.preinitcomponents.unshift(new aInputReadWriteEdit(id, group));
             });
             break;
