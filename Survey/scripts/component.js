@@ -565,6 +565,7 @@ define(
             // replace any remaining question placeholders with null --
             // a final safety net that should ultimately be unnecessary
             string = string.replace(/%%(\w+)%%/g, 'null');
+            string = string.replace(/\[''\]/, '[]');
 
             this.debug(this.questionName + ': ' + string, 3);
 
