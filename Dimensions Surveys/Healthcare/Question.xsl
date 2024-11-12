@@ -87,6 +87,7 @@
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
+
       <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qCustomType">
@@ -101,7 +102,6 @@
                      <xsl:call-template name="InsertQuestionDiv">
                         <xsl:with-param name="qElementID" select="Table/@TableId" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-                        <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                      </xsl:call-template>
                   </xsl:when>
                   <xsl:otherwise>
@@ -228,9 +228,11 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qGroup_Name" />
-         </xsl:attribute>
+         <xsl:if test="$qGroup_Name!=''">
+            <xsl:attribute name="data-questiongroup">
+               <xsl:value-of select="$qGroup_Name" />
+            </xsl:attribute>
+         </xsl:if>
          <xsl:if test="Style/@Hidden">
             <xsl:attribute name="data-hidden">
                <xsl:text>true</xsl:text>
@@ -643,6 +645,7 @@
       </xsl:variable>
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
+         <xsl:comment>This is a table question</xsl:comment>
             <xsl:element name="table">
                <xsl:if test="$Orientation!=''">
                   <xsl:attribute name="data-orientation">

@@ -1,66 +1,18 @@
 <Questions>
     <Question>
-        <Style ElementAlign="NewLine" ZIndex="-10"></Style>
-        <Table UseTablesLayout="-1" Summary="Which of the following fruit did you consume each day this week">
+        <Style ElementAlign="NewLine"></Style>
+        <Table UseTablesLayout="-1" Summary="select the relevant tumour for each of these patients" TableId="_Q0">
             <Row Y="0">
                 <Cell X="1" Y="0" Class="mrGridQuestionText">
                     <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Banana</Text>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Select the relevant tumour or provide separate details</Text>
                     </Label>
                 </Cell>
                 <Cell X="2" Y="0" Class="mrGridQuestionText">
                     <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Apple</Text>
-                    </Label>
-                </Cell>
-                <Cell X="3" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Orange</Text>
-                    </Label>
-                </Cell>
-                <Cell X="4" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>kiwi fruit</Text>
-                    </Label>
-                </Cell>
-                <Cell X="5" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Satsuma</Text>
-                    </Label>
-                </Cell>
-                <Cell X="6" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Grapes</Text>
-                    </Label>
-                </Cell>
-                <Cell X="7" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Pineapple</Text>
-                    </Label>
-                </Cell>
-                <Cell X="8" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Grapefruit</Text>
-                    </Label>
-                </Cell>
-                <Cell X="9" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Mango</Text>
-                    </Label>
-                </Cell>
-                <Cell X="10" Y="0" Class="mrGridQuestionText">
-                    <Label>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>otherFruit</Text>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Provide the name of the tumour</Text>
                     </Label>
                 </Cell>
                 <Cell X="0" Y="0"></Cell>
@@ -69,97 +21,119 @@
                 <Cell X="0" Y="1" Class="mrGridCategoryText">
                     <Label>
                         <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Monday</Text>
+                        <Text>first patient</Text>
                     </Label>
                 </Cell>
                 <Cell X="1" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
+                    <Control Type="DropList" QuestionName="_Qpatienttumours_Qpatient1_Qotherspecifylistdropdown_C" ElementID="_Q0_Q0_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60">
+                            <Control Type="DropList"></Control>
                         </Style>
-                        <Category Name="Banana" CategoryID="0"></Category>
+                        <Category Name="boneAndSarcoma" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Bone and Sarcoma</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="brain" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Brain</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="breast" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Breast</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="cervicaluterine" CategoryID="3">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Cervical/Uterine</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="colorectal" CategoryID="4">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Colorectal</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="endocrine" CategoryID="5">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Endocrine (incl. Thyroid, NETs)</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="gastrointestinal" CategoryID="6">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Gastrointestinal (incl. Pancreas and Peritoneum)</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="headAndNeck" CategoryID="7">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Head and Neck</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="hepatobiliary" CategoryID="8">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Hepatobiliary</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="kidney" CategoryID="9">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Kidney</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="lung" CategoryID="10">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Lung</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="melanoma" CategoryID="11">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Melanoma</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="ovarian" CategoryID="12">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Ovarian</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="prostate" CategoryID="13">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Prostate</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="urinary" CategoryID="14">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Urinary</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="otheroption" CategoryID="15">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Other Tumour</Text>
+                            </Label>
+                        </Category>
                     </Control>
                 </Cell>
                 <Cell X="2" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Apple" CategoryID="1"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="3" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Orange" CategoryID="2"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="4" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="kiwi" CategoryID="3"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="5" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Satsuma" CategoryID="4"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="6" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapes" CategoryID="5"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="7" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Pineapple" CategoryID="6"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="8" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapefruit" CategoryID="7"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="9" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Mango" CategoryID="8"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="10" Y="1">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_C" ElementID="_Q0_Q0_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="otherFruit" CategoryID="9"></Category>
-                    </Control>
                     <Question>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
                             <Control Type="SingleLineEdit"></Control>
                         </Style>
-                        <Label ElementId="_Q0_Q0_Q0_O9">
-                            <Style ElementAlign="Right"></Style>
-                        </Label>
-                        <Control Type="SingleLineEdit" QuestionName="_QAnyFruitByDaywithOther_QMon_Qwhichfruitmulti_OotherFruit" ElementID="_Q0_Q0_Q0_O9" Value="" Length="50">
-                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                        <Control Type="SingleLineEdit" QuestionName="_Qpatienttumours_Qpatient1_Qotherspecifyotherinput" ElementID="_Q0_Q0_Q1" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
                                 <Control Type="SingleLineEdit"></Control>
                             </Style>
                         </Control>
@@ -170,97 +144,119 @@
                 <Cell X="0" Y="2" Class="mrGridCategoryText">
                     <Label>
                         <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Tuesday</Text>
+                        <Text>second patient</Text>
                     </Label>
                 </Cell>
                 <Cell X="1" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
+                    <Control Type="DropList" QuestionName="_Qpatienttumours_Qpatient2_Qotherspecifylistdropdown_C" ElementID="_Q0_Q1_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60">
+                            <Control Type="DropList"></Control>
                         </Style>
-                        <Category Name="Banana" CategoryID="0"></Category>
+                        <Category Name="boneAndSarcoma" CategoryID="0">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Bone and Sarcoma</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="brain" CategoryID="1">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Brain</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="breast" CategoryID="2">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Breast</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="cervicaluterine" CategoryID="3">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Cervical/Uterine</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="colorectal" CategoryID="4">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Colorectal</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="endocrine" CategoryID="5">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Endocrine (incl. Thyroid, NETs)</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="gastrointestinal" CategoryID="6">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Gastrointestinal (incl. Pancreas and Peritoneum)</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="headAndNeck" CategoryID="7">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Head and Neck</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="hepatobiliary" CategoryID="8">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Hepatobiliary</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="kidney" CategoryID="9">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Kidney</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="lung" CategoryID="10">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Lung</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="melanoma" CategoryID="11">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Melanoma</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="ovarian" CategoryID="12">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Ovarian</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="prostate" CategoryID="13">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Prostate</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="urinary" CategoryID="14">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Urinary</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="otheroption" CategoryID="15">
+                            <Label>
+                                <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Other Tumour</Text>
+                            </Label>
+                        </Category>
                     </Control>
                 </Cell>
                 <Cell X="2" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Apple" CategoryID="1"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="3" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Orange" CategoryID="2"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="4" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="kiwi" CategoryID="3"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="5" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Satsuma" CategoryID="4"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="6" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapes" CategoryID="5"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="7" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Pineapple" CategoryID="6"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="8" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapefruit" CategoryID="7"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="9" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Mango" CategoryID="8"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="10" Y="2">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_C" ElementID="_Q0_Q1_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="otherFruit" CategoryID="9"></Category>
-                    </Control>
                     <Question>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
                             <Control Type="SingleLineEdit"></Control>
                         </Style>
-                        <Label ElementId="_Q0_Q1_Q0_O9">
-                            <Style ElementAlign="Right"></Style>
-                        </Label>
-                        <Control Type="SingleLineEdit" QuestionName="_QAnyFruitByDaywithOther_QTue_Qwhichfruitmulti_OotherFruit" ElementID="_Q0_Q1_Q0_O9" Value="" Length="50">
-                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                        <Control Type="SingleLineEdit" QuestionName="_Qpatienttumours_Qpatient2_Qotherspecifyotherinput" ElementID="_Q0_Q1_Q1" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
                                 <Control Type="SingleLineEdit"></Control>
                             </Style>
                         </Control>
@@ -271,299 +267,119 @@
                 <Cell X="0" Y="3" Class="mrGridCategoryText">
                     <Label>
                         <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Wednesday</Text>
+                        <Text>third patient</Text>
                     </Label>
                 </Cell>
                 <Cell X="1" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
+                    <Control Type="DropList" QuestionName="_Qpatienttumours_Qpatient3_Qotherspecifylistdropdown_C" ElementID="_Q0_Q2_Q0_C">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60">
+                            <Control Type="DropList"></Control>
                         </Style>
-                        <Category Name="Banana" CategoryID="0"></Category>
+                        <Category Name="boneAndSarcoma" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Bone and Sarcoma</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="brain" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Brain</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="breast" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Breast</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="cervicaluterine" CategoryID="3">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Cervical/Uterine</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="colorectal" CategoryID="4">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Colorectal</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="endocrine" CategoryID="5">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Endocrine (incl. Thyroid, NETs)</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="gastrointestinal" CategoryID="6">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Gastrointestinal (incl. Pancreas and Peritoneum)</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="headAndNeck" CategoryID="7">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Head and Neck</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="hepatobiliary" CategoryID="8">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Hepatobiliary</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="kidney" CategoryID="9">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Kidney</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="lung" CategoryID="10">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Lung</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="melanoma" CategoryID="11">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Melanoma</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="ovarian" CategoryID="12">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Ovarian</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="prostate" CategoryID="13">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Prostate</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="urinary" CategoryID="14">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Urinary</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="otheroption" CategoryID="15">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>Other Tumour</Text>
+                            </Label>
+                        </Category>
                     </Control>
                 </Cell>
                 <Cell X="2" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Apple" CategoryID="1"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="3" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Orange" CategoryID="2"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="4" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="kiwi" CategoryID="3"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="5" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Satsuma" CategoryID="4"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="6" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapes" CategoryID="5"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="7" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Pineapple" CategoryID="6"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="8" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapefruit" CategoryID="7"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="9" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Mango" CategoryID="8"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="10" Y="3">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_C" ElementID="_Q0_Q2_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="otherFruit" CategoryID="9"></Category>
-                    </Control>
                     <Question>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
                             <Control Type="SingleLineEdit"></Control>
                         </Style>
-                        <Label ElementId="_Q0_Q2_Q0_O9">
-                            <Style ElementAlign="Right"></Style>
-                        </Label>
-                        <Control Type="SingleLineEdit" QuestionName="_QAnyFruitByDaywithOther_QWed_Qwhichfruitmulti_OotherFruit" ElementID="_Q0_Q2_Q0_O9" Value="" Length="50">
-                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
-                                <Control Type="SingleLineEdit"></Control>
-                            </Style>
-                        </Control>
-                    </Question>
-                </Cell>
-            </Row>
-            <Row Y="4">
-                <Cell X="0" Y="4" Class="mrGridCategoryText">
-                    <Label>
-                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Thursday</Text>
-                    </Label>
-                </Cell>
-                <Cell X="1" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Banana" CategoryID="0"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="2" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Apple" CategoryID="1"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="3" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Orange" CategoryID="2"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="4" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="kiwi" CategoryID="3"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="5" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Satsuma" CategoryID="4"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="6" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapes" CategoryID="5"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="7" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Pineapple" CategoryID="6"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="8" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapefruit" CategoryID="7"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="9" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Mango" CategoryID="8"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="10" Y="4">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_C" ElementID="_Q0_Q3_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="otherFruit" CategoryID="9"></Category>
-                    </Control>
-                    <Question>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
-                            <Control Type="SingleLineEdit"></Control>
-                        </Style>
-                        <Label ElementId="_Q0_Q3_Q0_O9">
-                            <Style ElementAlign="Right"></Style>
-                        </Label>
-                        <Control Type="SingleLineEdit" QuestionName="_QAnyFruitByDaywithOther_QThu_Qwhichfruitmulti_OotherFruit" ElementID="_Q0_Q3_Q0_O9" Value="" Length="50">
-                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
-                                <Control Type="SingleLineEdit"></Control>
-                            </Style>
-                        </Control>
-                    </Question>
-                </Cell>
-            </Row>
-            <Row Y="5">
-                <Cell X="0" Y="5" Class="mrGridCategoryText">
-                    <Label>
-                        <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
-                        <Text>Friday</Text>
-                    </Label>
-                </Cell>
-                <Cell X="1" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Banana" CategoryID="0"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="2" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Apple" CategoryID="1"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="3" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Orange" CategoryID="2"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="4" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="kiwi" CategoryID="3"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="5" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Satsuma" CategoryID="4"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="6" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapes" CategoryID="5"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="7" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Pineapple" CategoryID="6"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="8" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Grapefruit" CategoryID="7"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="9" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="Mango" CategoryID="8"></Category>
-                    </Control>
-                </Cell>
-                <Cell X="10" Y="5">
-                    <Control Type="CheckButton" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_C" ElementID="_Q0_Q4_Q0_C">
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine">
-                            <Control Type="CheckButton"></Control>
-                        </Style>
-                        <Category Name="otherFruit" CategoryID="9"></Category>
-                    </Control>
-                    <Question>
-                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
-                            <Control Type="SingleLineEdit"></Control>
-                        </Style>
-                        <Label ElementId="_Q0_Q4_Q0_O9">
-                            <Style ElementAlign="Right"></Style>
-                        </Label>
-                        <Control Type="SingleLineEdit" QuestionName="_QAnyFruitByDaywithOther_QFri_Qwhichfruitmulti_OotherFruit" ElementID="_Q0_Q4_Q0_O9" Value="" Length="50">
-                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right" ZIndex="-20">
+                        <Control Type="SingleLineEdit" QuestionName="_Qpatienttumours_Qpatient3_Qotherspecifyotherinput" ElementID="_Q0_Q2_Q1" Value="" Length="200">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20">
                                 <Control Type="SingleLineEdit"></Control>
                             </Style>
                         </Control>
