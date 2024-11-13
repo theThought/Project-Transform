@@ -527,8 +527,10 @@ define(
 
         component.prototype.insertJSONValuesIntoRule = function (ruleString) {
             for (var currentQuestion in this.sourceQuestions) {
+                var questionData = '';
+
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
-                    var questionData = this.sourceQuestions[currentQuestion].join("");
+                    questionData = this.sourceQuestions[currentQuestion].join("");
                 }
 
                 var re = new RegExp("%%" + currentQuestion + "%%\.json\.(\\w+)", "ig");
@@ -565,7 +567,7 @@ define(
             // replace any remaining question placeholders with null --
             // a final safety net that should ultimately be unnecessary
             string = string.replace(/%%(\w+)%%/g, 'null');
-            string = string.replace(/\[''\]/, '[]');
+            string = string.replace(/\['']/, '[]');
 
             this.debug(this.questionName + ': ' + string, 3);
 
