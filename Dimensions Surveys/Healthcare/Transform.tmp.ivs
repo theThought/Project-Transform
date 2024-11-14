@@ -1661,6 +1661,12 @@ FixedTextsList "" define
         yes "Yes",
         no "No"
     };
+    CustomList_Information "" define
+    {
+    overlay "overlay existing content",
+    pushdown "expand between content"
+    };
+    
     TypesList_Simple "Basic Question types" define
     {
         basic "Original Questions",
@@ -1703,7 +1709,9 @@ FixedTextsList "" define
         filters "Filters",
         DynamicLabels "Dynamic Labels",
         InvisibleAlternatives "Invisible Alternatives",
-        ResetToLoad "Reset to Load"
+        ResetToLoad "Reset to Load",
+        VisibleCount "Visbility based on count",
+        Notthere "Just Invisible"
     };
     TypesList_Grids "Grid based questions" define
     {
@@ -1789,6 +1797,21 @@ FixedTextsList "" define
         year22 "2022",
         year23 "2023",
         year24 "2024"
+    };
+    OnlineYesNo "" define
+    {
+        onlineyes "Yes, this was an online purchase"
+            style(
+                Control(
+                    Type = "Button"
+                )
+            ),
+        onlineno "No, this purchase was made in person"
+            style(
+                Control(
+                    Type = "Button"
+                )
+            )
     };
 
     '----------------- Question Type zIndex values
@@ -1902,6 +1925,17 @@ FixedTextsList "" define
         use CustomList_Instruction -
     };
 
+    CustomList_SetInformation "How should information panels work"
+        style(
+            Control(
+                Type = "DropList"
+            )
+        )
+    categorical [1..1]
+    {
+        use CustomList_Information -
+    };
+    
     CustomList_SetTheme "Theme"
         style(
             Control(
@@ -2342,19 +2376,12 @@ FixedTextsList "" define
 
     );
 
-    OnlineYesNo "" define
+    OnlineQuestion "Did you purchase your item online"
+    categorical [1..1]
     {
-        onlineyes "Yes, this was an online purchase"
-        labelstyle(Image(Name="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/images/MOP/online.svg", AltText="Yes, this was an online purchase")),
-        onlineno "No, this purchase was made in person"
-        labelstyle(image(Name="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/images/MOP/physical.svg", AltText="No, this purchase was made in person"))
+        use OnlineYesNo -
     };
 
-	OnlineQuestion "Did you purchase your item online" categorical[1]
-	{
-	use onlineyesno
-	}
-	
     test_location "Where was the test performed?"
         [
             json = "{'balance':{'state':false}, 'onesize':{'state':true, 'max-wdith':'15em'}}"
@@ -3125,6 +3152,15 @@ FixedTextsList "" define
         notanswered "" NA
     } );
 
+	WeekendIncrease "Over the last year, would you say that the percentage smoked at the weekend has increased or decreased"
+	style (ZIndex=-40) 
+	categorical[1]
+	{
+	increased "Increased",
+	decreased "Decreased",
+	same "Stayed the same"
+	};
+	
     Howmanyvaped "How many times did you use your vape in the last seven days?"
         style(
             ZIndex = -40
@@ -4254,9 +4290,9 @@ FixedTextsList "" define
     (
         under5 "Age under 5"
             style(
-                ZIndex = -70,
+                ZIndex = -60,
                 Control(
-                    Type = "ComboList"
+                    Type = "DropList"
                 )
             )
         categorical [0..1]
@@ -4268,9 +4304,9 @@ FixedTextsList "" define
 
         slice1 "Age 5 - 11"
             style(
-                ZIndex = -70,
+                ZIndex = -60,
                 Control(
-                    Type = "ComboList"
+                    Type = "DropList"
                 )
             )
         categorical [0..1]
@@ -4282,9 +4318,9 @@ FixedTextsList "" define
 
         slice2 "Age 12 - 17"
             style(
-                ZIndex = -70,
+                ZIndex = -60,
                 Control(
-                    Type = "ComboList"
+                    Type = "DropList"
                 )
             )
         categorical [0..1]
@@ -4296,9 +4332,9 @@ FixedTextsList "" define
 
         slice3 "Age 18 - 29"
             style(
-                ZIndex = -70,
+                ZIndex = -60,
                 Control(
-                    Type = "ComboList"
+                    Type = "DropList"
                 )
             )
         categorical [0..1]
@@ -4310,9 +4346,9 @@ FixedTextsList "" define
 
         slice4 "Age 30 - 49"
             style(
-                ZIndex = -70,
+                ZIndex = -60,
                 Control(
-                    Type = "ComboList"
+                    Type = "DropList"
                 )
             )
         categorical [0..1]
@@ -4324,9 +4360,9 @@ FixedTextsList "" define
 
         slice5 "Age 50+"
             style(
-                ZIndex = -70,
+                ZIndex = -60,
                 Control(
-                    Type = "ComboList"
+                    Type = "DropList"
                 )
             )
         categorical [0..1]
@@ -5049,6 +5085,31 @@ FixedTextsList "" define
         Future "I have already had sessions"
     };
 
+    '----------------------------------------
+    ' Visible rules based on selection count
+    '----------------------------------------
+    
+    MealSelection "How many meals did you eat yesterday" 
+	style(zIndex = -40)    
+    categorical[..]
+    {
+    GetUp "As soon as you get up"
+    Breakfast
+    Brunch
+    Lunch
+    Liner "Between lunch and dinner"
+    Tea "High tea"
+    Dinner
+    Supper
+    BedTime "just before going to bed"
+    };
+    
+    NoneInfo "You had no meals" style(zIndex=-10) info;
+    OneInfo "You had just one meal" style(zIndex=-10) info;
+    TwoInfo "You had two meals" style(zIndex=-10) info;
+    threeInfo "You had the standard three meals" style(zIndex=-10) info;
+	lotsInfo "You had lots of meals" style(zIndex=-10) info;
+	
     MonthyeargridNumericLoop "Indicate the data of:" loop [1] fields -
     (
         WhichMonth ""
@@ -6824,6 +6885,18 @@ FixedTextsList "" define
         othertype "Other alcoholic beverages"
     };
 
+    '----------------------------------------
+    ' Media Questions
+    '----------------------------------------
+    LAMediaAsk "Please scan a copy of your physical receipt"
+        style(
+            ZIndex = -1510
+        )
+    text [..1000];
+
+    LAMediaURL ""
+    text [..1000];
+
     LABarcode_Page "LABarcode_Page"
     page(
         LAScan,
@@ -6831,18 +6904,11 @@ FixedTextsList "" define
         LAProduct,
         LACategory
     );
-    
-    '----------------------------------------
-    ' Media Questions
-    '----------------------------------------
-    LAMediaAsk "Please scan a copy of your physical receipt" 
-    style(
-            ZIndex = -1510
-        )
-    text[..1000];
-    LAMediaURL "" text[..1000];
-    LAMedia_Page "LA Media Page" page (LAMediaAsk, LAMediaURL);
-    
+    LAMedia_Page "LA Media Page"
+    page(
+        LAMediaAsk,
+        LAMediaURL
+    );
     '----------------------------------------
     ' Page Definitions
     '----------------------------------------
@@ -6870,6 +6936,7 @@ FixedTextsList "" define
         CustomList_SetFocus,
         CustomList_SetDirection,
         CustomList_SetInstruction,
+        CustomList_SetInformation,        
         CustomList_SetPaste1,
         CustomList_SetJump,
         ChooseType
@@ -7043,6 +7110,7 @@ FixedTextsList "" define
         Howmanysmoked,
         PleaseReview,
         Weekendpercentage,
+        WeekendIncrease,
         Howmanyvaped,
         DidyouPreviously,
         DoYouMind
@@ -7205,6 +7273,7 @@ FixedTextsList "" define
         LAProduct,
         LACategory_Entry
     );
+    SelectionCountPage "" Page(MealSelection, NoneInfo, OneInfo, TwoInfo, threeInfo, lotsInfo);
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -7214,7 +7283,7 @@ dim visibilityRule
 dim currentTemplate, layoutTemplate
 dim askAgain
 dim focusQuestion, focusControl, focusBalance
-dim isPWA, isPaste, isJump
+dim isPWA, isPaste, isJump, isFloat
 dim mediaAssetsURL
 dim postMessageScript
 'templateLocation = "../"
@@ -7227,7 +7296,7 @@ focusBalance = ""
 isPWA = "false"
 isPaste = "false"
 isJump = "false"
-
+isFloat = "true"
 mediaAssetsURL = "https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/"
 if iom.Info.IsDebug then 
 	'IOM.LayoutTemplate = "pageoutput-label.htm"
@@ -7277,6 +7346,7 @@ CustomList_SetLayout.QuestionTemplate = templateLocation + "question-sidebyside.
 CustomList_SetDirection.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetTheme.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetInstruction.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+CustomList_SetInformation.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetPaste1.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetJump.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 choosetype.QuestionTemplate = templateLocation + "question-sidebyside.htm"
@@ -7286,12 +7356,14 @@ addCustomProperties(CustomList_SetBalance, "CustomList_SetBalance", MakeString("
 addCustomProperties(CustomList_SetFocus, "CustomList_SetFocus", MakeString("{'separator':true, 'onesize':{'state':true},'balance':{'state':true}}"), "replace")
 addCustomProperties(CustomList_SetLayout, "CustomList_SetLayout", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'select layout'}"), "replace")
 addCustomProperties(CustomList_SetInstruction, "CustomList_SetInstruction", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'place instruction'}"), "replace")
+addCustomProperties(CustomList_SetInformation, "CustomList_SetInformation", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'expand by'}"), "replace")
 
 CustomList_SetLayout.Response.initial = {horizontal}
 CustomList_SetTheme.response.initial = {Formal}
 CustomList_SetFocus.Response.initial = {Question, Control}
 CustomList_SetDirection.Response.Initial = {LTR}
 CustomList_SetInstruction.Response.Initial = {below}
+CustomList_SetInformation.Response.Initial = {overlay}
 CustomList_SetPaste1.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
@@ -7374,9 +7446,15 @@ else
 	IOM.LayoutTemplate = layoutTemplate + "_RTL.htm"
 end if
 
+If CustomList_SetInformation.response.containsAny({overlay}) then
+	isFloat = "true"
+else
+	isFloat = "false"
+end if
+
 'PageJSON_Create(IOM, MakeString("{'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "'}"))
 
-PageJSON_Create(IOM, MakeString("{", focusBalance, "'focus':{'question':", focusQuestion, ",'control':", focusControl, "},'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "'}"))
+PageJSON_Create(IOM, MakeString("{", focusBalance, "'focus':{'question':", focusQuestion, ",'control':", focusControl, "},'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "','float':", isFloat, "}"))
 
 select case choosetype.Response
 case {paste}
@@ -7521,7 +7599,11 @@ CustomPage.Show()
 
 case {choice}
 
+
 'IOM.LayoutTemplate = "pageoutput-label.htm"
+onlinequestion.Categories.onlineyes.Style.Image = "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/images/MOP/online.png"
+onlinequestion.Categories.onlineno.Style.Image = "https://cdn.ipsosinteractive.com/sandbox/kevin.gray/passiveobservation/images/MOP/physical.png"
+CreateInformationPopup(OnlineQuestion, "Configuration", "Images have been applied to the style to determine whether they are visible through the XML transformation")
 OnlineQuestion.ask()
 
 test_location.ask()
@@ -7865,11 +7947,10 @@ AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'type':'number', 
 	currentRule = CreateVisibilityRule("Howmanysmoked >= 30")
 AddCustomProperties(Weekendpercentage, "Weekendpercentage",MakeString("{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true, 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
+AddCustomProperties(WeekendIncrease, "WeekendIncrease",MakeString("{'visible':{'collapse':true,'rules':'Weekendpercentage.isVisible()'}}"), "replace")
+
 	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked') and smokecigars.containsAny('cigarettes') and Howmanysmoked <= 0")
 AddCustomProperties(PleaseReview, "PleaseReview", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
-
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
-AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
 	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_smoked','yes_vaped')")
 AddCustomProperties(DidyouPreviously, "DidyouPreviously", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
@@ -8086,24 +8167,36 @@ addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{
 CigarsOrCigarettesPage.ask()
 case {GridDrop}
 
-effective_age_wise[..].QuestionFilter = "under5, slice1, slice2"
+'effective_age_wise[..].QuestionFilter = "under5, slice1, slice2"
+effective_age_wise[..].slice1.Style.Align = alignments.alLeft
+effective_age_wise[..].slice2.Style.Align = alignments.alLeft
+effective_age_wise[..].slice3.Style.Align = alignments.alLeft
+effective_age_wise[..].slice4.Style.Align = alignments.alLeft
+effective_age_wise[..].slice5.Style.Align = alignments.alLeft
+
 effective_age_wise.Style.Cell.RepeatHeader = (effective_age_wise.Categories.Count/3)+1
 
 effective_age_wise.Categories.Filter = "moderna..gameleyaResearchInstitute"
 
 AddCustomProperties(effective_age_wise,"effective_age_wise","{'cellshading':{'rowheader':true,'altrows':true}}","replace")
 AddCustomProperties(effective_age_wise, "under5", "{'listsize':9,'placeholder':'pick a drug'}", "add")
-AddCustomProperties(effective_age_wise, "slice1", "{'displayicon':false,'onesize':{'state':false},'listsize':5,'showanswers':false,'placeholder':'pick a drug'}", "add")
+AddCustomProperties(effective_age_wise, "slice1", "{'placeholder':'select one drug'}", "add")
 AddCustomProperties(effective_age_wise, "slice2", "{'placeholder':'select one drug'}", "add")
+AddCustomProperties(effective_age_wise, "slice3", "{'placeholder':'select one drug'}", "add")
+AddCustomProperties(effective_age_wise, "slice4", "{'placeholder':'select one drug'}", "add")
+AddCustomProperties(effective_age_wise, "slice5", "{'placeholder':'select one drug'}", "add")
+
+effective_age_wise[..].under5.Style.Cell.Width = "15em"
+effective_age_wise[..].slice1.Style.Cell.Width = "15em"
+effective_age_wise[..].slice2.Style.Cell.Width = "15em"
+
+effective_age_wise[..].slice3.Style.Cell.Width = "20em"
+effective_age_wise[..].slice4.Style.Cell.Width = "20em"
+effective_age_wise[..].slice5.Style.Cell.Width = "20em"
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 effective_age_wise.Ask() 
 
-effective_age_wise[..].under5.Style.Width = "15em"
-effective_age_wise[..].slice1.Style.Width = "15em"
-effective_age_wise[..].slice2.Style.Width = "15em"
-
-effective_age_wise.Ask() 
 
 
 agewise_diff_virus_risk[..].age.Categories.Filter = "infantsUnderAge2..childrenAged3to17HealthConditions"
@@ -9401,6 +9494,13 @@ case {CameraCapture}
 	LAMediaAsk.LayoutTemplate = "formal-camera.htm"
 	LAMediaAsk.ask()
 
+case {VisibleCount}
+dim selectionCountRule
+	selectionCountRule = CreateVisibilityRule("MealSelection.count("=1"")
+	AddCustomProperties(NoneInfo, "NoneInfo", MakeString("{'visible':{'collapse':true,'rules':'", selectionCountRule, "'}}"), "replace")
+
+	SelectionCountPage.ask()
+    
 end select
 
 loop

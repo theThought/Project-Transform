@@ -2,7 +2,7 @@
 <Activate UseWebService="True" WebServiceUrl="https://devstg751.ipsosinteractive.com/spssmr/dimensionnet" UseQueuedActivation="True" ActivationManner="1" TaskId="00000000-0000-0000-0000-000000000000" ActivateDocumentPath="" Culture="en-US" NeedValidateMDMDocument="True" KeepCheckOut="False">
   <ActivateSettings>
     <Sites>
-      <Site DpmServerName="UGCP-DSTG-2G92" UserName="ipsosgroup\kgray01" UserTicket="827299e5-2a35-452f-8fdc-e791d77b9742">
+      <Site DpmServerName="UGCP-DSTG-8CG3" UserName="ipsosgroup\kgray01" UserTicket="abb5c4ff-917e-4edc-a184-67fb29ec33ed">
         <Clusters>
           <Cluster Name="DefaultCluster">
             <Projects>
@@ -63,11 +63,11 @@
           <Property name="UsePlayerNavigation" type="integer">1</Property>
           <Property name="UseDefaultURLs" type="string"><![CDATA[1]]></Property>
           <Property name="ExpiryDateTime" type="string"><![CDATA[]]></Property>
-          <Property name="RoutingContext" type="string"><![CDATA[Web]]></Property>
-          <Property name="TimeLastActivated" type="string"><![CDATA[20241030 13:23:40]]></Property>
+          <Property name="RoutingContext" type="string"><![CDATA[WEB]]></Property>
+          <Property name="TimeLastActivated" type="string"><![CDATA[20241030 15:28:22]]></Property>
           <Property name="LastActivatedBy" type="string"><![CDATA[ipsosgroup\kgray01]]></Property>
         </Properties>
-        <Property name="Status" type="string"><![CDATA[Test]]></Property>
+        <Property name="Status" type="string"><![CDATA[Active]]></Property>
         <Property name="IsMobile" type="boolean">False</Property>
         <Property name="Description" type="string"><![CDATA[Accessibility Tests]]></Property>
         <Property name="GroupName" type="string"><![CDATA[Kevin]]></Property>
@@ -83,7 +83,7 @@
         <Default IncludeSubfolders="False">
           <SourceFolder><![CDATA[C:\Users\KGray01\Documents\GitHub\Project-Transform\Dimensions Surveys\Accessible\7.5]]></SourceFolder>
           <ExcludedSubfolders><![CDATA[]]></ExcludedSubfolders>
-          <IncludedFiles><![CDATA[mdd;mqd;catifields_*.mdd;catiCallOutcomes_*.mdd;CatiResources_*.mdd;*.htm;;;;;;;;;;;;;;;;;;;;;*.xsl;*.xslt;;;;;;;;;;;;;;;;;;;]]></IncludedFiles>
+          <IncludedFiles><![CDATA[mdd;mqd;catifields_*.mdd;catiCallOutcomes_*.mdd;CatiResources_*.mdd;*.htm;*.html;*.xml;*.gif;*.jpg;*.jpeg;*.png;*.mov;*.bmp;*.avi;*.css;*.js;*.xls;*.xlsx;;;;;;;;*.xsl;*.xslt;;;;;;;;;;;;;;;;;;;]]></IncludedFiles>
         </Default>
       </Files>
       <InterviewTemplates>
