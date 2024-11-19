@@ -33,7 +33,7 @@ define(['component'],
         }
 
         oQuestion.prototype.updateAnswerCount = function (event) {
-            if (!this.element.contains(event.detail.element)) {
+            if (this.element && !this.element.contains(event.detail.element)) {
                 return;
             }
 
