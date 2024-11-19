@@ -137,11 +137,12 @@ define(['component'],
         }
 
         oCombobox.prototype.checkReadOnly = function () {
-            if (this.element.closest('[data-readonly="true"]') !== null || this.element.getAttribute('data-readonly')) {
+            if (this.element.closest('[data-readonly="true"]') !== null || (this.element.getAttribute('data-readonly') === true)) {
                 this.element.readOnly = true;
+                return true;
+            } else {
+                return false;
             }
-
-            return (this.element.closest('[data-readonly="true"]') !== null || this.element.getAttribute('data-readonly')) || false;
         }
 
         oCombobox.prototype.receiveOptionVisibilityChange = function (event) {

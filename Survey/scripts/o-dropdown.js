@@ -127,7 +127,7 @@ define(['component'],
         }
 
         oDropdown.prototype.checkReadOnly = function () {
-            return (this.element.closest('[data-readonly="true"]') !== null || this.element.getAttribute('data-readonly')) || false;
+            return (this.element.closest('[data-readonly="true"]') !== null || (this.element.getAttribute('data-readonly') === true)) || false;
         }
 
         oDropdown.prototype.receiveOptionVisibilityChange = function (event) {
