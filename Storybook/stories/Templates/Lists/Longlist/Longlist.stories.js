@@ -121,7 +121,6 @@ export default {
 
 export const Longlist = {
     args: {
-        Placeholder: 'Placeholder text',
         FilterType: 'contains',
         MinCharactersForList: 0,
         ListLocation: 'internal',
@@ -129,7 +128,6 @@ export const Longlist = {
         ListValueFrom: 'name',
         ListDescriptionFrom: 'name',
         ShowAnswers: true,
-        PromptsSelection: 'items identified',
         PromptsListCount: 'items found'
     },
     render: (args) => LonglistHtml(args),

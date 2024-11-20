@@ -8,6 +8,8 @@ const ignoredStrings = [
     '"exact":true',
     '"filtertype":"contains"',
     '"mincharactersforlist":0',
+    '"showanswers":true',
+    '"selection":"undefined"',
 ];
 
 /**

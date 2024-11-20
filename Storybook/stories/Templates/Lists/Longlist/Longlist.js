@@ -28,7 +28,7 @@ ${parseCustomProps(`
     ${args.NotEnoughCharacters && args.NotEnoughCharacters !== '' ? `"notenoughcharacters":"${args.NotEnoughCharacters}",` : ''}
     ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.noitemsinlist}",` : ''}
     ${`"list":{"location":"${args.ListLocation}","source":"${args.ListSource}","valuefrom":"${args.ListValueFrom}","descriptionfrom":"${args.ListDescriptionFrom}"},`}
-    ${`"showanswers":"${args.ShowAnswers}",`}
+    ${`"showanswers":${args.ShowAnswers},`}
     ${`"prompts":{"selection":"${args.PromptsSelection}","listcount":"${args.PromptsListCount}"}`}
 }
 `)}
@@ -53,7 +53,7 @@ ${parseCustomProps(`
     ${args.NotEnoughCharacters && args.NotEnoughCharacters !== '' ? `"notenoughcharacters":"${args.NotEnoughCharacters}",` : ''}
     ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.noitemsinlist}",` : ''}
     ${`"list":{"location":"${args.ListLocation}","source":"${args.ListSource}","valuefrom":"${args.ListValueFrom}","descriptionfrom":"${args.ListDescriptionFrom}"},`}
-    ${`"showanswers":"${args.ShowAnswers}",`}
+    ${`"showanswers":${args.ShowAnswers},`}
     ${`"prompts":{"selection":"${args.PromptsSelection}","listcount":"${args.PromptsListCount}"}`}
 }
         );</script>
