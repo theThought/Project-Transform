@@ -58,13 +58,6 @@ ${parseCustomProps(`
 }
         );</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QComboNewProducts",
-{
-    ${args.ListSource && args.ListSource !== '' ? `"listsource":"${args.ListSource}",` : ''}
-
-}
-        );</script>
-
         <div class="m-question-cover"><!-- cover --></div>
 
         ${htmlFragmentMessageError}
