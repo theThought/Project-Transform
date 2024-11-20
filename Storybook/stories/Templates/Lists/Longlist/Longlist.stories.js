@@ -110,7 +110,7 @@ export default {
         },
         PromptsListCount: {
             control: 'text',
-            description: 'Additional prompt. Appears after the value. Counts how many matching items there are in the text.',
+            description: 'Additional prompt. Appears after the value that counts how many matching items there are in the text.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
