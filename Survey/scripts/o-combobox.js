@@ -192,7 +192,7 @@ define(['component'],
             tmp.style.whiteSpace = 'nowrap';
             tmp.innerHTML = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             this.container.appendChild(tmp);
-            var width = parseFloat(tmp.getBoundingClientRect().width);
+            var width = Math.round(tmp.getBoundingClientRect().width);
             this.container.removeChild(tmp);
             return width;
         }
@@ -201,7 +201,6 @@ define(['component'],
          * Calculates the width of the input.
          */
         oCombobox.prototype.calculateWidth = function () {
-            // respect manual width if set: 16px + 16px accounts for element padding
             if (this.manualWidth) {
                 this.element.classList.add('manual-width');
                 this.width = this.element.style.width;
@@ -210,39 +209,35 @@ define(['component'],
             }
 
             var padding = 64;
-
             var elementdims = getComputedStyle(this.element);
-            var initialwidth = parseFloat(elementdims.width) + padding;
+            var initialwidth = parseInt(elementdims.width);
             var longestentry = this.defaultplaceholder;
             var inputwidth = this.getWidthOfText(longestentry);
             var desiredwidth = (Math.max(initialwidth, inputwidth));
 
             var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = parseFloat(containerstyles.width) - padding;
+            var maxavailablewidth = Math.floor(parseFloat(containerstyles.width) - padding);
 
             var newwidth = Math.min(desiredwidth, maxavailablewidth);
 
-            this.setWidth(initialwidth, newwidth);
+            this.setWidth(newwidth);
             this.requestListWidth();
         }
 
-        oCombobox.prototype.setWidth = function (initialwidth, newwidth) {
-            if (newwidth !== initialwidth) {
-                this.notifyWidthChange();
-            }
-
+        oCombobox.prototype.setWidth = function (newwidth) {
             this.element.style.width = newwidth + 'px';
             this.width = newwidth;
             this.notifyElementWidth();
         }
 
         oCombobox.prototype.setWidthFromList = function (event) {
-            if (event.detail.element === this.element) {
+            if (event.detail.element === this.element || this.manualWidth) {
                 return;
             }
 
             if (event.detail.width > this.width) {
-                this.element.style.width = event.detail.width + 'px';
+                var padding = 32;
+                this.element.style.width = event.detail.width - padding - 2 + 'px';
                 this.width = event.detail.width;
             }
         }
@@ -304,11 +299,6 @@ define(['component'],
         oCombobox.prototype.onChange = function (event) {
             event.stopImmediatePropagation();
             this.broadcastChange();
-        }
-
-        oCombobox.prototype.notifyWidthChange = function () {
-            var widthEvent = new CustomEvent('widthEvent', {bubbles: true, detail: this});
-            this.element.dispatchEvent(widthEvent);
         }
 
         oCombobox.prototype.onFocusIn = function () {

@@ -322,55 +322,21 @@ define(['component'],
          * Calculates the width of the list.
          */
         mList.prototype.calculateWidth = function () {
-            var padding = 32;
             var elementdims = getComputedStyle(this.element);
-            var initialwidth = parseFloat(elementdims.width) - padding;
-            var listwidth = initialwidth;
-            var existinglist = app.getComponentByProperty('source', this.source);
+            var listwidth = Math.round(parseFloat(elementdims.width));
 
-            // check to see whether an identical list has already been initialised
-            if (this.source !== null && typeof existinglist !== 'undefined') {
-                this.setWidth(initialwidth, existinglist.width, padding);
-                return;
-            }
+            var containerdims = getComputedStyle(this.container.closest('question'));
+            var maxavailablewidth = Math.floor(parseFloat(containerdims.width));
 
-            var entries = this.buildList();
-            var entrycount = entries.length;
-            var longestentry = 0;
-            var textwidth = 0;
+            var width = Math.min(listwidth, maxavailablewidth);
 
-            for (var i = 0; i < entrycount; i++) {
-                if (entries[i].classList.contains('a-list-placeholder-empty')) {
-                    continue;
-                }
-
-                if (entries[i].classList.contains('a-list-placeholder-restriction')) {
-                    continue;
-                }
-
-                textwidth = this.getWidthOfText(this.sanitiseText(entries[i].textContent));
-
-                if (textwidth > longestentry) {
-                    longestentry = parseInt(textwidth);
-                }
-            }
-
-            var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = parseFloat(containerstyles.width) - padding * 1.5;
-
-            var newwidth = Math.min(Math.max(listwidth, longestentry), maxavailablewidth);
-
-            this.setWidth(initialwidth, newwidth, padding);
+            this.setWidth(width);
             this.requestControlWidth();
         }
 
-        mList.prototype.setWidth = function (initialwidth, newwidth, padding) {
-            if (newwidth !== initialwidth) {
-                this.notifyWidthChange();
-            }
-
-            this.element.style.width = newwidth + padding + 'px';
-            this.width = newwidth;
+        mList.prototype.setWidth = function (width) {
+            this.element.style.width = width - 2 + 'px';
+            this.width = width;
             this.notifyElementWidth();
         }
 
@@ -384,16 +350,6 @@ define(['component'],
                 this.element.style.width = event.detail.width + padding + 'px';
                 this.width = event.detail.width;
             }
-        }
-
-        mList.prototype.getWidthOfText = function (text) {
-            var tmp = document.createElement("span");
-            tmp.style.whiteSpace = 'nowrap';
-            tmp.innerHTML = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            document.documentElement.appendChild(tmp);
-            var width = parseFloat(tmp.getBoundingClientRect().width);
-            document.documentElement.removeChild(tmp);
-            return width;
         }
 
         /**
@@ -638,11 +594,6 @@ define(['component'],
 
         mList.prototype.listsource = function (prop) {
             this.source = prop;
-        }
-
-        mList.prototype.notifyWidthChange = function () {
-            var widthEvent = new CustomEvent('widthEvent', {bubbles: true, detail: this});
-            this.element.dispatchEvent(widthEvent);
         }
 
         mList.prototype.notifyElementWidth = function () {

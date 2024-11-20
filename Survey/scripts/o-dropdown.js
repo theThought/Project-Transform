@@ -177,7 +177,7 @@ define(['component'],
             tmp.style.whiteSpace = 'nowrap';
             tmp.innerHTML = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             this.container.appendChild(tmp);
-            var width = parseFloat(tmp.getBoundingClientRect().width);
+            var width = Math.round(tmp.getBoundingClientRect().width);
             this.container.removeChild(tmp);
             return width;
         }
@@ -186,7 +186,6 @@ define(['component'],
          * Calculates the width of the input.
          */
         oDropdown.prototype.calculateWidth = function () {
-            // respect manual width if set: 16px + 16px accounts for element padding
             if (this.manualWidth) {
                 this.element.classList.add('manual-width');
                 this.width = this.element.style.width;
@@ -194,41 +193,38 @@ define(['component'],
                 return;
             }
 
+            this.element.size = 1;
             var padding = 64;
-
+            var safety = 4; // pixels to add to allow for slight text kerning overflow
             var elementdims = getComputedStyle(this.element);
-            var initialwidth = parseFloat(elementdims.width) + padding;
+            var initialwidth = parseInt(elementdims.width);
             var longestentry = this.defaultplaceholder;
-            var inputwidth = this.getWidthOfText(longestentry) + padding;
-            var desiredwidth = (Math.min(initialwidth, inputwidth));
+            var inputwidth = this.getWidthOfText(longestentry) + safety;
+            var desiredwidth = (Math.max(initialwidth, inputwidth));
 
             var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = parseFloat(containerstyles.width) - padding;
+            var maxavailablewidth = Math.floor(parseFloat(containerstyles.width) - padding);
 
             var newwidth = Math.min(desiredwidth, maxavailablewidth);
 
-            this.setWidth(initialwidth, newwidth);
+            this.setWidth(newwidth);
             this.requestListWidth();
         }
 
-        oDropdown.prototype.setWidth = function (initialwidth, newwidth) {
-            if (newwidth !== initialwidth) {
-                this.notifyWidthChange();
-            }
-
+        oDropdown.prototype.setWidth = function (newwidth) {
             this.element.style.width = newwidth + 'px';
             this.width = newwidth;
             this.notifyElementWidth();
         }
 
         oDropdown.prototype.setWidthFromList = function (event) {
-            if (event.detail.element === this.element) {
+            if (event.detail.element === this.element || this.manualWidth) {
                 return;
             }
 
             if (event.detail.width > this.width) {
-                var padding = 32;
-                this.element.style.width = event.detail.width - padding + 'px';
+                var padding = 64;
+                this.element.style.width = event.detail.width - padding - 2 + 'px';
                 this.width = event.detail.width;
             }
         }
@@ -293,11 +289,6 @@ define(['component'],
             this.broadcastChange();
             var dismissExclusive = new CustomEvent(this.group + '_dismissExclusive', {bubbles: true, detail: this});
             this.element.dispatchEvent(dismissExclusive);
-        }
-
-        oDropdown.prototype.notifyWidthChange = function () {
-            var widthEvent = new CustomEvent('widthEvent', {bubbles: true, detail: this});
-            this.element.dispatchEvent(widthEvent);
         }
 
         oDropdown.prototype.getKeyPressed = function (event) {
