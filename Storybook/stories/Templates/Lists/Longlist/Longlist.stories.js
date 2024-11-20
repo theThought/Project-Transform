@@ -78,7 +78,7 @@ export default {
         },
         ListValueFrom: {
             control: 'text',
-            description: 'Name of the field in the list that is stored in the data collection platform when a user selects an option.',
+            description: 'Name of the field in the list that is stored in the data collection platform when a respondent selects an option.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
@@ -86,7 +86,7 @@ export default {
         },
         ListDescriptionFrom: {
             control: 'text',
-            description: 'Name of the field in the list that is used to create the list on the screen (currently, the field that is used by search).',
+            description: 'Name of the field in the list that is used to create the list on the screen.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
