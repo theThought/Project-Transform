@@ -13,8 +13,11 @@ const ignoredStrings = [
     '"showanswers":true',
     '"selection":"undefined"',
     // Sliders
-    '"min":undefined',
-    '"max":undefined',
+    '"marks":false',
+    '"value":false',
+    '"terminators":false',
+    '"ticklabels":"undefined"',
+    '"floodtovalue":false',
 ];
 
 /**
@@ -39,6 +42,7 @@ export const parseCustomProps = (json) => {
     parsedJson = parsedJson.replace(/\s+/gm, ' '); // Whitespace
     parsedJson = parsedJson.replace(/( ,)/gm, ','); // Rogue commas
     parsedJson = parsedJson.replace(/,+/gm, ','); // Rogue commas
+    parsedJson = parsedJson.replace(/,}/gm, '}'); // Rogue commas
     parsedJson = parsedJson.replace(/, }/gm, ' }'); // Rogue commas
     parsedJson = parsedJson.replace(/{,/gm, '{'); // Rogue commas
 

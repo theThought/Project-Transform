@@ -53,7 +53,7 @@ export default {
             description: 'Determines which incremental "steps" are shown in the slider scale.',
             table: {
                 type: { summary: 'text' },
-                defaultValue: { summary: 'n/a' }
+                defaultValue: { summary: '10' }
             },
         },
         FloodToValue: {
@@ -69,7 +69,12 @@ export default {
 
 export const SliderHorizontal = {
     args: {
-        // InputType: 'text'
+        ValuesMin: 0,
+        ValuesMax: 100,
+        ShowMarks: false,
+        ShowValue: false,
+        ShowTerminators: false,
+        FloodToValue: false
     },
     render: (args) => SliderHorizontalHtml(args),
 };

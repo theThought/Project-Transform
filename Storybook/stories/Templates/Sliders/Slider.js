@@ -23,9 +23,9 @@ Render custom properties for ZeroHeight scriptwriter users.
 ${parseCustomProps(`
 {
     "values":{"min":${args.ValuesMin},"max":${args.ValuesMax}},
-    "show":{"marks":true,"value":true,"terminators":true},
-    "ticklabels":'10',
-    "floodtovalue":true
+    "show":{"marks":${args.ShowMarks},"value":${args.ShowValue},"terminators":${args.ShowTerminators}},
+    "ticklabels":"${args.TickLabels}",
+    "floodtovalue":${args.FloodToValue}
 }
 `)}
 
@@ -43,9 +43,9 @@ ${parseCustomProps(`
         <script type="text/javascript">app.RegisterProperties("_QHowManyMissed",
 {
     "values":{"min":${args.ValuesMin},"max":${args.ValuesMax}},
-    "show":{"marks":true,"value":true,"terminators":true},
-    "ticklabels":'10',
-    "floodtovalue":true
+    "show":{"marks":${args.ShowMarks},"value":${args.ShowValue},"terminators":${args.ShowTerminators}},
+    "ticklabels":"${args.TickLabels}",
+    "floodtovalue":${args.FloodToValue}
 }
         );</script>
 
