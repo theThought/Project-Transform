@@ -323,19 +323,23 @@ define(['component'],
          */
         mList.prototype.calculateWidth = function () {
             var elementdims = getComputedStyle(this.element);
-            var listwidth = Math.round(parseFloat(elementdims.width));
-
-            var containerdims = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = Math.floor(parseFloat(containerdims.width));
-
-            var width = Math.min(listwidth, maxavailablewidth);
+            var listwidth = Math.ceil(parseFloat(elementdims.width));
+            var width = Math.min(listwidth, this.getContainerWidth());
 
             this.setWidth(width);
             this.requestControlWidth();
         }
 
+        mList.prototype.getContainerWidth = function () {
+            var padding = 32;
+            var containerdims = getComputedStyle(this.container.closest('question'));
+            return Math.floor(parseFloat(containerdims.width) - padding);
+        }
+
         mList.prototype.setWidth = function (width) {
-            this.element.style.width = width - 2 + 'px';
+            // we are setting the overall width based on the width of the text and must add padding
+            var padding = 32;
+            this.element.style.width = width + padding + 'px';
             this.width = width;
             this.notifyElementWidth();
         }
@@ -345,10 +349,13 @@ define(['component'],
                 return;
             }
 
-            if (event.detail.width > this.width) {
-                var padding = (this.controltype === 'droplist') ? 64 : 32;
-                this.element.style.width = event.detail.width + padding + 'px';
-                this.width = event.detail.width;
+            if (event.detail.width >= this.width) {
+                console.log('Setting list width from control ' + this.id);
+                var padding = 32;
+                var newwidth = Math.min(event.detail.width + padding, this.getContainerWidth());
+
+                this.element.style.width = newwidth + 'px';
+                this.width = newwidth;
             }
         }
 
@@ -358,7 +365,7 @@ define(['component'],
          * @returns {int}
          */
         mList.prototype.calculateControlHeight = function () {
-            var height= getComputedStyle(document.documentElement).getPropertyValue('--combobox-height');
+            var height = getComputedStyle(document.documentElement).getPropertyValue('--combobox-height');
             var paddingTop = getComputedStyle(document.documentElement).getPropertyValue('--combobox-padding-top');
             var paddingBottom = getComputedStyle(document.documentElement).getPropertyValue('--combobox-padding-bottom');
 
@@ -444,7 +451,7 @@ define(['component'],
                     return;
                 }
             }
-            
+
             if (typeof target.scrollTop !== 'undefined') {
                 scrollTop = target.scrollTop;
 

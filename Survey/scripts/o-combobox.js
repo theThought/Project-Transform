@@ -208,20 +208,22 @@ define(['component'],
                 return;
             }
 
-            var padding = 64;
             var elementdims = getComputedStyle(this.element);
             var initialwidth = parseInt(elementdims.width);
             var longestentry = this.defaultplaceholder;
             var inputwidth = this.getWidthOfText(longestentry);
             var desiredwidth = (Math.max(initialwidth, inputwidth));
 
-            var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = Math.floor(parseFloat(containerstyles.width) - padding);
-
-            var newwidth = Math.min(desiredwidth, maxavailablewidth);
+            var newwidth = Math.min(desiredwidth, this.getContainerWidth());
 
             this.setWidth(newwidth);
             this.requestListWidth();
+        }
+
+        oCombobox.prototype.getContainerWidth = function () {
+            var padding = 64;
+            var containerstyles = getComputedStyle(this.container.closest('question'));
+            return Math.floor(parseFloat(containerstyles.width) - padding);
         }
 
         oCombobox.prototype.setWidth = function (newwidth) {
@@ -236,9 +238,10 @@ define(['component'],
             }
 
             if (event.detail.width > this.width) {
-                var padding = 32;
-                this.element.style.width = event.detail.width - padding - 2 + 'px';
-                this.width = event.detail.width;
+                var newwidth = Math.min(event.detail.width, this.getContainerWidth());
+                //var padding = 32; // from the list
+                this.element.style.width = newwidth - 2 + 'px';
+                this.width = newwidth;
             }
         }
 
