@@ -4,12 +4,17 @@ const ignoredStrings = [
     '"balance":{"state":false}',
     '"onesize":{"state":false}',
     '"sublistline":{"state":false}',
+    // Open-ends
+    '"labels":{}',
     // Lists
     '"exact":true',
     '"filtertype":"contains"',
     '"mincharactersforlist":0',
     '"showanswers":true',
     '"selection":"undefined"',
+    // Sliders
+    '"min":undefined',
+    '"max":undefined',
 ];
 
 /**
