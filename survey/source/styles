@@ -1,0 +1,425 @@
+{
+  "Active state shadow": {
+    "$type": "shadow",
+    "$value": {
+      "blur": "11px",
+      "color": "#00000040",
+      "spread": "-9px",
+      "offsetX": "0px",
+      "offsetY": "11px"
+    }
+  },
+  "Button": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Error": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "14px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.4,
+      "letterSpacing": "0px"
+    }
+  },
+  "Formal": {
+    "alert": {
+      "error": {
+        "$type": "color",
+        "$value": "#DA2911",
+        "$description": "Danger action\nNegative action"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#2F469C",
+        "$description": "Info action"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "#007675",
+        "$description": "Success action\nPositive button"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#8F6400",
+        "$description": "Warning action"
+      }
+    },
+    "other": {
+      "pink": {
+        "$type": "color",
+        "$value": "#DEC7E8"
+      },
+      "purple": {
+        "$type": "color",
+        "$value": "#7A3996"
+      }
+    },
+    "scale": {
+      "grey": {
+        "dark": {
+          "$type": "color",
+          "$value": "#002554",
+          "$description": "Headers\nLabels"
+        },
+        "darkest": {
+          "$type": "color",
+          "$value": "#212C4C",
+          "$description": "Titles"
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#ECEFF5",
+          "$description": "Icons"
+        },
+        "medium": {
+          "$type": "color",
+          "$value": "#B4BDDB",
+          "$description": "Borders\nSeparators"
+        },
+        "white": {
+          "$type": "color",
+          "$value": "#FAFAFA",
+          "$description": "Background"
+        }
+      }
+    },
+    "theme": {
+      "dark blue": {
+        "$type": "color",
+        "$value": "#002554",
+        "$description": "Primary hover colour"
+      },
+      "dark green": {
+        "$type": "color",
+        "$value": "#004E4E",
+        "$description": "Secondary hover colour"
+      },
+      "light blue": {
+        "$type": "color",
+        "$value": "#2F469C",
+        "$description": "Primary colour, Accent"
+      },
+      "light green": {
+        "$type": "color",
+        "$value": "#007675",
+        "$description": "Secondary brand colour\nAccent"
+      }
+    }
+  },
+  "Informal": {
+    "alert": {
+      "danger": {
+        "$type": "color",
+        "$value": "#DA2911",
+        "$description": "Danger action\nNegative action"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "#4B79B6",
+        "$description": "Info action"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "#469B9B",
+        "$description": "Success action\nPositive action"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#D4AA49",
+        "$description": "Warning action"
+      }
+    },
+    "other": {
+      "dark_grey": {
+        "$type": "color",
+        "$value": "#4A444E",
+        "$description": "Questions\nLabels\nIcons"
+      },
+      "disabled_grey": {
+        "$type": "color",
+        "$value": "#6A646F",
+        "$description": "disabled states"
+      },
+      "pink": {
+        "$type": "color",
+        "$value": "#DEC7E8"
+      }
+    },
+    "theme": {
+      "hover_purple": {
+        "$type": "color",
+        "$value": "#662582",
+        "$description": "Secondary hover colour"
+      },
+      "hover_sand": {
+        "$type": "color",
+        "$value": "#D4AA49",
+        "$description": "Primary hover colour\n"
+      },
+      "purple": {
+        "$type": "color",
+        "$value": "#7A3996",
+        "$description": "Secondary brand colour\nAccent"
+      },
+      "sand": {
+        "$type": "color",
+        "$value": "#E8BE5D",
+        "$description": "Primary colour Accent"
+      }
+    }
+  },
+  "Information": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "14px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.4,
+      "letterSpacing": "0px"
+    }
+  },
+  "Instruction": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Iteration": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "LABEL": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 700,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Label": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Link": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "List Heading": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Merriweather",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Option": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Placeholder": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Progress Value": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Question": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "16px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0px"
+    }
+  },
+  "Success": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "14px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.4,
+      "letterSpacing": "0px"
+    }
+  },
+  "Warning": {
+    "$type": "typography",
+    "$value": {
+      "fontSize": "14px",
+      "fontFamily": "Karla",
+      "fontWeight": 400,
+      "lineHeight": 1.4,
+      "letterSpacing": "0px"
+    }
+  },
+  "base": {
+    "$type": "shadow",
+    "$value": {
+      "blur": "2px",
+      "color": "#0000000F",
+      "spread": "0px",
+      "offsetX": "0px",
+      "offsetY": "1px"
+    }
+  },
+  "gray": {
+    "200": {
+      "$type": "color",
+      "$value": "#E2E8F0"
+    }
+  },
+  "other": {
+    "dark_grey": {
+      "$type": "color",
+      "$value": "#6A646F"
+    },
+    "disabled_grey": {
+      "$type": "color",
+      "$value": "#847E88"
+    }
+  },
+  "scale": {
+    "grey": {
+      "dark 1": {
+        "$type": "color",
+        "$value": "#57699C"
+      },
+      "darkest": {
+        "$type": "color",
+        "$value": "#212C4C"
+      },
+      "light 1": {
+        "$type": "color",
+        "$value": "#ECEFF5"
+      },
+      "light 2": {
+        "$type": "color",
+        "$value": "#D6DDEB"
+      },
+      "light 3": {
+        "$type": "color",
+        "$value": "#B4BDDB"
+      },
+      "light 4": {
+        "$type": "color",
+        "$value": "#8797C8"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#FAFAFA"
+      }
+    }
+  },
+  "theme": {
+    "blue": {
+      "$type": "color",
+      "$value": "#455B97"
+    },
+    "green": {
+      "$type": "color",
+      "$value": "#449B9B"
+    },
+    "hover_blue": {
+      "$type": "color",
+      "$value": "#324371"
+    },
+    "hover_green": {
+      "$type": "color",
+      "$value": "#317474"
+    },
+    "hover_purple": {
+      "$type": "color",
+      "$value": "#662582"
+    },
+    "hover_sand": {
+      "$type": "color",
+      "$value": "#D4AA49"
+    },
+    "info": {
+      "$type": "color",
+      "$value": "#4B79B6"
+    },
+    "lightblue": {
+      "$type": "color",
+      "$value": "#C2DBFC"
+    },
+    "pink": {
+      "$type": "color",
+      "$value": "#DEC7E8"
+    },
+    "purple": {
+      "$type": "color",
+      "$value": "#7A3996"
+    },
+    "red error": {
+      "$type": "color",
+      "$value": "#DA2911"
+    },
+    "sand": {
+      "$type": "color",
+      "$value": "#E8BE5D"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "#469B9B"
+    }
+  },
+  "white": {
+    "$type": "color",
+    "$value": "#FFFFFF"
+  }
+}
