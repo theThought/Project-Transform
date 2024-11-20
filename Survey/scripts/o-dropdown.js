@@ -194,7 +194,6 @@ define(['component'],
             }
 
             this.element.size = 1;
-            var padding = 64;
             var safety = 4; // pixels to add to allow for slight text kerning overflow
             var elementdims = getComputedStyle(this.element);
             var initialwidth = parseInt(elementdims.width);
@@ -202,13 +201,16 @@ define(['component'],
             var inputwidth = this.getWidthOfText(longestentry) + safety;
             var desiredwidth = (Math.max(initialwidth, inputwidth));
 
-            var containerstyles = getComputedStyle(this.container.closest('question'));
-            var maxavailablewidth = Math.floor(parseFloat(containerstyles.width) - padding);
-
-            var newwidth = Math.min(desiredwidth, maxavailablewidth);
+            var newwidth = Math.min(desiredwidth, this.getContainerWidth());
 
             this.setWidth(newwidth);
             this.requestListWidth();
+        }
+
+        oDropdown.prototype.getContainerWidth = function () {
+            var padding = 64;
+            var containerstyles = getComputedStyle(this.container.closest('question'));
+            return Math.floor(parseFloat(containerstyles.width) - padding);
         }
 
         oDropdown.prototype.setWidth = function (newwidth) {
@@ -223,9 +225,10 @@ define(['component'],
             }
 
             if (event.detail.width > this.width) {
-                var padding = 64;
-                this.element.style.width = event.detail.width - padding - 2 + 'px';
-                this.width = event.detail.width;
+                var newwidth = Math.min(event.detail.width, this.getContainerWidth());
+                //var padding = 32; // from the list
+                this.element.style.width = newwidth - 2 + 'px';
+                this.width = newwidth;
             }
         }
 

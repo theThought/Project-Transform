@@ -3143,7 +3143,6 @@ html[dir=rtl] .show-spinner .grid-column-total span {
 .o-question-container {
   padding: 1em;
   position: relative;
-  display: none;
 }
 .o-question-container.cover-off, .o-question-container.unavailable {
   display: block;
