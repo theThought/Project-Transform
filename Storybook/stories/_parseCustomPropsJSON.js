@@ -20,6 +20,13 @@ const ignoredStrings = [
     '"floodtovalue":false',
 ];
 
+// const createCopyButton = () => {
+//     const button = document.createElement('button');
+//     button.setAttribute('data-copy', '');
+
+//     return button;
+// }
+
 /**
  * Function - parse template literal containing custom properties JSON, and replace/sanitise unwanted content prior to rendering in Storybook, for use in ZeroHeight docs.
  *
@@ -49,8 +56,8 @@ export const parseCustomProps = (json) => {
     // Build HTML string.
     parsedJson = `
         <div style="margin-block-end: 2rem; overflow-x: auto;">
-            <span>Custom properties JSON:</span><br/>
-            <pre>${parsedJson}</pre>
+            <button data-copy>Copy custom properties JSON</button>
+            <pre data-json>${parsedJson}</pre>
         </div>
     `;
 

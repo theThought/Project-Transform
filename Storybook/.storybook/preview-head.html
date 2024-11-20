@@ -25,5 +25,12 @@
         console.log('Storybook DOMContentLoaded fired... re-init components');
         // Replaces "require(['main'], function () { })" used in real survey.
         require(['main-storybook'], function () { });
+
+        // Add a copy JSON button to stories.
+        const btnCopy = document.querySelector('[data-copy]');
+        const json = document.querySelector('[data-json]');
+        btnCopy.addEventListener('click', () => {
+            navigator.clipboard.writeText(json.innerHTML.trim());
+        });
     });
 </script>
