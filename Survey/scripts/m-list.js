@@ -428,7 +428,7 @@ define(['component'],
                 return;
             }
 
-            if (!target.body.contains(this.element)) {
+            if (target !== document && !target.contains(this.element)) {
                 return;
             }
 
