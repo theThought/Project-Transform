@@ -1,9 +1,9 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
-} from '../../_htmlFragments';
+} from '../../../_htmlFragments';
 
-import { parseCustomProps } from '../../_parseCustomPropsJSON';
+import { parseCustomProps } from '../../../_parseCustomPropsJSON';
 
 const style = `
 <style>

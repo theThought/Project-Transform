@@ -1,7 +1,7 @@
-import { SliderHorizontalHtml } from './Slider';
+import { ScaleHorizontalHtml } from './Scale';
 
 export default {
-    title: 'Templates/Sliders/t-slider',
+    title: 'Templates/Sliders & Scales/t-scale',
     parameters: {
         status: {
             type: 'beta',
@@ -10,7 +10,7 @@ export default {
     argTypes: {
         ValuesMin: {
             control: 'number',
-            description: 'Minimum numeric value for slider.',
+            description: 'Minimum numeric value for scale.',
             table: {
                 type: { summary: 'number' },
                 defaultValue: { summary: 'n/a' }
@@ -18,7 +18,7 @@ export default {
         },
         ValuesMax: {
             control: 'number',
-            description: 'Maximum numeric value for slider.',
+            description: 'Maximum numeric value for scale.',
             table: {
                 type: { summary: 'number' },
                 defaultValue: { summary: 'n/a' }
@@ -26,7 +26,7 @@ export default {
         },
         ShowMarks: {
             control: 'boolean',
-            description: 'Indicates whether slider track marks (dividers) are shown.',
+            description: 'Indicates whether scale track marks (dividers) are shown.',
             table: {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' }
@@ -50,7 +50,7 @@ export default {
         },
         TickLabels: {
             control: 'text',
-            description: 'Determines which incremental "steps" are shown in the slider scale.',
+            description: 'Determines which incremental "steps" are shown in the scale.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: '10' }
@@ -58,7 +58,7 @@ export default {
         },
         FloodToValue: {
             control: 'boolean',
-            description: 'Indicates whether the slider track is filled with a solid colour up to the selected value.',
+            description: 'Indicates whether the scale track is filled with a solid colour up to the selected value.',
             table: {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' }
@@ -67,7 +67,7 @@ export default {
     }
 };
 
-export const SliderHorizontal = {
+export const ScaleHorizontal = {
     args: {
         ValuesMin: 0,
         ValuesMax: 100,
@@ -76,5 +76,5 @@ export const SliderHorizontal = {
         ShowTerminators: false,
         FloodToValue: false
     },
-    render: (args) => SliderHorizontalHtml(args),
+    render: (args) => ScaleHorizontalHtml(args),
 };

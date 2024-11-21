@@ -1,7 +1,7 @@
 import { SliderVerticalHtml } from './Slider';
 
 export default {
-    title: 'Templates/Sliders/t-slider',
+    title: 'Templates/Sliders & Scales/t-slider',
     parameters: {
         status: {
             type: 'beta',
@@ -10,5 +10,5 @@ export default {
 };
 
 export const SliderVertical = {
-    render: (args) => SliderVerticalHtml(args),
+    render: () => SliderVerticalHtml(),
 };
