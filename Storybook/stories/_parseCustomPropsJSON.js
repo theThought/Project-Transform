@@ -55,9 +55,9 @@ export const parseCustomProps = (json) => {
 
     // Build HTML string.
     parsedJson = `
-        <div style="margin-block-end: 2rem; overflow-x: auto;">
-            <button data-copy>Copy custom properties JSON</button>
-            <pre data-json>${parsedJson}</pre>
+        <div style="margin-block-end: 3rem;">
+            <button class="a-button" data-copy>Copy custom properties JSON</button>
+            <span data-json style="font-family: monospace;">${parsedJson}</span>
         </div>
     `;
 
