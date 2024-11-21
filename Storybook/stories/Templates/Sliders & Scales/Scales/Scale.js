@@ -41,7 +41,6 @@ ${parseCustomProps(`
         <script type="text/javascript">app.RegisterProperties("_QPassive10Scale",
 {
     "values":{"min":${args.ValuesMin},"max":${args.ValuesMax},"position":"${args.ValuesPosition}"},
-    "unit":{"image":{"width":"32px","height":"32px"}},
     "labels":{"pre":"${args.LabelsPre}","post":"${args.LabelsPost}"}
 }
         );</script>

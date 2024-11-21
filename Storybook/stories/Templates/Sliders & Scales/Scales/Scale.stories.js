@@ -26,8 +26,8 @@ export default {
         },
         ValuesPosition: {
             control: 'select',
-            options: ['inside', 'outside'],
-            description: 'TBC.',
+            options: ['inside', 'above', 'below', 'none'],
+            description: 'Indicates where the values assigned to each unit should be positioned.',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: 'inside' }
@@ -35,7 +35,7 @@ export default {
         },
         LabelsPre: {
             control: 'text',
-            description: 'Sets the text label for the scale min value.',
+            description: 'Sets the pre-label text for the minimum end of the scale.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
@@ -43,7 +43,7 @@ export default {
         },
         LabelsPost: {
             control: 'text',
-            description: 'Sets the text label for the scale max value.',
+            description: 'Sets the post-label text for the maximum end of the scale.',
             table: {
                 type: { summary: 'text' },
                 defaultValue: { summary: 'n/a' }
@@ -54,8 +54,6 @@ export default {
 
 export const ScaleHorizontal = {
     args: {
-        ValuesMin: 0,
-        ValuesMax: 10,
         ValuesPosition: 'inside',
         LabelsPre: 'very dissatisfied',
         LabelsPost: 'very satisfied',

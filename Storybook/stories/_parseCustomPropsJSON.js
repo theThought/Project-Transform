@@ -18,6 +18,9 @@ const ignoredStrings = [
     '"terminators":false',
     '"ticklabels":"undefined"',
     '"floodtovalue":false',
+    '"min":undefined',
+    '"max":undefined',
+    '"position":"inside"',
 ];
 
 /**
