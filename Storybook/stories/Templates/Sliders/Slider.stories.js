@@ -58,7 +58,7 @@ export default {
         },
         FloodToValue: {
             control: 'boolean',
-            description: 'Indicates whether the slider track is filled with a solid colour.',
+            description: 'Indicates whether the slider track is filled with a solid colour up to the selected value.',
             table: {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' }
