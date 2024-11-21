@@ -26,7 +26,7 @@ export default {
         },
         ShowMarks: {
             control: 'boolean',
-            description: 'Indicates whether tick marks are shown.',
+            description: 'Indicates whether slider track marks (dividers) are shown.',
             table: {
                 type: { summary: 'boolean' },
                 defaultValue: { summary: 'false' }
