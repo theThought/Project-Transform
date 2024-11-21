@@ -1,6 +1,6 @@
 define(['o-question'],
-    function (oQuestion) {  
-        function oQuestionScale(id, group) { 
+    function (oQuestion) {
+        function oQuestionScale(id, group) {
             oQuestion.call(this, id, group);
             this.container = document.querySelector('.o-question-response[data-questiongroup="' + this.group + '"]');
             this.unitContainer = this.container.querySelector('.o-scale-unitcontainer');
@@ -121,12 +121,12 @@ define(['o-question'],
         }
 
         oQuestionScale.prototype.setUnitBackground = function () {
-            var unitProperties = this.properties.unit;
-            var imageProperties = unitProperties.image;
-
-            if (typeof imageProperties === 'undefined') {
+            if (typeof unitProperties === 'undefined') {
                 return;
             }
+
+            var unitProperties = this.properties.unit;
+            var imageProperties = unitProperties.image;
 
             var imageURL = imageProperties.url;
             var imageWidth = imageProperties.width;
@@ -264,7 +264,7 @@ define(['o-question'],
                 }
             }
         }
-        
+
         oQuestionScale.prototype.background = function (backgroundProperties) {
             var imageProperties = backgroundProperties.image;
             if (typeof imageProperties === 'undefined') {
