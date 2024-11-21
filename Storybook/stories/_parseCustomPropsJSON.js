@@ -4,28 +4,21 @@ const ignoredStrings = [
     '"balance":{"state":false}',
     '"onesize":{"state":false}',
     '"sublistline":{"state":false}',
-    // Open-ends
+    // Open-end questions
     '"labels":{}',
-    // Lists
+    // List questions
     '"exact":true',
     '"filtertype":"contains"',
     '"mincharactersforlist":0',
     '"showanswers":true',
     '"selection":"undefined"',
-    // Sliders
+    // Slider questions
     '"marks":false',
     '"value":false',
     '"terminators":false',
     '"ticklabels":"undefined"',
     '"floodtovalue":false',
 ];
-
-// const createCopyButton = () => {
-//     const button = document.createElement('button');
-//     button.setAttribute('data-copy', '');
-
-//     return button;
-// }
 
 /**
  * Function - parse template literal containing custom properties JSON, and replace/sanitise unwanted content prior to rendering in Storybook, for use in ZeroHeight docs.
@@ -45,7 +38,6 @@ export const parseCustomProps = (json) => {
     let parsedJson = json;
     // Replace any unwanted characters.
     parsedJson = parsedJson.replace(/"/gm, '\''); // Double quotes with single
-    // parsedJson = parsedJson.replace(/\s/gm, ''); // Whitespace
     parsedJson = parsedJson.replace(/\s+/gm, ' '); // Whitespace
     parsedJson = parsedJson.replace(/( ,)/gm, ','); // Rogue commas
     parsedJson = parsedJson.replace(/,+/gm, ','); // Rogue commas
