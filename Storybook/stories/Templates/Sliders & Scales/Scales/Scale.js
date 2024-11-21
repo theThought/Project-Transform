@@ -22,10 +22,8 @@ Render custom properties for ZeroHeight scriptwriter users.
 -->
 ${parseCustomProps(`
 {
-    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax}},
-    "show":{"marks":${args.ShowMarks},"value":${args.ShowValue},"terminators":${args.ShowTerminators}},
-    "ticklabels":"${args.TickLabels}",
-    "floodtovalue":${args.FloodToValue}
+    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax},"position":"${args.ValuesPosition}"},
+    "labels":{"pre":"${args.LabelsPre}","post":"${args.LabelsPost}"}
 }
 `)}
 
@@ -42,9 +40,9 @@ ${parseCustomProps(`
 
         <script type="text/javascript">app.RegisterProperties("_QPassive10Scale",
 {
-        "values":{"min":1,"max":10,"position":"inside"},
-        "unit":{"image":{"width":"32px","height":"32px"}},
-        "labels":{"pre":"Very Dissatisfied","post":"Very Satisfied"}
+    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax},"position":"${args.ValuesPosition}"},
+    "unit":{"image":{"width":"32px","height":"32px"}},
+    "labels":{"pre":"${args.LabelsPre}","post":"${args.LabelsPost}"}
 }
         );</script>
 

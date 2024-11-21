@@ -12,7 +12,7 @@ const ignoredStrings = [
     '"mincharactersforlist":0',
     '"showanswers":true',
     '"selection":"undefined"',
-    // Slider questions
+    // Slider & scale questions
     '"marks":false',
     '"value":false',
     '"terminators":false',

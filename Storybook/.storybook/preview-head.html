@@ -29,7 +29,8 @@
         // Add a copy JSON button to stories.
         const btnCopy = document.querySelector('[data-copy]');
         const json = document.querySelector('[data-json]');
-        btnCopy.addEventListener('click', () => {
+
+        btnCopy && json && btnCopy.addEventListener('click', () => {
             navigator.clipboard.writeText(json.innerHTML.trim());
         });
     });

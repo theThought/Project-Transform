@@ -24,44 +24,29 @@ export default {
                 defaultValue: { summary: 'n/a' }
             },
         },
-        ShowMarks: {
-            control: 'boolean',
-            description: 'Indicates whether scale track marks (dividers) are shown.',
+        ValuesPosition: {
+            control: 'select',
+            options: ['inside', 'outside'],
+            description: 'TBC.',
             table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
+                type: { summary: 'select' },
+                defaultValue: { summary: 'inside' }
             },
         },
-        ShowValue: {
-            control: 'boolean',
-            description: 'Indicates whether the selected value is shown.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        ShowTerminators: {
-            control: 'boolean',
-            description: 'Indicates whether increment & decrement buttons are shown.',
-            table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
-            },
-        },
-        TickLabels: {
+        LabelsPre: {
             control: 'text',
-            description: 'Determines which incremental "steps" are shown in the scale.',
+            description: 'Sets the text label for the scale min value.',
             table: {
                 type: { summary: 'text' },
-                defaultValue: { summary: '10' }
+                defaultValue: { summary: 'n/a' }
             },
         },
-        FloodToValue: {
-            control: 'boolean',
-            description: 'Indicates whether the scale track is filled with a solid colour up to the selected value.',
+        LabelsPost: {
+            control: 'text',
+            description: 'Sets the text label for the scale max value.',
             table: {
-                type: { summary: 'boolean' },
-                defaultValue: { summary: 'false' }
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
             },
         },
     }
@@ -70,11 +55,10 @@ export default {
 export const ScaleHorizontal = {
     args: {
         ValuesMin: 0,
-        ValuesMax: 100,
-        ShowMarks: false,
-        ShowValue: false,
-        ShowTerminators: false,
-        FloodToValue: false
+        ValuesMax: 10,
+        ValuesPosition: 'inside',
+        LabelsPre: 'very dissatisfied',
+        LabelsPost: 'very satisfied',
     },
     render: (args) => ScaleHorizontalHtml(args),
 };
