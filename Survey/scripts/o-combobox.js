@@ -221,7 +221,7 @@ define(['component'],
         }
 
         oCombobox.prototype.getContainerWidth = function () {
-            var padding = 64;
+            var padding = 32;
             var containerstyles = getComputedStyle(this.container.closest('question'));
             return Math.floor(parseFloat(containerstyles.width) - padding);
         }
@@ -239,13 +239,18 @@ define(['component'],
 
             if (event.detail.width > this.width) {
                 var newwidth = Math.min(event.detail.width, this.getContainerWidth());
-                //var padding = 32; // from the list
-                this.element.style.width = newwidth - 2 + 'px';
+                var padding = 32; // from the list
+                this.element.style.width = newwidth - padding + 'px';
                 this.width = newwidth;
             }
         }
 
         oCombobox.prototype.notifyElementWidth = function () {
+            if (!this.width) {
+                this.calculateWidth();
+                return;
+            }
+
             var widthEvent = new CustomEvent(this.group + '_listWidth', {bubbles: true, detail: this});
             this.element.dispatchEvent(widthEvent);
         }

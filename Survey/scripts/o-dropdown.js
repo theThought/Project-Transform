@@ -194,11 +194,10 @@ define(['component'],
             }
 
             this.element.size = 1;
-            var safety = 4; // pixels to add to allow for slight text kerning overflow
             var elementdims = getComputedStyle(this.element);
             var initialwidth = parseInt(elementdims.width);
             var longestentry = this.defaultplaceholder;
-            var inputwidth = this.getWidthOfText(longestentry) + safety;
+            var inputwidth = this.getWidthOfText(longestentry);
             var desiredwidth = (Math.max(initialwidth, inputwidth));
 
             var newwidth = Math.min(desiredwidth, this.getContainerWidth());
@@ -208,7 +207,7 @@ define(['component'],
         }
 
         oDropdown.prototype.getContainerWidth = function () {
-            var padding = 64;
+            var padding = 32;
             var containerstyles = getComputedStyle(this.container.closest('question'));
             return Math.floor(parseFloat(containerstyles.width) - padding);
         }
@@ -226,13 +225,18 @@ define(['component'],
 
             if (event.detail.width > this.width) {
                 var newwidth = Math.min(event.detail.width, this.getContainerWidth());
-                //var padding = 32; // from the list
-                this.element.style.width = newwidth - 2 + 'px';
+                var padding = 32; // from the list
+                this.element.style.width = newwidth - padding + 'px';
                 this.width = newwidth;
             }
         }
 
         oDropdown.prototype.notifyElementWidth = function () {
+            if (!this.width) {
+                this.calculateWidth();
+                return;
+            }
+
             var widthEvent = new CustomEvent(this.group + '_listWidth', {bubbles: true, detail: this});
             this.element.dispatchEvent(widthEvent);
         }
