@@ -9,6 +9,7 @@
 .o-combobox {
     input[type=text] {
         max-width: 100%;
+        padding: 10px 16px;
         padding: var(--combobox-padding-top) 16px;
         border-radius: globals.$text-border-radius;
         border: globals.$border-thickness solid globals.$borders;
@@ -50,6 +51,7 @@
 .o-dropdown {
     input[type=text] {
         max-width: 100%;
+        padding: 10px 48px 10px 16px;
         padding: var(--combobox-padding-top) 48px var(--combobox-padding-bottom) 16px;
         border-radius: globals.$border-radius;
         border: globals.$border-thickness solid globals.$theme-primary;

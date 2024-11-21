@@ -1720,6 +1720,7 @@ html[dir=rtl] .balance .m-option-base {
 .o-option-sublist::after {
   display: block;
   position: absolute;
+  left: 0;
   bottom: -1em;
   content: "";
   width: 25%;
@@ -2550,6 +2551,7 @@ input[type=range]:focus::-ms-fill-lower {
 
 .o-combobox input[type=text] {
   max-width: 100%;
+  padding: 10px 16px;
   padding: var(--combobox-padding-top) 16px;
   border-radius: 2px;
   border: 1px solid #8797C8;
@@ -2596,6 +2598,7 @@ input[type=range]:focus::-ms-fill-lower {
 
 .o-dropdown input[type=text] {
   max-width: 100%;
+  padding: 10px 48px 10px 16px;
   padding: var(--combobox-padding-top) 48px var(--combobox-padding-bottom) 16px;
   border-radius: 4px;
   border: 1px solid #455B97;

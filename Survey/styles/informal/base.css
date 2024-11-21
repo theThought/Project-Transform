@@ -1708,6 +1708,7 @@ html[dir=rtl] .balance .m-option-base {
 .o-option-sublist::after {
   display: block;
   position: absolute;
+  left: 0;
   bottom: -1em;
   content: "";
   width: 25%;
