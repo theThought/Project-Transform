@@ -660,6 +660,10 @@
                <xsl:attribute name="name">
                   <xsl:value-of select="@Summary" />
                </xsl:attribute>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Grid</xsl:text>
+               </xsl:attribute>
                <xsl:call-template name="appComponentScript">
                   <xsl:with-param name="ComponentName" select="'oQuestionGrid'" />
                   <xsl:with-param name="qElementID" select="$qElementID" />
