@@ -219,7 +219,8 @@
                   <xsl:with-param name="theID" select="Style/@ZIndex" />
                </xsl:call-template>
             </xsl:when>
-            <xsl:otherwise>UNKOWN
+            <xsl:otherwise>
+            <xsl:text>UNKOWN</xsl:text>
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
@@ -254,15 +255,19 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName">
-               <xsl:text>oQuestion</xsl:text>
-               <xsl:value-of select="$tComponentName" />
-            </xsl:with-param>
-            <xsl:with-param name="qElementID" select="$qElementID" />
-            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-         </xsl:call-template>
+         <xsl:choose>
+            <xsl:when test="$tComponentName!='UNKOWN'">
+               <xsl:call-template name="appComponentScript">
+                  <xsl:with-param name="ComponentName">
+                     <xsl:text>oQuestion</xsl:text>
+                     <xsl:value-of select="$tComponentName" />
+                  </xsl:with-param>
+                  <xsl:with-param name="qElementID" select="$qElementID" />
+                  <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                  <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
+               </xsl:call-template>
+            </xsl:when>  
+         </xsl:choose>
          <xsl:call-template name='TypePicker'>
             <xsl:with-param name="qElementID" select="$qElementID" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
