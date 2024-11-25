@@ -233,7 +233,7 @@
             <xsl:value-of select="$tComponentName" />
          </xsl:attribute>
          <xsl:choose>
-            <xsl:when test="tComponentName!='UNKNOWN'">
+            <xsl:when test="$tComponentName!='UNKOWN'">
                <xsl:attribute name="data-questiongroup">
                   <xsl:value-of select="$qGroup_Name" />
                </xsl:attribute>
