@@ -232,11 +232,19 @@
             <xsl:text>o-question-</xsl:text>
             <xsl:value-of select="$tComponentName" />
          </xsl:attribute>
-         <xsl:if test="$qGroup_Name!=''">
-            <xsl:attribute name="data-questiongroup">
-               <xsl:value-of select="$qGroup_Name" />
-            </xsl:attribute>
-         </xsl:if>
+         <xsl:choose>
+            <xsl:when test="tComponentName!='UNKNOWN'">
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qGroup_Name" />
+               </xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Grid</xsl:text>
+               </xsl:attribute>
+            </xsl:otherwise>
+         </xsl:choose>
          <xsl:if test="Style/@Hidden">
             <xsl:attribute name="data-hidden">
                <xsl:text>true</xsl:text>
@@ -659,10 +667,6 @@
                </xsl:attribute>
                <xsl:attribute name="name">
                   <xsl:value-of select="@Summary" />
-               </xsl:attribute>
-               <xsl:attribute name="data-questiongroup">
-                  <xsl:value-of select="$qElementID" />
-                  <xsl:text>_Grid</xsl:text>
                </xsl:attribute>
                <xsl:call-template name="appComponentScript">
                   <xsl:with-param name="ComponentName" select="'oQuestionGrid'" />
