@@ -212,21 +212,24 @@
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
       
+      <xsl:variable name="tComponentName">
+         <xsl:choose>
+            <xsl:when test="Style/@ZIndex">
+               <xsl:call-template name="TranslateZIndexToName">
+                  <xsl:with-param name="theID" select="Style/@ZIndex" />
+               </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>UNKOWN
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-question-response</xsl:text>
             <xsl:value-of select="' '" />
             <xsl:text>o-question-</xsl:text>
-            <xsl:choose>
-               <xsl:when test="Style/@ZIndex">
-                  <xsl:call-template name="TranslateZIndexToName">
-                     <xsl:with-param name="theID" select="Style/@ZIndex" />
-                  </xsl:call-template>
-               </xsl:when>
-               <xsl:when test="Table">
-                  <xsl:text>table</xsl:text>
-               </xsl:when>
-            </xsl:choose>
+            <xsl:value-of select="$tComponentName" />
          </xsl:attribute>
          <xsl:if test="$qGroup_Name!=''">
             <xsl:attribute name="data-questiongroup">
@@ -254,13 +257,7 @@
          <xsl:call-template name="appComponentScript">
             <xsl:with-param name="ComponentName">
                <xsl:text>oQuestion</xsl:text>
-               <xsl:call-template name="CamelCaseWord">
-                  <xsl:with-param name="text">
-                     <xsl:call-template name="TranslateZIndexToName">
-                        <xsl:with-param name="theID" select="Style/@ZIndex" />
-                     </xsl:call-template>
-                  </xsl:with-param>
-               </xsl:call-template>
+               <xsl:value-of select="$tComponentName" />
             </xsl:with-param>
             <xsl:with-param name="qElementID" select="$qElementID" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
