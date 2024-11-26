@@ -93,11 +93,11 @@ define(
                 return;
             }
 
-            var valueRequest = new CustomEvent(this.group + '_valueRequest', {
+            var requestValue = new CustomEvent(this.group + '_requestValue', {
                 bubbles: true,
                 detail: this
             });
-            this.element.dispatchEvent(valueRequest);
+            this.element.dispatchEvent(requestValue);
         }
 
         component.prototype.checkCollision = function (firstElement, secondElement) {
