@@ -1,4 +1,4 @@
-import { GridCategoricalHtml } from './Grid';
+import { GridCategoricalHtml, GridMultipleControlsHtml } from './Grid';
 
 export default {
     title: 'Templates/Grids/t-grid',
@@ -11,4 +11,8 @@ export default {
 
 export const GridCategorical = {
     render: () => GridCategoricalHtml(),
+};
+
+export const GridMultipleControls = {
+    render: () => GridMultipleControlsHtml(),
 };

@@ -19,7 +19,7 @@ const style = `
 </style>
 `;
 
-export const GridCategoricalHtml = (args) => `
+export const GridCategoricalHtml = () => `
 ${style}
 
 <form action="#"
@@ -31,7 +31,7 @@ ${style}
 
     <div class="o-question-container focused cover-off config-complete sidebyside">
 
-    <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QDailyNewspapersByDay');</script>
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QDailyNewspapersByDay');</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
@@ -426,6 +426,345 @@ ${style}
                                                     <!--This is a comment!-->
                                                 </span>
                                             </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        ${htmlFragmentMessageInstruction}
+
+    </div>
+</div>
+
+</form>
+`;
+
+export const GridMultipleControlsHtml = () => `
+${style}
+
+<form action="#"
+    class="focus-question focus-control"
+    data-paste="true"
+>
+
+<div class="surroundcontent">
+
+    <div class="o-question-container focused cover-off config-complete sidebyside">
+
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QHiddenQuestions');</script>
+        <script type="text/javascript">app.RegisterProperties("_Qasimplequestion",{"type":"text"});</script>
+        <script type="text/javascript">app.RegisterProperties("_Qasimplequestionwithlabels",{"type":"number","labels":{"pre":"£", "post":"p"}});</script>
+        <script type="text/javascript">app.RegisterProperties("_Qasimpledropdown",{"displayicon":false,"jumptofirstletter":true,"listsize":10,"showanswers":false,"type":"dropdown","placeholder":"Which Gender"});</script>
+        <script type="text/javascript">app.RegisterProperties("_Qasimplecombobox",{"displayicon":false,"filtertype":"starts","listsize":10,"showanswers":false,"placeholder":"Which Gender","mincharactersforlist":1,"notenoughcharacters":"You need to type at least one character","noitemsinlist":"no items match this filter"});</script>
+        <script type="text/javascript">app.RegisterProperties("_Qasimpleslider",{"values":{"min":1,"max":5},"show":{"marks":true,"value":false,"terminators":true},"ticklabels":1,"floodtovalue":true});</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        ${htmlFragmentMessageError}
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                        Grid question (with inputs, dropdowns, comboboxes and sliders)
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+                        <div class="o-question-response o-question-UNKOWN" data-questiongroup="_Q0_Grid" data-readonly="false" data-position="below">
+                            <!--This is a table question-->
+                            <table data-orientation="Row" class="o-structure-table" name="Here is a grid containing various hidden questions">
+                                <script>app.registerComponent('oQuestionGrid','_Q0','_Q0_Grid');</script>
+                                <tr class="m-structure-row-heading" data-iterationname="">
+                                    <th orientation="Row" class="m-structure-cell" scope="col" style=""></th>
+                                    <th orientation="Row" class="m-structure-cell" scope="col" style="">
+                                        <span class="a-label-question">Input</span>
+                                    </th>
+                                    <th orientation="Row" class="m-structure-cell" scope="col" style="">
+                                        <span class="a-label-question">Input &amp; labels</span>
+                                    </th>
+                                    <th orientation="Row" class="m-structure-cell" scope="col" style="">
+                                        <span class="a-label-question">dropdown</span>
+                                    </th>
+                                    <th orientation="Row" class="m-structure-cell" scope="col" style="">
+                                        <span class="a-label-question">combobox</span>
+                                    </th>
+                                    <th orientation="Row" class="m-structure-cell" scope="col" style="">
+                                        <span class="a-label-question">slider</span>
+                                    </th>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Row" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">first</span>
+                                    </th>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplequestion" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q0_Q0','_QHiddenQuestions_Qfirstrow_Qasimplequestion');</script>
+                                            <input data-questionid="_Q0_Q0_Q0" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplequestion" data-position="below" type="text" step="any" name="_QHiddenQuestions_Qfirstrow_Qasimplequestion" id="_Q0_Q0_Q0" data-lpignore="true" autocomplete="off" style="width:5em;" maxlength="1024" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q0','_QHiddenQuestions_Qfirstrow_Qasimplequestion');</script>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplequestionwithlabels" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q0_Q1','_QHiddenQuestions_Qfirstrow_Qasimplequestionwithlabels');</script>
+                                            <input data-questionid="_Q0_Q0_Q1" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplequestionwithlabels" data-position="below" type="text" step="any" name="_QHiddenQuestions_Qfirstrow_Qasimplequestionwithlabels" id="_Q0_Q0_Q1" data-lpignore="true" autocomplete="off" style="width:5em;" maxlength="17" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q1','_QHiddenQuestions_Qfirstrow_Qasimplequestionwithlabels');</script>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-dropdown" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestiondropdown','_Q0_Q0_Q2','_QHiddenQuestions_Qfirstrow_Qasimpledropdown');</script>
+                                            <div class="o-dropdown" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown" data-questionid="_Q0_Q0_Q2">
+                                                <script>app.registerComponent('oDropdown','_Q0_Q0_Q2','_QHiddenQuestions_Qfirstrow_Qasimpledropdown');</script>
+                                                <input data-questionid="_Q0_Q0_Q2" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown" data-position="below" type="text" name="_QHiddenQuestions_Qfirstrow_Qasimpledropdown_C" id="_Q0_Q0_Q2" data-lpignore="true" autocomplete="off" style="" value="" data-value="" class="a-input-dropdown below"/>
+                                                <ul class="m-list" id="_Q0_Q0_Q2_list" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown">
+                                                    <script>app.registerComponent('mList','_Q0_Q0_Q2_list','_QHiddenQuestions_Qfirstrow_Qasimpledropdown');</script>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q0_Q2_C0" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown" data-value="male" id="_Q0_Q0_Q2_C0">male</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q0_Q2_C1" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown" data-value="female" id="_Q0_Q0_Q2_C1">female</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q0_Q2_C2" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpledropdown" data-value="none" id="_Q0_Q0_Q2_C2">non-binary</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-combobox" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestioncombobox','_Q0_Q0_Q3','_QHiddenQuestions_Qfirstrow_Qasimplecombobox');</script>
+                                            <div class="o-combobox" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox" data-questionid="_Q0_Q0_Q3">
+                                                <script>app.registerComponent('oCombobox','_Q0_Q0_Q3','_QHiddenQuestions_Qfirstrow_Qasimplecombobox');</script>
+                                                <input data-questionid="_Q0_Q0_Q3" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox" data-position="below" type="text" name="_QHiddenQuestions_Qfirstrow_Qasimplecombobox_C" id="_Q0_Q0_Q3" data-lpignore="true" autocomplete="off" style="" list="_Q0_Q0_Q3_list" value="" data-value="" class="a-input-combobox below"/>
+                                                <div class="o-list-selected" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox">
+                                                    <!-- - - - selected tags - - - -->
+                                                </div>
+                                                <ul class="m-list" id="_Q0_Q0_Q3_list" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox">
+                                                    <script>app.registerComponent('mList','_Q0_Q0_Q3_list','_QHiddenQuestions_Qfirstrow_Qasimplecombobox');</script>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q0_Q3_C0" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox" data-value="male" id="_Q0_Q0_Q3_C0">male</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q0_Q3_C1" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox" data-value="female" id="_Q0_Q0_Q3_C1">female</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q0_Q3_C2" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimplecombobox" data-value="none" id="_Q0_Q0_Q3_C2">non-binary</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-slider-horizontal" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpleslider" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionslider-horizontal','_Q0_Q0_Q4','_QHiddenQuestions_Qfirstrow_Qasimpleslider');</script>
+                                            <div>
+                                                <!-- - - - rotation div - - - -->
+                                                <div class="o-question-slider-horizontal-control">
+                                                    <button type="Button" class="a-button-preterminator" data-questionid="_Q0_Q0_Q4_Preterm" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpleslider">
+                                                        <!--slider-horizontalpre terminator-->
+                                                    </button>
+                                                    <script>app.registerComponent('aButtonPreTerminator','_Q0_Q0_Q4_Preterm','_QHiddenQuestions_Qfirstrow_Qasimpleslider');</script>
+                                                    <div style="width:17em" class="m-slider-horizontal">
+                                                        <div class="a-style-sliderborder">
+                                                            <!--slider-horizontal slider border-->
+                                                        </div>
+                                                        <div class="m-style-slidermarks">
+                                                            <!--slider-horizontal tick marks-->
+                                                        </div>
+                                                        <div class="m-slider-thumb-horizontal">
+                                                            <div class="a-label-thumbvalue" data-questionid="_Q0_Q0_Q4_Val" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpleslider">
+                                                                <script>app.registerComponent('aLabelThumbValue','_Q0_Q0_Q4_Thumbvalue','_QHiddenQuestions_Qfirstrow_Qasimpleslider');</script>
+                                                                <!--slider-horizontal thumb value-->
+                                                            </div>
+                                                        </div>
+                                                        <input data-questionid="_Q0_Q0_Q4" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpleslider" data-position="below" type="range" name="_QHiddenQuestions_Qfirstrow_Qasimpleslider" id="_Q0_Q0_Q4" data-lpignore="true" autocomplete="off" style="" maxlength="1" value="" data-value="" class="a-input-slider-horizontal below"/>
+                                                        <div data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpleslider" class="m-label-ticklabels">
+                                                            <!--slider-horizontal tick labels-->
+                                                        </div>
+                                                    </div>
+                                                    <script>app.registerComponent('aInputSlider-horizontal','_Q0_Q0_Q4','_QHiddenQuestions_Qfirstrow_Qasimpleslider');</script>
+                                                    <button type="Button" class="a-button-postterminator" data-questionid="_Q0_Q0_Q4_Postterm" data-questiongroup="_QHiddenQuestions_Qfirstrow_Qasimpleslider">
+                                                        <!--slider-horizontal post terminator-->
+                                                    </button>
+                                                    <script>app.registerComponent('aButtonPostTerminator','_Q0_Q0_Q4_Postterm','_QHiddenQuestions_Qfirstrow_Qasimpleslider');</script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Row" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">second</span>
+                                    </th>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplequestion" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q1_Q0','_QHiddenQuestions_Qsecondrow_Qasimplequestion');</script>
+                                            <input data-questionid="_Q0_Q1_Q0" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplequestion" data-position="below" type="text" step="any" name="_QHiddenQuestions_Qsecondrow_Qasimplequestion" id="_Q0_Q1_Q0" data-lpignore="true" autocomplete="off" style="width:5em;" maxlength="1024" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q0','_QHiddenQuestions_Qsecondrow_Qasimplequestion');</script>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplequestionwithlabels" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q1_Q1','_QHiddenQuestions_Qsecondrow_Qasimplequestionwithlabels');</script>
+                                            <input data-questionid="_Q0_Q1_Q1" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplequestionwithlabels" data-position="below" type="text" step="any" name="_QHiddenQuestions_Qsecondrow_Qasimplequestionwithlabels" id="_Q0_Q1_Q1" data-lpignore="true" autocomplete="off" style="width:5em;" maxlength="17" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q1','_QHiddenQuestions_Qsecondrow_Qasimplequestionwithlabels');</script>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-dropdown" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestiondropdown','_Q0_Q1_Q2','_QHiddenQuestions_Qsecondrow_Qasimpledropdown');</script>
+                                            <div class="o-dropdown" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown" data-questionid="_Q0_Q1_Q2">
+                                                <script>app.registerComponent('oDropdown','_Q0_Q1_Q2','_QHiddenQuestions_Qsecondrow_Qasimpledropdown');</script>
+                                                <input data-questionid="_Q0_Q1_Q2" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown" data-position="below" type="text" name="_QHiddenQuestions_Qsecondrow_Qasimpledropdown_C" id="_Q0_Q1_Q2" data-lpignore="true" autocomplete="off" style="" value="" data-value="" class="a-input-dropdown below"/>
+                                                <ul class="m-list" id="_Q0_Q1_Q2_list" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown">
+                                                    <script>app.registerComponent('mList','_Q0_Q1_Q2_list','_QHiddenQuestions_Qsecondrow_Qasimpledropdown');</script>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q1_Q2_C0" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown" data-value="male" id="_Q0_Q1_Q2_C0">male</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q1_Q2_C1" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown" data-value="female" id="_Q0_Q1_Q2_C1">female</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q1_Q2_C2" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpledropdown" data-value="none" id="_Q0_Q1_Q2_C2">non-binary</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-combobox" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestioncombobox','_Q0_Q1_Q3','_QHiddenQuestions_Qsecondrow_Qasimplecombobox');</script>
+                                            <div class="o-combobox" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox" data-questionid="_Q0_Q1_Q3">
+                                                <script>app.registerComponent('oCombobox','_Q0_Q1_Q3','_QHiddenQuestions_Qsecondrow_Qasimplecombobox');</script>
+                                                <input data-questionid="_Q0_Q1_Q3" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox" data-position="below" type="text" name="_QHiddenQuestions_Qsecondrow_Qasimplecombobox_C" id="_Q0_Q1_Q3" data-lpignore="true" autocomplete="off" style="" list="_Q0_Q1_Q3_list" value="" data-value="" class="a-input-combobox below"/>
+                                                <div class="o-list-selected" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox">
+                                                    <!-- - - - selected tags - - - -->
+                                                </div>
+                                                <ul class="m-list" id="_Q0_Q1_Q3_list" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox">
+                                                    <script>app.registerComponent('mList','_Q0_Q1_Q3_list','_QHiddenQuestions_Qsecondrow_Qasimplecombobox');</script>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q1_Q3_C0" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox" data-value="male" id="_Q0_Q1_Q3_C0">male</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q1_Q3_C1" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox" data-value="female" id="_Q0_Q1_Q3_C1">female</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q1_Q3_C2" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimplecombobox" data-value="none" id="_Q0_Q1_Q3_C2">non-binary</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-slider-horizontal" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpleslider" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionslider-horizontal','_Q0_Q1_Q4','_QHiddenQuestions_Qsecondrow_Qasimpleslider');</script>
+                                            <div>
+                                                <!-- - - - rotation div - - - -->
+                                                <div class="o-question-slider-horizontal-control">
+                                                    <button type="Button" class="a-button-preterminator" data-questionid="_Q0_Q1_Q4_Preterm" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpleslider">
+                                                        <!--slider-horizontalpre terminator-->
+                                                    </button>
+                                                    <script>app.registerComponent('aButtonPreTerminator','_Q0_Q1_Q4_Preterm','_QHiddenQuestions_Qsecondrow_Qasimpleslider');</script>
+                                                    <div style="width:17em" class="m-slider-horizontal">
+                                                        <div class="a-style-sliderborder">
+                                                            <!--slider-horizontal slider border-->
+                                                        </div>
+                                                        <div class="m-style-slidermarks">
+                                                            <!--slider-horizontal tick marks-->
+                                                        </div>
+                                                        <div class="m-slider-thumb-horizontal">
+                                                            <div class="a-label-thumbvalue" data-questionid="_Q0_Q1_Q4_Val" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpleslider">
+                                                                <script>app.registerComponent('aLabelThumbValue','_Q0_Q1_Q4_Thumbvalue','_QHiddenQuestions_Qsecondrow_Qasimpleslider');</script>
+                                                                <!--slider-horizontal thumb value-->
+                                                            </div>
+                                                        </div>
+                                                        <input data-questionid="_Q0_Q1_Q4" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpleslider" data-position="below" type="range" name="_QHiddenQuestions_Qsecondrow_Qasimpleslider" id="_Q0_Q1_Q4" data-lpignore="true" autocomplete="off" style="" maxlength="1" value="" data-value="" class="a-input-slider-horizontal below"/>
+                                                        <div data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpleslider" class="m-label-ticklabels">
+                                                            <!--slider-horizontal tick labels-->
+                                                        </div>
+                                                    </div>
+                                                    <script>app.registerComponent('aInputSlider-horizontal','_Q0_Q1_Q4','_QHiddenQuestions_Qsecondrow_Qasimpleslider');</script>
+                                                    <button type="Button" class="a-button-postterminator" data-questionid="_Q0_Q1_Q4_Postterm" data-questiongroup="_QHiddenQuestions_Qsecondrow_Qasimpleslider">
+                                                        <!--slider-horizontal post terminator-->
+                                                    </button>
+                                                    <script>app.registerComponent('aButtonPostTerminator','_Q0_Q1_Q4_Postterm','_QHiddenQuestions_Qsecondrow_Qasimpleslider');</script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Row" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">third</span>
+                                    </th>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplequestion" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q2_Q0','_QHiddenQuestions_Qthirdrow_Qasimplequestion');</script>
+                                            <input data-questionid="_Q0_Q2_Q0" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplequestion" data-position="below" type="text" step="any" name="_QHiddenQuestions_Qthirdrow_Qasimplequestion" id="_Q0_Q2_Q0" data-lpignore="true" autocomplete="off" style="width:5em;" maxlength="1024" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q0','_QHiddenQuestions_Qthirdrow_Qasimplequestion');</script>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplequestionwithlabels" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q2_Q1','_QHiddenQuestions_Qthirdrow_Qasimplequestionwithlabels');</script>
+                                            <input data-questionid="_Q0_Q2_Q1" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplequestionwithlabels" data-position="below" type="text" step="any" name="_QHiddenQuestions_Qthirdrow_Qasimplequestionwithlabels" id="_Q0_Q2_Q1" data-lpignore="true" autocomplete="off" style="width:5em;" maxlength="17" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q2_Q1','_QHiddenQuestions_Qthirdrow_Qasimplequestionwithlabels');</script>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-dropdown" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestiondropdown','_Q0_Q2_Q2','_QHiddenQuestions_Qthirdrow_Qasimpledropdown');</script>
+                                            <div class="o-dropdown" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown" data-questionid="_Q0_Q2_Q2">
+                                                <script>app.registerComponent('oDropdown','_Q0_Q2_Q2','_QHiddenQuestions_Qthirdrow_Qasimpledropdown');</script>
+                                                <input data-questionid="_Q0_Q2_Q2" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown" data-position="below" type="text" name="_QHiddenQuestions_Qthirdrow_Qasimpledropdown_C" id="_Q0_Q2_Q2" data-lpignore="true" autocomplete="off" style="" value="" data-value="" class="a-input-dropdown below"/>
+                                                <ul class="m-list" id="_Q0_Q2_Q2_list" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown">
+                                                    <script>app.registerComponent('mList','_Q0_Q2_Q2_list','_QHiddenQuestions_Qthirdrow_Qasimpledropdown');</script>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q2_Q2_C0" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown" data-value="male" id="_Q0_Q2_Q2_C0">male</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q2_Q2_C1" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown" data-value="female" id="_Q0_Q2_Q2_C1">female</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q2_Q2_C2" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpledropdown" data-value="none" id="_Q0_Q2_Q2_C2">non-binary</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-combobox" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestioncombobox','_Q0_Q2_Q3','_QHiddenQuestions_Qthirdrow_Qasimplecombobox');</script>
+                                            <div class="o-combobox" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox" data-questionid="_Q0_Q2_Q3">
+                                                <script>app.registerComponent('oCombobox','_Q0_Q2_Q3','_QHiddenQuestions_Qthirdrow_Qasimplecombobox');</script>
+                                                <input data-questionid="_Q0_Q2_Q3" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox" data-position="below" type="text" name="_QHiddenQuestions_Qthirdrow_Qasimplecombobox_C" id="_Q0_Q2_Q3" data-lpignore="true" autocomplete="off" style="" list="_Q0_Q2_Q3_list" value="" data-value="" class="a-input-combobox below"/>
+                                                <div class="o-list-selected" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox">
+                                                    <!-- - - - selected tags - - - -->
+                                                </div>
+                                                <ul class="m-list" id="_Q0_Q2_Q3_list" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox">
+                                                    <script>app.registerComponent('mList','_Q0_Q2_Q3_list','_QHiddenQuestions_Qthirdrow_Qasimplecombobox');</script>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q2_Q3_C0" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox" data-value="male" id="_Q0_Q2_Q3_C0">male</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q2_Q3_C1" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox" data-value="female" id="_Q0_Q2_Q3_C1">female</li>
+                                                    <li class="a-option-list" data-questionid="_Q0_Q2_Q3_C2" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimplecombobox" data-value="none" id="_Q0_Q2_Q3_C2">non-binary</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td orientation="Row" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-slider-horizontal" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpleslider" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionslider-horizontal','_Q0_Q2_Q4','_QHiddenQuestions_Qthirdrow_Qasimpleslider');</script>
+                                            <div>
+                                                <!-- - - - rotation div - - - -->
+                                                <div class="o-question-slider-horizontal-control">
+                                                    <button type="Button" class="a-button-preterminator" data-questionid="_Q0_Q2_Q4_Preterm" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpleslider">
+                                                        <!--slider-horizontalpre terminator-->
+                                                    </button>
+                                                    <script>app.registerComponent('aButtonPreTerminator','_Q0_Q2_Q4_Preterm','_QHiddenQuestions_Qthirdrow_Qasimpleslider');</script>
+                                                    <div style="width:17em" class="m-slider-horizontal">
+                                                        <div class="a-style-sliderborder">
+                                                            <!--slider-horizontal slider border-->
+                                                        </div>
+                                                        <div class="m-style-slidermarks">
+                                                            <!--slider-horizontal tick marks-->
+                                                        </div>
+                                                        <div class="m-slider-thumb-horizontal">
+                                                            <div class="a-label-thumbvalue" data-questionid="_Q0_Q2_Q4_Val" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpleslider">
+                                                                <script>app.registerComponent('aLabelThumbValue','_Q0_Q2_Q4_Thumbvalue','_QHiddenQuestions_Qthirdrow_Qasimpleslider');</script>
+                                                                <!--slider-horizontal thumb value-->
+                                                            </div>
+                                                        </div>
+                                                        <input data-questionid="_Q0_Q2_Q4" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpleslider" data-position="below" type="range" name="_QHiddenQuestions_Qthirdrow_Qasimpleslider" id="_Q0_Q2_Q4" data-lpignore="true" autocomplete="off" style="" maxlength="1" value="" data-value="" class="a-input-slider-horizontal below"/>
+                                                        <div data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpleslider" class="m-label-ticklabels">
+                                                            <!--slider-horizontal tick labels-->
+                                                        </div>
+                                                    </div>
+                                                    <script>app.registerComponent('aInputSlider-horizontal','_Q0_Q2_Q4','_QHiddenQuestions_Qthirdrow_Qasimpleslider');</script>
+                                                    <button type="Button" class="a-button-postterminator" data-questionid="_Q0_Q2_Q4_Postterm" data-questiongroup="_QHiddenQuestions_Qthirdrow_Qasimpleslider">
+                                                        <!--slider-horizontal post terminator-->
+                                                    </button>
+                                                    <script>app.registerComponent('aButtonPostTerminator','_Q0_Q2_Q4_Postterm','_QHiddenQuestions_Qthirdrow_Qasimpleslider');</script>
+                                                </div>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
