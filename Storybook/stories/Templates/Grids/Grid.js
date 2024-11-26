@@ -11,12 +11,173 @@ const style = `
     #storybook-docs .surroundcontent {
         min-height: fit-content;
     }
-
-    /* Storybook strips out inline <script> preceeding "m-option-base", so need to add margin back. */
-    .m-option-base:first-child {
-        margin-bottom: 4px;
-    }
 </style>
+`;
+
+export const GridCustomPropertiesHtml = (args) => `
+${style}
+
+<!--
+Render custom properties for ZeroHeight scriptwriter users.
+-->
+${parseCustomProps(`
+{
+
+}
+`)}
+
+<form action="#"
+    class="focus-question focus-control"
+    data-paste="true"
+>
+
+<div class="surroundcontent">
+
+    <div class="o-question-container focused cover-off config-complete sidebyside">
+
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_Qgrid6__subheading');</script>
+        <script type="text/javascript">app.RegisterProperties("_Qslice",{"type":"number", "labels":{"post":"%"}});</script>
+
+        <script type="text/javascript">app.RegisterProperties("_Qgrid6__subheading",
+{
+    "cellshading":{"rowheader":false, "altrows":true},
+    "totals":{
+        "rows":{
+            "visible":false, "exceptions":[1]
+        },
+        "columns":{
+            "visible":true, "caption":"Totals", "exceptions":[], "labels":{"post":"%"}
+        }
+    }
+}
+        );</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        ${htmlFragmentMessageError}
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                        Grid question (categorical)
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+                        <div class="o-question-response o-question-UNKOWN" data-questiongroup="_Q0_Grid" data-readonly="false" data-position="below">
+                            <!--This is a table question-->
+                            <table class="o-structure-table" name="Grid with row subheadings and column total">
+                                <script>app.registerComponent('oQuestionGrid','_Q0','_Q0_Grid');</script>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="2" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Customer-related</span>
+                                    </th>
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">customers on <b>prescription</b> treatments</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qpats__prescription__tx_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q0_Q0','_Qgrid6__subheading_Qpats__prescription__tx_Qslice');</script>
+                                            <input data-questionid="_Q0_Q0_Q0" data-questiongroup="_Qgrid6__subheading_Qpats__prescription__tx_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qpats__prescription__tx_Qslice" id="_Q0_Q0_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q0_Q0','_Qgrid6__subheading_Qpats__prescription__tx_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">customers on <b>non-prescription</b> treatments</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qpats__nonprescription__tx_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q1_Q0','_Qgrid6__subheading_Qpats__nonprescription__tx_Qslice');</script>
+                                            <input data-questionid="_Q0_Q1_Q0" data-questiongroup="_Qgrid6__subheading_Qpats__nonprescription__tx_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qpats__nonprescription__tx_Qslice" id="_Q0_Q1_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q1_Q0','_Qgrid6__subheading_Qpats__nonprescription__tx_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="3" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Prescription-related</span>
+                                    </th>
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Entering prescriptions into the system</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q4_Q0','_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice');</script>
+                                            <input data-questionid="_Q0_Q4_Q0" data-questiongroup="_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice" id="_Q0_Q4_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q0','_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Filling prescription (i.e. filling the bottle)</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qfilling__prescription_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q5_Q0','_Qgrid6__subheading_Qfilling__prescription_Qslice');</script>
+                                            <input data-questionid="_Q0_Q5_Q0" data-questiongroup="_Qgrid6__subheading_Qfilling__prescription_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qfilling__prescription_Qslice" id="_Q0_Q5_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q0','_Qgrid6__subheading_Qfilling__prescription_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Prescription verification</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qprescription__verification_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q6_Q0','_Qgrid6__subheading_Qprescription__verification_Qslice');</script>
+                                            <input data-questionid="_Q0_Q6_Q0" data-questiongroup="_Qgrid6__subheading_Qprescription__verification_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qprescription__verification_Qslice" id="_Q0_Q6_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q6_Q0','_Qgrid6__subheading_Qprescription__verification_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="2" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Other / administrative</span>
+                                    </th>
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Engaging with physicians</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q11_Q0','_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice');</script>
+                                            <input data-questionid="_Q0_Q11_Q0" data-questiongroup="_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice" id="_Q0_Q11_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q11_Q0','_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Engaging with insurance companies on behalf of customers</span>
+                                    </th>
+                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice" data-readonly="false" data-position="below">
+                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q12_Q0','_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice');</script>
+                                            <input data-questionid="_Q0_Q12_Q0" data-questiongroup="_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice" id="_Q0_Q12_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
+                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q12_Q0','_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice');</script>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        ${htmlFragmentMessageInstruction}
+
+    </div>
+</div>
+
+</form>
 `;
 
 export const GridCategoricalHtml = () => `
