@@ -179,10 +179,9 @@ define(['o-question'],
             this.initialValue = this.hiddenelement.getAttribute('value');
             var initialDate = new Date(this.initialValue);
 
-            this.processDateChange(initialDate);
-
             this.element.value = 0 - (this.dateToMinutes(new Date(this.ranges[this.currentRange].endpoint)) - this.dateToMinutes(initialDate));
-            this.onInput(true);
+
+            this.processDateChange(initialDate);
         }
 
         oQuestionDateTimeRecent.prototype.setHiddenValue = function (valuestring) {
