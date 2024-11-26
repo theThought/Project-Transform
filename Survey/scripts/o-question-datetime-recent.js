@@ -126,8 +126,10 @@ define(['o-question'],
                 var dateStart = new Date(maxDate.toDateString());
 
                 if (dateStart < minDate) {
-                    dateObject.minutes = this.dateToMinutes(minDate);
+                    var lowbound = this.dateToMinutes(minDate);
                     minDate.setHours(23, 59);
+                    var ubound = this.dateToMinutes(minDate);
+                    dateObject.minutes = (ubound-lowbound);
                     dateObject.endpoint = minDate;
                     dateArray.push(dateObject);
                     break;
@@ -379,6 +381,8 @@ define(['o-question'],
                 step = Math.floor(((max - min) / 100) * 10);
             }
 
+            step = Math.max(step, 1);
+
             for (var i = min; i < max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
             }
@@ -395,6 +399,7 @@ define(['o-question'],
 
             step = (Math.abs(min) / 100) * step;
             step = Math.round(step);
+            step = Math.max(step, 1);
 
             for (var i = min; i < max; i = i + step) {
                 marksElement.innerHTML = marksElement.innerHTML + '<i>|</i>';
@@ -443,6 +448,8 @@ define(['o-question'],
                 step = Math.floor(((max - min) / 100) * 10);
             }
 
+            step = Math.max(step, 1);
+
             for (var i = min; i < max; i = i + step) {
                 newDate = new Date(this.ranges[this.currentRange].endpoint);
                 newDate.setMinutes(newDate.getMinutes() + Number(i));
@@ -473,6 +480,7 @@ define(['o-question'],
 
             step = (Math.abs(min) / 100) * step;
             step = Math.round(step);
+            step = Math.max(step, 1);
 
             for (var i = min; i < max; i = i + step) {
                 newDate = new Date(this.ranges[this.currentRange].endpoint);
