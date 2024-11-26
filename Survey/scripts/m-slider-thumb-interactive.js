@@ -12,6 +12,7 @@ define(['component'],
 
         mSliderThumbInteractive.prototype.init = function () {
             this.configureProperties();
+            this.setParentOverflow();
             this.configureIncomingEventListeners();
             this.requestValue();
             this.configurationComplete();
@@ -28,6 +29,12 @@ define(['component'],
                     this.updatePosition(event.detail);
                     break;
             }
+        }
+
+        mSliderThumbInteractive.prototype.setParentOverflow = function () {
+            var container = this.element.closest('div.o-question-container');
+            var scrollContainer = container.querySelector('.o-question-response');
+            scrollContainer.style.overflow = 'visible';
         }
 
         mSliderThumbInteractive.prototype.updatePosition = function (eventDetail) {
