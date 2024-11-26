@@ -1,4 +1,5 @@
-// Array of strings to be replaced. Keep adding to array as required...
+// Array of strings to be removed (i.e. replaced by '').
+// Keep adding to array as required...
 const ignoredStrings = [
     // Choice questions
     '"balance":{"state":false}',
@@ -21,6 +22,9 @@ const ignoredStrings = [
     '"min":undefined',
     '"max":undefined',
     '"position":"inside"',
+    // Grid questions
+    '"rowheader":false',
+    '"altrows":false',
 ];
 
 /**
@@ -47,6 +51,10 @@ export const parseCustomProps = (json) => {
     parsedJson = parsedJson.replace(/,}/gm, '}'); // Rogue commas
     parsedJson = parsedJson.replace(/, }/gm, ' }'); // Rogue commas
     parsedJson = parsedJson.replace(/{,/gm, '{'); // Rogue commas
+
+    // The following strings relate to Storybook args that are defined as arrays, so we need to add [] to the JSON string.
+    parsedJson = parsedJson.replace(/(exceptions':1)/gm, 'exceptions\':[1]');
+    parsedJson = parsedJson.replace(/(exceptions':,)/gm, 'exceptions\':[],');
 
     // Build HTML string.
     parsedJson = `

@@ -22,7 +22,8 @@ Render custom properties for ZeroHeight scriptwriter users.
 -->
 ${parseCustomProps(`
 {
-
+    "cellshading":{"rowheader":${args.CellshadingRowheader},"altrows":${args.CellshadingAltrows}},
+    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"Totals","labels":{"post":"%"}}}
 }
 `)}
 
@@ -40,15 +41,8 @@ ${parseCustomProps(`
 
         <script type="text/javascript">app.RegisterProperties("_Qgrid6__subheading",
 {
-    "cellshading":{"rowheader":false, "altrows":true},
-    "totals":{
-        "rows":{
-            "visible":false, "exceptions":[1]
-        },
-        "columns":{
-            "visible":true, "caption":"Totals", "exceptions":[], "labels":{"post":"%"}
-        }
-    }
+    "cellshading":{"rowheader":${args.CellshadingRowheader},"altrows":${args.CellshadingAltrows}},
+    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"Totals","labels":{"post":"%"}}}
 }
         );</script>
 
@@ -59,7 +53,7 @@ ${parseCustomProps(`
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Grid question (categorical)
+                        Grid question with custom properties
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -77,7 +71,7 @@ ${parseCustomProps(`
                                         <span class="a-label-question">Customer-related</span>
                                     </th>
                                     <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">customers on <b>prescription</b> treatments</span>
+                                        <span class="a-label-question">Customers on prescription treatments</span>
                                     </th>
                                     <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
                                         <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qpats__prescription__tx_Qslice" data-readonly="false" data-position="below">
@@ -89,7 +83,7 @@ ${parseCustomProps(`
                                 </tr>
                                 <tr class="m-structure-row" data-iterationname="">
                                     <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">customers on <b>non-prescription</b> treatments</span>
+                                        <span class="a-label-question">Customers on non-prescription treatments</span>
                                     </th>
                                     <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
                                         <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qpats__nonprescription__tx_Qslice" data-readonly="false" data-position="below">
@@ -100,7 +94,7 @@ ${parseCustomProps(`
                                     </td>
                                 </tr>
                                 <tr class="m-structure-row" data-iterationname="">
-                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="3" valign="Middle" align="Left" style="">
+                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="2" valign="Middle" align="Left" style="">
                                         <span class="a-label-question">Prescription-related</span>
                                     </th>
                                     <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
@@ -111,18 +105,6 @@ ${parseCustomProps(`
                                             <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q4_Q0','_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice');</script>
                                             <input data-questionid="_Q0_Q4_Q0" data-questiongroup="_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice" id="_Q0_Q4_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
                                             <script>app.registerComponent('aInputSinglelineedit','_Q0_Q4_Q0','_Qgrid6__subheading_Qentering__prescriptions__into__the__system_Qslice');</script>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="m-structure-row" data-iterationname="">
-                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">Filling prescription (i.e. filling the bottle)</span>
-                                    </th>
-                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
-                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qfilling__prescription_Qslice" data-readonly="false" data-position="below">
-                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q5_Q0','_Qgrid6__subheading_Qfilling__prescription_Qslice');</script>
-                                            <input data-questionid="_Q0_Q5_Q0" data-questiongroup="_Qgrid6__subheading_Qfilling__prescription_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qfilling__prescription_Qslice" id="_Q0_Q5_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
-                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q5_Q0','_Qgrid6__subheading_Qfilling__prescription_Qslice');</script>
                                         </div>
                                     </td>
                                 </tr>
