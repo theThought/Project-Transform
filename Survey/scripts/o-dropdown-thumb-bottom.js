@@ -21,16 +21,17 @@ define(['component'],
             this.createDateList();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
+            this.requestValue();
             this.configurationComplete();
         }
 
         oDropdownThumbBottom.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener(this.group + '_updateValue', this, false);
+            document.addEventListener(this.group + '_updateValue', this.handleEvent.bind(this), false);
         }
 
         oDropdownThumbBottom.prototype.configureLocalEventListeners = function () {
-            this.element.addEventListener('change', this, false);
+            this.element.addEventListener('change', this.handleEvent.bind(this), false);
         }
 
         oDropdownThumbBottom.prototype.handleEvent = function (event) {

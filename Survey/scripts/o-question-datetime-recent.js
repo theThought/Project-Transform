@@ -103,7 +103,7 @@ define(['o-question'],
                     this.receiveDateChange(event);
                     break;
                 case this.group + '_requestValue':
-                    this.broadcastChange();
+                    this.updateValue();
                     break;
             }
         }

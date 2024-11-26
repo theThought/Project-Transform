@@ -20,11 +20,11 @@ define(['component'],
 
         aInputThumbTop.prototype.configureIncomingEventListeners = function () {
             // for each event listener there must be a corresponding event handler
-            document.addEventListener(this.group + '_updateValue', this, false);
+            document.addEventListener(this.group + '_updateValue', this.handleEvent.bind(this), false);
         }
 
         aInputThumbTop.prototype.configureLocalEventListeners = function () {
-            this.element.addEventListener('keyup', this, false);
+            this.element.addEventListener('keyup', this.handleEvent.bind(this), false);
         }
 
         aInputThumbTop.prototype.handleEvent = function (event) {
