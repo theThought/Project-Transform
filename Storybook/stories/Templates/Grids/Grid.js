@@ -53,7 +53,7 @@ ${parseCustomProps(`
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Grid question with custom properties
+                        Grid with custom properties
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -183,7 +183,7 @@ ${style}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Grid question (categorical)
+                        Categorical grid
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -587,7 +587,7 @@ ${style}
 </form>
 `;
 
-export const GridMultipleControlsHtml = () => `
+export const GridComplexHtml = () => `
 ${style}
 
 <form action="#"
@@ -613,7 +613,7 @@ ${style}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Grid question (with inputs, dropdowns, comboboxes and sliders)
+                        Complex grid, with inputs, dropdowns, comboboxes and sliders
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -908,6 +908,313 @@ ${style}
                                                     <script>app.registerComponent('aButtonPostTerminator','_Q0_Q2_Q4_Postterm','_QHiddenQuestions_Qthirdrow_Qasimpleslider');</script>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        ${htmlFragmentMessageInstruction}
+
+    </div>
+</div>
+
+</form>
+`;
+
+export const GridCategoricalRotatedHtml = () => `
+${style}
+
+<form action="#"
+    class="focus-question focus-control"
+    data-paste="true"
+>
+
+<div class="surroundcontent">
+
+    <div class="o-question-container focused cover-off config-complete sidebyside">
+
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QAnyFruitByDay');</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        ${htmlFragmentMessageError}
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                        Rotated categorical grid
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+                        <div class="o-question-response o-question-UNKOWN" data-questiongroup="_Q0_Grid" data-readonly="false" data-position="below">
+                            <!--This is a table question-->
+                            <table data-orientation="Column" class="o-structure-table" name="Which of the following fruit did you consume each day this week">
+                                <script>app.registerComponent('oQuestionGrid','_Q0','_Q0_Grid');</script>
+                                <tr class="m-structure-row-heading" data-iterationname="">
+                                    <th orientation="Column" class="m-structure-cell" scope="row" style=""></th>
+                                    <th orientation="Column" class="m-structure-cell" scope="col" valign="Middle" align="Center" style="">
+                                        <span class="a-label-question">Monday</span>
+                                    </th>
+                                    <th orientation="Column" class="m-structure-cell" scope="col" valign="Middle" align="Center" style="">
+                                        <span class="a-label-question">Tuesday</span>
+                                    </th>
+                                    <th orientation="Column" class="m-structure-cell" scope="col" valign="Middle" align="Center" style="">
+                                        <span class="a-label-question">Wednesday</span>
+                                    </th>
+                                    <th orientation="Column" class="m-structure-cell" scope="col" valign="Middle" align="Center" style="">
+                                        <span class="a-label-question">Thursday</span>
+                                    </th>
+                                    <th orientation="Column" class="m-structure-cell" scope="col" valign="Middle" align="Center" style="">
+                                        <span class="a-label-question">Friday</span>
+                                    </th>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Column" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Banana</span>
+                                    </th>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q0_Q0_C0" data-questiongroup="_QAnyFruitByDay_QMon_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q0_Q0_C0','_QAnyFruitByDay_QMon_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QMon_Qwhichfruitmulti_CBanana" id="_Q0_Q0_Q0_C0" style="" value="Banana"/>
+                                            <label for="_Q0_Q0_Q0_C0">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q1_Q0_C0" data-questiongroup="_QAnyFruitByDay_QTue_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q1_Q0_C0','_QAnyFruitByDay_QTue_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QTue_Qwhichfruitmulti_CBanana" id="_Q0_Q1_Q0_C0" style="" value="Banana"/>
+                                            <label for="_Q0_Q1_Q0_C0">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q2_Q0_C0" data-questiongroup="_QAnyFruitByDay_QWed_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q2_Q0_C0','_QAnyFruitByDay_QWed_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QWed_Qwhichfruitmulti_CBanana" id="_Q0_Q2_Q0_C0" style="" value="Banana"/>
+                                            <label for="_Q0_Q2_Q0_C0">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q3_Q0_C0" data-questiongroup="_QAnyFruitByDay_QThu_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q3_Q0_C0','_QAnyFruitByDay_QThu_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QThu_Qwhichfruitmulti_CBanana" id="_Q0_Q3_Q0_C0" style="" value="Banana"/>
+                                            <label for="_Q0_Q3_Q0_C0">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q4_Q0_C0" data-questiongroup="_QAnyFruitByDay_QFri_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q4_Q0_C0','_QAnyFruitByDay_QFri_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QFri_Qwhichfruitmulti_CBanana" id="_Q0_Q4_Q0_C0" style="" value="Banana"/>
+                                            <label for="_Q0_Q4_Q0_C0">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Column" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Apple</span>
+                                    </th>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q0_Q0_C1" data-questiongroup="_QAnyFruitByDay_QMon_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q0_Q0_C1','_QAnyFruitByDay_QMon_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QMon_Qwhichfruitmulti_CApple" id="_Q0_Q0_Q0_C1" style="" value="Apple"/>
+                                            <label for="_Q0_Q0_Q0_C1">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q1_Q0_C1" data-questiongroup="_QAnyFruitByDay_QTue_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q1_Q0_C1','_QAnyFruitByDay_QTue_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QTue_Qwhichfruitmulti_CApple" id="_Q0_Q1_Q0_C1" style="" value="Apple"/>
+                                            <label for="_Q0_Q1_Q0_C1">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q2_Q0_C1" data-questiongroup="_QAnyFruitByDay_QWed_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q2_Q0_C1','_QAnyFruitByDay_QWed_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QWed_Qwhichfruitmulti_CApple" id="_Q0_Q2_Q0_C1" style="" value="Apple"/>
+                                            <label for="_Q0_Q2_Q0_C1">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q3_Q0_C1" data-questiongroup="_QAnyFruitByDay_QThu_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q3_Q0_C1','_QAnyFruitByDay_QThu_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QThu_Qwhichfruitmulti_CApple" id="_Q0_Q3_Q0_C1" style="" value="Apple"/>
+                                            <label for="_Q0_Q3_Q0_C1">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q4_Q0_C1" data-questiongroup="_QAnyFruitByDay_QFri_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q4_Q0_C1','_QAnyFruitByDay_QFri_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QFri_Qwhichfruitmulti_CApple" id="_Q0_Q4_Q0_C1" style="" value="Apple"/>
+                                            <label for="_Q0_Q4_Q0_C1">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Column" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">Orange</span>
+                                    </th>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q0_Q0_C2" data-questiongroup="_QAnyFruitByDay_QMon_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q0_Q0_C2','_QAnyFruitByDay_QMon_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QMon_Qwhichfruitmulti_COrange" id="_Q0_Q0_Q0_C2" style="" value="Orange"/>
+                                            <label for="_Q0_Q0_Q0_C2">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q1_Q0_C2" data-questiongroup="_QAnyFruitByDay_QTue_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q1_Q0_C2','_QAnyFruitByDay_QTue_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QTue_Qwhichfruitmulti_COrange" id="_Q0_Q1_Q0_C2" style="" value="Orange"/>
+                                            <label for="_Q0_Q1_Q0_C2">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q2_Q0_C2" data-questiongroup="_QAnyFruitByDay_QWed_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q2_Q0_C2','_QAnyFruitByDay_QWed_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QWed_Qwhichfruitmulti_COrange" id="_Q0_Q2_Q0_C2" style="" value="Orange"/>
+                                            <label for="_Q0_Q2_Q0_C2">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q3_Q0_C2" data-questiongroup="_QAnyFruitByDay_QThu_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q3_Q0_C2','_QAnyFruitByDay_QThu_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QThu_Qwhichfruitmulti_COrange" id="_Q0_Q3_Q0_C2" style="" value="Orange"/>
+                                            <label for="_Q0_Q3_Q0_C2">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q4_Q0_C2" data-questiongroup="_QAnyFruitByDay_QFri_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q4_Q0_C2','_QAnyFruitByDay_QFri_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QFri_Qwhichfruitmulti_COrange" id="_Q0_Q4_Q0_C2" style="" value="Orange"/>
+                                            <label for="_Q0_Q4_Q0_C2">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="m-structure-row" data-iterationname="">
+                                    <th orientation="Column" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
+                                        <span class="a-label-question">kiwi fruit</span>
+                                    </th>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q0_Q0_C3" data-questiongroup="_QAnyFruitByDay_QMon_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q0_Q0_C3','_QAnyFruitByDay_QMon_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QMon_Qwhichfruitmulti_Ckiwi" id="_Q0_Q0_Q0_C3" style="" value="kiwi"/>
+                                            <label for="_Q0_Q0_Q0_C3">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q1_Q0_C3" data-questiongroup="_QAnyFruitByDay_QTue_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q1_Q0_C3','_QAnyFruitByDay_QTue_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QTue_Qwhichfruitmulti_Ckiwi" id="_Q0_Q1_Q0_C3" style="" value="kiwi"/>
+                                            <label for="_Q0_Q1_Q0_C3">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q2_Q0_C3" data-questiongroup="_QAnyFruitByDay_QWed_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q2_Q0_C3','_QAnyFruitByDay_QWed_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QWed_Qwhichfruitmulti_Ckiwi" id="_Q0_Q2_Q0_C3" style="" value="kiwi"/>
+                                            <label for="_Q0_Q2_Q0_C3">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q3_Q0_C3" data-questiongroup="_QAnyFruitByDay_QThu_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q3_Q0_C3','_QAnyFruitByDay_QThu_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QThu_Qwhichfruitmulti_Ckiwi" id="_Q0_Q3_Q0_C3" style="" value="kiwi"/>
+                                            <label for="_Q0_Q3_Q0_C3">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td orientation="Column" class="m-structure-cell" valign="Middle" align="Center" style="">
+                                        <div data-exclusive="false" data-questionid="_Q0_Q4_Q0_C3" data-questiongroup="_QAnyFruitByDay_QFri_Qwhichfruitmulti" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                            <script>app.registerComponent('mOptionBase','_Q0_Q4_Q0_C3','_QAnyFruitByDay_QFri_Qwhichfruitmulti');</script>
+                                            <input class="hiddencontrol" type="checkbox" name="_QAnyFruitByDay_QFri_Qwhichfruitmulti_Ckiwi" id="_Q0_Q4_Q0_C3" style="" value="kiwi"/>
+                                            <label for="_Q0_Q4_Q0_C3">
+                                                <span class="a-icon-multistate" data-icontype="multiple">
+                                                    <!--This is a comment!-->
+                                                </span>
+                                            </label>
                                         </div>
                                     </td>
                                 </tr>

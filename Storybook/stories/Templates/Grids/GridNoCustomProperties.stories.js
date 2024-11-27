@@ -1,4 +1,4 @@
-import { GridCategoricalHtml, GridMultipleControlsHtml } from './Grid';
+import { GridCategoricalHtml, GridComplexHtml,GridCategoricalRotatedHtml } from './Grid';
 
 export default {
     title: 'Templates/Grids/t-grid',
@@ -13,6 +13,10 @@ export const GridCategorical = {
     render: () => GridCategoricalHtml(),
 };
 
-export const GridMultipleControls = {
-    render: () => GridMultipleControlsHtml(),
+export const GridComplex = {
+    render: () => GridComplexHtml(),
+};
+
+export const GridCategoricalRotated = {
+    render: () => GridCategoricalRotatedHtml(),
 };
