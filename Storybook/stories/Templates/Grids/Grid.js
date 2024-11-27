@@ -67,9 +67,6 @@ ${parseCustomProps(`
                             <table class="o-structure-table" name="Grid with row subheadings and column total">
                                 <script>app.registerComponent('oQuestionGrid','_Q0','_Q0_Grid');</script>
                                 <tr class="m-structure-row" data-iterationname="">
-                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="2" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">Customer-related</span>
-                                    </th>
                                     <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
                                         <span class="a-label-question">Customers on prescription treatments</span>
                                     </th>
@@ -94,9 +91,6 @@ ${parseCustomProps(`
                                     </td>
                                 </tr>
                                 <tr class="m-structure-row" data-iterationname="">
-                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="2" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">Prescription-related</span>
-                                    </th>
                                     <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
                                         <span class="a-label-question">Entering prescriptions into the system</span>
                                     </th>
@@ -121,9 +115,6 @@ ${parseCustomProps(`
                                     </td>
                                 </tr>
                                 <tr class="m-structure-row" data-iterationname="">
-                                    <th orientation="" class="m-structure-cell" scope="row" rowspan="2" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">Other / administrative</span>
-                                    </th>
                                     <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
                                         <span class="a-label-question">Engaging with physicians</span>
                                     </th>
@@ -132,18 +123,6 @@ ${parseCustomProps(`
                                             <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q11_Q0','_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice');</script>
                                             <input data-questionid="_Q0_Q11_Q0" data-questiongroup="_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice" id="_Q0_Q11_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
                                             <script>app.registerComponent('aInputSinglelineedit','_Q0_Q11_Q0','_Qgrid6__subheading_Qengaging__physicians__healthcare__prof__admin__staff__behalf__of__pats_Qslice');</script>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="m-structure-row" data-iterationname="">
-                                    <th orientation="" class="m-structure-cell" scope="row" valign="Middle" align="Left" style="">
-                                        <span class="a-label-question">Engaging with insurance companies on behalf of customers</span>
-                                    </th>
-                                    <td orientation="" class="m-structure-cell" valign="Middle" align="Center" style="">
-                                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice" data-readonly="false" data-position="below">
-                                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0_Q12_Q0','_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice');</script>
-                                            <input data-questionid="_Q0_Q12_Q0" data-questiongroup="_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice" data-position="below" type="text" name="_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice" id="_Q0_Q12_Q0" data-lpignore="true" autocomplete="off" style="width:3em;" maxlength="3" value="" data-value="" class="a-input-singlelineedit below"/>
-                                            <script>app.registerComponent('aInputSinglelineedit','_Q0_Q12_Q0','_Qgrid6__subheading_Qengaging__insurance__comp__behalf__pats_Qslice');</script>
                                         </div>
                                     </td>
                                 </tr>
