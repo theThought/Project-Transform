@@ -23,7 +23,7 @@ Render custom properties for ZeroHeight scriptwriter users.
 ${parseCustomProps(`
 {
     "cellshading":{"rowheader":${args.CellshadingRowheader},"altrows":${args.CellshadingAltrows}},
-    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"Totals","labels":{"post":"%"}}}
+    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"${args.TotalsCaption}","labels":{"pre":"${args.TotalsLabelPre}","post":"${args.TotalsLabelPost}"}}}
 }
 `)}
 
@@ -42,7 +42,7 @@ ${parseCustomProps(`
         <script type="text/javascript">app.RegisterProperties("_Qgrid6__subheading",
 {
     "cellshading":{"rowheader":${args.CellshadingRowheader},"altrows":${args.CellshadingAltrows}},
-    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"Totals","labels":{"post":"%"}}}
+    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"${args.TotalsCaption}","labels":{"pre":"${args.TotalsLabelPre}","post":"${args.TotalsLabelPost}"}}}
 }
         );</script>
 

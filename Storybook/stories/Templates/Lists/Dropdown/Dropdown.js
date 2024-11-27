@@ -22,7 +22,7 @@ Render custom properties for ZeroHeight scriptwriter users.
 -->
 ${parseCustomProps(`
 {
-    ${`${args.JumpToFirstLetter === false ? '"jumptofirstletter":"false",' : ''}`}
+    ${`"jumptofirstletter":${args.JumpToFirstLetter},`}
     ${args.ListSize > 0 ? `"listsize":${args.ListSize},` : ''}
     ${args.ListSource && args.ListSource !== '' ? `"listsource":"${args.ListSource}",` : ''}
     ${args.Placeholder && args.Placeholder !== '' ? `"placeholder":"${args.Placeholder}",` : ''}
@@ -42,7 +42,7 @@ ${parseCustomProps(`
 
         <script type="text/javascript">app.RegisterProperties("_Qnew__products",
 {
-    ${`${args.JumpToFirstLetter === false ? '"jumptofirstletter":"false",' : ''}`}
+    ${`"jumptofirstletter":${args.JumpToFirstLetter},`}
     ${args.ListSize > 0 ? `"listsize":${args.ListSize},` : ''}
     ${args.ListSource && args.ListSource !== '' ? `"listsource":"${args.ListSource}",` : ''}
     ${args.Placeholder && args.Placeholder !== '' ? `"placeholder":"${args.Placeholder}",` : ''}

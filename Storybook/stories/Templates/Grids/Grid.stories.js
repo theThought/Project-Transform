@@ -35,7 +35,7 @@ export default {
         TotalsRowsExceptions: {
             control: 'select',
             options: ['[]', '[1]'],
-            description: 'Indicates whether an exception should be made for 1st table row.',
+            description: 'Indicates whether an exception should be made for a table row, based on its index (where 1 is the first row, ignoring headings).',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: '[1]' }
@@ -52,10 +52,34 @@ export default {
         TotalsColumnsExceptions: {
             control: 'select',
             options: ['[]', '[1]'],
-            description: 'Indicates whether an exception should be made for 1st table column.',
+            description: 'Indicates whether an exception should be made for a table column, based on its index (where 1 is the first column, ignoring headings).',
             table: {
                 type: { summary: 'select' },
                 defaultValue: { summary: '[1]' }
+            },
+        },
+        TotalsCaption: {
+            control: 'text',
+            description: 'Specifies the caption for the totals.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        TotalsLabelPre: {
+            control: 'text',
+            description: 'Specifies the pre-label to be added to the totals.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        TotalsLabelPost: {
+            control: 'text',
+            description: 'Specifies the post-label to be added to the totals.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
             },
         },
     },
@@ -69,6 +93,9 @@ export const GridCustomProperties = {
         TotalsRowsExceptions: '[1]',
         TotalsColumnsVisible: true,
         TotalsColumnsExceptions: '[]',
+        TotalsCaption: 'Totals',
+        TotalsLabelPre: '',
+        TotalsLabelPost: '%',
     },
     render: (args) => GridCustomPropertiesHtml(args),
 };

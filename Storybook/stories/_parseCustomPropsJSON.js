@@ -13,6 +13,7 @@ const ignoredStrings = [
     '"mincharactersforlist":0',
     '"showanswers":true',
     '"selection":"undefined"',
+    '"jumptofirstletter":true',
     // Slider & scale questions
     '"marks":false',
     '"value":false',
@@ -25,6 +26,8 @@ const ignoredStrings = [
     // Grid questions
     '"rowheader":false',
     '"altrows":false',
+    '"pre":""',
+    '"post":""',
 ];
 
 /**
