@@ -33,11 +33,12 @@ export default {
             },
         },
         TotalsRowsExceptions: {
-            control: 'object',
+            control: 'select',
+            options: ['[]', '[1]'],
             description: 'Indicates whether an exception should be made for 1st table row.',
             table: {
-                type: { summary: 'object' },
-                defaultValue: { summary: [1] }
+                type: { summary: 'select' },
+                defaultValue: { summary: '[1]' }
             },
         },
         TotalsColumnsVisible: {
@@ -49,11 +50,12 @@ export default {
             },
         },
         TotalsColumnsExceptions: {
-            control: 'object',
+            control: 'select',
+            options: ['[]', '[1]'],
             description: 'Indicates whether an exception should be made for 1st table column.',
             table: {
-                type: { summary: 'object' },
-                defaultValue: { summary: [1] }
+                type: { summary: 'select' },
+                defaultValue: { summary: '[1]' }
             },
         },
     },
@@ -64,9 +66,9 @@ export const GridCustomProperties = {
         CellshadingRowheader: false,
         CellshadingAltrows: false,
         TotalsRowsVisible: false,
-        TotalsRowsExceptions: [1],
+        TotalsRowsExceptions: '[1]',
         TotalsColumnsVisible: true,
-        TotalsColumnsExceptions: [],
+        TotalsColumnsExceptions: '[]',
     },
     render: (args) => GridCustomPropertiesHtml(args),
 };

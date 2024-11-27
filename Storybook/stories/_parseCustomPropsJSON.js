@@ -52,10 +52,6 @@ export const parseCustomProps = (json) => {
     parsedJson = parsedJson.replace(/, }/gm, ' }'); // Rogue commas
     parsedJson = parsedJson.replace(/{,/gm, '{'); // Rogue commas
 
-    // The following strings relate to Storybook args that are defined as arrays, so we need to add [] to the JSON string.
-    parsedJson = parsedJson.replace(/(exceptions':1)/gm, 'exceptions\':[1]');
-    parsedJson = parsedJson.replace(/(exceptions':,)/gm, 'exceptions\':[],');
-
     // Build HTML string.
     parsedJson = `
         <div style="margin-block-end: 3rem;">
