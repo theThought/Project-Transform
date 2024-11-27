@@ -159,7 +159,7 @@ define(['o-question'],
             newelement.name = '';
             newelement.max = 0;
             newelement.min = 0 - this.ranges[this.currentRange].minutes;
-            this.element.id = '';
+            newelement.id = '';
             this.element = this.wrapper.insertBefore(newelement, this.element);
         }
 
