@@ -5,6 +5,8 @@ define(['component'],
             component.call(this, id, group);
 
             this.element = document.querySelector('div[data-questiongroup=' + this.group + '] .a-input-thumbtop input');
+            this.keytimer = null;
+            this.keytimerlimit = 500; // time in milliseconds before the action runs
         }
 
         aInputThumbTop.prototype = Object.create(component.prototype);
@@ -39,10 +41,19 @@ define(['component'],
         }
 
         aInputThumbTop.prototype.onChange = function () {
-            if (this.element.value.length < 5) {
+            clearInterval(this.keytimer);
+
+            if (this.element.value.length < 4) {
                 return;
             }
 
+            var self = this;
+            this.keytimer = setTimeout(function() {
+                self.broadcastChange();
+            }, this.keytimerlimit);
+        }
+
+        aInputThumbTop.prototype.broadcastChange = function () {
             var broadcastTimeChange = new CustomEvent(this.group + '_broadcastTimeChange', {
                 bubbles: true,
                 detail: this
@@ -51,7 +62,7 @@ define(['component'],
         }
 
         aInputThumbTop.prototype.updateValue = function (eventDetail) {
-            var hours = '0' + new Date(eventDetail.dateelement.value).getHours();
+            var hours = '' + new Date(eventDetail.dateelement.value).getHours();
             var minutes = '0' + new Date(eventDetail.dateelement.value).getMinutes();
             this.element.value = hours.slice(-2) + ':' + minutes.slice(-2);
         }
