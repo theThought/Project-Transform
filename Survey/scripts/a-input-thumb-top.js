@@ -12,9 +12,9 @@ define(['component'],
 
         aInputThumbTop.prototype.init = function () {
             this.configureProperties();
+            this.formatValue();
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.requestValue();
             this.configurationComplete();
         }
 
@@ -53,6 +53,17 @@ define(['component'],
         aInputThumbTop.prototype.updateValue = function (eventDetail) {
             var hours = '0' + new Date(eventDetail.dateelement.value).getHours();
             var minutes = '0' + new Date(eventDetail.dateelement.value).getMinutes();
+            this.element.value = hours.slice(-2) + ':' + minutes.slice(-2);
+        }
+
+        aInputThumbTop.prototype.formatValue = function () {
+            if (!this.element.value.length) {
+                return;
+            }
+
+            var initialDate = new Date(this.element.value);
+            var hours = '0' + initialDate.getHours();
+            var minutes = '0' + initialDate.getMinutes();
             this.element.value = hours.slice(-2) + ':' + minutes.slice(-2);
         }
 

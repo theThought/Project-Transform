@@ -19,9 +19,9 @@ define(['component'],
             this.ranges = this.buildRanges();
             this.hideOriginalInputElement();
             this.createDateList();
+            this.setValue(this.hiddenelement.value);
             this.configureIncomingEventListeners();
             this.configureLocalEventListeners();
-            this.requestValue();
             this.configurationComplete();
         }
 
@@ -37,7 +37,7 @@ define(['component'],
         oDropdownThumbBottom.prototype.handleEvent = function (event) {
             switch (event.type) {
                 case this.group + '_updateValue':
-                    this.updateValue(event.detail);
+                    this.setValue(event.detail.dateelement.value);
                     break;
                 case 'change':
                     this.onChange();
@@ -101,8 +101,12 @@ define(['component'],
             this.element.dispatchEvent(broadcastDateChange);
         }
 
-        oDropdownThumbBottom.prototype.updateValue = function (eventDetail) {
-            var selectedDate = new Date(eventDetail.dateelement.value);
+        oDropdownThumbBottom.prototype.setValue = function (dateString) {
+            if (!dateString.length) {
+                return;
+            }
+
+            var selectedDate = new Date(dateString);
             this.element.value = selectedDate.toDateString();
         }
 

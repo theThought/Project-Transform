@@ -77,7 +77,6 @@ define(['o-question'],
                     this.restoreEntries(event);
                     break;
                 case 'click':
-                case 'input':
                 case 'change':
                     this.onInput(event);
                     break;
@@ -180,10 +179,13 @@ define(['o-question'],
 
             this.initialValue = this.hiddenelement.getAttribute('value');
             var initialDate = new Date(this.initialValue);
-
-            this.element.value = 0 - (this.dateToMinutes(new Date(this.ranges[this.currentRange].endpoint)) - this.dateToMinutes(initialDate));
+            var minutesToInitialDate = this.dateToMinutes(initialDate);
+            var minutesToEndpoint = this.dateToMinutes(new Date(this.ranges[this.currentRange].endpoint));
+            var initialTime = initialDate.getHours() + ":" + initialDate.getMinutes();
+            this.element.value = 0 - (minutesToEndpoint - minutesToInitialDate);
 
             this.processDateChange(initialDate);
+            this.processTimeChange(initialTime);
         }
 
         oQuestionDateTimeRecent.prototype.setHiddenValue = function (valuestring) {
