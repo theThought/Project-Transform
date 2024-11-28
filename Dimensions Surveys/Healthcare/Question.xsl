@@ -672,8 +672,7 @@
                   <xsl:with-param name="qElementID" select="$qElementID" />
                   <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                   <xsl:with-param name="qGroup_Name">
-                     <xsl:value-of select='$qElementID' />
-                     <xsl:text>_Grid</xsl:text>
+                     <xsl:value-of select="Style/@BgColor" />
                   </xsl:with-param>
                </xsl:call-template>
                <xsl:for-each select="./Row">
