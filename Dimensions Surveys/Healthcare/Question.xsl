@@ -240,8 +240,7 @@
             </xsl:when>
             <xsl:otherwise>
                <xsl:attribute name="data-questiongroup">
-                  <xsl:value-of select="$qElementID" />
-                  <xsl:text>_Grid</xsl:text>
+                  <xsl:value-of select="Style/@BgColor" />
                </xsl:attribute>
             </xsl:otherwise>
          </xsl:choose>
