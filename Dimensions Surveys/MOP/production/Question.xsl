@@ -87,6 +87,7 @@
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
+
       <xsl:choose>
          <xsl:when test="$SubQuestion = false()">
             <xsl:variable name="qCustomType">
@@ -101,7 +102,6 @@
                      <xsl:call-template name="InsertQuestionDiv">
                         <xsl:with-param name="qElementID" select="Table/@TableId" />
                         <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-                        <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
                      </xsl:call-template>
                   </xsl:when>
                   <xsl:otherwise>
@@ -212,25 +212,39 @@
       <xsl:param name="qLocal_Name" />
       <xsl:param name="qGroup_Name" />
       
+      <xsl:variable name="tComponentName">
+         <xsl:choose>
+            <xsl:when test="Style/@ZIndex">
+               <xsl:call-template name="TranslateZIndexToName">
+                  <xsl:with-param name="theID" select="Style/@ZIndex" />
+               </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+            <xsl:text>UNKOWN</xsl:text>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+
       <xsl:element name="div">
          <xsl:attribute name="class">
             <xsl:text>o-question-response</xsl:text>
             <xsl:value-of select="' '" />
             <xsl:text>o-question-</xsl:text>
-            <xsl:choose>
-               <xsl:when test="Style/@ZIndex">
-                  <xsl:call-template name="TranslateZIndexToName">
-                     <xsl:with-param name="theID" select="Style/@ZIndex" />
-                  </xsl:call-template>
-               </xsl:when>
-               <xsl:when test="Table">
-                  <xsl:text>table</xsl:text>
-               </xsl:when>
-            </xsl:choose>
+            <xsl:value-of select="$tComponentName" />
          </xsl:attribute>
-         <xsl:attribute name="data-questiongroup">
-            <xsl:value-of select="$qGroup_Name" />
-         </xsl:attribute>
+         <xsl:choose>
+            <xsl:when test="$tComponentName!='UNKOWN'">
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qGroup_Name" />
+               </xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:attribute name="data-questiongroup">
+                  <xsl:value-of select="$qElementID" />
+                  <xsl:text>_Grid</xsl:text>
+               </xsl:attribute>
+            </xsl:otherwise>
+         </xsl:choose>
          <xsl:if test="Style/@Hidden">
             <xsl:attribute name="data-hidden">
                <xsl:text>true</xsl:text>
@@ -249,21 +263,19 @@
                </xsl:when>
             </xsl:choose>
          </xsl:attribute>
-         <xsl:call-template name="appComponentScript">
-            <xsl:with-param name="ComponentName">
-               <xsl:text>oQuestion</xsl:text>
-               <xsl:call-template name="CamelCaseWord">
-                  <xsl:with-param name="text">
-                     <xsl:call-template name="TranslateZIndexToName">
-                        <xsl:with-param name="theID" select="Style/@ZIndex" />
-                     </xsl:call-template>
+         <xsl:choose>
+            <xsl:when test="$tComponentName!='UNKOWN'">
+               <xsl:call-template name="appComponentScript">
+                  <xsl:with-param name="ComponentName">
+                     <xsl:text>oQuestion</xsl:text>
+                     <xsl:value-of select="$tComponentName" />
                   </xsl:with-param>
+                  <xsl:with-param name="qElementID" select="$qElementID" />
+                  <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                  <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
                </xsl:call-template>
-            </xsl:with-param>
-            <xsl:with-param name="qElementID" select="$qElementID" />
-            <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
-            <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-         </xsl:call-template>
+            </xsl:when>  
+         </xsl:choose>
          <xsl:call-template name='TypePicker'>
             <xsl:with-param name="qElementID" select="$qElementID" />
             <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
@@ -643,6 +655,7 @@
       </xsl:variable>
       <xsl:choose>
          <xsl:when test="@UseTablesLayout ='-1'">
+         <xsl:comment>This is a table question</xsl:comment>
             <xsl:element name="table">
                <xsl:if test="$Orientation!=''">
                   <xsl:attribute name="data-orientation">
@@ -659,7 +672,10 @@
                   <xsl:with-param name="ComponentName" select="'oQuestionGrid'" />
                   <xsl:with-param name="qElementID" select="$qElementID" />
                   <xsl:with-param name="qLocal_Name" select="$qLocal_Name" />
-                  <xsl:with-param name="qGroup_Name" select="$qGroup_Name" />
+                  <xsl:with-param name="qGroup_Name">
+                     <xsl:value-of select='$qElementID' />
+                     <xsl:text>_Grid</xsl:text>
+                  </xsl:with-param>
                </xsl:call-template>
                <xsl:for-each select="./Row">
                   <xsl:sort select="@Y" data-type="number" order="ascending"/>

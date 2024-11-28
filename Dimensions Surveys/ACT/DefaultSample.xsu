@@ -18,12 +18,12 @@
 		<SampleField>
 			<name>MinDate</name>
 			<type>8</type>
-			<value>2024-08-03T15:22</value>
+			<value>2024-11-25T00:00</value>
 		</SampleField>
 		<SampleField>
 			<name>MaxDate</name>
 			<type>8</type>
-			<value>2024-08-06T15:22</value>
+			<value>2024-11-25T18:52</value>
 		</SampleField>		
 		<SampleField>
 			<name>Previous</name>
