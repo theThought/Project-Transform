@@ -220,7 +220,7 @@
                </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
-            <xsl:text>UNKOWN</xsl:text>
+            <xsl:text>UNKNOWN</xsl:text>
             </xsl:otherwise>
          </xsl:choose>
       </xsl:variable>
@@ -233,7 +233,7 @@
             <xsl:value-of select="$tComponentName" />
          </xsl:attribute>
          <xsl:choose>
-            <xsl:when test="$tComponentName!='UNKOWN'">
+            <xsl:when test="$tComponentName!='UNKNOWN'">
                <xsl:attribute name="data-questiongroup">
                   <xsl:value-of select="$qGroup_Name" />
                </xsl:attribute>
@@ -263,7 +263,7 @@
             </xsl:choose>
          </xsl:attribute>
          <xsl:choose>
-            <xsl:when test="$tComponentName!='UNKOWN'">
+            <xsl:when test="$tComponentName!='UNKNOWN'">
                <xsl:call-template name="appComponentScript">
                   <xsl:with-param name="ComponentName">
                      <xsl:text>oQuestion</xsl:text>
