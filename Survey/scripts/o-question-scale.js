@@ -250,8 +250,8 @@ define(['o-question'],
                     labelContainer.appendChild(postElement);
                 }
 
-                var unitContainerWidth = this.unitContainer.offsetWidth;
-                labelContainer.style.width = unitContainerWidth + 'px';
+                var unitContainerWidth = (this.element.style.width.length) ? this.element.style.width : this.unitContainer.offsetWidth + 'px';
+                labelContainer.style.width = unitContainerWidth;
                 labelContainer.style.display = 'flex';
                 labelContainer.style.justifyContent = 'space-between';
                 labelContainer.style.marginBottom = '20px';

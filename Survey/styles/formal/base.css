@@ -1024,11 +1024,22 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
   padding: 0;
 }
 
+.o-question-scale-horizontal div.a-label-postlabel {
+  text-align: right;
+}
+
 html[dir=rtl] .o-question-scale-horizontal div.a-label-prelabel,
 html[dir=rtl] .o-question-scale-horizontal div.a-label-postlabel,
 html[dir=rtl] .o-question-scale-vertical div.a-label-prelabel,
 html[dir=rtl] .o-question-scale-vertical div.a-label-postlabel {
   border: none !important;
+}
+
+html[dir=rtl] .o-question-scale-horizontal div.a-label-prelabel {
+  text-align: right;
+}
+html[dir=rtl] .o-question-scale-horizontal div.a-label-postlabel {
+  text-align: left;
 }
 
 .o-question-scale-vertical div.a-label-prelabel,

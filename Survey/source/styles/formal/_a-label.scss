@@ -256,11 +256,26 @@ html[dir="rtl"] {
     }
 }
 
+.o-question-scale-horizontal {
+    div.a-label-postlabel {
+        text-align: right;
+    }
+}
+
 html[dir="rtl"] .o-question-scale-horizontal,
 html[dir="rtl"] .o-question-scale-vertical {
     div.a-label-prelabel,
     div.a-label-postlabel {
         border: none !important;
+    }
+}
+
+html[dir="rtl"] .o-question-scale-horizontal {
+    div.a-label-prelabel {
+        text-align: right;
+    }
+    div.a-label-postlabel {
+        text-align: left;
     }
 }
 
