@@ -1019,7 +1019,7 @@ html[dir=rtl] .m-message-success *[class*=-label-]::before {
 .o-question-scale-horizontal div.a-label-postlabel,
 .o-question-scale-vertical div.a-label-prelabel,
 .o-question-scale-vertical div.a-label-postlabel {
-  margin-top: 1em;
+  margin-top: 4px;
   border: none !important;
   padding: 0;
 }
