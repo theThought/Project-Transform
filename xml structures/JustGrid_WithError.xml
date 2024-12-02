@@ -1,0 +1,858 @@
+<Questions>
+    <Question>
+        <Style BgColor="_QPainRelief" ElementAlign="NewLine"></Style>
+        <Table UseTablesLayout="-1" Summary="provide amount of pain relief you provided each patient and the number of doses they took each day" TableId="_Q0">
+            <Row Y="0">
+                <Cell X="1" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Provided</Text>
+                    </Label>
+                </Cell>
+                <Cell X="2" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Monday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="3" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Tuesday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="4" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Wednesday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="5" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Thursday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="6" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Friday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="7" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Saturday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="8" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                        <Text>Sunday</Text>
+                    </Label>
+                </Cell>
+                <Cell X="0" Y="0"></Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="0" Y="1" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QPainRelief_QJake" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Jake</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_Qdosesgiven" ElementID="_Q0_Q0_Q0" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QMonday" ElementID="_Q0_Q0_Q1" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QTuesday" ElementID="_Q0_Q0_Q2" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QWednesday" ElementID="_Q0_Q0_Q3" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="5" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QThursday" ElementID="_Q0_Q0_Q4" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="6" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QFriday" ElementID="_Q0_Q0_Q5" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="7" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QSaturday" ElementID="_Q0_Q0_Q6" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="8" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJake_QSunday" ElementID="_Q0_Q0_Q7" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="2">
+                <Cell X="0" Y="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QPainRelief_QMary" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Mary</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_Qdosesgiven" ElementID="_Q0_Q1_Q0" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QMonday" ElementID="_Q0_Q1_Q1" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QTuesday" ElementID="_Q0_Q1_Q2" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QWednesday" ElementID="_Q0_Q1_Q3" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="5" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QThursday" ElementID="_Q0_Q1_Q4" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="6" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QFriday" ElementID="_Q0_Q1_Q5" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="7" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QSaturday" ElementID="_Q0_Q1_Q6" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="8" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QMary_QSunday" ElementID="_Q0_Q1_Q7" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="3">
+                <Cell X="0" Y="3" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QPainRelief_QSally" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Sally</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_Qdosesgiven" ElementID="_Q0_Q2_Q0" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QMonday" ElementID="_Q0_Q2_Q1" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QTuesday" ElementID="_Q0_Q2_Q2" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QWednesday" ElementID="_Q0_Q2_Q3" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="5" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QThursday" ElementID="_Q0_Q2_Q4" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="6" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QFriday" ElementID="_Q0_Q2_Q5" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="7" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QSaturday" ElementID="_Q0_Q2_Q6" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="8" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QSally_QSunday" ElementID="_Q0_Q2_Q7" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="4">
+                <Cell X="0" Y="4" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QPainRelief_QJane" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Jane</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_Qdosesgiven" ElementID="_Q0_Q3_Q0" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QMonday" ElementID="_Q0_Q3_Q1" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QTuesday" ElementID="_Q0_Q3_Q2" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QWednesday" ElementID="_Q0_Q3_Q3" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="5" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QThursday" ElementID="_Q0_Q3_Q4" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="6" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QFriday" ElementID="_Q0_Q3_Q5" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="7" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QSaturday" ElementID="_Q0_Q3_Q6" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="8" Y="4">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QJane_QSunday" ElementID="_Q0_Q3_Q7" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="5">
+                <Cell X="0" Y="5" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QPainRelief_QFred" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Fred</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_Qdosesgiven" ElementID="_Q0_Q4_Q0" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="2" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QMonday" ElementID="_Q0_Q4_Q1" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="3" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QTuesday" ElementID="_Q0_Q4_Q2" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="4" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QWednesday" ElementID="_Q0_Q4_Q3" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="5" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QThursday" ElementID="_Q0_Q4_Q4" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="6" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QFriday" ElementID="_Q0_Q4_Q5" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="7" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QSaturday" ElementID="_Q0_Q4_Q6" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+                <Cell X="8" Y="5">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                            <Control Type="SingleLineEdit"></Control>
+                        </Style>
+                        <Error Name="MissingAnswer">
+                            <Style Color="Red" ElementAlign="NewLine">
+                                <Cell BorderColor="Red"></Cell>
+                                <Font IsBold="true"></Font>
+                            </Style>
+                            <Text>Missing Answer(s).</Text>
+                        </Error>
+                        <Control Type="SingleLineEdit" QuestionName="_QPainRelief_QFred_QSunday" ElementID="_Q0_Q4_Q7" Value="" Length="3">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-20" Width="3em">
+                                <Control Type="SingleLineEdit"></Control>
+                            </Style>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>
