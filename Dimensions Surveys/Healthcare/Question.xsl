@@ -3107,7 +3107,8 @@
                <xsl:text>-heading</xsl:text>
             </xsl:if>
          </xsl:attribute>
-         <xsl:attribute name='data-iterationname'>
+         <xsl:attribute name='data-questiongroup'>
+            <xsl:value-of select="Cell[1]/Label/Style/@BgColor" />
          </xsl:attribute>
          <xsl:for-each select="./Cell">
             <xsl:sort select="@X" data-type="number" order="ascending" />
@@ -3184,11 +3185,6 @@
          </xsl:attribute>
          <xsl:attribute name="class">
             <xsl:text>m-structure-cell</xsl:text>
-            <xsl:if test="*/Style/@BgColor != ''">
-               <xsl:value-of select="' '" />
-               <xsl:text>m-structure-cell-</xsl:text>
-               <xsl:value-of select="*/Style/@BgColor" />
-            </xsl:if>
          </xsl:attribute>
          <xsl:if test="not($cellScope='') and $cellType='th'">
             <xsl:attribute name="scope">
