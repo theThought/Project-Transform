@@ -74,7 +74,7 @@ ${parseCustomProps(`
                                         <!--slider-horizontalpre terminator-->
                                     </button>
                                     <script>app.registerComponent('aButtonPreTerminator','_Q0_Preterm','_QHowManyMissed');</script>
-                                    <div style="width:50%" class="m-slider-horizontal">
+                                    <div style="" class="m-slider-horizontal">
                                         <div class="a-style-sliderborder">
                                             <!--slider-horizontal slider border-->
                                         </div>
