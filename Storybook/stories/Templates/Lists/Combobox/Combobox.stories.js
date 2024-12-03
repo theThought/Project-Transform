@@ -82,7 +82,9 @@ export const Combobox = {
     args: {
         Exact: true,
         FilterType: 'contains',
-        MinCharactersForList: 0
+        MinCharactersForList: 1,
+        NotEnoughCharacters: 'You need to type at least one character',
+        NoItemsInList: 'No items match this filter',
     },
     render: (args) => ComboboxHtml(args),
 };
