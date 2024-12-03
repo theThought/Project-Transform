@@ -19,7 +19,7 @@ ${parseCustomProps(`
     ${`"filtertype":"${args.FilterType}",`}
     ${`"mincharactersforlist":${args.MinCharactersForList},`}
     ${args.NotEnoughCharacters && args.NotEnoughCharacters !== '' ? `"notenoughcharacters":"${args.NotEnoughCharacters}",` : ''}
-    ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.noitemsinlist}",` : ''}
+    ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.NoItemsInList}",` : ''}
 }
 `)}
 
@@ -43,7 +43,7 @@ ${parseCustomProps(`
     ${`"filtertype":"${args.FilterType}",`}
     ${`"mincharactersforlist":${args.MinCharactersForList},`}
     ${args.NotEnoughCharacters && args.NotEnoughCharacters !== '' ? `"notenoughcharacters":"${args.NotEnoughCharacters}",` : ''}
-    ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.noitemsinlist}",` : ''}
+    ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.NoItemsInList}",` : ''}
 }
         );</script>
 
