@@ -83,6 +83,7 @@ export const Combobox = {
         MinCharactersForList: 1,
         NotEnoughCharacters: 'You need to type at least one character',
         NoItemsInList: 'No items match this filter',
+        Placeholder: 'Placeholder for combobox'
     },
     render: (args) => ComboboxHtml(args),
 };

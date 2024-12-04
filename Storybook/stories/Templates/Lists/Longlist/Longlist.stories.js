@@ -126,7 +126,8 @@ export const Longlist = {
         ListValueFrom: 'name',
         ListDescriptionFrom: 'name',
         ShowAnswers: true,
-        PromptsListCount: 'items found'
+        PromptsListCount: 'items found',
+        Placeholder: 'Placeholder for long list'
     },
     render: (args) => LonglistHtml(args),
 };

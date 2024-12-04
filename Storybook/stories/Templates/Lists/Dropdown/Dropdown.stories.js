@@ -45,7 +45,8 @@ export default {
 
 export const Dropdown = {
     args: {
-        JumpToFirstLetter: true
+        JumpToFirstLetter: true,
+        Placeholder: 'Placeholder for dropdown'
     },
     render: (args) => DropdownHtml(args),
 };
