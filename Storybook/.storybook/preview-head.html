@@ -62,7 +62,11 @@
         scripts && scripts.forEach(script => {
             if (script.textContent.indexOf('RegisterProperties') === -1) return;
 
-            customProps = script.textContent;
+            // Only process 1 set of custom props, so ensure the configurable ones in Storybook are 1st in the story HTML.
+            // TODO: Refactor if we need to show multiple sets of custom props.
+            if (customProps === '') {
+                customProps = script.textContent;
+            }
         });
 
         // Remove any unwanted strings.
