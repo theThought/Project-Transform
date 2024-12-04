@@ -88,7 +88,7 @@ export default {
 export const GridCustomProperties = {
     args: {
         CellshadingRowheader: false,
-        CellshadingAltrows: false,
+        CellshadingAltrows: true,
         TotalsRowsVisible: false,
         TotalsRowsExceptions: '[1]',
         TotalsColumnsVisible: true,
