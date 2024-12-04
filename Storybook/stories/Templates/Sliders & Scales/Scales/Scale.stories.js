@@ -1,4 +1,4 @@
-import { ScaleHorizontalHtml } from './Scale';
+import { ScaleHorizontalHtml, ScaleVerticalHtml } from './Scale';
 
 export default {
     title: 'Templates/Sliders & Scales/t-scale',
@@ -59,4 +59,13 @@ export const ScaleHorizontal = {
         LabelsPost: 'very satisfied',
     },
     render: (args) => ScaleHorizontalHtml(args),
+};
+
+export const ScaleVertical = {
+    args: {
+        ValuesPosition: 'inside',
+        LabelsPre: 'very dissatisfied',
+        LabelsPost: 'very satisfied',
+    },
+    render: (args) => ScaleVerticalHtml(args),
 };

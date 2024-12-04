@@ -16,6 +16,8 @@ const style = `
 export const ScaleHorizontalHtml = (args) => `
 ${style}
 
+${htmlFragmentCustomProperties}
+
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"
@@ -88,8 +90,10 @@ ${style}
 </form>
 `;
 
-export const ScaleVerticalHtml = () => `
+export const ScaleVerticalHtml = (args) => `
 ${style}
+
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"
@@ -102,7 +106,12 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QPassive10ScaleV');</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QPassive10ScaleV",{"values":{"min":1,"max":10,"position":"inside"},"unit":{"image":{"width":"32px","height":"32px"}},"labels":{"pre":"Very Dissatisfied","post":"Very Satisfied"}});</script>
+        <script type="text/javascript">app.RegisterProperties("_QPassive10ScaleV",
+{
+    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax},"position":"${args.ValuesPosition}"},
+    "labels":{"pre":"${args.LabelsPre}","post":"${args.LabelsPost}"}
+}
+        );</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 

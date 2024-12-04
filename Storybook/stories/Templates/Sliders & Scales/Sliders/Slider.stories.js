@@ -1,4 +1,4 @@
-import { SliderHorizontalHtml } from './Slider';
+import { SliderHorizontalHtml, SliderVerticalHtml } from './Slider';
 
 export default {
     title: 'Templates/Sliders & Scales/t-slider',
@@ -77,4 +77,16 @@ export const SliderHorizontal = {
         FloodToValue: true
     },
     render: (args) => SliderHorizontalHtml(args),
+};
+
+export const SliderVertical = {
+    args: {
+        ValuesMin: 0,
+        ValuesMax: 100,
+        ShowMarks: false,
+        ShowValue: true,
+        ShowTerminators: false,
+        FloodToValue: true
+    },
+    render: (args) => SliderVerticalHtml(args),
 };

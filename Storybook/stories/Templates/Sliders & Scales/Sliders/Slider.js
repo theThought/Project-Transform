@@ -102,8 +102,10 @@ ${htmlFragmentCustomProperties}
 </form>
 `;
 
-export const SliderVerticalHtml = () => `
+export const SliderVerticalHtml = (args) => `
 ${style}
+
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"
@@ -116,7 +118,14 @@ ${style}
 
         <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QHowManyMissedV');</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QHowManyMissedV",{"values":{"min":0,"max":100},"show":{"marks":true,"value":true,"terminators":true},"ticklabels":10,"floodtovalue":true});</script>
+        <script type="text/javascript">app.RegisterProperties("_QHowManyMissedV",
+{
+    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax}},
+    "show":{"marks":${args.ShowMarks},"value":${args.ShowValue},"terminators":${args.ShowTerminators}},
+    "ticklabels":"${args.TickLabels}",
+    "floodtovalue":${args.FloodToValue}
+}
+        );</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
