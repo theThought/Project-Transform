@@ -3,12 +3,11 @@ import { ComboboxHtml } from './Combobox';
 export default {
     title: 'Templates/Lists/t-combobox',
     parameters: {
-        status: {
-            type: 'beta',
-        },
+        status: { type: 'beta' },
+        controls: { sort: 'alpha' },
+        docs: { controls: { sort: 'alpha' } }
     },
     argTypes: {
-        // Same as Dropdown:
         ListSize: {
             control: { type: 'number', min: 0 },
             description: 'Configures how many options should be displayed in the list.',
@@ -33,7 +32,6 @@ export default {
                 defaultValue: { summary: 'n/a' }
             },
         },
-        // Unique to Combobox:
         Exact: {
             control: 'boolean',
             description: 'automatically selects an option if it exactly matches the respondent\'s input.',

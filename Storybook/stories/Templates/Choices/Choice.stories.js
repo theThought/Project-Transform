@@ -3,9 +3,9 @@ import { ChoiceCustomPropertiesHtml } from './Choice';
 export default {
     title: 'Templates/Choices/t-choice',
     parameters: {
-        status: {
-            type: 'beta',
-        },
+        status: { type: 'beta' },
+        controls: { sort: 'alpha' },
+        docs: { controls: { sort: 'alpha' } }
     },
     argTypes: {
         Balance: {

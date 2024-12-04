@@ -3,9 +3,9 @@ import { DropdownHtml } from './Dropdown';
 export default {
     title: 'Templates/Lists/t-dropdown',
     parameters: {
-        status: {
-            type: 'beta',
-        },
+        status: { type: 'beta' },
+        controls: { sort: 'alpha' },
+        docs: { controls: { sort: 'alpha' } }
     },
     argTypes: {
         JumpToFirstLetter: {

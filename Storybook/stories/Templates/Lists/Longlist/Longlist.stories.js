@@ -3,12 +3,11 @@ import { LonglistHtml } from './Longlist';
 export default {
     title: 'Templates/Lists/t-longlist',
     parameters: {
-        status: {
-            type: 'beta',
-        },
+        status: { type: 'beta' },
+        controls: { sort: 'alpha' },
+        docs: { controls: { sort: 'alpha' } }
     },
     argTypes: {
-        // Same as Combobox:
         ListSize: {
             control: { type: 'number', min: 0 },
             description: 'Configures how many options should be displayed in the list.',
@@ -58,7 +57,6 @@ export default {
                 defaultValue: { summary: 'n/a' }
             },
         },
-        // Unique to Longlist:
         ListLocation: {
             control: 'select',
             options: ['internal', 'external'],
