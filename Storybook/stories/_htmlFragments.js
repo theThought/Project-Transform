@@ -1,5 +1,12 @@
-/* Keep these HTML fragments in sync with the "real" atomic components. */
+/* Display custom properties JSON for ZeroHeight scriptwriter users. */
+export const htmlFragmentCustomProperties = `
+<div style="margin-block-end: 3rem;">
+    <button class="a-button" data-copy>Copy custom properties JSON</button>
+    <span data-json style="font-family: monospace;"></span>
+</div>
+`;
 
+/* Keep these HTML fragments in sync with the "real" atomic components. */
 export const htmlFragmentMessageError = `
 <div class="o-question-messages">
 	<div class="o-question-information-messages">

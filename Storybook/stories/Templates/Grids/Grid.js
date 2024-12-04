@@ -1,9 +1,8 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
+    htmlFragmentCustomProperties
 } from '../../_htmlFragments';
-
-import { parseCustomProps } from '../../_parseCustomPropsJSON';
 
 const style = `
 <style>
@@ -17,15 +16,7 @@ const style = `
 export const GridCustomPropertiesHtml = (args) => `
 ${style}
 
-<!--
-Render custom properties for ZeroHeight scriptwriter users.
--->
-${parseCustomProps(`
-{
-    "cellshading":{"rowheader":${args.CellshadingRowheader},"altrows":${args.CellshadingAltrows}},
-    "totals":{"rows":{"visible":${args.TotalsRowsVisible},"exceptions":${args.TotalsRowsExceptions}},"columns":{"visible":${args.TotalsColumnsVisible},"exceptions":${args.TotalsColumnsExceptions},"caption":"${args.TotalsCaption}","labels":{"pre":"${args.TotalsLabelPre}","post":"${args.TotalsLabelPost}"}}}
-}
-`)}
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"

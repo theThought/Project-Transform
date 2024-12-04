@@ -14,21 +14,89 @@
 </script>
 
 <!--
-    Some stories contain inline <script> tags that define survey "custom properties". These will trigger JS to re-write the server-rendered DOM:
+    Some template stories contain inline <script> tags that define survey "custom properties".
 
         e.g. <script>app.RegisterProperties(...)</script>
 
-    When "custom property" story controls are updated, Storybook fires the "DOMContentLoaded" event. We need to re-initialise the JS again, based on updated DOM.
+    These properties map to Storybook controls which, when updated, trigger the survey JS to re-render the DOM, causing Storybook to fire the "DOMContentLoaded" event. We need to re-initialise the survey JS again, based on updated DOM.
  -->
  <script>
+    // Array of custom properties strings to be removed.
+    // Keep adding to array as required...
+    const ignoredStrings = [
+        // Choice questions
+        '"balance":{"state":false}',
+        '"onesize":{"state":false}',
+        '"sublistline":{"state":false}',
+        // Open-end questions
+        '"labels":{}',
+        // List questions
+        '"exact":true',
+        '"filtertype":"contains"',
+        '"mincharactersforlist":0',
+        '"showanswers":true',
+        '"selection":"undefined"',
+        '"jumptofirstletter":true',
+        // Slider & scale questions
+        '"marks":false',
+        '"value":false',
+        '"terminators":false',
+        '"ticklabels":"undefined"',
+        '"floodtovalue":false',
+        '"min":undefined',
+        '"max":undefined',
+        '"position":"inside"',
+        // Grid questions
+        '"rowheader":false',
+        '"altrows":false',
+        '"pre":""',
+        '"post":""',
+    ];
+
+    const parseCustomProperties = () => {
+        let customProps = '';
+
+        // Storybook moves all inline <script> tags into "scripts-root".
+        const scripts = document.querySelector('#scripts-root').childNodes;
+
+        scripts && scripts.forEach(script => {
+            if (script.textContent.indexOf('RegisterProperties') === -1) return;
+
+            customProps = script.textContent;
+        });
+
+        // Remove any unwanted strings.
+        ignoredStrings.map(string => {
+            if (customProps.includes(string)) {
+                customProps = customProps.replace(string, '');
+            }
+        });
+
+        // Sanitise custom props for use in ZeroHeight.
+        customProps = customProps.substring(customProps.indexOf('{'));
+        customProps = customProps.replace(/\);/gm, ''); // Remove );
+        customProps = customProps.replace(/"/gm, '\''); // Replace " with '
+        customProps = customProps.replace(/\s+/gm, ' '); // Whitespace
+        customProps = customProps.replace(/( ,)/gm, ','); // Rogue commas
+        customProps = customProps.replace(/,+/gm, ','); // Rogue commas
+        customProps = customProps.replace(/, }/gm, ' }'); // Rogue commas
+        customProps = customProps.replace(/{,/gm, '{'); // Rogue commas
+
+        return customProps;
+    }
+
     document.addEventListener('DOMContentLoaded', (e) => {
         console.log('Storybook DOMContentLoaded fired... re-init components');
         // Replaces "require(['main'], function () { })" used in real survey.
         require(['main-storybook'], function () { });
 
-        // Add a copy JSON button to stories.
+        // Button to copy custom properties JSON.
         const btnCopy = document.querySelector('[data-copy]');
         const json = document.querySelector('[data-json]');
+
+        if (json) {
+            json.textContent = parseCustomProperties();
+        }
 
         btnCopy && json && btnCopy.addEventListener('click', () => {
             navigator.clipboard.writeText(json.innerHTML.trim());

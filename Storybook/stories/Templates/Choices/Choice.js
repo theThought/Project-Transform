@@ -1,9 +1,8 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
+    htmlFragmentCustomProperties
 } from '../../_htmlFragments';
-
-import { parseCustomProps } from '../../_parseCustomPropsJSON';
 
 const style = `
 <style>
@@ -22,22 +21,7 @@ const style = `
 export const ChoiceCustomPropertiesHtml = (args) => `
 ${style}
 
-<!--
-Render custom properties for ZeroHeight scriptwriter users.
--->
-${parseCustomProps(`
-{
-    ${
-    `"balance":{"state":${args.Balance === true ? "true" : "false"}${args.Balance === true && args.BalanceMinWidth?.length > 0 ? `,"min-width":"${args.BalanceMinWidth}"` : ''}},`
-    }
-    ${
-    `"onesize":{"state":${args.OneSize === true ? "true" : "false"}${args.OneSize === true && args.OneSizeMaxWidth?.length > 0 ? `,"max-width":"${args.OneSizeMaxWidth}"` : ''}},`
-    }
-    ${
-    `"sublistline":{"state":${args.SublistLine === true ? "true" : "false"}${args.SublistLine === true && args.SublistLineLength ? `,"length":${args.SublistLineLength}` : ''}}`
-    }
-}
-`)}
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"

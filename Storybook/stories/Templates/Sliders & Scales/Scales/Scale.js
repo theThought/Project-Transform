@@ -1,9 +1,8 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
+    htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
-
-import { parseCustomProps } from '../../../_parseCustomPropsJSON';
 
 const style = `
 <style>
@@ -16,16 +15,6 @@ const style = `
 
 export const ScaleHorizontalHtml = (args) => `
 ${style}
-
-<!--
-Render custom properties for ZeroHeight scriptwriter users.
--->
-${parseCustomProps(`
-{
-    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax},"position":"${args.ValuesPosition}"},
-    "labels":{"pre":"${args.LabelsPre}","post":"${args.LabelsPost}"}
-}
-`)}
 
 <form action="#"
     class="focus-question focus-control"

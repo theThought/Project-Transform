@@ -1,27 +1,21 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
+    htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
 
-import { parseCustomProps } from '../../../_parseCustomPropsJSON';
+const style = `
+<style>
+    .surroundcontent {
+        min-height: fit-content; /* Override template height inside Storybook */
+    }
+</style>
+`;
 
 export const ComboboxHtml = (args) => `
+${style}
 
-<!--
-Render custom properties for ZeroHeight scriptwriter users.
--->
-${parseCustomProps(`
-{
-    ${args.ListSize > 0 ? `"listsize":${args.ListSize},` : ''}
-    ${args.ListSource && args.ListSource !== '' ? `"listsource":"${args.ListSource}",` : ''}
-    ${args.Placeholder && args.Placeholder !== '' ? `"placeholder":"${args.Placeholder}",` : ''}
-    ${`"exact":${args.Exact},`}
-    ${`"filtertype":"${args.FilterType}",`}
-    ${`"mincharactersforlist":${args.MinCharactersForList},`}
-    ${args.NotEnoughCharacters && args.NotEnoughCharacters !== '' ? `"notenoughcharacters":"${args.NotEnoughCharacters}",` : ''}
-    ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.NoItemsInList}",` : ''}
-}
-`)}
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"

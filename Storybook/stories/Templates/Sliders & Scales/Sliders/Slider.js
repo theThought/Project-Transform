@@ -1,9 +1,8 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
+    htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
-
-import { parseCustomProps } from '../../../_parseCustomPropsJSON';
 
 const style = `
 <style>
@@ -17,17 +16,7 @@ const style = `
 export const SliderHorizontalHtml = (args) => `
 ${style}
 
-<!--
-Render custom properties for ZeroHeight scriptwriter users.
--->
-${parseCustomProps(`
-{
-    "values":{"min":${args.ValuesMin},"max":${args.ValuesMax}},
-    "show":{"marks":${args.ShowMarks},"value":${args.ShowValue},"terminators":${args.ShowTerminators}},
-    "ticklabels":"${args.TickLabels}",
-    "floodtovalue":${args.FloodToValue}
-}
-`)}
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"

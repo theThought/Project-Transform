@@ -1,9 +1,8 @@
 import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
+    htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
-
-import { parseCustomProps } from '../../../_parseCustomPropsJSON';
 
 const style = `
 <style>
@@ -16,22 +15,7 @@ const style = `
 export const LonglistHtml = (args) => `
 ${style}
 
-<!--
-Render custom properties for ZeroHeight scriptwriter users.
--->
-${parseCustomProps(`
-{
-    ${args.ListSize > 0 ? `"listsize":${args.ListSize},` : ''}
-    ${args.Placeholder && args.Placeholder !== '' ? `"placeholder":"${args.Placeholder}",` : ''}
-    ${`"filtertype":"${args.FilterType}",`}
-    ${`"mincharactersforlist":${args.MinCharactersForList},`}
-    ${args.NotEnoughCharacters && args.NotEnoughCharacters !== '' ? `"notenoughcharacters":"${args.NotEnoughCharacters}",` : ''}
-    ${args.NoItemsInList && args.NoItemsInList !== '' ? `"NoItemsInList":"${args.noitemsinlist}",` : ''}
-    ${`"list":{"location":"${args.ListLocation}","source":"${args.ListSource}","valuefrom":"${args.ListValueFrom}","descriptionfrom":"${args.ListDescriptionFrom}"},`}
-    ${`"showanswers":${args.ShowAnswers},`}
-    ${`"prompts":{"selection":"${args.PromptsSelection}","listcount":"${args.PromptsListCount}"}`}
-}
-`)}
+${htmlFragmentCustomProperties}
 
 <form action="#"
     class="focus-question focus-control"
