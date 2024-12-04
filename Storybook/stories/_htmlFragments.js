@@ -1,8 +1,8 @@
 /* Display custom properties JSON for ZeroHeight scriptwriter users. */
 export const htmlFragmentCustomProperties = `
 <div style="margin-block-end: 3rem;">
-    <button class="a-button" data-copy>Copy custom properties JSON</button>
-    <span data-json style="font-family: monospace;"></span>
+    <button class="a-button" data-copy>Create & copy custom properties JSON</button>
+    <span data-json style="font-family: monospace;">{}</span>
 </div>
 `;
 

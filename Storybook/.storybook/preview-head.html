@@ -18,7 +18,7 @@
 
         e.g. <script>app.RegisterProperties(...)</script>
 
-    These properties map to Storybook controls which, when updated, trigger the survey JS to re-render the DOM, causing Storybook to fire the "DOMContentLoaded" event. We need to re-initialise the survey JS again, based on updated DOM.
+    These properties map to Storybook controls which, when updated, trigger the survey JS to re-render the DOM, causing Storybook to fire the "DOMContentLoaded" event. We need to re-initialise the survey JS again, based on newly updated DOM.
  -->
  <script>
     // Array of custom properties strings to be removed.
@@ -90,16 +90,13 @@
         // Replaces "require(['main'], function () { })" used in real survey.
         require(['main-storybook'], function () { });
 
-        // Button to copy custom properties JSON.
+        // Create & copy custom properties JSON.
         const btnCopy = document.querySelector('[data-copy]');
         const json = document.querySelector('[data-json]');
 
-        if (json) {
-            json.textContent = parseCustomProperties();
-        }
-
         btnCopy && json && btnCopy.addEventListener('click', () => {
-            navigator.clipboard.writeText(json.innerHTML.trim());
+            json.textContent = parseCustomProperties();
+            navigator.clipboard.writeText(json.textContent);
         });
     });
 </script>
