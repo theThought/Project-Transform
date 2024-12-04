@@ -72,9 +72,9 @@ export const SliderHorizontal = {
         ValuesMin: 0,
         ValuesMax: 100,
         ShowMarks: false,
-        ShowValue: false,
+        ShowValue: true,
         ShowTerminators: false,
-        FloodToValue: false
+        FloodToValue: true
     },
     render: (args) => SliderHorizontalHtml(args),
 };
