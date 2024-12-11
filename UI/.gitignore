@@ -1,0 +1,8 @@
+# UI
+node_modules
+public/*
+*.map
+*.log
+
+# Storybook
+storybook-static

@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Project Transform Storybook
+This is the component library for [Project Transform](https://zeroheight.com/61aada3a1/p/264eaa-project-transform).
+
+## HTML markup
+
+
+## CSS and JavaScript
+- The compiled CSS/JavaScript code is loaded inside `./UI/.storybook/preview-head.html`, directly from this repo's `./Survey` folder.
+- Storybook's `public` folder has been pointed at `staticDirs: ['../public', '../../Survey']` folders inside `./UI/.storybook/main.js`.
+
+### Compiling CSS/JavaScript in local Storybook environment
+
+### Hot Module Reloading
+
+## Toggling UI themes in Storybook
+
+## Accessibility testing
+Storybook comes with 2 default accessibility testing tools:
+- `Accessibility addon`. This is in Storybook's `addons` toolbar, and is built on the same [AxeCore API](https://www.deque.com/axe/) that Lighthouse uses.
+- `Vision simulator`. This is in Storybook's main toolbar at the top of each story page.
