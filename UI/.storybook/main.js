@@ -1,3 +1,6 @@
+/* Github Flavoured Markdown */
+import remarkGfm from 'remark-gfm';
+
 /** @type { import('@storybook/html-webpack5').StorybookConfig } */
 const config = {
     stories: [
@@ -8,10 +11,20 @@ const config = {
     addons: [
         '@storybook/addon-a11y',
         {
+            name: '@storybook/addon-docs',
+            options: {
+            mdxPluginOptions: {
+                mdxCompileOptions: {
+                remarkPlugins: [remarkGfm],
+                },
+            },
+            },
+        },
+        {
             name: '@storybook/addon-essentials',
             options: {
-            actions: false,
-            backgrounds: false,
+                actions: false,
+                backgrounds: false,
             }
         },
         '@etchteam/storybook-addon-status',

@@ -1,0 +1,52 @@
+/*
+----------------------------------------------------------------------------
+Reset.
+
+See:
+Eric Meyer = https://meyerweb.com/eric/tools/css/reset/
+Andy Bell = https://andy-bell.co.uk/a-more-modern-css-reset/
+Josh Comeau = https://www.joshwcomeau.com/css/custom-css-reset/
+Kilian Valkhof = https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+----------------------------------------------------------------------------
+*/
+html {
+    accent-color: var(--color-primary);
+    color-scheme: light;
+    /* stylelint-disable-next-line property-no-unknown */
+    interpolate-size: allow-keywords;
+
+    /* Remove the automatic text size adjustment that is provided by iOS. */
+    text-size-adjust: none;
+}
+
+:where(*, *::after, *::before) {
+    box-sizing: border-box;
+}
+
+* {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+:is(html, body) {
+    /* Smooth scrolling IF user doesn't have a preference due to motion sensitivities. */
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+    min-block-size: 100vh;
+}
+
+/* Remove all animations & transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        /* stylelint-disable declaration-no-important */
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        /* stylelint-enable declaration-no-important */
+    }
+}
