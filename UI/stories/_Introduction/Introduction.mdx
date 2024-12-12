@@ -5,6 +5,17 @@ import { Meta } from '@storybook/blocks';
 # Project Transform Storybook
 This is the component library for [Project Transform](https://zeroheight.com/61aada3a1/p/264eaa-project-transform).
 
+## Code authoring guidelines & accessibility
+- All UI components are authored with **semantic HTML5** markup.
+- Some components are **progressively enhanced** with JavaScript and `WAI-ARIA` as appropriate. <sup>1, 2</sup>
+- The HTML markup uses the `BEM` methodology to provide CSS namespacing.
+
+> <sup>1</sup>
+> The JavaScript-enhanced components have been authored as `HTML Web Components`, also known as `custom elements`.
+
+> <sup>2</sup>
+> To test how these enhanced components behave with JavaScript disabled, comment out the call to `uiInit()` in `src/javascript/index.ts`.
+
 ## CSS and JavaScript
 - The compiled CSS/JavaScript code is loaded inside `./UI/.storybook/preview-head.html`.
 - Storybook's `public` folder has been pointed at `staticDirs: ['../public', '../../Survey']` folders inside `./UI/.storybook/main.js`.
@@ -13,3 +24,16 @@ This is the component library for [Project Transform](https://zeroheight.com/61a
 Storybook comes with 2 default accessibility testing tools:
 - `Accessibility addon`. This is in Storybook's `addons` toolbar, and is built on the same [AxeCore API](https://www.deque.com/axe/) that Lighthouse uses.
 - `Vision simulator`. This is in Storybook's main toolbar at the top of each story page.
+
+## Additional reading
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/).
+- [Inclusive Components](https://inclusive-components.design/).
+
+## TODO
+- Setup Node scripts to manage Parcel build output.
+- Setup fonts/images.
+- Update Github workflow to publish this Storybook instance.
+
+### TBC
+- Define naming convention for "primitive" design tokens, align with Figma, and implement automatic export.
+- Implement new CSS theming mechanism with "whitelabel" default theme.

@@ -5,8 +5,8 @@ export const ExampleNoArgsHtml = () => `
 const style = `
 <style>
     /* Test CSS from Parcel bundler. */
-    .a-button-primary {
-        background-color: var(--color-primary) !important;
+    .test {
+        background-color: var(--color-secondary);
     }
 </style>
 `;

@@ -4,5 +4,8 @@
 ----------------------------------------------------------------------------
 */
 :root {
-    --ui-color-brand: rebeccapurple !important;
+    --theme-color-primary: #455b97;
+    --theme-color-primary-hover: #324371;
+    --theme-color-secondary: #449b9b;
+    --theme-color-secondary-hover: #317474;
 }

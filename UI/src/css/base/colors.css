@@ -4,5 +4,8 @@ Color settings.
 ----------------------------------------------------------------------------
 */
 :root {
-    --color-primary: var(--ui-color-brand);
+    --color-primary: var(--theme-color-primary);
+    --color-primary-hover: var(--theme-color-primary-hover);
+    --color-secondary: var(--theme-color-secondary);
+    --color-secondary-hover: var(--theme-color-secondary-hover);
 }

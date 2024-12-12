@@ -1,20 +1,56 @@
 # Project Transform Storybook
 This is the NEW POC component library for [Project Transform](https://zeroheight.com/61aada3a1/p/264eaa-project-transform).
 
-## Launch Storybook locally and run Parcel bundler
+## Launch Storybook/HTML locally, and run Parcel bundler
 > - NOTE: Use the correct Node version as listed in `.nvmrc`. If necessary, install Node Version Manager (NVM).
 
-From `./UI/` folder:
-- `npm run reset` - Deletes `node_modules` folder and reinstalls with `npm run install`.
-- `npm start` - Installs Node modules (if not already installed), launches Parcel bundler to compile/watch files, and sets the port for HMR (Hot Module Reloading) to work in Storybook.
+From `./UI/` directory:
+- `npm run reset` - Deletes `node_modules` directory and reinstalls with `npm run install`.
+- `npm start` - Installs Node modules (if not already installed), launches Parcel bundler to compile/watch files.
 - `npm run storybook` - Launches Storybook/HTML component library. Run this in a different terminal instance to Parcel.
 - `npm run build` - Compiles and minifies files, for production and local dev environments.
 
-## Re-ordering stories in sidebar navigation
+### Hot module reloading (HMR)
+- The `npm start` command above doesn't actually start the default Parcel server.
+- Instead, it simply [watches files and defines a port for the HMR server](https://parceljs.org/features/cli/#parcel-watch-%3Centries%3E).
+- This means that Storybook updates automatically with any CSS/JavaScript changes.
+
+### Re-ordering stories in sidebar navigation
 - All stories and docs are ordered according to the `storySort` configuration in `.storybook/preview.js`.
 
-## CSS/JS filepaths
+### CSS/JS filepaths
 - Storybook's static directory is defined by the `staticDirs: ['../public', '../../Survey']` array inside `.storybook/main.js`.
+
+## Parcel bundler
+```
+"start:parcel": "parcel watch src/javascript/index.ts --hmr-port 1234 --target app"
+```
+- This command does not need to be explicitly run as `npm start` does it for you.
+- See the `HMR` section further up for an explanation of the `--hmr-port 1234` argument.
+- The `--target app` argument enables transpilation of both CSS and JavaScript in **local DEV mode**. By default, Parcel only does this for production builds.
+
+### JavaScript transpilation and differential bundling
+- There's no need for a `.babelrc` config. See [Parcel default Babel presets](https://parceljs.org/languages/javascript/#default-presets).
+    - Note that `babel-eslint` has been [deprecated](https://github.com/babel/babel-eslint) in favour of `@babel/eslint-parser`.
+    - `@typescript-eslint/parser` is also needed, due to TypeScript usage.
+    - Parcel leverages the `browserslist` config in `package.json` to determine what level of transpilation to perform.
+- The JavaScript bundles contains non-transpiled `ES6+` code for modern browsers, and transpiled `ES5` code for legacy browsers. See [Parcel differential bundling](https://parceljs.org/features/targets/#differential-bundling).
+
+### TypeScript
+- Parcel [automatically transpiles TypeScript](https://parceljs.org/languages/typescript/).
+    - The `typescript` NPM package is required for `ESLint` and `Prettier` to work together.
+    - A `tsconfig.json` is needed, even if it's empty. Otherwise, TypeScript errors/warnings are not displayed in the editor.
+
+### Polyfills
+- A separate `polyfills` bundle is created for browsers that don't support the required features in `src/javascript/config/browser-supports-features.ts`.
+
+### CSS
+- CSS compilation is done automatically.
+
+### Dev dependencies
+- The default Babel presets mentioned above are sufficient.
+- There is no need for a `.babelrc` file with additional presets (e.g. `@babel/preset-env`) and plugins.
+
 
 ## Linting
 This component library provides lint configurations for both JavaScript and CSS.
@@ -57,22 +93,18 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 - Run `npx browserslist` to see a list of supported browsers.
 
 ## Build and publish Storybook locally
-- `npm run publish-storybook` - Builds all Storybook dependencies, and copies output to `storybook-static` folder.
+- `npm run publish-storybook` - Builds all Storybook dependencies, and copies output to `storybook-static` directory.
 - `npx http-server ./storybook-static` - Test Storybook production build on local server.
 
 ## Publish Storybook using GitHub Pages - TBC
 - Uses the workflow defined in `./.github/workflows/static.yml`.
 - Live Storybook URL = https://theThought.github.io/Project-Transform
 
+## Trouble-shooting bundling and build issues
+- If bundling breaks, or UI is not updated (in DEV mode) to reflect latest CSS/JavaScript changes:
+    - Kill the Parcel Node process with `CTRL+C`.
+    - Run `npm start` again.
+
 ## Additional required files in project root directory
 - `.vscode/settings.json` defines the correct working directory for `.eslintignore` and `.stylelintrc`.
 - `.editorconfig` ensures all code uses the same indentation.
-
-## TODO
-- Replace Storybook theme switcher addon with new CSS theming mechanism. TBC
-- Update Github workflow to publish this Storybook instance.
-
-- Setup Parcel bundler to transpile/compile/bundle Sass/JavaScript.
-- Leverage Hot Module Reloading.
-- Setup linters & Git pre-commit hooks.
-- Setup VSCode and editor configs in root.
