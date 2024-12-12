@@ -11,7 +11,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const prodDirectoryPath = path.join(__dirname, '../build');
-const staticDirectoryPath = path.join(__dirname, '../src/favicons');
+const staticDirectoryPath = path.join(__dirname, '../src/static');
 
 // 1. Read the renamed files in PRODUCTION folder.
 const readProdDirectory = () => {
@@ -74,11 +74,11 @@ const moveFile = (file, type) => {
     );
 };
 
-// 2. Copy other static UI files (e.g. favicons).
+// 2. Copy other static UI files (e.g. images & favicons).
 const copyStatic = () => {
     fs.copy(
         staticDirectoryPath,
-        `${prodDirectoryPath}/favicons`,
+        `${prodDirectoryPath}/static`,
         (err) => {
             if (err) {
                 return console.log(err);
@@ -89,4 +89,4 @@ const copyStatic = () => {
 };
 
 readProdDirectory();
-// copyStatic();
+copyStatic();

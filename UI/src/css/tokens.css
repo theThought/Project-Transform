@@ -8,4 +8,7 @@
     --theme-color-primary-hover: #324371;
     --theme-color-secondary: #449b9b;
     --theme-color-secondary-hover: #317474;
+    --theme-font-primary: 'Karla', 'KarlaLocal', sans-serif;
+    --theme-font-secondary: 'Merriweather', 'MerriweatherLocal', serif;
+    --theme-font-rtl: 'Rubik', 'RubikLocal', serif;
 }

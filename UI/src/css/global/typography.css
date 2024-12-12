@@ -1,0 +1,17 @@
+/*
+----------------------------------------------------------------------------
+Element styles.
+
+No need for font smoothing - see https://ui.dev/rwd/articles/font-smoothing
+----------------------------------------------------------------------------
+*/
+
+html[dir='rtl'] {
+    :where(body, input, textarea, select) {
+        font-family: var(--font-rtl);
+    }
+}
+
+:where(body, input, textarea, select) {
+    font-family: var(--font-primary);
+}

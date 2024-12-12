@@ -100,6 +100,7 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 ## Trouble-shooting bundling and build issues
 - If bundling breaks, or UI is not updated (in DEV mode) to reflect latest CSS/JavaScript changes:
     - Kill the Parcel Node process with `CTRL+C`.
+    - Delete `.parcel-cache`.
     - Run `npm start` again.
 
 ## Additional required files in project root directory
