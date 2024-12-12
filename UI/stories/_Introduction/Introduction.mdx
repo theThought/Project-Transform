@@ -3,12 +3,11 @@ import { Meta } from '@storybook/blocks';
 <Meta title="Introduction" />
 
 # Project Transform Storybook
-This is the component library for [Project Transform](https://zeroheight.com/61aada3a1/p/264eaa-project-transform).
 
 ## Code authoring guidelines & accessibility
 - All UI components are authored with **semantic HTML5** markup.
 - Some components are **progressively enhanced** with JavaScript and `WAI-ARIA` as appropriate. <sup>1, 2</sup>
-- The HTML markup uses the `BEM` methodology to provide CSS namespacing.
+- Components are structured according to the [Atomic Design Methodology](https://atomicdesign.bradfrost.com/chapter-2/).
 
 > <sup>1</sup>
 > The JavaScript-enhanced components have been authored as `HTML Web Components`, also known as `custom elements`.
@@ -35,5 +34,6 @@ Storybook comes with 2 default accessibility testing tools:
 - Update Github workflow to publish this Storybook instance.
 
 ### TBC
+- CSS naming convention - should we use BEM?
 - Define naming convention for "primitive" design tokens, align with Figma, and implement automatic export.
 - Implement new CSS theming mechanism with "whitelabel" default theme.

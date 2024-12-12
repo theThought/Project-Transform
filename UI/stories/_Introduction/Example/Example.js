@@ -5,7 +5,7 @@ export const ExampleNoArgsHtml = () => `
 const style = `
 <style>
     /* Test CSS from Parcel bundler. */
-    .test {
+    [id*='storybook-'] .a-button-test {
         background-color: var(--color-secondary);
     }
 </style>

@@ -10,7 +10,7 @@ export default {
     argTypes: {
         ButtonStyle: {
             control: 'select',
-            options: ['a-button', 'test'],
+            options: ['a-button', 'a-button-test'],
             description: 'Button CSS classname.',
             table: {
                 type: { summary: 'select' },
