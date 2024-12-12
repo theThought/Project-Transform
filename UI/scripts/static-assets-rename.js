@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 const validExt = require('./static-assets-config');
-const prodDirectoryPath = path.join(__dirname, '../../build/ui');
+const prodDirectoryPath = path.join(__dirname, '../build');
 
 // Read files in PRODUCTION folder, and process the valid ones.
 const readProdDirectory = () => {
@@ -78,12 +78,6 @@ const processFile = (file) => {
     // CSS. Don't rename map files.
     if (ext === '.css') {
         renamed = `index${ext}`;
-        renameFile(renamed, file);
-    }
-
-    // SVG sprite.
-    if (ext === '.svg') {
-        renamed = `${renamed}${ext}`;
         renameFile(renamed, file);
     }
 };

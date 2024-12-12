@@ -10,8 +10,8 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const prodDirectoryPath = path.join(__dirname, '../../build/ui');
-const staticDirectoryPath = path.join(__dirname, '../src/images/interface');
+const prodDirectoryPath = path.join(__dirname, '../build');
+const staticDirectoryPath = path.join(__dirname, '../src/favicons');
 
 // 1. Read the renamed files in PRODUCTION folder.
 const readProdDirectory = () => {
@@ -40,8 +40,9 @@ const readProdDirectory = () => {
                 fileType = 'css';
             }
 
-            if (file.indexOf('svg') >= 0) {
-                fileType = 'svg';
+            // Images need to be in same folder as CSS.
+            if (file.indexOf('svg') >= 0 || file.indexOf('png') >= 0 || file.indexOf('gif') >= 0) {
+                fileType = 'css';
             }
 
             moveFile(file, fileType);
@@ -52,16 +53,13 @@ const readProdDirectory = () => {
 // 1. Move file.
 const moveFile = (file, type) => {
     let subFolder;
+
     if (type === 'js') {
         subFolder = 'javascript';
     }
+
     if (type === 'css') {
         subFolder = 'css';
-    }
-    if (type === 'svg') {
-        const filename = file.substring(0, file.lastIndexOf('.'));
-        // Move SVG sprite into 'images' folder. Any other SVGs go in 'css' as they're referenced inside CSS.
-        subFolder = filename === 'sprite' ? 'images' : 'css';
     }
 
     fs.move(
@@ -76,11 +74,11 @@ const moveFile = (file, type) => {
     );
 };
 
-// 2. Copy other static UI files (i.e. '/images/interface').
+// 2. Copy other static UI files (e.g. favicons).
 const copyStatic = () => {
     fs.copy(
         staticDirectoryPath,
-        `${prodDirectoryPath}/images/interface`,
+        `${prodDirectoryPath}/favicons`,
         (err) => {
             if (err) {
                 return console.log(err);
@@ -91,4 +89,4 @@ const copyStatic = () => {
 };
 
 readProdDirectory();
-copyStatic();
+// copyStatic();
