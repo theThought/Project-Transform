@@ -11,12 +11,18 @@
   "homepage": "https://theThought.github.io/Project-Transform",
   "scripts": {
     "reset": "rm -rf node_modules/ && npm install",
+    "static-assets-rename": "node ./scripts/static-assets-rename",
+    "static-assets-move": "node ./scripts/static-assets-move",
     "prestart": "rm -rf .parcel-cache",
     "start:parcel": "parcel watch src/javascript/index.ts --dist-dir public --hmr-port 1234 --target app",
     "start": "npm install && npm run start:parcel",
+    "prebuild": "rm -rf .parcel-cache && rm -rf ../build/ui/",
+    "build:parcel": "parcel build index.html --dist-dir ../build/ui",
+    "build": "npm install && npm run build:parcel",
+    "postbuild": "npm run static-assets-rename && npm run static-assets-move",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish-storybook": "npm install && npm run build-storybook",
+    "publish-storybook": "npm install && parcel build src/javascript/index.ts --dist-dir public && npm run build-storybook",
     "prepare": "cd .. && husky install ui/.husky"
   },
   "targets": {
