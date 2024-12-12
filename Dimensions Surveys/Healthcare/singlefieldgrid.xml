@@ -1,0 +1,9 @@
+<gridFormat>
+<name>singlefieldgrid</name>
+<colWidths>
+   <width> 
+      <widthFormat>absolute</widthFormat>
+      <value>30em</value>
+   </width>
+</colWidths>
+</gridFormat>
