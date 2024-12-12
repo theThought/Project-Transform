@@ -3,6 +3,7 @@ import { Meta } from '@storybook/blocks';
 <Meta title="Introduction" />
 
 # Project Transform Storybook
+This is Project Transform's component library.
 
 ## Code authoring guidelines & accessibility
 - All UI components are authored with **semantic HTML5** markup.
@@ -16,9 +17,15 @@ import { Meta } from '@storybook/blocks';
 > <sup>2</sup>
 > To test how these enhanced components behave with JavaScript disabled, comment out the call to `uiInit()` in `src/javascript/index.ts`.
 
+## Re-ordering stories in Storybook sidebar navigation
+- All stories and docs are ordered according to the `storySort` configuration in `.storybook/preview.js`.
+
 ## CSS and JavaScript
 - The compiled CSS/JavaScript code is loaded inside `./UI/.storybook/preview-head.html`.
 - Storybook's `public` folder has been pointed at `staticDirs: ['../public', '../../Survey']` folders inside `./UI/.storybook/main.js`.
+
+### Filepaths
+- Storybook's static directory is defined by the `staticDirs: ['../public', '../../Survey']` array inside `.storybook/main.js`.
 
 ## Accessibility testing
 Storybook comes with 2 default accessibility testing tools:
@@ -30,7 +37,6 @@ Storybook comes with 2 default accessibility testing tools:
 - [Inclusive Components](https://inclusive-components.design/).
 
 ## TODO
-- Setup Node scripts to manage Parcel build output.
 - Setup fonts/images.
 - Update Github workflow to publish this Storybook instance.
 

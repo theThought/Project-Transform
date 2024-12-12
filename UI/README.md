@@ -14,12 +14,6 @@ From `./UI/` directory:
 - Instead, it simply [watches files and defines a port for the HMR server](https://parceljs.org/features/cli/#parcel-watch-%3Centries%3E).
 - This means that Storybook updates automatically with any CSS/JavaScript changes.
 
-### Re-ordering stories in sidebar navigation
-- All stories and docs are ordered according to the `storySort` configuration in `.storybook/preview.js`.
-
-### CSS/JS filepaths
-- Storybook's static directory is defined by the `staticDirs: ['../public', '../../Survey']` array inside `.storybook/main.js`.
-
 ## Parcel bundler
 ```
 "start:parcel": "parcel watch src/javascript/index.ts --hmr-port 1234 --target app"
