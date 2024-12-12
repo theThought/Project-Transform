@@ -5,10 +5,9 @@ This is the NEW POC component library for [Project Transform](https://zeroheight
 > - NOTE: Use the correct Node version as listed in `.nvmrc`. If necessary, install Node Version Manager (NVM).
 
 From `./UI/` directory:
-- `npm run reset` - Deletes `node_modules` directory and reinstalls with `npm run install`.
-- `npm start` - Installs Node modules (if not already installed), launches Parcel bundler to compile/watch files.
-- `npm run storybook` - Launches Storybook/HTML component library. Run this in a different terminal instance to Parcel.
-- `npm run build` - Compiles and minifies files, for production and local dev environments.
+- `npm start` - installs Node modules (if not already installed), launches Parcel bundler to compile/watch files.
+- `npm run storybook` - launches Storybook/HTML component library. Run this in a different terminal instance to Parcel.
+- `npm run build` - compiles and minifies files, for production and local dev environments.
 
 ### Hot module reloading (HMR)
 - The `npm start` command above doesn't actually start the default Parcel server.
@@ -96,9 +95,13 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 - `npm run publish-storybook` - Builds all Storybook dependencies, and copies output to `storybook-static` directory.
 - `npx http-server ./storybook-static` - Test Storybook production build on local server.
 
-## Publish Storybook using GitHub Pages - TBC
+## Publish Storybook using GitHub Pages
 - Uses the workflow defined in `./.github/workflows/static.yml`.
 - Live Storybook URL = https://theThought.github.io/Project-Transform
+
+### TODO
+- Github workflow & live Storybook URL relate to the existing Storybook component library in `./Storybook/` directory.
+- Once this POC Storybook is ready for production, we can deprecate the old one.
 
 ## Trouble-shooting bundling and build issues
 - If bundling breaks, or UI is not updated (in DEV mode) to reflect latest CSS/JavaScript changes:
