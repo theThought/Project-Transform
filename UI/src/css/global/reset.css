@@ -11,8 +11,6 @@ Kilian Valkhof = https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-te
 */
 html {
     accent-color: var(--color-primary);
-    color-scheme: light;
-    /* stylelint-disable-next-line property-no-unknown */
     interpolate-size: allow-keywords;
 
     /* Remove the automatic text size adjustment that is provided by iOS. */
@@ -21,14 +19,6 @@ html {
 
 :where(*, *::after, *::before) {
     box-sizing: border-box;
-}
-
-* {
-    background: transparent;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
 }
 
 :is(html, body) {
