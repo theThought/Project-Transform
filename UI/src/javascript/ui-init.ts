@@ -1,9 +1,10 @@
 // Web Components.
-// import WebUIAjaxLoader from './web-components/webui-ajax-loader';
+import WCExample from './web-components/wc-example';
 
 export const uiInit = (): void => {
     console.log('uiInit(): define Web Components...');
+
     // Define Web Components
-    // !customElements.get('webui-ajax-loader') &&
-    //     customElements.define('webui-ajax-loader', WebUIAjaxLoader);
+    !customElements.get('wc-example') &&
+        customElements.define('wc-example', WCExample);
 };
