@@ -24,7 +24,12 @@ export default class WCExample extends HTMLElement {
         const insideButton = this.button?.contains(target);
 
         if (!insideButton) {
-            console.log('Clicked outside:', target);
+            console.log(
+                'Clicked outside component:',
+                this,
+                'Click target:',
+                target,
+            );
         }
     }
 
