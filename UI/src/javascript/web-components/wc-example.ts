@@ -10,12 +10,11 @@ export default class WCExample extends HTMLElement {
 
         if (!this.button) return;
 
-        this.handleButton();
-
+        this.init();
         this.button?.addEventListener('click', this);
     }
 
-    private handleButton(): void {
+    private init(): void {
         this.button?.removeAttribute('hidden');
     }
 

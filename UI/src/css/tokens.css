@@ -1,6 +1,9 @@
 /*
 ----------------------------------------------------------------------------
 "Primitive" design tokens for dynamic theming.
+
+- Rationalise naming convention for "primitive" design tokens, align with Figma, and implement automatic tokens export.
+- See related ClickUp task POC = https://app.clickup.com/t/8696gvh4k.
 ----------------------------------------------------------------------------
 */
 :root {

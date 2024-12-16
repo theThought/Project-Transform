@@ -4,7 +4,6 @@ Color settings.
 ----------------------------------------------------------------------------
 */
 :root {
-    /* TODO: Do we need this 2nd level of abstraction here? */
     --color-primary: var(--theme-color-primary);
     --color-primary-hover: var(--theme-color-primary-alt);
     --color-secondary: var(--theme-color-secondary);
@@ -19,9 +18,9 @@ Color settings.
     --color-dark2: var(--theme-color-dark2);
     --color-darkest: var(--theme-color-darkest);
 
-    /* Semantic */
-    --color-background: var(--color-white);
-    --color-text: var(--color-darkest);
-    --color-border: var(--color-light4);
-    --color-border-active: var(--color-primary);
+    /* Semantic names. */
+    --color-background: var(--theme-color-white);
+    --color-text: var(--theme-color-darkest);
+    --color-border: var(--theme-color-light4);
+    --color-border-active: var(--theme-color-primary);
 }

@@ -1,8 +1,11 @@
 const style = `
 <style>
     wc-example {
+        align-items: flex-start;
         border: 0.25rem solid var(--color-primary);
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
         padding: 1rem;
     }
 </style>
