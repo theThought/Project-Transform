@@ -3,7 +3,7 @@
 CSS Cascade Layers.
 
 - "survey" layer defined 1st, as it contains old styles/Sass that need to be replaced by new CSS.
-- Remove layer when new CSS is finished.
+- Remove Survey CSS & layer when new CSS is finished.
 ----------------------------------------------------------------------------
 */
 @layer survey, global, layout, components, utilities;

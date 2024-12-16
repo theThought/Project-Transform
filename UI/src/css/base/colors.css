@@ -4,8 +4,24 @@ Color settings.
 ----------------------------------------------------------------------------
 */
 :root {
+    /* TODO: Do we need this 2nd level of abstraction here? */
     --color-primary: var(--theme-color-primary);
-    --color-primary-hover: var(--theme-color-primary-hover);
+    --color-primary-hover: var(--theme-color-primary-alt);
     --color-secondary: var(--theme-color-secondary);
-    --color-secondary-hover: var(--theme-color-secondary-hover);
+    --color-secondary-hover: var(--theme-color-secondary-alt);
+    --color-white: var(--theme-color-white);
+    --color-lightest: var(--theme-color-lightest);
+    --color-light1: var(--theme-color-light1);
+    --color-light2: var(--theme-color-light2);
+    --color-light3: var(--theme-color-light3);
+    --color-light4: var(--theme-color-light4);
+    --color-dark1: var(--theme-color-dark1);
+    --color-dark2: var(--theme-color-dark2);
+    --color-darkest: var(--theme-color-darkest);
+
+    /* Semantic */
+    --color-background: var(--color-white);
+    --color-text: var(--color-darkest);
+    --color-border: var(--color-light4);
+    --color-border-active: var(--color-primary);
 }

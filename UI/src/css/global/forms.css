@@ -1,0 +1,19 @@
+/*
+----------------------------------------------------------------------------
+Form styles.
+----------------------------------------------------------------------------
+*/
+
+:where([type='text'], [type='date'], [type='number']) {
+    --color-background: #fff;
+
+    background: var(--color-background);
+    border: var(--border-thickness) solid var(--color-border);
+    border-radius: var(--border-radius-small);
+    color: inherit;
+    padding: var(--space2) var(--space4);
+    vertical-align: middle;
+    width: var(--width-input);
+}
+
+/* TODO: :focus states */

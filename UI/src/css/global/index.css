@@ -1,3 +1,4 @@
 /* Import 'reset' first. */
 @import 'reset.css';
+@import 'forms.css';
 @import 'typography.css';

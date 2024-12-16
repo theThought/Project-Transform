@@ -1,0 +1,22 @@
+/*
+----------------------------------------------------------------------------
+Config settings.
+
+i.e. custom properties other than colors/fonts.
+----------------------------------------------------------------------------
+*/
+:root {
+    /* Borders. */
+    --border-thickness: var(--theme-border-thickness);
+    --border-radius: var(--theme-border-radius);
+    --border-radius-small: var(--theme--border-radius-small);
+
+    /* Spacing. Use for margin|padding, and gap in flex|grid layouts. */
+    --space1: var(--theme-space1);
+    --space2: var(--theme-space2);
+    --space3: var(--theme-space3);
+    --space4: var(--theme-space4);
+
+    /* Widths */
+    --width-input: 197px;
+}

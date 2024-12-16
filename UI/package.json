@@ -14,7 +14,7 @@
     "static-assets-rename": "node ./scripts/static-assets-rename",
     "static-assets-move": "node ./scripts/static-assets-move",
     "prestart": "rm -rf ../.parcel-cache",
-    "start:parcel": "parcel watch src/javascript/index.ts --dist-dir public --hmr-port 1234 --target app",
+    "start:parcel": "parcel watch src/javascript/index.ts --dist-dir public --hmr-port 1234 --target app --cache-dir .parcel-cache",
     "start": "npm install && npm run start:parcel",
     "prebuild": "rm -rf ../.parcel-cache && rm -rf build",
     "build:parcel": "parcel build index.html --dist-dir build",
