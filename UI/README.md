@@ -93,9 +93,7 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 - Uses the workflow defined in `./.github/workflows/static.yml`.
 - Live Storybook URL = https://theThought.github.io/Project-Transform
 
-### TODO
-- Github workflow & live Storybook URL relate to the existing Storybook component library in `./Storybook/` directory.
-- Once this POC Storybook is ready for production, we can deprecate the old one.
+> Note: Github workflow & live Storybook URL relate to the existing Storybook component library in `./Storybook/` directory. Once this POC Storybook is ready for production, we can deprecate the old one.
 
 ## Trouble-shooting bundling and build issues
 - If bundling breaks, or UI is not updated (in DEV mode) to reflect latest CSS/JavaScript changes:

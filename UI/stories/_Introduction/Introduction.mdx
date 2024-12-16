@@ -37,11 +37,22 @@ Storybook comes with 2 default accessibility testing tools:
 - [Inclusive Components](https://inclusive-components.design/).
 
 ## TODO
-- Update Github workflow to publish this Storybook instance.
+- Update Github workflow to publish this Storybook instance, rather than the existing Storybook component library in `./Storybook/` directory.
 
 ### TBC
-- Do we need so many font variants, or just WOFF? Do we need to fetch from Google too, or just use local fonts?
-- Do we need so many favicons?
-- CSS naming convention - should we use BEM?
-- Define naming convention for "primitive" design tokens, align with Figma, and implement automatic export.
-- Implement new CSS theming mechanism with "whitelabel" default theme.
+- `npx browserslist` - what Safari versions do we need to support?
+- Fonts:
+    - Do we need so many font variants, or just WOFF?
+    - Do we need to fetch from Google too, or just use local fonts?
+    - Currently, only a subset of the WOFF fonts have been defined in the new CSS.
+- `build` artefacts:
+    - Currently in `.gitignore`, but they should probably be committed to repo so compiled CSS/JS (and maps) can be referenced in Survey?
+- Images and favicons:
+    - Do we need to copy them to `build` folder too?
+    - Images currently have CSS path pointing to `/Survey/images/...`.
+    - [Do we need so many favicons](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)?
+- Define naming convention for "primitive" design tokens, align with Figma, and implement automatic export:
+    - See [related ClickUp task POC](https://app.clickup.com/t/8696gvh4k)
+- Implement new CSS theming mechanism with "whitelabel" default theme:
+    - Current Storybook implementation in `./Storybook/` directory uses `storybook-theme-switch-addon` to switch themes in the Storybook UI.
+    - Also see this [POC for dynamic theming in local DEV environment via Parcel](https://github.com/basher/demo-storybook-modern-code-legacy-browser).
