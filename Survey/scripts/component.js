@@ -486,7 +486,7 @@ define(
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     this.sourceQuestions[currentQuestion] = [];
                     // retrieve questions required by this rule based on a matching response container or grid row container
-                    var questionElements = document.querySelectorAll("div.o-question-response[data-questiongroup$='" + currentQuestion + "'] input, div.o-question-response[data-questiongroup$='" + currentQuestion + "'] select, tr[data-questiongroup$='" + currentQuestion + "'] input, tr[data-questiongroup$='" + currentQuestion + "'] select");
+                    var questionElements = document.querySelectorAll("div[data-questiongroup$='" + currentQuestion + "'] input, div[data-questiongroup$='" + currentQuestion + "'] select, tr[data-questiongroup$='" + currentQuestion + "'] input, tr[data-questiongroup$='" + currentQuestion + "'] select");
 
                     if (!questionElements.length) {
                         this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
