@@ -8,7 +8,7 @@ export default {
         docs: { controls: { sort: 'alpha' } }
     },
     argTypes: {
-        DataAttribute: {
+        Attribute: {
             control: 'text',
             description: 'Demo Web Component "attributeChangedCallback()" lifecycle method.',
             table: {
@@ -21,7 +21,7 @@ export default {
 
 export const WCExample = {
     args: {
-        DataAttribute: 'test'
+        Attribute: 'test'
     },
     render: (args) => WCExampleHtml(args),
 };

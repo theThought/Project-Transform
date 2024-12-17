@@ -2,7 +2,7 @@ export default class WCExample extends HTMLElement {
     private button: HTMLButtonElement | null;
     private count: number;
 
-    // Triggers attributeChangedCallback() lifecylce method whenever attributes listed here change.
+    // Triggers attributeChangedCallback() lifecycle method whenever attributes listed here change.
     static observedAttributes = ['data-attribute'];
 
     constructor() {
@@ -27,15 +27,15 @@ export default class WCExample extends HTMLElement {
 
         if (!insideButton) {
             console.log(
-                'Clicked outside component:',
-                this,
                 'Click target:',
                 target,
+                'Clicked outside component:',
+                this,
             );
         }
     }
 
-    // Handle data- attribute changes.
+    // Handle attribute changes.
     public attributeChangedCallback(
         name: string,
         oldValue: string,

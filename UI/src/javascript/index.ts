@@ -1,4 +1,4 @@
-// Import Sass entry file and SVG sprite.
+// Import CSS.
 import '../../src/css/index.css';
 
 // Import config and UI module initialisation.
@@ -9,7 +9,7 @@ if (browserSupportsAllFeatures()) {
     uiInit();
 } else {
     // Dynamic import polyfills, then instantiate UI modules.
-    /*import('./utils/polyfills')
+    import('./utils/polyfills')
         .then(() => uiInit())
-        .catch((e) => console.error(e));*/
+        .catch((e) => console.error(e));
 }
