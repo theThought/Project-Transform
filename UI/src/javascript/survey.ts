@@ -1,12 +1,17 @@
 import MInputSinglelineedit from './web-components/m-input-singlelineedit';
 
-export default class Survey {
+class Survey {
     constructor() {
         this.defineWebComponents();
     }
 
     public init(): void {
+        console.log('Survey: init');
         this.defineWebComponents();
+    }
+
+    public registerProperties(id: string, props: any) {
+        console.log('Survey: registerProperties', id, props);
     }
 
     private defineWebComponents(): void {
@@ -19,3 +24,7 @@ export default class Survey {
             );
     }
 }
+
+window.Survey = Survey;
+
+export default Survey;

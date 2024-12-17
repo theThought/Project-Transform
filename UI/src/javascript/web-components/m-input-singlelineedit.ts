@@ -15,7 +15,7 @@ export default class MInputSinglelineedit extends HTMLElement {
     }
 
     private init(): void {
-        console.log('init');
+        console.log('MInputSinglelineedit: init');
     }
 
     // Handle constructor() event listeners.
