@@ -13,14 +13,14 @@ CSS Cascade Layers.
 "Primitive" CSS design tokens.
 ----------------------------------------------------------------------------
 */
-@import 'tokens.css' screen;
+@import 'tokens' screen;
 
 /*
 ----------------------------------------------------------------------------
 Base scaffold, containing "semantic" design tokens.
 ----------------------------------------------------------------------------
 */
-@import 'base/index.css' screen;
+@import 'base/index' screen;
 
 /*
 ----------------------------------------------------------------------------
@@ -30,19 +30,19 @@ Globals (including reset):
 - Layouts
 ----------------------------------------------------------------------------
 */
-@import 'global/index.css' layer(global) screen;
+@import 'global/index' layer(global) screen;
 
 /*
 ----------------------------------------------------------------------------
 Atomic components.
 ----------------------------------------------------------------------------
 */
-@import 'atoms/index.css' layer(components) screen;
-@import 'molecules/index.css' layer(components) screen;
+@import 'atoms/index' layer(components) screen;
+@import 'molecules/index' layer(components) screen;
 
 /*
 ----------------------------------------------------------------------------
 Utilities.
 ----------------------------------------------------------------------------
 */
-/* @import 'utilities/index.css' layer(utilities) screen; */
+/* @import 'utilities/index' layer(utilities) screen; */

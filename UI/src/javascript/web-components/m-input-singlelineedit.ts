@@ -20,6 +20,6 @@ export default class MInputSinglelineedit extends HTMLElement {
     public handleEvent(e: MouseEvent) {
         const target = e.currentTarget as HTMLElement;
 
-        console.log('click');
+        console.log('click', target);
     }
 }

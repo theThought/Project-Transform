@@ -10,11 +10,9 @@
     vertical-align: middle;
 }
 
-:where([type='button'], [type='submit'], [type='reset'], [class^='a-button']) {
-    background: var(--color-primary);
+:where([type='button'], [type='submit'], [type='reset'], button) {
     border: var(--border-thickness) solid var(--color-primary);
     border-radius: var(--border-radius);
-    color: var(--color-white);
     display: inline-block;
     min-block-size: 1.875rem;
     min-inline-size: 3em;

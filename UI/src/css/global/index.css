@@ -5,6 +5,6 @@ Global HTML element styles.
 */
 
 /* Import 'reset' first. */
-@import 'reset.css';
-@import 'forms.css';
-@import 'typography.css';
+@import 'reset';
+@import 'forms';
+@import 'typography';

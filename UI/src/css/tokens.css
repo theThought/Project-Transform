@@ -27,6 +27,10 @@
     --theme-font-secondary: 'Merriweather', 'MerriweatherLocal', serif;
     --theme-font-rtl: 'Rubik', 'RubikLocal', serif;
 
+    /* Typography */
+    --theme-font-size: 2rem;
+    --theme-line-height: 1.1875;
+
     /* Borders */
     --theme-border-thickness: 0.0625rem;
     --theme-border-radius: 0.25rem;
