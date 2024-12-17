@@ -11,9 +11,9 @@ const style = `
 </style>
 `;
 
-export const WCExampleHtml = () => `
+export const WCExampleHtml = (args) => `
 ${style}
-<wc-example id="wc1">
+<wc-example id="wc1" data-attribute="${args.DataAttribute}">
     <p>This static content is still rendered inside <code>&lt;wc-example&gt;</code>, even if JavaScript is not available, but the <code>&lt;button&gt;</code> will be hidden.</p>
 
     <button class="a-button" hidden>Click me</button>
@@ -21,7 +21,7 @@ ${style}
     <p>Also click outside this web component instance's button, and view the browser console.</p>
 </wc-example>
 <br>
-<wc-example id="wc2">
+<wc-example id="wc2" data-attribute="${args.DataAttribute}">
     <p>Second instance of web component. Works independently of the first.</p>
 
     <button class="a-button" hidden>Click me</button>

@@ -2,6 +2,9 @@ export default class WCExample extends HTMLElement {
     private button: HTMLButtonElement | null;
     private count: number;
 
+    // Triggers attributeChangedCallback() lifecylce method whenever attributes listed here change.
+    static observedAttributes = ['data-attribute'];
+
     constructor() {
         super();
 
@@ -30,6 +33,17 @@ export default class WCExample extends HTMLElement {
                 target,
             );
         }
+    }
+
+    // Handle data- attribute changes.
+    public attributeChangedCallback(
+        name: string,
+        oldValue: string,
+        newValue: string,
+    ): void {
+        console.log(
+            `Attribute ${name} has changed from ${oldValue} to ${newValue}.`,
+        );
     }
 
     // Handle constructor() event listeners.
