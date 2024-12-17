@@ -9,6 +9,7 @@ define(
             this.focuscontrol = true;
             this.focuserror = false;
             this.allowpaste = false;
+            this.validateform = false;
             this.element = document.querySelector('body>form');
         }
 
@@ -16,6 +17,7 @@ define(
             this.configureProperties();
             this.styleInstructions();
             this.styleDetails();
+            this.setFormValidation();
             this.setQuestionFocusStyle();
             this.setControlFocusStyle();
             this.focusFirstQuestion();
@@ -55,6 +57,25 @@ define(
                 var questioninformation = question[i].getElementsByClassName('o-question-information-and-messages')[0];
                 questioninformation.style.flexBasis = width + '%';
                 questioninformation.style.msFlex = '0 0 ' + width + '%';
+            }
+        }
+
+      /**
+       * Sets the 'validate' bool from a custom user property
+       * @param {boolean} prop
+       */
+      page.prototype.validate = function (prop) {
+                this.validateform = prop;
+        }
+
+        /**
+         * Write the novalidate attribute to the form
+         */
+        page.prototype.setFormValidation = function () {
+            if (this.validateform) {
+                this.element.setAttribute('novalidate', 'false');
+            } else {
+              this.element.setAttribute('novalidate', 'true');
             }
         }
 
