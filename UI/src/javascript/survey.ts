@@ -13,6 +13,7 @@ class Survey {
     }
 
     public registerProperties(id: string, props: any) {
+        // TODO: Why do we need lowercase, and drop '_q'?
         id = id.toLowerCase();
         if (id.indexOf('_q') === 0) {
             id = id.substring(2);
