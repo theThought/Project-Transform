@@ -1,10 +1,8 @@
 import Survey from './survey';
-
-// DEMO Web Component
 import WCExample from './web-components/wc-example';
 
 export const uiInit = (): void => {
-    // DEMO
+    // DEMO Web Component for Storybook intro.
     !customElements.get('wc-example') &&
         customElements.define('wc-example', WCExample);
 

@@ -1,5 +1,5 @@
 export const MInputSinglelineEditHtml = (args) => `
-<!-- <script type="module" data-questionid="_Q0">
+<!-- <script data-questionid="_Q0">
     app.registerComponent('oQuestionContainer','_Q0','_QText');
 </script> -->
 <script type="module">
