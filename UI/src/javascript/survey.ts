@@ -5,7 +5,7 @@ class Survey {
 
     constructor() {
         this.properties = {};
-        this.defineWebComponents();
+        this.init();
     }
 
     public init(): void {
@@ -22,7 +22,29 @@ class Survey {
         const currprops = this.properties[id] ? this.properties[id] : {};
         this.properties[id] = Object.assign(currprops, newprops);
 
-        console.log('Survey: registerProperties', id, props, this.properties);
+        console.log('Survey: registerProperties', this.properties);
+    }
+
+    public getProperties(id: string): object {
+        // Perform a loop, becoming less specific, until properties
+        // are returned, or we run out of things to search for.
+        id = id.toLowerCase();
+
+        if (this.properties[id] !== undefined) {
+            return this.properties[id];
+        }
+
+        while (id.length > 0) {
+            if (typeof this.properties[id] !== 'undefined') {
+                return this.properties[id];
+            }
+            if (id.indexOf('_q') === -1) {
+                return {};
+            }
+            id = id.substring(id.indexOf('_q') + 2);
+        }
+
+        return {};
     }
 
     private sanitiseProperties(props: any): object {
@@ -47,8 +69,6 @@ class Survey {
     }
 
     private defineWebComponents(): void {
-        console.log('Survey: define Web Components...');
-
         !customElements.get('m-input-singlelineedit') &&
             customElements.define(
                 'm-input-singlelineedit',

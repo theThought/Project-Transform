@@ -1,10 +1,15 @@
+import Survey from '../survey';
+import { configureProperties } from '../utils/component';
+
 export default class MInputSinglelineedit extends HTMLElement {
     private element: HTMLInputElement | null;
+    private group: string | undefined;
 
     constructor() {
         super();
 
         this.element = document.querySelector('input[data-questionid]');
+        this.group = this.dataset.questiongroup;
 
         if (!this.element) return;
 
@@ -16,6 +21,9 @@ export default class MInputSinglelineedit extends HTMLElement {
 
     private init(): void {
         console.log('MInputSinglelineedit: init');
+
+        // TODO: Fix logic then move into its own method.
+        this.group && configureProperties(Survey, 'type', this.group);
     }
 
     // Handle constructor() event listeners.
@@ -32,10 +40,10 @@ export default class MInputSinglelineedit extends HTMLElement {
 
     // Handle (global) event listeners which are not part of this web component.
     public connectedCallback() {
-        // document.addEventListener('broadcastChange', ...);
+        // e.g. document.addEventListener('broadcastChange', ...);
     }
 
     public disconnectedCallback() {
-        // document.removeEventListener('broadcastChange', ...);
+        // e.g. document.removeEventListener('broadcastChange', ...);
     }
 }
