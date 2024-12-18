@@ -2,7 +2,7 @@
 import '../../src/css/index.css';
 
 // Import key ES modules.
-import { browserSupportsAllFeatures } from './config/browser-supports-features';
+import { browserSupportsAllFeatures } from './utils/browser-supports-features';
 import { uiInit } from './ui-init';
 
 if (browserSupportsAllFeatures()) {
