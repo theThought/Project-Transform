@@ -1,3 +1,5 @@
+// TODO: This is probably obsolete if we can pass custom properties as 'data-' attributes in the web component HTML.
+
 import MInputSinglelineedit from './web-components/m-input-singlelineedit';
 
 class Survey {

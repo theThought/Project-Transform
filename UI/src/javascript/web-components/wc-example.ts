@@ -3,7 +3,7 @@ export default class WCExample extends HTMLElement {
     private count: number;
 
     // Triggers attributeChangedCallback() lifecycle method whenever attributes listed here change.
-    static observedAttributes = ['data-attribute'];
+    static observedAttributes = ['attribute'];
 
     constructor() {
         super();
