@@ -1,4 +1,4 @@
-import { parseCustomProperties } from '../utils/custom-properties';
+import { parseCustomProperties } from '../utils/helpers';
 
 export default class MInputSinglelineedit extends HTMLElement {
     private element: HTMLInputElement | null;
