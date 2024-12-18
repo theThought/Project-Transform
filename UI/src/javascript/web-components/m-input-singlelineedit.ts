@@ -1,4 +1,3 @@
-import Survey from '../survey';
 import { configureProperties } from '../utils/component';
 
 export default class MInputSinglelineedit extends HTMLElement {
@@ -23,7 +22,7 @@ export default class MInputSinglelineedit extends HTMLElement {
         console.log('MInputSinglelineedit: init');
 
         // TODO: Fix logic then move into its own method.
-        this.group && configureProperties(Survey, 'type', this.group);
+        this.group && configureProperties('type', this.group);
     }
 
     // Handle constructor() event listeners.

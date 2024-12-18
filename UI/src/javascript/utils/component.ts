@@ -1,5 +1,6 @@
+import Survey from '../survey';
+
 export const configureProperties = (
-    survey: any,
     propertiesName: string,
     questionGroup: string,
 ) => {
@@ -14,11 +15,6 @@ export const configureProperties = (
     //     }
     // }
 
-    const properties = survey.prototype.getProperties(propertiesName);
-    console.log(
-        'TTTTTTTTT configureProperties',
-        propertiesName,
-        questionGroup,
-        properties,
-    );
+    // const properties = Survey.prototype.getProperties(propertiesName);
+    console.log('configureProperties', questionGroup, Survey);
 };
