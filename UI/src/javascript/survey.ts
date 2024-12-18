@@ -25,6 +25,5 @@ class Survey {
     }
 }
 
-window.Survey = Survey;
-
+globalThis.Survey = Survey;
 export default Survey;

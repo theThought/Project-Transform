@@ -1,7 +1,12 @@
 export const MInputSinglelineEditHtml = (args) => `
-<script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QText');</script>
-<script>app.registerProperties("_QText",{"type":"${args.InputType}"});</script>
-
+<!-- <script type="module" data-questionid="_Q0">
+    app.registerComponent('oQuestionContainer','_Q0','_QText');
+</script> -->
+<script type="module">
+    const app = new Survey();
+    app.init();
+    app.registerProperties("_QText",{"type":"${args.InputType}"});
+</script>
 <m-input-singlelineedit data-questiongroup="_QText">
     <input
         type="text"
