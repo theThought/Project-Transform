@@ -42,13 +42,9 @@ Storybook comes with 2 default accessibility testing tools:
 ### TBC
 - `npx browserslist` - what Safari versions do we need to support?
 - Fonts:
-    - Do we need so many font variants, or just WOFF?
+    - Do we need so many font variants? Currently, only a subset of the WOFF fonts have been defined in the new CSS.
     - Do we need to fetch from Google too, or just use local fonts?
-    - Currently, only a subset of the WOFF fonts have been defined in the new CSS.
-- `build` artefacts:
-    - Currently in `.gitignore`, but they should probably be committed to repo so compiled CSS/JS (and maps) can be referenced in Survey?
 - Images and favicons:
-    - Do we need to copy them to `build` folder too?
     - Images currently have CSS path pointing to `/Survey/images/...`.
     - [Do we need so many favicons](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)?
 - Define naming convention for "primitive" design tokens, align with Figma, and implement automatic export:

@@ -1,7 +1,7 @@
 export const MInputSinglelineEditHtml = (args) => `
 <m-input-singlelineedit
     data-questiongroup="_QText"
-    data-properties='{"type":"${args.InputType}"}'
+    custom-properties='{"type":"${args.InputType}"}'
 >
     <input
         type="text"

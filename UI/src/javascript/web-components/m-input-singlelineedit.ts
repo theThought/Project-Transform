@@ -3,17 +3,17 @@ import { parseCustomProperties } from '../utils/helpers';
 export default class MInputSinglelineedit extends HTMLElement {
     private element: HTMLInputElement | null;
     private group: string | undefined;
-    private properties: string | undefined;
+    private properties: string | null;
 
     // Triggers attributeChangedCallback() lifecycle method whenever attributes listed here change.
-    static observedAttributes = ['data-properties'];
+    static observedAttributes = ['custom-properties'];
 
     constructor() {
         super();
 
         this.element = document.querySelector('input[data-questionid]');
         this.group = this.dataset.questiongroup;
-        this.properties = this.dataset.properties;
+        this.properties = this.getAttribute('custom-properties');
 
         if (!this.element) return;
 
@@ -67,6 +67,8 @@ export default class MInputSinglelineedit extends HTMLElement {
     ): void {
         const customProperties = parseCustomProperties(newValue);
         this.setInputType(customProperties);
+
+        // TODO: 'labels'
     }
 
     // Handle constructor() event listeners.

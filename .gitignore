@@ -6,7 +6,6 @@ Survey/Simple Test study/TRI22DEUREP.mdd
 node_modules
 
 # UI
-build
 public/*
 *.map
 *.log
