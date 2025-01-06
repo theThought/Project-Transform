@@ -1,19 +1,20 @@
 import { parseCustomProperties } from '../utils/helpers';
 
 export default class MInputSinglelineedit extends HTMLElement {
+    private qid: string | undefined;
+    private qgroup: string | undefined;
     private element: HTMLInputElement | null;
-    private group: string | undefined;
-    private properties: string | null;
-
-    // Triggers attributeChangedCallback() lifecycle method whenever attributes listed here change.
-    static observedAttributes = ['custom-properties'];
+    private question: HTMLElement | null;
+    private customprops: string | undefined;
 
     constructor() {
         super();
 
-        this.element = document.querySelector('input[data-questionid]');
-        this.group = this.dataset.questiongroup;
-        this.properties = this.getAttribute('custom-properties');
+        this.qid = this.dataset.questionid;
+        this.qgroup = this.dataset.questiongroup;
+        this.element = document.querySelector('input');
+        this.question = this.closest('.o-question-container');
+        this.customprops = this.question?.dataset.customProps;
 
         if (!this.element) return;
 
@@ -25,11 +26,22 @@ export default class MInputSinglelineedit extends HTMLElement {
 
     private init(): void {
         console.log(
-            'MInputSinglelineedit: init',
+            'MInputSinglelineedit: init...',
+            this.qid,
+            this.qgroup,
             this.element,
-            this.group,
-            this.properties,
         );
+
+        if (
+            this.qid === this.question?.dataset.questionid &&
+            this.qgroup === this.question?.dataset.questiongroup &&
+            this.customprops
+        ) {
+            const customProperties = parseCustomProperties(this.customprops);
+            this.setInputType(customProperties);
+
+            // TODO: pre-/post-labels
+        }
     }
 
     // Set the appropriate 'type' attribute on <input> based on custom properties.
@@ -57,18 +69,6 @@ export default class MInputSinglelineedit extends HTMLElement {
         if (this.element) {
             this.element.type = inputType;
         }
-    }
-
-    // Handle attribute changes.
-    public attributeChangedCallback(
-        name: string,
-        oldValue: string,
-        newValue: string,
-    ): void {
-        const customProperties = parseCustomProperties(newValue);
-        this.setInputType(customProperties);
-
-        // TODO: 'labels'
     }
 
     // Handle constructor() event listeners.
