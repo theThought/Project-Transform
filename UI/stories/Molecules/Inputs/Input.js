@@ -1,14 +1,15 @@
 export const MInputSinglelineEditHtml = (args) => `
-<div
-    class="o-question-container"
-    data-questionid="_Q0"
-    data-questiongroup="_QText"
-    data-custom-props='{"type":"${args.InputType}"}'
->
+<div class="o-question-container">
+    <input
+        type="hidden"
+        data-questionid="_Q0"
+        data-questiongroup="_QText"
+        data-custom-props='{"type":"${args.InputType}"}'
+    />
+
     <m-input-singlelineedit
         data-questionid="_Q0"
         data-questiongroup="_QText"
-        custom-properties='{"type":"${args.InputType}"}'
     >
         <input
             type="text"

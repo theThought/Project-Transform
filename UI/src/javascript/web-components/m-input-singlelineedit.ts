@@ -5,7 +5,6 @@ export default class MInputSinglelineedit extends HTMLElement {
     private qgroup: string | undefined;
     private element: HTMLInputElement | null;
     private question: HTMLElement | null;
-    private customprops: string | undefined;
 
     constructor() {
         super();
@@ -14,7 +13,6 @@ export default class MInputSinglelineedit extends HTMLElement {
         this.qgroup = this.dataset.questiongroup;
         this.element = document.querySelector('.a-input-singlelineedit');
         this.question = this.closest('.o-question-container');
-        this.customprops = this.question?.dataset.customProps;
 
         if (!this.element) return;
 
@@ -32,23 +30,36 @@ export default class MInputSinglelineedit extends HTMLElement {
             this.element,
         );
 
+        this.handleCustomProps();
+    }
+
+    private handleCustomProps(): void {
+        const elemCustomProps = this.question?.querySelector(
+            '[data-custom-props]',
+        ) as HTMLElement;
+
         if (
-            this.qid === this.question?.dataset.questionid &&
-            this.qgroup === this.question?.dataset.questiongroup &&
-            this.customprops
+            this.qid !== elemCustomProps?.dataset.questionid &&
+            this.qgroup !== elemCustomProps?.dataset.questiongroup &&
+            !elemCustomProps
         ) {
-            const customProperties = parseCustomProperties(this.customprops);
-            this.setInputType(customProperties);
+            return;
+        }
+
+        const customProps = elemCustomProps?.dataset.customProps;
+        if (customProps) {
+            const customPropsJson = parseCustomProperties(customProps);
+            this.setInputType(customPropsJson);
 
             // TODO: pre-/post-labels
         }
     }
 
     // Set the appropriate 'type' attribute on <input> based on custom properties.
-    private setInputType(customProperties: Record<string, unknown>): void {
+    private setInputType(customPropsJson: Record<string, unknown>): void {
         let inputType = 'text';
 
-        Object.entries(customProperties).forEach(([key, value]) => {
+        Object.entries(customPropsJson).forEach(([key, value]) => {
             if (key === 'type') {
                 inputType = value as string;
             }
