@@ -70,7 +70,7 @@ export default {
 export const SliderHorizontal = {
     args: {
         ValuesMin: 0,
-        ValuesMax: 100,
+        ValuesMax: 50,
         ShowMarks: false,
         ShowValue: true,
         ShowTerminators: false,
@@ -82,7 +82,7 @@ export const SliderHorizontal = {
 export const SliderVertical = {
     args: {
         ValuesMin: 0,
-        ValuesMax: 100,
+        ValuesMax: 50,
         ShowMarks: false,
         ShowValue: true,
         ShowTerminators: false,

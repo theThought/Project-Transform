@@ -90,7 +90,7 @@ ${style}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        <label for="_Q0">This is a question with special codes</label>
+                        <label for="_Q0">This is a singleline question with special codes</label>
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -103,36 +103,25 @@ ${style}
                             <script>app.registerComponent('oQuestionSinglelineedit','_Q0','_QQuestionWithLotsOfCodes');</script>
                             <input data-questionid="_Q0" data-questiongroup="_QQuestionWithLotsOfCodes" data-position="below" type="text" step="any" name="_QQuestionWithLotsOfCodes" id="_Q0" autocomplete="off" style="width:10em;" maxlength="30" value="" data-value="" class="a-input-singlelineedit below"/>
                             <script>app.registerComponent('aInputSinglelineedit','_Q0','_QQuestionWithLotsOfCodes');</script>
-                            <div data-exclusive="true" data-questionid="_Q0_X0" data-questiongroup="_QQuestionWithLotsOfCodes" data-position="side" data-hidden="false" class="m-option-base  side " style="">
+
+                            <!-- Special codes -->
+                            <div data-exclusive="true" data-questionid="_Q0_X0" data-questiongroup="_QQuestionWithLotsOfCodes" data-position="side" data-hidden="false" class="m-option-base side" style="">
                                 <script>app.registerComponent('mOptionBase','_Q0_X0','_QQuestionWithLotsOfCodes');</script>
                                 <input class="hiddencontrol" type="radio" name="_QQuestionWithLotsOfCodes_Xcode1" id="_Q0_X0" style="" value="code1"/>
                                 <label for="_Q0_X0">
-                                    <span class="a-icon-multistate" data-icontype="single">
-                                        <!--This is a comment!-->
-                                    </span>
-                                    <span class="a-label-option">first code</span>
+                                    <span class="a-icon-multistate" data-icontype="single"></span>
+                                    <span class="a-label-option">first special code</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_X1" data-questiongroup="_QQuestionWithLotsOfCodes" data-position="side" data-hidden="false" class="m-option-base  side " style="">
+                            <div data-exclusive="true" data-questionid="_Q0_X1" data-questiongroup="_QQuestionWithLotsOfCodes" data-position="side" data-hidden="false" class="m-option-base side" style="">
                                 <script>app.registerComponent('mOptionBase','_Q0_X1','_QQuestionWithLotsOfCodes');</script>
                                 <input class="hiddencontrol" type="radio" name="_QQuestionWithLotsOfCodes_Xcode2" id="_Q0_X1" style="" value="code2"/>
                                 <label for="_Q0_X1">
-                                    <span class="a-icon-multistate" data-icontype="single">
-                                        <!--This is a comment!-->
-                                    </span>
-                                    <span class="a-label-option">second code</span>
+                                    <span class="a-icon-multistate" data-icontype="single"></span>
+                                    <span class="a-label-option">second special code</span>
                                 </label>
                             </div>
-                            <div data-exclusive="true" data-questionid="_Q0_X2" data-questiongroup="_QQuestionWithLotsOfCodes" data-position="side" data-hidden="false" class="m-option-base  side " style="">
-                                <script>app.registerComponent('mOptionBase','_Q0_X2','_QQuestionWithLotsOfCodes');</script>
-                                <input class="hiddencontrol" type="radio" name="_QQuestionWithLotsOfCodes_Xcode3" id="_Q0_X2" style="" value="code3"/>
-                                <label for="_Q0_X2">
-                                    <span class="a-icon-multistate" data-icontype="single">
-                                        <!--This is a comment!-->
-                                    </span>
-                                    <span class="a-label-option">third code</span>
-                                </label>
-                            </div>
+
                         </div>
 
                     </question>
