@@ -1,4 +1,4 @@
-import { ChoiceOtherSpecifyHtml } from './Choice';
+import { ChoiceOtherSpecifyHtml, ChoiceSpecialCodesHtml } from './Choice';
 
 export default {
     title: 'Templates/Choices/t-choice',
@@ -11,4 +11,8 @@ export default {
 
 export const ChoiceOtherSpecify = {
     render: () => ChoiceOtherSpecifyHtml(),
+};
+
+export const ChoiceSpecialCodes = {
+    render: () => ChoiceSpecialCodesHtml(),
 };
