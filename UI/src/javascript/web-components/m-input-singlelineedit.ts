@@ -12,7 +12,7 @@ export default class MInputSinglelineedit extends HTMLElement {
 
         this.qid = this.dataset.questionid;
         this.qgroup = this.dataset.questiongroup;
-        this.element = document.querySelector('input');
+        this.element = document.querySelector('.a-input-singlelineedit');
         this.question = this.closest('.o-question-container');
         this.customprops = this.question?.dataset.customProps;
 
