@@ -2,7 +2,7 @@ import {
     htmlFragmentMessageError,
     htmlFragmentMessageInstruction,
     htmlFragmentCustomProperties
-} from '../../_htmlFragments';
+} from '../../../_htmlFragments';
 
 const style = `
 <style>
