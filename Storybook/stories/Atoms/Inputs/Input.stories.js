@@ -1,7 +1,8 @@
 import {
     InputSinglelineHtml,
     InputSinglelineDateHtml,
-    InputSinglelineNumberHtml
+    InputSinglelineNumberHtml,
+    InputMultilineHtml
 } from './Input';
 
 export default {
@@ -27,3 +28,8 @@ export const InputSinglelineNumber = {
     render: () => InputSinglelineNumberHtml(),
 };
 InputSinglelineNumber.storyName = 'a-input-singleline (number)';
+
+export const InputMultiline = {
+    render: () => InputMultilineHtml(),
+};
+InputMultiline.storyName = 'a-input-multiline';

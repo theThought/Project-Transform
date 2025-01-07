@@ -9,3 +9,7 @@ export const InputSinglelineDateHtml = () => `
 export const InputSinglelineNumberHtml = () => `
 <input type="number" id="q-text" class="a-input-singlelineedit" />
 `;
+
+export const InputMultilineHtml = () => `
+<textarea id="q-text" class="a-input-multilineedit"></textarea>
+`;
