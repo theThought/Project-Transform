@@ -4,7 +4,7 @@ This is the NEW POC component library for [Project Transform](https://zeroheight
 ## Launch Storybook/HTML locally, and run Parcel bundler
 > - NOTE: Use the correct Node version as listed in `.nvmrc`. If necessary, install Node Version Manager (NVM).
 
-From `./UI/` directory:
+- `cd UI`.
 - `npm start` - installs Node modules (if not already installed), launches Parcel bundler to compile/watch files.
 - `npm run storybook` - launches Storybook/HTML component library. Run this in a different terminal instance to Parcel.
 - `npm run build` - compiles and minifies files, for production use.
@@ -94,6 +94,17 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 - Live Storybook URL = https://theThought.github.io/Project-Transform
 
 > Note: Github workflow & live Storybook URL relate to the existing Storybook component library in `./Storybook/` directory. Once this POC Storybook is ready for production, we can deprecate the old one.
+
+## Linking to build artefacts (CSS/JavaScript) in survey
+Uses whatever build folder has been defined in `package.json`.
+
+```
+<link rel="stylesheet" href="/path/to/build/folder/stylesheets/index.css">
+```
+```
+<script defer type="module" src="/path/to/build/folder/javascript/index.js"></script>
+<script defer nomodule src="/path/to/build/folder/javascript/legacy.js"></script>
+```
 
 ## Trouble-shooting bundling and build issues
 - If bundling breaks, or UI is not updated (in DEV mode) via HMR to reflect latest CSS/JavaScript changes:
