@@ -98,9 +98,12 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 ## Linking to build artefacts (CSS/JavaScript) in survey
 Uses whatever build folder has been defined in `package.json`.
 
+Add to document `<head>`:
 ```
 <link rel="stylesheet" href="/path/to/build/folder/stylesheets/index.css">
 ```
+
+Add to the end of document `<body>`:
 ```
 <script defer type="module" src="/path/to/build/folder/javascript/index.js"></script>
 <script defer nomodule src="/path/to/build/folder/javascript/legacy.js"></script>
