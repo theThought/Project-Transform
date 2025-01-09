@@ -1663,10 +1663,14 @@ FixedTextsList "" define
     };
     CustomList_Information "" define
     {
-    overlay "overlay existing content",
-    pushdown "expand between content"
+        overlay "overlay existing content",
+        pushdown "expand between content"
     };
-    
+    CustomList_Validate "" define
+    {
+        validate "allow native browser validation of fields",
+        dontvalidate "disable native browser validation of fields"
+    };
     TypesList_Simple "Basic Question types" define
     {
         basic "Original Questions",
@@ -1878,6 +1882,7 @@ FixedTextsList "" define
     '----------------------------------------
     CustomList_SetBalance "Side by Side Balance:"
         style(
+            ZIndex = -20,
             Width = "4em"
         )
     long [15 .. 60]
@@ -1887,6 +1892,9 @@ FixedTextsList "" define
     } );
 
     CustomList_SetFocus "Which focus"
+        style(
+            ZIndex = -40
+        )
     categorical
     {
         use CustomList_Focus -
@@ -1894,6 +1902,7 @@ FixedTextsList "" define
 
     CustomList_SetLayout "Which Layout"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -1905,6 +1914,7 @@ FixedTextsList "" define
 
     CustomList_SetDirection "Which Direction"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -1916,6 +1926,7 @@ FixedTextsList "" define
 
     CustomList_SetInstruction "Where is the Instruction"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -1927,6 +1938,7 @@ FixedTextsList "" define
 
     CustomList_SetInformation "How should information panels work"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -1935,9 +1947,19 @@ FixedTextsList "" define
     {
         use CustomList_Information -
     };
+
+    CustomList_SetValidate "Can browsers perform their own validation"
+        style(
+            ZIndex = -40,
+        )
+    categorical [1..1]
+    {
+        use CustomList_Validate -
+    };
     
     CustomList_SetTheme "Theme"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -1949,6 +1971,7 @@ FixedTextsList "" define
 
     CustomList_SetPaste1 "Paste into Input"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -1960,6 +1983,7 @@ FixedTextsList "" define
 
     CustomList_SetJump "Jump to first error"
         style(
+            ZIndex = -60,
             Control(
                 Type = "DropList"
             )
@@ -2797,8 +2821,7 @@ FixedTextsList "" define
     (
         Passive5Scale "Indicate your satisfaction with this wash"
             style(
-                ZIndex = -55,
-                Width = "80%"
+                ZIndex = -55
             )
         long [1 .. 5]
         codes(
@@ -2812,6 +2835,42 @@ FixedTextsList "" define
 
     ) expand;
 
+ LaundryScalesII "We would like you to rate you last two washes" loop
+    {
+        Scent "Scent",
+        Clean "Clean",
+        Soft "Soft",
+        overall "overall"
+    } fields -
+    (
+        Passive5ScaleI "Indicate your satisfaction with your first wash"
+            style(
+                ZIndex = -55
+            )
+        long [1 .. 5]
+        codes(
+        {
+            dontknow "Don't know"
+                style(
+                    ElementAlign = "Right"
+                )
+            DK
+        } );
+        Passive5ScaleII "Indicate your satisfaction with your second wash"
+            style(
+                ZIndex = -55
+            )
+        long [1 .. 5]
+        codes(
+        {
+            dontknow "Don't know"
+                style(
+                    ElementAlign = "Right"
+                )
+            DK
+        } );
+
+    ) expand;
     '----------------------------------------
     ' scales (vertical)
     '----------------------------------------
@@ -3152,15 +3211,17 @@ FixedTextsList "" define
         notanswered "" NA
     } );
 
-	WeekendIncrease "Over the last year, would you say that the percentage smoked at the weekend has increased or decreased"
-	style (ZIndex=-40) 
-	categorical[1]
-	{
-	increased "Increased",
-	decreased "Decreased",
-	same "Stayed the same"
-	};
-	
+    WeekendIncrease "Over the last year, would you say that the percentage smoked at the weekend has increased or decreased"
+        style(
+            ZIndex = -40
+        )
+    categorical [0..1]
+    {
+        increased "Increased",
+        decreased "Decreased",
+        same "Stayed the same"
+    };
+
     Howmanyvaped "How many times did you use your vape in the last seven days?"
         style(
             ZIndex = -40
@@ -3230,12 +3291,18 @@ FixedTextsList "" define
     };
 
     biomarkerselection "Select the required biomarkers"
+        style(
+            ZIndex = -40
+        )
     categorical
     {
         use biomarkerList -
     };
 
     biomarkerstatus1 ""
+        style(
+            ZIndex = -40
+        )
     categorical [0..1]
     {
         positive "positive",
@@ -3245,12 +3312,18 @@ FixedTextsList "" define
     };
 
     WhichDayWorkedMost "On which day of the week did you work most"
+        style(
+            ZIndex = -40
+        )
     categorical [1..1]
     {
         use daysoftheweeklist -
     };
 
     WhichDayWorkedMostPlusCode "On which day of the week did you work most"
+        style(
+            ZIndex = -40
+        )
     categorical [1..1]
     {
         use daysoftheweeklist -
@@ -3261,6 +3334,9 @@ FixedTextsList "" define
     } );
 
     DayOff "If you could guarantee a day you had off every week, which would it be"
+        style(
+            ZIndex = -40
+        )
     categorical [1..1]
     {
         use weekdayslist sublist -,
@@ -5088,28 +5164,53 @@ FixedTextsList "" define
     '----------------------------------------
     ' Visible rules based on selection count
     '----------------------------------------
-    
-    MealSelection "How many meals did you eat yesterday" 
-	style(zIndex = -40)    
-    categorical[..]
+    MealSelection "How many meals did you eat yesterday"
+        style(
+            ZIndex = -40
+        )
+    categorical
     {
-    GetUp "As soon as you get up"
-    Breakfast
-    Brunch
-    Lunch
-    Liner "Between lunch and dinner"
-    Tea "High tea"
-    Dinner
-    Supper
-    BedTime "just before going to bed"
+        GetUp "As soon as you get up",
+        Breakfast "Breakfast",
+        Brunch "Brunch",
+        Lunch "Lunch",
+        Liner "Between lunch and dinner",
+        Tea "High tea",
+        Dinner "Dinner",
+        Supper "Supper",
+        BedTime "just before going to bed"
     };
-    
-    NoneInfo "You had no meals" style(zIndex=-10) info;
-    OneInfo "You had just one meal" style(zIndex=-10) info;
-    TwoInfo "You had two meals" style(zIndex=-10) info;
-    threeInfo "You had the standard three meals" style(zIndex=-10) info;
-	lotsInfo "You had lots of meals" style(zIndex=-10) info;
-	
+
+    NoneInfo "You had no meals"
+        style(
+            ZIndex = -10
+        )
+    info;
+
+    OneInfo "You had just one meal"
+        style(
+            ZIndex = -10
+        )
+    info;
+
+    TwoInfo "You had two meals"
+        style(
+            ZIndex = -10
+        )
+    info;
+
+    threeInfo "You had the standard three meals"
+        style(
+            ZIndex = -10
+        )
+    info;
+
+    lotsInfo "You had lots of meals"
+        style(
+            ZIndex = -10
+        )
+    info;
+
     MonthyeargridNumericLoop "Indicate the data of:" loop [1] fields -
     (
         WhichMonth ""
@@ -5381,7 +5482,11 @@ FixedTextsList "" define
         )
     text [..200];
 
-    patienttumours "select the relevant tumour for each of these patients" loop
+    patienttumours "select the relevant tumour for each of these patients"
+        style(
+            ZIndex = 0
+        )
+    loop
     {
         patient1 "first patient",
         patient2 "second patient",
@@ -6936,7 +7041,8 @@ FixedTextsList "" define
         CustomList_SetFocus,
         CustomList_SetDirection,
         CustomList_SetInstruction,
-        CustomList_SetInformation,        
+        CustomList_SetInformation,
+        CustomList_SetValidate,
         CustomList_SetPaste1,
         CustomList_SetJump,
         ChooseType
@@ -7273,7 +7379,15 @@ FixedTextsList "" define
         LAProduct,
         LACategory_Entry
     );
-    SelectionCountPage "" Page(MealSelection, NoneInfo, OneInfo, TwoInfo, threeInfo, lotsInfo);
+    SelectionCountPage ""
+    page(
+        MealSelection,
+        NoneInfo,
+        OneInfo,
+        TwoInfo,
+        threeInfo,
+        lotsInfo
+    );
 End Metadata
 Routing(Web)
 dim templateLocation
@@ -7297,6 +7411,8 @@ isPWA = "false"
 isPaste = "false"
 isJump = "false"
 isFloat = "true"
+isValidate = "false"
+
 mediaAssetsURL = "https://media.ipsosinteractive.com/sandbox/kevin.gray/healthcare/staging/"
 if iom.Info.IsDebug then 
 	'IOM.LayoutTemplate = "pageoutput-label.htm"
@@ -7338,7 +7454,7 @@ dim linedefinitionsinfo,docDemQuarterFilt
 docDemQuarterFilt = "Y2022Q3"
 
 dim balanceVisibility
-balanceVisibility = CreateVisibilityRule("CustomList_SetLayout.containsAny('horizontal')")
+balanceVisibility = CreateVisibilityRule(Makestring(CustomList_SetLayout.QuestionFullName, ".containsAny('horizontal')"))
 
 CustomList_SetBalance.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetFocus.QuestionTemplate = templateLocation + "question-sidebyside.htm"
@@ -7350,6 +7466,7 @@ CustomList_SetInformation.QuestionTemplate = templateLocation + "question-sideby
 CustomList_SetPaste1.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 CustomList_SetJump.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 choosetype.QuestionTemplate = templateLocation + "question-sidebyside.htm"
+CustomList_SetValidate.QuestionTemplate = templateLocation + "question-sidebyside.htm"
 
 addCustomProperties(ChooseType, "ChooseType", MakeString("{'separator':true, 'onesize':{'state':true},'balance':{'state':true}}"), "replace")
 addCustomProperties(CustomList_SetBalance, "CustomList_SetBalance", MakeString("{'separator':false,'visible':{'collapse':true,'rules':'", balanceVisibility, "'}}"), "replace")
@@ -7357,6 +7474,7 @@ addCustomProperties(CustomList_SetFocus, "CustomList_SetFocus", MakeString("{'se
 addCustomProperties(CustomList_SetLayout, "CustomList_SetLayout", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'select layout'}"), "replace")
 addCustomProperties(CustomList_SetInstruction, "CustomList_SetInstruction", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'place instruction'}"), "replace")
 addCustomProperties(CustomList_SetInformation, "CustomList_SetInformation", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'expand by'}"), "replace")
+addCustomProperties(CustomList_SetInformation, "CustomList_SetInformation", "{'balance':{'state':true},'onesize':{'state':true}", "replace")
 
 CustomList_SetLayout.Response.initial = {horizontal}
 CustomList_SetTheme.response.initial = {Formal}
@@ -7364,10 +7482,11 @@ CustomList_SetFocus.Response.initial = {Question, Control}
 CustomList_SetDirection.Response.Initial = {LTR}
 CustomList_SetInstruction.Response.Initial = {below}
 CustomList_SetInformation.Response.Initial = {overlay}
+CustomList_SetValidate.Response.Initial = {dontvalidate}
 CustomList_SetPaste1.Response.Initial = {allow}
 CustomList_SetJump.Response.Initial = {yes}
 
-PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':true}")
+PageJSON_Create(IOM, "{'sidebyside':'30','focus':{'question':true,'control':true},'pwa':'false','paste':false,'jumptoerror':true,'validate':false}")
 
 CustomList_SetBalance.MustAnswer = false
 CustomList_SetBalance.Response = 30
@@ -7452,9 +7571,14 @@ else
 	isFloat = "false"
 end if
 
+If CustomList_SetValidate.response.containsAny({validate}) then
+	isValidate = "true"
+else
+	isValidate = "false"
+end if
 'PageJSON_Create(IOM, MakeString("{'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "'}"))
 
-PageJSON_Create(IOM, MakeString("{", focusBalance, "'focus':{'question':", focusQuestion, ",'control':", focusControl, "},'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "','float':", isFloat, "}"))
+PageJSON_Create(IOM, MakeString("{", focusBalance, "'focus':{'question':", focusQuestion, ",'control':", focusControl, "},'pwa':'", isPWA, "','paste':'", isPaste, "','jumptoerror':'", isJump, "','floatdetails':", isFloat, ",'validate':", isValidate, "}"))
 
 select case choosetype.Response
 case {paste}
@@ -7840,9 +7964,28 @@ AddCustomProperties(fivepointfeedbackbytheside, "fivepointfeedbackbytheside", "'
 fivepointfeedback.Ask()
 
 case {GridScale}
-AddCustomProperties(LaundryScales, "Passive5Scale", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "replace")
+AddCustomProperties(LaundryScales, "LaundryScales", "{'caption':{'content':'A grid of horizontal sliders'}}","replace")
+AddCustomProperties(LaundryScales, "Passive5Scale", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "add")
+laundryscales[..].Passive5Scale.style.cell.Width = "60%"
+laundryscales[..].Passive5Scale.style.align = alignments.alleft
+laundryscales.Categories[..].Label.Style.VerticalAlign = verticalalignments.vaTop
+laundryscales.Style.Width = "60%"
 
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 LaundryScales.ask()
+
+AddCustomProperties(LaundryScalesII, "LaundryScalesII", "{'caption':{'content':'A grid of horizontal sliders'}}","replace")
+AddCustomProperties(LaundryScalesII, "Passive5ScaleI", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "add")
+AddCustomProperties(LaundryScalesII, "Passive5ScaleII", "{'values':{'min':1,'max':5,'position':'inside'},'unit':{'image':{'width':'32px','height':'32px'}},'labels':{'pre':'Very Dissatisfied','post':'Very Satisfied'}}", "add")
+laundryscalesII[..].Passive5ScaleI.style.cell.Width = "35em"
+laundryscalesII[..].Passive5ScaleI.style.align = alignments.alleft
+laundryscalesII[..].Passive5ScaleII.style.cell.Width = "35em"
+laundryscalesII[..].Passive5ScaleII.style.align = alignments.alleft
+laundryscalesII.Categories[..].Label.Style.VerticalAlign = verticalalignments.vaTop
+laundryscalesII.Categories[..].Label.Style.cell.width = "8em"
+laundryscalesII.Style.Width = "80em"
+
+LaundryScalesII.ask()
 
 case {scalev}
 dim passive10visibilityV
@@ -7930,7 +8073,7 @@ Dim currentRule
 HowManySmoked.MustAnswer = false
 WeekendPercentage.MustAnswer = false
 
-
+VisibilityStatement.QuestionTemplate = "Question.htm"
 smokecigars.Style.ZIndex = -60
 	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked')")
 addCustomProperties(smokecigars, "smokecigars", MakeString("{'separator':true, 'onesize':{'state':true},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'Select an answer','visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
@@ -7960,7 +8103,7 @@ smokepage.Ask()
 	currentRule =  CreateVisibilityRule("Pipesmoking.containsAny('nopipe')")
 	addCustomProperties(EverPiped, "EverPiped", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "add")
 	PipePage.ask()
-	PipePage.Show()
+	'PipePage.Show()
 
 
 	AddCustomProperties(concomitant, "concomitant", "{'balance':{'state':true},'onesize':{'state':true}}", "replace")
@@ -7993,6 +8136,8 @@ biomarkerPage.Ask()
 'NetPromoterScore.QuestionFilter = {Overall}
 	currentRule = CreateVisibilityRule("Cleanliness_QNetPromoterResult.containsAny('rating10')")
 addCustomProperties(NetPromoterComment, "NetPromoterComment", MakeString("{'visible':{'collapse':false,'rules':'", currentRule, "'}}"), "replace")
+'IOM.LayoutTemplate = "pageoutput-label.htm"
+'BeforeQuestionAsk(NetPromoterPage, IOM)
 NetPromoterPage.Ask()
 
 
@@ -8296,6 +8441,8 @@ AddCustomProperties(PainRelief, "Friday", "{'type':'number','showspinner':true}"
 AddCustomProperties(PainRelief, "Saturday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "Sunday", "{'type':'number','showspinner':true}", "add")
 AddCustomProperties(PainRelief, "PainRelief", "{'topheadings':[{'caption':'','colspan':1},{'caption':'Week','colspan':5},{'caption':'Weekend','colspan':2},{'caption':'Total','colspan':1}]}", "add")
+
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 PainRelief.ask()
 
 'IOM.LayoutTemplate = "pageoutput-label.htm"
@@ -8539,14 +8686,14 @@ filterPageDroplist.Ask()
 case {InvisibilityQuestions}
 dim childrenInvisibilityRule
 'HowManyDependents, DependentType, HowManyMarriages, SameMarriage
-	childrenInvisibilityRule = CreateVisibilityRule("HowManyDependents>0")
+	childrenInvisibilityRule = CreateVisibilityRule("HowManyDependents > 0")
 	AddCustomProperties(DependentType, "DependentType", MakeString("{'visible':{'collapse':true,'rules':'", childrenInvisibilityRule , "'}}"), "replace")
 	AddCustomProperties(DependentType, "DependentType", "{'balance':{'state':true}, 'onesize':{'state':true}}", "add")
 
-	childrenInvisibilityRule = CreateVisibilityRule("HowManyDependents<1")
+	childrenInvisibilityRule = CreateVisibilityRule("HowManyDependents < 1")
 	AddCustomProperties(HowManyMarriages, "HowManyMarriages", MakeString("{'invisible':{'collapse':true,'rules':'", childrenInvisibilityRule , "'}}"), "replace")
 
-	childrenInvisibilityRule = CreateVisibilityRule("HowManyMarriages<2 or HowManyDependents<2")
+	childrenInvisibilityRule = CreateVisibilityRule("HowManyMarriages < 2 or HowManyDependents < 2")
 	AddCustomProperties(SameMarriage, "SameMarriage", MakeString("{'invisible':{'collapse':true,'rules':'", childrenInvisibilityRule , "'}}"), "replace")
 	AddCustomProperties(SameMarriage, "SameMarriage", "{'balance':{'state':true}, 'onesize':{'state':true}}", "add")
 
@@ -8566,19 +8713,19 @@ case {InvisibleAlternatives}
 dim alternativesQuestionRule, alternativesLabelRule
 dim alternativeRule[7]
 
-	alternativesQuestionRule = CreateVisibilityRule("(HowManyDaily + HowManyWeekend)<1")
-	alternativesLabelRule = CreateVisibilityRule("HowManyDaily<1 and HowManyWeekend<1")
+	alternativesQuestionRule = CreateVisibilityRule("(HowManyDaily + HowManyWeekend) < 1")
+	alternativesLabelRule = CreateVisibilityRule("HowManyDaily < 1 and HowManyWeekend < 1")
 	
 	AddCustomProperties(WhichPapers, "WhichPapers", MakeString("{'invisible':{'collapse':true,'rules':'", alternativesLabelRule , "'}}"), "replace")
 	AddCustomProperties(WhichPapers, "WhichPapers", "{'balance':{'state':true}, 'onesize':{'state':true}}", "add")
 
-	alternativeRule[0] = "{'name':'select','label':'Select the ','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 or HowManyWeekend>0'}}"
-	alternativeRule[1] = "{'name':'daily','label':' daily','block':false,'invisible':{'collapse':true,'rules':'HowManyDaily<1'}}"
-	alternativeRule[2] = "{'name':'or','label':' or','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 and HowManyWeekend>0'}}"
-	alternativeRule[3] = "{'name':'weekend','label':' weekend','block':false,'invisible':{'collapse':true,'rules':'HowManyWeekend<1'}}"
-	alternativeRule[4] = "{'name':'newspaper','label':' newspaper','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 or HowManyWeekend>0'}}"
-	alternativeRule[5] = "{'name':'plaural','label':'s','block':false,'invisible':{'collapse':true,'rules':'HowManyDaily + HowManyWeekend<2'}}"
-	alternativeRule[6] = "{'name':'read','label':' you read','block':false,'visible':{'collapse':true,'rules':'HowManyDaily>0 or HowManyWeekend>0'}}"
+	alternativeRule[0] = "{'name':'select','label':'Select the ','block':false,'visible':{'collapse':true,'rules':'HowManyDaily > 0 or HowManyWeekend > 0'}}"
+	alternativeRule[1] = "{'name':'daily','label':' daily','block':false,'invisible':{'collapse':true,'rules':'HowManyDaily < 1'}}"
+	alternativeRule[2] = "{'name':'or','label':' or','block':false,'visible':{'collapse':true,'rules':'HowManyDaily > 0 and HowManyWeekend > 0'}}"
+	alternativeRule[3] = "{'name':'weekend','label':' weekend','block':false,'invisible':{'collapse':true,'rules':'HowManyWeekend < 1'}}"
+	alternativeRule[4] = "{'name':'newspaper','label':' newspaper','block':false,'visible':{'collapse':true,'rules':'HowManyDaily > 0 or HowManyWeekend > 0'}}"
+	alternativeRule[5] = "{'name':'plaural','label':'s','block':false,'invisible':{'collapse':true,'rules':'HowManyDaily + HowManyWeekend < 2'}}"
+	alternativeRule[6] = "{'name':'read','label':' you read','block':false,'visible':{'collapse':true,'rules':'HowManyDaily > 0 or HowManyWeekend > 0'}}"
 	
 	
 	alternativesLabelRule = MakeString("{'labels':{'alternatives':[", alternativeRule[0], ",", alternativeRule[1], ",", alternativeRule[2], ",", alternativeRule[3], ",", alternativeRule[4], ",", alternativeRule[5], ",", alternativeRule[6], "],'separator':''}}")
@@ -8652,7 +8799,7 @@ dim tumourCount, tumourCounter, tumourVisibility, tumourID
 		addCustomProperties(patienttumours, tumourID + "_Qotherspecifyotherinput", MakeString("{'visible':{'collapse':false,'rules':'", tumourVisibility, "'}}"), "add")
 	Next
 	AddCustomProperties(patienttumours, "otherspecifylistdropdown", "{'resettonull':false,'displayicon':false,'jumptofirstletter':true,'listsize':10,'showanswers':false,'type':'dropdown','placeholder':'select an option'}", "add")
-
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 	patientTumours.Ask()
 	patientTumours.Show()
 
@@ -9496,8 +9643,11 @@ case {CameraCapture}
 
 case {VisibleCount}
 dim selectionCountRule
-	selectionCountRule = CreateVisibilityRule("MealSelection.count("=1"")
-	AddCustomProperties(NoneInfo, "NoneInfo", MakeString("{'visible':{'collapse':true,'rules':'", selectionCountRule, "'}}"), "replace")
+	AddCustomProperties(NoneInfo, "NoneInfo", "{'visible':{'collapse':true,'rules':'MealSelection.answerCount() < 1'}}", "replace")
+	AddCustomProperties(OneInfo, "OneInfo", "{'visible':{'collapse':true,'rules':'MealSelection.answerCount() = 1'}}", "replace")
+	AddCustomProperties(TwoInfo, "TwoInfo", "{'visible':{'collapse':true,'rules':'MealSelection.answerCount() = 2'}}", "replace")
+	AddCustomProperties(threeInfo, "threeInfo", "{'visible':{'collapse':true,'rules':'MealSelection.answerCount() = 3'}}", "replace")
+	AddCustomProperties(lotsInfo, "lotsInfo", "{'visible':{'collapse':true,'rules':'MealSelection.answerCount() > 3'}}", "replace")
 
 	SelectionCountPage.ask()
     
@@ -9639,8 +9789,68 @@ dim currentName, currentFullname, currentType, currentOrder
 dim registerBanner
 dim numberOfSubQuestions, counter, subQuestion, subName
 dim InstructionBanner, warningBanner
+dim iterationCount, iterationCounter, currentIteration
+dim questionName, iterationName
+currentname = theQuestion.QuestionName 
+currentfullname = theQuestion.QuestionFullName
+currenttype = theQuestion.QuestionType
+	select case(thequestion.QuestionType)
+	case QuestionTypes.qtBlock, QuestionTypes.qtPage
+		numberOfSubQuestions = theQuestion.count 
+		for counter = 0 to numberOfSubQuestions - 1
+			set subQuestion = theQuestion[counter]
+			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
 
+			CreateBanner(subQuestion, "RegisterContainer")
+			subQuestion.Banners["RegisterContainer"].text = ""
+			
+			if subQuestion.QuestionType = QuestionTypes.qtLoopCategorical OR subQuestion.QuestionType = QuestionTypes.qtLoopNumeric then SetupGrid(subQuestion, theIOM)
+			setZIndex(subQuestion, theIOM)
+			BuildRegisterContainer(subQuestion, counter, subName)
 
+		Next
+	case QuestionTypes.qtLoopCategorical, QuestionTypes.qtLoopNumeric
+		SetupGrid(theQuestion, theIOM)
+	case else 
+		CreateBanner(theQuestion, "RegisterContainer")
+		theQuestion.Banners["RegisterContainer"].text = ""
+	'this may need to loop for a table (sub questions) as in the non page version
+		SetZIndex(theQuestion, theIOM)
+		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
+		end select
+end function
+
+function SetupGrid(theQuestion, theIOM)
+dim currentFullname, currentType, currentName
+dim iterationCount, iterationCounter, currentIteration
+dim questionName, iterationName
+currentName = theQuestion.QuestionName 
+currentFullName = theQuestion.QuestionFullName
+currentType = theQuestion.QuestionType
+
+	questionName = MakeString("_Q", currentFullName.Replace("_", "__"))
+	theQuestion.style.bgcolor = questionName
+	CreateBanner(theQuestion, "RegisterContainer")
+	theQuestion.Banners["RegisterContainer"].text = ""
+'	this may need to loop for a table (sub questions) as in the non page version
+	BuildRegisterContainer(theQuestion, 0, MakeString("_Q", currentName.Replace("_", "__")))
+	iterationCount = theQuestion.Categories.Count
+	
+	for iterationCounter = 0 to iterationCount - 1
+		set currentIteration = theQuestion.Categories[iterationCounter]
+		iterationName = MakeString("_Q", currentIteration.fullname.Replace("_", "__"))
+		currentIteration.label.style.Bgcolor = MakeString(questionName, iterationName)
+	next
+end function
+
+function BeforeQuestionAsk(theQuestion, theIOM)
+'debug.Log("before question")
+dim currentName, currentFullname, currentType, currentOrder
+dim registerBanner
+dim numberOfSubQuestions, counter, subQuestion, subName
+dim InstructionBanner, warningBanner
+dim iterationCount, iterationCounter, currentIteration
+dim questionName, iterationName
 currentname = theQuestion.QuestionName 
 currentfullname = theQuestion.QuestionFullName
 currenttype = theQuestion.QuestionType
@@ -9657,33 +9867,27 @@ currenttype = theQuestion.QuestionType
 			setZIndex(subQuestion, theIOM)
 			BuildRegisterContainer(subQuestion, counter, subName)
 
-'			set instructionBanner = FindBanner(subQuestion, "Instruction")
-'			if instructionBanner <> null then
-'				PadBanner(instructionBanner)
-'			end if
-			
-'			set warningBanner = FindBanner(subQuestion, "Warning")
-'			if warningBanner <> null then
-'				PadBanner(warningBanner)
-'			end if
-
-		Next	
-		case else 
-			CreateBanner(theQuestion, "RegisterContainer")
-			theQuestion.Banners["RegisterContainer"].text = ""
+		Next
+	case QuestionTypes.qtLoopCategorical, QuestionTypes.qtLoopNumeric
+		questionName = MakeString("_Q", currentFullName.Replace("_", "__"))
+		theQuestion.style.bgcolor = questionName
+		CreateBanner(theQuestion, "RegisterContainer")
+		theQuestion.Banners["RegisterContainer"].text = ""
 	'this may need to loop for a table (sub questions) as in the non page version
-			SetZIndex(theQuestion, theIOM)
-			BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
-	
-'			set instructionBanner = FindBanner(theQuestion, "Instruction")
-'			if instructionBanner <> null then
-'				PadBanner(instructionBanner)
-'			end if
-			
-'			set warningBanner = FindBanner(theQuestion, "Warning")
-'			if warningBanner <> null then
-'				PadBanner(warningBanner)
-'			end if
+		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", currentName.Replace("_", "__")))
+		iterationCount = theQuestion.Categories.Count
+		
+		for iterationCounter = 0 to iterationCount - 1
+			set currentIteration = theQuestion.Categories[iterationCounter]
+			iterationName = MakeString("_Q", currentIteration.fullname.Replace("_", "__"))
+			currentIteration.label.style.Bgcolor = MakeString(questionName, iterationName)
+		next
+	case else 
+		CreateBanner(theQuestion, "RegisterContainer")
+		theQuestion.Banners["RegisterContainer"].text = ""
+	'this may need to loop for a table (sub questions) as in the non page version
+		SetZIndex(theQuestion, theIOM)
+		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
 		end select
 end function
 
@@ -9742,34 +9946,36 @@ dim newString
 end function
 
 sub setZIndex(theQuestion,theIOM)
-      if theQuestion.Style.ZIndex = NULL then
-           select case theQuestion.QuestionDataType
-          'Info
-          case DataTypeConstants.mtNone
-                theQuestion.Style.ZIndex = -10
-                
-          'Long/Double/Text
-          case DataTypeConstants.mtLong,DataTypeConstants.mtDouble, DataTypeConstants.mtText
-                theQuestion.Style.ZIndex = -20
-                
-          'Categorical
-          case DataTypeConstants.mtCategorical
-      		select case theQuestion.style.control.type
+  if theQuestion.Style.ZIndex = NULL then
+       select case theQuestion.QuestionDataType
+      'Info
+      case DataTypeConstants.mtNone
+            if theQuestion.QuestionType <> Questiontypes.qtLoopCategorical and theQuestion.QuestionType <> Questiontypes.qtLoopNumeric then
+	            theQuestion.Style.ZIndex = -10
+	            debug.Log("ZIndex set to -10")
+			end if            
+      'Long/Double/Text
+      case DataTypeConstants.mtLong,DataTypeConstants.mtDouble, DataTypeConstants.mtText
+            theQuestion.Style.ZIndex = -20
+            
+      'Categorical
+      case DataTypeConstants.mtCategorical
+  		select case theQuestion.style.control.type
 
-      		'single/multi-choice
-      		case controltypes.ctCheckButton or controltypes.ctRadioButton
-            	theQuestion.Style.ZIndex = -40
+  		'single/multi-choice
+  		case controltypes.ctCheckButton or controltypes.ctRadioButton
+        	theQuestion.Style.ZIndex = -40
 
-      		'dropdowns
-            case controlTypes.ctDropList
-            	theQuestion.style.zindex = -60
+  		'dropdowns
+        case controlTypes.ctDropList
+        	theQuestion.style.zindex = -60
 
-      		'combobox
-            case controlTypes.ctComboList
-            	theQuestion.style.zindex = -70
-			end Select                      	
-           end select
-      end if     
+  		'combobox
+        case controlTypes.ctComboList
+        	theQuestion.style.zindex = -70
+		end Select                      	
+       end select
+  end if
 end sub
 
 sub CreateInformationPopup (theQuestion, theTitle, theContent)
