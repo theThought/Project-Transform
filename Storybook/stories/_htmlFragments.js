@@ -2,7 +2,9 @@
 export const htmlFragmentCustomProperties = `
 <div style="margin-block-end: 3rem;">
     <button class="a-button" data-copy>Generate & copy custom properties JSON</button>
-    <span data-json style="font-family: monospace;">{}</span>
+    <code>
+        <pre data-json style="white-space: pre-wrap;">{}</pre>
+    </code>
 </div>
 `;
 

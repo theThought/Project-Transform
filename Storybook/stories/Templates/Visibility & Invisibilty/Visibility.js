@@ -80,9 +80,9 @@ ${htmlFragmentCustomProperties}
 
         <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QPaperTypesPage_QWhichPapers');</script>
 
-        <script type="text/javascript">app.RegisterProperties("_QWhichPapers",{"options":{"visible":[{"name":"Mail","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Telegraph","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Independent","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Guardian","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Post","rules":"PaperTypes.ContainsAny('International')"},{"name":"LeMonde","rules":"PaperTypes.ContainsAny('International')"},{"name":"Journal","rules":"PaperTypes.ContainsAny('International')"},{"name":"STimes","rules":"PaperTypes.ContainsAny('Sunday')"},{"name":"Observer","rules":"PaperTypes.ContainsAny('Sunday')"},{"name":"STelegraph","rules":"PaperTypes.ContainsAny('Sunday')"}]}});</script>
+        <script type="text/javascript">app.RegisterProperties("_QWhichPapers",{"balance":{"state":true}, "onesize":{"state":true}});</script>
 
-        <!--<script type="text/javascript">app.RegisterProperties("_QWhichPapers",{"balance":{"state":true}, "onesize":{"state":true}});</script>-->
+        <script type="text/javascript">app.RegisterProperties("_QWhichPapers",{"options":{"visible":[{"name":"Mail","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Telegraph","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Independent","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Guardian","rules":"PaperTypes.ContainsAny('Daily')"},{"name":"Post","rules":"PaperTypes.ContainsAny('International')"},{"name":"LeMonde","rules":"PaperTypes.ContainsAny('International')"},{"name":"Journal","rules":"PaperTypes.ContainsAny('International')"},{"name":"STimes","rules":"PaperTypes.ContainsAny('Sunday')"},{"name":"Observer","rules":"PaperTypes.ContainsAny('Sunday')"},{"name":"STelegraph","rules":"PaperTypes.ContainsAny('Sunday')"}]}});</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 

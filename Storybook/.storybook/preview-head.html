@@ -59,6 +59,7 @@
 
     const parseCustomProperties = () => {
         let customProps = '';
+        let newTextContent = '';
 
         // Storybook moves all inline <script> tags into "scripts-root".
         const scripts = document.querySelector('#scripts-root').childNodes;
@@ -66,11 +67,10 @@
         scripts && scripts.forEach(script => {
             if (script.textContent.indexOf('RegisterProperties') === -1) return;
 
-            // Only process 1 set of custom props, so ensure the configurable ones in Storybook are 1st in the story HTML.
-            // TODO: Refactor if we need to show multiple sets of custom props.
-            if (customProps === '') {
-                customProps = script.textContent;
-            }
+            // Handle multiple sets of custom props, by stripping out "app.RegisterProperties" up to the first "{".
+            newTextContent = script.textContent.substring(script.textContent.indexOf('{'));
+
+            customProps += newTextContent;
         });
 
         // Remove any unwanted strings.
@@ -81,7 +81,6 @@
         });
 
         // Sanitise custom props for use in ZeroHeight.
-        customProps = customProps.substring(customProps.indexOf('{'));
         customProps = customProps.replace(/\);/gm, ''); // Remove );
         customProps = customProps.replace(/"/gm, '\''); // Replace " with '
         customProps = customProps.replace(/\s+/gm, ' '); // Whitespace
@@ -89,6 +88,9 @@
         customProps = customProps.replace(/,+/gm, ','); // Rogue commas
         customProps = customProps.replace(/, }/gm, ' }'); // Rogue commas
         customProps = customProps.replace(/{,/gm, '{'); // Rogue commas
+
+        // Add line break between each set of custom props.
+        customProps = customProps.replace(/}{/gm, '\n\n{');
 
         return customProps;
     }
