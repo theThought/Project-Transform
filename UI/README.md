@@ -95,7 +95,9 @@ Configured using `husky` and `lint-staged` to ensure no linting errors are commi
 
 > Note: Github workflow & live Storybook URL relate to the existing Storybook component library in `./Storybook/` directory. Once this POC Storybook is ready for production, we can deprecate the old one.
 
-## Linking to build artefacts (CSS/JavaScript) in survey
+## Build CSS and JavaScript for use in survey
+- `npm run build`.
+### Linking to build artefacts in survey
 Uses whatever build folder has been defined in `package.json`.
 
 Add to document `<head>`:
