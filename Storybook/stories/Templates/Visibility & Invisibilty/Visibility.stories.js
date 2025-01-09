@@ -1,7 +1,7 @@
-import { VisibilityHtml } from './Visibility';
+import { VisibleHtml } from './Visibility';
 
 export default {
-    title: 'Templates/Visibility & Invisibility/TEST',
+    title: 'Templates/Visibility & Invisibility',
     parameters: {
         status: { type: 'beta' },
         controls: { sort: 'alpha' },
@@ -9,6 +9,6 @@ export default {
     },
 };
 
-export const Visibility = {
-    render: (args) => VisibilityHtml(args),
+export const Visible = {
+    render: () => VisibleHtml(),
 };
