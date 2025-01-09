@@ -4,23 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../_htmlFragments';
 
-const style = `
-<style>
-    /* Override template height inside Storybook */
-    #storybook-docs .surroundcontent {
-        min-height: fit-content;
-    }
-
-    /* Storybook strips out inline <script> preceeding "m-option-base", so need to add margin back. */
-    .m-option-base:first-child {
-        margin-bottom: 4px;
-    }
-</style>
-`;
-
 export const ChoiceCustomPropertiesHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"
@@ -186,7 +170,6 @@ ${htmlFragmentCustomProperties}
 `;
 
 export const ChoiceOtherSpecifyHtml = () => `
-${style}
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"
@@ -276,7 +259,6 @@ ${style}
 `;
 
 export const ChoiceSpecialCodesHtml = () => `
-${style}
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"

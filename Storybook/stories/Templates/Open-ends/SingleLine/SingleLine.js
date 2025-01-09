@@ -4,18 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
 
-const style = `
-<style>
-    /* Override template height inside Storybook */
-    #storybook-docs .surroundcontent {
-        min-height: fit-content;
-    }
-</style>
-`;
-
 export const SingleLineCustomPropertiesHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"
@@ -71,7 +60,6 @@ ${htmlFragmentCustomProperties}
 `;
 
 export const SingleLineSpecialCodesHtml = () => `
-${style}
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"

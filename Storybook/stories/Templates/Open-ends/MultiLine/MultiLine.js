@@ -3,17 +3,7 @@ import {
     htmlFragmentMessageInstruction,
 } from '../../../_htmlFragments';
 
-const style = `
-<style>
-    /* Override template height inside Storybook */
-    #storybook-docs .surroundcontent {
-        min-height: fit-content;
-    }
-</style>
-`;
-
 export const MultiLineHtml = () => `
-${style}
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"

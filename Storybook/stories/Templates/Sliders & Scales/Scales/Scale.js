@@ -4,18 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
 
-const style = `
-<style>
-    /* Override template height inside Storybook */
-    #storybook-docs .surroundcontent {
-        min-height: fit-content;
-    }
-</style>
-`;
-
 export const ScaleHorizontalHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"
@@ -91,8 +80,6 @@ ${htmlFragmentCustomProperties}
 `;
 
 export const ScaleVerticalHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"
@@ -168,8 +155,6 @@ ${htmlFragmentCustomProperties}
 `;
 
 export const ScaleSpecialCodesHtml = () => `
-${style}
-
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"

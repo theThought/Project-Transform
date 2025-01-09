@@ -4,18 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
 
-const style = `
-<style>
-    /* Override template height inside Storybook */
-    #storybook-docs .surroundcontent {
-        min-height: fit-content;
-    }
-</style>
-`;
-
 export const DropdownHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"
