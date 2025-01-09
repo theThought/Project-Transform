@@ -8,12 +8,13 @@
     .m-option-base:first-child {
         margin-bottom: 4px;
     }
+}
 
-    /* Display list when it's not part of combobox, etc. */
-    :not(.o-combobox, .o-dropdown) {
-        .m-list {
-            left: auto;
-            position: revert;
-        }
+/* Display list when it's not part of combobox, etc. */
+[data-name='m-list'],
+[id='storybook-root'] {
+    > .m-list {
+        left: auto;
+        position: static;
     }
 }
