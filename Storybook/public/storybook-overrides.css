@@ -1,6 +1,5 @@
-#storybook-docs,
-#storybook-root {
-    /* Override template height inside Storybook */
+.sb-show-main {
+    /* Override template height inside Storybook. */
     .surroundcontent {
         min-height: fit-content;
     }
@@ -10,8 +9,11 @@
         margin-bottom: 4px;
     }
 
-    /* Display list without reliance on JS */
-    ul.m-list {
-        left: auto;
+    /* Display list when it's not part of combobox, etc. */
+    :not(.o-combobox, .o-dropdown) {
+        .m-list {
+            left: auto;
+            position: revert;
+        }
     }
 }
