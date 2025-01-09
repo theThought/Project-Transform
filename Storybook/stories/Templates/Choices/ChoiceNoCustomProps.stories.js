@@ -1,7 +1,7 @@
 import { ChoiceOtherSpecifyHtml, ChoiceSpecialCodesHtml } from './Choice';
 
 export default {
-    title: 'Templates/Choices/t-choice',
+    title: 'Templates/Choices/t-choice (no story controls)',
     parameters: {
         status: {
             type: 'beta',
