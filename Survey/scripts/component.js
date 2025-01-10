@@ -629,7 +629,7 @@ define(
         }
 
         component.prototype.replaceOperators = function (ruleString) {
-            var questionRe = /\s?([a-zA-Z0-9]+)\s([=<>+-]+)/g;
+            var questionRe = /\s?([a-zA-Z0-9_]+)\s([=<>+-]+)/g;
 
             ruleString = ruleString.replace(/or /gi, '|| ');
             ruleString = ruleString.replace(/and /gi, '&& ');
