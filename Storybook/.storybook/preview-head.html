@@ -7,10 +7,10 @@
 <link href="storybook-overrides.css" rel="stylesheet" />
 
 <!-- Scripts required for survey components. -->
-<script src="scripts/require.js" type="text/javascript"></script>
-<script src="scripts/survey.js" type="text/javascript"></script>
-<script src="scripts/base.js" type="text/javascript"></script>
-<script type="text/javascript">
+<script src="scripts/require.js"></script>
+<script src="scripts/survey.js"></script>
+<script src="scripts/base.js"></script>
+<script>
     require.config({
         baseUrl: 'scripts',
         waitSeconds: 0
@@ -25,8 +25,10 @@
     These properties map to Storybook controls which, when updated, trigger the survey JS to re-render the DOM, causing Storybook to fire the "DOMContentLoaded" event. We need to re-initialise the survey JS again, based on newly updated DOM.
  -->
  <script>
-    // Array of custom properties strings to be removed.
-    // Keep adding to array as required...
+    /**
+     * Array of custom properties strings to be removed.
+     * Keep adding to array as required...
+    */
     const ignoredStrings = [
         // Choice questions
         '"balance":{"state":false}',
@@ -57,6 +59,9 @@
         '"post":""',
     ];
 
+    /**
+     * Function to generate sanitised custom properties.
+    */
     const parseCustomProperties = () => {
         let customProps = '';
         let newTextContent = '';
@@ -95,8 +100,9 @@
         return customProps;
     }
 
-    document.addEventListener('DOMContentLoaded', (e) => {
+    document.addEventListener('DOMContentLoaded', () => {
         console.log('Storybook DOMContentLoaded fired... re-init components');
+
         // Replaces "require(['main'], function () { })" used in real survey.
         require(['main-storybook'], function () { });
 
