@@ -18,47 +18,9 @@
 </script>
 
 <!--
-    Some template stories contain inline <script> tags that define survey "custom properties".
-
-        e.g. <script>app.RegisterProperties(...)</script>
-
-    These properties map to Storybook controls which, when updated, trigger the survey JS to re-render the DOM, causing Storybook to fire the "DOMContentLoaded" event. We need to re-initialise the survey JS again, based on newly updated DOM.
+    Handle any inline <script> tags which define survey "custom properties" in stories - e.g. <script>app.RegisterProperties(...)</script>
  -->
- <script>
-    /**
-     * Array of custom properties strings to be removed.
-     * Keep adding to array as required...
-    */
-    const ignoredStrings = [
-        // Choice questions
-        '"balance":{"state":false}',
-        '"onesize":{"state":false}',
-        '"sublistline":{"state":false}',
-        // Open-end questions
-        '"labels":{}',
-        // List questions
-        '"exact":true',
-        '"filtertype":"contains"',
-        '"mincharactersforlist":0',
-        '"showanswers":true',
-        '"selection":"undefined"',
-        '"jumptofirstletter":true',
-        // Slider & scale questions
-        '"marks":false',
-        '"value":false',
-        '"terminators":false',
-        '"ticklabels":"undefined"',
-        '"floodtovalue":false',
-        '"min":undefined',
-        '"max":undefined',
-        '"position":"inside"',
-        // Grid questions
-        '"rowheader":false',
-        '"altrows":false',
-        '"pre":""',
-        '"post":""',
-    ];
-
+<script>
     /**
      * Function to generate sanitised custom properties.
     */
@@ -100,6 +62,9 @@
         return customProps;
     }
 
+    /**
+     * Custom properties map to Storybook controls which, when updated, trigger the survey JS to re-render the DOM, causing Storybook to fire the "DOMContentLoaded" event. We need to re-initialise the survey JS again, based on newly updated DOM.
+     */
     document.addEventListener('DOMContentLoaded', () => {
         console.log('Storybook DOMContentLoaded fired... re-init components');
 
@@ -115,4 +80,41 @@
             navigator.clipboard.writeText(json.textContent);
         });
     });
+</script>
+
+<script>
+    /**
+     * Array of custom properties strings to be removed.
+     * Keep adding to array as required...
+    */
+    const ignoredStrings = [
+        // Choice questions
+        '"balance":{"state":false}',
+        '"onesize":{"state":false}',
+        '"sublistline":{"state":false}',
+        // Open-end questions
+        '"labels":{}',
+        // List questions
+        '"exact":true',
+        '"filtertype":"contains"',
+        '"mincharactersforlist":0',
+        '"showanswers":true',
+        '"selection":"undefined"',
+        '"jumptofirstletter":true',
+        // Slider & scale questions
+        '"marks":false',
+        '"value":false',
+        '"terminators":false',
+        '"ticklabels":"undefined"',
+        '"floodtovalue":false',
+        '"min":undefined',
+        '"max":undefined',
+        '"position":"inside"',
+        // Grid questions
+        '"rowheader":false',
+        '"altrows":false',
+        '"pre":""',
+        '"post":""',
+    ];
+
 </script>
