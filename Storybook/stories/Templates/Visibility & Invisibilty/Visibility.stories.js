@@ -1,4 +1,4 @@
-import { VisibleHtml } from './Visibility';
+import { VisibleContainsAnyHtml } from './Visibility';
 
 export default {
     title: 'Templates/Visibility & Invisibility',
@@ -8,6 +8,11 @@ export default {
         docs: { controls: { sort: 'alpha' } }
     },
 };
+
+export const VisibleContainsAny = {
+    render: () => VisibleContainsAnyHtml(),
+};
+VisibleContainsAny.storyName = 'ContainsAny() example'
 
 export const Visible = {
     render: () => VisibleHtml(),

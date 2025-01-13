@@ -4,7 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../_htmlFragments';
 
-export const VisibleHtml = () => `
+export const VisibleContainsAnyHtml = () => `
 ${htmlFragmentCustomProperties}
 
 <form action="#"
@@ -25,6 +25,8 @@ ${htmlFragmentCustomProperties}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
+                        Visibility question using <code>ContainsAny</code>
+                        <br /><br />
                         Which of the following types of newspaper have you read?
                     </div>
                 </div>
