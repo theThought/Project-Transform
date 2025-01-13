@@ -1,4 +1,7 @@
-import { VisibleContainsAnyHtml } from './Visibility';
+import {
+    VisibleContainsAnyHtml,
+    VisibleMathsOperandHtml
+} from './Visibility';
 
 export default {
     title: 'Templates/Visibility & Invisibility',
@@ -12,4 +15,9 @@ export default {
 export const VisibleContainsAny = {
     render: () => VisibleContainsAnyHtml(),
 };
-VisibleContainsAny.storyName = 'ContainsAny() example'
+VisibleContainsAny.storyName = 'Visibility with ContainsAny()'
+
+export const VisibleMathsOperand = {
+    render: () => VisibleMathsOperandHtml(),
+};
+VisibleMathsOperand.storyName = 'Visibility with ">" maths operand'

@@ -216,3 +216,78 @@ ${htmlFragmentCustomProperties}
 
 </form>
 `;
+
+export const VisibleMathsOperandHtml = () => `
+${htmlFragmentCustomProperties}
+
+<form action="#"
+    class="focus-question focus-control"
+    data-paste="true"
+>
+
+<div class="surroundcontent">
+
+    <div class="o-question-container focused cover-off config-complete sidebyside">
+
+
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        ${htmlFragmentMessageError}
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                        Visibility question using greater than <code>&gt;</code>
+                        <br /><br />
+
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        ${htmlFragmentMessageInstruction}
+
+    </div>
+
+    <div class="o-question-container sidebyside">
+
+
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        ${htmlFragmentMessageError}
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        ${htmlFragmentMessageInstruction}
+
+    </div>
+</div>
+
+</form>
+`;
