@@ -50,6 +50,16 @@ define(['component'],
                 container = scripttag.closest('div.o-question-container');
             }
 
+            // Storybook moves all inline <script> tags into "scripts-root", so "scripttag" will be NULL.
+            const scripts = document.querySelector('#scripts-root').childNodes;
+            if (scripts){
+                const altLabel = document.querySelector('label[for="_' + scripttagid + '"]');
+
+                if (altLabel) {
+                    container = altLabel.closest('div.o-question-container');
+                }
+            }
+
             // prevent sub-questions from overwriting attributes in a parent container
             if (container && container.getAttribute('data-questiongroup') === null) {
                 container.setAttribute('data-questiongroup', this.group);
