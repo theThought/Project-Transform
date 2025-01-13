@@ -259,7 +259,7 @@ ${htmlFragmentCustomProperties}
 
     </div>
 
-    <div class="o-question-container cover-off config-complete sidebyside">
+    <div class="o-question-container cover-off config-complete collapse sidebyside">
 
         <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QChildrenPage_QDependentType');</script>
 

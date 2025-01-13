@@ -240,7 +240,10 @@ define(
                 bubbles: true,
                 detail: this
             });
-            this.element.dispatchEvent(requestSize);
+
+            if (this.element) {
+                this.element.dispatchEvent(requestSize);
+            }
         }
 
         component.prototype.onBeginResize = function (event) {
@@ -426,14 +429,20 @@ define(
                 return;
             }
 
-            this.element.classList.remove('unavailable');
+            if (this.element) {
+                this.element.classList.remove('unavailable');
+            }
+
             this.requestInitialSize();
             this.resetValues();
             this.liftCover();
             this.available = true;
 
             var broadcastAvailability = new CustomEvent('broadcastAvailability', {bubbles: true, detail: this});
-            this.element.dispatchEvent(broadcastAvailability);
+
+            if (this.element) {
+                this.element.dispatchEvent(broadcastAvailability);
+            }
         }
 
         component.prototype.makeUnavailable = function () {
@@ -458,7 +467,10 @@ define(
             }
 
             var restoreEntries = new CustomEvent('restoreEntries', {bubbles: true, detail: this});
-            this.element.dispatchEvent(restoreEntries);
+
+            if (this.element) {
+                this.element.dispatchEvent(restoreEntries);
+            }
         }
 
         component.prototype.processCalculations = function (event) {
@@ -474,11 +486,15 @@ define(
         }
 
         component.prototype.cover = function () {
-            this.element.classList.remove('cover-off');
+            if (this.element) {
+                this.element.classList.remove('cover-off');
+            }
         }
 
         component.prototype.liftCover = function () {
-            this.element.classList.add('cover-off');
+            if (this.element) {
+                this.element.classList.add('cover-off');
+            }
         }
 
         component.prototype.getQuestionValues = function () {
