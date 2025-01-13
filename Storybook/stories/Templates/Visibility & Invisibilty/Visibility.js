@@ -329,3 +329,115 @@ ${htmlFragmentCustomProperties}
 
 </form>
 `;
+
+export const AlternativeLabelsHtml = () => `
+${htmlFragmentCustomProperties}
+
+<form action="#"
+    class="focus-question focus-control"
+    data-paste="true"
+>
+
+<div class="surroundcontent">
+
+    <div class="o-question-container focused cover-off config-complete sidebyside">
+
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QSimpledynamicPage_QDynamicLabelChoice');</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        ${htmlFragmentMessageError}
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                        Alternative labels question
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+                        <div class="o-question-response o-question-choice" data-questiongroup="_QSimpledynamicPage_QDynamicLabelChoice" data-readonly="false" data-position="below">
+                            <script>app.registerComponent('oQuestionchoice','_Q0','_QSimpledynamicPage_QDynamicLabelChoice');</script>
+                            <div data-exclusive="true" data-questionid="_Q0_C0" data-questiongroup="_QSimpledynamicPage_QDynamicLabelChoice" data-position="below" data-hidden="false" class="m-option-base  below " style="">
+                                <script>app.registerComponent('mOptionBase','_Q0_C0','_QSimpledynamicPage_QDynamicLabelChoice');</script>
+                                <input class="hiddencontrol" type="radio" name="_QSimpledynamicPage_QDynamicLabelChoice_Cchoice1" id="_Q0_C0" style="" value="choice1"/>
+                                <label for="_Q0_C0">
+                                    <span class="a-icon-multistate" data-icontype="single">
+                                        <!--This is a comment!-->
+                                    </span>
+                                    <span class="a-label-option">last week</span>
+                                </label>
+                            </div>
+                            <div data-exclusive="true" data-questionid="_Q0_C1" data-questiongroup="_QSimpledynamicPage_QDynamicLabelChoice" data-position="below" data-hidden="false" class="m-option-base  below " style="">
+                                <script>app.registerComponent('mOptionBase','_Q0_C1','_QSimpledynamicPage_QDynamicLabelChoice');</script>
+                                <input class="hiddencontrol" type="radio" name="_QSimpledynamicPage_QDynamicLabelChoice_Cchoice2" id="_Q0_C1" style="" value="choice2"/>
+                                <label for="_Q0_C1">
+                                    <span class="a-icon-multistate" data-icontype="single">
+                                        <!--This is a comment!-->
+                                    </span>
+                                    <span class="a-label-option">how many more</span>
+                                </label>
+                            </div>
+                            <div data-exclusive="true" data-questionid="_Q0_C2" data-questiongroup="_QSimpledynamicPage_QDynamicLabelChoice" data-position="below" data-hidden="false" class="m-option-base  below " style="">
+                                <script>app.registerComponent('mOptionBase','_Q0_C2','_QSimpledynamicPage_QDynamicLabelChoice');</script>
+                                <input class="hiddencontrol" type="radio" name="_QSimpledynamicPage_QDynamicLabelChoice_Cchoice3" id="_Q0_C2" style="" value="choice3"/>
+                                <label for="_Q0_C2">
+                                    <span class="a-icon-multistate" data-icontype="single">
+                                        <!--This is a comment!-->
+                                    </span>
+                                    <span class="a-label-option">your family</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        ${htmlFragmentMessageInstruction}
+
+    </div>
+
+    <div class="o-question-container cover-off complete sidebyside">
+
+        <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QSimpledynamicPage_QDynamicQuestion');</script>
+
+        <script type="text/javascript">app.RegisterProperties("_QDynamicQuestion",{"type":"number","step":"any","labels":{"alternatives":[{"name":"first","label":"How many %lt%span class='bold'%gt%bananas%lt%/span%gt% did you eat last week","block":true,"visible":{"collapse":true,"rules":"DynamicLabelChoice.containsAny('choice1')"}},{"name":"second","label":"if you could eat more bananas how many would you eat today","block":true,"visible":{"collapse":true,"rules":"DynamicLabelChoice.containsAny('choice2')"}},{"name":"third","label":"How may bananas does your family eat in a week","block":true,"visible":{"collapse":true,"rules":"DynamicLabelChoice.containsAny('choice3')"}}],"separator":""}});</script>
+
+        <div class="m-question-cover"><!-- cover --></div>
+
+        <!-- ${htmlFragmentMessageError} -->
+        <div class="o-question-core">
+            <div class="o-question-information-and-messages" style="flex-basis: 30%;">
+                <div class="o-question-information">
+                    <div class="o-question-information-content">
+                        <label for="_Q1"></label>
+                    </div>
+                </div>
+                <div class="o-question-alternatives"><!-- alternative labels go here --></div>
+            </div>
+            <div class="o-question-response">
+                <questions data-position="below">
+                    <question data-position="below">
+
+                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QSimpledynamicPage_QDynamicQuestion" data-readonly="false" data-position="below">
+                            <script>app.registerComponent('oQuestionsinglelineedit','_Q1','_QSimpledynamicPage_QDynamicQuestion');</script>
+                            <input data-questionid="_Q1" data-questiongroup="_QSimpledynamicPage_QDynamicQuestion" data-position="below" type="text" step="any" name="_QSimpledynamicPage_QDynamicQuestion" id="_Q1" data-lpignore="true" autocomplete="off" style="" maxlength="11" value="" data-value="" class="a-input-singlelineedit below"/>
+                            <script>app.registerComponent('aInputSinglelineedit','_Q1','_QSimpledynamicPage_QDynamicQuestion');</script>
+                        </div>
+
+                    </question>
+                </questions>
+            </div>
+        </div>
+        <!-- ${htmlFragmentMessageInstruction} -->
+
+    </div>
+</div>
+
+</form>
+`;

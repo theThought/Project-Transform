@@ -1,6 +1,7 @@
 import {
     VisibleContainsAnyHtml,
-    VisibleMathsOperandHtml
+    VisibleMathsOperandHtml,
+    AlternativeLabelsHtml
 } from './Visibility';
 
 export default {
@@ -20,4 +21,8 @@ VisibleContainsAny.storyName = 'Visibility with ContainsAny()'
 export const VisibleMathsOperand = {
     render: () => VisibleMathsOperandHtml(),
 };
-VisibleMathsOperand.storyName = 'Visibility with ">" mathematical operand'
+VisibleMathsOperand.storyName = 'Visibility with ">" Mathematical Operand'
+
+export const AlternativeLabels = {
+    render: () => AlternativeLabelsHtml(),
+};
