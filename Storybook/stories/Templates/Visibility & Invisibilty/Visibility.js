@@ -86,7 +86,7 @@ ${htmlFragmentCustomProperties}
 
         <div class="m-question-cover"><!-- cover --></div>
 
-        ${htmlFragmentMessageError}
+        <!-- ${htmlFragmentMessageError} -->
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
@@ -207,7 +207,7 @@ ${htmlFragmentCustomProperties}
                 </questions>
             </div>
         </div>
-        ${htmlFragmentMessageInstruction}
+        <!-- ${htmlFragmentMessageInstruction} -->
 
     </div>
 </div>
@@ -269,12 +269,11 @@ ${htmlFragmentCustomProperties}
 
         <div class="m-question-cover"><!-- cover --></div>
 
-        ${htmlFragmentMessageError}
+        <!-- ${htmlFragmentMessageError} -->
         <div class="o-question-core">
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Question for (invisible) content
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -321,7 +320,7 @@ ${htmlFragmentCustomProperties}
                 </questions>
             </div>
         </div>
-        ${htmlFragmentMessageInstruction}
+        <!-- ${htmlFragmentMessageInstruction} -->
 
     </div>
 </div>

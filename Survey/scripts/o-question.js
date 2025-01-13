@@ -255,6 +255,11 @@ define(['component'],
         oQuestion.prototype.showOption = function (itemValue, hideMethod) {
             var option;
 
+            // In Storybook, components don't register correctly, so "this.element" is NULL.
+            if (this.element === null) {
+                this.element = document.querySelector('div[class*="o-question-"][data-questiongroup*="' + this.group + '"]');
+            }
+
             if (itemValue === null) {
                 option = this.element.querySelector(".hidden-filter");
             } else {
