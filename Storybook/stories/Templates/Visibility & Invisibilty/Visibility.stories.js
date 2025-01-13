@@ -20,4 +20,4 @@ VisibleContainsAny.storyName = 'Visibility with ContainsAny()'
 export const VisibleMathsOperand = {
     render: () => VisibleMathsOperandHtml(),
 };
-VisibleMathsOperand.storyName = 'Visibility with ">" maths operand'
+VisibleMathsOperand.storyName = 'Visibility with ">" mathematical operand'

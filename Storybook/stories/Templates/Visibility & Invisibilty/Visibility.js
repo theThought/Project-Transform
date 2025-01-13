@@ -25,9 +25,7 @@ ${htmlFragmentCustomProperties}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Visibility question using <code>ContainsAny</code>
-                        <br /><br />
-                        Which of the following types of newspaper have you read?
+                        Visibility question using <code>ContainsAny()</code> function
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -78,7 +76,7 @@ ${htmlFragmentCustomProperties}
 
     </div>
 
-    <div class="o-question-container sidebyside">
+    <div class="o-question-container cover-off config-complete sidebyside">
 
         <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QPaperTypesPage_QWhichPapers');</script>
 
@@ -229,7 +227,7 @@ ${htmlFragmentCustomProperties}
 
     <div class="o-question-container focused cover-off config-complete sidebyside">
 
-
+        <script data-questionid="_Q0">app.registerComponent('oQuestionContainer','_Q0','_QChildrenPage_QHowManyDependents');</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
@@ -238,9 +236,7 @@ ${htmlFragmentCustomProperties}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
-                        Visibility question using greater than <code>&gt;</code>
-                        <br /><br />
-
+                        Visibility question using greater than <code>&gt;</code> mathematical operand
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -249,7 +245,11 @@ ${htmlFragmentCustomProperties}
                 <questions data-position="below">
                     <question data-position="below">
 
-
+                        <div class="o-question-response o-question-singlelineedit" data-questiongroup="_QChildrenPage_QHowManyDependents" data-readonly="false" data-position="below">
+                            <script>app.registerComponent('oQuestionsinglelineedit','_Q0','_QChildrenPage_QHowManyDependents');</script>
+                            <input data-questionid="_Q0" data-questiongroup="_QChildrenPage_QHowManyDependents" data-position="below" type="text" name="_QChildrenPage_QHowManyDependents" id="_Q0" data-lpignore="true" autocomplete="off" style="" maxlength="2" value="" data-value="" class="a-input-singlelineedit below"/>
+                            <script>app.registerComponent('aInputSinglelineedit','_Q0','_QChildrenPage_QHowManyDependents');</script>
+                        </div>
 
                     </question>
                 </questions>
@@ -259,9 +259,13 @@ ${htmlFragmentCustomProperties}
 
     </div>
 
-    <div class="o-question-container sidebyside">
+    <div class="o-question-container cover-off config-complete sidebyside">
 
+        <script data-questionid="_Q1">app.registerComponent('oQuestionContainer','_Q1','_QChildrenPage_QDependentType');</script>
 
+        <script type="text/javascript">app.RegisterProperties("_QDependentType",{"visible":{"collapse":true,"rules":"HowManyDependents %gt% 0"}});</script>
+
+        <script type="text/javascript">app.RegisterProperties("_QDependentType",{"balance":{"state":true}, "onesize":{"state":true}});</script>
 
         <div class="m-question-cover"><!-- cover --></div>
 
@@ -270,6 +274,7 @@ ${htmlFragmentCustomProperties}
             <div class="o-question-information-and-messages" style="flex-basis: 30%;">
                 <div class="o-question-information">
                     <div class="o-question-information-content">
+                        Question for (invisible) content
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
@@ -278,7 +283,39 @@ ${htmlFragmentCustomProperties}
                 <questions data-position="below">
                     <question data-position="below">
 
-
+                        <div class="o-question-response o-question-choice" data-questiongroup="_QChildrenPage_QDependentType" data-readonly="false" data-position="below">
+                            <script>app.registerComponent('oQuestionchoice','_Q1','_QChildrenPage_QDependentType');</script>
+                            <div data-exclusive="false" data-questionid="_Q1_C0" data-questiongroup="_QChildrenPage_QDependentType" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                <script>app.registerComponent('mOptionBase','_Q1_C0','_QChildrenPage_QDependentType');</script>
+                                <input class="hiddencontrol" type="checkbox" name="_QChildrenPage_QDependentType_CMyChildren" id="_Q1_C0" style="" value="MyChildren"/>
+                                <label for="_Q1_C0">
+                                    <span class="a-icon-multistate" data-icontype="multiple">
+                                        <!--This is a comment!-->
+                                    </span>
+                                    <span class="a-label-option">Option 1</span>
+                                </label>
+                            </div>
+                            <div data-exclusive="false" data-questionid="_Q1_C1" data-questiongroup="_QChildrenPage_QDependentType" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                <script>app.registerComponent('mOptionBase','_Q1_C1','_QChildrenPage_QDependentType');</script>
+                                <input class="hiddencontrol" type="checkbox" name="_QChildrenPage_QDependentType_CMySpouces" id="_Q1_C1" style="" value="MySpouces"/>
+                                <label for="_Q1_C1">
+                                    <span class="a-icon-multistate" data-icontype="multiple">
+                                        <!--This is a comment!-->
+                                    </span>
+                                    <span class="a-label-option">Option 2</span>
+                                </label>
+                            </div>
+                            <div data-exclusive="false" data-questionid="_Q1_C2" data-questiongroup="_QChildrenPage_QDependentType" data-position="below" data-hidden="false" class="m-option-base  below" style="">
+                                <script>app.registerComponent('mOptionBase','_Q1_C2','_QChildrenPage_QDependentType');</script>
+                                <input class="hiddencontrol" type="checkbox" name="_QChildrenPage_QDependentType_CFosters" id="_Q1_C2" style="" value="Fosters"/>
+                                <label for="_Q1_C2">
+                                    <span class="a-icon-multistate" data-icontype="multiple">
+                                        <!--This is a comment!-->
+                                    </span>
+                                    <span class="a-label-option">Option 3</span>
+                                </label>
+                            </div>
+                        </div>
 
                     </question>
                 </questions>
