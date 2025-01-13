@@ -237,6 +237,8 @@ ${htmlFragmentCustomProperties}
                 <div class="o-question-information">
                     <div class="o-question-information-content">
                         Visibility question using greater than <code>&gt;</code> mathematical operand
+                        <br /><br />
+                        Enter a number greater than 0
                     </div>
                 </div>
                 <div class="o-question-alternatives"><!-- alternative labels go here --></div>
