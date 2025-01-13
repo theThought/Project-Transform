@@ -13,7 +13,3 @@ export const VisibleContainsAny = {
     render: () => VisibleContainsAnyHtml(),
 };
 VisibleContainsAny.storyName = 'ContainsAny() example'
-
-export const Visible = {
-    render: () => VisibleHtml(),
-};
