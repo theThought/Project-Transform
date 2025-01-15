@@ -51,12 +51,16 @@ define(['component'],
             }
 
             // Storybook moves all inline <script> tags into "scripts-root", so "scripttag" will be NULL.
-            const scripts = document.querySelector('#scripts-root').childNodes;
-            if (scripts){
-                const altLabel = document.querySelector('label[for="_' + scripttagid + '"]');
+            const scriptcontainer = document.querySelector('#scripts-root');
 
-                if (altLabel) {
-                    container = altLabel.closest('div.o-question-container');
+            if (scriptcontainer) {
+                const scripts = document.querySelector('#scripts-root').childNodes;
+                if (scripts){
+                    const altLabel = document.querySelector('label[for="_' + scripttagid + '"]');
+
+                    if (altLabel) {
+                        container = altLabel.closest('div.o-question-container');
+                    }
                 }
             }
 
