@@ -23,7 +23,7 @@
 		<SampleField>
 			<name>MaxDate</name>
 			<type>8</type>
-			<value>2024-12-02T13:02</value>
+			<value>2024-12-02T23:59</value>
 		</SampleField>		
 		<SampleField>
 			<name>Previous</name>
@@ -33,7 +33,7 @@
 		<SampleField>
 			<name>Language</name>
 			<type>8</type>
-			<value>Fr-CA
+			<value>En-GB
 			</value>
 		</SampleField>
 	</SampleFields>
