@@ -18,8 +18,8 @@ export default class MInputSinglelineedit extends HTMLElement {
 
         this.init();
 
-        this.element?.addEventListener('click', this);
-        this.element?.addEventListener('change', this);
+        this.element.addEventListener('click', this);
+        this.element.addEventListener('change', this);
     }
 
     private init(): void {

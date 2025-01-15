@@ -14,7 +14,7 @@ export default class WCExample extends HTMLElement {
         if (!this.button) return;
 
         this.init();
-        this.button?.addEventListener('click', this);
+        this.button.addEventListener('click', this);
     }
 
     private init(): void {
