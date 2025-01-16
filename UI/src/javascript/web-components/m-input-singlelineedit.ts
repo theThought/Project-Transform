@@ -1,6 +1,7 @@
 import { generateCustomPropertiesJSON } from '../utils/helpers';
+import Component from './component';
 
-export default class MInputSinglelineedit extends HTMLElement {
+export default class MInputSinglelineedit extends Component {
     private qid: string | undefined;
     private qgroup: string | undefined;
     private element: HTMLInputElement | null;
@@ -30,6 +31,7 @@ export default class MInputSinglelineedit extends HTMLElement {
             this.element,
         );
 
+        this.broadcastChange('message from the child using component.');
         this.parseCustomProperties();
     }
 
