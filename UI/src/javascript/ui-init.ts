@@ -2,6 +2,7 @@
 import WCExample from './web-components/wc-example';
 
 // Survey web components.
+import OQuestionContainer from './web-components/o-question-container';
 import MInputSinglelineedit from './web-components/m-input-singlelineedit';
 
 export const uiInit = (): void => {
@@ -10,6 +11,9 @@ export const uiInit = (): void => {
         customElements.define('wc-example', WCExample);
 
     // Survey web components.
+    !customElements.get('o-question-container') &&
+        customElements.define('o-question-container', OQuestionContainer);
+
     !customElements.get('m-input-singlelineedit') &&
         customElements.define('m-input-singlelineedit', MInputSinglelineedit);
 };
