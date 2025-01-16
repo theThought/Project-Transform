@@ -1,4 +1,4 @@
-import { parseCustomProperties } from '../utils/helpers';
+import { generateCustomPropertiesJSON } from '../utils/helpers';
 
 export default class MInputSinglelineedit extends HTMLElement {
     private qid: string | undefined;
@@ -48,7 +48,7 @@ export default class MInputSinglelineedit extends HTMLElement {
 
         const customProps = elemCustomProps?.dataset.customProps;
         if (customProps) {
-            const customPropsJson = parseCustomProperties(customProps);
+            const customPropsJson = generateCustomPropertiesJSON(customProps);
             this.setInputType(customPropsJson);
 
             // TODO: pre-/post-labels

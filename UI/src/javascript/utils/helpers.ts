@@ -5,7 +5,7 @@
  *
  * @return {JSON}
  */
-export const parseCustomProperties = (
+export const generateCustomPropertiesJSON = (
     properties: string,
 ): Record<string, unknown> => {
     return JSON.parse(properties);
