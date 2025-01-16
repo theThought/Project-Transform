@@ -1,3 +1,7 @@
 m-input-singlelineedit {
     display: inline-block;
+
+    .a-label-prelabel {
+        /* */
+    }
 }
