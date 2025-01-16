@@ -30,10 +30,10 @@ export default class MInputSinglelineedit extends HTMLElement {
             this.element,
         );
 
-        this.handleCustomProps();
+        this.parseCustomProperties();
     }
 
-    private handleCustomProps(): void {
+    private parseCustomProperties(): void {
         const elemCustomProps = this.question?.querySelector(
             '[data-custom-props]',
         ) as HTMLElement;
