@@ -47,7 +47,7 @@ export default class WCExample extends HTMLElement {
     }
 
     // Handle constructor() event listeners.
-    public handleEvent(e: MouseEvent) {
+    public handleEvent(e: MouseEvent): void {
         const target = e.currentTarget as HTMLElement;
 
         this.count++;
@@ -57,13 +57,13 @@ export default class WCExample extends HTMLElement {
     }
 
     // Handle (global) event listeners which are not part of this web component.
-    public connectedCallback() {
+    public connectedCallback(): void {
         document.addEventListener('click', (e: MouseEvent) =>
             this.handleGlobalClick(e),
         );
     }
 
-    public disconnectedCallback() {
+    public disconnectedCallback(): void {
         document.removeEventListener('click', this.handleGlobalClick);
     }
 }

@@ -83,7 +83,7 @@ export default class MInputSinglelineedit extends HTMLElement {
     }
 
     // Handle constructor() event listeners.
-    public handleEvent(e: Event) {
+    public handleEvent(e: Event): void {
         switch (e.type) {
             case 'click':
                 console.log('click');
@@ -95,11 +95,11 @@ export default class MInputSinglelineedit extends HTMLElement {
     }
 
     // Handle (global) event listeners which are not part of this web component.
-    public connectedCallback() {
+    public connectedCallback(): void {
         // e.g. document.addEventListener('broadcastChange', ...);
     }
 
-    public disconnectedCallback() {
+    public disconnectedCallback(): void {
         // e.g. document.removeEventListener('broadcastChange', ...);
     }
 }
