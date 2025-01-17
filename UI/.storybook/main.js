@@ -7,7 +7,7 @@ const config = {
         '../stories/**/*.mdx',
         '../stories/**/*.stories.@(js|jsx|ts|tsx)'
     ],
-    staticDirs: ['../public', '../../Survey'],
+    staticDirs: ['../public'],
     addons: [
         '@storybook/addon-a11y',
         {

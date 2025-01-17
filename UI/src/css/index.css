@@ -1,16 +1,5 @@
 /*
 ----------------------------------------------------------------------------
-CSS Cascade Layers.
-
-- "survey" layer defined 1st, as it contains old styles/Sass that need to be replaced by new CSS.
-- Remove survey CSS (from "UI/.storybook/preview-head.html") when new CSS is finished.
-- Remove survey layer when new CSS is finished.
-----------------------------------------------------------------------------
-*/
-@layer survey, global, layout, components, utilities;
-
-/*
-----------------------------------------------------------------------------
 "Primitive" CSS design tokens.
 ----------------------------------------------------------------------------
 */
@@ -31,19 +20,20 @@ Globals (including reset):
 - Layouts
 ----------------------------------------------------------------------------
 */
-@import 'global/index' layer(global) screen;
+@import 'global/index' screen;
 
 /*
 ----------------------------------------------------------------------------
 Atomic components.
 ----------------------------------------------------------------------------
 */
-@import 'atoms/index' layer(components) screen;
-@import 'molecules/index' layer(components) screen;
+@import 'atoms/index' screen;
+@import 'molecules/index' screen;
 
 /*
 ----------------------------------------------------------------------------
 Utilities.
+- e.g. See "/Survey/source/styles/formal/_user-styles.scss".
 ----------------------------------------------------------------------------
 */
 /* @import 'utilities/index' layer(utilities) screen; */
