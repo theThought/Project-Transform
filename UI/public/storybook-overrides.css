@@ -1,5 +1,15 @@
+/* stylelint-disable selector-max-id */
+/* stylelint-disable declaration-no-important */
 /*
 ----------------------------------------------------------------------------
 Overrides for Storybook Docs and UI.
 ----------------------------------------------------------------------------
 */
+
+#storybook-docs {
+    :is(.sb-bar button, .docblock-code-toggle) {
+        &:hover {
+            color: #fff;
+        }
+    }
+}
