@@ -6,7 +6,11 @@ Overrides for Storybook Docs and UI.
 */
 
 #storybook-docs {
-    :is(.sb-bar button, .docblock-code-toggle) {
+    :is(
+        .sb-bar button,
+        .docblock-code-toggle,
+        .docblock-argstable-head button
+    ) {
         &:hover {
             color: #fff;
         }
