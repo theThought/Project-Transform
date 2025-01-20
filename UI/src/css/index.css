@@ -33,7 +33,6 @@ Atomic components.
 /*
 ----------------------------------------------------------------------------
 Utilities.
-- e.g. See "/Survey/source/styles/formal/_user-styles.scss".
 ----------------------------------------------------------------------------
 */
-/* @import 'utilities/index' layer(utilities) screen; */
+@import 'utilities/index' screen;
