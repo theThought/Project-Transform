@@ -93,12 +93,25 @@ export default class MInputSinglelineedit extends Component {
 
     // Set pre-/post-labels.
     private setLabels(customPropsJSON: Record<string, unknown>): void {
-        // Object.entries(customPropsJSON).forEach(([key, value]) => {
-        //     if (key === 'type') {
-        //         inputType = value as string;
-        //     }
-        // });
-        // console.log();
+        const labels = customPropsJSON.labels as Record<string, unknown>;
+
+        for (const [key, value] of Object.entries(labels)) {
+            if (key === 'pre' && value && value !== 'undefined') {
+                const elemPre = document.createElement('span');
+                elemPre.classList.add('a-label-prelabel');
+                elemPre.textContent = value as string;
+
+                this.insertBefore(elemPre, this.element);
+            }
+
+            if (key === 'post' && value && value !== 'undefined') {
+                const elemPre = document.createElement('span');
+                elemPre.classList.add('a-label-postlabel');
+                elemPre.textContent = value as string;
+
+                this.appendChild(elemPre);
+            }
+        }
     }
 
     // Handle constructor() event listeners.

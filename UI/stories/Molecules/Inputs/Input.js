@@ -3,7 +3,13 @@ export const MInputSinglelineEditHtml = (args) => `
     <div
         data-questionid="_Q0"
         data-questiongroup="_QText"
-        data-custom-props='{"type":"${args.InputType}", "labels":{"pre":"%lt%i%gt%${args.PreLabel}%lt%/i%gt%","post":"%lt%i%gt%${args.PostLabel}%lt%/i%gt%"}}'
+        data-custom-props='{
+            "type":"${args.InputType}",
+            "labels":{
+                "pre":"${args.PreLabel}",
+                "post":"${args.PostLabel}"
+            }
+        }'
     ></div>
 
     <m-input-singlelineedit
