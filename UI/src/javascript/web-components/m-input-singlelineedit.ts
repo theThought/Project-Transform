@@ -50,10 +50,20 @@ export default class MInputSinglelineedit extends Component {
 
         const customProps = elemCustomProps?.dataset.customProps;
         if (customProps) {
-            const customPropsJson = generateCustomPropertiesJSON(customProps);
-            this.setInputType(customPropsJson);
+            let customPropsJson: Record<string, unknown>;
 
-            // TODO: pre-/post-labels
+            if (customProps.includes('type')) {
+                customPropsJson = generateCustomPropertiesJSON(
+                    customProps,
+                    'type',
+                );
+                this.setInputType(customPropsJson);
+            }
+
+            if (customProps.includes('labels')) {
+                // TODO: pre-/post-labels
+                // this.setLabels(customPropsJson);
+            }
         }
     }
 
