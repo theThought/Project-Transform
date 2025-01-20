@@ -1,5 +1,5 @@
 export const MInputSinglelineEditHtml = (args) => `
-<div class="o-question-container">
+<o-question-container>
     <div
         data-questionid="_Q0"
         data-questiongroup="_QText"
@@ -16,5 +16,5 @@ export const MInputSinglelineEditHtml = (args) => `
             class="a-input-singlelineedit"
         />
     </m-input-singlelineedit>
-</div>
+</o-question-container>
 `;

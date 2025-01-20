@@ -13,7 +13,7 @@ export default class MInputSinglelineedit extends Component {
         this.qid = this.dataset.questionid;
         this.qgroup = this.dataset.questiongroup;
         this.element = document.querySelector('.a-input-singlelineedit');
-        this.question = this.closest('.o-question-container');
+        this.question = this.closest('o-question-container');
 
         if (!this.element) return;
 
@@ -31,7 +31,7 @@ export default class MInputSinglelineedit extends Component {
             this.element,
         );
 
-        this.broadcastChange('message from the child using component.');
+        this.broadcastChange('message from the child using Component class.');
         this.parseCustomProperties();
     }
 
