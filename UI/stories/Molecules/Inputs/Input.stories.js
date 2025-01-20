@@ -17,6 +17,22 @@ export default {
                 defaultValue: { summary: 'text' }
             },
         },
+        PreLabel: {
+            control: 'text',
+            description: 'Specifies the text to be placed before the input.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
+        PostLabel: {
+            control: 'text',
+            description: 'Specifies the text to be placed after the input.',
+            table: {
+                type: { summary: 'text' },
+                defaultValue: { summary: 'n/a' }
+            },
+        },
     }
 };
 

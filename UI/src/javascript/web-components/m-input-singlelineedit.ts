@@ -50,32 +50,29 @@ export default class MInputSinglelineedit extends Component {
 
         const customProps = elemCustomProps?.dataset.customProps;
         if (customProps) {
-            let customPropsJson: Record<string, unknown>;
+            let customPropsJSON: Record<string, unknown>;
 
             if (customProps.includes('type')) {
-                customPropsJson = generateCustomPropertiesJSON(
+                customPropsJSON = generateCustomPropertiesJSON(
                     customProps,
                     'type',
                 );
-                this.setInputType(customPropsJson);
+                this.setInputType(customPropsJSON);
             }
 
             if (customProps.includes('labels')) {
-                // TODO: pre-/post-labels
-                // this.setLabels(customPropsJson);
+                customPropsJSON = generateCustomPropertiesJSON(
+                    customProps,
+                    'labels',
+                );
+                this.setLabels(customPropsJSON);
             }
         }
     }
 
     // Set the appropriate 'type' attribute on <input> based on custom properties.
-    private setInputType(customPropsJson: Record<string, unknown>): void {
-        let inputType = 'text';
-
-        Object.entries(customPropsJson).forEach(([key, value]) => {
-            if (key === 'type') {
-                inputType = value as string;
-            }
-        });
+    private setInputType(customPropsJSON: Record<string, unknown>): void {
+        let inputType = customPropsJSON.type as string;
 
         switch (inputType) {
             case 'date':
@@ -92,6 +89,16 @@ export default class MInputSinglelineedit extends Component {
         if (this.element) {
             this.element.type = inputType;
         }
+    }
+
+    // Set pre-/post-labels.
+    private setLabels(customPropsJSON: Record<string, unknown>): void {
+        // Object.entries(customPropsJSON).forEach(([key, value]) => {
+        //     if (key === 'type') {
+        //         inputType = value as string;
+        //     }
+        // });
+        // console.log();
     }
 
     // Handle constructor() event listeners.
