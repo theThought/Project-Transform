@@ -35,6 +35,7 @@ export default class MInputSinglelineedit extends Component {
         this.parseCustomProperties();
     }
 
+    // TODO: should this be a generic method in Component.ts?
     private parseCustomProperties(): void {
         const elemCustomProps = this.question?.querySelector(
             '[data-custom-props]',
