@@ -21,8 +21,3 @@
 }
 
 /* TODO: :hover/:focus/:active states */
-
-/* TODO: Remove these overrides when we no longer import 'Survey/styles/formal/base.css' */
-[type='number'] {
-    appearance: initial;
-}

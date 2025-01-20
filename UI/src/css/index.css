@@ -36,3 +36,11 @@ Utilities.
 ----------------------------------------------------------------------------
 */
 @import 'utilities/index' screen;
+
+/*
+----------------------------------------------------------------------------
+Shame.
+- Remove these hacks/overrides when we no longer need to import 'Survey/styles/formal/base.css' in `.storybook/preview-head.html`.
+----------------------------------------------------------------------------
+*/
+@import 'shame' screen;
