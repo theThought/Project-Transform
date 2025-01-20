@@ -8,6 +8,10 @@
     inline-size: var(--width-input);
     padding: var(--space2) var(--space4);
     vertical-align: middle;
+
+    &:focus {
+        border-color: var(--color-border-active);
+    }
 }
 
 :where([type='button'], [type='submit'], [type='reset'], button) {
@@ -18,6 +22,6 @@
     min-inline-size: 3em;
     padding: var(--space1) 1em;
     white-space: normal;
-}
 
-/* TODO: :hover/:focus/:active states */
+    /* TODO: :hover/:focus states */
+}
