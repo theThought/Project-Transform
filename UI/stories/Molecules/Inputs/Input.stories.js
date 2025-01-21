@@ -38,7 +38,9 @@ export default {
 
 export const MInputSinglelineEdit = {
     args: {
-        InputType: 'text'
+        InputType: 'text',
+        PreLabel: '',
+        PostLabel: ''
     },
     render: (args) => MInputSinglelineEditHtml(args),
 };

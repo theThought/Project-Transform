@@ -97,7 +97,7 @@ export default class MInputSinglelineedit extends Component {
         const labels = customPropsJSON.labels as Record<string, unknown>;
 
         for (const [key, value] of Object.entries(labels)) {
-            if (key === 'pre' && value && value !== 'undefined') {
+            if (key === 'pre' && value) {
                 const elemPre = document.createElement('span');
                 elemPre.classList.add('a-label-prelabel');
                 elemPre.textContent = value as string;
@@ -105,7 +105,7 @@ export default class MInputSinglelineedit extends Component {
                 this.insertBefore(elemPre, this.element);
             }
 
-            if (key === 'post' && value && value !== 'undefined') {
+            if (key === 'post' && value) {
                 const elemPre = document.createElement('span');
                 elemPre.classList.add('a-label-postlabel');
                 elemPre.textContent = value as string;
