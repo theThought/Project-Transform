@@ -3,7 +3,7 @@ m-input-singlelineedit {
     display: inline-flex;
     flex-wrap: wrap;
 
-    :is(.a-label-prelabel, .a-label-postlabel) {
+    :where(.a-label-prelabel, .a-label-postlabel) {
         border: var(--border-thickness) solid var(--color-border);
         padding: var(--space2) var(--space4);
     }

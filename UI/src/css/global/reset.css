@@ -31,7 +31,7 @@ html {
     vertical-align: baseline;
 }
 
-:is(html, body) {
+:where(html, body) {
     /* Smooth scrolling IF user doesn't have a preference due to motion sensitivities. */
     @media (prefers-reduced-motion: no-preference) {
         scroll-behavior: smooth;
