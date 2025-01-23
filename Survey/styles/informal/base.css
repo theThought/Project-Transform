@@ -1790,7 +1790,8 @@ html[dir=rtl] .balance .m-option-base {
   width: 100%;
 }
 
-.o-question-core > .o-question-response {
+.o-question-core > .o-question-response,
+.o-question-core question > .o-question-response {
   overflow: auto;
 }
 

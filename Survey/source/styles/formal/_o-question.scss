@@ -40,7 +40,8 @@
 
 }
 
-.o-question-core > .o-question-response {
+.o-question-core > .o-question-response,
+.o-question-core question > .o-question-response {
     overflow: auto;
 }
 
