@@ -667,6 +667,11 @@
                <xsl:attribute name="name">
                   <xsl:value-of select="@Summary" />
                </xsl:attribute>
+               <xsl:if test="../Style/@Width">
+                  <xsl:attribute name="width">
+                     <xsl:value-of select="../Style/@Width" />
+                  </xsl:attribute>
+               </xsl:if>
                <xsl:call-template name="appComponentScript">
                   <xsl:with-param name="ComponentName" select="'oQuestionGrid'" />
                   <xsl:with-param name="qElementID" select="$qElementID" />

@@ -240,7 +240,10 @@ define(
                 bubbles: true,
                 detail: this
             });
-            this.element.dispatchEvent(requestSize);
+
+            if (this.element) {
+                this.element.dispatchEvent(requestSize);
+            }
         }
 
         component.prototype.onBeginResize = function (event) {
@@ -426,14 +429,20 @@ define(
                 return;
             }
 
-            this.element.classList.remove('unavailable');
+            if (this.element) {
+                this.element.classList.remove('unavailable');
+            }
+
             this.requestInitialSize();
             this.resetValues();
             this.liftCover();
             this.available = true;
 
             var broadcastAvailability = new CustomEvent('broadcastAvailability', {bubbles: true, detail: this});
-            this.element.dispatchEvent(broadcastAvailability);
+
+            if (this.element) {
+                this.element.dispatchEvent(broadcastAvailability);
+            }
         }
 
         component.prototype.makeUnavailable = function () {
@@ -458,7 +467,10 @@ define(
             }
 
             var restoreEntries = new CustomEvent('restoreEntries', {bubbles: true, detail: this});
-            this.element.dispatchEvent(restoreEntries);
+
+            if (this.element) {
+                this.element.dispatchEvent(restoreEntries);
+            }
         }
 
         component.prototype.processCalculations = function (event) {
@@ -474,11 +486,15 @@ define(
         }
 
         component.prototype.cover = function () {
-            this.element.classList.remove('cover-off');
+            if (this.element) {
+                this.element.classList.remove('cover-off');
+            }
         }
 
         component.prototype.liftCover = function () {
-            this.element.classList.add('cover-off');
+            if (this.element) {
+                this.element.classList.add('cover-off');
+            }
         }
 
         component.prototype.getQuestionValues = function () {
@@ -486,7 +502,7 @@ define(
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     this.sourceQuestions[currentQuestion] = [];
                     // retrieve questions required by this rule based on a matching response container or grid row container
-                    var questionElements = document.querySelectorAll("div.o-question-response[data-questiongroup$='" + currentQuestion + "'] input, div.o-question-response[data-questiongroup$='" + currentQuestion + "'] select, tr[data-questiongroup$='" + currentQuestion + "'] input, tr[data-questiongroup$='" + currentQuestion + "'] select");
+                    var questionElements = document.querySelectorAll("div[data-questiongroup$='" + currentQuestion + "'] input, div[data-questiongroup$='" + currentQuestion + "'] select, tr[data-questiongroup$='" + currentQuestion + "'] input, tr[data-questiongroup$='" + currentQuestion + "'] select");
 
                     if (!questionElements.length) {
                         this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
@@ -629,7 +645,7 @@ define(
         }
 
         component.prototype.replaceOperators = function (ruleString) {
-            var questionRe = /\s?([a-zA-Z]+)\s([=<>+-]+)/g;
+            var questionRe = /\s?([a-zA-Z0-9_]+)\s([=<>+-]+)/g;
 
             ruleString = ruleString.replace(/or /gi, '|| ');
             ruleString = ruleString.replace(/and /gi, '&& ');

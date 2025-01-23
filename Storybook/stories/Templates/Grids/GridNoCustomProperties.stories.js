@@ -1,7 +1,7 @@
 import { GridCategoricalHtml, GridComplexHtml,GridCategoricalRotatedHtml } from './Grid';
 
 export default {
-    title: 'Templates/Grids/t-grid',
+    title: 'Templates/Grids/t-grid (no story controls)',
     parameters: {
         status: {
             type: 'beta',

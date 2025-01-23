@@ -3280,7 +3280,6 @@ html[dir=rtl] .sidebyside .o-question-response + .o-question-response {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 400px;
   max-width: 100%;
   border-radius: 2px;
   border: 1px solid #8797C8;

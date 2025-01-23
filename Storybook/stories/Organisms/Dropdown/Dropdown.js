@@ -1,13 +1,4 @@
-const style = `
-<style>
-    ul.m-list {
-        left: auto; /* Display list without reliance on JS */
-    }
-</style>
-`;
-
 export const DropdownHtml = () => `
-${style}
 <div class="o-dropdown">
     <input type="text" class="a-input-dropdown" placeholder="placeholder" />
     <ul class="m-list">

@@ -1,0 +1,19 @@
+<gridFormat>
+<name>singlefieldgrid</name>
+<tabledef>
+<width>
+    <widthFormat>percent</widthFormat>
+    <value>80</value>
+</width>
+<colWidths>
+    <width> 
+      <widthFormat>absolute</widthFormat>
+      <value>30em</value>
+    </width>
+    <width> 
+      <widthFormat>absolute</widthFormat>
+      <value>40em</value>
+   </width>
+</colWidths>
+</tabledef>
+</gridFormat>

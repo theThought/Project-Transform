@@ -4,17 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../../_htmlFragments';
 
-const style = `
-<style>
-    .surroundcontent {
-        min-height: fit-content; /* Override template height inside Storybook */
-    }
-</style>
-`;
-
 export const ComboboxHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"

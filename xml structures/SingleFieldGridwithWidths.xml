@@ -1,0 +1,147 @@
+<Questions>
+    <Question>
+        <Style BgColor="_QLaundryScales" ElementAlign="NewLine" Width="60%"></Style>
+        <Table UseTablesLayout="-1" Summary="We would like you to rate you last wash" TableId="_Q0">
+            <Row Y="0">
+                <Cell X="0" Y="0" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QLaundryScales_QScent" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Scent</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="0">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                            <Control Type="SingleLineEdit"></Control>
+                            <Cell Width="30%"></Cell>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QLaundryScales_QScent_QPassive5Scale" ElementID="_Q0_Q0_Q0" Value="" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                                <Control Type="SingleLineEdit"></Control>
+                                <Cell Width="30%"></Cell>
+                            </Style>
+                        </Control>
+                        <Control Type="CheckButton" QuestionName="_QLaundryScales_QScent_QPassive5Scale_X" ElementID="_Q0_Q0_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right">
+                                <Control Type="CheckButton"></Control>
+                            </Style>
+                            <Category Name="dontknow" CategoryID="0">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right">
+                                        <Font IsBold="true"></Font>
+                                    </Style>
+                                    <Text>Don't know</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="0" Y="1" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QLaundryScales_QClean" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Clean</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="1">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                            <Control Type="SingleLineEdit"></Control>
+                            <Cell Width="30%"></Cell>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QLaundryScales_QClean_QPassive5Scale" ElementID="_Q0_Q1_Q0" Value="" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                                <Control Type="SingleLineEdit"></Control>
+                                <Cell Width="30%"></Cell>
+                            </Style>
+                        </Control>
+                        <Control Type="CheckButton" QuestionName="_QLaundryScales_QClean_QPassive5Scale_X" ElementID="_Q0_Q1_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right">
+                                <Control Type="CheckButton"></Control>
+                            </Style>
+                            <Category Name="dontknow" CategoryID="0">
+                                <Label>
+                                    <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right">
+                                        <Font IsBold="true"></Font>
+                                    </Style>
+                                    <Text>Don't know</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="2">
+                <Cell X="0" Y="2" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QLaundryScales_QSoft" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>Soft</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="2">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                            <Control Type="SingleLineEdit"></Control>
+                            <Cell Width="30%"></Cell>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QLaundryScales_QSoft_QPassive5Scale" ElementID="_Q0_Q2_Q0" Value="" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                                <Control Type="SingleLineEdit"></Control>
+                                <Cell Width="30%"></Cell>
+                            </Style>
+                        </Control>
+                        <Control Type="CheckButton" QuestionName="_QLaundryScales_QSoft_QPassive5Scale_X" ElementID="_Q0_Q2_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right">
+                                <Control Type="CheckButton"></Control>
+                            </Style>
+                            <Category Name="dontknow" CategoryID="0">
+                                <Label>
+                                    <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right">
+                                        <Font IsBold="true"></Font>
+                                    </Style>
+                                    <Text>Don't know</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+            <Row Y="3">
+                <Cell X="0" Y="3" Class="mrGridCategoryText">
+                    <Label>
+                        <Style BgColor="_QLaundryScales_Qoverall" Align="Left" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                        <Text>overall</Text>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="3">
+                    <Question>
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                            <Control Type="SingleLineEdit"></Control>
+                            <Cell Width="30%"></Cell>
+                        </Style>
+                        <Control Type="SingleLineEdit" QuestionName="_QLaundryScales_Qoverall_QPassive5Scale" ElementID="_Q0_Q3_Q0" Value="" Length="1">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-55">
+                                <Control Type="SingleLineEdit"></Control>
+                                <Cell Width="30%"></Cell>
+                            </Style>
+                        </Control>
+                        <Control Type="CheckButton" QuestionName="_QLaundryScales_Qoverall_QPassive5Scale_X" ElementID="_Q0_Q3_Q0_X">
+                            <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right">
+                                <Control Type="CheckButton"></Control>
+                            </Style>
+                            <Category Name="dontknow" CategoryID="0">
+                                <Label>
+                                    <Style Align="Left" VerticalAlign="Middle" ElementAlign="Right">
+                                        <Font IsBold="true"></Font>
+                                    </Style>
+                                    <Text>Don't know</Text>
+                                </Label>
+                            </Category>
+                        </Control>
+                    </Question>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>

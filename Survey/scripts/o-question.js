@@ -50,6 +50,20 @@ define(['component'],
                 container = scripttag.closest('div.o-question-container');
             }
 
+            // Storybook moves all inline <script> tags into "scripts-root", so "scripttag" will be NULL.
+            const scriptcontainer = document.querySelector('#scripts-root');
+
+            if (scriptcontainer) {
+                const scripts = document.querySelector('#scripts-root').childNodes;
+                if (scripts){
+                    const altLabel = document.querySelector('label[for="_' + scripttagid + '"]');
+
+                    if (altLabel) {
+                        container = altLabel.closest('div.o-question-container');
+                    }
+                }
+            }
+
             // prevent sub-questions from overwriting attributes in a parent container
             if (container && container.getAttribute('data-questiongroup') === null) {
                 container.setAttribute('data-questiongroup', this.group);
@@ -254,6 +268,11 @@ define(['component'],
 
         oQuestion.prototype.showOption = function (itemValue, hideMethod) {
             var option;
+
+            // In Storybook, components don't register correctly, so "this.element" is NULL.
+            if (this.element === null) {
+                this.element = document.querySelector('div[class*="o-question-"][data-questiongroup*="' + this.group + '"]');
+            }
 
             if (itemValue === null) {
                 option = this.element.querySelector(".hidden-filter");

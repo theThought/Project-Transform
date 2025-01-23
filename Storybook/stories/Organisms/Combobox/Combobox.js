@@ -1,13 +1,4 @@
-const style = `
-<style>
-    ul.m-list {
-        left: auto; /* Display list without reliance on JS */
-    }
-</style>
-`;
-
 export const ComboboxHtml = () => `
-${style}
 <div class="o-combobox">
     <input type="text" class="a-input-combobox" placeholder="placeholder" />
     <ul class="m-list">

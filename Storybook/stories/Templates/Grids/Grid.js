@@ -4,18 +4,7 @@ import {
     htmlFragmentCustomProperties
 } from '../../_htmlFragments';
 
-const style = `
-<style>
-    /* Override template height inside Storybook */
-    #storybook-docs .surroundcontent {
-        min-height: fit-content;
-    }
-</style>
-`;
-
 export const GridCustomPropertiesHtml = (args) => `
-${style}
-
 ${htmlFragmentCustomProperties}
 
 <form action="#"
@@ -152,8 +141,6 @@ ${htmlFragmentCustomProperties}
 `;
 
 export const GridCategoricalHtml = () => `
-${style}
-
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"
@@ -577,8 +564,6 @@ ${style}
 `;
 
 export const GridComplexHtml = () => `
-${style}
-
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"
@@ -916,8 +901,6 @@ ${style}
 `;
 
 export const GridCategoricalRotatedHtml = () => `
-${style}
-
 <form action="#"
     class="focus-question focus-control"
     data-paste="true"

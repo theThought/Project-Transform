@@ -1,7 +1,7 @@
-import { ChoiceOtherSpecifyHtml } from './Choice';
+import { ChoiceOtherSpecifyHtml, ChoiceSpecialCodesHtml } from './Choice';
 
 export default {
-    title: 'Templates/Choices/t-choice',
+    title: 'Templates/Choices/t-choice (no story controls)',
     parameters: {
         status: {
             type: 'beta',
@@ -11,4 +11,8 @@ export default {
 
 export const ChoiceOtherSpecify = {
     render: () => ChoiceOtherSpecifyHtml(),
+};
+
+export const ChoiceSpecialCodes = {
+    render: () => ChoiceSpecialCodesHtml(),
 };

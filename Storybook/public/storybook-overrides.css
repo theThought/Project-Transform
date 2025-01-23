@@ -1,0 +1,20 @@
+.sb-show-main {
+    /* Override template height inside Storybook. */
+    .surroundcontent {
+        min-height: fit-content;
+    }
+
+    /* Storybook strips out inline <script> preceeding "m-option-base", so need to add margin back. */
+    .m-option-base:first-child {
+        margin-bottom: 4px;
+    }
+}
+
+/* Display list when it's not part of combobox, etc. */
+[data-name='m-list'],
+[id='storybook-root'] {
+    > .m-list {
+        left: auto;
+        position: static;
+    }
+}

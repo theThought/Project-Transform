@@ -1,0 +1,69 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/styles/formal/base.css" />
+	<script type="text/javascript" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/scripts/require.js"><!-- Require Script --></script>
+
+	<script type="text/javascript" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/scripts/survey.js">//Survey Class</script>
+	<script type="text/javascript" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/scripts/base.js">//Global Code</script>
+	<script type="text/javascript">
+		require.config({
+		baseUrl: 'https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/scripts',
+	 waitSeconds: 0
+	});
+	require(['main'], function() {});
+	</script>
+
+	<title><mrPageTitle/></title>
+	<link rel="apple-touch-icon" sizes="57x57" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal//productionv2/formalapple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/productionv2/formalapple-icon-180x180.png" />
+
+	<link rel="icon" type="image/png" sizes="192x192" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/productionv2/formalandroid-icon-192x192.png" />
+
+	<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/favicon-16x16.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/favicon-32x32.png" />
+
+	<!-- <link rel="manifest" href="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/formal/manifest.json" /> -->
+
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/favicons/formal/ms-icon-144x144.png" />
+	<meta name="theme-color" content="#ffffff" />
+
+</head>
+
+<body>
+	<div class="header">
+		<img class="site-logo" alt="Ipsos Logo" title="Ipsos Logo" src="https://cdn.ipsosinteractive.com/sandbox/kevin.gray/transform/v1.0/images/formal/ipsoslogo192.png" />
+		<div class="overall-progress">
+			<div class="overall-progress-text">
+				<!-- progress text -->
+			</div>
+		</div>
+	</div>
+
+	<mrPage IncludeElementIDs="true" QuestionXSL="question.xsl" LabelXSL="label.xsl" NavigationXSL="navigation.xsl" UseTablesLayout="false" ErrorTemplate="error.htm" BannerTemplate="banner.htm" />
+
+	<div class='surroundcontent'>
+		<div id="PassiveObservationSurveyIsUnavailable"><!-- there is no content--></div>
+		<div class='surroundcontent'>
+			<mrData>Questions here</mrData>
+		</div>
+	</div>
+	
+	<div class="banners">
+		<!-- injected scripts -->
+			<div id="status"><mrBannerText Name="Status" /></div>
+			<div id="PostMessage"><mrBannerText Name="PostMessage" /></div>
+	</div>
+</body>
+</html>

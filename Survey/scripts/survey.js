@@ -137,7 +137,6 @@ Survey.prototype.registerComponent = function (componentType, id, group) {
                 app.preinitcomponents.unshift(new aLabelThumbValue(id, group));
             });
             break;
-
         case 'oquestiondatetime-recent':
             requirejs(['o-question-datetime-recent'], function (oQuestionDateTimeRecent) {
                 app.preinitcomponents.unshift(new oQuestionDateTimeRecent(id, group));
