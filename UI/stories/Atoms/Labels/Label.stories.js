@@ -1,4 +1,7 @@
-import { LabelQuestionHtml } from './Label';
+import {
+    LabelQuestionUsingLabelHtml,
+    LabelQuestionUsingDivHtml
+} from './Label';
 
 export default {
     title: 'Atoms/Labels',
@@ -9,7 +12,12 @@ export default {
     }
 };
 
-export const LabelQuestion = {
-    render: () => LabelQuestionHtml(),
+export const LabelQuestionUsingLabel = {
+    render: () => LabelQuestionUsingLabelHtml(),
 };
-LabelQuestion.storyName = 'a-label-question';
+LabelQuestionUsingLabel.storyName = 'a-label-question using <label>';
+
+export const LabelQuestionUsingDiv = {
+    render: () => LabelQuestionUsingDivHtml(),
+};
+LabelQuestionUsingDiv.storyName = 'a-label-question using <div>';
