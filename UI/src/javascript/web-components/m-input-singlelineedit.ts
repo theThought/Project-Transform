@@ -93,6 +93,7 @@ export default class MInputSinglelineedit extends Component {
     }
 
     // Set pre-/post-labels.
+    // TODO: See https://app.clickup.com/t/8697h5cc4?comment=90120097089630&threadedComment=90120097249142
     private setLabels(customPropsJSON: Record<string, unknown>): void {
         const labels = customPropsJSON.labels as Record<string, unknown>;
 
