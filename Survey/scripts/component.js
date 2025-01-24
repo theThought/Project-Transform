@@ -533,10 +533,20 @@ define(
                     questionData = this.sourceQuestions[currentQuestion].join("','");
                 }
 
-                questionData = "'" + questionData.toLowerCase() + "'";
+                if (questionData.length) {
+                    questionData = "'" + questionData.toLowerCase() + "'";
+                }
 
-                var allQuestionsRe = new RegExp("%%" + currentQuestion + "%%", "g");
-                ruleString = ruleString.replace(allQuestionsRe, questionData);
+                var arrayQuestions = new RegExp("\\[%%" + currentQuestion + "%%\\]", "g");
+                ruleString = ruleString.replace(arrayQuestions, "[" + questionData + "]");
+
+                var simpleQuestions = new RegExp("%%" + currentQuestion + "%%", "g");
+
+                if (questionData.length) {
+                  ruleString = ruleString.replace(simpleQuestions, questionData);
+                } else {
+                  ruleString = ruleString.replace(simpleQuestions, "'" + questionData + "'");
+                }
             }
 
             return ruleString;
