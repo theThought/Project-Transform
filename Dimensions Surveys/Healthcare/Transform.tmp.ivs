@@ -62,7 +62,7 @@ FixedTextsList "" define
         Lilt "Lilt",
         OtherDrink "please specify" other(otherDrinkDetail "please specify"
             style(
-                ZIndex = -20
+                ZIndex = "-20"
             )
         text [0..200] )
     } ran;
@@ -1882,7 +1882,7 @@ FixedTextsList "" define
     '----------------------------------------
     CustomList_SetBalance "Side by Side Balance:"
         style(
-            ZIndex = -20,
+            ZIndex = "-20",
             Width = "4em"
         )
     long [15 .. 60]
@@ -1902,7 +1902,8 @@ FixedTextsList "" define
 
     CustomList_SetLayout "Which Layout"
         style(
-            ZIndex = -60,
+            ZIndex = "-60",
+            color = "{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'select layout'}"
             Control(
                 Type = "DropList"
             )
@@ -1950,13 +1951,13 @@ FixedTextsList "" define
 
     CustomList_SetValidate "Can browsers perform their own validation"
         style(
-            ZIndex = -40,
+            ZIndex = -40
         )
     categorical [1..1]
     {
         use CustomList_Validate -
     };
-    
+
     CustomList_SetTheme "Theme"
         style(
             ZIndex = -60,
@@ -2835,7 +2836,7 @@ FixedTextsList "" define
 
     ) expand;
 
- LaundryScalesII "We would like you to rate you last two washes" loop
+    LaundryScalesII "We would like you to rate you last two washes" loop
     {
         Scent "Scent",
         Clean "Clean",
@@ -2856,6 +2857,7 @@ FixedTextsList "" define
                 )
             DK
         } );
+
         Passive5ScaleII "Indicate your satisfaction with your second wash"
             style(
                 ZIndex = -55
@@ -2871,6 +2873,7 @@ FixedTextsList "" define
         } );
 
     ) expand;
+
     '----------------------------------------
     ' scales (vertical)
     '----------------------------------------
@@ -3188,7 +3191,7 @@ FixedTextsList "" define
         NoSmoke "I have not smoked any cigarettes or vaped" exclusive
     };
 
-    Howmanysmoked "How many cigarettes did you smoke in the last seven days"
+    Howmany_smoked "How many cigarettes did you smoke in the last seven days"
         style(
             ZIndex = -20
         )
@@ -3267,7 +3270,7 @@ FixedTextsList "" define
         use cigarettebrandslist -
     };
 
-    smokecigars "Do you smoke cigars or cigarettes"
+    smoke_cigars "Do you smoke cigars or cigarettes"
         style(
             ZIndex = -60,
             Control(
@@ -5382,7 +5385,7 @@ FixedTextsList "" define
             Dec "Dec"
         };
 
-        Askyear "Year"
+        AskYear "Year"
             style(
                 ZIndex = -60,
                 Control(
@@ -6252,7 +6255,7 @@ FixedTextsList "" define
             NoSmoke "I have not smoked any cigarettes or vaped" exclusive
         };
 
-        Howmanysmoked "How many cigarettes did you smoke in the last seven days"
+        Howmany_smoked "How many cigarettes did you smoke in the last seven days"
             style(
                 ZIndex = -20
             )
@@ -6320,7 +6323,7 @@ FixedTextsList "" define
             cigarettebrandslist use \\.cigarettebrandslist -
         };
 
-        smokecigars "Do you smoke cigars or cigarettes"
+        smoke_cigars "Do you smoke cigars or cigarettes"
             style(
                 ZIndex = -60,
                 Control(
@@ -6359,7 +6362,7 @@ FixedTextsList "" define
             NoSmoke "I have not smoked any cigarettes or vaped" exclusive
         };
 
-        Howmanysmoked "How many cigarettes did you smoke in the last seven days"
+        Howmany_smoked "How many cigarettes did you smoke in the last seven days"
             style(
                 ZIndex = -20
             )
@@ -6427,7 +6430,7 @@ FixedTextsList "" define
             cigarettebrandslist use \\.cigarettebrandslist -
         };
 
-        smokecigars "Do you smoke cigars or cigarettes"
+        smoke_cigars "Do you smoke cigars or cigarettes"
             style(
                 ZIndex = -60,
                 Control(
@@ -7211,9 +7214,9 @@ FixedTextsList "" define
     page(
         VisibilityStatement,
         Doyou_smoke,
-        smokecigars,
+        smoke_cigars,
         brandswhich,
-        Howmanysmoked,
+        Howmany_smoked,
         PleaseReview,
         Weekendpercentage,
         WeekendIncrease,
@@ -7287,7 +7290,7 @@ FixedTextsList "" define
     );
     CigarsOrCigarettesPage "CigarsOrCigarettesPage"
     page(
-        smokecigars,
+        smoke_cigars,
         whichcigars,
         whichcigarettes
     );
@@ -7397,7 +7400,7 @@ dim visibilityRule
 dim currentTemplate, layoutTemplate
 dim askAgain
 dim focusQuestion, focusControl, focusBalance
-dim isPWA, isPaste, isJump, isFloat
+dim isPWA, isPaste, isJump, isFloat, isValidate
 dim mediaAssetsURL
 dim postMessageScript
 'templateLocation = "../"
@@ -7474,7 +7477,7 @@ addCustomProperties(CustomList_SetFocus, "CustomList_SetFocus", MakeString("{'se
 addCustomProperties(CustomList_SetLayout, "CustomList_SetLayout", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'select layout'}"), "replace")
 addCustomProperties(CustomList_SetInstruction, "CustomList_SetInstruction", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'place instruction'}"), "replace")
 addCustomProperties(CustomList_SetInformation, "CustomList_SetInformation", MakeString("{'separator':false,'resettonull':false,'listsize':2,'showanswers':false,'placeholder':'expand by'}"), "replace")
-addCustomProperties(CustomList_SetInformation, "CustomList_SetInformation", "{'balance':{'state':true},'onesize':{'state':true}", "replace")
+addCustomProperties(CustomList_SetValidate, "CustomList_SetValidate", "{'balance':{'state':true},'onesize':{'state':true}}", "replace")
 
 CustomList_SetLayout.Response.initial = {horizontal}
 CustomList_SetTheme.response.initial = {Formal}
@@ -7501,6 +7504,7 @@ do until not askAgain
 
 IOM.Title = "Question type selection"
 IOM.Banners["PostMessage"].Text = ""
+
 MenuPage.Ask()
 
 if CustomList_SetPaste1.Response.containsAny("allow") then
@@ -7634,7 +7638,7 @@ FirstLine.Ask()
 
 'progressJSONarray[2] = "{'title':'Original Questions','pages':{'total':6,'current':4}}"
 progressJSON = ComplexJSON_Create(IOM, 2, progressJSONarray)
-AddCustomProperties(hospital_days, "Qty", "{'type':'number'}", "replace")
+AddCustomProperties(hospital_days, "Qty", "{'type':'number','step':1}", "replace")
 'IOM.Layouttemplate = ""
 hospital_days.Ask()
 
@@ -7690,7 +7694,7 @@ CreateBanner(Textwithlabels, "Instruction")
 Textwithlabels.Banners["Instruction"].Text = "this is just an example you can put any text you like in here"
 Textwithlabels.ask()
 
-IOM.LayoutTemplate = "pageoutput-label.htm"
+'IOM.LayoutTemplate = "pageoutput-label.htm"
 AddCustomProperties(Height, "Height", "{'type':'number','labels':{'post':'cm'}}", "replace")
 CreateBanner(Height, "Instruction")
 Height.Banners["Instruction"].Text = "While it might be tempting to want to answer this question using feet and inches, we have ll gone metricc now and so we need you to provide the measurement in centimetres"
@@ -8070,29 +8074,31 @@ case {newvisibility}
 Dim currentRule
 
 'New rules structure for visibility
-HowManySmoked.MustAnswer = false
+Howmany_smoked.MustAnswer = false
 WeekendPercentage.MustAnswer = false
 
 VisibilityStatement.QuestionTemplate = "Question.htm"
-smokecigars.Style.ZIndex = -60
+smoke_cigars.Style.ZIndex = -60
 	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked')")
-addCustomProperties(smokecigars, "smokecigars", MakeString("{'separator':true, 'onesize':{'state':true},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'Select an answer','visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+addCustomProperties(smoke_cigars, "smoke_cigars", MakeString("{'separator':true, 'onesize':{'state':true},'displayicon':false,'jumptofirstletter':false,'type':'dropdown','placeholder':'Select an answer','visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
-	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigars')")
+'currentRule = CreateVisibilityRule("smoke_cigars.containsAny('cigars')")
+currentRule = CreateVisibilityRule("(!smoke_cigars.containsAny('cigarettes')) AND (smoke_cigars.answerCount() > 0)")	
+'currentRule = CreateVisibilityRule("smoke_cigars.containsAny('cigarettes')==false")
 addCustomProperties(brandswhich, "brandswhich", MakeString("{'separator':true, 'balanced':{'state':true},'onesize':{'state':true},'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
-	currentRule = CreateVisibilityRule("smokecigars.containsAny('cigarettes')")
-AddCustomProperties(Howmanysmoked, "Howmanysmoked", MakeString("{'separator':false, 'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
+	currentRule = CreateVisibilityRule("smoke_cigars.containsAny('cigarettes')")
+AddCustomProperties(Howmany_smoked, "Howmany_smoked", MakeString("{'separator':false, 'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
 	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_vaped')")
 AddCustomProperties(Howmanyvaped, "Howmanyvaped", MakeString("{'type':'number', 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
-	currentRule = CreateVisibilityRule("Howmanysmoked >= 30")
+	currentRule = CreateVisibilityRule("Howmany_smoked >= 30")
 AddCustomProperties(Weekendpercentage, "Weekendpercentage",MakeString("{'values':{'min':0,'max':100},'show':{'marks':false,'value':true,'terminators':true},'ticklabels':10,'floodtovalue':true, 'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
 AddCustomProperties(WeekendIncrease, "WeekendIncrease",MakeString("{'visible':{'collapse':true,'rules':'Weekendpercentage.isVisible()'}}"), "replace")
 
-	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked') and smokecigars.containsAny('cigarettes') and Howmanysmoked <= 0")
+	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_Smoked') and smoke_cigars.containsAny('cigarettes') and Howmany_smoked <= 0")
 AddCustomProperties(PleaseReview, "PleaseReview", MakeString("{'visible':{'collapse':true,'rules':'", currentRule, "'}}"), "replace")
 
 	currentRule = CreateVisibilityRule("Doyou_smoke.containsAny('Yes_smoked','yes_vaped')")
@@ -8161,29 +8167,29 @@ ComboPapers.ask()
 AddCustomProperties(ComboPapers, "ComboPapers", "{'displayicon':false,'onesize':{'state':true},'listsize':15,'showanswers':false,'mincharactersforlist':3,'notenoughcharacters':'Type at least 3 characters to see a list of options','filtertype':'starts','placeholder':'Select Newspaper','otherquestion':'otherpaper','noitemsinlist':'no options available'}", "replace")
 AddCustomProperties(OtherPaper, "OtherPaper", "{'visible':{'collapse':true,'rules':[]}}", "replace")
 
-smokecigars.Style.ZIndex = -70
+smoke_cigars.Style.ZIndex = -70
 whichcigars.Style.ZIndex = -70
 whichcigarettes.Style.ZIndex = -70
 
-smokecigars.Style.control = controltypes.ctComboList
+smoke_cigars.Style.control = controltypes.ctComboList
 whichcigars.Style.control = controltypes.ctComboList
 whichcigarettes.Style.control = controltypes.ctComboList
 
-AddCustomProperties(smokecigars, "smokecigars", "{'displayicon':false,'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
+AddCustomProperties(smoke_cigars, "smoke_cigars", "{'displayicon':false,'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
 AddCustomProperties(whichcigars, "whichcigars", "{'displayicon':false,'mincharactersforlist':0,'filtertype':'contains','placeholder':'Pick one cigar brand','noitemsinlist':'no brands containing these characters exists'}", "replace")
 AddCustomProperties(whichcigarettes, "whichcigarettes", "{'displayicon':false,'filtertype':'contains','placeholder':'Pick one','noitemsinlist':'nothing'}", "replace")
 
-addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigars')"), "'}}"), "add")
-addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigarettes')"), "'}}"), "add")
+addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smoke_cigars.containsAny('Cigars')"), "'}}"), "add")
+addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smoke_cigars.containsAny('Cigarettes')"), "'}}"), "add")
 
 CigarsOrCigarettesPage.ask()
 
-AddCustomProperties(smokecigars, "smokecigars", "{'displayicon':false,'listsource':'whichone','onesize':{'state':true},'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
+AddCustomProperties(smoke_cigars, "smoke_cigars", "{'displayicon':false,'listsource':'whichone','onesize':{'state':true},'mincharactersforlist':0,'filtertype':'starts','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
 AddCustomProperties(whichcigars, "whichcigars", "{'displayicon':false,'listsource':'cigars','onesize':{'state':true},'mincharactersforlist':0,'filtertype':'contains','placeholder':'Pick one cigar brand','noitemsinlist':'no brands containing these characters exists'}", "replace")
 AddCustomProperties(whichcigarettes, "whichcigarettes", "{'displayicon':false,'listsource':'cigarettes','onesize':{'state':true},'filtertype':'contains','placeholder':'Pick one','noitemsinlist':'nothing'}", "replace")
 
-addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigars')"), "'}}"), "add")
-addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigarettes')"), "'}}"), "add")
+addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smoke_cigars.containsAny('Cigars')"), "'}}"), "add")
+addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smoke_cigars.containsAny('Cigarettes')"), "'}}"), "add")
 
 CigarsOrCigarettesPage.ask()
 
@@ -8298,16 +8304,16 @@ DropNewProducts.show()
 DropListPage.ask()
 DropListPage.Show()
 
-smokecigars.Style.ZIndex = -60
+smoke_cigars.Style.ZIndex = -60
 whichcigars.Style.ZIndex = -60
 whichcigarettes.Style.ZIndex = -60
 
-AddCustomProperties(smokecigars, "smokecigars", "{'displayicon':false,'onesize':{'state':true},'filtertype':'none','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
+AddCustomProperties(smoke_cigars, "smoke_cigars", "{'displayicon':false,'onesize':{'state':true},'filtertype':'none','placeholder':'either cigar or cigarette','noitemsinlist':'not valid'}", "replace")
 AddCustomProperties(whichcigars, "whichcigars", "{'displayicon':false,'onesize':{'state':true},'filtertype':'none','placeholder':'Pick one cigar brand','noitemsinlist':'no brands containing these characters exists'}", "replace")
 AddCustomProperties(whichcigarettes, "whichcigarettes", "{'displayicon':false,'onesize':{'state':true},'filtertype':'none','placeholder':'Pick one','noitemsinlist':'nothing'}", "replace")
 
-addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigars')"), "'}}"), "add")
-addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smokecigars.containsAny('Cigarettes')"), "'}}"), "add")
+addCustomProperties(whichcigars, "whichcigars", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smoke_cigars.containsAny('Cigars')"), "'}}"), "add")
+addCustomProperties(whichcigarettes, "whichcigarettes", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("smoke_cigars.containsAny('Cigarettes')"), "'}}"), "add")
 
 CigarsOrCigarettesPage.ask()
 case {GridDrop}
@@ -8699,14 +8705,18 @@ dim childrenInvisibilityRule
 
 	childrenPage.ask()
 
-	AddCustomProperties(Howmanypatients, "Howmanypatients", MakeString("{'invisible':{'collapse':true,'rules':'", CreateVisibilityRule("Monthyearblock_QAskMonth.containsAny('Jun') and Monthyearblock_QAskYear.containsAny('2022')") , "'}}"), "replace")
+	AddCustomProperties(Howmanypatients, "Howmanypatients", MakeString("{'invisible':{'collapse':true,'rules':'", CreateVisibilityRule("MonthYearBlock_QAskMonth.containsAny('Jun') and MonthYearBlock_QAskYear.containsAny('2022')") , "'}}"), "replace")
 	Monthyearblock.AskMonth.Response.Initial = {Feb}
 	Monthyearblock.Askyear.Response.Initial = {year2020}
 	Howmanypatients.Response = 3
 
+MonthYearBlock.AskYear.Banners.AddNew("Instruction", "This is AskYear")
+MonthYearBlock.AskMonth.Banners.AddNew("Instruction", "This is AskMonth")
+
 'IOM.LayoutTemplate = "pageoutput-label.htm"
 	MonthYearBlock.Askyear.Style.ElementAlign = elementalignments.eaRight
 	MonthYearBlock.Askmonth.Style.ElementAlign = elementalignments.eaRight
+	'SetupQuestion(MonthYearBlock, "", "", -1, IOM) 
 	InvisibilityTwoTest.Ask()
 	
 case {InvisibleAlternatives}
@@ -9039,7 +9049,7 @@ addCustomProperties(choiceslider, "choiceslider", MakeString("{'visible':{'colla
 	
 	case {GridVisibility}
 	dim currentRule1
-	currentRule1 = CreateVisibilityRule("visTrig.containsany('trig')")
+	currentRule1 = CreateVisibilityRule("visTrig.containsAny('trig')")
  
 addCustomProperties(visTrig, "visTrig", "{'separator':false}", "replace")
  
@@ -9080,7 +9090,7 @@ visCat.x1.visCatSlice.Response = {Gen}
 visLong.x1.visLongSlice.Response = 20
 visdrop.x1.visDropSlice.Response = {Gen}
 
-currentRule1 = CreateVisibilityRule("visTrig.containsany('trig')")
+currentRule1 = CreateVisibilityRule("visTrig.containsAny('trig')")
  
 addCustomProperties(visTrig, "visTrig", "{'separator':false}", "replace")
  
@@ -9118,7 +9128,7 @@ addCustomProperties(combinedinvisibilitygrid, "invisComboSlice", MakeString("{'i
 CombinedVisibilityPage.ask()
 
 addCustomProperties(combinedvisibilitygrid, "visCatSlice", MakeString("{'resettonull':false,'visible':{'collapse':false,'rules':'", CreateVisibilityRule("combinedvisibilitytest.containsAny('CategoricalControl')"), "'}}"), "replace")
-addCustomProperties(combinedvisibilitygrid, "visLongSlice", MakeString("{'resettonull':false,'visible':{'collapse':false,'rules':'", CreateVisibilityRule("combinedvisibilitytest.containsAny('LongControl')"), "'},'type':'number','labels':{'post':'%'}}"), "add")
+addCustomProperties(combinedvisibilitygrid, "visLongSlice", MakeString("{'resettonull'm:false,'visible':{'collapse':false,'rules':'", CreateVisibilityRule("combinedvisibilitytest.containsAny('LongControl')"), "'},'type':'number','labels':{'post':'%'}}"), "add")
 addCustomProperties(combinedvisibilitygrid, "visDropSlice", MakeString("{'resettonull':false,'visible':{'collapse':false,'rules':'", CreateVisibilityRule("combinedvisibilitytest.containsAny('Droplist')"), "'},'listsize':4,'placeholder':'Select option'}"), "add")
 addCustomProperties(combinedvisibilitygrid, "visComboSlice", MakeString("{'resettonull':false,'visible':{'collapse':false,'rules':'", CreateVisibilityRule("combinedvisibilitytest.containsAny('Combolist')"), "'},'listsize':4,'filtertype':'starts','placeholder':'Select option'}"), "add")
 
@@ -9146,7 +9156,7 @@ addCustomProperties(visibleslidergrid, "visibleslidergrid", MakeString("{'visibl
 addCustomProperties(visibleinputsgrid, "visibleinputsgrid", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("WhichGridVisible.containsAny('input')"), "'}}"), "add")
 addCustomProperties(visiblechoicegrid, "visiblechoicegrid", MakeString("{'visible':{'collapse':true,'rules':'", CreateVisibilityRule("WhichGridVisible.containsAny('choice')"), "'}}"), "add")
 
-
+'SetupQuestion(visiblecombogrid, "", "",2,IOM)
 visiblegridpage.Ask()
 
 case {ProgressiveChoice}
@@ -9785,42 +9795,50 @@ end function
 
 function onBeforeQuestionAsk(theQuestion, theIOM)
 'debug.Log("before question")
+	SetupQuestion(theQuestion, "", "", -1, theIOM)
+end function
+
+function SetupQuestion(theQuestion, theParentName, theParentFullName, thelastCounter, theIOM)
 dim currentName, currentFullname, currentType, currentOrder
 dim registerBanner
 dim numberOfSubQuestions, counter, subQuestion, subName
 dim InstructionBanner, warningBanner
 dim iterationCount, iterationCounter, currentIteration
 dim questionName, iterationName
-currentname = theQuestion.QuestionName 
-currentfullname = theQuestion.QuestionFullName
+dim currentAdjustedName
+dim questionCounter
+
+currentName = theQuestion.QuestionName 
+currentAdjustedName = MakeString("_Q", currentName.Replace("_", "__"))
+currentFullname = theParentFullName + currentAdjustedName 
 currenttype = theQuestion.QuestionType
+
+debug.Log(MakeString("name: ", currentName, ", fullname: ", currentFullname, ", type: ", currentType))
 	select case(thequestion.QuestionType)
 	case QuestionTypes.qtBlock, QuestionTypes.qtPage
 		numberOfSubQuestions = theQuestion.count 
 		for counter = 0 to numberOfSubQuestions - 1
 			set subQuestion = theQuestion[counter]
-			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
-
-			CreateBanner(subQuestion, "RegisterContainer")
-			subQuestion.Banners["RegisterContainer"].text = ""
+			questionCounter = theLastCounter + counter
+			SetupQuestion(subQuestion, currentName, currentFullName, questionCounter, theIOM)
 			
-			if subQuestion.QuestionType = QuestionTypes.qtLoopCategorical OR subQuestion.QuestionType = QuestionTypes.qtLoopNumeric then SetupGrid(subQuestion, theIOM)
-			setZIndex(subQuestion, theIOM)
-			BuildRegisterContainer(subQuestion, counter, subName)
-
+			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
 		Next
 	case QuestionTypes.qtLoopCategorical, QuestionTypes.qtLoopNumeric
-		SetupGrid(theQuestion, theIOM)
+		questionCounter = theLastCounter + 1
+		SetupGrid(theQuestion, theIOM, questionCounter)
 	case else 
 		CreateBanner(theQuestion, "RegisterContainer")
 		theQuestion.Banners["RegisterContainer"].text = ""
-	'this may need to loop for a table (sub questions) as in the non page version
 		SetZIndex(theQuestion, theIOM)
-		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
-		end select
+
+		questionCounter = theLastCounter + 1
+		debug.Log("register container [page]:" + ctext(questionCounter))
+		BuildRegisterContainer(theQuestion, questionCounter, currentFullname)
+	end select
 end function
 
-function SetupGrid(theQuestion, theIOM)
+function SetupGrid(theQuestion, theIOM, theCounter)
 dim currentFullname, currentType, currentName
 dim iterationCount, iterationCounter, currentIteration
 dim questionName, iterationName
@@ -9833,62 +9851,26 @@ currentType = theQuestion.QuestionType
 	CreateBanner(theQuestion, "RegisterContainer")
 	theQuestion.Banners["RegisterContainer"].text = ""
 '	this may need to loop for a table (sub questions) as in the non page version
-	BuildRegisterContainer(theQuestion, 0, MakeString("_Q", currentName.Replace("_", "__")))
+	BuildRegisterContainer(theQuestion, theCounter, MakeString("_Q", currentName.Replace("_", "__")))
 	iterationCount = theQuestion.Categories.Count
 	
-	for iterationCounter = 0 to iterationCount - 1
-		set currentIteration = theQuestion.Categories[iterationCounter]
-		iterationName = MakeString("_Q", currentIteration.fullname.Replace("_", "__"))
-		currentIteration.label.style.Bgcolor = MakeString(questionName, iterationName)
-	next
-end function
-
-function BeforeQuestionAsk(theQuestion, theIOM)
-'debug.Log("before question")
-dim currentName, currentFullname, currentType, currentOrder
-dim registerBanner
-dim numberOfSubQuestions, counter, subQuestion, subName
-dim InstructionBanner, warningBanner
-dim iterationCount, iterationCounter, currentIteration
-dim questionName, iterationName
-currentname = theQuestion.QuestionName 
-currentfullname = theQuestion.QuestionFullName
-currenttype = theQuestion.QuestionType
-	select case(thequestion.QuestionType)
-	case QuestionTypes.qtBlock, QuestionTypes.qtPage
-		numberOfSubQuestions = theQuestion.count 
-		for counter = 0 to numberOfSubQuestions - 1
-			set subQuestion = theQuestion[counter]
-			subName = MakeString("_Q", currentName.Replace("_", "__"), "_Q", subQuestion.QuestionName.Replace("_", "__"))
-
-			CreateBanner(subQuestion, "RegisterContainer")
-			subQuestion.Banners["RegisterContainer"].text = ""
-
-			setZIndex(subQuestion, theIOM)
-			BuildRegisterContainer(subQuestion, counter, subName)
-
-		Next
-	case QuestionTypes.qtLoopCategorical, QuestionTypes.qtLoopNumeric
-		questionName = MakeString("_Q", currentFullName.Replace("_", "__"))
-		theQuestion.style.bgcolor = questionName
-		CreateBanner(theQuestion, "RegisterContainer")
-		theQuestion.Banners["RegisterContainer"].text = ""
-	'this may need to loop for a table (sub questions) as in the non page version
-		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", currentName.Replace("_", "__")))
+	select case theQuestion.QuestionType 
+	case QuestionTypes.qtLoopCategorical 
 		iterationCount = theQuestion.Categories.Count
-		
 		for iterationCounter = 0 to iterationCount - 1
 			set currentIteration = theQuestion.Categories[iterationCounter]
 			iterationName = MakeString("_Q", currentIteration.fullname.Replace("_", "__"))
 			currentIteration.label.style.Bgcolor = MakeString(questionName, iterationName)
 		next
-	case else 
-		CreateBanner(theQuestion, "RegisterContainer")
-		theQuestion.Banners["RegisterContainer"].text = ""
-	'this may need to loop for a table (sub questions) as in the non page version
-		SetZIndex(theQuestion, theIOM)
-		BuildRegisterContainer(theQuestion, 0, MakeString("_Q", theQuestion.QuestionName.Replace("_", "__")))
-		end select
+	case QuestionTypes.qtLoopNumeric 
+		iterationCount = theQuestion.Count
+		for iterationCounter = 1 to iterationCount
+			set currentIteration = theQuestion[iterationCounter]
+			iterationName = MakeString("_Q", iterationCounter)
+			currentIteration.label.style.Bgcolor = MakeString(questionName, iterationName)
+		next
+	end select
+	
 end function
 
 function ComplexJSON_Create(theIOM, theCurrentSection, theArray)
