@@ -1,0 +1,70 @@
+/*
+----------------------------------------------------------------------------
+Reset.
+
+See:
+Eric Meyer = https://meyerweb.com/eric/tools/css/reset/
+Andy Bell = https://andy-bell.co.uk/a-more-modern-css-reset/
+Josh Comeau = https://www.joshwcomeau.com/css/custom-css-reset/
+
+- No need for font smoothing = https://ui.dev/rwd/articles/font-smoothing
+- Text size adjust = https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably
+----------------------------------------------------------------------------
+*/
+html {
+    accent-color: var(--color-primary);
+    interpolate-size: allow-keywords;
+
+    /* Remove the automatic text size adjustment that is provided by iOS. */
+    text-size-adjust: none;
+}
+
+:where(*, *::after, *::before) {
+    box-sizing: border-box;
+}
+
+* {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+:where(html, body) {
+    /* Smooth scrolling IF user doesn't have a preference due to motion sensitivities. */
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+
+    background: var(--color-background);
+    color: var(--color-text);
+    min-block-size: 100vh;
+}
+
+:where([type='submit'], label, summary) {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    block-size: auto; /* Needed for overriding 'height' attribute in HTML */
+    display: block;
+    max-inline-size: 100%; /* Needed for responsive widths */
+}
+
+/* Remove all animations & transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        /* stylelint-disable declaration-no-important */
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        /* stylelint-enable declaration-no-important */
+    }
+}

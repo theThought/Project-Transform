@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Project Transform Storybook
+This is Project Transform's component library.
+
+## Code authoring guidelines & accessibility
+- All UI components are authored with **semantic HTML5** markup.
+- All CSS is vanilla. No pre-processors are used.
+- Some components are **progressively enhanced** with JavaScript/TypeScript and `WAI-ARIA` as appropriate. <sup>1, 2</sup>
+- Components are structured according to the [Atomic Design Methodology](https://atomicdesign.bradfrost.com/chapter-2/).
+
+> <sup>1</sup>
+> The JavaScript-enhanced components have been authored as `HTML Web Components`, also known as `custom elements`.
+
+> <sup>2</sup>
+> To test how these enhanced components behave with JavaScript disabled, comment out the call to `uiInit()` in `src/javascript/index.ts`.
+
+## Re-ordering stories in Storybook sidebar navigation
+- All stories and docs are ordered according to the `storySort` configuration in `.storybook/preview.js`.
+
+## CSS and JavaScript
+- The compiled CSS/JavaScript code is loaded inside `./UI/.storybook/preview-head.html`.
+- Storybook's `public` folder has been pointed at `staticDirs: ['../public', '../../Survey']` folders inside `./UI/.storybook/main.js`.
+
+### Filepaths
+- Storybook's static directory is defined by the `staticDirs: ['../public', '../../Survey']` array inside `.storybook/main.js`.
+
+## Accessibility testing
+Storybook comes with 2 default accessibility testing tools:
+- `Accessibility addon`. This is in Storybook's `addons` toolbar, and is built on the same [AxeCore API](https://www.deque.com/axe/) that Lighthouse uses.
+- `Vision simulator`. This is in Storybook's main toolbar at the top of each story page.
+
+## Additional reading
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/).
+- [Inclusive Components](https://inclusive-components.design/).
+
+## TODO
+- Update Github workflow to publish this Storybook instance, rather than the existing Storybook component library in `./Storybook/` directory.
+
+### TBC
+- `npx browserslist` - what Safari versions do we need to support?
+- Fonts:
+    - Do we need so many font variants? Currently, only a subset of the WOFF fonts have been defined in the new CSS.
+    - Do we need to fetch from Google too, or just use local fonts?
+- Images and favicons:
+    - Images currently have CSS path pointing to `/Survey/images/...`.
+    - [Do we need so many favicons](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)?
+- Define naming convention for "primitive" design tokens, align with Figma, and implement automatic export:
+    - See [related ClickUp task POC](https://app.clickup.com/t/8696gvh4k)
+- Implement new CSS theming mechanism with "whitelabel" default theme:
+    - Current Storybook implementation in `./Storybook/` directory uses `storybook-theme-switch-addon` to switch themes in the Storybook UI.
+    - Also see this [POC for dynamic theming in local DEV environment via Parcel](https://github.com/basher/demo-storybook-modern-code-legacy-browser).

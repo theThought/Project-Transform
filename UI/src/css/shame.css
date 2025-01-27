@@ -1,0 +1,14 @@
+/*
+----------------------------------------------------------------------------
+Shame.
+- Delete this file when we no longer need to import 'Survey/styles/formal/base.css' in `.storybook/preview-head.html` for Storybook.
+----------------------------------------------------------------------------
+*/
+* {
+    font-size: initial;
+    line-height: initial;
+}
+
+[type='number'] {
+    appearance: initial;
+}
