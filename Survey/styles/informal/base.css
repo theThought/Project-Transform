@@ -2761,7 +2761,8 @@ html[dir=rtl] .o-dropdown input[type=text] {
 .o-structure-table tr.m-structure-row {
   border-top: 1px solid #212C4C;
 }
-.o-structure-table tr.m-structure-row ~ tr.m-structure-row {
+.o-structure-table tr.m-structure-row ~ tr.m-structure-row,
+.o-structure-table tr:first-child {
   border-top: none;
 }
 .o-structure-table.shade-headercolumn th[scope=row],

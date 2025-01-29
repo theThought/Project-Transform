@@ -13,7 +13,8 @@ $separator-colour: globals.$titles;
         border-top: globals.$border-thickness solid $separator-colour;
     }
 
-    tr.m-structure-row ~ tr.m-structure-row {
+    tr.m-structure-row ~ tr.m-structure-row,
+    tr:first-child {
         border-top: none;
     }
 
