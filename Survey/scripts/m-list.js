@@ -337,7 +337,7 @@ define(['component'],
         }
 
         mList.prototype.setWidth = function (width) {
-            var padding = 32;
+            var padding = (this.controltype === 'droplist') ? 32 : 0;
             // we are setting the overall width based on the width of the text and must add padding
             this.element.style.width = width + padding + 'px';
             this.width = width;
