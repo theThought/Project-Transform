@@ -337,8 +337,9 @@ define(['component'],
         }
 
         mList.prototype.setWidth = function (width) {
+            var padding = 32;
             // we are setting the overall width based on the width of the text and must add padding
-            this.element.style.width = width + 'px';
+            this.element.style.width = width + padding + 'px';
             this.width = width;
             this.notifyElementWidth();
         }
@@ -349,7 +350,6 @@ define(['component'],
             }
 
             if (event.detail.width > this.width) {
-                console.log('Setting list width from control ' + this.id);
                 var padding = 32;
                 var newwidth = Math.min(event.detail.width + padding, this.getContainerWidth());
 
