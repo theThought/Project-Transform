@@ -330,12 +330,6 @@ define(['component'],
             this.requestControlWidth();
         }
 
-        mList.prototype.getContainerWidth = function () {
-            var padding = 32;
-            var containerdims = getComputedStyle(this.container.closest('question'));
-            return Math.floor(parseFloat(containerdims.width) - padding);
-        }
-
         mList.prototype.setWidth = function (width) {
             var padding = (this.controltype === 'droplist') ? 32 : 0;
             // we are setting the overall width based on the width of the text and must add padding

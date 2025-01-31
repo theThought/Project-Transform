@@ -302,6 +302,20 @@ define(
 
         }
 
+        component.prototype.getContainerWidth = function () {
+            var padding = 32;
+            var maxwidth = 0;
+            var containers = document.querySelectorAll('.o-question-response');
+
+            containers.forEach(function (container) {
+                var containerdims = getComputedStyle(container);
+                var containerwidth = Math.floor(parseFloat(containerdims.width));
+                maxwidth = (Math.max(containerwidth, maxwidth));
+            })
+
+            return maxwidth - padding;
+        }
+
         component.prototype.configureInitialVisibility = function () {
             // if there are no visibility rules defined for this question lift the cover immediately
             if (typeof this.properties.visible === "undefined" && typeof this.properties.invisible === "undefined") {

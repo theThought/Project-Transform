@@ -220,12 +220,6 @@ define(['component'],
             this.requestListWidth();
         }
 
-        oCombobox.prototype.getContainerWidth = function () {
-            var padding = 32;
-            var containerstyles = getComputedStyle(this.container.closest('question'));
-            return Math.floor(parseFloat(containerstyles.width) - padding);
-        }
-
         oCombobox.prototype.setWidth = function (newwidth) {
             this.element.style.width = newwidth + 'px';
             this.width = newwidth;
