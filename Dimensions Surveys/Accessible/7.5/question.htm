@@ -1,35 +1,49 @@
 <mrSubTemplate>
-	<div class="o-question-container">
-		<mrData QuestionElement="Banner"  Name="RegisterContainer" />
+	<div class="l-question">
+		
 		<mrData QuestionElement="Banner"  Name="CustomProperties" />
-		<div class="m-question-cover"><!-- cover --></div>
-	<div class='m-message-error'>
-		<mrData QuestionElement="Error" ShowErrors='TopMost' />
+		<div class="l-cover"><!-- cover --></div>
+
+	<div class='l-row'>
+		<div class="l-column">
+			<!-- Error -->
+			<mrData QuestionElement="Error" ShowErrors='TopMost' />
+		</div>
 	</div>
 	
-	<div class='o-question-core'>
-		<div class='m-message-warning'>
+	<div class='l-row'>
+		<div class="l-column">
+		<!-- Warning -->
 			<mrData QuestionElement="Banner"  Name="Warning" />
 		</div>
-		<div class='o-question-information'>
-			<div class="o-question-information-content">
-				<mrData QuestionElement="Label" />
-			</div>
-			<div class="o-question-alternatives"><!-- alternative labels go here --></div>
-		</div>
-
-		<div class="o-question-information-messages">
-			<details class='o-message-information'>
-				<mrData QuestionElement="Banner"  Name="Information" />
-			</details>
-		</div>
-
-		<div class='m-message-instruction'>
-			<mrData QuestionElement="Banner"  Name="Instruction" />
-		</div>
-	
-		<mrData QuestionElement="Controls" />	
 	</div>
 
+	<div class='l-row'>
+		<div class="l-column">
+			<!-- Instruction -->
+			<mrData QuestionElement="Banner"  Name="Instruction" />
+		</div>
+	</div>
+
+	<div class='l-row'>
+		<div class="l-column">
+			<!-- Quesiton Label -->
+			<mrData QuestionElement="Label" />
+		</div>
+	</div>
+
+	<div class='l-row'>
+		<div class="l-column">
+			<!-- Question Controls -->
+			<mrData QuestionElement="Controls" />
+		</div>
+	</div>
+
+	<div class='l-row'>
+		<div class="l-column">
+			<!-- Information -->
+			<mrData QuestionElement="Banner"  Name="Information" />
+		</div>
+	</div>
 </div>
 </mrSubTemplate>

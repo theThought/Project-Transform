@@ -1,0 +1,48 @@
+/*
+----------------------------------------------------------------------------
+Typograpghy settings.
+----------------------------------------------------------------------------
+*/
+
+/*
+----------------------------------------------------------------------------
+Font-face rules.
+
+'font-display: swap;' ensures that all text will be rendered with a fallback system font until custom font is ready.
+----------------------------------------------------------------------------
+*/
+@import 'https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap';
+
+@font-face {
+    font-display: swap;
+    font-family: KarlaLocal;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../fonts/karla-v30-latin-regular.woff') format('woff');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: MerriweatherLocal;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../fonts/merriweather-v30-latin-regular.woff') format('woff');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: RubikLocal;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../fonts/rubik-v28-arabic_latin-regular.woff') format('woff');
+}
+
+:root {
+    --font-primary: var(--theme-font-primary);
+    --font-secondary: var(--theme-font-secondary);
+    --font-rtl: var(--theme-font-rtl);
+    --font-size: var(--theme-font-size);
+    --line-height: var(--theme-line-height);
+}

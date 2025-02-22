@@ -1,0 +1,75 @@
+{
+  "name": "project-transform-storybook",
+  "description": "Project Transform Storybook",
+  "author": "",
+  "version": "0.0.1",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theThought/Project-Transform"
+  },
+  "homepage": "https://theThought.github.io/Project-Transform",
+  "scripts": {
+    "reset": "rm -rf node_modules/ && npm install",
+    "static-assets-rename": "node ./scripts/static-assets-rename",
+    "static-assets-move": "node ./scripts/static-assets-move",
+    "prestart": "rm -rf .parcel-cache",
+    "start:parcel": "parcel watch src/javascript/index.ts --dist-dir public --hmr-port 1234 --target app --cache-dir .parcel-cache",
+    "start": "npm install && npm run start:parcel",
+    "prebuild": "rm -rf .parcel-cache && rm -rf build",
+    "build:parcel": "parcel build index.html --dist-dir build --cache-dir .parcel-cache",
+    "build": "npm install && npm run build:parcel",
+    "postbuild": "npm run static-assets-rename && npm run static-assets-move",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "publish-storybook": "npm install && parcel build src/javascript/index.ts --dist-dir public --cache-dir .parcel-cache && npm run build-storybook",
+    "prepare": "cd .. && husky install ui/.husky"
+  },
+  "targets": {
+    "app": {}
+  },
+  "browserslist": [
+    "defaults",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "@etchteam/storybook-addon-status": "^4.2.4",
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-docs": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-links": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/html": "^8.4.7",
+    "@storybook/html-vite": "^8.4.7",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "cheerio": "^1.0.0-rc.11",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "fs-extra": "^10.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "parcel": "^2.13.2",
+    "postcss": "^8.4.18",
+    "prettier": "^3.3.3",
+    "remark-gfm": "^4.0.0",
+    "storybook": "^8.4.7",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.2",
+    "typescript": "^4.8.4"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.css": [
+      "stylelint",
+      "prettier --write"
+    ]
+  }
+}

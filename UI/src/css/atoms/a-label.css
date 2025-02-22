@@ -1,0 +1,7 @@
+.a-label {
+    /* TODO */
+}
+
+[class*='a-label'] {
+    cursor: pointer;
+}

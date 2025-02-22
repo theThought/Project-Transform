@@ -1,0 +1,44 @@
+/*
+----------------------------------------------------------------------------
+"Primitive" design tokens for dynamic theming.
+
+- Rationalise naming convention for "primitive" design tokens, align with Figma, and implement automatic tokens export.
+- See related ClickUp task POC = https://app.clickup.com/t/8696gvh4k.
+----------------------------------------------------------------------------
+*/
+:root {
+    /* Colors */
+    --theme-color-primary: #455b97;
+    --theme-color-primary-alt: #324371;
+    --theme-color-secondary: #449b9b;
+    --theme-color-secondary-alt: #317474;
+    --theme-color-white: #fafafa;
+    --theme-color-lightest: #f2f8fe;
+    --theme-color-light1: #eceff5;
+    --theme-color-light2: #d6ddeb;
+    --theme-color-light3: #b4bddb;
+    --theme-color-light4: #8797c8;
+    --theme-color-dark1: #57699c;
+    --theme-color-dark2: #324371;
+    --theme-color-darkest: #212c4c;
+
+    /* Fonts */
+    --theme-font-primary: 'Karla', 'KarlaLocal', sans-serif;
+    --theme-font-secondary: 'Merriweather', 'MerriweatherLocal', serif;
+    --theme-font-rtl: 'Rubik', 'RubikLocal', serif;
+
+    /* Typography */
+    --theme-font-size: 1rem;
+    --theme-line-height: 1.1875;
+
+    /* Borders */
+    --theme-border-thickness: 0.0625rem;
+    --theme-border-radius: 0.25rem;
+    --theme-border-radius-small: 0.125rem;
+
+    /* Spacing */
+    --theme-space1: 0.25rem;
+    --theme-space2: 0.5rem;
+    --theme-space3: 0.75rem;
+    --theme-space4: 1rem;
+}

@@ -1,0 +1,27 @@
+:where([type='text'], [type='date'], [type='number'], textarea) {
+    --color-background: #fff;
+
+    background: var(--color-background);
+    border: var(--border-thickness) solid var(--color-border);
+    border-radius: var(--border-radius-small);
+    color: inherit;
+    inline-size: var(--width-input);
+    padding: var(--space2) var(--space4);
+    vertical-align: middle;
+
+    &:focus {
+        border-color: var(--color-border-active);
+    }
+}
+
+:where([type='button'], [type='submit'], [type='reset'], button) {
+    border: var(--border-thickness) solid var(--color-primary);
+    border-radius: var(--border-radius);
+    display: inline-block;
+    min-block-size: 1.875rem;
+    min-inline-size: 3em;
+    padding: var(--space1) 1em;
+    white-space: normal;
+
+    /* TODO: :hover/:focus states */
+}

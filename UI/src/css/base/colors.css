@@ -1,0 +1,26 @@
+/*
+----------------------------------------------------------------------------
+Color settings.
+----------------------------------------------------------------------------
+*/
+:root {
+    --color-primary: var(--theme-color-primary);
+    --color-primary-hover: var(--theme-color-primary-alt);
+    --color-secondary: var(--theme-color-secondary);
+    --color-secondary-hover: var(--theme-color-secondary-alt);
+    --color-white: var(--theme-color-white);
+    --color-lightest: var(--theme-color-lightest);
+    --color-light1: var(--theme-color-light1);
+    --color-light2: var(--theme-color-light2);
+    --color-light3: var(--theme-color-light3);
+    --color-light4: var(--theme-color-light4);
+    --color-dark1: var(--theme-color-dark1);
+    --color-dark2: var(--theme-color-dark2);
+    --color-darkest: var(--theme-color-darkest);
+
+    /* Semantic names. */
+    --color-background: var(--theme-color-white);
+    --color-text: var(--theme-color-darkest);
+    --color-border: var(--theme-color-light4);
+    --color-border-active: var(--theme-color-primary);
+}
