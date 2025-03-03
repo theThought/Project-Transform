@@ -1,0 +1,77 @@
+<Questions>
+    <Question>
+        <Style BgColor="_Qdate__grid__noheading" ElementAlign="NewLine"></Style>
+        <Table UseTablesLayout="-1" Summary="Date (grid) - no heading" TableName="_Qdate__grid__noheading" TableID="_Q0" QuestionType="LoopNumeric">
+            <Row Y="0">
+                <Cell X="0" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                    </Label>
+                </Cell>
+                <Cell X="1" Y="0" Class="mrGridQuestionText">
+                    <Label>
+                        <Style ElementAlign="NewLine"></Style>
+                    </Label>
+                </Cell>
+            </Row>
+            <Row Y="1">
+                <Cell X="0" Y="1">
+                    <Control Type="DropList" QuestionName="_Qdate__grid__noheading_Q__1_Qmonth_C" ElementID="_Q0_Q0_Q0_C" MinValue="1" MaxValue="1">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="jan" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>January</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="feb" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>February</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="mar" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>March</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="apr" CategoryID="3">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>April</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+                <Cell X="1" Y="1">
+                    <Control Type="DropList" QuestionName="_Qdate__grid__noheading_Q__1_Qyear_C" ElementID="_Q0_Q0_Q1_C" MinValue="1" MaxValue="1">
+                        <Style Align="Center" VerticalAlign="Middle" ElementAlign="NewLine" ZIndex="-60">
+                            <Control Type="DropList"></Control>
+                        </Style>
+                        <Category Name="__2020" CategoryID="0">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>2020</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="__2021" CategoryID="1">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>2021</Text>
+                            </Label>
+                        </Category>
+                        <Category Name="__2022" CategoryID="2">
+                            <Label>
+                                <Style Align="Center" VerticalAlign="Middle" ElementAlign="Right"></Style>
+                                <Text>2022</Text>
+                            </Label>
+                        </Category>
+                    </Control>
+                </Cell>
+            </Row>
+        </Table>
+    </Question>
+</Questions>
