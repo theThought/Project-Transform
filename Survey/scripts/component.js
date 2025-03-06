@@ -515,8 +515,20 @@ define(
             for (var currentQuestion in this.sourceQuestions) {
                 if (this.sourceQuestions.hasOwnProperty(currentQuestion)) {
                     this.sourceQuestions[currentQuestion] = [];
+                    var questionElements;
+
                     // retrieve questions required by this rule based on a matching response container or grid row container
-                    var questionElements = document.querySelectorAll("div[data-questiongroup$='" + currentQuestion + "'] input, div[data-questiongroup$='" + currentQuestion + "'] select, tr[data-questiongroup$='" + currentQuestion + "'] input, tr[data-questiongroup$='" + currentQuestion + "'] select");
+                    questionElements = document.querySelectorAll("input[id][data-questiongroup$='" + currentQuestion + "'], select[id][data-questiongroup$='" + currentQuestion + "']");
+
+                    if (!questionElements.length) {
+                        // if no questions were found directly, retrieve questions contained in a row
+                        questionElements = document.querySelectorAll("tr[data-questiongroup$='" + currentQuestion + "'] input[id], tr[data-questiongroup$='" + currentQuestion + "'] select[id]");
+                    }
+
+                    if (!questionElements.length) {
+                        // if no questions were found by row, retrieve questions by container
+                        questionElements = document.querySelectorAll("div[data-questiongroup$='" + currentQuestion + "'] input[id], div[data-questiongroup$='" + currentQuestion + "'] select[id]");
+                    }
 
                     if (!questionElements.length) {
                         this.debug('Could not find a question required by a visibility rule: ' + currentQuestion, 2);
