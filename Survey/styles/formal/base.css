@@ -635,7 +635,7 @@ textarea:focus-within {
 .a-input-singlelineedit {
   padding: 10px 16px;
   border-radius: 2px;
-  border: 1px solid #8797C8;
+  border: 2px solid #8797C8;
   color: #449B9B;
   margin: 0 0 0.5em 0;
   width: 197px;
