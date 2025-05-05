@@ -1,0 +1,9 @@
+{
+    "eslint.workingDirectories": [ "./UI" ],
+    "css.validate": false,
+    "stylelint.enable": true,
+    "stylelint.validate": [
+        "css",
+        "postcss",
+    ],
+}

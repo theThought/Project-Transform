@@ -1,0 +1,22 @@
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable selector-max-id */
+/*
+----------------------------------------------------------------------------
+Overrides for Storybook Docs and UI.
+----------------------------------------------------------------------------
+*/
+
+@layer storybook {
+    #storybook-docs {
+        :is(
+            .sb-bar button,
+            .docblock-code-toggle,
+            .docblock-argstable-head button,
+            .docblock-argstable-body button
+        ) {
+            &:hover {
+                background-color: #fff !important;
+            }
+        }
+    }
+}

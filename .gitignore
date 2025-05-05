@@ -1,7 +1,13 @@
 Survey/Simple Test study/TRI22DEUREP.mdd
 .DS_Store
 .idea
-.vscode
 *.lmd
 *.ivs
 node_modules
+
+# UI
+public/*
+*.map
+*.log
+.parcel-cache
+storybook-static

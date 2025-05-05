@@ -1,0 +1,14 @@
+:where(body, input, textarea, select) {
+    font-family: var(--font-primary);
+}
+
+html[dir='rtl'] {
+    :where(body, input, textarea, select) {
+        font-family: var(--font-rtl);
+    }
+}
+
+body {
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
